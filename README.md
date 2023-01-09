@@ -1,2 +1,5 @@
 # pdfa
-Chez pas quoi mettre ...
+
+Projet de L2 en C avec SDL.
+
+Yusuf Ulas, Luca Pourceau et Elvin Maubert.
