@@ -540,7 +540,7 @@ int main(int argc, char *argv[])
                 if(debug) printf("Coord X : %d\n", rectangletank.x);
                 if(debug) printf("Coord Y : %d\n", rectangletank.y);
             }
-        }
+        }//
 
         if(tabEvent[1])
         {
