@@ -240,6 +240,7 @@ int main(int argc, char *argv[])
 
     //tank rectangle
     SDL_Rect rectangletank;
+    
     //tank
     rectangletank.x = 0;
     rectangletank.y = 0;
