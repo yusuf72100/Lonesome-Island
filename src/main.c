@@ -232,6 +232,7 @@ int main(int argc, char *argv[])
 
     //tab d'event
     SDL_bool tabEvent[9] = {SDL_FALSE};
+    memset(tabEvent, 0, 7*sizeof(SDL_bool));
 
     //window init
     SDL_Window *window = NULL;
