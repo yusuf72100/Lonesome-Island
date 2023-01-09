@@ -288,11 +288,11 @@ int main(int argc, char *argv[])
     SDL_Texture *texture_play_hover = NULL;	
 
     //assets init
-    imagetank = SDL_LoadBMP("ressources/tank.bmp");
-    imagebullet = SDL_LoadBMP("ressources/bullet.bmp");
-    background = SDL_LoadBMP("ressources/background.bmp");
-    play_inert = SDL_LoadBMP("ressources/play_inert.bmp");
-    play_hover = SDL_LoadBMP("ressources/play_hover.bmp");
+    imagetank = SDL_LoadBMP("resources/tank.bmp");
+    imagebullet = SDL_LoadBMP("resources/bullet.bmp");
+    background = SDL_LoadBMP("resources/background.bmp");
+    play_inert = SDL_LoadBMP("resources/play_inert.bmp");
+    play_hover = SDL_LoadBMP("resources/play_hover.bmp");
 
     if(SDL_Init(SDL_INIT_VIDEO != 0))
         SDL_ExitWithError("Initialisation SDL");
@@ -313,7 +313,7 @@ int main(int argc, char *argv[])
         SDL_ExitWithError("Impossible de charger l'image...");
     }
 
-    police = TTF_OpenFont("ressources/couscousse.ttf", 30);
+    police = TTF_OpenFont("resources/couscousse.ttf", 30);
 
     if (police == NULL)
     {
