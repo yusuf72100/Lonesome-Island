@@ -1,5 +1,5 @@
 # pdfa
 
-Projet de L2 en C avec SDL.
+Project L2, C language with SDL.
 
-Yusuf Ulas, Luca Pourceau et Elvin Maubert.
+Yusuf Ulas, Luca Pourceau and Elvin Maubert.
