@@ -16,4 +16,3 @@ liste.o: $(SRCDIR)/liste.c
 
 clean:
 	del \$(LIBDIR)\*.o
- 
