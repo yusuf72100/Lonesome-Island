@@ -288,11 +288,11 @@ int main(int argc, char *argv[])
     SDL_Texture *texture_play_hover = NULL;	
 
     //assets init
-    imagetank = SDL_LoadBMP("tank.bmp");
-    imagebullet = SDL_LoadBMP("bullet.bmp");
-    background = SDL_LoadBMP("background.bmp");
-    play_inert = SDL_LoadBMP("play_inert.bmp");
-    play_hover = SDL_LoadBMP("play_hover.bmp");
+    imagetank = SDL_LoadBMP("ressources/tank.bmp");
+    imagebullet = SDL_LoadBMP("ressources/bullet.bmp");
+    background = SDL_LoadBMP("ressources/background.bmp");
+    play_inert = SDL_LoadBMP("ressources/play_inert.bmp");
+    play_hover = SDL_LoadBMP("ressources/play_hover.bmp");
 
     if(SDL_Init(SDL_INIT_VIDEO != 0))
         SDL_ExitWithError("Initialisation SDL");
@@ -313,7 +313,7 @@ int main(int argc, char *argv[])
         SDL_ExitWithError("Impossible de charger l'image...");
     }
 
-    police = TTF_OpenFont("couscousse.ttf", 30);
+    police = TTF_OpenFont("ressources/couscousse.ttf", 30);
 
     if (police == NULL)
     {
@@ -530,67 +530,88 @@ int main(int argc, char *argv[])
         if(tabEvent[0])
         {
             //touche Z
-            if (debug) printf("Touche SDLK_z pressee | %s\n", eventTime());
-            rectangletank.y = rectangletank.y - 1;
-            /*vecteur = InitVecteur(rotation, 2);
-            rectangletank.x += (int)vecteur.x;
-            rectangletank.y += (int)vecteur.y;*/
-            if(debug) printf("Coord X : %d\n", rectangletank.x);
-            if(debug) printf("Coord Y : %d\n", rectangletank.y);
+            if(play)
+            {
+                if (debug) printf("Touche SDLK_z pressee | %s\n", eventTime());
+                rectangletank.y = rectangletank.y - 1;
+                /*vecteur = InitVecteur(rotation, 2);
+                rectangletank.x += (int)vecteur.x;
+                rectangletank.y += (int)vecteur.y;*/
+                if(debug) printf("Coord X : %d\n", rectangletank.x);
+                if(debug) printf("Coord Y : %d\n", rectangletank.y);
+            }
         }
 
         if(tabEvent[1])
         {
             //touche Q
-            if (debug) printf("Touche SDLK_q pressee | %s\n", eventTime());
-            rectangletank.x = rectangletank.x - 1;
+            if(play)
+            {
+                if (debug) printf("Touche SDLK_q pressee | %s\n", eventTime());
+                rectangletank.x = rectangletank.x - 1;
+            }
         }
 
         if(tabEvent[2])
         {
             //touche S
-            if (debug) printf("Touche SDLK_s pressee | %s\n", eventTime());
-            rectangletank.y = rectangletank.y + 1;
+            if(play)
+            {
+                if (debug) printf("Touche SDLK_s pressee | %s\n", eventTime());
+                rectangletank.y = rectangletank.y + 1;
+            }
         }
 
         if(tabEvent[3])
         {
             //touche D
-            if (debug) printf("Touche SDLK_d pressee | %s\n", eventTime());
-            rectangletank.x = rectangletank.x + 1;
+            if(play)
+            {
+                if (debug) printf("Touche SDLK_d pressee | %s\n", eventTime());
+                rectangletank.x = rectangletank.x + 1;
+            }
         }
 
         if(tabEvent[4])
         {
             //touche LEFT
-            //if (debug) printf("Touche SDLK_LEFT pressee | %s\n", eventTime());
-            if (debug) printf("Rotation : %d\n", rotation);
-            rotation = rotation - 1;
+            if(play)
+            {
+                //if (debug) printf("Touche SDLK_LEFT pressee | %s\n", eventTime());
+                if (debug) printf("Rotation : %d\n", rotation);
+                rotation = rotation - 1;
+            }
         }
 
         if(tabEvent[5])
         {
             //touche RIGHT
-            //if (debug) printf("Touche SDLK_RIGHT pressee | %s\n", eventTime());
-            if (debug) printf("Rotation : %d\n", rotation);
-            rotation = rotation + 1;
+            if(play)
+            {
+                //if (debug) printf("Touche SDLK_RIGHT pressee | %s\n", eventTime());
+                if (debug) printf("Rotation : %d\n", rotation);
+                rotation = rotation + 1;
+            }
         }
         if(tabEvent[6])
         {
             //touche ESPACE
-            if (!loading)
+            if(play)
             {
-                //bullet = malloc(sizeof(Bullet*) + 5);      
-                //initBullet(bullet, rectangletank.x, rectangletank.y, rotation);
-                //ajouterElement(l, bullet);       
-                if (debug) printf("SHOT FIRE!!!\n"); 
+                if (!loading)
+                {
+                    //bullet = malloc(sizeof(Bullet*) + 5);      
+                    //initBullet(bullet, rectangletank.x, rectangletank.y, rotation);
+                    //ajouterElement(l, bullet);       
+                    if (debug) printf("SHOT FIRE!!!\n"); 
 
-                loading = 1;
-                pthread_create(&reloading,NULL,rechargement,NULL);
-                //if (debug) printf("TIR! | %s\n", eventTime());
-            }
-            else{
-                if (debug) printf("Erreur: reloading!!!\n");
+                    loading = 1;
+                    pthread_create(&reloading,NULL,rechargement,NULL);
+                    //if (debug) printf("TIR! | %s\n", eventTime());
+                }
+                else{
+                    if (debug) printf("Erreur: reloading!!!\n");
+                }
             }
         }
         //mouse events
