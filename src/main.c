@@ -214,7 +214,6 @@ void buttonHover(SDL_Window *window, SDL_Texture *texture_play_hover, SDL_Render
 //programme principal 
 int main(int argc, char *argv[])
 {
-    //test
     if (argc == 2 && !strcmp(argv[1],"-d"))
     {
         debug = 1;
