@@ -15,4 +15,4 @@ liste.o: $(SRCDIR)/liste.c
 	GCC -o $(LIBDIR)/liste.o -c $(SRCDIR)/liste.c $(LDFLAGS)
 
 clean:
-	del \$(LIBDIR)\*.o
+	del $(LIBDIR)\*.o

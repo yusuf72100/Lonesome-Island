@@ -256,6 +256,9 @@ int main(int argc, char *argv[])
     play_button_rect.w = 100;
     play_button_rect.h = 50;
 
+    //window icon
+    SDL_Surface *icon_surface = NULL;
+
     //texte assets
     SDL_Surface *texte = NULL;
     SDL_Texture *texte_texture = NULL;
@@ -288,11 +291,12 @@ int main(int argc, char *argv[])
     SDL_Texture *texture_play_hover = NULL;	
 
     //assets init
-    imagetank = SDL_LoadBMP("resources/tank.bmp");
-    imagebullet = SDL_LoadBMP("resources/bullet.bmp");
-    background = SDL_LoadBMP("resources/background.bmp");
-    play_inert = SDL_LoadBMP("resources/play_inert.bmp");
-    play_hover = SDL_LoadBMP("resources/play_hover.bmp");
+    icon_surface = IMG_Load("resources/icon.png");
+    imagetank = IMG_Load("resources/tank.png");
+    imagebullet = IMG_Load("resources/bullet.png");
+    background = IMG_Load("resources/background.png");
+    play_inert = IMG_Load("resources/play_inert.png");
+    play_hover = IMG_Load("resources/play_hover.png");
 
     if(SDL_Init(SDL_INIT_VIDEO != 0))
         SDL_ExitWithError("Initialisation SDL");
@@ -300,6 +304,7 @@ int main(int argc, char *argv[])
     if(SDL_CreateWindowAndRenderer(696, 553, SDL_WINDOW_SHOWN, &window, &renderer) != 0)
         SDL_ExitWithError("Impossible de créer la fenêtre...");
 
+    SDL_SetWindowIcon(window, icon_surface);
     SDL_SetWindowTitle(window,"Welcome");
 
     /*if(SDL_SetRenderDrawColor(renderer, 112, 168, 237, SDL_ALPHA_OPAQUE) != 0)
