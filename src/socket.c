@@ -54,16 +54,19 @@ int main()
     listen(socketServer, 5);
     printf("Listening\n");
 
-    //socket des clients
-    SOCKADDR_IN addrClient;
-    socklen_t csize = sizeof(addrClient);
-    SOCKET socketClient = accept(socketServer, (struct sockaddr *)&addrClient, &csize);
-    printf("accept\n");
-    printf("client: %d\n",socketClient);
+    for(int i = 0; i<3; i++)
+    {
+        //socket des clients
+        SOCKADDR_IN addrClient;
+        socklen_t csize = sizeof(addrClient);
+        SOCKET socketClient = accept(socketServer, (struct sockaddr *)&addrClient, &csize);
+        printf("accept\n");
+        printf("client: %d\n",socketClient);
 
-    int *arg = malloc(sizeof(int));
-    *arg = socketClient;
-    pthread_create(&clientThread, NULL, function, arg);
+        SOCKET *arg = malloc(sizeof(SOCKET));
+        *arg = socketClient;
+        pthread_create(&clientThread, NULL, function, arg);
+    }
         
     close(socketServer);
     printf("close\n");
