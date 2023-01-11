@@ -16,7 +16,8 @@ typedef struct
 }User;
 
 int main()
-{
+{   
+    char zebi[5];
     char *msg;
     User user;
     WSADATA WSAData;
@@ -31,7 +32,7 @@ int main()
     connect(socketClient, (const struct sockaddr *)&addrClient, sizeof(addrClient));
     printf("Connected\n");
     //recv(socketClient, msg, 33 ,0);
-    recv(socketClient, (char*)&user, sizeof(User) ,0);
+    recv(socketClient, user.nom, sizeof(user.nom), 0);
 
     printf("%s\n",user.nom);
     //scanf("%s%s",user.nom, buffer);
