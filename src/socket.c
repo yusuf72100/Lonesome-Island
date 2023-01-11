@@ -16,12 +16,31 @@ typedef struct
     int age;
 }User;
 
+void *function(void *arg)
+{
+    SOCKET socket;
+    char *msg = "Quel est votre nom et votre age?";
+
+    User user = {
+        .nom = "Yusuf",
+        .age = 21
+    };
+
+    send(socket,(char*)&user,sizeof(User),0);
+    //recv(socket,user.nom,sizeof(user.nom),0);
+    //recv(socket,&user.age,sizeof(user.age),0);
+    //printf("Vous etes %s et vous avez ans\n", user.nom, user.age);
+    close(socket);
+    pthread_exit(NULL);
+}
 
 int main()
 {
+    pthread_t clientThread;
     WSADATA WSAData;
     WSAStartup(MAKEWORD(2,0), &WSAData);
 
+    //socket du serveur
     SOCKET socketServer;
     SOCKADDR_IN addrServer;
     addrServer.sin_addr.s_addr = inet_addr("127.0.0.1");
@@ -35,21 +54,17 @@ int main()
     listen(socketServer, 5);
     printf("Listening\n");
 
+    //socket des clients
     SOCKADDR_IN addrClient;
     socklen_t csize = sizeof(addrClient);
     SOCKET socketClient = accept(socketServer, (struct sockaddr *)&addrClient, &csize);
     printf("accept\n");
-
     printf("client: %d\n",socketClient);
 
-    User user = {
-        .nom = "Yusuf",
-        .age = 21
-    };
-
-    send(socketClient, user.nom, sizeof(user),0);
-
-    close(socketClient);
+    int *arg = malloc(sizeof(int));
+    *arg = socketClient;
+    pthread_create(&clientThread, NULL, function, arg);
+        
     close(socketServer);
     printf("close\n");
     

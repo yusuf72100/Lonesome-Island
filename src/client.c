@@ -17,6 +17,8 @@ typedef struct
 
 int main()
 {
+    char *msg;
+    User user;
     WSADATA WSAData;
     WSAStartup(MAKEWORD(2,0), &WSAData);
 
@@ -28,10 +30,13 @@ int main()
     socketClient = socket(AF_INET,SOCK_STREAM,0);
     connect(socketClient, (const struct sockaddr *)&addrClient, sizeof(addrClient));
     printf("Connected\n");
+    //recv(socketClient, msg, 33 ,0);
+    recv(socketClient, (char*)&user, sizeof(User) ,0);
 
-    User user;
-    recv(socketClient, user.nom, sizeof(User),0);
-    printf("%s %d\n",user.nom, user.age);
+    printf("%s\n",user.nom);
+    //scanf("%s%s",user.nom, buffer);
+    //send(socketClient,user.nom,sizeof(user.nom),0);
+    //send(socketClient,&user.age,sizeof(user),0);
 
     close(socketClient);
 
