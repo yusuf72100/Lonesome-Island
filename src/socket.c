@@ -4,6 +4,7 @@
 #include <string.h>
 #include <winsock2.h>
 #include <Ws2ipdef.h>   
+#include <pthread.h>
 #include <stdint.h>
 #pragma comment(lib, "ws2_32.lib")
  
@@ -15,9 +16,9 @@ typedef struct
     int age;
 }User;
 
+
 int main()
 {
-    char *sendbuf = "Client: sending data test";
     WSADATA WSAData;
     WSAStartup(MAKEWORD(2,0), &WSAData);
 
