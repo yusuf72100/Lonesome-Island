@@ -27,7 +27,7 @@ int main()
     addrClient.sin_port = htons(4148);
     socketClient = socket(AF_INET,SOCK_STREAM,0);
     connect(socketClient, (const struct sockaddr *)&addrClient, sizeof(addrClient));
-    printf("Connecté");
+    printf("Conected\n");
 
     User user;
     recv(socketClient, user.nom, sizeof(User),0);
