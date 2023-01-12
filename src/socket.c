@@ -79,6 +79,7 @@ void *searchClients(void *argt)
             argt2->sd->size++;
             printf("1 new client connected\n");
             printf("Connected clients : %d\n",argt2->sd->size);
+            send(socketClient,"yo",sizeof(char)*2+1,0);
         }
     }
 

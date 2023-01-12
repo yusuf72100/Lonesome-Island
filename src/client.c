@@ -18,7 +18,7 @@ typedef struct
 int main()
 {   
     char zebi[5];
-    char *msg;
+    char *msg = malloc(sizeof(char)*2+1);
     User user;
     WSADATA WSAData;
     WSAStartup(MAKEWORD(2,0), &WSAData);
@@ -32,9 +32,9 @@ int main()
     connect(socketClient, (const struct sockaddr *)&addrClient, sizeof(addrClient));
     printf("Connected\n");
     //recv(socketClient, msg, 33 ,0);
-    recv(socketClient, user.nom, sizeof(user.nom), 0);
+    recv(socketClient, msg, sizeof(char)*2+1, 0);
 
-    printf("%s\n",user.nom);
+    printf("%s\n",msg);
     //scanf("%s%s",user.nom, buffer);
     //send(socketClient,user.nom,sizeof(user.nom),0);
     //send(socketClient,&user.age,sizeof(user),0);
