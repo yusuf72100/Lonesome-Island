@@ -633,7 +633,7 @@ int main(int argc, char *argv[])
             if(xMouse>=350+xWindow && xMouse<=450+xWindow && yMouse>=250+yWindow && yMouse<=300+yWindow && !play)
             {
                 if (debug) printf("Play button clicked\n");
-                pthread_create(&server,NULL,startServer,NULL);
+                pthread_create(&server,NULL,startServer,NULL);      //on héberge le serveur 
                 play = 1;
             }
         }

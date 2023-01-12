@@ -33,6 +33,7 @@ void *searchClients(void *argt)
     pthread_exit(NULL);
 }
 
+//fonction qui initialise et lance le serveur
 void *startServer()
 {
     pthread_t acceptThread;
@@ -73,9 +74,11 @@ void *startServer()
         .running = running
     };
 
+    //on lance le serveur
     argt.sd->size = 0;
     if(pthread_create(&acceptThread,NULL,searchClients,(void*)&argt)) printf("Thread created!\n");
 
+    //on attend l'arrêt du serveur
     char *s_acceptThread;
     pthread_join(acceptThread, (void**)&s_acceptThread);
     //searchClients((void*)&argt);
