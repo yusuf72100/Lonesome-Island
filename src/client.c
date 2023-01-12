@@ -40,7 +40,6 @@ int main()
     //send(socketClient,&user.age,sizeof(user),0);
 
     close(socketClient);
-
     WSACleanup();
     return 0;
     
