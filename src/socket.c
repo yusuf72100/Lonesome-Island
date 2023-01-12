@@ -43,24 +43,6 @@ typedef struct
 
 }argThread;
 
-void *function(void *arg)
-{
-    SOCKET socket;
-    char *msg = "Quel est votre nom et votre age?";
-
-    User user = {
-        .nom = "Yusuf",
-        .age = 21
-    };
-
-    if(send(socket,user.nom,sizeof(user.nom),0))printf("sended\n");
-    //recv(socket,user.nom,sizeof(user.nom),0);
-    //recv(socket,&user.age,sizeof(user.age),0);
-    //printf("Vous etes %s et vous avez ans\n", user.nom, user.age);
-    close(socket);
-    pthread_exit(NULL);
-}
-
 //fonction qui accepte les clients
 void *searchClients(void *argt)
 {
@@ -95,15 +77,14 @@ int main()
     socketDatas * sd = malloc(sizeof(socketDatas));
 
     SOCKET * clientsSockets = malloc(sizeof(SOCKET));
-    pthread_t clientThread;
-    pthread_t acceptClients;
+    pthread_t acceptThread;
     WSADATA WSAData;
     WSAStartup(MAKEWORD(2,0), &WSAData);
 
     //socket du serveur
     SOCKET socketServer;
     SOCKADDR_IN addrServer;
-    addrServer.sin_addr.s_addr = inet_addr("192.168.1.16");
+    addrServer.sin_addr.s_addr = inet_addr("127.0.0.1");
     addrServer.sin_family = AF_INET;
     addrServer.sin_port = htons(4148);
     socketServer = socket(AF_INET,SOCK_STREAM,0);
@@ -133,14 +114,13 @@ int main()
     argt.sd->size = 0;
     //if(send(socketClient,user.nom,sizeof(user.nom),0))printf("sended\n");
     /*SOCKET *arg = malloc(sizeof(SOCKET));
-    *arg = socketClient;
-    pthread_create(&clientThread, NULL, function, arg);*/
-    //pthread_create(&acceptClients, NULL, searchClients, (void*)&argt);
-    searchClients((void*)&argt);
+    *arg = socketClient;*/
+    pthread_create(&acceptThread, NULL, searchClients, (void*)&argt);
+    //searchClients((void*)&argt);
 
     //close(socketClient);
     return 0;
     
 }
 
-//-lwsock32
+//-lwsock32 -lpthread
