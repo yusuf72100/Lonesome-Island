@@ -25,7 +25,7 @@ int main()
 
     SOCKET socketClient;
     SOCKADDR_IN addrClient;
-    addrClient.sin_addr.s_addr = inet_addr("127.0.0.1");
+    addrClient.sin_addr.s_addr = inet_addr("86.236.117.28");
     addrClient.sin_family = AF_INET;
     addrClient.sin_port = htons(4148);
     socketClient = socket(AF_INET,SOCK_STREAM,0);
