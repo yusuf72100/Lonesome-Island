@@ -68,6 +68,7 @@ void *searchClients(void *argt)
     socklen_t csize = sizeof(argt2->sd->addrClient);
     SOCKET socketClient;
     *argt2->running = TRUE;
+    printf("size : %d\n",argt2->sd->size);
 
     while(argt2->running)
     {
@@ -76,8 +77,15 @@ void *searchClients(void *argt)
         {
             argt2->sd->clientsSockets = realloc(argt2->sd->clientsSockets, sizeof(SOCKET)*(argt2->sd->size+1));
             argt2->sd->size++;
+            printf("1 new client connected\n");
+            printf("Connected clients : %d\n",argt2->sd->size);
         }
     }
+
+    close(argt2->sd->socketServer);
+    printf("close\n");
+    WSACleanup();
+    pthread_exit(NULL);
 }
 
 int main()
@@ -108,9 +116,9 @@ int main()
     //socket des clients
     SOCKADDR_IN addrClient;
     socklen_t csize = sizeof(addrClient);
-    SOCKET socketClient = accept(socketServer, (struct sockaddr *)&addrClient, &csize);     //fonction bloquante
-    printf("accept\n");
-    printf("client: %d\n",socketClient);
+    //SOCKET socketClient = accept(socketServer, (struct sockaddr *)&addrClient, &csize);     //fonction bloquante
+    //printf("accept\n");
+    //printf("client: %d\n",socketClient);
 
     sd->socketServer = socketServer;
     sd->clientsSockets = clientsSockets;
@@ -121,18 +129,15 @@ int main()
         .running = running
     };
 
+    argt.sd->size = 0;
     //if(send(socketClient,user.nom,sizeof(user.nom),0))printf("sended\n");
     /*SOCKET *arg = malloc(sizeof(SOCKET));
     *arg = socketClient;
     pthread_create(&clientThread, NULL, function, arg);*/
-
-    pthread_create(&acceptClients, NULL, searchClients, (void*)&argt);
+    //pthread_create(&acceptClients, NULL, searchClients, (void*)&argt);
+    searchClients((void*)&argt);
 
     //close(socketClient);
-    close(socketServer);
-    printf("close\n");
-    
-    WSACleanup();
     return 0;
     
 }
