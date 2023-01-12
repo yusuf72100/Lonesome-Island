@@ -1,3 +1,4 @@
+#include "socket.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
@@ -225,6 +226,7 @@ int main(int argc, char *argv[])
 
     Vecteur vecteur;
     pthread_t reloading;
+    pthread_t server;
     Bullet *bullet = NULL;
     char *s;
     int rotation = 0;
@@ -628,9 +630,10 @@ int main(int argc, char *argv[])
             SDL_GetWindowPosition(window, &xWindow, &yWindow);
             SDL_GetGlobalMouseState(&xMouse,&yMouse);
 
-            if(xMouse>=350+xWindow && xMouse<=450+xWindow && yMouse>=250+yWindow && yMouse<=300+yWindow)
+            if(xMouse>=350+xWindow && xMouse<=450+xWindow && yMouse>=250+yWindow && yMouse<=300+yWindow && !play)
             {
                 if (debug) printf("Play button clicked\n");
+                pthread_create(&server,NULL,startServer,NULL);
                 play = 1;
             }
         }

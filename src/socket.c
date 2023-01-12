@@ -1,47 +1,9 @@
-#ifdef _linux
-#include <netdb.h>
-#include <netinet/in.h>
-#include <sys/socket.h>
-#include <arpa/inet.h>
-#else
-
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <winsock2.h>
-#include <Ws2ipdef.h>   
-#include <pthread.h>
-#include <stdint.h>
-#pragma comment(lib, "ws2_32.lib")
-#endif
+#include "socket.h"
 
 #define TRUE 1
 #define FALSE 0
 
 typedef uint32_t socklen_t;
-
-typedef struct 
-{
-    char nom[30];
-    int age;
-}User;
-
-typedef struct 
-{
-    SOCKET socketServer;
-    SOCKET * clientsSockets;
-    SOCKADDR_IN addrClient;
-    int size;
-
-}socketDatas;
-
-typedef struct 
-{
-    socketDatas * sd;
-    int * running;
-
-}argThread;
 
 //fonction qui accepte les clients
 void *searchClients(void *argt)
@@ -71,13 +33,13 @@ void *searchClients(void *argt)
     pthread_exit(NULL);
 }
 
-int main()
+void *startServer()
 {
+    pthread_t acceptThread;
     int * running = malloc(sizeof(int));
     socketDatas * sd = malloc(sizeof(socketDatas));
 
     SOCKET * clientsSockets = malloc(sizeof(SOCKET));
-    pthread_t acceptThread;
     WSADATA WSAData;
     WSAStartup(MAKEWORD(2,0), &WSAData);
 
@@ -112,14 +74,11 @@ int main()
     };
 
     argt.sd->size = 0;
-    //if(send(socketClient,user.nom,sizeof(user.nom),0))printf("sended\n");
-    /*SOCKET *arg = malloc(sizeof(SOCKET));
-    *arg = socketClient;*/
-    pthread_create(&acceptThread, NULL, searchClients, (void*)&argt);
-    //searchClients((void*)&argt);
+    if(pthread_create(&acceptThread,NULL,searchClients,(void*)&argt)) printf("Thread created!\n");
 
-    //close(socketClient);
-    return 0;
+    char *s_acceptThread;
+    pthread_join(acceptThread, (void**)&s_acceptThread);
+    //searchClients((void*)&argt);
     
 }
 

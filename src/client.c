@@ -17,7 +17,6 @@ typedef struct
 
 int main()
 {   
-    char zebi[5];
     char *msg = malloc(sizeof(char)*2+1);
     User user;
     WSADATA WSAData;
