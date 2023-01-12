@@ -79,7 +79,7 @@ void *startServer()
     char *s_acceptThread;
     pthread_join(acceptThread, (void**)&s_acceptThread);
     //searchClients((void*)&argt);
-    
+    printf("Fin du serveur\n");
 }
 
 //-lwsock32 -lpthread
