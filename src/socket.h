@@ -19,6 +19,10 @@
 #pragma comment(lib, "ws2_32.lib")
 #endif
 
+#include <SDL.h>  
+#include <SDL_image.h>
+#include <SDL_ttf.h>
+
 #define TRUE 1
 #define FALSE 0
 

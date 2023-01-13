@@ -1,47 +1,50 @@
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <winsock2.h>
-#include <Ws2ipdef.h>   
-#include <stdint.h>
-#pragma comment(lib, "ws2_32.lib")
+#include "client.h"
  
-typedef uint32_t socklen_t;
+static SOCKET *socketServer;
+char s[2];
+int connected;
 
-typedef struct 
+void *sendPosition(SDL_Rect rectangle, int rotation)
 {
-    char nom[30];
-    int age;
-}User;
+    if (socketServer)
+    {
+        printf("online\n");
+    }
+    if(send(*socketServer,(char*)&rectangle.x,sizeof(rectangle),0))  printf("data sended\n");;
+    Sleep(20);
+    send(*socketServer,(char*)&rectangle.y,sizeof(rectangle),0);
+    Sleep(20);
+    send(*socketServer,(char*)&rectangle.w,sizeof(rectangle),0);
+    Sleep(20);
+    send(*socketServer,(char*)&rectangle.h,sizeof(rectangle),0);
+    Sleep(20);
+}
 
-int main()
+void *stopConnection()
+{
+    closesocket(*socketServer);
+    WSACleanup();
+}
+
+void *startConnection()
 {   
+    socketServer = malloc(sizeof(SOCKET));
     char *msg = malloc(sizeof(char)*2+1);
-    User user;
     WSADATA WSAData;
     WSAStartup(MAKEWORD(2,0), &WSAData);
 
-    SOCKET socketClient;
-    SOCKADDR_IN addrClient;
-    addrClient.sin_addr.s_addr = inet_addr("86.236.117.28");
-    addrClient.sin_family = AF_INET;
-    addrClient.sin_port = htons(4148);
-    socketClient = socket(AF_INET,SOCK_STREAM,0);
-    connect(socketClient, (const struct sockaddr *)&addrClient, sizeof(addrClient));
+    SOCKADDR_IN addrServer;
+    addrServer.sin_addr.s_addr = inet_addr("127.0.0.1");
+    addrServer.sin_family = AF_INET;
+    addrServer.sin_port = htons(4148);
+    *socketServer = socket(AF_INET,SOCK_STREAM,0);
+    connected = connect(*socketServer, (const struct sockaddr *)&addrServer, sizeof(addrServer));
     printf("Connected\n");
-    //recv(socketClient, msg, 33 ,0);
-    recv(socketClient, msg, sizeof(char)*2+1, 0);
 
-    printf("%s\n",msg);
-    //scanf("%s%s",user.nom, buffer);
-    //send(socketClient,user.nom,sizeof(user.nom),0);
-    //send(socketClient,&user.age,sizeof(user),0);
+    while(TRUE){}
 
-    close(socketClient);
-    WSACleanup();
-    return 0;
-    
+    stopConnection();
+    printf("connection closed\n");
 }
 
 //-lwsock32 -lpthread

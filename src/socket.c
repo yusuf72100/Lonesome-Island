@@ -1,13 +1,19 @@
 #include "socket.h"
 
+#define dataLen 100
+
+int connectionStatus = 0;
+char recvBuffer[dataLen]; 
+
 //fonction qui accepte les clients
 void *searchClients(void *argt)
 {
+    SDL_Rect rect;
     argServer *argt2 = (argServer*)argt;
     socklen_t csize = sizeof(argt2->sd->addrClient);
     SOCKET socketClient;
     *argt2->running = TRUE;
-    printf("Serveur lance\n");
+    printf("Server running\n");
     while(argt2->running)
     {
         socketClient = accept(argt2->sd->socketServer, (struct sockaddr *)&argt2->sd->addrClient, &csize);
@@ -17,8 +23,19 @@ void *searchClients(void *argt)
             argt2->sd->size++;
             printf("1 new client connected\n");
             printf("Connected clients : %d\n",argt2->sd->size);
-            send(socketClient,"yo",sizeof(char)*2+1,0);
+            //send(socketClient,"yo",sizeof(char)*2+1,0);
         }
+
+        //on récupère les données de positions des joueurs
+        recv(socketClient,recvBuffer,dataLen,0);
+        rect.x = (int)*recvBuffer;
+        recv(socketClient,recvBuffer,dataLen,0);
+        rect.y = (int)*recvBuffer;
+        recv(socketClient,recvBuffer,dataLen,0);
+        rect.w = (int)*recvBuffer;
+        recv(socketClient,recvBuffer,dataLen,0);
+        rect.h = (int)*recvBuffer;
+        send(socketClient,"yo",sizeof(char)*2+1,0);
     }
 
     close(argt2->sd->socketServer);

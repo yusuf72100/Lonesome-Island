@@ -11,6 +11,7 @@
 #include <SDL_ttf.h>
 #include "init.h"
 #include "liste.h"
+#include "client.h"
 
 Liste *l;
 short loading;
@@ -227,6 +228,7 @@ int main(int argc, char *argv[])
     Vecteur vecteur;
     pthread_t reloading;
     pthread_t server;
+    pthread_t client;
     Bullet *bullet = NULL;
     char *s;
     int rotation = 0;
@@ -541,6 +543,7 @@ int main(int argc, char *argv[])
             {
                 if (debug) printf("Touche SDLK_z pressee | %s\n", eventTime());
                 rectangletank.y = rectangletank.y - 1;
+                sendPosition(rectangletank, rotation);
                 /*vecteur = InitVecteur(rotation, 2);
                 rectangletank.x += (int)vecteur.x;
                 rectangletank.y += (int)vecteur.y;*/
@@ -633,7 +636,8 @@ int main(int argc, char *argv[])
             if(xMouse>=350+xWindow && xMouse<=450+xWindow && yMouse>=250+yWindow && yMouse<=300+yWindow && !play)
             {
                 if (debug) printf("Play button clicked\n");
-                pthread_create(&server,NULL,startServer,NULL);      //on héberge le serveur 
+                pthread_create(&server,NULL,startServer,NULL);          //on héberge le serveur 
+                pthread_create(&client,NULL,startConnection,NULL);     //on créer un client qui se connecte au serveur 
                 play = 1;
             }
         }
