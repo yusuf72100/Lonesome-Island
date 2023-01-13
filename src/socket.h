@@ -23,6 +23,8 @@
 #define FALSE 0
 #endif
 
+typedef uint32_t socklen_t;
+
 typedef struct 
 {
     char nom[30];

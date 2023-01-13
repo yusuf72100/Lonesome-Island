@@ -1,7 +1,5 @@
 #include "socket.h"
 
-typedef uint32_t socklen_t;
-
 //fonction qui accepte les clients
 void *searchClients(void *argt)
 {
