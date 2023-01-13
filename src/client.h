@@ -15,7 +15,9 @@
 #pragma comment(lib, "ws2_32.lib")
  
 typedef uint32_t socklen_t;
+
 static SOCKET *socketServer;
+static int connected;
 
 void *sendPosition(SDL_Rect rectangle, int rotation);
 

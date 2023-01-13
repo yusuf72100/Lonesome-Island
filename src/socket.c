@@ -23,7 +23,6 @@ void *searchClients(void *argt)
             argt2->sd->size++;
             printf("1 new client connected\n");
             printf("Connected clients : %d\n",argt2->sd->size);
-            //send(socketClient,"yo",sizeof(char)*2+1,0);
         }
 
         //on récupère les données de positions des joueurs
@@ -35,7 +34,7 @@ void *searchClients(void *argt)
         rect.w = (int)*recvBuffer;
         recv(socketClient,recvBuffer,dataLen,0);
         rect.h = (int)*recvBuffer;
-        send(socketClient,"yo",sizeof(char)*2+1,0);
+        printf("Datas received\n");
     }
 
     close(argt2->sd->socketServer);
