@@ -12,7 +12,6 @@ void *searchClients(void *argt)
     socklen_t csize = sizeof(argt2->sd->addrClient);
     SOCKET socketClient;
     *argt2->running = TRUE;
-    printf("size : %d\n",argt2->sd->size);
 
     while(argt2->running)
     {
