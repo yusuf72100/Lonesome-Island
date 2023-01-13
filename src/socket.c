@@ -1,8 +1,5 @@
 #include "socket.h"
 
-#define TRUE 1
-#define FALSE 0
-
 typedef uint32_t socklen_t;
 
 //fonction qui accepte les clients
