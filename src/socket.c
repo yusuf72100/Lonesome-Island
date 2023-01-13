@@ -59,9 +59,6 @@ void *startServer()
     //socket des clients
     SOCKADDR_IN addrClient;
     socklen_t csize = sizeof(addrClient);
-    //SOCKET socketClient = accept(socketServer, (struct sockaddr *)&addrClient, &csize);     //fonction bloquante
-    //printf("accept\n");
-    //printf("client: %d\n",socketClient);
 
     sd->socketServer = socketServer;
     sd->clientsSockets = clientsSockets;
