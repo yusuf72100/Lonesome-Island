@@ -12,13 +12,14 @@ void *searchClients(void *argt)
     while(argt2->running)
     {
         socketClient = accept(argt2->sd->socketServer, (struct sockaddr *)&argt2->sd->addrClient, &csize);
-        if(socketClient)
+        if(socketClient != INVALID_SOCKET)
         {
             argt2->sd->clientsSockets = realloc(argt2->sd->clientsSockets, sizeof(SOCKET)*(argt2->sd->size+1));
             argt2->sd->size++;
             printf("1 new client connected\n");
             printf("Connected clients : %d\n",argt2->sd->size);
         }
+        else printf("Error: connection lost\n");
 
         //on récupère les données de positions des joueurs
         recv(socketClient,recvBuffer,dataLen,0);
