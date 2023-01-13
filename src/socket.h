@@ -6,8 +6,6 @@
 #include <netinet/in.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
-#define TRUE 1
-#define FALSE 0
 #else
 
 #include <unistd.h>
@@ -19,9 +17,10 @@
 #include <pthread.h>
 #include <stdint.h>
 #pragma comment(lib, "ws2_32.lib")
+#endif
+
 #define TRUE 1
 #define FALSE 0
-#endif
 
 typedef uint32_t socklen_t;
 
