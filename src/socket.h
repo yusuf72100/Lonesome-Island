@@ -25,8 +25,11 @@
 
 #define TRUE 1
 #define FALSE 0
+#define dataLen 100
 
 typedef uint32_t socklen_t;
+
+static char recvBuffer[dataLen]; 
 
 typedef struct 
 {

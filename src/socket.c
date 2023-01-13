@@ -1,10 +1,5 @@
 #include "socket.h"
 
-#define dataLen 100
-
-int connectionStatus = 0;
-char recvBuffer[dataLen]; 
-
 //fonction qui accepte les clients
 void *searchClients(void *argt)
 {
