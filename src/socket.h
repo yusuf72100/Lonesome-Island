@@ -39,7 +39,7 @@ typedef struct
     socketDatas * sd;
     int * running;
 
-}argThread;
+}argServer;
 
 //fonction qui accepte les clients
 void *searchClients(void *argt);

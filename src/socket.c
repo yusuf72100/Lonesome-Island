@@ -8,7 +8,7 @@ typedef uint32_t socklen_t;
 //fonction qui accepte les clients
 void *searchClients(void *argt)
 {
-    argThread *argt2 = (argThread*)argt;
+    argServer *argt2 = (argServer*)argt;
     socklen_t csize = sizeof(argt2->sd->addrClient);
     SOCKET socketClient;
     *argt2->running = TRUE;
@@ -29,7 +29,6 @@ void *searchClients(void *argt)
     close(argt2->sd->socketServer);
     printf("close\n");
     WSACleanup();
-    //pthread_exit(NULL);
 }
 
 //fonction qui initialise et lance le serveur
@@ -68,18 +67,14 @@ void *startServer()
     sd->clientsSockets = clientsSockets;
     sd->addrClient = addrClient;
 
-    argThread argt = {
+    argServer argt = {
         .sd = sd,
         .running = running
     };
 
-    //on lance le serveur
     argt.sd->size = 0;
-    /*if(pthread_create(&acceptThread,NULL,searchClients,(void*)&argt)) printf("Thread created!\n");
 
-    //on attend l'arrêt du serveur
-    char *s_acceptThread;
-    pthread_join(acceptThread, (void**)&s_acceptThread);*/
+    //on lance et attend l'arrêt du serveur
     searchClients((void*)&argt);
     printf("Fin du serveur\n");
 }
