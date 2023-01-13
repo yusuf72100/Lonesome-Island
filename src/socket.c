@@ -12,7 +12,7 @@ void *searchClients(void *argt)
     socklen_t csize = sizeof(argt2->sd->addrClient);
     SOCKET socketClient;
     *argt2->running = TRUE;
-
+    printf("Serveur lance\n");
     while(argt2->running)
     {
         socketClient = accept(argt2->sd->socketServer, (struct sockaddr *)&argt2->sd->addrClient, &csize);
@@ -29,7 +29,7 @@ void *searchClients(void *argt)
     close(argt2->sd->socketServer);
     printf("close\n");
     WSACleanup();
-    pthread_exit(NULL);
+    //pthread_exit(NULL);
 }
 
 //fonction qui initialise et lance le serveur
@@ -75,12 +75,12 @@ void *startServer()
 
     //on lance le serveur
     argt.sd->size = 0;
-    if(pthread_create(&acceptThread,NULL,searchClients,(void*)&argt)) printf("Thread created!\n");
+    /*if(pthread_create(&acceptThread,NULL,searchClients,(void*)&argt)) printf("Thread created!\n");
 
     //on attend l'arrêt du serveur
     char *s_acceptThread;
-    pthread_join(acceptThread, (void**)&s_acceptThread);
-    //searchClients((void*)&argt);
+    pthread_join(acceptThread, (void**)&s_acceptThread);*/
+    searchClients((void*)&argt);
     printf("Fin du serveur\n");
 }
 
