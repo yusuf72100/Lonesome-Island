@@ -52,7 +52,7 @@ void *startServer()
     //socket du serveur
     SOCKET socketServer;
     SOCKADDR_IN addrServer;
-    addrServer.sin_addr.s_addr = inet_addr("192.168.1.16");
+    addrServer.sin_addr.s_addr = inet_addr("127.0.0.1");
     addrServer.sin_family = AF_INET;
     addrServer.sin_port = htons(4148);
     socketServer = socket(AF_INET,SOCK_STREAM,0);

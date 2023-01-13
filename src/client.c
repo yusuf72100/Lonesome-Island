@@ -30,7 +30,8 @@ void *startConnection()
     addrServer.sin_port = htons(4148);
     *socketServer = socket(AF_INET,SOCK_STREAM,0);
     connected = connect(*socketServer, (const struct sockaddr *)&addrServer, sizeof(addrServer));
-    printf("Connected\n");
+    if(connected) printf("Error: connection lost\n");
+    else printf("Connected\n");
 }
 
 //-lwsock32 -lpthread
