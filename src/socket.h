@@ -41,8 +41,6 @@ typedef struct
 
 }argThread;
 
-void *test();
-
 //fonction qui accepte les clients
 void *searchClients(void *argt);
 
