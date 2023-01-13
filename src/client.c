@@ -1,5 +1,7 @@
 #include "client.h"
 
+static int connected;
+
 void *sendPosition(SDL_Rect rectangle, int rotation)
 {
     send(*socketServer,(char*)&rectangle.x,sizeof(rectangle),0);
@@ -29,7 +31,6 @@ void *startConnection()
     *socketServer = socket(AF_INET,SOCK_STREAM,0);
     connected = connect(*socketServer, (const struct sockaddr *)&addrServer, sizeof(addrServer));
     printf("Connected\n");
-    stopConnection();
 }
 
 //-lwsock32 -lpthread

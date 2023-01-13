@@ -16,7 +16,8 @@
 Liste *l;
 short loading;
 short play = 0;
-short hover = 0;
+short hover_playbutton = 0;
+short hover_hostbutton = 0;
 short debug = 0; 
 
 void SDL_ExitWithError(const char *message);
@@ -122,7 +123,7 @@ void dessinerRect(SDL_Rect rectangle, SDL_Renderer *renderer)
     SDL_RenderPresent(renderer);
 }
 
-void dessinerPlayButton(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window)
+void dessinerButton(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window)
 {
     if(SDL_QueryTexture(texture, NULL, NULL, &rectangle.w, &rectangle.h) != 0)
     {
@@ -189,7 +190,7 @@ void initBullet(Bullet * b, int x, int y, int rotation)
     b->Vitesse = 2;
 }
 
-void buttonHover(SDL_Window *window, SDL_Texture *texture_play_hover, SDL_Renderer *renderer, SDL_Rect play_button_rect)
+void buttonHoverPlay(SDL_Window *window, SDL_Texture *texture_play_hover, SDL_Renderer *renderer, SDL_Rect play_button_rect)
 {
     int xMouse = 0, yMouse = 0;
     int xWindow = 0, yWindow = 0;
@@ -201,13 +202,37 @@ void buttonHover(SDL_Window *window, SDL_Texture *texture_play_hover, SDL_Render
     {
         if(xMouse>=350+xWindow && xMouse<=450+xWindow && yMouse>=250+yWindow && yMouse<=300+yWindow)
         {
-            hover = 1;
+            hover_playbutton = 1;
             if (debug) printf("Hover play button\n");
-            dessinerPlayButton(texture_play_hover, renderer, play_button_rect, window);
+            dessinerButton(texture_play_hover, renderer, play_button_rect, window);
         }
         else
         {
-            hover = 0;
+            hover_playbutton = 0;
+            if (debug) printf("X: %d et y: %d\n",xMouse,yMouse);
+        }
+    }   
+}
+
+void buttonHoverHost(SDL_Window *window, SDL_Texture *texture_host_hover, SDL_Renderer *renderer, SDL_Rect host_button_rect)
+{
+    int xMouse = 0, yMouse = 0;
+    int xWindow = 0, yWindow = 0;
+
+    SDL_GetWindowPosition(window, &xWindow, &yWindow);
+    SDL_GetGlobalMouseState(&xMouse,&yMouse);
+
+    if (!play)
+    {
+        if(xMouse>=350+xWindow && xMouse<=450+xWindow && yMouse>=450+yWindow && yMouse<=500+yWindow)
+        {
+            hover_playbutton = 1;
+            if (debug) printf("Hover host button\n");
+            dessinerButton(texture_host_hover, renderer, host_button_rect, window);
+        }
+        else
+        {
+            hover_hostbutton = 0;
             if (debug) printf("X: %d et y: %d\n",xMouse,yMouse);
         }
     }   
@@ -253,6 +278,13 @@ int main(int argc, char *argv[])
 
     //menu buttons rectangle
     SDL_Rect play_button_rect;
+    SDL_Rect host_button_rect;
+
+    //connect button
+    host_button_rect.x = 350;
+    host_button_rect.y = 450;
+    host_button_rect.w = 100;
+    host_button_rect.h = 50;
 
     //play button
     play_button_rect.x = 350;
@@ -293,6 +325,10 @@ int main(int argc, char *argv[])
     SDL_Surface *play_hover = NULL;
     SDL_Texture *texture_play_inert = NULL;
     SDL_Texture *texture_play_hover = NULL;	
+    SDL_Surface *host_inert = NULL;
+    SDL_Surface *host_hover = NULL;
+    SDL_Texture *texture_host_inert = NULL;
+    SDL_Texture *texture_host_hover = NULL;	
 
     //assets init
     icon_surface = IMG_Load("resources/icon.png");
@@ -301,6 +337,8 @@ int main(int argc, char *argv[])
     background = IMG_Load("resources/background.png");
     play_inert = IMG_Load("resources/play_inert.png");
     play_hover = IMG_Load("resources/play_hover.png");
+    host_inert = IMG_Load("resources/host_inert.png");
+    host_hover = IMG_Load("resources/host_hover.png");
 
     if(SDL_Init(SDL_INIT_VIDEO != 0))
         SDL_ExitWithError("Initialisation SDL");
@@ -349,7 +387,6 @@ int main(int argc, char *argv[])
     SDL_BlitSurface(texte,NULL,background,&title_rect);
     SDL_FreeSurface(texte);
 
-
     if(play_inert == NULL)
     {
         destroyAll(window, renderer);
@@ -367,6 +404,24 @@ int main(int argc, char *argv[])
 
     texture_play_hover = SDL_CreateTextureFromSurface(renderer, play_hover);
     SDL_FreeSurface(play_hover);
+
+    if(host_inert == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger l'image...");
+    }
+    
+    texture_host_inert = SDL_CreateTextureFromSurface(renderer, host_inert);
+    SDL_FreeSurface(host_inert);
+    
+    if(host_hover == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger l'image...");
+    }
+
+    texture_host_hover = SDL_CreateTextureFromSurface(renderer, host_hover);
+    SDL_FreeSurface(host_hover);
 
     if(background == NULL)
     {
@@ -636,6 +691,13 @@ int main(int argc, char *argv[])
             if(xMouse>=350+xWindow && xMouse<=450+xWindow && yMouse>=250+yWindow && yMouse<=300+yWindow && !play)
             {
                 if (debug) printf("Play button clicked\n");
+                pthread_create(&client,NULL,startConnection,NULL);     //on créer un client qui se connecte au serveur 
+                play = 1;
+            }
+
+            if(xMouse>=350+xWindow && xMouse<=450+xWindow && yMouse>=450+yWindow && yMouse<=500+yWindow && !play)
+            {
+                if (debug) printf("Host button clicked\n");
                 pthread_create(&server,NULL,startServer,NULL);          //on héberge le serveur 
                 pthread_create(&client,NULL,startConnection,NULL);     //on créer un client qui se connecte au serveur 
                 play = 1;
@@ -644,7 +706,8 @@ int main(int argc, char *argv[])
         if(!tabEvent[7])
         {
             //click LEFT UP
-            hover = 0;
+            hover_playbutton = 0;
+            hover_hostbutton = 0;
         }
         if(tabEvent[8])
         {
@@ -669,14 +732,18 @@ int main(int argc, char *argv[])
             dessinerTank(texturetank, renderer, rectangletank, window, rotation);
         }
         
-        if(!hover && !play)
+        if(!hover_playbutton && !play)
         {
-            dessinerPlayButton(texture_play_inert, renderer, play_button_rect, window);
+            dessinerButton(texture_play_inert, renderer, play_button_rect, window);
         }
 
-        //drawTexte(texte,texte_texture, renderer, window);
+        if(!hover_hostbutton && !play)
+        {
+            dessinerButton(texture_host_inert, renderer, host_button_rect, window);
+        }
 
-        buttonHover(window, texture_play_hover, renderer, play_button_rect);
+        buttonHoverPlay(window, texture_play_hover, renderer, play_button_rect);
+        buttonHoverHost(window, texture_host_hover, renderer, host_button_rect);
         SDL_RenderPresent(renderer);
         SDL_RenderCopy(renderer, background_texture, NULL, NULL);
         
