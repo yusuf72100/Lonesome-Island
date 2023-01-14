@@ -79,6 +79,8 @@ void *startConnection()
     addrServer.sin_family = AF_INET;
     addrServer.sin_port = htons(4148);
     *socketServer = socket(AF_INET,SOCK_STREAM,0);
+
+    //on test la connexion
     connected = connect(*socketServer, (const struct sockaddr *)&addrServer, sizeof(addrServer));
     if(connected) printf("Error: connection lost\n");
     else printf("Connected\n");
