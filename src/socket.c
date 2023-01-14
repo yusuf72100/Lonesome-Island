@@ -31,7 +31,7 @@ void *sendToClient(void *arg)
                 char dataX[4] = "x";
                 itoa(argClient->argt->sd[i].rectangle.x, bufferX, 10);
                 strcat(dataX, bufferX);
-                //printf("Sended %s\n",dataX);
+                printf("Sended %s\n",dataX);
                 dataX[4] = '\0';
                 if(argClient->socket == INVALID_SOCKET) printf("Error: INVALID SOCKET\n");
                 if(send(argClient->socket,dataX,sizeof(sizeof(char)*4+1),0) == SOCKET_ERROR ) {
