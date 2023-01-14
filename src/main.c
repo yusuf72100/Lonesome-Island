@@ -614,6 +614,7 @@ int main(int argc, char *argv[])
             {
                 if (debug) printf("Touche SDLK_q pressee | %s\n", eventTime());
                 rectangletank.x = rectangletank.x - 1;
+                sendPosition(rectangletank, rotation);
             }
         }
 
@@ -624,6 +625,7 @@ int main(int argc, char *argv[])
             {
                 if (debug) printf("Touche SDLK_s pressee | %s\n", eventTime());
                 rectangletank.y = rectangletank.y + 1;
+                sendPosition(rectangletank, rotation);
             }
         }
 
@@ -634,6 +636,7 @@ int main(int argc, char *argv[])
             {
                 if (debug) printf("Touche SDLK_d pressee | %s\n", eventTime());
                 rectangletank.x = rectangletank.x + 1;
+                sendPosition(rectangletank, rotation);
             }
         }
 
@@ -699,7 +702,7 @@ int main(int argc, char *argv[])
             {
                 if (debug) printf("Host button clicked\n");
                 pthread_create(&server,NULL,startServer,NULL);          //on héberge le serveur 
-                pthread_create(&client,NULL,startConnection,NULL);     //on créer un client qui se connecte au serveur 
+                //pthread_create(&client,NULL,startConnection,NULL);     //on créer un client qui se connecte au serveur 
                 play = 1;
             }
         }
