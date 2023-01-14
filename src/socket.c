@@ -10,20 +10,21 @@ static void *clearInput(SOCKET socketClient)
 
 void *sendToClient(void *arg)
 {
-    int i = 1;
+    int i = 0;
     char buffer[4] = "";
     send2Client *argClient = (send2Client *)arg;
     SDL_Rect rect;
-    SOCKADDR_IN addrClient;
-    socklen_t csize = sizeof(addrClient);
+    SOCKADDR_IN addr_Client;
     SDL_Rect tab[10];
 
     while(argClient->argt->running == TRUE)
     {
         do
         {
-            socklen_t csizeI = sizeof(argClient->argt->sd[i].addrClient);
-            if(csize == csizeI)
+            struct sockaddr_in* pV4Addr = (struct sockaddr_in*)&addr_Client;
+            struct in_addr ipAddr = pV4Addr->sin_addr;
+
+            if(strcmp(inet_ntoa(argClient->argt->sd[i].addrClient.sin_addr),inet_ntoa(addr_Client.sin_addr)) && ((int)ntohs(argClient->argt->sd[i].addrClient.sin_port) != (int)ntohs(addr_Client.sin_port)))
             {
                 itoa(argClient->argt->sd[1].rectangle.x, buffer, 10);
                 printf("server sended rect.x : %s\n",buffer);
@@ -39,7 +40,7 @@ void *sendToClient(void *arg)
             }
             i++;
         } while (i < argClient->argt->size);
-        i=1;
+        i=0;
     }
 }
 
@@ -60,8 +61,7 @@ void *receiveFromClient(void *arg)
     int i = 0;
     send2Client *argClient = (send2Client *)arg;
     SDL_Rect rect;
-    SOCKADDR_IN addrClient;
-    socklen_t csize = sizeof(addrClient);
+    SOCKADDR_IN addr_Client;
 
     if(argClient->socket != INVALID_SOCKET) printf("Ready to receive\n");
 
@@ -98,13 +98,13 @@ void *receiveFromClient(void *arg)
         clearInput(argClient->socket);
 
         //on stock les données
-        socklen_t csizeI = sizeof(argClient->argt->sd[0].addrClient);
+        struct sockaddr_in* pV4Addr = (struct sockaddr_in*)&addr_Client;
+        struct in_addr ipAddr = pV4Addr->sin_addr;
+
         do
         {
-            socklen_t csizeI = sizeof(argClient->argt->sd[i].addrClient);
             i++;
-            printf("%d\n",csize);
-        } while ((csizeI != csize));
+        } while (strcmp(inet_ntoa(argClient->argt->sd[i].addrClient.sin_addr),inet_ntoa(addr_Client.sin_addr)) && ((int)ntohs(argClient->argt->sd[i].addrClient.sin_port) != (int)ntohs(addr_Client.sin_port)));
 
         printf("find at position %d\n",i);
         argClient->argt->sd[i].rectangle.x = rect.x;
@@ -132,9 +132,13 @@ void *searchClients(void *arg)
         socketClient = accept(argt2->sd->socketServer, (struct sockaddr *)&argt2->sd->addrClient, &csize);
         if(socketClient != INVALID_SOCKET)
         {
+            struct sockaddr_in* pV4Addr = (struct sockaddr_in*)&argt2->sd->addrClient;
+            struct in_addr ipAddr = pV4Addr->sin_addr;
             argt2->sd = realloc(argt2->sd, sizeof(socketDatas)*(argt2->size+1));
             argt2->size++;
-            printf("1 new client connected\n");
+            argt2->sd->clientSocket = socketClient;
+            argt2->sd->socketServer = argt2->sd->socketServer;
+            printf("1 new client connected with ip %s and port %d\n",inet_ntoa(argt2->sd->addrClient.sin_addr), (int)ntohs(argt2->sd->addrClient.sin_port));
             printf("Connected clients : %d\n",argt2->size);
         }
 
