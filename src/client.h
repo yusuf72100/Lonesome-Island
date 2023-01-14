@@ -9,11 +9,16 @@
 #include <Ws2ipdef.h>   
 #include <stdint.h>
 #include <pthread.h>
+#include <string.h>
 #include <SDL.h>  
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 #pragma comment(lib, "ws2_32.lib")
  
+#define TRUE 1
+#define FALSE 0
+#define dataLen sizeof(char)*3+1
+
 typedef uint32_t socklen_t;
 
 static SOCKET *socketServer;
@@ -26,5 +31,7 @@ void *sendPosition(SDL_Rect rectangle, int rotation);
 void *stopConnection();
 
 void *startConnection();
+
+void *receiveFromServer();
 
 #endif

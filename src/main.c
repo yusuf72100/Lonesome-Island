@@ -254,6 +254,7 @@ int main(int argc, char *argv[])
     pthread_t reloading;
     pthread_t server;
     pthread_t client;
+    pthread_t receivefromserver;
     Bullet *bullet = NULL;
     char *s;
     int rotation = 0;
@@ -703,6 +704,8 @@ int main(int argc, char *argv[])
                 if (debug) printf("Host button clicked\n");
                 pthread_create(&server,NULL,startServer,NULL);          //on héberge le serveur 
                 pthread_create(&client,NULL,startConnection,NULL);     //on créer un client qui se connecte au serveur 
+                Sleep(1000);
+                pthread_create(&receivefromserver,NULL,receiveFromServer,NULL);
                 play = 1;
             }
         }
@@ -749,7 +752,6 @@ int main(int argc, char *argv[])
         buttonHoverHost(window, texture_host_hover, renderer, host_button_rect);
         SDL_RenderPresent(renderer);
         SDL_RenderCopy(renderer, background_texture, NULL, NULL);
-        
     }  
 
     //free window

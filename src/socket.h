@@ -55,6 +55,12 @@ typedef struct
 
 }argServer;
 
+typedef struct
+{
+    SOCKET socket;
+    argServer * argt;
+
+}send2Client;
 
 //fonction qui accepte les clients
 void *searchClients(void *argt);
