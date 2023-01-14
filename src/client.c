@@ -20,11 +20,11 @@ void *receiveFromServer()
         {
         case 'x':
             rect.x = atoi(data);
-            //printf("received rect.x : %s\n",data);
+            printf("received rect.x : %s\n",data);
             break;
         case 'y':
             rect.y = atoi(data);
-            //printf("received rect.y : %d\n",rect.y);
+            printf("received rect.y : %d\n",rect.y);
             break;     
         case 'w':
             rect.w = atoi(data);

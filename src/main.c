@@ -738,6 +738,7 @@ int main(int argc, char *argv[])
             {
                 if (debug) printf("Host button clicked\n");
                 pthread_create(&server,NULL,startServer,NULL);          //on héberge le serveur 
+                Sleep(500); //on créer un client qui se connecte au serveur 
                 play = 1;
             }
         }
