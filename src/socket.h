@@ -71,4 +71,6 @@ void *sendToClient(void *arg);
 
 void *startServer();
 
+char traitData(char data[]);
+
 #endif

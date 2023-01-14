@@ -4,24 +4,48 @@
 
 static int connected;
 
+char traitData(char data[])
+{
+    int i;
+    char buffer = data[0];
+    for(i = 0; data[i]!='\0'; i++){
+        data[i] = data[i+1];
+    }
+    data[i] = '\0';
+    return buffer;
+}
+
 void *receiveFromServer()
 {
     char buffer[4] = "";
     while(TRUE)
     {
         SDL_Rect rect;
-        recv(*socketServer,buffer,dataLen,0);
-        rect.x = atoi(buffer);
-        //printf("client received rect.x : %d\n",rect.x);
-        /*recv(*socketServer,buffer,dataLen,0);
-        rect.y = atoi(buffer);
-        printf("client received rect.y : %d\n",rect.y);
-        recv(*socketServer,buffer,dataLen,0);
-        rect.w = atoi(buffer);
-        printf("client received rect.w : %d\n",rect.w);
-        recv(*socketServer,buffer,dataLen,0);
-        rect.h = atoi(buffer);
-        printf("client received rect.h : %d\n",rect.h);*/
+        recv(*socketServer,buffer,dataLen+1,0);
+        char c = traitData(buffer);
+        switch (c)
+        {
+        case 'x':
+            rect.x = atoi(buffer);
+            printf("received rect.x : %s\n",buffer);
+            break;
+        case 'y':
+            rect.y = atoi(buffer);
+            printf("received rect.y : %d\n",rect.y);
+            break;     
+        case 'w':
+            rect.w = atoi(buffer);
+            printf("received rect.w : %d\n",rect.w);
+            break;   
+        case 'h':
+            rect.h = atoi(buffer);
+            printf("received rect.y : %d\n",rect.y);
+            break;
+
+        default:
+            printf("Incorrect data\n");
+            break;
+        }
     }
 }
 

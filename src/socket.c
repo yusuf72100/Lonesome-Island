@@ -26,17 +26,37 @@ void *sendToClient(void *arg)
 
             if(strcmp(inet_ntoa(argClient->argt->sd[i].addrClient.sin_addr),inet_ntoa(addr_Client.sin_addr)) && ((int)ntohs(argClient->argt->sd[i].addrClient.sin_port) != (int)ntohs(addr_Client.sin_port)))
             {
-                itoa(argClient->argt->sd[1].rectangle.x, buffer, 10);
-                printf("server sended rect.x : %s\n",buffer);
-                send(argClient->socket,buffer,sizeof(sizeof(char)*3+1),0);
-                itoa(argClient->argt->sd[1].rectangle.y, buffer, 10);
-                printf("server sended rect.y : %s\n",buffer);
-                send(argClient->socket,buffer,sizeof(sizeof(char)*3+1),0);
-                itoa(argClient->argt->sd[1].rectangle.w, buffer, 10);
-                send(argClient->socket,buffer,sizeof(sizeof(char)*3+1),0);
-                itoa(argClient->argt->sd[1].rectangle.h, buffer, 10);
-                send(argClient->socket,buffer,sizeof(sizeof(char)*3+1),0);
-                Sleep(500);
+                char bufferX[3] = "";
+                char dataX[4] = "x";
+                itoa(argClient->argt->sd[i].rectangle.x, bufferX, 10);
+                strcat(dataX, bufferX);
+                //printf("Sended %s\n",dataX);
+                dataX[4] = '\0';
+                send(argClient->argt->sd[i].clientSocket,dataX,sizeof(sizeof(char)*4+1),0);
+
+                char bufferY[3] = "";
+                char dataY[4] = "y";
+                itoa(argClient->argt->sd[i].rectangle.y, bufferY, 10);
+                strcat(dataY, bufferY);
+                //printf("Sended %s\n",dataY);
+                dataY[4] = '\0';
+                send(argClient->argt->sd[i].clientSocket,dataY,sizeof(sizeof(char)*4+1),0);
+
+                char bufferW[3] = "";
+                char dataW[4] = "w";
+                itoa(argClient->argt->sd[i].rectangle.w, bufferW, 10);
+                strcat(dataW, bufferW);
+                //printf("Sended %s\n",dataW);
+                dataW[4] = '\0';
+                send(argClient->argt->sd[i].clientSocket,dataW,sizeof(sizeof(char)*4+1),0);
+
+                char bufferH[3] = "";
+                char dataH[4] = "h";
+                itoa(argClient->argt->sd[i].rectangle.h, bufferH, 10);
+                strcat(dataH, bufferH);
+                //printf("Sended %s\n",dataH);
+                dataH[4] = '\0';
+                send(argClient->argt->sd[i].clientSocket,dataH,sizeof(sizeof(char)*4+1),0);
             }
             i++;
         } while (i < argClient->argt->size);
