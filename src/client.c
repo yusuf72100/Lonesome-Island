@@ -1,6 +1,6 @@
 #include "client.h"
 
-#define dataLen sizeof(char)*4+1
+#define dataLen 5
 
 static int connected;
 
@@ -27,36 +27,37 @@ void *receiveFromServer()
 
 void *sendPosition(SDL_Rect rect, int rotation)
 {
-    char buffer[3] = "";
-    char data[4] = "x";
-    itoa(rect.x, buffer, 10);
-    strcat(data, buffer);
-    send(*socketServer,data,sizeof(sizeof(char)*3+1),0);
-    Sleep(20);
+    char bufferX[3] = "";
+    char dataX[4] = "x";
+    itoa(rect.x, bufferX, 10);
+    strcat(dataX, bufferX);
+    //printf("Sended %s\n",dataX);
+    dataX[4] = '\0';
+    send(*socketServer,dataX,sizeof(sizeof(char)*4+1),0);
 
-    buffer[0] = '\0';
-    data[0] = '\0';
-    data[0] = 'y';
-    itoa(rect.y, buffer, 10);
-    strcat(data, buffer);
-    send(*socketServer,data,sizeof(sizeof(char)*3+1),0);
-    Sleep(20);
+    char bufferY[3] = "";
+    char dataY[4] = "y";
+    itoa(rect.y, bufferY, 10);
+    strcat(dataY, bufferY);
+    //printf("Sended %s\n",dataY);
+    dataY[4] = '\0';
+    send(*socketServer,dataY,sizeof(sizeof(char)*4+1),0);
 
-    buffer[0] = '\0';
-    data[0] = '\0';
-    data[0] = 'w';
-    itoa(rect.w, buffer, 10);
-    strcat(data, buffer);
-    send(*socketServer,data,sizeof(sizeof(char)*3+1),0);
-    Sleep(20);
+    char bufferW[3] = "";
+    char dataW[4] = "w";
+    itoa(rect.w, bufferW, 10);
+    strcat(dataW, bufferW);
+    //printf("Sended %s\n",dataW);
+    dataW[4] = '\0';
+    send(*socketServer,dataW,sizeof(sizeof(char)*4+1),0);
 
-    buffer[0] = '\0';
-    data[0] = '\0';
-    data[0] = 'h';
-    itoa(rect.h, buffer, 10);
-    strcat(data, buffer);
-    send(*socketServer,data,sizeof(sizeof(char)*3+1),0);
-    Sleep(20);
+    char bufferH[3] = "";
+    char dataH[4] = "h";
+    itoa(rect.h, bufferH, 10);
+    strcat(dataH, bufferH);
+    //printf("Sended %s\n",dataH);
+    dataH[4] = '\0';
+    send(*socketServer,dataH,sizeof(sizeof(char)*4+1),0);
 }
 
 void *stopConnection()
@@ -74,7 +75,7 @@ void *startConnection()
     WSAStartup(MAKEWORD(2,0), &WSAData);
 
     SOCKADDR_IN addrServer;
-    addrServer.sin_addr.s_addr = inet_addr("127.0.0.1");
+    addrServer.sin_addr.s_addr = inet_addr("90.93.91.79");
     addrServer.sin_family = AF_INET;
     addrServer.sin_port = htons(4148);
     *socketServer = socket(AF_INET,SOCK_STREAM,0);

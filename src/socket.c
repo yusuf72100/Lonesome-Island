@@ -25,15 +25,15 @@ void *sendToClient(void *arg)
             socklen_t csizeI = sizeof(argClient->argt->sd[i].addrClient);
             if(csize == csizeI)
             {
-                itoa(argClient->argt->sd[i].rectangle.x, buffer, 10);
-                //printf("server sended rect.x : %s\n",buffer);
+                itoa(argClient->argt->sd[1].rectangle.x, buffer, 10);
+                printf("server sended rect.x : %s\n",buffer);
                 send(argClient->socket,buffer,sizeof(sizeof(char)*3+1),0);
-                itoa(argClient->argt->sd[i].rectangle.y, buffer, 10);
-                //printf("server sended rect.y : %s\n",buffer);
+                itoa(argClient->argt->sd[1].rectangle.y, buffer, 10);
+                printf("server sended rect.y : %s\n",buffer);
                 send(argClient->socket,buffer,sizeof(sizeof(char)*3+1),0);
-                itoa(argClient->argt->sd[i].rectangle.w, buffer, 10);
+                itoa(argClient->argt->sd[1].rectangle.w, buffer, 10);
                 send(argClient->socket,buffer,sizeof(sizeof(char)*3+1),0);
-                itoa(argClient->argt->sd[i].rectangle.h, buffer, 10);
+                itoa(argClient->argt->sd[1].rectangle.h, buffer, 10);
                 send(argClient->socket,buffer,sizeof(sizeof(char)*3+1),0);
                 Sleep(500);
             }
@@ -43,10 +43,21 @@ void *sendToClient(void *arg)
     }
 }
 
+char traitData(char data[])
+{
+    int i;
+    char buffer = data[0];
+    for(i = 0; data[i]!='\0'; i++){
+        data[i] = data[i+1];
+    }
+    data[i] = '\0';
+    return buffer;
+}
+
 //fonction qui se lance dans un thread
 void *receiveFromClient(void *arg)
 {
-    int i = 1;
+    int i = 0;
     send2Client *argClient = (send2Client *)arg;
     SDL_Rect rect;
     SOCKADDR_IN addrClient;
@@ -57,11 +68,32 @@ void *receiveFromClient(void *arg)
     //on récupère les données de positions des joueurs
     while(argClient->argt->running == TRUE)
     {
-        recv(argClient->socket,recvBuffer,dataLen,0);
-        rect.x = atoi(recvBuffer);
-        printf("received rect.x : %d\n",rect.x);
+        recv(argClient->socket,recvBuffer,dataLen+1,0);
+        char c = traitData(recvBuffer);
+        switch (c)
+        {
+        case 'x':
+            rect.x = atoi(recvBuffer);
+            printf("received rect.x : %s\n",recvBuffer);
+            break;
+        case 'y':
+            rect.y = atoi(recvBuffer);
+            printf("received rect.y : %d\n",rect.y);
+            break;     
+        case 'w':
+            rect.w = atoi(recvBuffer);
+            printf("received rect.w : %d\n",rect.w);
+            break;   
+        case 'h':
+            rect.h = atoi(recvBuffer);
+            printf("received rect.y : %d\n",rect.y);
+            break;
 
-        
+        default:
+            printf("Incorrect data\n");
+            break;
+        }
+
         //on clear l'input
         clearInput(argClient->socket);
 
@@ -71,14 +103,15 @@ void *receiveFromClient(void *arg)
         {
             socklen_t csizeI = sizeof(argClient->argt->sd[i].addrClient);
             i++;
+            printf("%d\n",csize);
         } while ((csizeI != csize));
 
-        //printf("find at position %d\n",i);
-        argClient->argt->sd[1].rectangle.x = rect.x;
-        argClient->argt->sd[1].rectangle.y = rect.y;
-        argClient->argt->sd[1].rectangle.w = rect.w;
-        argClient->argt->sd[1].rectangle.h = rect.h;
-        i=1;
+        printf("find at position %d\n",i);
+        argClient->argt->sd[i].rectangle.x = rect.x;
+        argClient->argt->sd[i].rectangle.y = rect.y;
+        argClient->argt->sd[i].rectangle.w = rect.w;
+        argClient->argt->sd[i].rectangle.h = rect.h;
+        i=0;
     }
 }
 
@@ -132,7 +165,7 @@ void *startServer()
     //socket du serveur
     SOCKET socketServer;
     SOCKADDR_IN addrServer;
-    addrServer.sin_addr.s_addr = inet_addr("127.0.0.1");
+    addrServer.sin_addr.s_addr = inet_addr("192.168.1.16");
     addrServer.sin_family = AF_INET;
     addrServer.sin_port = htons(4148);
     socketServer = socket(AF_INET,SOCK_STREAM,0);

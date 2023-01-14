@@ -17,7 +17,7 @@
  
 #define TRUE 1
 #define FALSE 0
-#define dataLen sizeof(char)*3+1
+#define dataLen 5
 
 typedef uint32_t socklen_t;
 
