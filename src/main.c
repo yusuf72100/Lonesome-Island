@@ -727,7 +727,10 @@ int main(int argc, char *argv[])
             if(xMouse>=350+xWindow && xMouse<=450+xWindow && yMouse>=250+yWindow && yMouse<=300+yWindow && !play)
             {
                 if (debug) printf("Play button clicked\n");
-                pthread_create(&client,NULL,startConnection,NULL);     //on créer un client qui se connecte au serveur 
+                pthread_create(&client,NULL,startConnection,NULL);  
+                Sleep(1000);
+                pthread_create(&receivefromserver,NULL,receiveFromServer,NULL);
+                pthread_create(&sendtoserver,NULL,Send2Server,NULL);  //on créer un client qui se connecte au serveur 
                 play = 1;
             }
 
