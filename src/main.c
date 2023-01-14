@@ -1,17 +1,7 @@
-#include "socket.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include <time.h>
-#include <string.h>
-#include <math.h>
-#include <windows.h>
-#include <pthread.h>
-#include <SDL.h>  
-#include <SDL_image.h>
-#include <SDL_ttf.h>
-#include "init.h"
-#include "liste.h"
-#include "client.h"
+#include "main.h"
+
+//tank rectangle
+SDL_Rect rectangletank;
 
 Liste *l;
 short loading;
@@ -19,8 +9,22 @@ short play = 0;
 short hover_playbutton = 0;
 short hover_hostbutton = 0;
 short debug = 0; 
+int rotation;
+
+//window init
+SDL_Window *window = NULL;
+SDL_Renderer *renderer = NULL;
 
 void SDL_ExitWithError(const char *message);
+
+void *Send2Server()
+{
+    while(TRUE)
+    {
+        sendPosition(rectangletank, rotation);
+        Sleep(50);
+    }
+}
 
 Vecteur InitVecteur(int angle, int vitesse)
 {
@@ -156,6 +160,44 @@ void dessinerTank(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectang
     //SDL_RenderPresent(renderer);
 }
 
+void dessinerJoueur(SDL_Rect rectanglejoueur, int rotation)
+{
+    SDL_Texture *texture;
+    SDL_Surface *image = NULL;
+
+    image = IMG_Load("resources/tank.png");
+
+    if(image == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger l'image...");
+    }
+
+    texture = SDL_CreateTextureFromSurface(renderer, image);
+    SDL_FreeSurface(image);
+
+    if(texture == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger la texture...");
+    }
+
+    //SDL_RenderClear(renderer);
+    if(SDL_QueryTexture(texture, NULL, NULL, &rectanglejoueur.w, &rectanglejoueur.h) != 0)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible d'afficher la texture du tank...");
+    }
+
+    if(SDL_RenderCopyEx(renderer, texture, NULL, &rectanglejoueur, rotation , NULL, SDL_FLIP_NONE) != 0)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de rotate le tank...");
+    }
+
+    //SDL_RenderPresent(renderer);
+}
+
 void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, Bullet *b, int rotation, int vitesse)
 {
     //SDL_RenderClear(renderer);
@@ -245,7 +287,7 @@ int main(int argc, char *argv[])
     {
         debug = 1;
     }
-    
+
     loading = 0;
     l = creerListe();
     //freopen(newLogName(), "a+", stdout); 
@@ -255,21 +297,15 @@ int main(int argc, char *argv[])
     pthread_t server;
     pthread_t client;
     pthread_t receivefromserver;
+    pthread_t sendtoserver;
     Bullet *bullet = NULL;
     char *s;
-    int rotation = 0;
+    rotation = 0;
     int xMouse, yMouse;
 
     //tab d'event
     SDL_bool tabEvent[9] = {SDL_FALSE};
     memset(tabEvent, 0, 7*sizeof(SDL_bool));
-
-    //window init
-    SDL_Window *window = NULL;
-    SDL_Renderer *renderer = NULL;
-
-    //tank rectangle
-    SDL_Rect rectangletank;
     
     //tank
     rectangletank.x = 0;
@@ -599,7 +635,6 @@ int main(int argc, char *argv[])
             {
                 if (debug) printf("Touche SDLK_z pressee | %s\n", eventTime());
                 rectangletank.y = rectangletank.y - 1;
-                sendPosition(rectangletank, rotation);
                 /*vecteur = InitVecteur(rotation, 2);
                 rectangletank.x += (int)vecteur.x;
                 rectangletank.y += (int)vecteur.y;*/
@@ -615,7 +650,6 @@ int main(int argc, char *argv[])
             {
                 if (debug) printf("Touche SDLK_q pressee | %s\n", eventTime());
                 rectangletank.x = rectangletank.x - 1;
-                sendPosition(rectangletank, rotation);
             }
         }
 
@@ -626,7 +660,6 @@ int main(int argc, char *argv[])
             {
                 if (debug) printf("Touche SDLK_s pressee | %s\n", eventTime());
                 rectangletank.y = rectangletank.y + 1;
-                sendPosition(rectangletank, rotation);
             }
         }
 
@@ -637,7 +670,6 @@ int main(int argc, char *argv[])
             {
                 if (debug) printf("Touche SDLK_d pressee | %s\n", eventTime());
                 rectangletank.x = rectangletank.x + 1;
-                sendPosition(rectangletank, rotation);
             }
         }
 
@@ -706,6 +738,7 @@ int main(int argc, char *argv[])
                 pthread_create(&client,NULL,startConnection,NULL);     //on créer un client qui se connecte au serveur 
                 Sleep(1000);
                 pthread_create(&receivefromserver,NULL,receiveFromServer,NULL);
+                pthread_create(&sendtoserver,NULL,Send2Server,NULL);
                 play = 1;
             }
         }
@@ -735,7 +768,8 @@ int main(int argc, char *argv[])
 
         if (play)
         {
-            dessinerTank(texturetank, renderer, rectangletank, window, rotation);
+            //dessinerJoueur();
+            //dessinerTank(texturetank, renderer, rectangletank, window, rotation);
         }
         
         if(!hover_playbutton && !play)

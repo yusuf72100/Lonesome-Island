@@ -1,49 +1,49 @@
 #include "client.h"
+#include "socket.h"
+#include "main.h"
 
 #define dataLen 5
 
 static int connected;
 
-char traitData(char data[])
-{
-    int i;
-    char buffer = data[0];
-    for(i = 0; data[i]!='\0'; i++){
-        data[i] = data[i+1];
-    }
-    data[i] = '\0';
-    return buffer;
-}
-
 void *receiveFromServer()
 {
-    char buffer[4] = "";
+    char data[4] = "";
+    SDL_Rect rect = {
+            .x = 0,
+            .y = 0,
+            .w = 0,
+            .h = 0
+    };
     while(TRUE)
     {
-        SDL_Rect rect;
-        recv(*socketServer,buffer,dataLen+1,0);
-        char c = traitData(buffer);
+        recv(*socketServer,data,sizeof(sizeof(char)*4+1),0);
+        //printf("Pure data : %s\n",data);
+        char c = traitData(data);
         switch (c)
         {
         case 'x':
-            rect.x = atoi(buffer);
-            printf("received rect.x : %s\n",buffer);
+            rect.x = atoi(data);
+            printf("received rect.x : %s\n",data);
             break;
         case 'y':
-            rect.y = atoi(buffer);
-            printf("received rect.y : %d\n",rect.y);
+            rect.y = atoi(data);
+            //printf("received rect.y : %d\n",rect.y);
             break;     
         case 'w':
-            rect.w = atoi(buffer);
-            printf("received rect.w : %d\n",rect.w);
+            rect.w = atoi(data);
+            //printf("received rect.w : %d\n",rect.w);
             break;   
         case 'h':
-            rect.h = atoi(buffer);
-            printf("received rect.y : %d\n",rect.y);
+            rect.h = atoi(data);
+            //printf("received rect.h : %d\n",rect.h);
             break;
-
+        case 'e':
+            printf("datas: %d %d %d %d\n",rect.x,rect.y,rect.w,rect.h);
+            dessinerJoueur(rect,0); 
+            break;
         default:
-            printf("Incorrect data\n");
+            //printf("Incorrect data\n");
             break;
         }
     }
@@ -57,7 +57,7 @@ void *sendPosition(SDL_Rect rect, int rotation)
     strcat(dataX, bufferX);
     //printf("Sended %s\n",dataX);
     dataX[4] = '\0';
-    send(*socketServer,dataX,sizeof(sizeof(char)*4+1),0);
+    send(*socketServer,dataX,sizeof(sizeof(char)*4),0);
 
     char bufferY[3] = "";
     char dataY[4] = "y";
@@ -65,7 +65,7 @@ void *sendPosition(SDL_Rect rect, int rotation)
     strcat(dataY, bufferY);
     //printf("Sended %s\n",dataY);
     dataY[4] = '\0';
-    send(*socketServer,dataY,sizeof(sizeof(char)*4+1),0);
+    send(*socketServer,dataY,sizeof(sizeof(char)*4),0);
 
     char bufferW[3] = "";
     char dataW[4] = "w";
@@ -73,7 +73,7 @@ void *sendPosition(SDL_Rect rect, int rotation)
     strcat(dataW, bufferW);
     //printf("Sended %s\n",dataW);
     dataW[4] = '\0';
-    send(*socketServer,dataW,sizeof(sizeof(char)*4+1),0);
+    send(*socketServer,dataW,sizeof(sizeof(char)*4),0);
 
     char bufferH[3] = "";
     char dataH[4] = "h";
@@ -81,7 +81,7 @@ void *sendPosition(SDL_Rect rect, int rotation)
     strcat(dataH, bufferH);
     //printf("Sended %s\n",dataH);
     dataH[4] = '\0';
-    send(*socketServer,dataH,sizeof(sizeof(char)*4+1),0);
+    send(*socketServer,dataH,sizeof(sizeof(char)*4),0);
 }
 
 void *stopConnection()

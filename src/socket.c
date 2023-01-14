@@ -10,37 +10,41 @@ static void *clearInput(SOCKET socketClient)
 
 void *sendToClient(void *arg)
 {
-    int i = 0;
-    char buffer[4] = "";
+    int err;
+    int i = 1;
     send2Client *argClient = (send2Client *)arg;
     SDL_Rect rect;
     SOCKADDR_IN addr_Client;
     SDL_Rect tab[10];
+    struct sockaddr_in* pV4Addr = (struct sockaddr_in*)&addr_Client;
+    struct in_addr ipAddr = pV4Addr->sin_addr;
 
     while(argClient->argt->running == TRUE)
     {
         do
         {
-            struct sockaddr_in* pV4Addr = (struct sockaddr_in*)&addr_Client;
-            struct in_addr ipAddr = pV4Addr->sin_addr;
 
-            if(strcmp(inet_ntoa(argClient->argt->sd[i].addrClient.sin_addr),inet_ntoa(addr_Client.sin_addr)) && ((int)ntohs(argClient->argt->sd[i].addrClient.sin_port) != (int)ntohs(addr_Client.sin_port)))
-            {
+            /*if(strcmp(inet_ntoa(argClient->argt->sd[i].addrClient.sin_addr),inet_ntoa(addr_Client.sin_addr)) && ((int)ntohs(argClient->argt->sd[i].addrClient.sin_port) != (int)ntohs(addr_Client.sin_port)))
+            {*/
                 char bufferX[3] = "";
                 char dataX[4] = "x";
                 itoa(argClient->argt->sd[i].rectangle.x, bufferX, 10);
                 strcat(dataX, bufferX);
                 //printf("Sended %s\n",dataX);
                 dataX[4] = '\0';
-                send(argClient->argt->sd[i].clientSocket,dataX,sizeof(sizeof(char)*4+1),0);
-
+                if(argClient->socket == INVALID_SOCKET) printf("Error: INVALID SOCKET\n");
+                if(send(argClient->socket,dataX,sizeof(sizeof(char)*4+1),0) == SOCKET_ERROR ) {
+                    printf("Error: SOCKET_ERROR\n");
+                    err = WSAGetLastError();
+                    printf("%d\n",err);
+                }
                 char bufferY[3] = "";
                 char dataY[4] = "y";
                 itoa(argClient->argt->sd[i].rectangle.y, bufferY, 10);
                 strcat(dataY, bufferY);
                 //printf("Sended %s\n",dataY);
                 dataY[4] = '\0';
-                send(argClient->argt->sd[i].clientSocket,dataY,sizeof(sizeof(char)*4+1),0);
+                send(argClient->socket,dataY,sizeof(sizeof(char)*4+1),0);
 
                 char bufferW[3] = "";
                 char dataW[4] = "w";
@@ -48,7 +52,7 @@ void *sendToClient(void *arg)
                 strcat(dataW, bufferW);
                 //printf("Sended %s\n",dataW);
                 dataW[4] = '\0';
-                send(argClient->argt->sd[i].clientSocket,dataW,sizeof(sizeof(char)*4+1),0);
+                send(argClient->socket,dataW,sizeof(sizeof(char)*4+1),0);
 
                 char bufferH[3] = "";
                 char dataH[4] = "h";
@@ -56,11 +60,13 @@ void *sendToClient(void *arg)
                 strcat(dataH, bufferH);
                 //printf("Sended %s\n",dataH);
                 dataH[4] = '\0';
-                send(argClient->argt->sd[i].clientSocket,dataH,sizeof(sizeof(char)*4+1),0);
-            }
+                send(argClient->socket,dataH,sizeof(sizeof(char)*4+1),0);
+                send(argClient->socket,"end",sizeof(sizeof(char)*4+1),0);
+                Sleep(30);
+            //}
             i++;
         } while (i < argClient->argt->size);
-        i=0;
+        i=1;
     }
 }
 
@@ -79,6 +85,7 @@ char traitData(char data[])
 void *receiveFromClient(void *arg)
 {
     int i = 0;
+    char buffer[6] = "";
     send2Client *argClient = (send2Client *)arg;
     SDL_Rect rect;
     SOCKADDR_IN addr_Client;
@@ -88,29 +95,31 @@ void *receiveFromClient(void *arg)
     //on récupère les données de positions des joueurs
     while(argClient->argt->running == TRUE)
     {
-        recv(argClient->socket,recvBuffer,dataLen+1,0);
-        char c = traitData(recvBuffer);
+        recv(argClient->socket,buffer,sizeof(sizeof(char)*4),0);
+        //printf("pure data : %s\n",buffer);
+        char c = traitData(buffer);
+        //printf("pure tranformed : %s\n",buffer);
         switch (c)
         {
         case 'x':
-            rect.x = atoi(recvBuffer);
-            printf("received rect.x : %s\n",recvBuffer);
+            rect.x = atoi(buffer);
+            //printf("received rect.x : %s\n",recvBuffer);
             break;
         case 'y':
-            rect.y = atoi(recvBuffer);
-            printf("received rect.y : %d\n",rect.y);
+            rect.y = atoi(buffer);
+            //printf("received rect.y : %d\n",rect.y);
             break;     
         case 'w':
-            rect.w = atoi(recvBuffer);
-            printf("received rect.w : %d\n",rect.w);
+            rect.w = atoi(buffer);
+            //printf("received rect.w : %d\n",rect.w);
             break;   
         case 'h':
-            rect.h = atoi(recvBuffer);
-            printf("received rect.y : %d\n",rect.y);
+            rect.h = atoi(buffer);
+            //printf("received rect.y : %d\n",rect.y);
             break;
 
         default:
-            printf("Incorrect data\n");
+            //printf("Incorrect data %c\n",c);
             break;
         }
 
@@ -126,7 +135,7 @@ void *receiveFromClient(void *arg)
             i++;
         } while (strcmp(inet_ntoa(argClient->argt->sd[i].addrClient.sin_addr),inet_ntoa(addr_Client.sin_addr)) && ((int)ntohs(argClient->argt->sd[i].addrClient.sin_port) != (int)ntohs(addr_Client.sin_port)));
 
-        printf("find at position %d\n",i);
+        //printf("find at position %d\n",i);
         argClient->argt->sd[i].rectangle.x = rect.x;
         argClient->argt->sd[i].rectangle.y = rect.y;
         argClient->argt->sd[i].rectangle.w = rect.w;
@@ -156,7 +165,6 @@ void *searchClients(void *arg)
             struct in_addr ipAddr = pV4Addr->sin_addr;
             argt2->sd = realloc(argt2->sd, sizeof(socketDatas)*(argt2->size+1));
             argt2->size++;
-            argt2->sd->clientSocket = socketClient;
             argt2->sd->socketServer = argt2->sd->socketServer;
             printf("1 new client connected with ip %s and port %d\n",inet_ntoa(argt2->sd->addrClient.sin_addr), (int)ntohs(argt2->sd->addrClient.sin_port));
             printf("Connected clients : %d\n",argt2->size);

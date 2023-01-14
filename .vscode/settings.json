@@ -6,6 +6,7 @@
         "stdint.h": "c",
         "ws2ipdef.h": "c",
         "string.h": "c",
-        "winsock2.h": "c"
+        "winsock2.h": "c",
+        "main.h": "c"
     }
 }
