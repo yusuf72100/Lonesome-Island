@@ -2,12 +2,19 @@
 
 static int connected;
 
-void *sendPosition(SDL_Rect rectangle, int rotation)
+void *sendPosition(SDL_Rect rect, int rotation)
 {
-    send(*socketServer,(char*)&rectangle.x,sizeof(rectangle),0);
-    send(*socketServer,(char*)&rectangle.y,sizeof(rectangle),0);
-    send(*socketServer,(char*)&rectangle.w,sizeof(rectangle),0);
-    send(*socketServer,(char*)&rectangle.h,sizeof(rectangle),0);
+    char buffer[4] = "";
+
+    itoa(rect.x, buffer, 10);
+    printf("sended rect.x : %s\n",buffer);
+    send(*socketServer,buffer,sizeof(sizeof(char)*4+1),0);
+    itoa(rect.y, buffer, 10);
+    send(*socketServer,buffer,sizeof(sizeof(char)*4+1),0);
+    itoa(rect.w, buffer, 10);
+    send(*socketServer,buffer,sizeof(sizeof(char)*4+1),0);
+    itoa(rect.h, buffer, 10);
+    send(*socketServer,buffer,sizeof(sizeof(char)*4+1),0);
 }
 
 void *stopConnection()

@@ -1,9 +1,45 @@
 #include "socket.h"
 
+void *clearInput(void *arg)
+{
+    SOCKET * socketClient = (SOCKET *)&arg;
+
+    recv(*socketClient,recvBuffer,dataLen,0);
+    recv(*socketClient,recvBuffer,dataLen,0);
+    recv(*socketClient,recvBuffer,dataLen,0);
+    recv(*socketClient,recvBuffer,dataLen,0);
+}
+
+//fonction qui se lance dans un thread
+void *receiveDatas(void *arg)
+{
+    SOCKET * socketClient = (SOCKET *)&arg;
+    SDL_Rect rect;
+
+    if(*socketClient != INVALID_SOCKET) printf("Ready to receive\n");
+
+    //on récupère les données de positions des joueurs
+    while(TRUE)
+    {
+        recv(*socketClient,recvBuffer,dataLen,0);
+        rect.x = atoi(recvBuffer);
+        printf("received rect.x : %d\n",rect.x);
+        recv(*socketClient,recvBuffer,dataLen,0);
+        rect.y = atoi(recvBuffer);
+        recv(*socketClient,recvBuffer,dataLen,0);
+        rect.w = atoi(recvBuffer);
+        recv(*socketClient,recvBuffer,dataLen,0);
+        rect.h = atoi(recvBuffer);
+        
+        //on clear l'input
+        clearInput(arg);
+    }
+}
+
 //fonction qui accepte les clients
 void *searchClients(void *argt)
 {
-    SDL_Rect rect;
+    pthread_t receive_from_client;
     argServer *argt2 = (argServer*)argt;
     socklen_t csize = sizeof(argt2->sd->addrClient);
     SOCKET socketClient;
@@ -19,18 +55,9 @@ void *searchClients(void *argt)
             printf("1 new client connected\n");
             printf("Connected clients : %d\n",argt2->sd->size);
         }
-        else printf("Error: connection lost\n");
-
-        //on récupère les données de positions des joueurs
-        recv(socketClient,recvBuffer,dataLen,0);
-        rect.x = (int)*recvBuffer;
-        recv(socketClient,recvBuffer,dataLen,0);
-        rect.y = (int)*recvBuffer;
-        recv(socketClient,recvBuffer,dataLen,0);
-        rect.w = (int)*recvBuffer;
-        recv(socketClient,recvBuffer,dataLen,0);
-        rect.h = (int)*recvBuffer;
-        printf("Datas received\n");
+        //receiveDatas((void *)socketClient);
+        pthread_create(&receive_from_client,NULL,receiveDatas,(void *)socketClient);
+        //else printf("Error: client connection lost\n");
     }
 
     close(argt2->sd->socketServer);
@@ -41,7 +68,7 @@ void *searchClients(void *argt)
 //fonction qui initialise et lance le serveur
 void *startServer()
 {
-    pthread_t acceptThread;
+    pthread_t receiveThread;
     int * running = malloc(sizeof(int));
     socketDatas * sd = malloc(sizeof(socketDatas));
 

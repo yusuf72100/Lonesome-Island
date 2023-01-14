@@ -3,6 +3,8 @@
         "pthread.h": "c",
         "stdlib.h": "c",
         "sdl_ttf.h": "c",
-        "stdint.h": "c"
+        "stdint.h": "c",
+        "ws2ipdef.h": "c",
+        "string.h": "c"
     }
 }

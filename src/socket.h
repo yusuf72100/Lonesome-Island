@@ -19,13 +19,14 @@
 #pragma comment(lib, "ws2_32.lib")
 #endif
 
+#include <string.h>
 #include <SDL.h>  
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 
 #define TRUE 1
 #define FALSE 0
-#define dataLen 100
+#define dataLen sizeof(char)*3+1
 
 typedef uint32_t socklen_t;
 
