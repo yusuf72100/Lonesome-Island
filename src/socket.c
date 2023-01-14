@@ -26,6 +26,7 @@ void *sendToClient(void *arg)
 
             /*if(strcmp(inet_ntoa(argClient->argt->sd[i].addrClient.sin_addr),inet_ntoa(addr_Client.sin_addr)) && ((int)ntohs(argClient->argt->sd[i].addrClient.sin_port) != (int)ntohs(addr_Client.sin_port)))
             {*/
+                Sleep(100);
                 char bufferX[3] = "";
                 char dataX[4] = "x";
                 itoa(argClient->argt->sd[i].rectangle.x, bufferX, 10);
@@ -95,6 +96,7 @@ void *receiveFromClient(void *arg)
     //on récupère les données de positions des joueurs
     while(argClient->argt->running == TRUE)
     {
+        Sleep(100);
         recv(argClient->socket,buffer,sizeof(sizeof(char)*4),0);
         //printf("pure data : %s\n",buffer);
         char c = traitData(buffer);

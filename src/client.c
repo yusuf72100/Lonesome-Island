@@ -13,6 +13,7 @@ void *receiveFromServer()
     
     while(TRUE)
     {
+        Sleep(100);
         recv(*socketServer,data,sizeof(sizeof(char)*4+1),0);
         //printf("Pure data : %s\n",data);
         char c = traitData(data);
