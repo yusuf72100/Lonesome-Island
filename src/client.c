@@ -9,12 +9,8 @@ static int connected;
 void *receiveFromServer()
 {
     char data[4] = "";
-    SDL_Rect rect = {
-            .x = 0,
-            .y = 0,
-            .w = 0,
-            .h = 0
-    };
+    SDL_Rect rect;
+    
     while(TRUE)
     {
         recv(*socketServer,data,sizeof(sizeof(char)*4+1),0);
