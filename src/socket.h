@@ -41,21 +41,27 @@ typedef struct
 typedef struct 
 {
     SOCKET socketServer;
-    SOCKET * clientsSockets;
+    SOCKET clientSocket;
     SOCKADDR_IN addrClient;
-    int size;
+    SDL_Rect rectangle;
 
 }socketDatas;
 
 typedef struct 
 {
     socketDatas * sd;
-    int * running;
+    int running;
+    int size;
 
 }argServer;
 
+
 //fonction qui accepte les clients
 void *searchClients(void *argt);
+
+void *receiveFromClient(void *arg);
+
+void *sendToClient(void *arg);
 
 void *startServer();
 

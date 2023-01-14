@@ -10,9 +10,15 @@ static void *clearInput(void *arg)
     recv(*socketClient,recvBuffer,dataLen,0);
 }
 
-//fonction qui se lance dans un thread
-void *receiveDatas(void *arg)
+void *sendToClient(void *arg)
 {
+    SOCKET * socketClient = (SOCKET *)&arg;
+}
+
+//fonction qui se lance dans un thread
+void *receiveFromClient(void *arg)
+{
+    int i;
     SOCKET * socketClient = (SOCKET *)&arg;
     SDL_Rect rect;
 
@@ -40,28 +46,29 @@ void *receiveDatas(void *arg)
 void *searchClients(void *argt)
 {
     pthread_t receive_from_client;
+    pthread_t send_to_client;
     argServer *argt2 = (argServer*)argt;
     socklen_t csize = sizeof(argt2->sd->addrClient);
     SOCKET socketClient;
-    *argt2->running = TRUE;
+    argt2->running = TRUE;
     printf("Server running\n");
+    
     while(argt2->running)
     {
         socketClient = accept(argt2->sd->socketServer, (struct sockaddr *)&argt2->sd->addrClient, &csize);
         if(socketClient != INVALID_SOCKET)
         {
-            argt2->sd->clientsSockets = realloc(argt2->sd->clientsSockets, sizeof(SOCKET)*(argt2->sd->size+1));
-            argt2->sd->size++;
+            argt2->sd = realloc(argt2->sd, sizeof(socketDatas)*(argt2->size+1));
+            argt2->size++;
             printf("1 new client connected\n");
-            printf("Connected clients : %d\n",argt2->sd->size);
+            printf("Connected clients : %d\n",argt2->size);
         }
-        //receiveDatas((void *)socketClient);
-        pthread_create(&receive_from_client,NULL,receiveDatas,(void *)socketClient);
-        //else printf("Error: client connection lost\n");
+        pthread_create(&receive_from_client,NULL,receiveFromClient,(void *)socketClient);
+        //pthread_create(&send_to_client,NULL,sendToClient,(void *)socketClient);
     }
 
-    close(argt2->sd->socketServer);
     printf("close\n");
+    close(argt2->sd->socketServer);
     WSACleanup();
 }
 
@@ -69,10 +76,10 @@ void *searchClients(void *argt)
 void *startServer()
 {
     pthread_t receiveThread;
-    int * running = malloc(sizeof(int));
+    int  running = 0;
     socketDatas * sd = malloc(sizeof(socketDatas));
 
-    SOCKET * clientsSockets = malloc(sizeof(SOCKET));
+    SOCKET clientSocket;
     WSADATA WSAData;
     WSAStartup(MAKEWORD(2,0), &WSAData);
 
@@ -90,20 +97,19 @@ void *startServer()
     listen(socketServer, 5);
     printf("Listening\n");
 
+    argServer argt = {
+        .sd = sd,
+        .running = running,
+        .size = 0
+    };
+
     //socket des clients
     SOCKADDR_IN addrClient;
     socklen_t csize = sizeof(addrClient);
 
-    sd->socketServer = socketServer;
-    sd->clientsSockets = clientsSockets;
-    sd->addrClient = addrClient;
-
-    argServer argt = {
-        .sd = sd,
-        .running = running
-    };
-
-    argt.sd->size = 0;
+    argt.sd->socketServer = socketServer;
+    argt.sd->clientSocket = clientSocket;
+    argt.sd->addrClient = addrClient;
 
     //on lance et attend l'arrêt du serveur
     searchClients((void*)&argt);
