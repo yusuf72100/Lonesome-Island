@@ -20,7 +20,7 @@ void *receiveFromServer()
         {
         case 'x':
             rect.x = atoi(data);
-            printf("received rect.x : %s\n",data);
+            //printf("received rect.x : %s\n",data);
             break;
         case 'y':
             rect.y = atoi(data);
@@ -35,7 +35,7 @@ void *receiveFromServer()
             //printf("received rect.h : %d\n",rect.h);
             break;
         case 'e':
-            printf("datas: %d %d %d %d\n",rect.x,rect.y,rect.w,rect.h);
+            //printf("datas: %d %d %d %d\n",rect.x,rect.y,rect.w,rect.h);
             dessinerJoueur(rect,0); 
             break;
         default:
