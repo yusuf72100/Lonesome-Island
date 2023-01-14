@@ -1,6 +1,6 @@
 #include "socket.h"
 
-void *clearInput(void *arg)
+static void *clearInput(void *arg)
 {
     SOCKET * socketClient = (SOCKET *)&arg;
 
@@ -30,7 +30,7 @@ void *receiveDatas(void *arg)
         rect.w = atoi(recvBuffer);
         recv(*socketClient,recvBuffer,dataLen,0);
         rect.h = atoi(recvBuffer);
-        
+
         //on clear l'input
         clearInput(arg);
     }
