@@ -739,6 +739,7 @@ int main(int argc, char *argv[])
             SDL_GetWindowPosition(window, &xWindow, &yWindow);
             SDL_GetGlobalMouseState(&xMouse,&yMouse);
 
+            //play button
             if(xMouse>=350+xWindow && xMouse<=450+xWindow && yMouse>=250+yWindow && yMouse<=300+yWindow && !play)
             {
                 if (debug) printf("Play button clicked\n");
@@ -750,12 +751,13 @@ int main(int argc, char *argv[])
                 play = 1;
             }
 
+            //host button
             if(xMouse>=350+xWindow && xMouse<=450+xWindow && yMouse>=450+yWindow && yMouse<=500+yWindow && !play)
             {
                 if (debug) printf("Host button clicked\n");
                 pthread_create(&server,NULL,startServer,NULL);          //on héberge le serveur 
                 Sleep(200);
-                pthread_create(&client,NULL,startConnection,NULL);  
+                pthread_create(&client,NULL,startConnection,NULL);      //on créer un client qui se connecte au serveur
                 Sleep(500);
                 pthread_create(&sendtoserver,NULL,Send2Server,NULL); 
                 Sleep(200);
