@@ -8,14 +8,6 @@ SDL_Rect rectangletank = {
     .h = 150
 };
 
-Liste *l;
-short loading;
-short play = 0;
-short hover_playbutton = 0;
-short hover_hostbutton = 0;
-short debug = 0; 
-int rotation;
-
 //window init
 SDL_Window *window = NULL;
 SDL_Renderer *renderer = NULL;
@@ -425,7 +417,7 @@ int main(int argc, char *argv[])
         SDL_ExitWithError("Impossible de charger la texture...");
     }
 
-    texte = TTF_RenderText_Blended(police, "Bienvenue sur mon jeu!", blackColor);
+    texte = TTF_RenderText_Blended(police, "Welcome young trout!", blackColor);
 
     if (texte == NULL)
     {

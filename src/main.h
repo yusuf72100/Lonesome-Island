@@ -13,6 +13,14 @@
 #include "liste.h"
 #include "client.h"
 
+static Liste *l;
+static short loading;
+static short play = 0;
+static short hover_playbutton = 0;
+static short hover_hostbutton = 0;
+static short debug = 0; 
+static int rotation;
+
 void SDL_ExitWithError(const char *message);
 
 void *Send2Server();
