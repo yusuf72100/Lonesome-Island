@@ -19,7 +19,7 @@ void *Send2Server();
 
 Vecteur InitVecteur(int angle, int vitesse);
 
-void dessinerJoueur(playersRect *p_datas ,int rotation);
+void *dessinerJoueur(void *arg);
 
 void destroyAll(SDL_Window *window, SDL_Renderer *renderer);
 

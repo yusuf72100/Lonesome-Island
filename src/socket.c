@@ -106,7 +106,7 @@ void *receiveFromClient(void *arg)
     //on récupère les données de positions des joueurs
     while(argClient->argt->running == TRUE)
     {
-        Sleep(1);
+        Sleep(5);
         recv(argClient->socket,buffer,sizeof(sizeof(char)*4),0);
         //printf("pure data : %s\n",buffer);
         char c = traitData(buffer);
@@ -210,7 +210,7 @@ void *startServer()
     //socket du serveur
     SOCKET socketServer;
     SOCKADDR_IN addrServer;
-    addrServer.sin_addr.s_addr = inet_addr("192.168.1.16");     //ip locale
+    addrServer.sin_addr.s_addr = inet_addr("127.0.0.1");     //ip locale
     addrServer.sin_family = AF_INET;
     addrServer.sin_port = htons(4148);
     socketServer = socket(AF_INET,SOCK_STREAM,0);

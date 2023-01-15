@@ -19,12 +19,13 @@ SDL_Surface *image = NULL;
 
 void SDL_ExitWithError(const char *message);
 
+//on récupère les coordonnées des autres joueurs
 void *takeToServer()
 {
     while(TRUE)
     {
         receiveFromServer();
-        Sleep(100);
+        Sleep(10);
     }
 }
 
@@ -171,26 +172,25 @@ void dessinerTank(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectang
     //SDL_RenderPresent(renderer);
 }
 
-void dessinerJoueur(playersRect *p_datas, int rotation)
+void *dessinerJoueur(void *arg)
 {
-    printf("%d\n",p_datas->rectangles[1].x);
-    for(int i = 1; i<=p_datas->size; i++)
+    argDessinerJoueurs *argJ = (argDessinerJoueurs *)arg;
+    while(TRUE)
     {
-        printf("%d\n",i);
-        printf("%d et %d\n",p_datas->rectangles[i].w,p_datas->rectangles[i].h);
+        Sleep(20);
+        printf("%d\n",argJ->rect.x);
         //SDL_RenderClear(renderer);
-        if(SDL_QueryTexture(texture, NULL, NULL, &p_datas->rectangles[i].w, &p_datas->rectangles[i].h) != 0)
+        if(SDL_QueryTexture(texture, NULL, NULL, &argJ->rect.w, &argJ->rect.h) != 0)
         {
             destroyAll(window, renderer);
             SDL_ExitWithError("Impossible d'afficher la texture du tank...");
         }
 
-        if(SDL_RenderCopyEx(renderer, texture, NULL, &p_datas->rectangles[i], rotation , NULL, SDL_FLIP_NONE) != 0)
+        if(SDL_RenderCopyEx(renderer, texture, NULL, &argJ->rect, rotation , NULL, SDL_FLIP_NONE) != 0)
         {
             destroyAll(window, renderer);
             SDL_ExitWithError("Impossible de rotate le tank...");
         }
-
         //SDL_RenderPresent(renderer);
     }
 }
@@ -744,7 +744,6 @@ int main(int argc, char *argv[])
                 if (debug) printf("Play button clicked\n");
                 pthread_create(&client,NULL,startConnection,NULL);  
                 Sleep(1000);
-                //pthread_create(&receivefromserver,NULL,receiveFromServer,NULL);
                 pthread_create(&sendtoserver,NULL,Send2Server,NULL);  //on créer un client qui se connecte au serveur 
                 Sleep(200);
                 pthread_create(&receivefromserver,NULL,takeToServer,NULL); 
@@ -758,8 +757,6 @@ int main(int argc, char *argv[])
                 Sleep(200);
                 pthread_create(&client,NULL,startConnection,NULL);  
                 Sleep(500);
-                /*pthread_create(&receivefromserver,NULL,receiveFromServer,NULL);
-                Sleep(200);*/
                 pthread_create(&sendtoserver,NULL,Send2Server,NULL); 
                 Sleep(200);
                 pthread_create(&receivefromserver,NULL,takeToServer,NULL); 

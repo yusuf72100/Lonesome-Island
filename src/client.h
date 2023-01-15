@@ -25,6 +25,12 @@ static SOCKET *socketServer;
 static int connected;
 
 typedef struct 
+{   
+    SDL_Rect rect;
+    int rotation;
+}argDessinerJoueurs;
+
+typedef struct 
 {
     SDL_Rect *rectangles;
     int size;
