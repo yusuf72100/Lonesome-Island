@@ -792,8 +792,7 @@ int main(int argc, char *argv[])
 
         if (play)
         {
-            Sleep(5);
-            //dessinerTank(texturetank, renderer, rectangletank, window, rotation);
+            dessinerTank(texturetank, renderer, rectangletank, window, rotation);
         }
         
         if(!hover_playbutton && !play)

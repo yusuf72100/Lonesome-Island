@@ -24,8 +24,8 @@ void *sendToClient(void *arg)
         do
         {
 
-            /*if(strcmp(inet_ntoa(argClient->argt->sd[i].addrClient.sin_addr),inet_ntoa(addr_Client.sin_addr)) && ((int)ntohs(argClient->argt->sd[i].addrClient.sin_port) != (int)ntohs(addr_Client.sin_port)))
-            {*/
+            if(strcmp(inet_ntoa(argClient->argt->sd[i].addrClient.sin_addr),inet_ntoa(addr_Client.sin_addr)) && ((int)ntohs(argClient->argt->sd[i].addrClient.sin_port) != (int)ntohs(addr_Client.sin_port)))
+            {
                 Sleep(5);
                 char taille[2];
                 itoa(argClient->argt->size, taille, 10);
@@ -73,7 +73,7 @@ void *sendToClient(void *arg)
                 Sleep(5);
                 send(argClient->socket,"over",sizeof(sizeof(char)*4+1),0);
                 Sleep(5);
-            //}
+            }
             i++;
         } while (i < argClient->argt->size);
         send(argClient->socket,"end",sizeof(sizeof(char)*4+1),0);
