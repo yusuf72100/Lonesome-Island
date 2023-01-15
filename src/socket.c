@@ -177,6 +177,7 @@ void *searchClients(void *arg)
             argt2->sd = realloc(argt2->sd, sizeof(socketDatas)*(argt2->size+1));
             argt2->size++;
             argt2->sd->socketServer = argt2->sd->socketServer;
+            printf("size cote server %d\n",argt2->size);
             printf("1 new client connected with ip %s and port %d\n",inet_ntoa(argt2->sd->addrClient.sin_addr), (int)ntohs(argt2->sd->addrClient.sin_port));
             printf("Connected clients : %d\n",argt2->size);
         }

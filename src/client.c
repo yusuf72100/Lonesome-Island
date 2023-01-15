@@ -35,7 +35,7 @@ void *receiveFromServer()
         rect = malloc(sizeof(rect)*size);
         p_datas = malloc(sizeof(playersRect));
     }
-
+    printf("size : %d\n",size);
     while(TRUE)
     {
         trash = recv(*socketServer,data,sizeof(sizeof(char)*4+1),0);
