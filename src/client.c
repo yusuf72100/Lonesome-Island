@@ -67,9 +67,7 @@ void *receiveFromServer()
             else {
                 pthread_create((displayThreads+i),NULL,dessinerJoueur,(void*)&arg[i]);  
                 arg[i].rect = rect[i];
-                printf("rect %d\n",arg[i].rect.x);
                 arg[i].rotation = 0;
-                printf("Thread launched\n");
             }
             i++;
             break;
