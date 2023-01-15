@@ -69,8 +69,8 @@ void *receiveFromServer()
                 arg[i].rect = rect[i];
                 arg[i].rotation = 0;
             }
+            //printf("i: %d\n",i);
             i++;
-            printf("i: %d\n",i);
             break;
         case 'e':
             p_datas->rectangles = rect;

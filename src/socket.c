@@ -76,7 +76,7 @@ void *sendToClient(void *arg)
                 Sleep(1);
             //}
             i++;
-        } while (i < argClient->argt->size);
+        } while (i <= argClient->argt->size);
         send(argClient->socket,"end",sizeof(sizeof(char)*4+1),0);
         i=1;
     }
