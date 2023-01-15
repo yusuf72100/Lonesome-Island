@@ -137,7 +137,7 @@ void *startConnection()
     WSADATA WSAData;
     WSAStartup(MAKEWORD(2,0), &WSAData);
     SOCKADDR_IN addrServer;
-    addrServer.sin_addr.s_addr = inet_addr(IP_LOCALE);      
+    addrServer.sin_addr.s_addr = inet_addr(IP_PUBLIC);      
     addrServer.sin_family = AF_INET;
     addrServer.sin_port = htons(4148);
     *socketServer = socket(AF_INET,SOCK_STREAM,0);
