@@ -1,5 +1,17 @@
 {
     "files.associations": {
-        "pthread.h": "c"
+        "pthread.h": "c",
+        "stdlib.h": "c",
+        "sdl_ttf.h": "c",
+        "stdint.h": "c",
+        "ws2ipdef.h": "c",
+        "string.h": "c",
+        "winsock2.h": "c",
+        "main.h": "c",
+        "sdl_image.h": "c",
+        "sdl.h": "c",
+        "unistd.h": "c",
+        "client.h": "c",
+        "init.h": "c"
     }
 }
