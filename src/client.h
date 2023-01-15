@@ -18,6 +18,7 @@
 #define TRUE 1
 #define FALSE 0
 #define dataLen 5
+#define THREAD_NULL 0
 
 typedef uint32_t socklen_t;
 

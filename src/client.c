@@ -2,9 +2,6 @@
 #include "main.h"
 #include "client.h"
 
-#define THREAD_NULL 0
-#define dataLen 5
-
 SDL_Rect *rect = NULL;
 playersRect *p_datas = NULL;
 
