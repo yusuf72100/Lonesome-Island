@@ -24,15 +24,15 @@ void *sendToClient(void *arg)
         do
         {
 
-            if(strcmp(inet_ntoa(argClient->argt->sd[i].addrClient.sin_addr),inet_ntoa(addr_Client.sin_addr)) && ((int)ntohs(argClient->argt->sd[i].addrClient.sin_port) != (int)ntohs(addr_Client.sin_port)))
-            {
-                Sleep(5);
+            /*if(strcmp(inet_ntoa(argClient->argt->sd[i].addrClient.sin_addr),inet_ntoa(addr_Client.sin_addr)) && ((int)ntohs(argClient->argt->sd[i].addrClient.sin_port) != (int)ntohs(addr_Client.sin_port)))
+            {*/
+                Sleep(1);
                 char taille[2];
                 itoa(argClient->argt->size, taille, 10);
                 send(argClient->socket,taille,sizeof(sizeof(char)*2),0);
                 //printf("size %d sended\n",argClient->argt->size);
 
-                Sleep(5);
+                Sleep(1);
                 char bufferX[3] = "";
                 char dataX[4] = "x";
                 itoa(argClient->argt->sd[i].rectangle.x, bufferX, 10);
@@ -52,7 +52,7 @@ void *sendToClient(void *arg)
                 //printf("Sended %s\n",dataY);
                 dataY[4] = '\0';
                 send(argClient->socket,dataY,sizeof(sizeof(char)*4+1),0);
-                Sleep(5);
+                Sleep(1);
 
                 char bufferW[3] = "";
                 char dataW[4] = "w";
@@ -61,7 +61,7 @@ void *sendToClient(void *arg)
                 //printf("Sended %s\n",dataW);
                 dataW[4] = '\0';
                 send(argClient->socket,dataW,sizeof(sizeof(char)*4+1),0);
-                Sleep(5);
+                Sleep(1);
 
                 char bufferH[3] = "";
                 char dataH[4] = "h";
@@ -70,10 +70,10 @@ void *sendToClient(void *arg)
                 //printf("Sended %s\n",dataH);
                 dataH[4] = '\0';
                 send(argClient->socket,dataH,sizeof(sizeof(char)*4+1),0);
-                Sleep(5);
+                Sleep(1);
                 send(argClient->socket,"over",sizeof(sizeof(char)*4+1),0);
-                Sleep(5);
-            }
+                Sleep(1);
+            //}
             i++;
         } while (i < argClient->argt->size);
         send(argClient->socket,"end",sizeof(sizeof(char)*4+1),0);
@@ -106,7 +106,7 @@ void *receiveFromClient(void *arg)
     //on récupère les données de positions des joueurs
     while(argClient->argt->running == TRUE)
     {
-        Sleep(5);
+        Sleep(1);
         recv(argClient->socket,buffer,sizeof(sizeof(char)*4),0);
         //printf("pure data : %s\n",buffer);
         char c = traitData(buffer);

@@ -79,7 +79,7 @@ void *sendPosition(SDL_Rect rect, int rotation)
     //printf("Sended %s\n",dataX);
     dataX[4] = '\0';
     send(*socketServer,dataX,sizeof(sizeof(char)*4),0);
-    Sleep(5);
+    Sleep(1);
 
     char bufferY[3] = "";
     char dataY[4] = "y";
@@ -88,7 +88,7 @@ void *sendPosition(SDL_Rect rect, int rotation)
     //printf("Sended %s\n",dataY);
     dataY[4] = '\0';
     send(*socketServer,dataY,sizeof(sizeof(char)*4),0);
-    Sleep(5);
+    Sleep(1);
 
     char bufferW[3] = "";
     char dataW[4] = "w";
@@ -97,7 +97,7 @@ void *sendPosition(SDL_Rect rect, int rotation)
     //printf("Sended %s\n",dataW);
     dataW[4] = '\0';
     send(*socketServer,dataW,sizeof(sizeof(char)*4),0);
-    Sleep(5);
+    Sleep(1);
 
     char bufferH[3] = "";
     char dataH[4] = "h";
@@ -106,7 +106,7 @@ void *sendPosition(SDL_Rect rect, int rotation)
     //printf("Sended %s\n",dataH);
     dataH[4] = '\0';
     send(*socketServer,dataH,sizeof(sizeof(char)*4),0);
-    Sleep(5);
+    Sleep(1);
 }
 
 void *stopConnection()
