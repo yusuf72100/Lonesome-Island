@@ -72,9 +72,9 @@ void *receiveFromServer()
             i++;
             break;
         case 'e':
-            i = 1;
             p_datas->rectangles = rect;
             p_datas->size = size;
+            i = 1;
             break;
         default:
             //printf("Incorrect data\n");
