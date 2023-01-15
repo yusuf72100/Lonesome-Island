@@ -174,7 +174,7 @@ void *dessinerJoueur(void *arg)
     argDessinerJoueurs *argJ = (argDessinerJoueurs *)arg;
     while(TRUE)
     {
-        Sleep(20);
+        Sleep(5);
         printf("%d\n",argJ->rect.x);
         //SDL_RenderClear(renderer);
         if(SDL_QueryTexture(texture, NULL, NULL, &argJ->rect.w, &argJ->rect.h) != 0)
