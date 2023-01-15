@@ -139,7 +139,7 @@ void *startConnection()
     WSADATA WSAData;
     WSAStartup(MAKEWORD(2,0), &WSAData);
     SOCKADDR_IN addrServer;
-    addrServer.sin_addr.s_addr = inet_addr("90.93.91.79");      //ip publique 90.93.91.79
+    addrServer.sin_addr.s_addr = inet_addr(IP_PUBLIC);      //ip publique 90.93.91.79
     addrServer.sin_family = AF_INET;
     addrServer.sin_port = htons(4148);
     *socketServer = socket(AF_INET,SOCK_STREAM,0);

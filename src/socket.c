@@ -209,7 +209,7 @@ void *startServer()
     //socket du serveur
     SOCKET socketServer;
     SOCKADDR_IN addrServer;
-    addrServer.sin_addr.s_addr = inet_addr("192.168.1.16");     //ip locale
+    addrServer.sin_addr.s_addr = inet_addr(IP_LOCALE);     //ip locale
     addrServer.sin_family = AF_INET;
     addrServer.sin_port = htons(4148);
     socketServer = socket(AF_INET,SOCK_STREAM,0);
