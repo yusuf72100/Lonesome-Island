@@ -41,7 +41,6 @@ void *receiveFromServer()
 
     while(TRUE)
     {
-
         trash = recv(*socketServer,data,sizeof(sizeof(char)*4+1),0);
         //printf("Pure data : %s\n",data);
 

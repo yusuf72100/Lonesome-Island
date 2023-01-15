@@ -23,7 +23,6 @@ void *sendToClient(void *arg)
     {
         do
         {
-
             /*if(strcmp(inet_ntoa(argClient->argt->sd[i].addrClient.sin_addr),inet_ntoa(addr_Client.sin_addr)) && ((int)ntohs(argClient->argt->sd[i].addrClient.sin_port) != (int)ntohs(addr_Client.sin_port)))
             {*/
                 Sleep(1);
