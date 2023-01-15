@@ -36,7 +36,7 @@ void *receiveFromServer()
         {
         case 'x':
             rect[i].x = atoi(data);
-            printf("received rect.x : %s\n",data);
+            //printf("received rect.x : %s\n",data);
             break;
         case 'y':
             rect[i].y = atoi(data);

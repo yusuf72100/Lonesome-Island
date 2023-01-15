@@ -746,6 +746,8 @@ int main(int argc, char *argv[])
                 Sleep(1000);
                 //pthread_create(&receivefromserver,NULL,receiveFromServer,NULL);
                 pthread_create(&sendtoserver,NULL,Send2Server,NULL);  //on créer un client qui se connecte au serveur 
+                Sleep(200);
+                pthread_create(&receivefromserver,NULL,takeToServer,NULL); 
                 play = 1;
             }
 
