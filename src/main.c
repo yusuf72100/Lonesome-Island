@@ -1,7 +1,12 @@
 #include "main.h"
 
 //tank rectangle
-SDL_Rect rectangletank;
+SDL_Rect rectangletank = {
+    .x = 0,
+    .y = 0,
+    .w = 150,
+    .h = 150
+};
 
 Liste *l;
 short loading;
