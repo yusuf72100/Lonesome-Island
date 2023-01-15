@@ -22,7 +22,7 @@ void *takeToServer()
     while(TRUE)
     {
         receiveFromServer();
-        Sleep(10);
+        Sleep(1);
     }
 }
 
