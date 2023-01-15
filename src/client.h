@@ -24,6 +24,13 @@ typedef uint32_t socklen_t;
 static SOCKET *socketServer;
 static int connected;
 
+typedef struct 
+{
+    SDL_Rect *rectangles;
+    int size;
+    
+}playersRect;
+
 static void *clearInput(void *arg);
 
 void *sendPosition(SDL_Rect rectangle, int rotation);

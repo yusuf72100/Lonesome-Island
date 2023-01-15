@@ -14,15 +14,26 @@ int rotation;
 //window init
 SDL_Window *window = NULL;
 SDL_Renderer *renderer = NULL;
+SDL_Texture *texture;
+SDL_Surface *image = NULL;
 
 void SDL_ExitWithError(const char *message);
+
+void *takeToServer()
+{
+    while(TRUE)
+    {
+        receiveFromServer();
+        Sleep(100);
+    }
+}
 
 void *Send2Server()
 {
     while(TRUE)
     {
         sendPosition(rectangletank, rotation);
-        Sleep(50);
+        Sleep(5);
     }
 }
 
@@ -160,42 +171,28 @@ void dessinerTank(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectang
     //SDL_RenderPresent(renderer);
 }
 
-void dessinerJoueur(SDL_Rect rectanglejoueur, int rotation)
+void dessinerJoueur(playersRect *p_datas, int rotation)
 {
-    SDL_Texture *texture;
-    SDL_Surface *image = NULL;
-
-    image = IMG_Load("resources/tank.png");
-
-    if(image == NULL)
+    printf("%d\n",p_datas->rectangles[1].x);
+    for(int i = 1; i<=p_datas->size; i++)
     {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger l'image...");
+        printf("%d\n",i);
+        printf("%d et %d\n",p_datas->rectangles[i].w,p_datas->rectangles[i].h);
+        //SDL_RenderClear(renderer);
+        if(SDL_QueryTexture(texture, NULL, NULL, &p_datas->rectangles[i].w, &p_datas->rectangles[i].h) != 0)
+        {
+            destroyAll(window, renderer);
+            SDL_ExitWithError("Impossible d'afficher la texture du tank...");
+        }
+
+        if(SDL_RenderCopyEx(renderer, texture, NULL, &p_datas->rectangles[i], rotation , NULL, SDL_FLIP_NONE) != 0)
+        {
+            destroyAll(window, renderer);
+            SDL_ExitWithError("Impossible de rotate le tank...");
+        }
+
+        //SDL_RenderPresent(renderer);
     }
-
-    texture = SDL_CreateTextureFromSurface(renderer, image);
-    SDL_FreeSurface(image);
-
-    if(texture == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger la texture...");
-    }
-
-    //SDL_RenderClear(renderer);
-    if(SDL_QueryTexture(texture, NULL, NULL, &rectanglejoueur.w, &rectanglejoueur.h) != 0)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible d'afficher la texture du tank...");
-    }
-
-    if(SDL_RenderCopyEx(renderer, texture, NULL, &rectanglejoueur, rotation , NULL, SDL_FLIP_NONE) != 0)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de rotate le tank...");
-    }
-
-    //SDL_RenderPresent(renderer);
 }
 
 void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, Bullet *b, int rotation, int vitesse)
@@ -296,8 +293,9 @@ int main(int argc, char *argv[])
     pthread_t reloading;
     pthread_t server;
     pthread_t client;
-    pthread_t receivefromserver;
     pthread_t sendtoserver;
+    pthread_t receivefromserver;
+
     Bullet *bullet = NULL;
     char *s;
     rotation = 0;
@@ -403,6 +401,23 @@ int main(int argc, char *argv[])
     {
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de charger la police...");
+    }
+
+    image = IMG_Load("resources/tank.png");
+
+    if(image == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger l'image...");
+    }
+
+    texture = SDL_CreateTextureFromSurface(renderer, image);
+    SDL_FreeSurface(image);
+
+    if(texture == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger la texture...");
     }
 
     texte = TTF_RenderText_Blended(police, "Bienvenue sur mon jeu!", blackColor);
@@ -729,7 +744,7 @@ int main(int argc, char *argv[])
                 if (debug) printf("Play button clicked\n");
                 pthread_create(&client,NULL,startConnection,NULL);  
                 Sleep(1000);
-                pthread_create(&receivefromserver,NULL,receiveFromServer,NULL);
+                //pthread_create(&receivefromserver,NULL,receiveFromServer,NULL);
                 pthread_create(&sendtoserver,NULL,Send2Server,NULL);  //on créer un client qui se connecte au serveur 
                 play = 1;
             }
@@ -738,7 +753,14 @@ int main(int argc, char *argv[])
             {
                 if (debug) printf("Host button clicked\n");
                 pthread_create(&server,NULL,startServer,NULL);          //on héberge le serveur 
+                Sleep(200);
+                pthread_create(&client,NULL,startConnection,NULL);  
                 Sleep(500);
+                /*pthread_create(&receivefromserver,NULL,receiveFromServer,NULL);
+                Sleep(200);*/
+                pthread_create(&sendtoserver,NULL,Send2Server,NULL); 
+                Sleep(200);
+                pthread_create(&receivefromserver,NULL,takeToServer,NULL); 
                 play = 1;
             }
         }
@@ -768,7 +790,7 @@ int main(int argc, char *argv[])
 
         if (play)
         {
-            //dessinerJoueur();
+            Sleep(5);
             //dessinerTank(texturetank, renderer, rectangletank, window, rotation);
         }
         

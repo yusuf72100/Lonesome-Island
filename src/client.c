@@ -1,48 +1,72 @@
-#include "client.h"
 #include "socket.h"
 #include "main.h"
+#include "client.h"
 
 #define dataLen 5
 
+SDL_Rect *rect = NULL;
+playersRect *p_datas = NULL;
 static int connected;
 
 void *receiveFromServer()
 {
+    if(p_datas != NULL) free(p_datas);
+    if(rect != NULL) free(rect);
+    int trash;
     char data[4] = "";
-    SDL_Rect rect;
-    
+    int size = 0;
+    int i = 1;
+    trash = recv(*socketServer,data,sizeof(sizeof(char)*2),0);
+
+    if(data[0]>=0 && atoi(data) <= 10) 
+    {
+        size = atoi(data);
+        rect = malloc(sizeof(rect)*size);
+        p_datas = malloc(sizeof(playersRect));
+    }
+
     while(TRUE)
     {
-        Sleep(100);
-        recv(*socketServer,data,sizeof(sizeof(char)*4+1),0);
+
+        trash = recv(*socketServer,data,sizeof(sizeof(char)*4+1),0);
         //printf("Pure data : %s\n",data);
+
         char c = traitData(data);
         switch (c)
         {
         case 'x':
-            rect.x = atoi(data);
+            rect[i].x = atoi(data);
             printf("received rect.x : %s\n",data);
             break;
         case 'y':
-            rect.y = atoi(data);
-            printf("received rect.y : %d\n",rect.y);
+            rect[i].y = atoi(data);
+            //printf("received rect.y : %d\n",rect[size].y);
             break;     
         case 'w':
-            rect.w = atoi(data);
+            rect[i].w = atoi(data);
             //printf("received rect.w : %d\n",rect.w);
             break;   
         case 'h':
-            rect.h = atoi(data);
+            rect[i].h = atoi(data);
             //printf("received rect.h : %d\n",rect.h);
+            break;
+        case 'o':
+            i++;
             break;
         case 'e':
             //printf("datas: %d %d %d %d\n",rect.x,rect.y,rect.w,rect.h);
-            dessinerJoueur(rect,0); 
+            i = 1;
+            p_datas->rectangles = rect;
+            p_datas->size = size;
+            //printf("%d %d et %d\n",p_datas->rectangles[1].x,p_datas->rectangles[1].y,p_datas->size);
+            //pthread_exit(p_datas);
+            dessinerJoueur(p_datas,0);
             break;
         default:
             //printf("Incorrect data\n");
             break;
         }
+        
     }
 }
 
@@ -94,9 +118,8 @@ void *startConnection()
     char *msg = malloc(sizeof(char)*2+1);
     WSADATA WSAData;
     WSAStartup(MAKEWORD(2,0), &WSAData);
-
     SOCKADDR_IN addrServer;
-    addrServer.sin_addr.s_addr = inet_addr("90.93.91.79");
+    addrServer.sin_addr.s_addr = inet_addr("90.93.91.79");      //ip publique
     addrServer.sin_family = AF_INET;
     addrServer.sin_port = htons(4148);
     *socketServer = socket(AF_INET,SOCK_STREAM,0);
@@ -105,6 +128,7 @@ void *startConnection()
     connected = connect(*socketServer, (const struct sockaddr *)&addrServer, sizeof(addrServer));
     if(connected) printf("Error: connection lost\n");
     else printf("Connected\n");
+
 }
 
 //-lwsock32 -lpthread
