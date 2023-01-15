@@ -27,17 +27,13 @@ void *receiveFromServer()
     char data[4] = "";
     int size = 0;
     int i = 1;
-    trash = recv(*socketServer,data,sizeof(sizeof(char)*2),0);
 
-    if(data[0]>=0 && atoi(data) <= 10) 
-    {
-        size = atoi(data);
-        rect = malloc(sizeof(rect)*size);
-        p_datas = malloc(sizeof(playersRect));
-    }
-    printf("size : %d\n",size);
+    rect = malloc(sizeof(SDL_Rect)*10);
+    p_datas = malloc(sizeof(playersRect));
+
     while(TRUE)
     {
+        //printf("size : %d\n",size);
         trash = recv(*socketServer,data,sizeof(sizeof(char)*4+1),0);
         //printf("Pure data : %s\n",data);
 
@@ -57,6 +53,9 @@ void *receiveFromServer()
         case 'h':
             rect[i].h = atoi(data);
             break;
+        case 's':
+            size = atoi(data);
+            break;    
         case 'o':
             if(displayThreads[i] != THREAD_NULL)
             {
@@ -71,6 +70,7 @@ void *receiveFromServer()
                 arg[i].rotation = 0;
             }
             i++;
+            printf("i: %d\n",i);
             break;
         case 'e':
             p_datas->rectangles = rect;

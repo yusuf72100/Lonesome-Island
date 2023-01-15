@@ -19,11 +19,7 @@ void SDL_ExitWithError(const char *message);
 //on récupère les coordonnées des autres joueurs
 void *takeToServer()
 {
-    while(TRUE)
-    {
-        receiveFromServer();
-        Sleep(1);
-    }
+    receiveFromServer();
 }
 
 void *Send2Server()
