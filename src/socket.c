@@ -11,75 +11,65 @@ static void *clearInput(SOCKET socketClient)
 void *sendToClient(void *arg)
 {
     int err;
-    int i = 1;
+    int i = 1, j = 1;
     send2Client *argClient = (send2Client *)arg;
     SDL_Rect rect;
     SOCKADDR_IN addr_Client;
-    SDL_Rect tab[10];
     struct sockaddr_in* pV4Addr = (struct sockaddr_in*)&addr_Client;
     struct in_addr ipAddr = pV4Addr->sin_addr;
 
-    while(argClient->argt->running == TRUE)
+    do
     {
         do
         {
-            /*if(strcmp(inet_ntoa(argClient->argt->sd[i].addrClient.sin_addr),inet_ntoa(addr_Client.sin_addr)) && ((int)ntohs(argClient->argt->sd[i].addrClient.sin_port) != (int)ntohs(addr_Client.sin_port)))
-            {*/
-                Sleep(1);
-                char taille[2] = "";
-                char dataS[4] = "s";
-                itoa(argClient->argt->size, taille, 10);
-                strcat(dataS, taille);
-                send(argClient->socket,dataS,sizeof(sizeof(char)*2),0);
-                //printf("size %d sended\n",argClient->argt->size);
+            char taille[2] = "";
+            char dataS[4] = "s";
+            itoa(argClient->argt->size, taille, 10);
+            strcat(dataS, taille);
+            send(argClient->socket,dataS,sizeof(sizeof(char)*2),0);
 
-                Sleep(1);
-                char bufferX[3] = "";
-                char dataX[4] = "x";
-                itoa(argClient->argt->sd[i].rectangle.x, bufferX, 10);
-                strcat(dataX, bufferX);
-                //printf("Sended %s\n",dataX);
-                dataX[4] = '\0';
-                if(argClient->socket == INVALID_SOCKET) printf("Error: INVALID SOCKET\n");
-                if(send(argClient->socket,dataX,sizeof(sizeof(char)*4+1),0) == SOCKET_ERROR ) {
-                    printf("Error: SOCKET_ERROR\n");
-                    err = WSAGetLastError();
-                    printf("%d\n",err);
-                }
-                char bufferY[3] = "";
-                char dataY[4] = "y";
-                itoa(argClient->argt->sd[i].rectangle.y, bufferY, 10);
-                strcat(dataY, bufferY);
-                //printf("Sended %s\n",dataY);
-                dataY[4] = '\0';
-                send(argClient->socket,dataY,sizeof(sizeof(char)*4+1),0);
-                Sleep(1);
+            char bufferX[3] = "";
+            char dataX[4] = "x";
+            itoa(argClient->argt->sd[j].rectangle.x, bufferX, 10);
+            strcat(dataX, bufferX);
+            //printf("Sended %s\n",dataX);
+            dataX[4] = '\0';
+            if(argClient->socket == INVALID_SOCKET) printf("Error: INVALID SOCKET\n");
+            if(send(argClient->socket,dataX,sizeof(sizeof(char)*4+1),0) == SOCKET_ERROR ) {
+                printf("Error: SOCKET_ERROR\n");
+                err = WSAGetLastError();
+                printf("%d\n",err);
+            }
+            char bufferY[3] = "";
+            char dataY[4] = "y";
+            itoa(argClient->argt->sd[j].rectangle.y, bufferY, 10);
+            strcat(dataY, bufferY);
+            //printf("Sended %s\n",dataY);
+            dataY[4] = '\0';
+            send(argClient->socket,dataY,sizeof(sizeof(char)*4+1),0);
 
-                char bufferW[3] = "";
-                char dataW[4] = "w";
-                itoa(argClient->argt->sd[i].rectangle.w, bufferW, 10);
-                strcat(dataW, bufferW);
-                //printf("Sended %s\n",dataW);
-                dataW[4] = '\0';
-                send(argClient->socket,dataW,sizeof(sizeof(char)*4+1),0);
-                Sleep(1);
+            char bufferW[3] = "";
+            char dataW[4] = "w";
+            itoa(argClient->argt->sd[j].rectangle.w, bufferW, 10);
+            strcat(dataW, bufferW);
+            //printf("Sended %s\n",dataW);
+            dataW[4] = '\0';
+            send(argClient->socket,dataW,sizeof(sizeof(char)*4+1),0);
 
-                char bufferH[3] = "";
-                char dataH[4] = "h";
-                itoa(argClient->argt->sd[i].rectangle.h, bufferH, 10);
-                strcat(dataH, bufferH);
-                //printf("Sended %s\n",dataH);
-                dataH[4] = '\0';
-                send(argClient->socket,dataH,sizeof(sizeof(char)*4+1),0);
-                Sleep(1);
-                send(argClient->socket,"over",sizeof(sizeof(char)*4+1),0);
-                Sleep(1);
-            //}
-            i++;
-        } while (i <= argClient->argt->size);
+            char bufferH[3] = "";
+            char dataH[4] = "h";
+            itoa(argClient->argt->sd[j].rectangle.h, bufferH, 10);
+            strcat(dataH, bufferH);
+            //printf("Sended %s\n",dataH);
+            dataH[4] = '\0';
+            send(argClient->socket,dataH,sizeof(sizeof(char)*4+1),0);
+            send(argClient->socket,"over",sizeof(sizeof(char)*4+1),0);
+            j++;
+        } while(j<=argClient->argt->size);
+
         send(argClient->socket,"end",sizeof(sizeof(char)*4+1),0);
-        i=1;
-    }
+        i++;
+    } while (i <= argClient->argt->size);
 }
 
 char traitData(char data[])
@@ -96,6 +86,7 @@ char traitData(char data[])
 //fonction qui se lance dans un thread
 void *receiveFromClient(void *arg)
 {
+    pthread_t send_to_client;
     int i = 0;
     char buffer[6] = "";
     send2Client *argClient = (send2Client *)arg;
@@ -137,7 +128,7 @@ void *receiveFromClient(void *arg)
         }
 
         //on clear l'input
-        clearInput(argClient->socket);
+        //clearInput(argClient->socket);
 
         //on stock les données
         struct sockaddr_in* pV4Addr = (struct sockaddr_in*)&addr_Client;
@@ -153,6 +144,7 @@ void *receiveFromClient(void *arg)
         argClient->argt->sd[i].rectangle.y = rect.y;
         argClient->argt->sd[i].rectangle.w = rect.w;
         argClient->argt->sd[i].rectangle.h = rect.h;
+        pthread_create(&send_to_client,NULL,sendToClient,(void *)argClient);
         i=0;
     }
 }
@@ -161,7 +153,6 @@ void *receiveFromClient(void *arg)
 void *searchClients(void *arg)
 {
     pthread_t receive_from_client;
-    pthread_t send_to_client;
     argServer *argt2 = (argServer*)arg;
     socklen_t csize = sizeof(argt2->sd->addrClient);
     SOCKET socketClient;
@@ -189,7 +180,7 @@ void *searchClients(void *arg)
 
         Sleep(500);
         pthread_create(&receive_from_client,NULL,receiveFromClient,(void *)argClient);
-        pthread_create(&send_to_client,NULL,sendToClient,(void *)argClient);
+        //pthread_create(&send_to_client,NULL,sendToClient,(void *)argClient);
     }
 
     printf("close\n");

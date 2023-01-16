@@ -6,17 +6,7 @@ SDL_Rect *rect = NULL;
 playersRect *p_datas = NULL;
 
 static argDessinerJoueurs * arg = NULL;
-static pthread_t * displayThreads = NULL;
 static int connected;
-
-void initThread()
-{
-    displayThreads = malloc(sizeof(pthread_t)*10);
-    arg = malloc(sizeof(argDessinerJoueurs)*10);
-    for(int i = 0; i<10; i++){
-        displayThreads[i] = THREAD_NULL;
-    }
-}
 
 //cette fonction mettra à jour le tableau des positions 
 void *receiveFromServer()
@@ -27,6 +17,7 @@ void *receiveFromServer()
     char data[4] = "";
     int size = 0;
     int i = 1;
+    char c;
 
     rect = malloc(sizeof(SDL_Rect)*10);
     p_datas = malloc(sizeof(playersRect));
@@ -37,49 +28,46 @@ void *receiveFromServer()
         trash = recv(*socketServer,data,sizeof(sizeof(char)*4+1),0);
         //printf("Pure data : %s\n",data);
 
-        char c = traitData(data);
-        switch (c)
+        switch (data[0])
         {
         case 'x':
+            c = traitData(data);
             rect[i].x = atoi(data);
-            //printf("received rect.x : %s\n",data);
+            printf("received rect.x : %s pour i = %d\n",data,i);
             break;
         case 'y':
+            c = traitData(data);
             rect[i].y = atoi(data);
             break;     
         case 'w':
+            c = traitData(data);
             rect[i].w = atoi(data);
             break;   
         case 'h':
+            c = traitData(data);
             rect[i].h = atoi(data);
             break;
         case 's':
+            c = traitData(data);
             size = atoi(data);
             break;    
         case 'o':
-            /*if(displayThreads[i] != THREAD_NULL)
+            if(strcmp(data,"over") == 0)
             {
-                arg[i].rect = rect[i];
-                arg[i].rotation = 0;
-                //printf("rect %d\n",arg[i].rect.x);
+                i++;
             }
-            else {
-                pthread_create(&displayThreads[i],NULL,dessinerJoueur,(void*)&arg[i]);  
-                printf("thread created\n");
-                arg[i].rect = rect[i];
-                arg[i].rotation = 0;
-            }*/
-            //printf("i: %d\n",i);
-            i++;
             break;
         case 'e':
-            p_datas->rectangles = rect;
-            p_datas->size = size;
-            synch_datas(p_datas);
-            i = 1;
+            if(strcmp(data,"end") == 0)
+            {
+                i--;
+                p_datas->rectangles = rect;
+                p_datas->size = size;
+                synch_datas(p_datas);
+                i = 1;
+            }
             break;
         default:
-            //printf("Incorrect data\n");
             break;
         }
     }
@@ -133,7 +121,6 @@ void *stopConnection()
 
 void *startConnection()
 {   
-    initThread();
     socketServer = malloc(sizeof(SOCKET));
     char *msg = malloc(sizeof(char)*2+1);
     WSADATA WSAData;
