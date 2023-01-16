@@ -170,19 +170,19 @@ void dessinerTank(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectang
 
 void dessinerJoueur(SDL_Rect rect)
 {
-    //SDL_RenderClear(renderer);
+
     if(SDL_QueryTexture(texture, NULL, NULL, &rect.w, &rect.h) != 0)
     {
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible d'afficher la texture du tank...");
     }
 
-    if(SDL_RenderCopyEx(renderer, texture, NULL, &rect, rotation , NULL, SDL_FLIP_NONE) != 0)
+    if(SDL_RenderCopyEx(renderer, texture, NULL, &rect, 0 , NULL, SDL_FLIP_NONE) != 0)
     {
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de rotate le tank...");
     }
-    //SDL_RenderPresent(renderer);
+    SDL_RenderPresent(renderer);
 }
 
 void dessinerJoueurs()
