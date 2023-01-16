@@ -1,5 +1,7 @@
 #include "main.h"
 
+static playersRect * pRects = NULL;
+
 //tank rectangle
 SDL_Rect rectangletank = {
     .x = 0,
@@ -16,12 +18,12 @@ SDL_Surface *image = NULL;
 
 void SDL_ExitWithError(const char *message);
 
-//on récupère les coordonnées des autres joueurs
-void *takeToServer()
+void *synch_datas(playersRect * playersRectangles)
 {
-    receiveFromServer();
+    pRects = playersRectangles;
 }
 
+//on envoi nos données
 void *Send2Server()
 {
     while(TRUE)
@@ -165,26 +167,30 @@ void dessinerTank(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectang
     //SDL_RenderPresent(renderer);
 }
 
-void *dessinerJoueur(void *arg)
+void dessinerJoueur(SDL_Rect rect)
 {
-    argDessinerJoueurs *argJ = (argDessinerJoueurs *)arg;
-    while(TRUE)
+    //SDL_RenderClear(renderer);
+    if(SDL_QueryTexture(texture, NULL, NULL, &rect.w, &rect.h) != 0)
     {
-        Sleep(20);
-        //SDL_RenderClear(renderer);
-        if(SDL_QueryTexture(texture, NULL, NULL, &argJ->rect.w, &argJ->rect.h) != 0)
-        {
-            destroyAll(window, renderer);
-            SDL_ExitWithError("Impossible d'afficher la texture du tank...");
-        }
-
-        if(SDL_RenderCopyEx(renderer, texture, NULL, &argJ->rect, rotation , NULL, SDL_FLIP_NONE) != 0)
-        {
-            destroyAll(window, renderer);
-            SDL_ExitWithError("Impossible de rotate le tank...");
-        }
-        //SDL_RenderPresent(renderer);
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible d'afficher la texture du tank...");
     }
+
+    if(SDL_RenderCopyEx(renderer, texture, NULL, &rect, rotation , NULL, SDL_FLIP_NONE) != 0)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de rotate le tank...");
+    }
+    //SDL_RenderPresent(renderer);
+}
+
+void dessinerJoueurs()
+{
+    for(int i = 1; i <= pRects->size; i++)
+    {
+        dessinerJoueur(pRects->rectangles[i]);
+    }
+    SDL_RenderPresent(renderer);
 }
 
 void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, Bullet *b, int rotation, int vitesse)
@@ -202,7 +208,7 @@ void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectan
         SDL_ExitWithError("Impossible de rotate le la balle...");
     }
 
-    SDL_RenderPresent(renderer);
+    //SDL_RenderPresent(renderer);
 }
 
 void initBullet(Bullet * b, int x, int y, int rotation)
@@ -284,7 +290,6 @@ int main(int argc, char *argv[])
     Vecteur vecteur;
     pthread_t reloading;
     pthread_t server;
-    pthread_t client;
     pthread_t sendtoserver;
     pthread_t receivefromserver;
 
@@ -509,6 +514,7 @@ int main(int argc, char *argv[])
     SDL_bool program_launched = SDL_TRUE;
     while(program_launched)
     {
+        SDL_RenderCopy(renderer, background_texture, NULL, NULL);
         SDL_Event event; 
 
         while(SDL_PollEvent(&event))
@@ -735,11 +741,11 @@ int main(int argc, char *argv[])
             if(xMouse>=350+xWindow && xMouse<=450+xWindow && yMouse>=250+yWindow && yMouse<=300+yWindow && !play)
             {
                 if (debug) printf("Play button clicked\n");
-                pthread_create(&client,NULL,startConnection,NULL);  
+                startConnection(); 
                 Sleep(1000);
-                pthread_create(&sendtoserver,NULL,Send2Server,NULL);  //on créer un client qui se connecte au serveur 
+                pthread_create(&sendtoserver,NULL,Send2Server,NULL);        //on créer un client qui se connecte au serveur 
                 Sleep(200);
-                pthread_create(&receivefromserver,NULL,takeToServer,NULL); 
+                pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
                 play = 1;
             }
 
@@ -747,13 +753,13 @@ int main(int argc, char *argv[])
             if(xMouse>=350+xWindow && xMouse<=450+xWindow && yMouse>=450+yWindow && yMouse<=500+yWindow && !play)
             {
                 if (debug) printf("Host button clicked\n");
-                pthread_create(&server,NULL,startServer,NULL);          //on héberge le serveur 
+                pthread_create(&server,NULL,startServer,NULL);              //on héberge le serveur 
                 Sleep(200);
-                pthread_create(&client,NULL,startConnection,NULL);      //on créer un client qui se connecte au serveur
+                startConnection();       //on créer un client qui se connecte au serveur
                 Sleep(500);
                 pthread_create(&sendtoserver,NULL,Send2Server,NULL); 
                 Sleep(200);
-                pthread_create(&receivefromserver,NULL,takeToServer,NULL); 
+                pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
                 play = 1;
             }
         }
@@ -774,16 +780,10 @@ int main(int argc, char *argv[])
             SDL_GetGlobalMouseState(&xMouse,&yMouse);
         }
 
-        Sleep(20);
         if (bullet != NULL)
         {
             //UpdateBullet(bullet);
             //dessinerBalle(texturebullet, renderer, bullet->rectangle, window, bullet, bullet->rotation, bullet->Vitesse);
-        }
-
-        if (play)
-        {
-            //dessinerTank(texturetank, renderer, rectangletank, window, rotation);
         }
         
         if(!hover_playbutton && !play)
@@ -796,10 +796,17 @@ int main(int argc, char *argv[])
             dessinerButton(texture_host_inert, renderer, host_button_rect, window);
         }
 
+        if (play)
+        {
+            //dessinerTank(texturetank, renderer, rectangletank, window, rotation);
+            if(pRects != NULL) dessinerJoueurs();;
+        }
+
         buttonHoverPlay(window, texture_play_hover, renderer, play_button_rect);
         buttonHoverHost(window, texture_host_hover, renderer, host_button_rect);
         SDL_RenderPresent(renderer);
-        SDL_RenderCopy(renderer, background_texture, NULL, NULL);
+
+        Sleep(20);
     }  
 
     //free window

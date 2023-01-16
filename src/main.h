@@ -23,11 +23,13 @@ static int rotation;
 
 void SDL_ExitWithError(const char *message);
 
+void *synch_datas(playersRect * playersRectangles);
+
 void *Send2Server();
 
 Vecteur InitVecteur(int angle, int vitesse);
 
-void *dessinerJoueur(void *arg);
+void dessinerJoueur(SDL_Rect rect);
 
 void destroyAll(SDL_Window *window, SDL_Renderer *renderer);
 
