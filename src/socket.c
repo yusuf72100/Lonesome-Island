@@ -101,14 +101,14 @@ void *receiveFromClient(void *arg)
     {
         Sleep(5);
         recv(argClient->socket,buffer,sizeof(sizeof(char)*4),0);
-        printf("pure data : %s\n",buffer);
+        //printf("pure data : %s\n",buffer);
         char c = traitData(buffer);
-        //printf("pure tranformed : %s\n",buffer);
+        printf("transformed data : %s\n",buffer);
         switch (c)
         {
         case 'x':
             rect.x = atoi(buffer);
-            //printf("received rect.x : %s\n",recvBuffer);
+            printf("received rect.x : %s\n",recvBuffer);
             break;
         case 'y':
             rect.y = atoi(buffer);
@@ -122,7 +122,6 @@ void *receiveFromClient(void *arg)
             rect.h = atoi(buffer);
             //printf("received rect.y : %d\n",rect.y);
             break;
-
         default:
             //printf("Incorrect data %c\n",c);
             break;
