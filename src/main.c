@@ -750,7 +750,7 @@ int main(int argc, char *argv[])
                 Sleep(1000);
                 /*pthread_create(&sendtoserver,NULL,Send2Server,NULL);    
                 Sleep(200);*/
-                Send2Server();   
+                //Send2Server();   
                 pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
                 play = 1;
             }
@@ -765,7 +765,7 @@ int main(int argc, char *argv[])
                 Sleep(500);
                 /*pthread_create(&sendtoserver,NULL,Send2Server,NULL); 
                 Sleep(200);*/
-                Send2Server();   
+                //Send2Server();   
                 pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
                 play = 1;
             }

@@ -63,6 +63,8 @@ typedef struct
 
 }send2Client;
 
+void *clearInput(SOCKET socketClient);
+
 //fonction qui accepte les clients
 void *searchClients(void *argt);
 

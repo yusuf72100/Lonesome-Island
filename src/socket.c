@@ -1,6 +1,6 @@
 #include "socket.h"
 
-static void *clearInput(SOCKET socketClient)
+void *clearInput(SOCKET socketClient)
 {
     recv(socketClient,recvBuffer,dataLen,0);
     recv(socketClient,recvBuffer,dataLen,0);

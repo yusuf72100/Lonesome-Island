@@ -26,14 +26,14 @@ void *receiveFromServer()
     {
         //printf("size : %d\n",size);
         trash = recv(*socketServer,data,sizeof(sizeof(char)*4+1),0);
-        //printf("Pure data : %s\n",data);
+        printf("Pure data : %s\n",data);
 
         switch (data[0])
         {
         case 'x':
             c = traitData(data);
             rect[i].x = atoi(data);
-            printf("received rect.x : %s pour i = %d\n",data,i);
+            //printf("received rect.x : %s pour i = %d\n",data,i);
             break;
         case 'y':
             c = traitData(data);
@@ -126,7 +126,7 @@ void *startConnection()
     WSADATA WSAData;
     WSAStartup(MAKEWORD(2,0), &WSAData);
     SOCKADDR_IN addrServer;
-    addrServer.sin_addr.s_addr = inet_addr(IP_PUBLIC);      
+    addrServer.sin_addr.s_addr = inet_addr(IP_LOCALE);      
     addrServer.sin_family = AF_INET;
     addrServer.sin_port = htons(4148);
     *socketServer = socket(AF_INET,SOCK_STREAM,0);

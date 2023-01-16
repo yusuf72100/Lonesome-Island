@@ -40,8 +40,6 @@ typedef struct
     
 }playersRect;
 
-static void *clearInput(void *arg);
-
 void *sendPosition(SDL_Rect rectangle, int rotation);
 
 void *stopConnection();
