@@ -40,6 +40,7 @@ void *sendToClient(void *arg)
                 err = WSAGetLastError();
                 printf("%d\n",err);
             }
+            
             char bufferY[3] = "";
             char dataY[4] = "y";
             itoa(argClient->argt->sd[j].rectangle.y, bufferY, 10);
@@ -100,7 +101,7 @@ void *receiveFromClient(void *arg)
     {
         Sleep(5);
         recv(argClient->socket,buffer,sizeof(sizeof(char)*4),0);
-        //printf("pure data : %s\n",buffer);
+        printf("pure data : %s\n",buffer);
         char c = traitData(buffer);
         //printf("pure tranformed : %s\n",buffer);
         switch (c)
