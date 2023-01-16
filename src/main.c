@@ -13,7 +13,7 @@ SDL_Rect rectangletank = {
 //window init
 SDL_Window *window = NULL;
 SDL_Renderer *renderer = NULL;
-SDL_Texture *texture;
+SDL_Texture *texture = NULL;
 SDL_Surface *image = NULL;
 
 void SDL_ExitWithError(const char *message);
@@ -799,7 +799,7 @@ int main(int argc, char *argv[])
         if (play)
         {
             //dessinerTank(texturetank, renderer, rectangletank, window, rotation);
-            if(pRects != NULL) dessinerJoueurs();;
+            if(pRects != NULL) dessinerJoueurs();
         }
 
         buttonHoverPlay(window, texture_play_hover, renderer, play_button_rect);
