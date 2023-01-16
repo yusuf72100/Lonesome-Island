@@ -18,6 +18,7 @@ SDL_Surface *image = NULL;
 
 void SDL_ExitWithError(const char *message);
 
+//on récupère les données du socket
 void *synch_datas(playersRect * playersRectangles)
 {
     pRects = playersRectangles;
@@ -29,7 +30,7 @@ void *Send2Server()
     while(TRUE)
     {
         sendPosition(rectangletank, rotation);
-        Sleep(5);
+        Sleep(20);
     }
 }
 
