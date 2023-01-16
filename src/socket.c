@@ -27,12 +27,12 @@ void *sendToClient(void *arg)
             itoa(argClient->argt->size, taille, 10);
             strcat(dataS, taille);
             send(argClient->socket,dataS,sizeof(sizeof(char)*2),0);
-
+            
             char bufferX[3] = "";
             char dataX[4] = "x";
             itoa(argClient->argt->sd[j].rectangle.x, bufferX, 10);
             strcat(dataX, bufferX);
-            //printf("Sended %s\n",dataX);
+            printf("Sended %d\n",argClient->argt->sd[j].rectangle.x);
             dataX[4] = '\0';
             if(argClient->socket == INVALID_SOCKET) printf("Error: INVALID SOCKET\n");
             if(send(argClient->socket,dataX,sizeof(sizeof(char)*4+1),0) == SOCKET_ERROR ) {
@@ -141,7 +141,8 @@ void *receiveFromClient(void *arg)
         argClient->argt->sd[i].rectangle.y = rect.y;
         argClient->argt->sd[i].rectangle.w = rect.w;
         argClient->argt->sd[i].rectangle.h = rect.h;
-        pthread_create(&send_to_client,NULL,sendToClient,(void *)argClient);
+        //pthread_create(&send_to_client,NULL,sendToClient,(void *)argClient);
+        sendToClient((void *)argClient);
         i=0;
     }
 }
