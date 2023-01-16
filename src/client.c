@@ -26,7 +26,7 @@ void *receiveFromServer()
     {
         //printf("size : %d\n",size);
         trash = recv(*socketServer,data,sizeof(sizeof(char)*4+1),0);
-        printf("Pure data : %s\n",data);
+        //printf("Pure data : %s\n",data);
 
         switch (data[0])
         {

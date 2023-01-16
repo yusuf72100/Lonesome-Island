@@ -127,9 +127,6 @@ void *receiveFromClient(void *arg)
             break;
         }
 
-        //on clear l'input
-        //clearInput(argClient->socket);
-
         //on stock les données
         struct sockaddr_in* pV4Addr = (struct sockaddr_in*)&addr_Client;
         struct in_addr ipAddr = pV4Addr->sin_addr;
