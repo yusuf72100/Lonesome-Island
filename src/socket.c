@@ -8,7 +8,18 @@ void *clearInput(SOCKET socketClient)
     recv(socketClient,recvBuffer,dataLen,0);
 }
 
-//cette fonction déconne
+char traitData(char data[])
+{
+    int i;
+    char buffer = data[0];
+    for(i = 0; data[i]!='\0'; i++){
+        data[i] = data[i+1];
+    }
+    data[i] = '\0';
+    return buffer;
+}
+
+//envoi les données aux clients
 void *sendToClient(void *arg)
 {
     int err;
@@ -19,8 +30,11 @@ void *sendToClient(void *arg)
     struct sockaddr_in* pV4Addr = (struct sockaddr_in*)&addr_Client;
     struct in_addr ipAddr = pV4Addr->sin_addr;
 
+    //à tout le monde
     do
     {
+        //printf("destinataire %d\n",i);
+        //on envoi les coordonnées de tout le monde
         do
         {
             char taille[2] = "";
@@ -31,7 +45,7 @@ void *sendToClient(void *arg)
             
             char bufferX[3] = "";
             char dataX[4] = "x";
-            itoa(argClient->argt->sd[i].rectangle.x, bufferX, 10);
+            itoa(argClient->argt->sd[j].rectangle.x, bufferX, 10);
             strcat(dataX, bufferX);
             //printf("Sended %d j: %d et size: %d\n",argClient->argt->sd[1].rectangle.x,j,argClient->argt->size);
             dataX[4] = '\0';
@@ -68,21 +82,11 @@ void *sendToClient(void *arg)
             send(argClient->socket,"over",sizeof(sizeof(char)*4+1),0);
             j++;
         } while(j < argClient->argt->size);
-
+        j=1;
         send(argClient->socket,"end",sizeof(sizeof(char)*4+1),0);
         i++;
     } while (i < argClient->argt->size);
-}
-
-char traitData(char data[])
-{
-    int i;
-    char buffer = data[0];
-    for(i = 0; data[i]!='\0'; i++){
-        data[i] = data[i+1];
-    }
-    data[i] = '\0';
-    return buffer;
+    i=1;
 }
 
 //fonction qui se lance dans un thread
@@ -108,7 +112,7 @@ void *receiveFromClient(void *arg)
         {
         case 'x':
             rect.x = atoi(buffer);
-            //printf("received rect.x : %d\n",rect.x);
+            printf("received rect.x : %d\n",rect.x);
             break;
         case 'y':
             rect.y = atoi(buffer);

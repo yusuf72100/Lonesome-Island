@@ -186,6 +186,7 @@ void dessinerJoueurs()
     for(int i = 1; i <= pRects->size; i++)
     {
         dessinerJoueur(pRects->rectangles[i]);
+        //printf("Joueur %d : x %d y %d\n",i,pRects->rectangles[i].x,pRects->rectangles[i].y);
     }
     SDL_RenderPresent(renderer);
 }
