@@ -62,7 +62,6 @@ typedef struct
     SOCKET socket;
     int port;
     argServer * argt;
-
 }send2Client;
 
 void *clearInput(SOCKET socketClient);

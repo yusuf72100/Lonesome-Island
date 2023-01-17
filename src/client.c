@@ -59,14 +59,12 @@ void *receiveFromServer()
             }
             break;
         case 'e':
-            if(strcmp(data,"end") == 0)
-            {
-                i--;
-                p_datas->rectangles = rect;
-                p_datas->size = size;
-                synch_datas(p_datas);
-                i = 1;
-            }
+            c = traitData(data);
+            i--;
+            p_datas->rectangles = rect;
+            p_datas->size = size;
+            synch_datas(p_datas);
+            i = 1;
             break;
         default:
             break;
@@ -83,7 +81,6 @@ void *sendPosition(SDL_Rect rect, int rotation)
     //printf("Sended %s\n",dataX);
     dataX[4] = '\0';
     send(*socket_Server,dataX,sizeof(sizeof(char)*4),0);
-    Sleep(5);
 
     char bufferY[3] = "";
     char dataY[4] = "y";
@@ -92,7 +89,6 @@ void *sendPosition(SDL_Rect rect, int rotation)
     //printf("Sended %s\n",dataY);
     dataY[4] = '\0';
     send(*socket_Server,dataY,sizeof(sizeof(char)*4),0);
-    Sleep(5);
 
     char bufferW[3] = "";
     char dataW[4] = "w";
@@ -101,7 +97,6 @@ void *sendPosition(SDL_Rect rect, int rotation)
     //printf("Sended %s\n",dataW);
     dataW[4] = '\0';
     send(*socket_Server,dataW,sizeof(sizeof(char)*4),0);
-    Sleep(5);
 
     char bufferH[3] = "";
     char dataH[4] = "h";
@@ -110,7 +105,6 @@ void *sendPosition(SDL_Rect rect, int rotation)
     //printf("Sended %s\n",dataH);
     dataH[4] = '\0';
     send(*socket_Server,dataH,sizeof(sizeof(char)*4),0);
-    Sleep(5);
 }
 
 void *stopConnection()
@@ -127,7 +121,7 @@ void *startConnection()
     WSADATA WSAData;
     WSAStartup(MAKEWORD(2,0), &WSAData);
     SOCKADDR_IN addrServer;
-    addrServer.sin_addr.s_addr = inet_addr(IP_PUBLIC);      
+    addrServer.sin_addr.s_addr = inet_addr(IP_LOCALE);      
     addrServer.sin_family = AF_INET;
     addrServer.sin_port = htons(4148);
     *socket_Server = socket(AF_INET,SOCK_STREAM,0);

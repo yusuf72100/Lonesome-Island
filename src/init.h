@@ -7,8 +7,8 @@
 #include <SDL.h>  
 #include <SDL_image.h>
 #include <SDL_ttf.h>
-#include "liste.h"
 
 /* CE FICHIER CONTIENDRA TOUTES LES DECLARATIONS DE TOUTES LES VARAIBLES DU PROGRAMME */
+int indice;
 
 #endif

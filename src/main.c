@@ -22,6 +22,7 @@ void SDL_ExitWithError(const char *message);
 void *synch_datas(playersRect * playersRectangles)
 {
     pRects = playersRectangles;
+
 }
 
 //on envoi nos données
@@ -646,8 +647,8 @@ int main(int argc, char *argv[])
             {
                 if (debug) printf("Touche SDLK_z pressee | %s\n", eventTime());
                 rectangletank.y = rectangletank.y - 1;
-                //pthread_create(&sendtoserver,NULL,Send2Server,NULL); 
-                Send2Server();   
+                pthread_create(&sendtoserver,NULL,Send2Server,NULL); 
+                //Send2Server();   
                 /*vecteur = InitVecteur(rotation, 2);
                 rectangletank.x += (int)vecteur.x;
                 rectangletank.y += (int)vecteur.y;*/
@@ -663,8 +664,8 @@ int main(int argc, char *argv[])
             {
                 if (debug) printf("Touche SDLK_q pressee | %s\n", eventTime());
                 rectangletank.x = rectangletank.x - 1;
-                //pthread_create(&sendtoserver,NULL,Send2Server,NULL);  
-                Send2Server(); 
+                pthread_create(&sendtoserver,NULL,Send2Server,NULL);  
+                //Send2Server(); 
             }
         }
 
@@ -675,8 +676,8 @@ int main(int argc, char *argv[])
             {
                 if (debug) printf("Touche SDLK_s pressee | %s\n", eventTime());
                 rectangletank.y = rectangletank.y + 1;
-                //pthread_create(&sendtoserver,NULL,Send2Server,NULL);   
-                Send2Server(); 
+                pthread_create(&sendtoserver,NULL,Send2Server,NULL);   
+                //Send2Server(); 
             }
         }
 
@@ -687,8 +688,8 @@ int main(int argc, char *argv[])
             {
                 if (debug) printf("Touche SDLK_d pressee | %s\n", eventTime());
                 rectangletank.x = rectangletank.x + 1;
-                //pthread_create(&sendtoserver,NULL,Send2Server,NULL);   
-                Send2Server(); 
+                pthread_create(&sendtoserver,NULL,Send2Server,NULL);   
+                //Send2Server(); 
             }
         }
 
@@ -749,8 +750,7 @@ int main(int argc, char *argv[])
                 if (debug) printf("Play button clicked\n");
                 startConnection();      //on créer un client qui se connecte au serveur 
                 Sleep(1000);
-                /*pthread_create(&sendtoserver,NULL,Send2Server,NULL);    
-                Sleep(200);*/
+                pthread_create(&sendtoserver,NULL,Send2Server,NULL);    
                 //Send2Server();   
                 pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
                 play = 1;
@@ -764,8 +764,8 @@ int main(int argc, char *argv[])
                 Sleep(200);
                 startConnection();       //on créer un client qui se connecte au serveur
                 Sleep(500);
-                /*pthread_create(&sendtoserver,NULL,Send2Server,NULL); 
-                Sleep(200);*/
+                pthread_create(&sendtoserver,NULL,Send2Server,NULL); 
+                //Sleep(200);
                 //Send2Server();   
                 pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
                 play = 1;

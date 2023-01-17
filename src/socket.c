@@ -1,13 +1,5 @@
 #include "socket.h"
 
-void *clearInput(SOCKET socketClient)
-{
-    recv(socketClient,recvBuffer,dataLen,0);
-    recv(socketClient,recvBuffer,dataLen,0);
-    recv(socketClient,recvBuffer,dataLen,0);
-    recv(socketClient,recvBuffer,dataLen,0);
-}
-
 char traitData(char data[])
 {
     int i;
@@ -25,7 +17,6 @@ void *sendToClient(void *arg)
     int err;
     int i = 1, j = 1;
     send2Client *argClient = (send2Client *)arg;
-    SDL_Rect rect;
     SOCKADDR_IN addr_Client;
     struct sockaddr_in* pV4Addr = (struct sockaddr_in*)&addr_Client;
     struct in_addr ipAddr = pV4Addr->sin_addr;
@@ -33,7 +24,6 @@ void *sendToClient(void *arg)
     //à tout le monde
     do
     {
-        //printf("destinataire %d\n",i);
         //on envoi les coordonnées de tout le monde
         do
         {
@@ -42,7 +32,7 @@ void *sendToClient(void *arg)
             itoa(argClient->argt->size, taille, 10);
             strcat(dataS, taille);
             send(argClient->argt->sd[i].clientSocket,dataS,sizeof(sizeof(char)*2),0);
-            
+
             char bufferX[3] = "";
             char dataX[4] = "x";
             itoa(argClient->argt->sd[j].rectangle.x, bufferX, 10);
@@ -55,7 +45,7 @@ void *sendToClient(void *arg)
                 err = WSAGetLastError();
                 printf("%d\n",err);
             }
-            
+
             char bufferY[3] = "";
             char dataY[4] = "y";
             itoa(argClient->argt->sd[j].rectangle.y, bufferY, 10);
