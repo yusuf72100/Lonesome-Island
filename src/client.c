@@ -59,12 +59,14 @@ void *receiveFromServer()
             }
             break;
         case 'e':
-            c = traitData(data);
-            i--;
-            p_datas->rectangles = rect;
-            p_datas->size = size;
-            synch_datas(p_datas);
-            i = 1;
+            if(strcmp(data,"end") == 0)
+            {
+                i--;
+                p_datas->rectangles = rect;
+                p_datas->size = size;
+                synch_datas(p_datas);
+                i = 1;
+            }
             break;
         default:
             break;
