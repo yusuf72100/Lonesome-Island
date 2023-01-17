@@ -41,7 +41,7 @@ void *sendToClient(void *arg)
             char dataS[4] = "s";
             itoa(argClient->argt->size, taille, 10);
             strcat(dataS, taille);
-            send(argClient->socket,dataS,sizeof(sizeof(char)*2),0);
+            send(argClient->argt->sd[i].clientSocket,dataS,sizeof(sizeof(char)*2),0);
             
             char bufferX[3] = "";
             char dataX[4] = "x";
@@ -50,7 +50,7 @@ void *sendToClient(void *arg)
             //printf("Sended %d j: %d et size: %d\n",argClient->argt->sd[1].rectangle.x,j,argClient->argt->size);
             dataX[4] = '\0';
             if(argClient->socket == INVALID_SOCKET) printf("Error: INVALID SOCKET\n");
-            if(send(argClient->socket,dataX,sizeof(sizeof(char)*4+1),0) == SOCKET_ERROR ) {
+            if(send(argClient->argt->sd[i].clientSocket,dataX,sizeof(sizeof(char)*4+1),0) == SOCKET_ERROR ) {
                 printf("Error: SOCKET_ERROR\n");
                 err = WSAGetLastError();
                 printf("%d\n",err);
@@ -62,7 +62,7 @@ void *sendToClient(void *arg)
             strcat(dataY, bufferY);
             //printf("Sended %s\n",dataY);
             dataY[4] = '\0';
-            send(argClient->socket,dataY,sizeof(sizeof(char)*4+1),0);
+            send(argClient->argt->sd[i].clientSocket,dataY,sizeof(sizeof(char)*4+1),0);
 
             char bufferW[3] = "";
             char dataW[4] = "w";
@@ -70,7 +70,7 @@ void *sendToClient(void *arg)
             strcat(dataW, bufferW);
             //printf("Sended %s\n",dataW);
             dataW[4] = '\0';
-            send(argClient->socket,dataW,sizeof(sizeof(char)*4+1),0);
+            send(argClient->argt->sd[i].clientSocket,dataW,sizeof(sizeof(char)*4+1),0);
 
             char bufferH[3] = "";
             char dataH[4] = "h";
@@ -78,12 +78,12 @@ void *sendToClient(void *arg)
             strcat(dataH, bufferH);
             //printf("Sended %s\n",dataH);
             dataH[4] = '\0';
-            send(argClient->socket,dataH,sizeof(sizeof(char)*4+1),0);
-            send(argClient->socket,"over",sizeof(sizeof(char)*4+1),0);
+            send(argClient->argt->sd[i].clientSocket,dataH,sizeof(sizeof(char)*4+1),0);
+            send(argClient->argt->sd[i].clientSocket,"over",sizeof(sizeof(char)*4+1),0);
             j++;
         } while(j < argClient->argt->size);
         j=1;
-        send(argClient->socket,"end",sizeof(sizeof(char)*4+1),0);
+        send(argClient->argt->sd[i].clientSocket,"end",sizeof(sizeof(char)*4+1),0);
         i++;
     } while (i < argClient->argt->size);
     i=1;
@@ -112,7 +112,7 @@ void *receiveFromClient(void *arg)
         {
         case 'x':
             rect.x = atoi(buffer);
-            printf("received rect.x : %d\n",rect.x);
+            //printf("received rect.x : %d\n",rect.x);
             break;
         case 'y':
             rect.y = atoi(buffer);
@@ -173,6 +173,7 @@ void *searchClients(void *arg)
             struct sockaddr_in* pV4Addr = (struct sockaddr_in*)&argt2->sd[argt2->size].addrClient;
             struct in_addr ipAddr = pV4Addr->sin_addr;
             argt2->sd[argt2->size].socketServer = socketServer;
+            argt2->sd[argt2->size].clientSocket = socketClient;
             printf("1 new client connected with ip %s and port %d\n",inet_ntoa(argt2->sd[argt2->size-1].addrClient.sin_addr), (int)ntohs(argt2->sd[argt2->size-1].addrClient.sin_port));
             printf("Connected clients : %d\n",argt2->size-1);
             argt2->size++;
