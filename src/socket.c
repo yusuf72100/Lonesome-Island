@@ -137,8 +137,8 @@ void *receiveFromClient(void *arg)
         argClient->argt->sd[i].rectangle.y = rect.y;
         argClient->argt->sd[i].rectangle.w = rect.w;
         argClient->argt->sd[i].rectangle.h = rect.h;
-        //pthread_create(&send_to_client,NULL,sendToClient,(void *)argClient);
-        sendToClient((void *)argClient);
+        pthread_create(&send_to_client,NULL,sendToClient,(void *)argClient);
+        //sendToClient((void *)argClient);
         i=0;
     }
 }
