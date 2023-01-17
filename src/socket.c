@@ -174,7 +174,7 @@ void *searchClients(void *arg)
             struct in_addr ipAddr = pV4Addr->sin_addr;
             argt2->sd[argt2->size].socketServer = socketServer;
             argt2->sd[argt2->size].clientSocket = socketClient;
-            printf("1 new client connected with ip %s and port %d\n",inet_ntoa(argt2->sd[argt2->size-1].addrClient.sin_addr), (int)ntohs(argt2->sd[argt2->size-1].addrClient.sin_port));
+            printf("1 new client connected with ip %s and port %d\n",inet_ntoa(argt2->sd[argt2->size].addrClient.sin_addr), (int)ntohs(argt2->sd[argt2->size].addrClient.sin_port));
             printf("Connected clients : %d\n",argt2->size-1);
             argt2->size++;
         }
