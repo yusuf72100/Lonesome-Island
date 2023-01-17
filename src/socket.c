@@ -94,10 +94,6 @@ void *receiveFromClient(void *arg)
     send2Client *argClient = (send2Client *)arg;
     SDL_Rect rect;
 
-    //on stock les données
-    //struct sockaddr_in* pV4Addr = (struct sockaddr_in*)&argClient->socket;
-    //struct in_addr ipAddr = pV4Addr->sin_addr;
-
     struct sockaddr_in sin;
     socklen_t len = sizeof(sin);
     if (getsockname(argClient->socket, (struct sockaddr *)&sin, &len) == -1)
@@ -138,11 +134,16 @@ void *receiveFromClient(void *arg)
             break;
         }
 
+        //on stock les données
+        /*struct sockaddr_in* pV4Addr = (struct sockaddr_in*)&argClient->socket;
+        struct in_addr ipAddr = pV4Addr->sin_addr;
+        socklen_t len = sizeof(*pV4Addr);*/
+
         do
         {
             i++;
             printf("%s %s et \n%d %d\n",inet_ntoa(argClient->argt->sd[i].addrClient.sin_addr),inet_ntoa(sin.sin_addr),(int)ntohs(argClient->argt->sd[i].addrClient.sin_port),(int)ntohs(sin.sin_port));
-        } while (strcmp(inet_ntoa(argClient->argt->sd[i].addrClient.sin_addr),inet_ntoa(sin.sin_addr)) !=0 || ((int)ntohs(argClient->argt->sd[i].addrClient.sin_port) != (int)ntohs(sin.sin_port)));
+        } while (strcmp(inet_ntoa(argClient->argt->sd[i].addrClient.sin_addr),inet_ntoa(sin.sin_addr)) || ((int)ntohs(argClient->argt->sd[i].addrClient.sin_port) != (int)ntohs(sin.sin_port)));
 
         //for(int i = 1; i<argClient->argt->size;i++) printf("%s et %s\n",inet_ntoa(argClient->argt->sd[i].addrClient.sin_addr),inet_ntoa(ipAddr));
 
