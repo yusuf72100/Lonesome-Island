@@ -142,8 +142,8 @@ void *receiveFromClient(void *arg)
         do
         {
             i++;
-            printf("%s %s et \n%d %d\n",inet_ntoa(argClient->argt->sd[i].addrClient.sin_addr),inet_ntoa(sin.sin_addr),(int)ntohs(argClient->argt->sd[i].addrClient.sin_port),(int)ntohs(sin.sin_port));
-        } while (strcmp(inet_ntoa(argClient->argt->sd[i].addrClient.sin_addr),inet_ntoa(sin.sin_addr)) || ((int)ntohs(argClient->argt->sd[i].addrClient.sin_port) != (int)ntohs(sin.sin_port)));
+            printf("%s %s et \n%d %d\n",inet_ntoa(argClient->argt->sd[i].addrClient.sin_addr),inet_ntoa(ipAddr),(int)ntohs(argClient->argt->sd[i].addrClient.sin_port), argClient->port);
+        } while (strcmp(inet_ntoa(argClient->argt->sd[i].addrClient.sin_addr),inet_ntoa(ipAddr)) || ((int)ntohs(argClient->argt->sd[i].addrClient.sin_port) != argClient->port));
 
         //for(int i = 1; i<argClient->argt->size;i++) printf("%s et %s\n",inet_ntoa(argClient->argt->sd[i].addrClient.sin_addr),inet_ntoa(ipAddr));
 
@@ -185,6 +185,7 @@ void *searchClients(void *arg)
 
         send2Client *argClient = malloc(sizeof(send2Client));
         argClient->socket = socketClient;
+        argClient->port = (int)ntohs(argt2->sd[argt2->size].addrClient.sin_port);
         argClient->argt = argt2;
     
         Sleep(500);
