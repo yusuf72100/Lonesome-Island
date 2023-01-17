@@ -141,13 +141,11 @@ void *receiveFromClient(void *arg)
 
         do
         {
+            //on cherche la position du client dans le tableau de données
             i++;
-            printf("%s %s et \n%d %d\n",inet_ntoa(argClient->argt->sd[i].addrClient.sin_addr),inet_ntoa(ipAddr),(int)ntohs(argClient->argt->sd[i].addrClient.sin_port), argClient->port);
         } while (strcmp(inet_ntoa(argClient->argt->sd[i].addrClient.sin_addr),inet_ntoa(ipAddr)) || ((int)ntohs(argClient->argt->sd[i].addrClient.sin_port) != argClient->port));
 
-        //for(int i = 1; i<argClient->argt->size;i++) printf("%s et %s\n",inet_ntoa(argClient->argt->sd[i].addrClient.sin_addr),inet_ntoa(ipAddr));
-
-        printf("find at position %d\n",i);
+        //printf("find at position %d\n",i);
         argClient->argt->sd[i].rectangle.x = rect.x;
         argClient->argt->sd[i].rectangle.y = rect.y;
         argClient->argt->sd[i].rectangle.w = rect.w;
