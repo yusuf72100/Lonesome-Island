@@ -94,12 +94,12 @@ void *receiveFromClient(void *arg)
     send2Client *argClient = (send2Client *)arg;
     SDL_Rect rect;
 
-    struct sockaddr_in sin;
+    /*struct sockaddr_in sin;
     socklen_t len = sizeof(sin);
     if (getsockname(argClient->socket, (struct sockaddr *)&sin, &len) == -1)
         perror("getsockname");
     else
-        printf("port number %d\n", ntohs(sin.sin_port));
+        printf("port number %d\n", ntohs(sin.sin_port));*/
 
     if(argClient->socket != INVALID_SOCKET) printf("Ready to receive\n");
     
@@ -135,9 +135,9 @@ void *receiveFromClient(void *arg)
         }
 
         //on stock les données
-        /*struct sockaddr_in* pV4Addr = (struct sockaddr_in*)&argClient->socket;
+        struct sockaddr_in* pV4Addr = (struct sockaddr_in*)&argClient->socket;
         struct in_addr ipAddr = pV4Addr->sin_addr;
-        socklen_t len = sizeof(*pV4Addr);*/
+        socklen_t len = sizeof(*pV4Addr);
 
         do
         {
