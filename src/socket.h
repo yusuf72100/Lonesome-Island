@@ -32,6 +32,7 @@
 typedef uint32_t socklen_t;
 
 static char recvBuffer[dataLen]; 
+static SOCKET socketServer;
 
 typedef struct 
 {

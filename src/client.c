@@ -25,7 +25,7 @@ void *receiveFromServer()
     while(TRUE)
     {
         //printf("size : %d\n",size);
-        trash = recv(*socketServer,data,sizeof(sizeof(char)*4+1),0);
+        trash = recv(*socket_Server,data,sizeof(sizeof(char)*4+1),0);
         //printf("Pure data : %s\n",data);
 
         switch (data[0])
@@ -81,7 +81,7 @@ void *sendPosition(SDL_Rect rect, int rotation)
     strcat(dataX, bufferX);
     //printf("Sended %s\n",dataX);
     dataX[4] = '\0';
-    send(*socketServer,dataX,sizeof(sizeof(char)*4),0);
+    send(*socket_Server,dataX,sizeof(sizeof(char)*4),0);
     Sleep(5);
 
     char bufferY[3] = "";
@@ -90,7 +90,7 @@ void *sendPosition(SDL_Rect rect, int rotation)
     strcat(dataY, bufferY);
     //printf("Sended %s\n",dataY);
     dataY[4] = '\0';
-    send(*socketServer,dataY,sizeof(sizeof(char)*4),0);
+    send(*socket_Server,dataY,sizeof(sizeof(char)*4),0);
     Sleep(5);
 
     char bufferW[3] = "";
@@ -99,7 +99,7 @@ void *sendPosition(SDL_Rect rect, int rotation)
     strcat(dataW, bufferW);
     //printf("Sended %s\n",dataW);
     dataW[4] = '\0';
-    send(*socketServer,dataW,sizeof(sizeof(char)*4),0);
+    send(*socket_Server,dataW,sizeof(sizeof(char)*4),0);
     Sleep(5);
 
     char bufferH[3] = "";
@@ -108,20 +108,20 @@ void *sendPosition(SDL_Rect rect, int rotation)
     strcat(dataH, bufferH);
     //printf("Sended %s\n",dataH);
     dataH[4] = '\0';
-    send(*socketServer,dataH,sizeof(sizeof(char)*4),0);
+    send(*socket_Server,dataH,sizeof(sizeof(char)*4),0);
     Sleep(5);
 }
 
 void *stopConnection()
 {
-    closesocket(*socketServer);
+    closesocket(*socket_Server);
     WSACleanup();
     printf("connection closed\n");
 }
 
 void *startConnection()
 {   
-    socketServer = malloc(sizeof(SOCKET));
+    socket_Server = malloc(sizeof(SOCKET));
     char *msg = malloc(sizeof(char)*2+1);
     WSADATA WSAData;
     WSAStartup(MAKEWORD(2,0), &WSAData);
@@ -129,10 +129,10 @@ void *startConnection()
     addrServer.sin_addr.s_addr = inet_addr(IP_LOCALE);      
     addrServer.sin_family = AF_INET;
     addrServer.sin_port = htons(4148);
-    *socketServer = socket(AF_INET,SOCK_STREAM,0);
+    *socket_Server = socket(AF_INET,SOCK_STREAM,0);
 
     //on test la connexion
-    connected = connect(*socketServer, (const struct sockaddr *)&addrServer, sizeof(addrServer));
+    connected = connect(*socket_Server, (const struct sockaddr *)&addrServer, sizeof(addrServer));
     if(connected) printf("Error: connection lost\n");
     else printf("Connected\n");
 

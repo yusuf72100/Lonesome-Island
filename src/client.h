@@ -24,7 +24,7 @@
 
 typedef uint32_t socklen_t;
 
-static SOCKET *socketServer;
+static SOCKET *socket_Server;
 static int connected;
 
 typedef struct 
