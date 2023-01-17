@@ -50,6 +50,7 @@ void *receiveFromServer()
         case 's':
             c = traitData(data);
             size = atoi(data);
+            size--;
             break;    
         case 'o':
             if(strcmp(data,"over") == 0)
