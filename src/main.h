@@ -45,7 +45,7 @@ char* eventTime();
 //méthode pour dessiner plus facilement les rectangles (objets)
 void dessinerRect(SDL_Rect rectangle, SDL_Renderer *renderer);
 
-void dessinerButton(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window);
+void dessinerButton(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, SDL_Surface *surface);
 
 void dessinerTank(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, int rotation);
 

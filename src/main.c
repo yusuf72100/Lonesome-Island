@@ -10,11 +10,33 @@ SDL_Rect rectangletank = {
     .h = 150
 };
 
+//game assets
+SDL_Surface *imagetank = NULL;
+SDL_Surface *imagebullet = NULL;
+SDL_Texture *texturetank = NULL;
+SDL_Texture *texturebullet = NULL;	
+
+//menu assets
+SDL_Surface *play_inert = NULL;
+SDL_Surface *play_hover = NULL;
+SDL_Surface *host_inert = NULL;
+SDL_Surface *host_hover = NULL;
+SDL_Texture *texture_play_inert = NULL;
+SDL_Texture *texture_play_hover = NULL;	
+SDL_Texture *texture_host_inert = NULL;
+SDL_Texture *texture_host_hover = NULL;	
+
 //window init
 SDL_Window *window = NULL;
 SDL_Renderer *renderer = NULL;
 SDL_Texture *texture = NULL;
 SDL_Surface *image = NULL;
+SDL_Surface *mousesurface = NULL;
+SDL_Texture *mousetexture = NULL;
+
+//background 
+SDL_Surface *background = NULL;
+SDL_Texture *background_texture = NULL;
 
 void SDL_ExitWithError(const char *message);
 
@@ -115,6 +137,22 @@ char* eventTime()
     return eventTime;
 }
 
+void drawMouse(SDL_Rect mouseRect, SDL_Texture *mousetexture)
+{
+    if(SDL_QueryTexture(mousetexture, NULL, NULL, &mouseRect.w, &mouseRect.h) != 0)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible d'afficher la texture du curseur...");
+    }
+
+    if(SDL_RenderCopyEx(renderer, mousetexture, NULL, &mouseRect, 0 , NULL, SDL_FLIP_NONE) != 0)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de rotate le curseur...");
+    }
+    //SDL_BlitSurface(mousesurface,NULL,background,&mouseRect);
+}
+
 //méthode pour dessiner plus facilement les rectangles (objets)
 void dessinerRect(SDL_Rect rectangle, SDL_Renderer *renderer)
 {
@@ -132,7 +170,7 @@ void dessinerRect(SDL_Rect rectangle, SDL_Renderer *renderer)
     SDL_RenderPresent(renderer);
 }
 
-void dessinerButton(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window)
+void dessinerButton(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, SDL_Surface *surface)
 {
     if(SDL_QueryTexture(texture, NULL, NULL, &rectangle.w, &rectangle.h) != 0)
     {
@@ -240,7 +278,7 @@ void buttonHoverPlay(SDL_Window *window, SDL_Texture *texture_play_hover, SDL_Re
         {
             hover_playbutton = 1;
             if (debug) printf("Hover play button\n");
-            dessinerButton(texture_play_hover, renderer, play_button_rect, window);
+            dessinerButton(texture_play_hover, renderer, play_button_rect, window, play_hover);
         }
         else
         {
@@ -264,7 +302,7 @@ void buttonHoverHost(SDL_Window *window, SDL_Texture *texture_host_hover, SDL_Re
         {
             hover_playbutton = 1;
             if (debug) printf("Hover host button\n");
-            dessinerButton(texture_host_hover, renderer, host_button_rect, window);
+            dessinerButton(texture_host_hover, renderer, host_button_rect, window, host_hover);
         }
         else
         {
@@ -296,6 +334,7 @@ int main(int argc, char *argv[])
     char *s;
     rotation = 0;
     int xMouse, yMouse;
+    int xWindow = 0, yWindow = 0;
 
     //tab d'event
     SDL_bool tabEvent[9] = {SDL_FALSE};
@@ -310,6 +349,11 @@ int main(int argc, char *argv[])
     //menu buttons rectangle
     SDL_Rect play_button_rect;
     SDL_Rect host_button_rect;
+    SDL_Rect mouseRect;
+
+    //cursor rectangle
+    mouseRect.w = 50;
+    mouseRect.h = 50;
 
     //connect button
     host_button_rect.x = 350;
@@ -341,26 +385,6 @@ int main(int argc, char *argv[])
     title_rect.w = 200;
     title_rect.h = 200;
 
-    //game assets
-    SDL_Surface *imagetank = NULL;
-    SDL_Surface *imagebullet = NULL;
-    SDL_Texture *texturetank = NULL;
-    SDL_Texture *texturebullet = NULL;	
-
-    //background 
-    SDL_Surface *background = NULL;
-    SDL_Texture *background_texture = NULL;
-
-    //menu assets
-    SDL_Surface *play_inert = NULL;
-    SDL_Surface *play_hover = NULL;
-    SDL_Texture *texture_play_inert = NULL;
-    SDL_Texture *texture_play_hover = NULL;	
-    SDL_Surface *host_inert = NULL;
-    SDL_Surface *host_hover = NULL;
-    SDL_Texture *texture_host_inert = NULL;
-    SDL_Texture *texture_host_hover = NULL;	
-
     //assets init
     icon_surface = IMG_Load("resources/icon.png");
     imagetank = IMG_Load("resources/tank.png");
@@ -370,6 +394,7 @@ int main(int argc, char *argv[])
     play_hover = IMG_Load("resources/play_hover.png");
     host_inert = IMG_Load("resources/host_inert.png");
     host_hover = IMG_Load("resources/host_hover.png");
+    mousesurface = IMG_Load("resources/cursor.png");
 
     if(SDL_Init(SDL_INIT_VIDEO != 0))
         SDL_ExitWithError("Initialisation SDL");
@@ -405,6 +430,15 @@ int main(int argc, char *argv[])
     {
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de charger l'image...");
+    }
+
+    mousetexture = SDL_CreateTextureFromSurface(renderer, mousesurface);
+    SDL_FreeSurface(mousesurface);
+
+    if(mousesurface == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger la texture de la souris...");
     }
 
     texture = SDL_CreateTextureFromSurface(renderer, image);
@@ -515,6 +549,9 @@ int main(int argc, char *argv[])
     {
         SDL_RenderCopy(renderer, background_texture, NULL, NULL);
         SDL_Event event; 
+        SDL_GetGlobalMouseState(&xMouse,&yMouse);
+        SDL_GetWindowPosition(window, &xWindow, &yWindow);
+        SDL_ShowCursor(SDL_DISABLE);
 
         while(SDL_PollEvent(&event))
         {
@@ -739,10 +776,6 @@ int main(int argc, char *argv[])
         if(tabEvent[7])
         {
             //click LEFT DOWN
-            int xWindow = 0, yWindow = 0;
-
-            SDL_GetWindowPosition(window, &xWindow, &yWindow);
-            SDL_GetGlobalMouseState(&xMouse,&yMouse);
 
             //play button
             if(xMouse>=350+xWindow && xMouse<=450+xWindow && yMouse>=250+yWindow && yMouse<=300+yWindow && !play)
@@ -780,12 +813,10 @@ int main(int argc, char *argv[])
         if(tabEvent[8])
         {
             //click RIGHT
-            SDL_GetGlobalMouseState(&xMouse,&yMouse);
         }
         if(tabEvent[9])
         {
             //click MIDDLE
-            SDL_GetGlobalMouseState(&xMouse,&yMouse);
         }
 
         if (bullet != NULL)
@@ -796,12 +827,14 @@ int main(int argc, char *argv[])
         
         if(!hover_playbutton && !play)
         {
-            dessinerButton(texture_play_inert, renderer, play_button_rect, window);
+            dessinerButton(texture_play_inert, renderer, play_button_rect, window, play_inert);
+            SDL_BlitSurface(play_inert,NULL,background,&play_button_rect);
         }
 
         if(!hover_hostbutton && !play)
         {
-            dessinerButton(texture_host_inert, renderer, host_button_rect, window);
+            dessinerButton(texture_host_inert, renderer, host_button_rect, window, host_inert);
+            //SDL_BlitSurface(host_inert,NULL,background,&host_button_rect);
         }
 
         if (play)
@@ -810,8 +843,12 @@ int main(int argc, char *argv[])
             if(pRects != NULL) dessinerJoueurs();
         }
 
+        mouseRect.x = xMouse-xWindow;
+        mouseRect.y = yMouse-yWindow;
+
         buttonHoverPlay(window, texture_play_hover, renderer, play_button_rect);
         buttonHoverHost(window, texture_host_hover, renderer, host_button_rect);
+        drawMouse(mouseRect, mousetexture);
         SDL_RenderPresent(renderer);
 
         Sleep(20);
