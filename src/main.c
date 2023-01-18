@@ -183,6 +183,7 @@ void dessinerButton(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect recta
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de rotate le boutton play...");
     }
+    //SDL_BlitSurface(surface,NULL,background,&rectangle);
 }
 
 void dessinerTank(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, int rotation)
@@ -828,13 +829,11 @@ int main(int argc, char *argv[])
         if(!hover_playbutton && !play)
         {
             dessinerButton(texture_play_inert, renderer, play_button_rect, window, play_inert);
-            SDL_BlitSurface(play_inert,NULL,background,&play_button_rect);
         }
 
         if(!hover_hostbutton && !play)
         {
             dessinerButton(texture_host_inert, renderer, host_button_rect, window, host_inert);
-            //SDL_BlitSurface(host_inert,NULL,background,&host_button_rect);
         }
 
         if (play)
