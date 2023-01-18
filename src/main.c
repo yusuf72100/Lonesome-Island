@@ -353,8 +353,8 @@ int main(int argc, char *argv[])
     SDL_Rect mouseRect;
 
     //cursor rectangle
-    mouseRect.w = 50;
-    mouseRect.h = 50;
+    mouseRect.w = 28;
+    mouseRect.h = 27;
 
     //connect button
     host_button_rect.x = 350;
