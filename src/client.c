@@ -39,14 +39,14 @@ void *receiveFromServer()
             c = traitData(data);
             rect[i].y = atoi(data);
             break;     
-        case 'w':
+        /*case 'w':
             c = traitData(data);
             rect[i].w = atoi(data);
             break;   
         case 'h':
             c = traitData(data);
             rect[i].h = atoi(data);
-            break;
+            break;*/
         case 's':
             c = traitData(data);
             size = atoi(data);
@@ -92,7 +92,7 @@ void *sendPosition(SDL_Rect rect, int rotation)
     dataY[4] = '\0';
     send(*socket_Server,dataY,sizeof(sizeof(char)*4),0);
 
-    char bufferW[3] = "";
+    /*char bufferW[3] = "";
     char dataW[4] = "w";
     itoa(rect.w, bufferW, 10);
     strcat(dataW, bufferW);
@@ -106,7 +106,7 @@ void *sendPosition(SDL_Rect rect, int rotation)
     strcat(dataH, bufferH);
     //printf("Sended %s\n",dataH);
     dataH[4] = '\0';
-    send(*socket_Server,dataH,sizeof(sizeof(char)*4),0);
+    send(*socket_Server,dataH,sizeof(sizeof(char)*4),0);*/
 }
 
 void *stopConnection()

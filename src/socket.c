@@ -108,14 +108,14 @@ void *receiveFromClient(void *arg)
             rect.y = atoi(buffer);
             //printf("received rect.y : %d\n",rect.y);
             break;     
-        case 'w':
+        /*case 'w':
             rect.w = atoi(buffer);
             //printf("received rect.w : %d\n",rect.w);
             break;   
         case 'h':
             rect.h = atoi(buffer);
             //printf("received rect.y : %d\n",rect.y);
-            break;
+            break;*/
         default:
             //printf("Incorrect data %c\n",c);
             break;
@@ -135,8 +135,8 @@ void *receiveFromClient(void *arg)
         //printf("find at position %d\n",i);
         argClient->argt->sd[i].rectangle.x = rect.x;
         argClient->argt->sd[i].rectangle.y = rect.y;
-        argClient->argt->sd[i].rectangle.w = rect.w;
-        argClient->argt->sd[i].rectangle.h = rect.h;
+        argClient->argt->sd[i].rectangle.w = 150;
+        argClient->argt->sd[i].rectangle.h = 150;
         pthread_create(&send_to_client,NULL,sendToClient,(void *)argClient);
         //sendToClient((void *)argClient);
         i=0;
