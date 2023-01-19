@@ -165,7 +165,7 @@ void *searchClients(void *arg)
             argt2->sd[argt2->size].socketServer = socketServer;
             argt2->sd[argt2->size].clientSocket = socketClient;
             printf("1 new client connected with ip %s and port %d\n",inet_ntoa(argt2->sd[argt2->size].addrClient.sin_addr), (int)ntohs(argt2->sd[argt2->size].addrClient.sin_port));
-            printf("Connected clients : %d\n",argt2->size-1);
+            printf("Connected clients : %d\n",argt2->size);
             argt2->size++;
         }
         send2Client *argClient = malloc(sizeof(send2Client));
