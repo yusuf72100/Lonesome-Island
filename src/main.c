@@ -395,7 +395,7 @@ int main(int argc, char *argv[])
     play_hover = IMG_Load("resources/play_hover.png");
     host_inert = IMG_Load("resources/host_inert.png");
     host_hover = IMG_Load("resources/host_hover.png");
-    mousesurface = IMG_Load("resources/cursor.png");
+    mousesurface = IMG_Load("resources/cursor/cursor.png");
 
     if(SDL_Init(SDL_INIT_VIDEO != 0))
         SDL_ExitWithError("Initialisation SDL");
