@@ -404,7 +404,7 @@ int main(int argc, char *argv[])
         SDL_ExitWithError("Impossible de créer la fenêtre...");
 
     SDL_SetWindowIcon(window, icon_surface);
-    SDL_SetWindowTitle(window,"Welcome");
+    SDL_SetWindowTitle(window,"Lonesome Island");
 
     /*if(SDL_SetRenderDrawColor(renderer, 112, 168, 237, SDL_ALPHA_OPAQUE) != 0)
         SDL_ExitWithError("Impossible de changer la couleur pour le rendu");*/
