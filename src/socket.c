@@ -221,5 +221,3 @@ void *startServer()
     searchClients((void*)argt);
     printf("Fin du serveur\n");
 }
-
-//-lwsock32 -lpthread

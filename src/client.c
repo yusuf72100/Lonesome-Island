@@ -134,5 +134,3 @@ void *startConnection()
     else printf("Connected\n");
 
 }
-
-//-lwsock32 -lpthread

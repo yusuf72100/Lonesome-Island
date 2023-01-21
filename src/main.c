@@ -868,5 +868,3 @@ void SDL_ExitWithError(const char *message)
     SDL_Quit();
     exit(EXIT_FAILURE);
 }
-
-//gcc src/main.c -o bin/prog src/liste.o -I include -L lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lpthread
