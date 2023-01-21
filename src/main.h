@@ -42,7 +42,6 @@ char* newLogName();
 
 char* eventTime();
 
-//méthode pour dessiner plus facilement les rectangles (forme)
 void dessinerRect(SDL_Rect rectangle, SDL_Renderer *renderer);
 
 void dessinerButton(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, SDL_Surface *surface);
