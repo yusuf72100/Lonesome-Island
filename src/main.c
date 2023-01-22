@@ -204,6 +204,21 @@ void dessinerTank(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectang
     //SDL_RenderPresent(renderer);
 }
 
+void trierJoueurs()
+{
+    int position = 0;
+    SDL_Rect rect[pRects->size];
+    for(int i = 1; i <= pRects->size; i++)
+    {
+        position = 0;
+        for(int j = 1; j <= pRects->size; j++)
+        {
+            if(pRects->rectangles[j].y > pRects->rectangles[i].y) position++;
+        }
+        rect[position+1] = pRects->rectangles[i];
+    }
+}
+
 void dessinerJoueur(SDL_Rect rect)
 {
 
@@ -218,7 +233,7 @@ void dessinerJoueur(SDL_Rect rect)
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de rotate le tank...");
     }
-    SDL_RenderPresent(renderer);
+
 }
 
 void dessinerJoueurs()
