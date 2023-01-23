@@ -11,9 +11,9 @@ SDL_Rect rectangletank = {
 };
 
 //game assets
-SDL_Surface *imagetank = NULL;
+SDL_Surface *joueur_statique = NULL;
 SDL_Surface *imagebullet = NULL;
-SDL_Texture *texturetank = NULL;
+SDL_Texture *texturejoueur = NULL;
 SDL_Texture *texturebullet = NULL;	
 
 //menu assets
@@ -30,7 +30,6 @@ SDL_Texture *texture_host_hover = NULL;
 SDL_Window *window = NULL;
 SDL_Renderer *renderer = NULL;
 SDL_Texture *texture = NULL;
-SDL_Surface *image = NULL;
 SDL_Surface *mousesurface = NULL;
 SDL_Texture *mousetexture = NULL;
 
@@ -186,24 +185,6 @@ void dessinerButton(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect recta
     //SDL_BlitSurface(surface,NULL,background,&rectangle);
 }
 
-void dessinerTank(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, int rotation)
-{
-    //SDL_RenderClear(renderer);
-    if(SDL_QueryTexture(texture, NULL, NULL, &rectangle.w, &rectangle.h) != 0)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible d'afficher la texture du tank...");
-    }
-
-    if(SDL_RenderCopyEx(renderer, texture, NULL, &rectangle, rotation , NULL, SDL_FLIP_NONE) != 0)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de rotate le tank...");
-    }
-
-    //SDL_RenderPresent(renderer);
-}
-
 void trierJoueurs()
 {
     int position = 0;
@@ -222,13 +203,13 @@ void trierJoueurs()
 void dessinerJoueur(SDL_Rect rect)
 {
 
-    if(SDL_QueryTexture(texture, NULL, NULL, &rect.w, &rect.h) != 0)
+    if(SDL_QueryTexture(texturejoueur, NULL, NULL, &rect.w, &rect.h) != 0)
     {
         destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible d'afficher la texture du tank...");
+        SDL_ExitWithError("Impossible d'afficher la texture du joueur...");
     }
 
-    if(SDL_RenderCopyEx(renderer, texture, NULL, &rect, 0 , NULL, SDL_FLIP_NONE) != 0)
+    if(SDL_RenderCopyEx(renderer, texturejoueur, NULL, &rect, 0 , NULL, SDL_FLIP_NONE) != 0)
     {
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de rotate le tank...");
@@ -359,8 +340,8 @@ int main(int argc, char *argv[])
     //tank
     rectangletank.x = 0;
     rectangletank.y = 0;
-    rectangletank.w = 150;
-    rectangletank.h = 150;
+    rectangletank.w = 50;
+    rectangletank.h = 81;
 
     //menu buttons rectangle
     SDL_Rect play_button_rect;
@@ -403,7 +384,7 @@ int main(int argc, char *argv[])
 
     //assets init
     icon_surface = IMG_Load("resources/icon.png");
-    imagetank = IMG_Load("resources/tank.png");
+    joueur_statique = IMG_Load("resources/characters/player_h1.png");
     imagebullet = IMG_Load("resources/bullet.png");
     background = IMG_Load("resources/background.png");
     play_inert = IMG_Load("resources/play_inert.png");
@@ -440,14 +421,6 @@ int main(int argc, char *argv[])
         SDL_ExitWithError("Impossible de charger la police...");
     }
 
-    image = IMG_Load("resources/tank.png");
-
-    if(image == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger l'image...");
-    }
-
     mousetexture = SDL_CreateTextureFromSurface(renderer, mousesurface);
     SDL_FreeSurface(mousesurface);
 
@@ -455,15 +428,6 @@ int main(int argc, char *argv[])
     {
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de charger la texture de la souris...");
-    }
-
-    texture = SDL_CreateTextureFromSurface(renderer, image);
-    SDL_FreeSurface(image);
-
-    if(texture == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger la texture...");
     }
 
     texte = TTF_RenderText_Blended(police, "Welcome young trout!", blackColor);
@@ -530,16 +494,16 @@ int main(int argc, char *argv[])
     background_texture = SDL_CreateTextureFromSurface(renderer, background);
     SDL_FreeSurface(background);
 
-    if(imagetank == NULL)
+    if(joueur_statique == NULL)
     {
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de charger l'image...");
     }
 
-    texturetank = SDL_CreateTextureFromSurface(renderer, imagetank);
-    SDL_FreeSurface(imagetank);
+    texturejoueur = SDL_CreateTextureFromSurface(renderer, joueur_statique);
+    SDL_FreeSurface(joueur_statique);
 
-    if(texturetank == NULL)
+    if(texturejoueur == NULL)
     {
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de charger la texture...");
@@ -853,7 +817,6 @@ int main(int argc, char *argv[])
 
         if (play)
         {
-            //dessinerTank(texturetank, renderer, rectangletank, window, rotation);
             if(pRects != NULL) dessinerJoueurs();
         }
 

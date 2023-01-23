@@ -135,8 +135,8 @@ void *receiveFromClient(void *arg)
         //printf("find at position %d\n",i);
         argClient->argt->sd[i].rectangle.x = rect.x;
         argClient->argt->sd[i].rectangle.y = rect.y;
-        argClient->argt->sd[i].rectangle.w = 150;
-        argClient->argt->sd[i].rectangle.h = 150;
+        argClient->argt->sd[i].rectangle.w = 50;
+        argClient->argt->sd[i].rectangle.h = 81;
         pthread_create(&send_to_client,NULL,sendToClient,(void *)argClient);
         //sendToClient((void *)argClient);
         i=0;
