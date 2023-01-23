@@ -18,7 +18,14 @@ static short play = 0;
 static short hover_playbutton = 0;
 static short hover_hostbutton = 0;
 static short debug = 0; 
-static int rotation;
+static int rotation = 0;
+static int animations_state = FALSE;
+
+static pthread_t reloading;
+static pthread_t server;
+static pthread_t sendtoserver;
+static pthread_t receivefromserver;
+static pthread_t animations_thread;
 
 void SDL_ExitWithError(const char *message);
 
@@ -45,8 +52,6 @@ char* eventTime();
 void dessinerRect(SDL_Rect rectangle, SDL_Renderer *renderer);
 
 void dessinerButton(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, SDL_Surface *surface);
-
-void dessinerTank(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, int rotation);
 
 void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, Bullet *b, int rotation, int vitesse);
 

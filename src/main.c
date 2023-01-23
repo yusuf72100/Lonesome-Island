@@ -11,9 +11,11 @@ SDL_Rect rectanglejoueur = {
 };
 
 //game assets
-SDL_Surface *joueur_statique = NULL;
+SDL_Surface *surface_joueur_h1 = NULL;
+SDL_Surface *surface_joueur_h2 = NULL;
 SDL_Surface *imagebullet = NULL;
-SDL_Texture *texturejoueur = NULL;
+SDL_Texture *texture_joueur_h1 = NULL;
+SDL_Texture *texture_joueur_h2 = NULL;
 SDL_Texture *texturebullet = NULL;	
 
 //menu assets
@@ -202,29 +204,38 @@ void trierJoueurs()
 
 void dessinerJoueur(SDL_Rect rect)
 {
-
-    if(SDL_QueryTexture(texturejoueur, NULL, NULL, &rect.w, &rect.h) != 0)
+    if(SDL_QueryTexture(texture_joueur_h1, NULL, NULL, &rect.w, &rect.h) != 0)
     {
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible d'afficher la texture du joueur...");
     }
-
-    if(SDL_RenderCopyEx(renderer, texturejoueur, NULL, &rect, 0 , NULL, SDL_FLIP_NONE) != 0)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de rotate le tank...");
-    }
-
+    SDL_RenderCopy(renderer, texture_joueur_h1, NULL, &rect);
 }
 
-void dessinerJoueurs()
+void dessinerAnimation(SDL_Rect rect)
+{
+    if(SDL_QueryTexture(texture_joueur_h2, NULL, NULL, &rect.w, &rect.h) != 0)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible d'afficher la texture du joueur...");
+    }
+    SDL_RenderCopy(renderer, texture_joueur_h2, NULL, &rect);
+}
+
+void *dessinerAnimations()
+{
+    for(int i = 1; i <= pRects->size; i++)
+    {
+        dessinerAnimation(pRects->rectangles[i]);
+    }
+}
+
+void *dessinerJoueurs()
 {
     for(int i = 1; i <= pRects->size; i++)
     {
         dessinerJoueur(pRects->rectangles[i]);
-        //printf("Joueur %d : x %d y %d\n",i,pRects->rectangles[i].x,pRects->rectangles[i].y);
     }
-    SDL_RenderPresent(renderer);
 }
 
 void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, Bullet *b, int rotation, int vitesse)
@@ -309,6 +320,20 @@ void buttonHoverHost(SDL_Window *window, SDL_Texture *texture_host_hover, SDL_Re
     }   
 }
 
+void *switchAnimation()
+{
+    if(animations_state == TRUE)
+    {
+        Sleep(200);
+        animations_state = FALSE;
+    }
+    else
+    {
+        Sleep(200);
+        animations_state = TRUE;
+    }
+}
+
 //programme principal 
 int main(int argc, char *argv[])
 {
@@ -322,10 +347,6 @@ int main(int argc, char *argv[])
     //freopen(newLogName(), "a+", stdout); 
 
     Vecteur vecteur;
-    pthread_t reloading;
-    pthread_t server;
-    pthread_t sendtoserver;
-    pthread_t receivefromserver;
 
     Bullet *bullet = NULL;
     char *s;
@@ -384,7 +405,8 @@ int main(int argc, char *argv[])
 
     //assets init
     icon_surface = IMG_Load("resources/icon.png");
-    joueur_statique = IMG_Load("resources/characters/player_h1.png");
+    surface_joueur_h1 = IMG_Load("resources/characters/player_h1.png");
+    surface_joueur_h2 = IMG_Load("resources/characters/player_h2.png");
     imagebullet = IMG_Load("resources/bullet.png");
     background = IMG_Load("resources/background.png");
     play_inert = IMG_Load("resources/play_inert.png");
@@ -494,16 +516,25 @@ int main(int argc, char *argv[])
     background_texture = SDL_CreateTextureFromSurface(renderer, background);
     SDL_FreeSurface(background);
 
-    if(joueur_statique == NULL)
+    if(surface_joueur_h1 == NULL)
     {
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de charger l'image...");
     }
 
-    texturejoueur = SDL_CreateTextureFromSurface(renderer, joueur_statique);
-    SDL_FreeSurface(joueur_statique);
+    texture_joueur_h1 = SDL_CreateTextureFromSurface(renderer, surface_joueur_h1);
+    SDL_FreeSurface(surface_joueur_h1);
 
-    if(texturejoueur == NULL)
+    if(surface_joueur_h2 == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger la texture...");
+    }
+
+    texture_joueur_h2 = SDL_CreateTextureFromSurface(renderer, surface_joueur_h2);
+    SDL_FreeSurface(surface_joueur_h2);
+
+    if(texture_joueur_h2 == NULL)
     {
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de charger la texture...");
@@ -817,7 +848,18 @@ int main(int argc, char *argv[])
 
         if (play)
         {
-            if(pRects != NULL) dessinerJoueurs();
+            if(pRects != NULL) 
+            {
+                if(animations_state == FALSE) {
+                    dessinerJoueurs();
+                }
+                else{
+                    dessinerAnimations();
+                }
+                if(_pthread_tryjoin(animations_thread, NULL) != 0){
+                    pthread_create(&animations_thread, NULL, switchAnimation,NULL);   
+                }
+            }
         }
 
         mouseRect.x = xMouse-xWindow;
