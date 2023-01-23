@@ -324,12 +324,12 @@ void *switchAnimation()
 {
     if(animations_state == TRUE)
     {
-        Sleep(200);
+        Sleep(1000);
         animations_state = FALSE;
     }
     else
     {
-        Sleep(200);
+        Sleep(1000);
         animations_state = TRUE;
     }
 }
