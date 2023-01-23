@@ -19,7 +19,7 @@ static short hover_playbutton = 0;
 static short hover_hostbutton = 0;
 static short debug = 0; 
 static int rotation = 0;
-static int animations_state = FALSE;
+static int animations_state = 1;
 
 static pthread_t reloading;
 static pthread_t server;

@@ -204,31 +204,25 @@ void trierJoueurs()
 
 void dessinerJoueur(SDL_Rect rect)
 {
-    if(SDL_QueryTexture(texture_joueur_h1, NULL, NULL, &rect.w, &rect.h) != 0)
+    if(animations_state == 1)
     {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible d'afficher la texture du joueur...");
+        if(SDL_QueryTexture(texture_joueur_h1, NULL, NULL, &rect.w, &rect.h) != 0)
+        {
+            destroyAll(window, renderer);
+            SDL_ExitWithError("Impossible d'afficher la texture du joueur...");
+        }
+        SDL_RenderCopy(renderer, texture_joueur_h1, NULL, &rect);
     }
-    SDL_RenderCopy(renderer, texture_joueur_h1, NULL, &rect);
-}
-
-void dessinerAnimation(SDL_Rect rect)
-{
-    if(SDL_QueryTexture(texture_joueur_h2, NULL, NULL, &rect.w, &rect.h) != 0)
+    else if(animations_state == 2)
     {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible d'afficher la texture du joueur...");
+        if(SDL_QueryTexture(texture_joueur_h2, NULL, NULL, &rect.w, &rect.h) != 0)
+        {
+            destroyAll(window, renderer);
+            SDL_ExitWithError("Impossible d'afficher la texture du joueur...");
+        }
+        SDL_RenderCopy(renderer, texture_joueur_h2, NULL, &rect);
     }
-    SDL_RenderCopy(renderer, texture_joueur_h2, NULL, &rect);
-}
-
-void *dessinerAnimations()
-{
-    for(int i = 1; i <= pRects->size; i++)
-    {
-        dessinerAnimation(pRects->rectangles[i]);
-    }
-}
+}   
 
 void *dessinerJoueurs()
 {
@@ -322,15 +316,19 @@ void buttonHoverHost(SDL_Window *window, SDL_Texture *texture_host_hover, SDL_Re
 
 void *switchAnimation()
 {
-    if(animations_state == TRUE)
-    {
-        Sleep(1000);
-        animations_state = FALSE;
+    Sleep(2000);
+    for(animations_state = 1; animations_state < 2; animations_state++) {
+        Sleep(2000);
     }
-    else
-    {
-        Sleep(1000);
-        animations_state = TRUE;
+
+    pthread_exit(&animations_thread);
+}
+
+void affichage()
+{
+    dessinerJoueurs();
+    if(pthread_kill(animations_thread, 0) != 0){
+        pthread_create(&animations_thread, NULL, switchAnimation,NULL);   
     }
 }
 
@@ -850,15 +848,7 @@ int main(int argc, char *argv[])
         {
             if(pRects != NULL) 
             {
-                if(animations_state == FALSE) {
-                    dessinerJoueurs();
-                }
-                else{
-                    dessinerAnimations();
-                }
-                if(_pthread_tryjoin(animations_thread, NULL) != 0){
-                    pthread_create(&animations_thread, NULL, switchAnimation,NULL);   
-                }
+                affichage();
             }
         }
 
