@@ -3,7 +3,7 @@
 static playersRect * pRects = NULL;
 
 //tank rectangle
-SDL_Rect rectangletank = {
+SDL_Rect rectanglejoueur = {
     .x = 0,
     .y = 0,
     .w = 150,
@@ -49,7 +49,7 @@ void *synch_datas(playersRect * playersRectangles)
 //on envoi nos données
 void *Send2Server()
 {
-    sendPosition(rectangletank, rotation);
+    sendPosition(rectanglejoueur, rotation);
 }
 
 Vecteur InitVecteur(int angle, int vitesse)
@@ -338,10 +338,10 @@ int main(int argc, char *argv[])
     memset(tabEvent, 0, 7*sizeof(SDL_bool));
     
     //tank
-    rectangletank.x = 0;
-    rectangletank.y = 0;
-    rectangletank.w = 50;
-    rectangletank.h = 81;
+    rectanglejoueur.x = 0;
+    rectanglejoueur.y = 0;
+    rectanglejoueur.w = 50;
+    rectanglejoueur.h = 81;
 
     //menu buttons rectangle
     SDL_Rect play_button_rect;
@@ -663,14 +663,14 @@ int main(int argc, char *argv[])
             if(play)
             {
                 if (debug) printf("Touche SDLK_z pressee | %s\n", eventTime());
-                rectangletank.y = rectangletank.y - 1;
+                rectanglejoueur.y = rectanglejoueur.y - 1;
                 pthread_create(&sendtoserver,NULL,Send2Server,NULL); 
                 //Send2Server();   
                 /*vecteur = InitVecteur(rotation, 2);
-                rectangletank.x += (int)vecteur.x;
-                rectangletank.y += (int)vecteur.y;*/
-                if(debug) printf("Coord X : %d\n", rectangletank.x);
-                if(debug) printf("Coord Y : %d\n", rectangletank.y);
+                rectanglejoueur.x += (int)vecteur.x;
+                rectanglejoueur.y += (int)vecteur.y;*/
+                if(debug) printf("Coord X : %d\n", rectanglejoueur.x);
+                if(debug) printf("Coord Y : %d\n", rectanglejoueur.y);
             }
         }
 
@@ -680,7 +680,7 @@ int main(int argc, char *argv[])
             if(play)
             {
                 if (debug) printf("Touche SDLK_q pressee | %s\n", eventTime());
-                rectangletank.x = rectangletank.x - 1;
+                rectanglejoueur.x = rectanglejoueur.x - 1;
                 pthread_create(&sendtoserver,NULL,Send2Server,NULL);  
                 //Send2Server(); 
             }
@@ -692,7 +692,7 @@ int main(int argc, char *argv[])
             if(play)
             {
                 if (debug) printf("Touche SDLK_s pressee | %s\n", eventTime());
-                rectangletank.y = rectangletank.y + 1;
+                rectanglejoueur.y = rectanglejoueur.y + 1;
                 pthread_create(&sendtoserver,NULL,Send2Server,NULL);   
                 //Send2Server(); 
             }
@@ -704,7 +704,7 @@ int main(int argc, char *argv[])
             if(play)
             {
                 if (debug) printf("Touche SDLK_d pressee | %s\n", eventTime());
-                rectangletank.x = rectangletank.x + 1;
+                rectanglejoueur.x = rectanglejoueur.x + 1;
                 pthread_create(&sendtoserver,NULL,Send2Server,NULL);   
                 //Send2Server(); 
             }
@@ -739,7 +739,7 @@ int main(int argc, char *argv[])
                 if (!loading)
                 {
                     //bullet = malloc(sizeof(Bullet*) + 5);      
-                    //initBullet(bullet, rectangletank.x, rectangletank.y, rotation);
+                    //initBullet(bullet, rectanglejoueur.x, rectanglejoueur.y, rotation);
                     //ajouterElement(l, bullet);       
                     if (debug) printf("SHOT FIRE!!!\n"); 
 
