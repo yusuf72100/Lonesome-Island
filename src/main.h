@@ -20,6 +20,7 @@ static short hover_hostbutton = 0;
 static short debug = 0; 
 static int rotation = 0;
 static int animations_state = 1;
+static SDL_bool tabEvent[9] = {SDL_FALSE};
 
 static pthread_t reloading;
 static pthread_t server;

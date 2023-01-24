@@ -187,21 +187,6 @@ void dessinerButton(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect recta
     //SDL_BlitSurface(surface,NULL,background,&rectangle);
 }
 
-void trierJoueurs()
-{
-    int position = 0;
-    SDL_Rect rect[pRects->size];
-    for(int i = 1; i <= pRects->size; i++)
-    {
-        position = 0;
-        for(int j = 1; j <= pRects->size; j++)
-        {
-            if(pRects->rectangles[j].y > pRects->rectangles[i].y) position++;
-        }
-        rect[position+1] = pRects->rectangles[i];
-    }
-}
-
 void dessinerJoueur(SDL_Rect rect)
 {
     if(animations_state == 1)
@@ -224,8 +209,27 @@ void dessinerJoueur(SDL_Rect rect)
     }
 }   
 
+void trierJoueurs()
+{
+    int position;
+    for(int i = 1; i <= pRects->size; i++)
+    {
+        SDL_Rect buffer = pRects->rectangles[i];
+        position = 1;
+        for(int j = 1; j <= pRects->size; j++)
+        {
+            if(pRects->rectangles[j].y < pRects->rectangles[i].y) position++;
+        }
+
+        buffer = pRects->rectangles[position];
+        pRects->rectangles[position] = pRects->rectangles[i];
+        pRects->rectangles[i] = buffer;
+    }
+}
+
 void *dessinerJoueurs()
 {
+    trierJoueurs();
     for(int i = 1; i <= pRects->size; i++)
     {
         dessinerJoueur(pRects->rectangles[i]);
@@ -353,7 +357,6 @@ int main(int argc, char *argv[])
     int xWindow = 0, yWindow = 0;
 
     //tab d'event
-    SDL_bool tabEvent[9] = {SDL_FALSE};
     memset(tabEvent, 0, 7*sizeof(SDL_bool));
     
     //tank
