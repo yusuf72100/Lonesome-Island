@@ -55,38 +55,46 @@ static pthread_t sendtoserver;
 static pthread_t receivefromserver;
 static pthread_t animations_thread;
 
-void SDL_ExitWithError(const char *message);
+static void SDL_ExitWithError(const char *message);
+
+static void trierJoueurs();
+
+static void affichage();
+
+static void checkEvents();
+
+static void doEvents();
+
+static void init_vars();
 
 void *synch_datas(playersRect * playersRectangles);
 
-void *Send2Server();
+static void *Send2Server();
 
 Vecteur InitVecteur(int angle, int vitesse);
 
-void dessinerJoueur(SDL_Rect rect);
+static void dessinerJoueur(SDL_Rect rect);
 
-void destroyAll(SDL_Window *window, SDL_Renderer *renderer);
+static void destroyAll(SDL_Window *window, SDL_Renderer *renderer);
 
-void *rechargement();
+static void *rechargement();
 
-void UpdateBullet(Bullet * b);
+static void UpdateBullet(Bullet * b);
 
-void UpdateBulletAll();
+static void UpdateBulletAll();
 
 char* newLogName();
 
 char* eventTime();
 
-void dessinerRect(SDL_Rect rectangle, SDL_Renderer *renderer);
+static void dessinerRect(SDL_Rect rectangle, SDL_Renderer *renderer);
 
-void dessinerButton(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, SDL_Surface *surface);
+static void dessinerButton(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, SDL_Surface *surface);
 
-void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, Bullet *b, int rotation, int vitesse);
+static void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, Bullet *b, int rotation, int vitesse);
 
-void initBullet(Bullet * b, int x, int y, int rotation);
+static void initBullet(Bullet * b, int x, int y, int rotation);
 
-void buttonHoverPlay(SDL_Window *window, SDL_Texture *texture_play_hover, SDL_Renderer *renderer, SDL_Rect play_button_rect);
+static void buttonHoverPlay(SDL_Window *window, SDL_Texture *texture_play_hover, SDL_Renderer *renderer, SDL_Rect play_button_rect);
 
-void buttonHoverHost(SDL_Window *window, SDL_Texture *texture_host_hover, SDL_Renderer *renderer, SDL_Rect host_button_rect);
-
-void SDL_ExitWithError(const char *message);
+static void buttonHoverHost(SDL_Window *window, SDL_Texture *texture_host_hover, SDL_Renderer *renderer, SDL_Rect host_button_rect);

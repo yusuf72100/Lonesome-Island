@@ -45,11 +45,10 @@ void SDL_ExitWithError(const char *message);
 void *synch_datas(playersRect * playersRectangles)
 {
     pRects = playersRectangles;
-
 }
 
 //on envoi nos données
-void *Send2Server()
+static void *Send2Server()
 {
     sendPosition(rectanglejoueur, rotation);
 }
@@ -74,19 +73,19 @@ Vecteur InitVecteur(int angle, int vitesse)
     return Vecteur;
 }
 
-void destroyAll(SDL_Window *window, SDL_Renderer *renderer)
+static void destroyAll(SDL_Window *window, SDL_Renderer *renderer)
 {
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
 }
 
-void *rechargement()
+static void *rechargement()
 {
     Sleep(5000);
     loading = 0;
 }
 
-void UpdateBullet(Bullet * b)
+static void UpdateBullet(Bullet * b)
 {
   b->rectangle.x += b->Vitesse;
   //if (debug) printf("x = %d\n", b->rectangle.x);
@@ -94,7 +93,7 @@ void UpdateBullet(Bullet * b)
   //if (debug) printf("y = %d\n", b->rectangle.y);
 }
 
-void UpdateBulletAll()
+static void UpdateBulletAll()
 {
     Liste *courant = l->suivant;
     while(hasNext(courant))
@@ -138,7 +137,7 @@ char* eventTime()
     return eventTime;
 }
 
-void drawMouse(SDL_Rect mouseRect, SDL_Texture *mousetexture)
+static void drawMouse(SDL_Rect mouseRect, SDL_Texture *mousetexture)
 {
     if(SDL_QueryTexture(mousetexture, NULL, NULL, &mouseRect.w, &mouseRect.h) != 0)
     {
@@ -155,7 +154,7 @@ void drawMouse(SDL_Rect mouseRect, SDL_Texture *mousetexture)
 }
 
 //méthode pour dessiner plus facilement les rectangles (objets)
-void dessinerRect(SDL_Rect rectangle, SDL_Renderer *renderer)
+static void dessinerRect(SDL_Rect rectangle, SDL_Renderer *renderer)
 {
     if(SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE) != 0)
         SDL_ExitWithError("Impossible de changer la couleur pour le rendu");
@@ -171,7 +170,7 @@ void dessinerRect(SDL_Rect rectangle, SDL_Renderer *renderer)
     SDL_RenderPresent(renderer);
 }
 
-void dessinerButton(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, SDL_Surface *surface)
+static void dessinerButton(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, SDL_Surface *surface)
 {
     if(SDL_QueryTexture(texture, NULL, NULL, &rectangle.w, &rectangle.h) != 0)
     {
@@ -187,7 +186,7 @@ void dessinerButton(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect recta
     //SDL_BlitSurface(surface,NULL,background,&rectangle);
 }
 
-void dessinerJoueur(SDL_Rect rect)
+static void dessinerJoueur(SDL_Rect rect)
 {
     if(animations_state == 1)
     {
@@ -209,7 +208,7 @@ void dessinerJoueur(SDL_Rect rect)
     }
 }   
 
-void trierJoueurs()
+static void trierJoueurs()
 {
     int position;
     for(int i = 1; i <= pRects->size; i++)
@@ -227,7 +226,7 @@ void trierJoueurs()
     }
 }
 
-void *dessinerJoueurs()
+static void *dessinerJoueurs()
 {
     trierJoueurs();
     for(int i = 1; i <= pRects->size; i++)
@@ -236,7 +235,7 @@ void *dessinerJoueurs()
     }
 }
 
-void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, Bullet *b, int rotation, int vitesse)
+static void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, Bullet *b, int rotation, int vitesse)
 {
     //SDL_RenderClear(renderer);
     if(SDL_QueryTexture(texture, NULL, NULL, &rectangle.w, &rectangle.h) != 0)
@@ -254,7 +253,7 @@ void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectan
     //SDL_RenderPresent(renderer);
 }
 
-void initBullet(Bullet * b, int x, int y, int rotation)
+static void initBullet(Bullet * b, int x, int y, int rotation)
 {
     b->rectangle.x = x;     //directives
     if (debug) printf("xbullet = %d\n", b->rectangle.x);
@@ -270,7 +269,7 @@ void initBullet(Bullet * b, int x, int y, int rotation)
     b->Vitesse = 2;
 }
 
-void buttonHoverPlay(SDL_Window *window, SDL_Texture *texture_play_hover, SDL_Renderer *renderer, SDL_Rect play_button_rect)
+static void buttonHoverPlay(SDL_Window *window, SDL_Texture *texture_play_hover, SDL_Renderer *renderer, SDL_Rect play_button_rect)
 {
     int xMouse = 0, yMouse = 0;
     int xWindow = 0, yWindow = 0;
@@ -294,7 +293,7 @@ void buttonHoverPlay(SDL_Window *window, SDL_Texture *texture_play_hover, SDL_Re
     }   
 }
 
-void buttonHoverHost(SDL_Window *window, SDL_Texture *texture_host_hover, SDL_Renderer *renderer, SDL_Rect host_button_rect)
+static void buttonHoverHost(SDL_Window *window, SDL_Texture *texture_host_hover, SDL_Renderer *renderer, SDL_Rect host_button_rect)
 {
     int xMouse = 0, yMouse = 0;
     int xWindow = 0, yWindow = 0;
@@ -318,7 +317,7 @@ void buttonHoverHost(SDL_Window *window, SDL_Texture *texture_host_hover, SDL_Re
     }   
 }
 
-void *switchAnimation()
+static void *switchAnimation()
 {
     Sleep(2000);
     for(animations_state = 1; animations_state < 2; animations_state++) {
@@ -328,7 +327,7 @@ void *switchAnimation()
     pthread_exit(&animations_thread);
 }
 
-void affichage()
+static void affichage()
 {
     dessinerJoueurs();
     if(pthread_kill(animations_thread, 0) != 0){
@@ -336,7 +335,7 @@ void affichage()
     }
 }
 
-void checkEvents()
+static void checkEvents()
 {
     switch(event.type)
             {
@@ -459,7 +458,7 @@ void checkEvents()
             }
 }
 
-void doEvents()
+static void doEvents()
 {
     if(tabEvent[0])
         {
@@ -628,7 +627,7 @@ void doEvents()
         }
 }
 
-void init_vars()
+static void init_vars()
 {
     loading = 0;
     l = creerListe();
@@ -664,7 +663,7 @@ void init_vars()
 
                                 /* INIT TEXTURES AND MANAGE ERRORS */
     /* ----------------------------------------------------------------------------------------- */      
-                          
+
     //title rectangle
     title_rect.x = 200;
     title_rect.y = 100;
@@ -869,7 +868,7 @@ int main(int argc, char *argv[])
     return EXIT_SUCCESS;
 }
 
-void SDL_ExitWithError(const char *message)
+static void SDL_ExitWithError(const char *message)
 {
     SDL_Log("ERREUR : %s > %s\n", message, SDL_GetError());
     SDL_Quit();
