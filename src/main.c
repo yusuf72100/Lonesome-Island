@@ -1,44 +1,5 @@
 #include "main.h"
 
-static playersRect * pRects = NULL;
-
-//tank rectangle
-SDL_Rect rectanglejoueur = {
-    .x = 0,
-    .y = 0,
-    .w = 150,
-    .h = 150
-};
-
-//game assets
-SDL_Surface *surface_joueur_h1 = NULL;
-SDL_Surface *surface_joueur_h2 = NULL;
-SDL_Surface *imagebullet = NULL;
-SDL_Texture *texture_joueur_h1 = NULL;
-SDL_Texture *texture_joueur_h2 = NULL;
-SDL_Texture *texturebullet = NULL;	
-
-//menu assets
-SDL_Surface *play_inert = NULL;
-SDL_Surface *play_hover = NULL;
-SDL_Surface *host_inert = NULL;
-SDL_Surface *host_hover = NULL;
-SDL_Texture *texture_play_inert = NULL;
-SDL_Texture *texture_play_hover = NULL;	
-SDL_Texture *texture_host_inert = NULL;
-SDL_Texture *texture_host_hover = NULL;	
-
-//window init
-SDL_Window *window = NULL;
-SDL_Renderer *renderer = NULL;
-SDL_Texture *texture = NULL;
-SDL_Surface *mousesurface = NULL;
-SDL_Texture *mousetexture = NULL;
-
-//background 
-SDL_Surface *background = NULL;
-SDL_Texture *background_texture = NULL;
-
 void SDL_ExitWithError(const char *message);
 
 //on récupère les données du socket
@@ -184,155 +145,6 @@ static void dessinerButton(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rec
         SDL_ExitWithError("Impossible de rotate le boutton play...");
     }
     //SDL_BlitSurface(surface,NULL,background,&rectangle);
-}
-
-static void dessinerJoueur(SDL_Rect rect)
-{
-    if(animations_state == 1)
-    {
-        if(SDL_QueryTexture(texture_joueur_h1, NULL, NULL, &rect.w, &rect.h) != 0)
-        {
-            destroyAll(window, renderer);
-            SDL_ExitWithError("Impossible d'afficher la texture du joueur...");
-        }
-        SDL_RenderCopy(renderer, texture_joueur_h1, NULL, &rect);
-    }
-    else if(animations_state == 2)
-    {
-        if(SDL_QueryTexture(texture_joueur_h2, NULL, NULL, &rect.w, &rect.h) != 0)
-        {
-            destroyAll(window, renderer);
-            SDL_ExitWithError("Impossible d'afficher la texture du joueur...");
-        }
-        SDL_RenderCopy(renderer, texture_joueur_h2, NULL, &rect);
-    }
-}   
-
-static void trierJoueurs()
-{
-    int position;
-    for(int i = 1; i <= pRects->size; i++)
-    {
-        SDL_Rect buffer = pRects->rectangles[i];
-        position = 1;
-        for(int j = 1; j <= pRects->size; j++)
-        {
-            if(pRects->rectangles[j].y < pRects->rectangles[i].y) position++;
-        }
-
-        buffer = pRects->rectangles[position];
-        pRects->rectangles[position] = pRects->rectangles[i];
-        pRects->rectangles[i] = buffer;
-    }
-}
-
-static void *dessinerJoueurs()
-{
-    trierJoueurs();
-    for(int i = 1; i <= pRects->size; i++)
-    {
-        dessinerJoueur(pRects->rectangles[i]);
-    }
-}
-
-static void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, Bullet *b, int rotation, int vitesse)
-{
-    //SDL_RenderClear(renderer);
-    if(SDL_QueryTexture(texture, NULL, NULL, &rectangle.w, &rectangle.h) != 0)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible d'afficher la texture de la balle...");
-    }
-
-    if(SDL_RenderCopyEx(renderer, texture, NULL, &rectangle, rotation , NULL, SDL_FLIP_NONE) != 0)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de rotate le la balle...");
-    }
-
-    //SDL_RenderPresent(renderer);
-}
-
-static void initBullet(Bullet * b, int x, int y, int rotation)
-{
-    b->rectangle.x = x;     //directives
-    if (debug) printf("xbullet = %d\n", b->rectangle.x);
-    b->rectangle.y = y;
-    if (debug) printf("ybullet = %d\n", b->rectangle.y);
-    b->rectangle.w = 2;
-    b->rectangle.h = 8;
-    b->rotation = rotation;
-    if (debug) printf("rbullet = %d\n", b->rotation);
-
-    b->DirX = cos(b->rotation);
-    b->DirY = -sin(b->rotation); 
-    b->Vitesse = 2;
-}
-
-static void buttonHoverPlay(SDL_Window *window, SDL_Texture *texture_play_hover, SDL_Renderer *renderer, SDL_Rect play_button_rect)
-{
-    int xMouse = 0, yMouse = 0;
-    int xWindow = 0, yWindow = 0;
-
-    SDL_GetWindowPosition(window, &xWindow, &yWindow);
-    SDL_GetGlobalMouseState(&xMouse,&yMouse);
-
-    if (!play)
-    {
-        if(xMouse>=350+xWindow && xMouse<=450+xWindow && yMouse>=250+yWindow && yMouse<=300+yWindow)
-        {
-            hover_playbutton = 1;
-            if (debug) printf("Hover play button\n");
-            dessinerButton(texture_play_hover, renderer, play_button_rect, window, play_hover);
-        }
-        else
-        {
-            hover_playbutton = 0;
-            if (debug) printf("X: %d et y: %d\n",xMouse,yMouse);
-        }
-    }   
-}
-
-static void buttonHoverHost(SDL_Window *window, SDL_Texture *texture_host_hover, SDL_Renderer *renderer, SDL_Rect host_button_rect)
-{
-    int xMouse = 0, yMouse = 0;
-    int xWindow = 0, yWindow = 0;
-
-    SDL_GetWindowPosition(window, &xWindow, &yWindow);
-    SDL_GetGlobalMouseState(&xMouse,&yMouse);
-
-    if (!play)
-    {
-        if(xMouse>=350+xWindow && xMouse<=450+xWindow && yMouse>=450+yWindow && yMouse<=500+yWindow)
-        {
-            hover_playbutton = 1;
-            if (debug) printf("Hover host button\n");
-            dessinerButton(texture_host_hover, renderer, host_button_rect, window, host_hover);
-        }
-        else
-        {
-            hover_hostbutton = 0;
-            if (debug) printf("X: %d et y: %d\n",xMouse,yMouse);
-        }
-    }   
-}
-
-static void *switchAnimation()
-{
-    Sleep(2000);
-    for(animations_state = 1; animations_state < 2; animations_state++) {
-        Sleep(2000);
-    }
-
-    pthread_exit(&animations_thread);
-}
-
-static void affichage()
-{
-    dessinerJoueurs();
-    if(pthread_kill(animations_thread, 0) != 0){
-        pthread_create(&animations_thread, NULL, switchAnimation,NULL);   
-    }
 }
 
 static void checkEvents()
@@ -672,8 +484,6 @@ static void init_vars()
 
     //assets init
     icon_surface = IMG_Load("resources/icon.png");
-    surface_joueur_h1 = IMG_Load("resources/characters/player_h1.png");
-    surface_joueur_h2 = IMG_Load("resources/characters/player_h2.png");
     imagebullet = IMG_Load("resources/bullet.png");
     background = IMG_Load("resources/background.png");
     play_inert = IMG_Load("resources/play_inert.png");
@@ -681,6 +491,12 @@ static void init_vars()
     host_inert = IMG_Load("resources/host_inert.png");
     host_hover = IMG_Load("resources/host_hover.png");
     mousesurface = IMG_Load("resources/cursor/cursor.png");
+    
+    //player
+    surface_joueur_h1 = IMG_Load("resources/characters/player_h1.png");
+    surface_joueur_h2 = IMG_Load("resources/characters/player_h2.png");
+    surface_joueur_right_1 = IMG_Load("resources/characters/player_right_1.png");
+    surface_joueur_right_2 = IMG_Load("resources/characters/player_right_2.png");
 
     if(SDL_Init(SDL_INIT_VIDEO != 0))
         SDL_ExitWithError("Initialisation SDL");
@@ -820,6 +636,162 @@ static void init_vars()
     {
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de charger la texture de la bullet...");
+    }
+}
+
+static void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, Bullet *b, int rotation, int vitesse)
+{
+    //SDL_RenderClear(renderer);
+    if(SDL_QueryTexture(texture, NULL, NULL, &rectangle.w, &rectangle.h) != 0)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible d'afficher la texture de la balle...");
+    }
+
+    if(SDL_RenderCopyEx(renderer, texture, NULL, &rectangle, rotation , NULL, SDL_FLIP_NONE) != 0)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de rotate le la balle...");
+    }
+
+    //SDL_RenderPresent(renderer);
+}
+
+static void initBullet(Bullet * b, int x, int y, int rotation)
+{
+    b->rectangle.x = x;     //directives
+    if (debug) printf("xbullet = %d\n", b->rectangle.x);
+    b->rectangle.y = y;
+    if (debug) printf("ybullet = %d\n", b->rectangle.y);
+    b->rectangle.w = 2;
+    b->rectangle.h = 8;
+    b->rotation = rotation;
+    if (debug) printf("rbullet = %d\n", b->rotation);
+
+    b->DirX = cos(b->rotation);
+    b->DirY = -sin(b->rotation); 
+    b->Vitesse = 2;
+}
+
+static void buttonHoverPlay(SDL_Window *window, SDL_Texture *texture_play_hover, SDL_Renderer *renderer, SDL_Rect play_button_rect)
+{
+    int xMouse = 0, yMouse = 0;
+    int xWindow = 0, yWindow = 0;
+
+    SDL_GetWindowPosition(window, &xWindow, &yWindow);
+    SDL_GetGlobalMouseState(&xMouse,&yMouse);
+
+    if (!play)
+    {
+        if(xMouse>=350+xWindow && xMouse<=450+xWindow && yMouse>=250+yWindow && yMouse<=300+yWindow)
+        {
+            hover_playbutton = 1;
+            if (debug) printf("Hover play button\n");
+            dessinerButton(texture_play_hover, renderer, play_button_rect, window, play_hover);
+        }
+        else
+        {
+            hover_playbutton = 0;
+            if (debug) printf("X: %d et y: %d\n",xMouse,yMouse);
+        }
+    }   
+}
+
+static void buttonHoverHost(SDL_Window *window, SDL_Texture *texture_host_hover, SDL_Renderer *renderer, SDL_Rect host_button_rect)
+{
+    int xMouse = 0, yMouse = 0;
+    int xWindow = 0, yWindow = 0;
+
+    SDL_GetWindowPosition(window, &xWindow, &yWindow);
+    SDL_GetGlobalMouseState(&xMouse,&yMouse);
+
+    if (!play)
+    {
+        if(xMouse>=350+xWindow && xMouse<=450+xWindow && yMouse>=450+yWindow && yMouse<=500+yWindow)
+        {
+            hover_playbutton = 1;
+            if (debug) printf("Hover host button\n");
+            dessinerButton(texture_host_hover, renderer, host_button_rect, window, host_hover);
+        }
+        else
+        {
+            hover_hostbutton = 0;
+            if (debug) printf("X: %d et y: %d\n",xMouse,yMouse);
+        }
+    }   
+}
+
+static void dessinerJoueur(SDL_Rect rect)
+{
+    if(animations_state == 1)
+    {
+        if(SDL_QueryTexture(texture_joueur_h1, NULL, NULL, &rect.w, &rect.h) != 0)
+        {
+            destroyAll(window, renderer);
+            SDL_ExitWithError("Impossible d'afficher la texture du joueur...");
+        }
+        SDL_RenderCopy(renderer, texture_joueur_h1, NULL, &rect);
+    }
+    else if(animations_state == 2)
+    {
+        if(SDL_QueryTexture(texture_joueur_h2, NULL, NULL, &rect.w, &rect.h) != 0)
+        {
+            destroyAll(window, renderer);
+            SDL_ExitWithError("Impossible d'afficher la texture du joueur...");
+        }
+        SDL_RenderCopy(renderer, texture_joueur_h2, NULL, &rect);
+    }
+}   
+
+static void trierJoueurs()
+{
+    int position;
+    for(int i = 1; i <= pRects->size; i++)
+    {
+        SDL_Rect buffer = pRects->rectangles[i];
+        position = 1;
+        for(int j = 1; j <= pRects->size; j++)
+        {
+            if(pRects->rectangles[j].y < pRects->rectangles[i].y) position++;
+        }
+
+        buffer = pRects->rectangles[position];
+        pRects->rectangles[position] = pRects->rectangles[i];
+        pRects->rectangles[i] = buffer;
+    }
+}
+
+static void *dessinerJoueurs()
+{
+    trierJoueurs();
+    for(int i = 1; i <= pRects->size; i++)
+    {
+        dessinerJoueur(pRects->rectangles[i]);
+    }
+}
+
+static void *breathAnimation()
+{
+    Sleep(2000);
+    for(animations_state = 1; animations_state < 2; animations_state++) {
+        Sleep(2000);
+    }
+
+    pthread_exit(&animations_thread);
+}
+
+static void affichage()
+{
+    dessinerJoueurs();
+    if(tabEvent[0] == SDL_FALSE && tabEvent[1] == SDL_FALSE && tabEvent[2] == SDL_FALSE && tabEvent[3] == FALSE && tabEvent[6] == FALSE && tabEvent[7] == FALSE)
+    {
+        if(pthread_kill(animations_thread, 0) != 0){
+            pthread_create(&animations_thread, NULL, breathAnimation,NULL);   
+        }
+    }
+    else{
+        animations_state = 1;
+        pthread_kill(animations_thread, SIGABRT);
     }
 }
 

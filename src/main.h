@@ -12,6 +12,16 @@
 #include "liste.h"
 #include "client.h"
 
+//animations states
+#define BREATH_START 1
+#define BREATH_END 2
+#define RUNNING_LEFT_START 3
+#define RUNNING_LEFT_END 4
+#define RUNNING_RIGHT_START 5
+#define RUNNING_RIGHT_END 6
+
+static int animations_state = 1;
+
 static Liste *l;
 
 static short loading;
@@ -21,7 +31,6 @@ static short hover_hostbutton = 0;
 static short debug = 0; 
 
 static int rotation = 0;
-static int animations_state = 1;
 static int xMouse, yMouse;
 static int xWindow = 0, yWindow = 0;
 
@@ -48,6 +57,48 @@ static SDL_Texture *texte_texture = NULL;
 static SDL_Color blackColor = {255, 255, 255};
 static TTF_Font *police = NULL;
 static SDL_Rect title_rect;
+
+//game assets
+static SDL_Surface *imagebullet = NULL;
+static SDL_Surface *surface_joueur_h1 = NULL;
+static SDL_Surface *surface_joueur_h2 = NULL;
+static SDL_Surface *surface_joueur_right_1 = NULL;
+static SDL_Surface *surface_joueur_right_2 = NULL;
+static SDL_Texture *texture_joueur_h1 = NULL;
+static SDL_Texture *texture_joueur_h2 = NULL;
+static SDL_Texture *texture_joueur_right_1 = NULL;
+static SDL_Texture *texture_joueur_right_2 = NULL;
+static SDL_Texture *texturebullet = NULL;	
+
+//menu assets
+static SDL_Surface *play_inert = NULL;
+static SDL_Surface *play_hover = NULL;
+static SDL_Surface *host_inert = NULL;
+static SDL_Surface *host_hover = NULL;
+static SDL_Texture *texture_play_inert = NULL;
+static SDL_Texture *texture_play_hover = NULL;	
+static SDL_Texture *texture_host_inert = NULL;
+static SDL_Texture *texture_host_hover = NULL;	
+
+//window init
+static SDL_Window *window = NULL;
+static SDL_Renderer *renderer = NULL;
+static SDL_Texture *texture = NULL;
+static SDL_Surface *mousesurface = NULL;
+static SDL_Texture *mousetexture = NULL;
+
+//background 
+static SDL_Surface *background = NULL;
+static SDL_Texture *background_texture = NULL;
+
+static SDL_Rect rectanglejoueur = {
+    .x = 0,
+    .y = 0,
+    .w = 150,
+    .h = 150
+};
+
+static playersRect * pRects = NULL;
 
 static pthread_t reloading;
 static pthread_t server;
