@@ -13,14 +13,41 @@
 #include "client.h"
 
 static Liste *l;
+
 static short loading;
 static short play = 0;
 static short hover_playbutton = 0;
 static short hover_hostbutton = 0;
 static short debug = 0; 
+
 static int rotation = 0;
 static int animations_state = 1;
+static int xMouse, yMouse;
+static int xWindow = 0, yWindow = 0;
+
+static char *s;
+
+static Vecteur vecteur;
+static Bullet *bullet = NULL;
+
+static SDL_bool program_launched = SDL_TRUE;
 static SDL_bool tabEvent[9] = {SDL_FALSE};
+static SDL_Event event; 
+
+//menu buttons rectangle
+static SDL_Rect play_button_rect;
+static SDL_Rect host_button_rect;
+static SDL_Rect mouseRect;
+
+//window icon
+static SDL_Surface *icon_surface = NULL;
+    
+//texte assets
+static SDL_Surface *texte = NULL;
+static SDL_Texture *texte_texture = NULL;
+static SDL_Color blackColor = {255, 255, 255};
+static TTF_Font *police = NULL;
+static SDL_Rect title_rect;
 
 static pthread_t reloading;
 static pthread_t server;

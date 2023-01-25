@@ -336,360 +336,132 @@ void affichage()
     }
 }
 
-//programme principal 
-int main(int argc, char *argv[])
+void checkEvents()
 {
-    if (argc == 2 && !strcmp(argv[1],"-d"))
-    {
-        debug = 1;
-    }
-
-    loading = 0;
-    l = creerListe();
-    //freopen(newLogName(), "a+", stdout); 
-
-    Vecteur vecteur;
-
-    Bullet *bullet = NULL;
-    char *s;
-    rotation = 0;
-    int xMouse, yMouse;
-    int xWindow = 0, yWindow = 0;
-
-    //tab d'event
-    memset(tabEvent, 0, 7*sizeof(SDL_bool));
-    
-    //tank
-    rectanglejoueur.x = 0;
-    rectanglejoueur.y = 0;
-    rectanglejoueur.w = 50;
-    rectanglejoueur.h = 81;
-
-    //menu buttons rectangle
-    SDL_Rect play_button_rect;
-    SDL_Rect host_button_rect;
-    SDL_Rect mouseRect;
-
-    //cursor rectangle
-    mouseRect.w = 50;
-    mouseRect.h = 50;
-
-    //connect button
-    host_button_rect.x = 350;
-    host_button_rect.y = 450;
-    host_button_rect.w = 100;
-    host_button_rect.h = 50;
-
-    //play button
-    play_button_rect.x = 350;
-    play_button_rect.y = 250;
-    play_button_rect.w = 100;
-    play_button_rect.h = 50;
-
-    //window icon
-    SDL_Surface *icon_surface = NULL;
-
-    //texte assets
-    SDL_Surface *texte = NULL;
-    SDL_Texture *texte_texture = NULL;
-    SDL_Color blackColor = {255, 255, 255};
-    TTF_Font *police = NULL;
-
-    //retangle title windows = 696, 553
-    SDL_Rect title_rect;
-
-    //title rectangle
-    title_rect.x = 200;
-    title_rect.y = 100;
-    title_rect.w = 200;
-    title_rect.h = 200;
-
-    //assets init
-    icon_surface = IMG_Load("resources/icon.png");
-    surface_joueur_h1 = IMG_Load("resources/characters/player_h1.png");
-    surface_joueur_h2 = IMG_Load("resources/characters/player_h2.png");
-    imagebullet = IMG_Load("resources/bullet.png");
-    background = IMG_Load("resources/background.png");
-    play_inert = IMG_Load("resources/play_inert.png");
-    play_hover = IMG_Load("resources/play_hover.png");
-    host_inert = IMG_Load("resources/host_inert.png");
-    host_hover = IMG_Load("resources/host_hover.png");
-    mousesurface = IMG_Load("resources/cursor/cursor.png");
-
-    if(SDL_Init(SDL_INIT_VIDEO != 0))
-        SDL_ExitWithError("Initialisation SDL");
-
-    if(SDL_CreateWindowAndRenderer(696, 553, SDL_WINDOW_SHOWN, &window, &renderer) != 0)
-        SDL_ExitWithError("Impossible de créer la fenêtre...");
-
-    SDL_SetWindowIcon(window, icon_surface);
-    SDL_SetWindowTitle(window,"Lonesome Island");
-
-    /*if(SDL_SetRenderDrawColor(renderer, 112, 168, 237, SDL_ALPHA_OPAQUE) != 0)
-        SDL_ExitWithError("Impossible de changer la couleur pour le rendu");*/
-
-    //if(SDL_BlitSurface(texte,NULL,background,&rect_texte))SDL_Quit();
-
-    if (TTF_Init() == -1)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger l'image...");
-    }
-
-    police = TTF_OpenFont("resources/couscousse.ttf", 30);
-
-    if (police == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger la police...");
-    }
-
-    mousetexture = SDL_CreateTextureFromSurface(renderer, mousesurface);
-    SDL_FreeSurface(mousesurface);
-
-    if(mousesurface == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger la texture de la souris...");
-    }
-
-    texte = TTF_RenderText_Blended(police, "Welcome young trout!", blackColor);
-
-    if (texte == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger l'image...");
-    }
-
-    texte_texture = SDL_CreateTextureFromSurface(renderer, texte);
-
-    if (texte_texture == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger l'image...");
-    }
-
-    SDL_BlitSurface(texte,NULL,background,&title_rect);
-    SDL_FreeSurface(texte);
-
-    if(play_inert == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger l'image...");
-    }
-    
-    texture_play_inert = SDL_CreateTextureFromSurface(renderer, play_inert);
-    SDL_FreeSurface(play_inert);
-    
-    if(play_hover == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger l'image...");
-    }
-
-    texture_play_hover = SDL_CreateTextureFromSurface(renderer, play_hover);
-    SDL_FreeSurface(play_hover);
-
-    if(host_inert == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger l'image...");
-    }
-    
-    texture_host_inert = SDL_CreateTextureFromSurface(renderer, host_inert);
-    SDL_FreeSurface(host_inert);
-    
-    if(host_hover == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger l'image...");
-    }
-
-    texture_host_hover = SDL_CreateTextureFromSurface(renderer, host_hover);
-    SDL_FreeSurface(host_hover);
-
-    if(background == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger l'image...");
-    }
-
-    background_texture = SDL_CreateTextureFromSurface(renderer, background);
-    SDL_FreeSurface(background);
-
-    if(surface_joueur_h1 == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger l'image...");
-    }
-
-    texture_joueur_h1 = SDL_CreateTextureFromSurface(renderer, surface_joueur_h1);
-    SDL_FreeSurface(surface_joueur_h1);
-
-    if(surface_joueur_h2 == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger la texture...");
-    }
-
-    texture_joueur_h2 = SDL_CreateTextureFromSurface(renderer, surface_joueur_h2);
-    SDL_FreeSurface(surface_joueur_h2);
-
-    if(texture_joueur_h2 == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger la texture...");
-    }
-
-    if(imagebullet == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger l'image de la bullet...");
-    }
-
-    texturebullet = SDL_CreateTextureFromSurface(renderer, imagebullet);
-    SDL_FreeSurface(imagebullet);
-
-    if(texturebullet == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger la texture de la bullet...");
-    }
-
-    SDL_bool program_launched = SDL_TRUE;
-    while(program_launched)
-    {
-        SDL_RenderCopy(renderer, background_texture, NULL, NULL);
-        SDL_Event event; 
-        SDL_GetGlobalMouseState(&xMouse,&yMouse);
-        SDL_GetWindowPosition(window, &xWindow, &yWindow);
-        SDL_ShowCursor(SDL_DISABLE);
-
-        while(SDL_PollEvent(&event))
-        {
-            switch(event.type)
+    switch(event.type)
             {
-                case SDL_KEYDOWN:
+            case SDL_KEYDOWN:
 
-                    switch(event.key.keysym.sym)
-                    {
-                        case SDLK_z:
-                            tabEvent[0] = SDL_TRUE;
-                            break;
+                switch(event.key.keysym.sym)
+                {
+                    case SDLK_z:
+                        tabEvent[0] = SDL_TRUE;
+                        break;
 
-                        case SDLK_q:
-                            tabEvent[1] = SDL_TRUE;
-                            break;
+                    case SDLK_q:
+                        tabEvent[1] = SDL_TRUE;
+                        break;
 
-                        case SDLK_s:
-                            tabEvent[2] = SDL_TRUE;
-                            break;
+                    case SDLK_s:
+                        tabEvent[2] = SDL_TRUE;
+                        break;
 
-                        case SDLK_d:
-                            tabEvent[3] = SDL_TRUE;
-                            break;
+                    case SDLK_d:
+                        tabEvent[3] = SDL_TRUE;
+                        break;
 
-                        case SDLK_LEFT:
-                            tabEvent[4] = SDL_TRUE;
-                            break;
+                    case SDLK_LEFT:
+                        tabEvent[4] = SDL_TRUE;
+                        break;
 
-                        case SDLK_RIGHT:
-                            tabEvent[5] = SDL_TRUE;
-                            break;
+                    case SDLK_RIGHT:
+                        tabEvent[5] = SDL_TRUE;
+                        break;
 
-                        case SDLK_SPACE:
-                            tabEvent[6] = SDL_TRUE;
-                            break;
-                        
-                        case SDL_MOUSEBUTTONUP:
-                            tabEvent[7] = SDL_TRUE;
-                            break;
-                    }
-
-                break;
-
-                case SDL_KEYUP:
-
-                    switch(event.key.keysym.sym)
-                    {
-                        case SDLK_z:
-                            tabEvent[0] = SDL_FALSE;
-                            break;
-
-                        case SDLK_q:
-                            tabEvent[1] = SDL_FALSE;
-                            break;
-
-                        case SDLK_s:
-                            tabEvent[2] = SDL_FALSE;
-                            break;
-
-                        case SDLK_d:
-                            tabEvent[3] = SDL_FALSE;
-                            break;
-
-                        case SDLK_LEFT:
-                            tabEvent[4] = SDL_FALSE;
-                            break;
-
-                        case SDLK_RIGHT:
-                            tabEvent[5] = SDL_FALSE;
-                            break;
-
-                        case SDLK_SPACE:
-                            tabEvent[6] = SDL_FALSE;
-                            break;
-
-                    }
-
-                break;
-
-                //mouse buttons
-                case SDL_MOUSEBUTTONDOWN:
-                    switch (event.button.button)
-                    {
-                    case SDL_BUTTON_LEFT:
+                    case SDLK_SPACE:
+                        tabEvent[6] = SDL_TRUE;
+                        break;
+                    
+                    case SDL_MOUSEBUTTONUP:
                         tabEvent[7] = SDL_TRUE;
                         break;
+                }
 
-                    case SDL_BUTTON_RIGHT:
-                        tabEvent[8] = SDL_TRUE;
+            break;
+
+            case SDL_KEYUP:
+
+                switch(event.key.keysym.sym)
+                {
+                    case SDLK_z:
+                        tabEvent[0] = SDL_FALSE;
                         break;
 
-                    case SDL_BUTTON_MIDDLE:
-                        tabEvent[9] = SDL_TRUE;
-                        break;
-                    }
-
-                break;
-
-                case SDL_MOUSEBUTTONUP:
-                    switch (event.button.button)
-                    {
-                    case SDL_BUTTON_LEFT:
-                        tabEvent[7] = SDL_FALSE;
+                    case SDLK_q:
+                        tabEvent[1] = SDL_FALSE;
                         break;
 
-                    case SDL_BUTTON_RIGHT:
-                        tabEvent[8] = SDL_FALSE;
+                    case SDLK_s:
+                        tabEvent[2] = SDL_FALSE;
                         break;
 
-                    case SDL_BUTTON_MIDDLE:
-                        tabEvent[9] = SDL_FALSE;
+                    case SDLK_d:
+                        tabEvent[3] = SDL_FALSE;
                         break;
-                    }
 
-                break;
+                    case SDLK_LEFT:
+                        tabEvent[4] = SDL_FALSE;
+                        break;
 
-                case SDL_QUIT:
-                    program_launched = SDL_FALSE;
+                    case SDLK_RIGHT:
+                        tabEvent[5] = SDL_FALSE;
+                        break;
+
+                    case SDLK_SPACE:
+                        tabEvent[6] = SDL_FALSE;
+                        break;
+
+                }
+
+            break;
+
+            //mouse buttons
+            case SDL_MOUSEBUTTONDOWN:
+                switch (event.button.button)
+                {
+                case SDL_BUTTON_LEFT:
+                    tabEvent[7] = SDL_TRUE;
                     break;
 
-            }
-        }
+                case SDL_BUTTON_RIGHT:
+                    tabEvent[8] = SDL_TRUE;
+                    break;
 
-        //execution des events
-        if(tabEvent[0])
+                case SDL_BUTTON_MIDDLE:
+                    tabEvent[9] = SDL_TRUE;
+                    break;
+                }
+
+            break;
+
+            case SDL_MOUSEBUTTONUP:
+                switch (event.button.button)
+                {
+                case SDL_BUTTON_LEFT:
+                    tabEvent[7] = SDL_FALSE;
+                    break;
+
+                case SDL_BUTTON_RIGHT:
+                    tabEvent[8] = SDL_FALSE;
+                    break;
+
+                case SDL_BUTTON_MIDDLE:
+                    tabEvent[9] = SDL_FALSE;
+                    break;
+                }
+
+            break;
+
+            case SDL_QUIT:
+                program_launched = SDL_FALSE;
+                break;
+
+            }
+}
+
+void doEvents()
+{
+    if(tabEvent[0])
         {
             //touche Z
             if(play)
@@ -854,6 +626,228 @@ int main(int argc, char *argv[])
                 affichage();
             }
         }
+}
+
+void init_vars()
+{
+    loading = 0;
+    l = creerListe();
+    //freopen(newLogName(), "a+", stdout); 
+
+    rotation = 0;
+
+    //tab d'event
+    memset(tabEvent, 0, 7*sizeof(SDL_bool));
+    
+    //tank
+    rectanglejoueur.x = 0;
+    rectanglejoueur.y = 0;
+    rectanglejoueur.w = 50;
+    rectanglejoueur.h = 81;
+
+    //cursor rectangle
+    mouseRect.w = 50;
+    mouseRect.h = 50;
+
+    //connect button
+    host_button_rect.x = 350;
+    host_button_rect.y = 450;
+    host_button_rect.w = 100;
+    host_button_rect.h = 50;
+
+    //play button
+    play_button_rect.x = 350;
+    play_button_rect.y = 250;
+    play_button_rect.w = 100;
+    play_button_rect.h = 50;
+
+
+                                /* INIT TEXTURES AND MANAGE ERRORS */
+    /* ----------------------------------------------------------------------------------------- */      
+                          
+    //title rectangle
+    title_rect.x = 200;
+    title_rect.y = 100;
+    title_rect.w = 200;
+    title_rect.h = 200;
+
+    //assets init
+    icon_surface = IMG_Load("resources/icon.png");
+    surface_joueur_h1 = IMG_Load("resources/characters/player_h1.png");
+    surface_joueur_h2 = IMG_Load("resources/characters/player_h2.png");
+    imagebullet = IMG_Load("resources/bullet.png");
+    background = IMG_Load("resources/background.png");
+    play_inert = IMG_Load("resources/play_inert.png");
+    play_hover = IMG_Load("resources/play_hover.png");
+    host_inert = IMG_Load("resources/host_inert.png");
+    host_hover = IMG_Load("resources/host_hover.png");
+    mousesurface = IMG_Load("resources/cursor/cursor.png");
+
+    if(SDL_Init(SDL_INIT_VIDEO != 0))
+        SDL_ExitWithError("Initialisation SDL");
+
+    if(SDL_CreateWindowAndRenderer(696, 553, SDL_WINDOW_SHOWN, &window, &renderer) != 0)
+        SDL_ExitWithError("Impossible de créer la fenêtre...");
+
+    SDL_SetWindowIcon(window, icon_surface);
+    SDL_SetWindowTitle(window,"Lonesome Island");
+
+    /*if(SDL_SetRenderDrawColor(renderer, 112, 168, 237, SDL_ALPHA_OPAQUE) != 0)
+        SDL_ExitWithError("Impossible de changer la couleur pour le rendu");*/
+
+    //if(SDL_BlitSurface(texte,NULL,background,&rect_texte))SDL_Quit();
+
+    if (TTF_Init() == -1)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger l'image...");
+    }
+
+    police = TTF_OpenFont("resources/couscousse.ttf", 30);
+
+    if (police == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger la police...");
+    }
+
+    mousetexture = SDL_CreateTextureFromSurface(renderer, mousesurface);
+    SDL_FreeSurface(mousesurface);
+
+    if(mousesurface == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger la texture de la souris...");
+    }
+
+    texte = TTF_RenderText_Blended(police, "Welcome young trout!", blackColor);
+
+    if (texte == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger l'image...");
+    }
+
+    texte_texture = SDL_CreateTextureFromSurface(renderer, texte);
+
+    if (texte_texture == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger l'image...");
+    }
+
+    SDL_BlitSurface(texte,NULL,background,&title_rect);
+    SDL_FreeSurface(texte);
+
+    if(play_inert == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger l'image...");
+    }
+    
+    texture_play_inert = SDL_CreateTextureFromSurface(renderer, play_inert);
+    SDL_FreeSurface(play_inert);
+    
+    if(play_hover == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger l'image...");
+    }
+
+    texture_play_hover = SDL_CreateTextureFromSurface(renderer, play_hover);
+    SDL_FreeSurface(play_hover);
+
+    if(host_inert == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger l'image...");
+    }
+    
+    texture_host_inert = SDL_CreateTextureFromSurface(renderer, host_inert);
+    SDL_FreeSurface(host_inert);
+    
+    if(host_hover == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger l'image...");
+    }
+
+    texture_host_hover = SDL_CreateTextureFromSurface(renderer, host_hover);
+    SDL_FreeSurface(host_hover);
+
+    if(background == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger l'image...");
+    }
+
+    background_texture = SDL_CreateTextureFromSurface(renderer, background);
+    SDL_FreeSurface(background);
+
+    if(surface_joueur_h1 == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger l'image...");
+    }
+
+    texture_joueur_h1 = SDL_CreateTextureFromSurface(renderer, surface_joueur_h1);
+    SDL_FreeSurface(surface_joueur_h1);
+
+    if(surface_joueur_h2 == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger la texture...");
+    }
+
+    texture_joueur_h2 = SDL_CreateTextureFromSurface(renderer, surface_joueur_h2);
+    SDL_FreeSurface(surface_joueur_h2);
+
+    if(texture_joueur_h2 == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger la texture...");
+    }
+
+    if(imagebullet == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger l'image de la bullet...");
+    }
+
+    texturebullet = SDL_CreateTextureFromSurface(renderer, imagebullet);
+    SDL_FreeSurface(imagebullet);
+
+    if(texturebullet == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger la texture de la bullet...");
+    }
+}
+
+//programme principal 
+int main(int argc, char *argv[])
+{
+    if (argc == 2 && !strcmp(argv[1],"-d"))
+    {
+        debug = 1;
+    }
+
+    init_vars();
+
+    while(program_launched)
+    {
+        SDL_RenderCopy(renderer, background_texture, NULL, NULL);
+        SDL_GetGlobalMouseState(&xMouse,&yMouse);
+        SDL_GetWindowPosition(window, &xWindow, &yWindow);
+        SDL_ShowCursor(SDL_DISABLE);
+
+        while(SDL_PollEvent(&event))
+        {
+            checkEvents();
+        }
+
+        //execution des events
+        doEvents();
 
         mouseRect.x = xMouse-xWindow;
         mouseRect.y = yMouse-yWindow;
