@@ -308,6 +308,24 @@ static void dessinerJoueur(SDL_Rect rect)
         }
         SDL_RenderCopy(renderer, texture_joueur_h2, NULL, &rect);
     }
+    else if(animations_state == RUNNING_LEFT_START)
+    {
+        if(SDL_QueryTexture(texture_joueur_left_1, NULL, NULL, &rect.w, &rect.h) != 0)
+        {
+            destroyAll(window, renderer);
+            SDL_ExitWithError("Impossible d'afficher la texture du joueur running left 1 ...");
+        }
+        SDL_RenderCopy(renderer, texture_joueur_left_1, NULL, &rect);
+    }
+    else if(animations_state == RUNNING_LEFT_END)
+    {
+        if(SDL_QueryTexture(texture_joueur_left_2, NULL, NULL, &rect.w, &rect.h) != 0)
+        {
+            destroyAll(window, renderer);
+            SDL_ExitWithError("Impossible d'afficher la texture du joueur running left 2 ...");
+        }
+        SDL_RenderCopy(renderer, texture_joueur_left_2, NULL, &rect);
+    }
     else if(animations_state == RUNNING_RIGHT_START)
     {
         if(SDL_QueryTexture(texture_joueur_right_1, NULL, NULL, &rect.w, &rect.h) != 0)
@@ -325,6 +343,42 @@ static void dessinerJoueur(SDL_Rect rect)
             SDL_ExitWithError("Impossible d'afficher la texture du joueur running right 2 ...");
         }
         SDL_RenderCopy(renderer, texture_joueur_right_2, NULL, &rect);
+    }
+    else if(animations_state == RUNNING_UP_START)
+    {
+        if(SDL_QueryTexture(texture_joueur_up_1, NULL, NULL, &rect.w, &rect.h) != 0)
+        {
+            destroyAll(window, renderer);
+            SDL_ExitWithError("Impossible d'afficher la texture du joueur running up 1 ...");
+        }
+        SDL_RenderCopy(renderer, texture_joueur_up_1, NULL, &rect);
+    }
+    else if(animations_state == RUNNING_UP_END)
+    {
+        if(SDL_QueryTexture(texture_joueur_up_2, NULL, NULL, &rect.w, &rect.h) != 0)
+        {
+            destroyAll(window, renderer);
+            SDL_ExitWithError("Impossible d'afficher la texture du joueur running up 2 ...");
+        }
+        SDL_RenderCopy(renderer, texture_joueur_up_2, NULL, &rect);
+    }
+    else if(animations_state == RUNNING_DOWN_START)
+    {
+        if(SDL_QueryTexture(texture_joueur_down_1, NULL, NULL, &rect.w, &rect.h) != 0)
+        {
+            destroyAll(window, renderer);
+            SDL_ExitWithError("Impossible d'afficher la texture du joueur running down 1 ...");
+        }
+        SDL_RenderCopy(renderer, texture_joueur_down_1, NULL, &rect);
+    }
+    else if(animations_state == RUNNING_DOWN_END)
+    {
+        if(SDL_QueryTexture(texture_joueur_down_2, NULL, NULL, &rect.w, &rect.h) != 0)
+        {
+            destroyAll(window, renderer);
+            SDL_ExitWithError("Impossible d'afficher la texture du joueur running down 2 ...");
+        }
+        SDL_RenderCopy(renderer, texture_joueur_down_2, NULL, &rect);
     }
 }   
 
@@ -344,11 +398,32 @@ void delay_breath()
     while (clock() < start_time + milli_seconds && tabEvent[0] == SDL_FALSE && tabEvent[1] == SDL_FALSE && tabEvent[2] == SDL_FALSE && tabEvent[3] == SDL_FALSE && tabEvent[6] == SDL_FALSE && tabEvent[7] == SDL_FALSE);
 }
 
+void delay_running_left()
+{
+    int milli_seconds = 200;
+    clock_t start_time = clock();
+    while (clock() < start_time + milli_seconds && tabEvent[1] != SDL_FALSE);
+}
+
 void delay_running_right()
 {
     int milli_seconds = 200;
     clock_t start_time = clock();
     while (clock() < start_time + milli_seconds && tabEvent[3] != SDL_FALSE);
+}
+
+void delay_running_up()
+{
+    int milli_seconds = 200;
+    clock_t start_time = clock();
+    while (clock() < start_time + milli_seconds && tabEvent[0] != SDL_FALSE);
+}
+
+void delay_running_down()
+{
+    int milli_seconds = 200;
+    clock_t start_time = clock();
+    while (clock() < start_time + milli_seconds && tabEvent[2] != SDL_FALSE);
 }
 
 static void *breathAnimation()
@@ -357,6 +432,16 @@ static void *breathAnimation()
     delay_breath();
     animations_state++;
     delay_breath();
+    animations_state--;
+    pthread_exit(&animations_thread);
+}
+
+static void *running_left_animation()
+{
+    animations_state = RUNNING_LEFT_START;
+    delay_running_left();
+    animations_state++;
+    delay_running_left();
     animations_state--;
     pthread_exit(&animations_thread);
 }
@@ -371,6 +456,26 @@ static void *running_right_animation()
     pthread_exit(&animations_thread);
 }
 
+static void *running_up_animation()
+{
+    animations_state = RUNNING_UP_START;
+    delay_running_up();
+    animations_state++;
+    delay_running_up();
+    animations_state--;
+    pthread_exit(&animations_thread);
+}
+
+static void *running_down_animation()
+{
+    animations_state = RUNNING_DOWN_START;
+    delay_running_down();
+    animations_state++;
+    delay_running_down();
+    animations_state--;
+    pthread_exit(&animations_thread);
+}
+
 static void doEvents()
 {
     if(tabEvent[0])
@@ -381,12 +486,10 @@ static void doEvents()
                 if (debug) printf("Touche SDLK_z pressee | %s\n", eventTime());
                 rectanglejoueur.y = rectanglejoueur.y - 1;
                 pthread_create(&sendtoserver,NULL,Send2Server,NULL); 
-                //Send2Server();   
-                /*vecteur = InitVecteur(rotation, 2);
-                rectanglejoueur.x += (int)vecteur.x;
-                rectanglejoueur.y += (int)vecteur.y;*/
-                if(debug) printf("Coord X : %d\n", rectanglejoueur.x);
-                if(debug) printf("Coord Y : %d\n", rectanglejoueur.y);
+
+                if(pthread_kill(animations_thread, 0) != 0){
+                    pthread_create(&animations_thread, NULL, running_up_animation,NULL);   
+                }
             }
         }
 
@@ -398,7 +501,10 @@ static void doEvents()
                 if (debug) printf("Touche SDLK_q pressee | %s\n", eventTime());
                 rectanglejoueur.x = rectanglejoueur.x - 1;
                 pthread_create(&sendtoserver,NULL,Send2Server,NULL);  
-                //Send2Server(); 
+                
+                if(pthread_kill(animations_thread, 0) != 0){
+                    pthread_create(&animations_thread, NULL, running_left_animation,NULL);   
+                }
             }
         }
 
@@ -410,7 +516,10 @@ static void doEvents()
                 if (debug) printf("Touche SDLK_s pressee | %s\n", eventTime());
                 rectanglejoueur.y = rectanglejoueur.y + 1;
                 pthread_create(&sendtoserver,NULL,Send2Server,NULL);   
-                //Send2Server(); 
+                
+                if(pthread_kill(animations_thread, 0) != 0){
+                    pthread_create(&animations_thread, NULL, running_down_animation,NULL);   
+                }
             }
         }
 
@@ -599,8 +708,14 @@ static void init_vars()
     //player
     surface_joueur_h1 = IMG_Load("resources/characters/player_h1.png");
     surface_joueur_h2 = IMG_Load("resources/characters/player_h2.png");
+    surface_joueur_left_1 = IMG_Load("resources/characters/player_left_1.png");
+    surface_joueur_left_2 = IMG_Load("resources/characters/player_left_2.png");
     surface_joueur_right_1 = IMG_Load("resources/characters/player_right_1.png");
     surface_joueur_right_2 = IMG_Load("resources/characters/player_right_2.png");
+    surface_joueur_up_1 = IMG_Load("resources/characters/player_up_1.png");
+    surface_joueur_up_2 = IMG_Load("resources/characters/player_up_2.png");
+    surface_joueur_down_1 = IMG_Load("resources/characters/player_down_1.png");
+    surface_joueur_down_2 = IMG_Load("resources/characters/player_down_2.png");
 
     if(SDL_Init(SDL_INIT_VIDEO != 0))
         SDL_ExitWithError("Initialisation SDL");
@@ -709,6 +824,22 @@ static void init_vars()
     texture_joueur_h2 = SDL_CreateTextureFromSurface(renderer, surface_joueur_h2);
     SDL_FreeSurface(surface_joueur_h2);
 
+    if(surface_joueur_left_1 == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger la texture texture_joueur_left_1...");
+    }
+    texture_joueur_left_1 = SDL_CreateTextureFromSurface(renderer, surface_joueur_left_1);
+    SDL_FreeSurface(surface_joueur_left_1);
+
+    if(surface_joueur_left_2 == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger la texture texture_joueur_left_2...");
+    }
+    texture_joueur_left_2 = SDL_CreateTextureFromSurface(renderer, surface_joueur_left_2);
+    SDL_FreeSurface(surface_joueur_left_2);
+
     if(surface_joueur_right_1 == NULL)
     {
         destroyAll(window, renderer);
@@ -724,6 +855,38 @@ static void init_vars()
     }
     texture_joueur_right_2 = SDL_CreateTextureFromSurface(renderer, surface_joueur_right_2);
     SDL_FreeSurface(surface_joueur_right_2);
+
+    if(surface_joueur_up_1 == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger la texture texture_joueur_up_1...");
+    }
+    texture_joueur_up_1 = SDL_CreateTextureFromSurface(renderer, surface_joueur_up_1);
+    SDL_FreeSurface(surface_joueur_up_1);
+
+    if(surface_joueur_up_2 == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger la texture texture_joueur_up_2...");
+    }
+    texture_joueur_up_2 = SDL_CreateTextureFromSurface(renderer, surface_joueur_up_2);
+    SDL_FreeSurface(surface_joueur_up_2);
+
+    if(surface_joueur_down_1 == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger la texture texture_joueur_down_1...");
+    }
+    texture_joueur_down_1 = SDL_CreateTextureFromSurface(renderer, surface_joueur_down_1);
+    SDL_FreeSurface(surface_joueur_down_1);
+
+    if(surface_joueur_down_2 == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger la texture texture_joueur_down_2...");
+    }
+    texture_joueur_down_2 = SDL_CreateTextureFromSurface(renderer, surface_joueur_down_2);
+    SDL_FreeSurface(surface_joueur_down_2);
 
     if(imagebullet == NULL)
     {

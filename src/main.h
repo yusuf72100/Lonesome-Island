@@ -19,6 +19,10 @@
 #define RUNNING_LEFT_END 4
 #define RUNNING_RIGHT_START 5
 #define RUNNING_RIGHT_END 6
+#define RUNNING_UP_START 7
+#define RUNNING_UP_END 8
+#define RUNNING_DOWN_START 9
+#define RUNNING_DOWN_END 10
 
 static SDL_bool animations_states[2] = {SDL_FALSE};
 
@@ -62,15 +66,29 @@ static SDL_Rect title_rect;
 
 //game assets
 static SDL_Surface *imagebullet = NULL;
+static SDL_Texture *texturebullet = NULL;	
+
 static SDL_Surface *surface_joueur_h1 = NULL;
 static SDL_Surface *surface_joueur_h2 = NULL;
+static SDL_Surface *surface_joueur_left_1 = NULL;
+static SDL_Surface *surface_joueur_left_2 = NULL;
 static SDL_Surface *surface_joueur_right_1 = NULL;
 static SDL_Surface *surface_joueur_right_2 = NULL;
+static SDL_Surface *surface_joueur_up_1 = NULL;
+static SDL_Surface *surface_joueur_up_2 = NULL;
+static SDL_Surface *surface_joueur_down_1 = NULL;
+static SDL_Surface *surface_joueur_down_2 = NULL;
+
 static SDL_Texture *texture_joueur_h1 = NULL;
 static SDL_Texture *texture_joueur_h2 = NULL;
+static SDL_Texture *texture_joueur_left_1 = NULL;
+static SDL_Texture *texture_joueur_left_2 = NULL;
 static SDL_Texture *texture_joueur_right_1 = NULL;
 static SDL_Texture *texture_joueur_right_2 = NULL;
-static SDL_Texture *texturebullet = NULL;	
+static SDL_Texture *texture_joueur_up_1 = NULL;
+static SDL_Texture *texture_joueur_up_2 = NULL;
+static SDL_Texture *texture_joueur_down_1 = NULL;
+static SDL_Texture *texture_joueur_down_2 = NULL;
 
 //menu assets
 static SDL_Surface *play_inert = NULL;
