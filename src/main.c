@@ -270,6 +270,107 @@ static void checkEvents()
             }
 }
 
+static void trierJoueurs()
+{
+    int position;
+    for(int i = 1; i <= pRects->size; i++)
+    {
+        SDL_Rect buffer = pRects->rectangles[i];
+        position = 1;
+        for(int j = 1; j <= pRects->size; j++)
+        {
+            if(pRects->rectangles[j].y < pRects->rectangles[i].y) position++;
+        }
+
+        buffer = pRects->rectangles[position];
+        pRects->rectangles[position] = pRects->rectangles[i];
+        pRects->rectangles[i] = buffer;
+    }
+}
+
+static void dessinerJoueur(SDL_Rect rect)
+{
+    if(animations_state == BREATH_START)
+    {
+        if(SDL_QueryTexture(texture_joueur_h1, NULL, NULL, &rect.w, &rect.h) != 0)
+        {
+            destroyAll(window, renderer);
+            SDL_ExitWithError("Impossible d'afficher la texture du joueur...");
+        }
+        SDL_RenderCopy(renderer, texture_joueur_h1, NULL, &rect);
+    }
+    else if(animations_state == BREATH_END)
+    {
+        if(SDL_QueryTexture(texture_joueur_h2, NULL, NULL, &rect.w, &rect.h) != 0)
+        {
+            destroyAll(window, renderer);
+            SDL_ExitWithError("Impossible d'afficher la texture du joueur...");
+        }
+        SDL_RenderCopy(renderer, texture_joueur_h2, NULL, &rect);
+    }
+    else if(animations_state == RUNNING_RIGHT_START)
+    {
+        if(SDL_QueryTexture(texture_joueur_right_1, NULL, NULL, &rect.w, &rect.h) != 0)
+        {
+            destroyAll(window, renderer);
+            SDL_ExitWithError("Impossible d'afficher la texture du joueur running right 1 ...");
+        }
+        SDL_RenderCopy(renderer, texture_joueur_right_1, NULL, &rect);
+    }
+    else if(animations_state == RUNNING_RIGHT_END)
+    {
+        if(SDL_QueryTexture(texture_joueur_right_2, NULL, NULL, &rect.w, &rect.h) != 0)
+        {
+            destroyAll(window, renderer);
+            SDL_ExitWithError("Impossible d'afficher la texture du joueur running right 2 ...");
+        }
+        SDL_RenderCopy(renderer, texture_joueur_right_2, NULL, &rect);
+    }
+}   
+
+static void *dessinerJoueurs()
+{
+    trierJoueurs();
+    for(int i = 1; i <= pRects->size; i++)
+    {
+        dessinerJoueur(pRects->rectangles[i]);
+    }
+}
+
+void delay_breath()
+{
+    int milli_seconds = 2000;
+    clock_t start_time = clock();
+    while (clock() < start_time + milli_seconds && tabEvent[0] == SDL_FALSE && tabEvent[1] == SDL_FALSE && tabEvent[2] == SDL_FALSE && tabEvent[3] == SDL_FALSE && tabEvent[6] == SDL_FALSE && tabEvent[7] == SDL_FALSE);
+}
+
+void delay_running_right()
+{
+    int milli_seconds = 200;
+    clock_t start_time = clock();
+    while (clock() < start_time + milli_seconds && tabEvent[3] != SDL_FALSE);
+}
+
+static void *breathAnimation()
+{    
+    animations_state = BREATH_START;
+    delay_breath();
+    animations_state++;
+    delay_breath();
+    animations_state--;
+    pthread_exit(&animations_thread);
+}
+
+static void *running_right_animation()
+{
+    animations_state = RUNNING_RIGHT_START;
+    delay_running_right();
+    animations_state++;
+    delay_running_right();
+    animations_state--;
+    pthread_exit(&animations_thread);
+}
+
 static void doEvents()
 {
     if(tabEvent[0])
@@ -321,7 +422,10 @@ static void doEvents()
                 if (debug) printf("Touche SDLK_d pressee | %s\n", eventTime());
                 rectanglejoueur.x = rectanglejoueur.x + 1;
                 pthread_create(&sendtoserver,NULL,Send2Server,NULL);   
-                //Send2Server(); 
+
+                if(pthread_kill(animations_thread, 0) != 0){
+                    pthread_create(&animations_thread, NULL, running_right_animation,NULL);   
+                }
             }
         }
 
@@ -352,15 +456,10 @@ static void doEvents()
             if(play)
             {
                 if (!loading)
-                {
-                    //bullet = malloc(sizeof(Bullet*) + 5);      
-                    //initBullet(bullet, rectanglejoueur.x, rectanglejoueur.y, rotation);
-                    //ajouterElement(l, bullet);       
+                { 
                     if (debug) printf("SHOT FIRE!!!\n"); 
-
                     loading = 1;
                     pthread_create(&reloading,NULL,rechargement,NULL);
-                    //if (debug) printf("TIR! | %s\n", eventTime());
                 }
                 else{
                     if (debug) printf("Erreur: reloading!!!\n");
@@ -413,7 +512,12 @@ static void doEvents()
         {
             //click MIDDLE
         }
-
+        if(tabEvent[0] == SDL_FALSE && tabEvent[1] == SDL_FALSE && tabEvent[2] == SDL_FALSE && tabEvent[3] == SDL_FALSE && tabEvent[6] == SDL_FALSE && tabEvent[7] == SDL_FALSE)
+        {
+            if(pthread_kill(animations_thread, 0) != 0){
+                pthread_create(&animations_thread, NULL, breathAnimation,NULL);   
+            }
+        }
         if (bullet != NULL)
         {
             //UpdateBullet(bullet);
@@ -517,7 +621,6 @@ static void init_vars()
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de charger l'image...");
     }
-
     police = TTF_OpenFont("resources/couscousse.ttf", 30);
 
     if (police == NULL)
@@ -525,7 +628,6 @@ static void init_vars()
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de charger la police...");
     }
-
     mousetexture = SDL_CreateTextureFromSurface(renderer, mousesurface);
     SDL_FreeSurface(mousesurface);
 
@@ -534,7 +636,6 @@ static void init_vars()
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de charger la texture de la souris...");
     }
-
     texte = TTF_RenderText_Blended(police, "Welcome young trout!", blackColor);
 
     if (texte == NULL)
@@ -542,7 +643,6 @@ static void init_vars()
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de charger l'image...");
     }
-
     texte_texture = SDL_CreateTextureFromSurface(renderer, texte);
 
     if (texte_texture == NULL)
@@ -550,7 +650,6 @@ static void init_vars()
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de charger l'image...");
     }
-
     SDL_BlitSurface(texte,NULL,background,&title_rect);
     SDL_FreeSurface(texte);
 
@@ -559,7 +658,6 @@ static void init_vars()
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de charger l'image...");
     }
-    
     texture_play_inert = SDL_CreateTextureFromSurface(renderer, play_inert);
     SDL_FreeSurface(play_inert);
     
@@ -568,7 +666,6 @@ static void init_vars()
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de charger l'image...");
     }
-
     texture_play_hover = SDL_CreateTextureFromSurface(renderer, play_hover);
     SDL_FreeSurface(play_hover);
 
@@ -577,7 +674,6 @@ static void init_vars()
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de charger l'image...");
     }
-    
     texture_host_inert = SDL_CreateTextureFromSurface(renderer, host_inert);
     SDL_FreeSurface(host_inert);
     
@@ -586,7 +682,6 @@ static void init_vars()
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de charger l'image...");
     }
-
     texture_host_hover = SDL_CreateTextureFromSurface(renderer, host_hover);
     SDL_FreeSurface(host_hover);
 
@@ -595,40 +690,46 @@ static void init_vars()
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de charger l'image...");
     }
-
     background_texture = SDL_CreateTextureFromSurface(renderer, background);
     SDL_FreeSurface(background);
 
     if(surface_joueur_h1 == NULL)
     {
         destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger l'image...");
+        SDL_ExitWithError("Impossible de charger l'image surface_joueur_h1...");
     }
-
     texture_joueur_h1 = SDL_CreateTextureFromSurface(renderer, surface_joueur_h1);
     SDL_FreeSurface(surface_joueur_h1);
 
     if(surface_joueur_h2 == NULL)
     {
         destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger la texture...");
+        SDL_ExitWithError("Impossible de charger la texture surface_joueur_h2...");
     }
-
     texture_joueur_h2 = SDL_CreateTextureFromSurface(renderer, surface_joueur_h2);
     SDL_FreeSurface(surface_joueur_h2);
 
-    if(texture_joueur_h2 == NULL)
+    if(surface_joueur_right_1 == NULL)
     {
         destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger la texture...");
+        SDL_ExitWithError("Impossible de charger la texture texture_joueur_right_1...");
     }
+    texture_joueur_right_1 = SDL_CreateTextureFromSurface(renderer, surface_joueur_right_1);
+    SDL_FreeSurface(surface_joueur_right_1);
+
+    if(surface_joueur_right_2 == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger la texture texture_joueur_right_2...");
+    }
+    texture_joueur_right_2 = SDL_CreateTextureFromSurface(renderer, surface_joueur_right_2);
+    SDL_FreeSurface(surface_joueur_right_2);
 
     if(imagebullet == NULL)
     {
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de charger l'image de la bullet...");
     }
-
     texturebullet = SDL_CreateTextureFromSurface(renderer, imagebullet);
     SDL_FreeSurface(imagebullet);
 
@@ -721,78 +822,9 @@ static void buttonHoverHost(SDL_Window *window, SDL_Texture *texture_host_hover,
     }   
 }
 
-static void dessinerJoueur(SDL_Rect rect)
-{
-    if(animations_state == 1)
-    {
-        if(SDL_QueryTexture(texture_joueur_h1, NULL, NULL, &rect.w, &rect.h) != 0)
-        {
-            destroyAll(window, renderer);
-            SDL_ExitWithError("Impossible d'afficher la texture du joueur...");
-        }
-        SDL_RenderCopy(renderer, texture_joueur_h1, NULL, &rect);
-    }
-    else if(animations_state == 2)
-    {
-        if(SDL_QueryTexture(texture_joueur_h2, NULL, NULL, &rect.w, &rect.h) != 0)
-        {
-            destroyAll(window, renderer);
-            SDL_ExitWithError("Impossible d'afficher la texture du joueur...");
-        }
-        SDL_RenderCopy(renderer, texture_joueur_h2, NULL, &rect);
-    }
-}   
-
-static void trierJoueurs()
-{
-    int position;
-    for(int i = 1; i <= pRects->size; i++)
-    {
-        SDL_Rect buffer = pRects->rectangles[i];
-        position = 1;
-        for(int j = 1; j <= pRects->size; j++)
-        {
-            if(pRects->rectangles[j].y < pRects->rectangles[i].y) position++;
-        }
-
-        buffer = pRects->rectangles[position];
-        pRects->rectangles[position] = pRects->rectangles[i];
-        pRects->rectangles[i] = buffer;
-    }
-}
-
-static void *dessinerJoueurs()
-{
-    trierJoueurs();
-    for(int i = 1; i <= pRects->size; i++)
-    {
-        dessinerJoueur(pRects->rectangles[i]);
-    }
-}
-
-static void *breathAnimation()
-{
-    Sleep(2000);
-    for(animations_state = 1; animations_state < 2; animations_state++) {
-        Sleep(2000);
-    }
-
-    pthread_exit(&animations_thread);
-}
-
 static void affichage()
 {
     dessinerJoueurs();
-    if(tabEvent[0] == SDL_FALSE && tabEvent[1] == SDL_FALSE && tabEvent[2] == SDL_FALSE && tabEvent[3] == FALSE && tabEvent[6] == FALSE && tabEvent[7] == FALSE)
-    {
-        if(pthread_kill(animations_thread, 0) != 0){
-            pthread_create(&animations_thread, NULL, breathAnimation,NULL);   
-        }
-    }
-    else{
-        animations_state = 1;
-        pthread_kill(animations_thread, SIGABRT);
-    }
 }
 
 //programme principal 

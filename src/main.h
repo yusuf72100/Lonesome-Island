@@ -20,6 +20,8 @@
 #define RUNNING_RIGHT_START 5
 #define RUNNING_RIGHT_END 6
 
+static SDL_bool animations_states[2] = {SDL_FALSE};
+
 static int animations_state = 1;
 
 static Liste *l;
