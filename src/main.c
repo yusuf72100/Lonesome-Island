@@ -77,7 +77,6 @@ char* newLogName()
     logName = realloc(logName, sizeof(char) * strlen(logName)+1);
 
     return logName;
-
 }
 
 char* eventTime()
