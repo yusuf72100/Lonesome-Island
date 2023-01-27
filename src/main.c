@@ -618,22 +618,14 @@ static void doEvents()
                 pthread_create(&animations_thread, NULL, breathAnimation,NULL);   
             }
         }
-        if (bullet != NULL)
-        {
-            //UpdateBullet(bullet);
-            //dessinerBalle(texturebullet, renderer, bullet->rectangle, window, bullet, bullet->rotation, bullet->Vitesse);
-        }
-        
         if(!hover_playbutton && !play)
         {
             dessinerButton(texture_play_inert, renderer, play_button_rect, window, play_inert);
         }
-
         if(!hover_hostbutton && !play)
         {
             dessinerButton(texture_host_inert, renderer, host_button_rect, window, host_inert);
         }
-
         if (play)
         {
             if(pRects != NULL) 
