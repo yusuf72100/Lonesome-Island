@@ -31,7 +31,9 @@
 
 typedef uint32_t socklen_t;
 
-static char tram[100] = "";
+static char tramClient_send[100];
+static char tramClient_receive[100];
+
 static char recvBuffer[dataLen]; 
 static SOCKET socketServer;
 
@@ -85,7 +87,5 @@ void *receiveFromClient(void *arg);
 void *sendToClient(void *arg);
 
 void *startServer();
-
-void traitData(player joueur, int i);
 
 #endif
