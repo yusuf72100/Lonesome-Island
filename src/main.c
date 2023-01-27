@@ -11,7 +11,7 @@ void *synch_datas(playersRect * playersRectangles)
 //on envoi nos données
 static void *Send2Server()
 {
-    sendPosition(rectanglejoueur, rotation);
+    sendDatas(joueur);
 }
 
 Vecteur InitVecteur(int angle, int vitesse)
@@ -290,7 +290,7 @@ static void trierJoueurs()
 
 static void dessinerJoueur(SDL_Rect rect)
 {
-    if(animations_state == BREATH_START)
+    if(joueur.animation_state == BREATH_START)
     {
         if(SDL_QueryTexture(texture_joueur_h1, NULL, NULL, &rect.w, &rect.h) != 0)
         {
@@ -299,7 +299,7 @@ static void dessinerJoueur(SDL_Rect rect)
         }
         SDL_RenderCopy(renderer, texture_joueur_h1, NULL, &rect);
     }
-    else if(animations_state == BREATH_END)
+    else if(joueur.animation_state == BREATH_END)
     {
         if(SDL_QueryTexture(texture_joueur_h2, NULL, NULL, &rect.w, &rect.h) != 0)
         {
@@ -308,7 +308,7 @@ static void dessinerJoueur(SDL_Rect rect)
         }
         SDL_RenderCopy(renderer, texture_joueur_h2, NULL, &rect);
     }
-    else if(animations_state == RUNNING_LEFT_START)
+    else if(joueur.animation_state == RUNNING_LEFT_START)
     {
         if(SDL_QueryTexture(texture_joueur_left_1, NULL, NULL, &rect.w, &rect.h) != 0)
         {
@@ -317,7 +317,7 @@ static void dessinerJoueur(SDL_Rect rect)
         }
         SDL_RenderCopy(renderer, texture_joueur_left_1, NULL, &rect);
     }
-    else if(animations_state == RUNNING_LEFT_END)
+    else if(joueur.animation_state == RUNNING_LEFT_END)
     {
         if(SDL_QueryTexture(texture_joueur_left_2, NULL, NULL, &rect.w, &rect.h) != 0)
         {
@@ -326,7 +326,7 @@ static void dessinerJoueur(SDL_Rect rect)
         }
         SDL_RenderCopy(renderer, texture_joueur_left_2, NULL, &rect);
     }
-    else if(animations_state == RUNNING_RIGHT_START)
+    else if(joueur.animation_state == RUNNING_RIGHT_START)
     {
         if(SDL_QueryTexture(texture_joueur_right_1, NULL, NULL, &rect.w, &rect.h) != 0)
         {
@@ -335,7 +335,7 @@ static void dessinerJoueur(SDL_Rect rect)
         }
         SDL_RenderCopy(renderer, texture_joueur_right_1, NULL, &rect);
     }
-    else if(animations_state == RUNNING_RIGHT_END)
+    else if(joueur.animation_state == RUNNING_RIGHT_END)
     {
         if(SDL_QueryTexture(texture_joueur_right_2, NULL, NULL, &rect.w, &rect.h) != 0)
         {
@@ -344,7 +344,7 @@ static void dessinerJoueur(SDL_Rect rect)
         }
         SDL_RenderCopy(renderer, texture_joueur_right_2, NULL, &rect);
     }
-    else if(animations_state == RUNNING_UP_START)
+    else if(joueur.animation_state == RUNNING_UP_START)
     {
         if(SDL_QueryTexture(texture_joueur_up_1, NULL, NULL, &rect.w, &rect.h) != 0)
         {
@@ -353,7 +353,7 @@ static void dessinerJoueur(SDL_Rect rect)
         }
         SDL_RenderCopy(renderer, texture_joueur_up_1, NULL, &rect);
     }
-    else if(animations_state == RUNNING_UP_END)
+    else if(joueur.animation_state == RUNNING_UP_END)
     {
         if(SDL_QueryTexture(texture_joueur_up_2, NULL, NULL, &rect.w, &rect.h) != 0)
         {
@@ -362,7 +362,7 @@ static void dessinerJoueur(SDL_Rect rect)
         }
         SDL_RenderCopy(renderer, texture_joueur_up_2, NULL, &rect);
     }
-    else if(animations_state == RUNNING_DOWN_START)
+    else if(joueur.animation_state == RUNNING_DOWN_START)
     {
         if(SDL_QueryTexture(texture_joueur_down_1, NULL, NULL, &rect.w, &rect.h) != 0)
         {
@@ -371,7 +371,7 @@ static void dessinerJoueur(SDL_Rect rect)
         }
         SDL_RenderCopy(renderer, texture_joueur_down_1, NULL, &rect);
     }
-    else if(animations_state == RUNNING_DOWN_END)
+    else if(joueur.animation_state == RUNNING_DOWN_END)
     {
         if(SDL_QueryTexture(texture_joueur_down_2, NULL, NULL, &rect.w, &rect.h) != 0)
         {
@@ -428,51 +428,51 @@ void delay_running_down()
 
 static void *breathAnimation()
 {    
-    animations_state = BREATH_START;
+    joueur.animation_state = BREATH_START;
     delay_breath();
-    animations_state++;
+    joueur.animation_state++;
     delay_breath();
-    animations_state--;
+    joueur.animation_state--;
     pthread_exit(&animations_thread);
 }
 
 static void *running_left_animation()
 {
-    animations_state = RUNNING_LEFT_START;
+    joueur.animation_state = RUNNING_LEFT_START;
     delay_running_left();
-    animations_state++;
+    joueur.animation_state++;
     delay_running_left();
-    animations_state--;
+    joueur.animation_state--;
     pthread_exit(&animations_thread);
 }
 
 static void *running_right_animation()
 {
-    animations_state = RUNNING_RIGHT_START;
+    joueur.animation_state = RUNNING_RIGHT_START;
     delay_running_right();
-    animations_state++;
+    joueur.animation_state++;
     delay_running_right();
-    animations_state--;
+    joueur.animation_state--;
     pthread_exit(&animations_thread);
 }
 
 static void *running_up_animation()
 {
-    animations_state = RUNNING_UP_START;
+    joueur.animation_state = RUNNING_UP_START;
     delay_running_up();
-    animations_state++;
+    joueur.animation_state++;
     delay_running_up();
-    animations_state--;
+    joueur.animation_state--;
     pthread_exit(&animations_thread);
 }
 
 static void *running_down_animation()
 {
-    animations_state = RUNNING_DOWN_START;
+    joueur.animation_state = RUNNING_DOWN_START;
     delay_running_down();
-    animations_state++;
+    joueur.animation_state++;
     delay_running_down();
-    animations_state--;
+    joueur.animation_state--;
     pthread_exit(&animations_thread);
 }
 
@@ -484,7 +484,7 @@ static void doEvents()
             if(play)
             {
                 if (debug) printf("Touche SDLK_z pressee | %s\n", eventTime());
-                rectanglejoueur.y = rectanglejoueur.y - 1;
+                joueur.playerRect.y = joueur.playerRect.y - 1;
                 pthread_create(&sendtoserver,NULL,Send2Server,NULL); 
 
                 if(pthread_kill(animations_thread, 0) != 0){
@@ -499,7 +499,7 @@ static void doEvents()
             if(play)
             {
                 if (debug) printf("Touche SDLK_q pressee | %s\n", eventTime());
-                rectanglejoueur.x = rectanglejoueur.x - 1;
+                joueur.playerRect.x = joueur.playerRect.x - 1;
                 pthread_create(&sendtoserver,NULL,Send2Server,NULL);  
                 
                 if(pthread_kill(animations_thread, 0) != 0){
@@ -514,7 +514,7 @@ static void doEvents()
             if(play)
             {
                 if (debug) printf("Touche SDLK_s pressee | %s\n", eventTime());
-                rectanglejoueur.y = rectanglejoueur.y + 1;
+                joueur.playerRect.y = joueur.playerRect.y + 1;
                 pthread_create(&sendtoserver,NULL,Send2Server,NULL);   
                 
                 if(pthread_kill(animations_thread, 0) != 0){
@@ -529,7 +529,7 @@ static void doEvents()
             if(play)
             {
                 if (debug) printf("Touche SDLK_d pressee | %s\n", eventTime());
-                rectanglejoueur.x = rectanglejoueur.x + 1;
+                joueur.playerRect.x = joueur.playerRect.x + 1;
                 pthread_create(&sendtoserver,NULL,Send2Server,NULL);   
 
                 if(pthread_kill(animations_thread, 0) != 0){
@@ -663,11 +663,10 @@ static void init_vars()
     //tab d'event
     memset(tabEvent, 0, 7*sizeof(SDL_bool));
     
-    //tank
-    rectanglejoueur.x = 0;
-    rectanglejoueur.y = 0;
-    rectanglejoueur.w = 50;
-    rectanglejoueur.h = 81;
+    joueur.playerRect.x = 0;
+    joueur.playerRect.y = 0;
+    joueur.playerRect.w = 50;
+    joueur.playerRect.h = 81;
 
     //cursor rectangle
     mouseRect.w = 50;

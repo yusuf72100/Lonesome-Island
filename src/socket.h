@@ -31,8 +31,18 @@
 
 typedef uint32_t socklen_t;
 
+static char tram[100] = "";
 static char recvBuffer[dataLen]; 
 static SOCKET socketServer;
+
+typedef struct
+{
+    SDL_Rect playerRect;
+    int animation_state;
+
+}player;
+
+static player joueur;
 
 typedef struct 
 {
@@ -45,7 +55,7 @@ typedef struct
     SOCKET socketServer;
     SOCKET clientSocket;
     SOCKADDR_IN addrClient;
-    SDL_Rect rectangle;
+    player joueur;
 
 }socketDatas;
 
@@ -56,6 +66,7 @@ typedef struct
     int size;
 
 }argServer;
+
 
 typedef struct
 {
@@ -75,6 +86,6 @@ void *sendToClient(void *arg);
 
 void *startServer();
 
-char traitData(char data[]);
+void traitData(player joueur, int i);
 
 #endif

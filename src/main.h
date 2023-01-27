@@ -24,10 +24,6 @@
 #define RUNNING_DOWN_START 9
 #define RUNNING_DOWN_END 10
 
-static SDL_bool animations_states[2] = {SDL_FALSE};
-
-static int animations_state = 1;
-
 static Liste *l;
 
 static short loading;
@@ -111,12 +107,8 @@ static SDL_Texture *mousetexture = NULL;
 static SDL_Surface *background = NULL;
 static SDL_Texture *background_texture = NULL;
 
-static SDL_Rect rectanglejoueur = {
-    .x = 0,
-    .y = 0,
-    .w = 150,
-    .h = 150
-};
+static player joueur;
+static player * joueurs;
 
 static playersRect * pRects = NULL;
 

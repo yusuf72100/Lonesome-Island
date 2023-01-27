@@ -26,6 +26,11 @@ typedef uint32_t socklen_t;
 
 static SOCKET *socket_Server;
 static int connected;
+static char tramClient_send[100];
+static char tramClient_receive[100];
+
+static player joueur;
+static player * joueurs;
 
 typedef struct 
 {   
@@ -40,7 +45,7 @@ typedef struct
     
 }playersRect;
 
-void *sendPosition(SDL_Rect rectangle, int rotation);
+void *sendDatas(player joueur);
 
 void *stopConnection();
 

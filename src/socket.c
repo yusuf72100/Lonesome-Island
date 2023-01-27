@@ -1,16 +1,28 @@
 #include "socket.h"
 
-char traitData(char data[])
+static void buildTram(player joueur)
 {
-    int i;
-    char buffer = data[0];
-    for(i = 0; data[i]!='\0'; i++){
-        data[i] = data[i+1];
-    }
-    data[i] = '\0';
-    return buffer;
-}
+    tram[0] = '\0';
+    strcat(tram, "-");
+    char bufferX[3] = "";
+    char dataX[4] = "x";
+    itoa(joueur.playerRect.x, bufferX, 10);
+    strcat(dataX, bufferX);
+    strcat(tram, dataX);
 
+    char bufferY[3] = "";
+    char dataY[4] = "y";
+    itoa(joueur.playerRect.y, bufferY, 10);
+    strcat(dataY, bufferY);
+    strcat(tram, dataY);
+    
+    char bufferA[3] = "";
+    char dataA[4] = "a";
+    itoa(joueur.animation_state, bufferA, 10);
+    strcat(dataA, bufferA);
+    strcat(tram, dataA);
+}
+/*
 //envoi les données aux clients
 void *sendToClient(void *arg)
 {
@@ -78,13 +90,47 @@ void *sendToClient(void *arg)
     } while (i < argClient->argt->size);
     i=1;
 }
+*/
+void traitData(player joueur, int i)
+{
+    int j, k;
+    char buffer[10] = "\0";
+    for(j = 0; tram[j]!='\0'; j++){
+        if(tram[j] == 'x')
+        {
+            k=j+1;
+            while(tram[k] >= '0' && tram[k] <= '9')
+            {
+                buffer[k] = tram[k];
+            }
+            joueur.playerRect.x = atoi(buffer);
+        }
+        else if(tram[j] == 'y')
+        {
+            k=j+1;
+            while(tram[k] >= '0' && tram[k] <= '9')
+            {
+                buffer[k] = tram[k];
+            }
+            joueur.playerRect.y = atoi(buffer);
+        }
+        else if(tram[j] == 'a')
+        {
+            k=j+1;
+            while(tram[k] >= '0' && tram[k] <= '9')
+            {
+                buffer[k] = tram[k];
+            }
+            joueur.animation_state = atoi(buffer);
+        }
+    }
+}
 
 //fonction qui se lance dans un thread
 void *receiveFromClient(void *arg)
 {
     pthread_t send_to_client;
     int i = 0;
-    char buffer[6] = "";
     send2Client *argClient = (send2Client *)arg;
     SDL_Rect rect;
 
@@ -93,35 +139,7 @@ void *receiveFromClient(void *arg)
     //on récupère les données de positions des joueurs
     while(argClient->argt->running == TRUE)
     {
-        Sleep(5);
-        recv(argClient->socket,buffer,sizeof(sizeof(char)*4),0);
-        //printf("pure data : %s\n",buffer);
-        char c = traitData(buffer);
-        //printf("transformed data : %s\n",buffer);
-        switch (c)
-        {
-        case 'x':
-            rect.x = atoi(buffer);
-            //printf("received rect.x : %d\n",rect.x);
-            break;
-        case 'y':
-            rect.y = atoi(buffer);
-            //printf("received rect.y : %d\n",rect.y);
-            break;     
-        /*case 'w':
-            rect.w = atoi(buffer);
-            //printf("received rect.w : %d\n",rect.w);
-            break;   
-        case 'h':
-            rect.h = atoi(buffer);
-            //printf("received rect.y : %d\n",rect.y);
-            break;*/
-        default:
-            //printf("Incorrect data %c\n",c);
-            break;
-        }
-
-        //on stock les données
+        //on stock les données du client
         struct sockaddr_in* pV4Addr = (struct sockaddr_in*)&argClient->socket;
         struct in_addr ipAddr = pV4Addr->sin_addr;
         socklen_t len = sizeof(*pV4Addr);
@@ -132,11 +150,13 @@ void *receiveFromClient(void *arg)
             i++;
         } while (strcmp(inet_ntoa(argClient->argt->sd[i].addrClient.sin_addr),inet_ntoa(ipAddr)) || ((int)ntohs(argClient->argt->sd[i].addrClient.sin_port) != argClient->port));
 
+        Sleep(5);
+        recv(argClient->socket,tram,sizeof(sizeof(char)*100+1),0);
+        traitData(argClient->argt->sd[i].joueur, i);
+
         //printf("find at position %d\n",i);
-        argClient->argt->sd[i].rectangle.x = rect.x;
-        argClient->argt->sd[i].rectangle.y = rect.y;
-        argClient->argt->sd[i].rectangle.w = 50;
-        argClient->argt->sd[i].rectangle.h = 81;
+        argClient->argt->sd[i].joueur.playerRect.w = 50;
+        argClient->argt->sd[i].joueur.playerRect.h = 81;
         pthread_create(&send_to_client,NULL,sendToClient,(void *)argClient);
         //sendToClient((void *)argClient);
         i=0;
@@ -216,6 +236,8 @@ void *startServer()
     argt->sd->socketServer = socketServer;
     argt->sd->clientSocket = clientSocket;
     argt->sd->addrClient = addrClient;
+    argt->sd->joueur.playerRect.w = 50;
+    argt->sd->joueur.playerRect.h = 81;
 
     //on lance et attend l'arrêt du serveur
     searchClients((void*)argt);

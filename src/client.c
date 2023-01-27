@@ -8,6 +8,43 @@ playersRect *p_datas = NULL;
 static argDessinerJoueurs * arg = NULL;
 static int connected;
 
+void *receiveFromServer()
+{
+    recv(*socket_Server,tramClient_receive,sizeof(sizeof(char)*100+1),0);
+    int j, k;
+    char buffer[10] = "\0";
+    for(j = 0; tram[j]!='\0'; j++){
+        if(tram[j] == 'x')
+        {
+            k=j+1;
+            while(tram[k] >= '0' && tram[k] <= '9')
+            {
+                buffer[k] = tram[k];
+            }
+            joueur.playerRect.x = atoi(buffer);
+        }
+        else if(tram[j] == 'y')
+        {
+            k=j+1;
+            while(tram[k] >= '0' && tram[k] <= '9')
+            {
+                buffer[k] = tram[k];
+            }
+            joueur.playerRect.y = atoi(buffer);
+        }
+        else if(tram[j] == 'a')
+        {
+            k=j+1;
+            while(tram[k] >= '0' && tram[k] <= '9')
+            {
+                buffer[k] = tram[k];
+            }
+            joueur.animation_state = atoi(buffer);
+        }
+    }
+}
+
+/*
 //cette fonction mettra à jour le tableau des positions 
 void *receiveFromServer()
 {
@@ -39,14 +76,14 @@ void *receiveFromServer()
             c = traitData(data);
             rect[i].y = atoi(data);
             break;     
-        /*case 'w':
+        case 'w':
             c = traitData(data);
             rect[i].w = atoi(data);
             break;   
         case 'h':
             c = traitData(data);
             rect[i].h = atoi(data);
-            break;*/
+            break;
         case 's':
             c = traitData(data);
             size = atoi(data);
@@ -73,40 +110,36 @@ void *receiveFromServer()
         }
     }
 }
+*/
 
-void *sendPosition(SDL_Rect rect, int rotation)
+static void buildTram(player joueur)
 {
+    tramClient_send[0] = '\0';
+    strcat(tramClient_send, "-");
     char bufferX[3] = "";
     char dataX[4] = "x";
-    itoa(rect.x, bufferX, 10);
+    itoa(joueur.playerRect.x, bufferX, 10);
     strcat(dataX, bufferX);
-    //printf("Sended %s\n",dataX);
-    dataX[4] = '\0';
-    send(*socket_Server,dataX,sizeof(sizeof(char)*4),0);
+    strcat(tramClient_send, dataX);
 
     char bufferY[3] = "";
     char dataY[4] = "y";
-    itoa(rect.y, bufferY, 10);
+    itoa(joueur.playerRect.y, bufferY, 10);
     strcat(dataY, bufferY);
-    //printf("Sended %s\n",dataY);
-    dataY[4] = '\0';
-    send(*socket_Server,dataY,sizeof(sizeof(char)*4),0);
+    strcat(tramClient_send, dataY);
+    
+    char bufferA[3] = "";
+    char dataA[4] = "a";
+    itoa(joueur.animation_state, bufferA, 10);
+    strcat(dataA, bufferA);
+    strcat(tramClient_send, dataA);
+}
 
-    /*char bufferW[3] = "";
-    char dataW[4] = "w";
-    itoa(rect.w, bufferW, 10);
-    strcat(dataW, bufferW);
-    //printf("Sended %s\n",dataW);
-    dataW[4] = '\0';
-    send(*socket_Server,dataW,sizeof(sizeof(char)*4),0);
-
-    char bufferH[3] = "";
-    char dataH[4] = "h";
-    itoa(rect.h, bufferH, 10);
-    strcat(dataH, bufferH);
-    //printf("Sended %s\n",dataH);
-    dataH[4] = '\0';
-    send(*socket_Server,dataH,sizeof(sizeof(char)*4),0);*/
+void *sendDatas(player joueur)
+{
+    buildTram(joueur);
+    printf("Tram: %s\n",tramClient_send);
+    send(*socket_Server,tramClient_send,sizeof(sizeof(char)*strlen(tramClient_send)),0);
 }
 
 void *stopConnection()
