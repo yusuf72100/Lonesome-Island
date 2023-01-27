@@ -378,7 +378,7 @@ static void dessinerJoueur(player Joueur)
 
 static void *dessinerJoueurs()
 {
-    trierJoueurs();
+    //trierJoueurs();
     for(int i = 1; i < size; i++)
     {
         dessinerJoueur(joueurs[i]);
@@ -479,7 +479,6 @@ static void doEvents()
             {
                 if (debug) printf("Touche SDLK_z pressee | %s\n", eventTime());
                 joueur.playerRect.y = joueur.playerRect.y - 1;
-                pthread_create(&sendtoserver,NULL,Send2Server,NULL); 
 
                 if(pthread_kill(animations_thread, 0) != 0){
                     pthread_create(&animations_thread, NULL, running_up_animation,NULL);   
@@ -494,7 +493,6 @@ static void doEvents()
             {
                 if (debug) printf("Touche SDLK_q pressee | %s\n", eventTime());
                 joueur.playerRect.x = joueur.playerRect.x - 1;
-                pthread_create(&sendtoserver,NULL,Send2Server,NULL);  
                 
                 if(pthread_kill(animations_thread, 0) != 0){
                     pthread_create(&animations_thread, NULL, running_left_animation,NULL);   
@@ -509,7 +507,6 @@ static void doEvents()
             {
                 if (debug) printf("Touche SDLK_s pressee | %s\n", eventTime());
                 joueur.playerRect.y = joueur.playerRect.y + 1;
-                pthread_create(&sendtoserver,NULL,Send2Server,NULL);   
                 
                 if(pthread_kill(animations_thread, 0) != 0){
                     pthread_create(&animations_thread, NULL, running_down_animation,NULL);   
@@ -524,7 +521,6 @@ static void doEvents()
             {
                 if (debug) printf("Touche SDLK_d pressee | %s\n", eventTime());
                 joueur.playerRect.x = joueur.playerRect.x + 1;
-                pthread_create(&sendtoserver,NULL,Send2Server,NULL);   
 
                 if(pthread_kill(animations_thread, 0) != 0){
                     pthread_create(&animations_thread, NULL, running_right_animation,NULL);   
@@ -580,7 +576,6 @@ static void doEvents()
                 if (debug) printf("Play button clicked\n");
                 startConnection();                                          //on créer un client qui se connecte au serveur 
                 Sleep(1000);
-                pthread_create(&sendtoserver,NULL,Send2Server,NULL);    
                 pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
                 play = 1;
             }
@@ -629,6 +624,7 @@ static void doEvents()
         if (play)
         {
             affichage();
+            Send2Server();
         }
 }
 
@@ -994,7 +990,7 @@ int main(int argc, char *argv[])
         drawMouse(mouseRect, mousetexture);
         SDL_RenderPresent(renderer);
 
-        Sleep(30);
+        Sleep(20);
     }  
 
     //free window
