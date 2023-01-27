@@ -108,7 +108,6 @@ static SDL_Surface *background = NULL;
 static SDL_Texture *background_texture = NULL;
 
 static player joueur;
-static player * joueurs;
 
 static playersRect * pRects = NULL;
 

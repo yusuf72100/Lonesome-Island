@@ -33,9 +33,6 @@ static player joueur;
 player * joueurs;
 static int size;
 
-static SDL_Rect *rect = NULL;
-static playersRect *p_datas = NULL;
-
 static argDessinerJoueurs * arg = NULL;
 static int connected;
 
