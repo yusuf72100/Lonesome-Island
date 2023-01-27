@@ -882,7 +882,6 @@ static void init_vars()
 
 static void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, Bullet *b, int rotation, int vitesse)
 {
-    //SDL_RenderClear(renderer);
     if(SDL_QueryTexture(texture, NULL, NULL, &rectangle.w, &rectangle.h) != 0)
     {
         destroyAll(window, renderer);
