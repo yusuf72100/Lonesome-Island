@@ -29,7 +29,6 @@ Vecteur InitVecteur(int angle, int vitesse)
     if(debug) printf("Angle : %d\n", angle);
     if(debug) printf("Vecteur.x : %lf pour un cos de %lf\n", Vecteur.x, cos(angle));
     if(debug) printf("Vecteur.y : %lf pour un sin de %lf\n", Vecteur.y, sin(angle));
-    //Vecteur.y = sin(angle/180*3.14);
 
     return Vecteur;
 }
@@ -49,9 +48,7 @@ static void *rechargement()
 static void UpdateBullet(Bullet * b)
 {
   b->rectangle.x += b->Vitesse;
-  //if (debug) printf("x = %d\n", b->rectangle.x);
   b->rectangle.y += b->Vitesse;
-  //if (debug) printf("y = %d\n", b->rectangle.y);
 }
 
 static void UpdateBulletAll()
@@ -111,7 +108,6 @@ static void drawMouse(SDL_Rect mouseRect, SDL_Texture *mousetexture)
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de rotate le curseur...");
     }
-    //SDL_BlitSurface(mousesurface,NULL,background,&mouseRect);
 }
 
 //méthode pour dessiner plus facilement les rectangles (objets)
@@ -144,7 +140,6 @@ static void dessinerButton(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rec
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de rotate le boutton play...");
     }
-    //SDL_BlitSurface(surface,NULL,background,&rectangle);
 }
 
 static void checkEvents()
@@ -584,10 +579,9 @@ static void doEvents()
             if(xMouse>=350+xWindow && xMouse<=450+xWindow && yMouse>=250+yWindow && yMouse<=300+yWindow && !play)
             {
                 if (debug) printf("Play button clicked\n");
-                startConnection();      //on créer un client qui se connecte au serveur 
+                startConnection();                                          //on créer un client qui se connecte au serveur 
                 Sleep(1000);
                 pthread_create(&sendtoserver,NULL,Send2Server,NULL);    
-                //Send2Server();   
                 pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
                 play = 1;
             }
@@ -598,11 +592,9 @@ static void doEvents()
                 if (debug) printf("Host button clicked\n");
                 pthread_create(&server,NULL,startServer,NULL);              //on héberge le serveur 
                 Sleep(200);
-                startConnection();       //on créer un client qui se connecte au serveur
+                startConnection();                                          //on créer un client qui se connecte au serveur
                 Sleep(500);
                 pthread_create(&sendtoserver,NULL,Send2Server,NULL); 
-                //Sleep(200);
-                //Send2Server();   
                 pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
                 play = 1;
             }
@@ -724,11 +716,6 @@ static void init_vars()
 
     SDL_SetWindowIcon(window, icon_surface);
     SDL_SetWindowTitle(window,"Lonesome Island");
-
-    /*if(SDL_SetRenderDrawColor(renderer, 112, 168, 237, SDL_ALPHA_OPAQUE) != 0)
-        SDL_ExitWithError("Impossible de changer la couleur pour le rendu");*/
-
-    //if(SDL_BlitSurface(texte,NULL,background,&rect_texte))SDL_Quit();
 
     if (TTF_Init() == -1)
     {
@@ -916,20 +903,18 @@ static void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de rotate le la balle...");
     }
-
-    //SDL_RenderPresent(renderer);
 }
 
 static void initBullet(Bullet * b, int x, int y, int rotation)
 {
-    b->rectangle.x = x;     //directives
+    b->rectangle.x = x;                                                 //directives
     if (debug) printf("xbullet = %d\n", b->rectangle.x);
     b->rectangle.y = y;
     if (debug) printf("ybullet = %d\n", b->rectangle.y);
     b->rectangle.w = 2;
     b->rectangle.h = 8;
     b->rotation = rotation;
-    if (debug) printf("rbullet = %d\n", b->rotation);
+    if (debug) printf("bullet = %d\n", b->rotation);
 
     b->DirX = cos(b->rotation);
     b->DirY = -sin(b->rotation); 
