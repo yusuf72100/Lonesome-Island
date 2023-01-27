@@ -12,7 +12,8 @@
         "sdl.h": "c",
         "unistd.h": "c",
         "client.h": "c",
-        "init.h": "c"
+        "init.h": "c",
+        "socket.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

@@ -13,6 +13,7 @@
 #include <SDL.h>  
 #include <SDL_image.h>
 #include <SDL_ttf.h>
+#include "socket.h"
 #pragma comment(lib, "ws2_32.lib")
  
 #define TRUE 1
@@ -30,10 +31,9 @@ static char tramClient_send[100];
 static char tramClient_receive[100];
 
 static player joueur;
-player * joueurs;
+static player * joueurs;
 static int size;
 
-static argDessinerJoueurs * arg = NULL;
 static int connected;
 
 typedef struct 
@@ -41,13 +41,6 @@ typedef struct
     SDL_Rect rect;
     int rotation;
 }argDessinerJoueurs;
-
-typedef struct 
-{
-    SDL_Rect *rectangles;
-    int size;
-    
-}playersRect;
 
 void *sendDatas(player joueur);
 

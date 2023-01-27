@@ -2,10 +2,10 @@
 
 void SDL_ExitWithError(const char *message);
 
-//on récupère les données du socket
-void *synch_datas(playersRect * playersRectangles)
+void synchDatas(player * Joueurs, int taille)
 {
-    pRects = playersRectangles;
+    size = taille;
+    joueurs = Joueurs;
 }
 
 //on envoi nos données
@@ -267,18 +267,18 @@ static void checkEvents()
 static void trierJoueurs()
 {
     int position;
-    for(int i = 1; i <= pRects->size; i++)
+    for(int i = 1; i < size; i++)
     {
-        SDL_Rect buffer = pRects->rectangles[i];
+        player buffer = joueurs[i];
         position = 1;
-        for(int j = 1; j <= pRects->size; j++)
+        for(int j = 1; j <= size; j++)
         {
-            if(pRects->rectangles[j].y < pRects->rectangles[i].y) position++;
+            if(joueurs[i].playerRect.y < joueurs[j].playerRect.y) position++;
         }
 
-        buffer = pRects->rectangles[position];
-        pRects->rectangles[position] = pRects->rectangles[i];
-        pRects->rectangles[i] = buffer;
+        buffer = joueurs[position];
+        joueurs[position] = joueurs[i];
+        joueurs[i] = buffer;
     }
 }
 
@@ -286,100 +286,100 @@ static void dessinerJoueur(player Joueur)
 {
     if(Joueur.animation_state == BREATH_START)
     {
-        if(SDL_QueryTexture(texture_joueur_h1, NULL, NULL, &Joueur->playerRect.w,&Joueur->playerRect.h) != 0)
+        if(SDL_QueryTexture(texture_joueur_h1, NULL, NULL, &Joueur.playerRect.w,&Joueur.playerRect.h) != 0)
         {
             destroyAll(window, renderer);
             SDL_ExitWithError("Impossible d'afficher la texture du joueur...");
         }
-        SDL_RenderCopy(renderer, texture_joueur_h1, NULL, &Joueur->playerRect);
+        SDL_RenderCopy(renderer, texture_joueur_h1, NULL, &Joueur.playerRect);
     }
     else if(Joueur.animation_state == BREATH_END)
     {
-        if(SDL_QueryTexture(texture_joueur_h2, NULL, NULL, &Joueur->playerRect.w, &&Joueur->playerRect.h) != 0)
+        if(SDL_QueryTexture(texture_joueur_h2, NULL, NULL, &Joueur.playerRect.w, &Joueur.playerRect.h) != 0)
         {
             destroyAll(window, renderer);
             SDL_ExitWithError("Impossible d'afficher la texture du joueur...");
         }
-        SDL_RenderCopy(renderer, texture_joueur_h2, NULL, &&Joueur->playerRect);
+        SDL_RenderCopy(renderer, texture_joueur_h2, NULL, &Joueur.playerRect);
     }
     else if(Joueur.animation_state == RUNNING_LEFT_START)
     {
-        if(SDL_QueryTexture(texture_joueur_left_1, NULL, NULL, &Joueur->playerRect.w &Joueur->playerRect.h) != 0)
+        if(SDL_QueryTexture(texture_joueur_left_1, NULL, NULL, &Joueur.playerRect.w, &Joueur.playerRect.h) != 0)
         {
             destroyAll(window, renderer);
             SDL_ExitWithError("Impossible d'afficher la texture du joueur running left 1 ...");
         }
-        SDL_RenderCopy(renderer, texture_joueur_left_1, NULL, &Joueur->playerRect);
+        SDL_RenderCopy(renderer, texture_joueur_left_1, NULL, &Joueur.playerRect);
     }
     else if(Joueur.animation_state == RUNNING_LEFT_END)
     {
-        if(SDL_QueryTexture(texture_joueur_left_2, NULL, NULL, &Joueur->playerRect.w, &Joueur->playerRect.h) != 0)
+        if(SDL_QueryTexture(texture_joueur_left_2, NULL, NULL, &Joueur.playerRect.w, &Joueur.playerRect.h) != 0)
         {
             destroyAll(window, renderer);
             SDL_ExitWithError("Impossible d'afficher la texture du joueur running left 2 ...");
         }
-        SDL_RenderCopy(renderer, texture_joueur_left_2, NULL, &Joueur->playerRect);
+        SDL_RenderCopy(renderer, texture_joueur_left_2, NULL, &Joueur.playerRect);
     }
     else if(Joueur.animation_state == RUNNING_RIGHT_START)
     {
-        if(SDL_QueryTexture(texture_joueur_right_1, NULL, NULL, &Joueur->playerRect.w, &Joueur->playerRect.h) != 0)
+        if(SDL_QueryTexture(texture_joueur_right_1, NULL, NULL, &Joueur.playerRect.w, &Joueur.playerRect.h) != 0)
         {
             destroyAll(window, renderer);
             SDL_ExitWithError("Impossible d'afficher la texture du joueur running right 1 ...");
         }
-        SDL_RenderCopy(renderer, texture_joueur_right_1, NULL, &Joueur->playerRect);
+        SDL_RenderCopy(renderer, texture_joueur_right_1, NULL, &Joueur.playerRect);
     }
     else if(Joueur.animation_state == RUNNING_RIGHT_END)
     {
-        if(SDL_QueryTexture(texture_joueur_right_2, NULL, NULL, &Joueur->playerRect.w, &Joueur->playerRect.h) != 0)
+        if(SDL_QueryTexture(texture_joueur_right_2, NULL, NULL, &Joueur.playerRect.w, &Joueur.playerRect.h) != 0)
         {
             destroyAll(window, renderer);
             SDL_ExitWithError("Impossible d'afficher la texture du joueur running right 2 ...");
         }
-        SDL_RenderCopy(renderer, texture_joueur_right_2, NULL, &Joueur->playerRect);
+        SDL_RenderCopy(renderer, texture_joueur_right_2, NULL, &Joueur.playerRect);
     }
     else if(Joueur.animation_state == RUNNING_UP_START)
     {
-        if(SDL_QueryTexture(texture_joueur_up_1, NULL, NULL, &Joueur->playerRect.w, &Joueur->playerRect.h) != 0)
+        if(SDL_QueryTexture(texture_joueur_up_1, NULL, NULL, &Joueur.playerRect.w, &Joueur.playerRect.h) != 0)
         {
             destroyAll(window, renderer);
             SDL_ExitWithError("Impossible d'afficher la texture du joueur running up 1 ...");
         }
-        SDL_RenderCopy(renderer, texture_joueur_up_1, NULL, &Joueur->playerRect);
+        SDL_RenderCopy(renderer, texture_joueur_up_1, NULL, &Joueur.playerRect);
     }
     else if(Joueur.animation_state == RUNNING_UP_END)
     {
-        if(SDL_QueryTexture(texture_joueur_up_2, NULL, NULL, &Joueur->playerRect.w, &Joueur->playerRect.h) != 0)
+        if(SDL_QueryTexture(texture_joueur_up_2, NULL, NULL, &Joueur.playerRect.w, &Joueur.playerRect.h) != 0)
         {
             destroyAll(window, renderer);
             SDL_ExitWithError("Impossible d'afficher la texture du joueur running up 2 ...");
         }
-        SDL_RenderCopy(renderer, texture_joueur_up_2, NULL, &Joueur->playerRect);
+        SDL_RenderCopy(renderer, texture_joueur_up_2, NULL, &Joueur.playerRect);
     }
     else if(Joueur.animation_state == RUNNING_DOWN_START)
     {
-        if(SDL_QueryTexture(texture_joueur_down_1, NULL, NULL, &Joueur->playerRect.w, &Joueur->playerRect.h) != 0)
+        if(SDL_QueryTexture(texture_joueur_down_1, NULL, NULL, &Joueur.playerRect.w, &Joueur.playerRect.h) != 0)
         {
             destroyAll(window, renderer);
             SDL_ExitWithError("Impossible d'afficher la texture du joueur running down 1 ...");
         }
-        SDL_RenderCopy(renderer, texture_joueur_down_1, NULL, &Joueur->playerRect);
+        SDL_RenderCopy(renderer, texture_joueur_down_1, NULL, &Joueur.playerRect);
     }
     else if(Joueur.animation_state == RUNNING_DOWN_END)
     {
-        if(SDL_QueryTexture(texture_joueur_down_2, NULL, NULL, &Joueur->playerRect.w, &Joueur->playerRect.h) != 0)
+        if(SDL_QueryTexture(texture_joueur_down_2, NULL, NULL, &Joueur.playerRect.w, &Joueur.playerRect.h) != 0)
         {
             destroyAll(window, renderer);
             SDL_ExitWithError("Impossible d'afficher la texture du joueur running down 2 ...");
         }
-        SDL_RenderCopy(renderer, texture_joueur_down_2, NULL, &Joueur->playerRect);
+        SDL_RenderCopy(renderer, texture_joueur_down_2, NULL, &Joueur.playerRect);
     }
 }   
 
 static void *dessinerJoueurs()
 {
-    trierJoueurs();
-    for(int i = 1; i <= size; i++)
+    //trierJoueurs();
+    for(int i = 1; i < size; i++)
     {
         dessinerJoueur(joueurs[i]);
     }
@@ -628,10 +628,7 @@ static void doEvents()
         }
         if (play)
         {
-            if(pRects != NULL) 
-            {
-                affichage();
-            }
+            affichage();
         }
 }
 
@@ -976,12 +973,7 @@ int main(int argc, char *argv[])
 
     while(program_launched)
     {
-        SDL_RenderCopy(renderer, background_texture, NULL, NULL)        if (bullet != NULL)
-        {
-            //UpdateBullet(bullet);
-            //dessinerBalle(texturebullet, renderer, bullet->rectangle, window, bullet, bullet->rotation, bullet->Vitesse);
-        }
-        ;
+        SDL_RenderCopy(renderer, background_texture, NULL, NULL);
         SDL_GetGlobalMouseState(&xMouse,&yMouse);
         SDL_GetWindowPosition(window, &xWindow, &yWindow);
         SDL_ShowCursor(SDL_DISABLE);
@@ -1002,7 +994,7 @@ int main(int argc, char *argv[])
         drawMouse(mouseRect, mousetexture);
         SDL_RenderPresent(renderer);
 
-        Sleep(20);
+        Sleep(30);
     }  
 
     //free window

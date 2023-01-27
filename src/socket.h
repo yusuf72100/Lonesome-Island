@@ -44,7 +44,6 @@ typedef struct
 
 }player;
 
-static player joueur;
 
 typedef struct 
 {
@@ -78,7 +77,7 @@ void *searchClients(void *argt);
 
 void *receiveFromClient(void *arg);
 
-void *sendToClient(void *arg);
+static void *sendToClient(send2Client *argClient);
 
 void *startServer();
 

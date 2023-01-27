@@ -2,14 +2,13 @@
 
 static void buildtramClient_send(player joueur, int i, int size)
 {
+    tramClient_send[0] = '\0';
     char bufferI[3] = "";
     char dataI[4] = "i";
     itoa(i, bufferI, 10);
     strcat(dataI, bufferI);
     strcat(tramClient_send, dataI);
 
-    tramClient_send[0] = '\0';
-    strcat(tramClient_send, "-");
     char bufferX[3] = "";
     char dataX[4] = "x";
     itoa(joueur.playerRect.x, bufferX, 10);
@@ -33,14 +32,14 @@ static void buildtramClient_send(player joueur, int i, int size)
     itoa(size, bufferS, 10);
     strcat(dataS, bufferS);
     strcat(tramClient_send, dataS);
+
 }
 
 //envoi les données aux clients
-static void *sendToClient(void *arg)
+static void *sendToClient(send2Client *argClient)
 {
     int err;
     int i = 1, j = 1;
-    send2Client *argClient = (send2Client *)arg;
     SOCKADDR_IN addr_Client;
     struct sockaddr_in* pV4Addr = (struct sockaddr_in*)&addr_Client;
     struct in_addr ipAddr = pV4Addr->sin_addr;
@@ -51,10 +50,12 @@ static void *sendToClient(void *arg)
         //on envoi les coordonnées de tout le monde
         do
         {
-            buildtramClient_send(argClient->argt->sd[i].joueur, i, argClient->argt->size);
-            send(argClient->argt->sd[i].clientSocket,dataS,sizeof(sizeof(char)*2),0);
+            if(argClient->argt->sd[i].clientSocket != SOCKET_ERROR)
+            {
+                buildtramClient_send(argClient->argt->sd[j].joueur, j, argClient->argt->size);
+                send(argClient->argt->sd[i].clientSocket,tramClient_send,(sizeof(char)*30),0);
+            }
             j++;
-
         } while(j < argClient->argt->size);
         j=1;
         i++;
@@ -62,37 +63,54 @@ static void *sendToClient(void *arg)
     i=1;
 }
 
-static void traitData(player joueur)
+static void traitData(send2Client *argClient, int indice)
 {
     int j, k;
-    char buffer[10] = "\0";
-    for(j = 0; tramClient_receiveClient_send[j]!='\0'; j++){
+    char buffer[20] = "\0";
+    for(j = 0; tramClient_receive[j]!='\0'; j++){
+        k = 0;
+
         if(tramClient_receive[j] == 'x')
         {
-            k=j+1;
-            while(tramClient_receive[k] >= '0' && tramClient_receive[k] <= '9')
+            j++;
+            while(tramClient_receive[j] >= '0' && tramClient_receive[j] <= '9')
             {
-                buffer[k] = tramClient_receive[k];
+                buffer[k] = tramClient_receive[j];
+                k++;
+                j++;
             }
-            joueur.playerRect.x = atoi(buffer);
+            buffer[k] = '\0';
+            argClient->argt->sd[indice].joueur.playerRect.x = atoi(buffer);
+            k=0;
+            buffer[0] = '\0';
         }
-        else if(tramClient_receive[j] == 'y')
+        if(tramClient_receive[j] == 'y')
         {
-            k=j+1;
-            while(tramClient_receive[k] >= '0' && tramClient_receive[k] <= '9')
+            j++;
+            while(tramClient_receive[j] >= '0' && tramClient_receive[j] <= '9')
             {
-                buffer[k] = tramClient_receive[k];
+                buffer[k] = tramClient_receive[j];
+                k++;
+                j++;
             }
-            joueur.playerRect.y = atoi(buffer);
+            buffer[k] = '\0';
+            argClient->argt->sd[indice].joueur.playerRect.y = atoi(buffer);
+            k=0;
+            buffer[0] = '\0';
         }
-        else if(tramClient_receive[j] == 'a')
+        if(tramClient_receive[j] == 'a')
         {
-            k=j+1;
-            while(tramClient_receive[k] >= '0' && tramClient_receive[k] <= '9')
+            j++;
+            while(tramClient_receive[j] >= '0' && tramClient_receive[j] <= '9')
             {
-                buffer[k] = tramClient_receive[k];
+                buffer[k] = tramClient_receive[j];
+                k++;
+                j++;
             }
-            joueur.animation_state = atoi(buffer);
+            buffer[k] = '\0';
+            argClient->argt->sd[indice].joueur.animation_state = atoi(buffer);
+            k=0;
+            buffer[0] = '\0';
         }
     }
 }
@@ -100,7 +118,6 @@ static void traitData(player joueur)
 //fonction qui se lance dans un thread
 void *receiveFromClient(void *arg)
 {
-    pthread_t send_to_client;
     int i = 0;
     send2Client *argClient = (send2Client *)arg;
 
@@ -109,7 +126,8 @@ void *receiveFromClient(void *arg)
     //on récupère les données de positions des joueurs
     while(argClient->argt->running == TRUE)
     {
-        recv(argClient->socket,tramClient_receive,sizeof(sizeof(char)*100+1),0);
+        tramClient_receive[0] = '\0';
+        recv(argClient->socket,tramClient_receive,(sizeof(char)*30),0);
 
         //on stock les données du client
         struct sockaddr_in* pV4Addr = (struct sockaddr_in*)&argClient->socket;
@@ -122,14 +140,11 @@ void *receiveFromClient(void *arg)
             i++;
         } while (strcmp(inet_ntoa(argClient->argt->sd[i].addrClient.sin_addr),inet_ntoa(ipAddr)) || ((int)ntohs(argClient->argt->sd[i].addrClient.sin_port) != argClient->port));
 
-        Sleep(5);
-        traitData(argClient->argt->sd[i].joueur);
+        traitData(argClient, i);
 
-        //printf("find at position %d\n",i);
         argClient->argt->sd[i].joueur.playerRect.w = 50;
         argClient->argt->sd[i].joueur.playerRect.h = 81;
-        pthread_create(&send_to_client,NULL,sendToClient,(void *)argClient);
-        //sendToClient((void *)argClient);
+        sendToClient(argClient);
         i=0;
     }
 }
@@ -143,11 +158,12 @@ void *searchClients(void *arg)
     socketDatas * newSd = argt2->sd;
     SOCKET socketClient;
     argt2->running = TRUE;
-    
+
     printf("Server running\n");
     
     while(argt2->running)
     {
+        printf("%d\n",argt2->size);
         socketClient = accept(argt2->sd->socketServer, (struct sockaddr *)&argt2->sd[argt2->size].addrClient, &csize);
         if(socketClient != INVALID_SOCKET)
         {

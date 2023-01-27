@@ -1,16 +1,15 @@
-#include "socket.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
 #include <string.h>
 #include <math.h>
-#include <windows.h>
 #include <pthread.h>
 #include <SDL.h>  
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 #include "liste.h"
 #include "client.h"
+#include <windows.h>
 
 //animations states
 #define BREATH_START 1
@@ -32,6 +31,7 @@ static short hover_playbutton = 0;
 static short hover_hostbutton = 0;
 static short debug = 0; 
 
+static int size;
 static int rotation = 0;
 static int xMouse, yMouse;
 static int xWindow = 0, yWindow = 0;
@@ -108,8 +108,7 @@ static SDL_Surface *background = NULL;
 static SDL_Texture *background_texture = NULL;
 
 static player joueur;
-
-static playersRect * pRects = NULL;
+static player * joueurs;
 
 static pthread_t reloading;
 static pthread_t server;
@@ -129,17 +128,17 @@ static void doEvents();
 
 static void init_vars();
 
-void *synch_datas(playersRect * playersRectangles);
-
 static void *Send2Server();
 
 Vecteur InitVecteur(int angle, int vitesse);
 
-static void dessinerJoueur(SDL_Rect rect);
+static void dessinerJoueur(player Joueur);
 
 static void destroyAll(SDL_Window *window, SDL_Renderer *renderer);
 
 static void *rechargement();
+
+void synchDatas(player * Joueurs, int taille);
 
 static void UpdateBullet(Bullet * b);
 

@@ -1,71 +1,103 @@
-#include "socket.h"
-#include "main.h"
 #include "client.h"
+#include "main.h"
 
 static void traitData()
 {
     int position = 0;
     int j, k;
-    char buffer[10] = "\0";
-    for(j = 0; tramClient_receiveClient_send[j]!='\0'; j++){
+    char buffer[20] = "\0";
+    //printf("tien : %s",tramClient_receive);
+    for(j = 0; tramClient_receive[j]!='\0'; j++){
+        k = 0;
+
+        if(tramClient_receive[j] == 'i')
+        {
+            j++;
+            while(tramClient_receive[j] >= '0' && tramClient_receive[j] <= '9')
+            {
+                buffer[k] = tramClient_receive[j];
+                k++;
+                j++;
+            }
+            buffer[k] = '\0';
+            position = atoi(buffer);
+            k=0;
+            buffer[0] = '\0';
+        }
         if(tramClient_receive[j] == 'x')
         {
-            k=j+1;
-            while(tramClient_receive[k] >= '0' && tramClient_receive[k] <= '9')
+            j++;
+            while(tramClient_receive[j] >= '0' && tramClient_receive[j] <= '9')
             {
-                buffer[k] = tramClient_receive[k];
+                buffer[k] = tramClient_receive[j];
+                k++;
+                j++;
             }
+            buffer[k] = '\0';
             joueurs[position].playerRect.x = atoi(buffer);
+            k=0;
+            buffer[0] = '\0';
         }
-        else if(tramClient_receive[j] == 'y')
+        if(tramClient_receive[j] == 'y')
         {
-            k=j+1;
-            while(tramClient_receive[k] >= '0' && tramClient_receive[k] <= '9')
+            j++;
+            while(tramClient_receive[j] >= '0' && tramClient_receive[j] <= '9')
             {
-                buffer[k] = tramClient_receive[k];
+                buffer[k] = tramClient_receive[j];
+                k++;
+                j++;
             }
+            buffer[k] = '\0';
             joueurs[position].playerRect.y = atoi(buffer);
+            k=0;
+            buffer[0] = '\0';
         }
-        else if(tramClient_receive[j] == 'a')
+        if(tramClient_receive[j] == 'a')
         {
-            k=j+1;
-            while(tramClient_receive[k] >= '0' && tramClient_receive[k] <= '9')
+            j++;
+            while(tramClient_receive[j] >= '0' && tramClient_receive[j] <= '9')
             {
-                buffer[k] = tramClient_receive[k];
+                buffer[k] = tramClient_receive[j];
+                k++;
+                j++;
             }
+            buffer[k] = '\0';
             joueurs[position].animation_state = atoi(buffer);
+            k=0;
+            buffer[0] = '\0';
         }
-        else if(tramClient_receive[j] == 'i')
+        if(tramClient_receive[j] == 's')
         {
-            k=j+1;
-            while(tramClient_receive[k] >= '0' && tramClient_receive[k] <= '9')
+
+            j++;
+            while(tramClient_receive[j] >= '0' && tramClient_receive[j] <= '9')
             {
-                buffer[k] = tramClient_receive[k];
+                buffer[k] = tramClient_receive[j];
+                k++;
+                j++;
             }
-            position = atoi(buffer);
-        }
-        else if(tramClient_receive[j] == 's')
-        {
-            k=j+1;
-            while(tramClient_receive[k] >= '0' && tramClient_receive[k] <= '9')
-            {
-                buffer[k] = tramClient_receive[k];
-            }
+            buffer[k] = '\0';
             size = atoi(buffer);
+            k=0;
+            buffer[0] = '\0';
         }
     }
 }
 
 void *receiveFromServer()
 {
-    recv(*socket_Server,tramClient_receive,sizeof(sizeof(char)*100+1),0);
-    traitData();
+    while(TRUE)
+    {
+        recv(*socket_Server,tramClient_receive,(sizeof(char)*30),0);
+        traitData();
+        synchDatas(joueurs,size);
+    }
 }
 
-static void buildTram()
+static void buildTram(player joueur)
 {
     tramClient_send[0] = '\0';
-    strcat(tramClient_send, "-");
+    strcat(tramClient_send, "fff ");
     char bufferX[3] = "";
     char dataX[4] = "x";
     itoa(joueur.playerRect.x, bufferX, 10);
@@ -83,12 +115,13 @@ static void buildTram()
     itoa(joueur.animation_state, bufferA, 10);
     strcat(dataA, bufferA);
     strcat(tramClient_send, dataA);
+    strcat(tramClient_send, " fff");
 }
 
 void *sendDatas(player joueur)
 {
     buildTram(joueur);
-    send(*socket_Server,tramClient_send,sizeof(sizeof(char)*strlen(tramClient_send)),0);
+    send(*socket_Server,tramClient_send,(sizeof(char)*30),0);
 }
 
 void *stopConnection()
