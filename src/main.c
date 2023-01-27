@@ -267,13 +267,14 @@ static void checkEvents()
 static void trierJoueurs()
 {
     int position;
-    for(int i = 1; i < size; i++)
+    int i,j;
+    for(i = 1; i < size; i++)
     {
         player buffer = joueurs[i];
         position = 1;
-        for(int j = 1; j <= size; j++)
+        for(j = 1; j < size; j++)
         {
-            if(joueurs[j].playerRect.y < joueurs[i].playerRect.y) position++;
+            if(joueurs[i].playerRect.y > joueurs[j].playerRect.y) position++;
         }
 
         buffer = joueurs[position];
@@ -378,7 +379,7 @@ static void dessinerJoueur(player Joueur)
 
 static void *dessinerJoueurs()
 {
-    //trierJoueurs();
+    trierJoueurs();
     for(int i = 1; i < size; i++)
     {
         dessinerJoueur(joueurs[i]);
