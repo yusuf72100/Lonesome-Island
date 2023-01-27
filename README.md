@@ -1,4 +1,4 @@
-# lonesome_island
+# Lonesome Island
 
 Project L2, C language with SDL.
 
