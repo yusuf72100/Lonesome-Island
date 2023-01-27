@@ -1,4 +1,4 @@
-# pdfa
+# lonesome_island
 
 Project L2, C language with SDL.
 
