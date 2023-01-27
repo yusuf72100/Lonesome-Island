@@ -953,7 +953,7 @@ static void buttonHoverHost(SDL_Window *window, SDL_Texture *texture_host_hover,
             dessinerButton(texture_host_hover, renderer, host_button_rect, window, host_hover);
         }
         else
-        {
+        {                
             hover_hostbutton = 0;
             if (debug) printf("X: %d et y: %d\n",xMouse,yMouse);
         }
@@ -977,7 +977,12 @@ int main(int argc, char *argv[])
 
     while(program_launched)
     {
-        SDL_RenderCopy(renderer, background_texture, NULL, NULL);
+        SDL_RenderCopy(renderer, background_texture, NULL, NULL)        if (bullet != NULL)
+        {
+            //UpdateBullet(bullet);
+            //dessinerBalle(texturebullet, renderer, bullet->rectangle, window, bullet, bullet->rotation, bullet->Vitesse);
+        }
+        ;
         SDL_GetGlobalMouseState(&xMouse,&yMouse);
         SDL_GetWindowPosition(window, &xWindow, &yWindow);
         SDL_ShowCursor(SDL_DISABLE);
