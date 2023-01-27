@@ -48,12 +48,6 @@ static player joueur;
 
 typedef struct 
 {
-    char nom[30];
-    int age;
-}User;
-
-typedef struct 
-{
     SOCKET socketServer;
     SOCKET clientSocket;
     SOCKADDR_IN addrClient;

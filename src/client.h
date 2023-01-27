@@ -30,7 +30,7 @@ static char tramClient_send[100];
 static char tramClient_receive[100];
 
 static player joueur;
-static player * joueurs;
+player * joueurs;
 static int size;
 
 static SDL_Rect *rect = NULL;
