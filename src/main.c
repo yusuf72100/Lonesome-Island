@@ -272,7 +272,7 @@ static void trierJoueurs()
     {
         player buffer = joueurs[i];
         position = 1;
-        for(j = 1; j < size; j++)
+        for(j = 1; j <= size; j++)
         {
             if(joueurs[i].playerRect.y > joueurs[j].playerRect.y) position++;
         }
@@ -589,7 +589,7 @@ static void doEvents()
                 Sleep(200);
                 startConnection();                                          //on créer un client qui se connecte au serveur
                 Sleep(500);
-                pthread_create(&sendtoserver,NULL,Send2Server,NULL); 
+                Send2Server();
                 pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
                 play = 1;
             }
@@ -624,8 +624,8 @@ static void doEvents()
         }
         if (play)
         {
-            affichage();
             Send2Server();
+            affichage();
         }
 }
 
@@ -693,11 +693,14 @@ static void init_vars()
     surface_joueur_down_1 = IMG_Load("resources/characters/player_down_1.png");
     surface_joueur_down_2 = IMG_Load("resources/characters/player_down_2.png");
 
-    if(SDL_Init(SDL_INIT_VIDEO != 0))
+    if(SDL_Init(SDL_INIT_EVERYTHING != 0))
         SDL_ExitWithError("Initialisation SDL");
 
-    if(SDL_CreateWindowAndRenderer(696, 553, SDL_WINDOW_SHOWN, &window, &renderer) != 0)
+    if((window = SDL_CreateWindow("Lonesome Island",  SDL_WINDOWPOS_CENTERED,  SDL_WINDOWPOS_CENTERED, 696, 553, SDL_WINDOW_SHOWN)) == NULL)
         SDL_ExitWithError("Impossible de créer la fenêtre...");
+    
+    if((renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED)) == NULL)
+        SDL_ExitWithError("Impossible de créer le rendu...");
 
     SDL_SetWindowIcon(window, icon_surface);
     SDL_SetWindowTitle(window,"Lonesome Island");
@@ -967,9 +970,11 @@ int main(int argc, char *argv[])
     }
 
     init_vars();
+    int timer = 0;
 
     while(program_launched)
     {
+        tick = SDL_GetTicks();
         SDL_RenderCopy(renderer, background_texture, NULL, NULL);
         SDL_GetGlobalMouseState(&xMouse,&yMouse);
         SDL_GetWindowPosition(window, &xWindow, &yWindow);
@@ -991,7 +996,10 @@ int main(int argc, char *argv[])
         drawMouse(mouseRect, mousetexture);
         SDL_RenderPresent(renderer);
 
-        Sleep(20);
+        if((timer = (1000 / 60)-(SDL_GetTicks() - tick)) > 0)
+            SDL_Delay(timer);
+        else    
+            SDL_Delay(15);
     }  
 
     //free window
@@ -999,6 +1007,7 @@ int main(int argc, char *argv[])
     TTF_CloseFont(police);
     TTF_Quit();
     SDL_Quit();
+    stopConnection();
 
     return EXIT_SUCCESS;
 }

@@ -120,12 +120,11 @@ void *receiveFromClient(void *arg)
 {
     int i = 0;
     send2Client *argClient = (send2Client *)arg;
-
-    if(argClient->socket != INVALID_SOCKET) printf("Ready to receive\n");
     
     //on récupère les données de positions des joueurs
     while(argClient->argt->running == TRUE)
     {
+
         tramClient_receive[0] = '\0';
         recv(argClient->socket,tramClient_receive,(sizeof(char)*30),0);
 
@@ -146,6 +145,7 @@ void *receiveFromClient(void *arg)
         argClient->argt->sd[i].joueur.playerRect.h = 81;
         sendToClient(argClient);
         i=0;
+
     }
 }
 
@@ -163,7 +163,6 @@ void *searchClients(void *arg)
     
     while(argt2->running)
     {
-        printf("%d\n",argt2->size);
         socketClient = accept(argt2->sd->socketServer, (struct sockaddr *)&argt2->sd[argt2->size].addrClient, &csize);
         if(socketClient != INVALID_SOCKET)
         {

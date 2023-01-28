@@ -31,6 +31,7 @@ static short hover_playbutton = 0;
 static short hover_hostbutton = 0;
 static short debug = 0; 
 
+static int tick=0;
 static int size;
 static int rotation = 0;
 static int xMouse, yMouse;
