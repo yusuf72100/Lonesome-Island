@@ -121,8 +121,6 @@ static void SDL_ExitWithError(const char *message);
 
 static void trierJoueurs();
 
-static void affichage();
-
 static void checkEvents();
 
 static void doEvents();

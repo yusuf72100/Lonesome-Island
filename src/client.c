@@ -89,6 +89,7 @@ void *receiveFromServer()
     while(TRUE)
     {
         recv(*socket_Server,tramClient_receive,(sizeof(char)*30),0);
+        //printf("Received from: %s\n",tramClient_receive);
         traitData();
         synchDatas(joueurs,size);
     }
@@ -139,7 +140,7 @@ void *startConnection()
     WSADATA WSAData;
     WSAStartup(MAKEWORD(2,0), &WSAData);
     SOCKADDR_IN addrServer;
-    addrServer.sin_addr.s_addr = inet_addr(IP_LOCALE);      
+    addrServer.sin_addr.s_addr = inet_addr(IP_PUBLIC);      
     addrServer.sin_family = AF_INET;
     addrServer.sin_port = htons(4148);
     *socket_Server = socket(AF_INET,SOCK_STREAM,0);

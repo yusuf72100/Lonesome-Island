@@ -379,7 +379,7 @@ static void dessinerJoueur(player Joueur)
 
 static void *dessinerJoueurs()
 {
-    trierJoueurs();
+    //trierJoueurs();
     for(int i = 1; i < size; i++)
     {
         dessinerJoueur(joueurs[i]);
@@ -424,10 +424,13 @@ void delay_running_down()
 static void *breathAnimation()
 {    
     joueur.animation_state = BREATH_START;
+    Send2Server();
     delay_breath();
     joueur.animation_state++;
+    Send2Server();
     delay_breath();
     joueur.animation_state--;
+    Send2Server();
     pthread_exit(&animations_thread);
 }
 
@@ -484,6 +487,7 @@ static void doEvents()
                 if(pthread_kill(animations_thread, 0) != 0){
                     pthread_create(&animations_thread, NULL, running_up_animation,NULL);   
                 }
+                pthread_create(&sendtoserver,NULL,Send2Server,NULL); 
             }
         }
 
@@ -492,11 +496,15 @@ static void doEvents()
             //touche Q
             if(play)
             {
-                if (debug) printf("Touche SDLK_q pressee | %s\n", eventTime());
                 joueur.playerRect.x = joueur.playerRect.x - 1;
-                
-                if(pthread_kill(animations_thread, 0) != 0){
-                    pthread_create(&animations_thread, NULL, running_left_animation,NULL);   
+                if(tabEvent[0] == SDL_FALSE && tabEvent[2] == SDL_FALSE)
+                {
+                    if (debug) printf("Touche SDLK_q pressee | %s\n", eventTime());
+                    
+                    if(pthread_kill(animations_thread, 0) != 0){
+                        pthread_create(&animations_thread, NULL, running_left_animation,NULL);   
+                    }
+                    pthread_create(&sendtoserver,NULL,Send2Server,NULL); 
                 }
             }
         }
@@ -512,6 +520,7 @@ static void doEvents()
                 if(pthread_kill(animations_thread, 0) != 0){
                     pthread_create(&animations_thread, NULL, running_down_animation,NULL);   
                 }
+                pthread_create(&sendtoserver,NULL,Send2Server,NULL); 
             }
         }
 
@@ -520,11 +529,15 @@ static void doEvents()
             //touche D
             if(play)
             {
-                if (debug) printf("Touche SDLK_d pressee | %s\n", eventTime());
                 joueur.playerRect.x = joueur.playerRect.x + 1;
+                if(tabEvent[0] == SDL_FALSE && tabEvent[2] == SDL_FALSE)
+                {
+                    if (debug) printf("Touche SDLK_d pressee | %s\n", eventTime());
 
-                if(pthread_kill(animations_thread, 0) != 0){
-                    pthread_create(&animations_thread, NULL, running_right_animation,NULL);   
+                    if(pthread_kill(animations_thread, 0) != 0){
+                        pthread_create(&animations_thread, NULL, running_right_animation,NULL);   
+                    }
+                    pthread_create(&sendtoserver,NULL,Send2Server,NULL); 
                 }
             }
         }
@@ -589,7 +602,7 @@ static void doEvents()
                 Sleep(200);
                 startConnection();                                          //on créer un client qui se connecte au serveur
                 Sleep(500);
-                Send2Server();
+                pthread_create(&sendtoserver,NULL,Send2Server,NULL); 
                 pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
                 play = 1;
             }
@@ -610,8 +623,11 @@ static void doEvents()
         }
         if(tabEvent[0] == SDL_FALSE && tabEvent[1] == SDL_FALSE && tabEvent[2] == SDL_FALSE && tabEvent[3] == SDL_FALSE && tabEvent[6] == SDL_FALSE && tabEvent[7] == SDL_FALSE)
         {
-            if(pthread_kill(animations_thread, 0) != 0){
-                pthread_create(&animations_thread, NULL, breathAnimation,NULL);   
+            if(play)
+            {
+                if(pthread_kill(animations_thread, 0) != 0){
+                    pthread_create(&animations_thread, NULL, breathAnimation,NULL);   
+                }
             }
         }
         if(!hover_playbutton && !play)
@@ -624,8 +640,7 @@ static void doEvents()
         }
         if (play)
         {
-            Send2Server();
-            affichage();
+            dessinerJoueurs();
         }
 }
 
@@ -954,11 +969,6 @@ static void buttonHoverHost(SDL_Window *window, SDL_Texture *texture_host_hover,
             if (debug) printf("X: %d et y: %d\n",xMouse,yMouse);
         }
     }   
-}
-
-static void affichage()
-{
-    dessinerJoueurs();
 }
 
 //programme principal 

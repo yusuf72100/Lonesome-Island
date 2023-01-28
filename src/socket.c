@@ -54,6 +54,7 @@ static void *sendToClient(send2Client *argClient)
             {
                 buildtramClient_send(argClient->argt->sd[j].joueur, j, argClient->argt->size);
                 send(argClient->argt->sd[i].clientSocket,tramClient_send,(sizeof(char)*30),0);
+                //printf("Sended to client: %s\n",tramClient_send);
             }
             j++;
         } while(j < argClient->argt->size);
@@ -115,49 +116,69 @@ static void traitData(send2Client *argClient, int indice)
     }
 }
 
-//fonction qui se lance dans un thread
+void disconnectPlayer(send2Client *argClient, int position)
+{
+    for(position; position < argClient->argt->size-1; position++)
+    {
+        argClient->argt->sd[position] = argClient->argt->sd[position+1];
+    }
+    argClient->argt->size-=1;
+    printf("new size\n",argClient->argt->size);
+}
+
+//fonction qui prend en paramètre un client et l'écoute
 void *receiveFromClient(void *arg)
 {
-    int i = 0;
+    int i = 0, connected = 1, position=0;
     send2Client *argClient = (send2Client *)arg;
-    
+
     //on récupère les données de positions des joueurs
-    while(argClient->argt->running == TRUE)
+    while(argClient->argt->running == TRUE && connected)
     {
-
         tramClient_receive[0] = '\0';
-        recv(argClient->socket,tramClient_receive,(sizeof(char)*30),0);
 
-        //on stock les données du client
-        struct sockaddr_in* pV4Addr = (struct sockaddr_in*)&argClient->socket;
-        struct in_addr ipAddr = pV4Addr->sin_addr;
-        socklen_t len = sizeof(*pV4Addr);
-
-        //on cherche la position du client dans le tableau de données
-        do
+        if(recv(argClient->socket,tramClient_receive,(sizeof(char)*30),0) == SOCKET_ERROR)
         {
-            i++;
-        } while (strcmp(inet_ntoa(argClient->argt->sd[i].addrClient.sin_addr),inet_ntoa(ipAddr)) || ((int)ntohs(argClient->argt->sd[i].addrClient.sin_port) != argClient->port));
+            printf("Server: Client with id %d has been disconnected\n",i);
+            connected = 0;
+            disconnectPlayer(argClient, position);
+        }
+        
+        else
+        {
+            //on stock les données du client
+            struct sockaddr_in* pV4Addr = (struct sockaddr_in*)&argClient->socket;
+            struct in_addr ipAddr = pV4Addr->sin_addr;
+            socklen_t len = sizeof(*pV4Addr);
 
-        traitData(argClient, i);
+            //on cherche la position du client dans le tableau de données
+            do
+            {
+                i++;
+            } while (strcmp(inet_ntoa(argClient->argt->sd[i].addrClient.sin_addr),inet_ntoa(ipAddr)) || ((int)ntohs(argClient->argt->sd[i].addrClient.sin_port) != argClient->port));
 
-        argClient->argt->sd[i].joueur.playerRect.w = 50;
-        argClient->argt->sd[i].joueur.playerRect.h = 81;
-        sendToClient(argClient);
-        i=0;
+            traitData(argClient, i);
+
+            argClient->argt->sd[i].joueur.playerRect.w = 50;
+            argClient->argt->sd[i].joueur.playerRect.h = 81;
+            sendToClient(argClient);
+            position = i;
+            i=0;
+        }
 
     }
+    pthread_exit(&receive_from_client[i]);
 }
 
 //fonction qui accepte les clients
 void *searchClients(void *arg)
 {
-    pthread_t receive_from_client;
     argServer *argt2 = (argServer*)arg;
     socklen_t csize = sizeof(argt2->sd->addrClient);
     socketDatas * newSd = argt2->sd;
     SOCKET socketClient;
     argt2->running = TRUE;
+    send2Client *argClient = malloc(sizeof(send2Client)*10+1);
 
     printf("Server running\n");
     
@@ -174,12 +195,11 @@ void *searchClients(void *arg)
             printf("Connected clients : %d\n",argt2->size);
             argt2->size++;
         }
-        send2Client *argClient = malloc(sizeof(send2Client));
-        argClient->socket = socketClient;
-        argClient->port = (int)ntohs(argt2->sd[argt2->size-1].addrClient.sin_port);
-        argClient->argt = argt2;
+        argClient[argt2->size-1].socket = socketClient;
+        argClient[argt2->size-1].port = (int)ntohs(argt2->sd[argt2->size-1].addrClient.sin_port);
+        argClient[argt2->size-1].argt = argt2;
         Sleep(500);
-        pthread_create(&receive_from_client,NULL,receiveFromClient,(void *)argClient);
+        pthread_create(&receive_from_client[argt2->size-1],NULL,receiveFromClient,(void *)&argClient[argt2->size-1]);
     }
 
     printf("close\n");
@@ -190,9 +210,9 @@ void *searchClients(void *arg)
 //fonction qui initialise et lance le serveur
 void *startServer()
 {
-    pthread_t receiveThread;
+    receive_from_client = malloc(sizeof(pthread_t)*10+1);
+    socketDatas * sd = malloc(sizeof(socketDatas)*10+1);
     int  running = 0;
-    socketDatas * sd = malloc(sizeof(socketDatas)*5);
 
     SOCKET clientSocket;
     WSADATA WSAData;
