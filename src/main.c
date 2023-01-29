@@ -531,7 +531,7 @@ static void doEvents()
             if(strcmp(menu,"InGame") == 0)
             {
                 if (debug) printf("Touche SDLK_z pressee | %s\n", eventTime());
-                joueur.playerRect.y = joueur.playerRect.y - 1;
+                joueur.playerRect.y = joueur.playerRect.y - 3;
 
                 if(pthread_kill(animations_thread, 0) != 0){
                     pthread_create(&animations_thread, NULL, running_up_animation,NULL);   
@@ -545,7 +545,7 @@ static void doEvents()
             //touche Q
             if(strcmp(menu,"InGame") == 0)
             {
-                joueur.playerRect.x = joueur.playerRect.x - 1;
+                joueur.playerRect.x = joueur.playerRect.x - 3;
                 if(tabEvent[0] == SDL_FALSE && tabEvent[2] == SDL_FALSE)
                 {
                     if (debug) printf("Touche SDLK_q pressee | %s\n", eventTime());
@@ -564,7 +564,7 @@ static void doEvents()
             if(strcmp(menu,"InGame") == 0)
             {
                 if (debug) printf("Touche SDLK_s pressee | %s\n", eventTime());
-                joueur.playerRect.y = joueur.playerRect.y + 1;
+                joueur.playerRect.y = joueur.playerRect.y + 3;
                 
                 if(pthread_kill(animations_thread, 0) != 0){
                     pthread_create(&animations_thread, NULL, running_down_animation,NULL);   
@@ -578,7 +578,7 @@ static void doEvents()
             //touche D
             if(strcmp(menu,"InGame") == 0)
             {
-                joueur.playerRect.x = joueur.playerRect.x + 1;
+                joueur.playerRect.x = joueur.playerRect.x + 3;
                 if(tabEvent[0] == SDL_FALSE && tabEvent[2] == SDL_FALSE)
                 {
                     if (debug) printf("Touche SDLK_d pressee | %s\n", eventTime());
