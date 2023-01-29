@@ -633,10 +633,10 @@ static void doEvents()
         {
             //click LEFT DOWN
 
-            //play button
-            if(xMouse>=play_button_rect.x+xWindow && xMouse<=play_button_rect.x+play_button_rect.w+xWindow && yMouse>=play_button_rect.y+yWindow && yMouse<=play_button_rect.y+play_button_rect.h+yWindow && strcmp(menu,"Main") == 0)
+            //Connect button
+            if(xMouse>=connect_button_rect.x+xWindow && xMouse<=connect_button_rect.x+connect_button_rect.w+xWindow && yMouse>=connect_button_rect.y+yWindow && yMouse<=connect_button_rect.y+connect_button_rect.h+yWindow && strcmp(menu,"Main") == 0)
             {
-                if (debug) printf("Play button clicked\n");                                         
+                if (debug) printf("Connect button clicked\n");                                         
                 if(startConnection() == 0)                                     //on créer un client qui se connecte au serveur 
                 {
                     Sleep(1000);
@@ -694,17 +694,17 @@ static void doEvents()
                 }
             }
         }
-        if(hover_playbutton == FALSE && strcmp(menu,"Main") == 0)
+
+        if(strcmp(menu,"Main") == 0)
         {
             dessinerButton(texture_play_inert, play_button_rect, play_inert);
-        }
-        if(hover_hostbutton == FALSE && strcmp(menu,"Main") == 0)
-        {
+            dessinerButton(texture_connect_inert, connect_button_rect, connect_inert);
             dessinerButton(texture_host_inert, host_button_rect, host_inert);
         }
         if (strcmp(menu,"InGame") == 0)
         {
-            dessinerJoueurs();
+            if(connected == FALSE) dessinerJoueurs();
+            else strcpy(menu, "Main");
         }
 }
 
@@ -745,17 +745,23 @@ static void init_vars()
     mouseRect.w = 50;
     mouseRect.h = 50;
 
-    //connect button
-    host_button_rect.w = 400;
-    host_button_rect.h = 200;
-    host_button_rect.x = (WindowW / 2) - (host_button_rect.w / 2);
-    host_button_rect.y = 500;
-
     //play button
     play_button_rect.w = 400;
     play_button_rect.h = 200;
     play_button_rect.x = (WindowW / 2) - (play_button_rect.w / 2);
     play_button_rect.y = 250;
+
+    //connect button
+    connect_button_rect.w = 400;
+    connect_button_rect.h = 200;
+    connect_button_rect.x = (WindowW / 2) - (connect_button_rect.w / 2);
+    connect_button_rect.y = 500;
+
+    //host button
+    host_button_rect.w = 400;
+    host_button_rect.h = 200;
+    host_button_rect.x = (WindowW / 2) - (host_button_rect.w / 2);
+    host_button_rect.y = 750;
 
     //settings button
     settings_button_rect.w = 150;
@@ -776,6 +782,8 @@ static void init_vars()
     background = IMG_Load("resources/background.png");
     play_inert = IMG_Load("resources/play_inert.png");
     play_hover = IMG_Load("resources/play_hover.png");
+    connect_inert = IMG_Load("resources/connect_inert.png");
+    connect_hover = IMG_Load("resources/connect_hover.png");
     host_inert = IMG_Load("resources/host_inert.png");
     host_hover = IMG_Load("resources/host_hover.png");
     settings_inert = IMG_Load("resources/settings_inert.png");
@@ -847,6 +855,8 @@ static void init_vars()
     //buttons
     init_texture(&play_inert , &texture_play_inert);
     init_texture(&play_hover , &texture_play_hover);
+    init_texture(&connect_inert , &texture_connect_inert);
+    init_texture(&connect_hover , &texture_connect_hover);
     init_texture(&host_inert , &texture_host_inert);
     init_texture(&host_hover , &texture_host_hover);
     init_texture(&settings_inert , &texture_settings_inert);
@@ -914,14 +924,12 @@ static void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture
     {
         if(xMouse>=(button_rect->x)+xWindow && xMouse<=(button_rect->x)+(button_rect->w)+xWindow && yMouse>=(button_rect->y)+yWindow && yMouse<=(button_rect->y)+(button_rect->h)+yWindow)
         {
-            *hover_button = 1;
-            if (debug) printf("Hover play button\n");
+            *hover_button = TRUE;
             dessinerButton(button_texture, *button_rect, button_surface);
         }
         else
         {
-            *hover_button = 0;
-            if (debug) printf("X: %d et y: %d\n",xMouse,yMouse);
+            *hover_button = FALSE;
         }
     }
 }
@@ -988,6 +996,7 @@ int main(int argc, char *argv[])
         mouseRect.y = yMouse-yWindow;
 
         buttonHover(play_hover, texture_play_hover, &play_button_rect, &hover_playbutton, "Main");
+        buttonHover(connect_hover, texture_connect_hover, &connect_button_rect, &hover_connectbutton, "Main");
         buttonHover(host_hover, texture_host_hover, &host_button_rect, &hover_hostbutton, "Main");
         buttonHoverWithAnimation(settings_hover1, texture_settings_hover1, &settings_button_rect, "Main", p, p2);
         draw_settings_button_animation();

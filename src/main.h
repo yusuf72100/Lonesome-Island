@@ -25,8 +25,11 @@
 
 static Liste *l;
 
+extern int connected;
+
 static short loading;
 static short hover_playbutton = FALSE;
+static short hover_connectbutton = FALSE;
 static short hover_hostbutton = FALSE;
 static short hover_settingsbutton = FALSE;
 static short debug = FALSE; 
@@ -52,6 +55,7 @@ static SDL_Event event;
 //menu buttons rectangle
 static SDL_Rect mouseRect;
 static SDL_Rect play_button_rect;
+static SDL_Rect connect_button_rect;
 static SDL_Rect host_button_rect;
 static SDL_Rect settings_button_rect;
 
@@ -94,6 +98,8 @@ static SDL_Texture *texture_joueur_down_2 = NULL;
 //menu assets
 static SDL_Surface *play_inert = NULL;
 static SDL_Surface *play_hover = NULL;
+static SDL_Surface *connect_inert = NULL;
+static SDL_Surface *connect_hover = NULL;
 static SDL_Surface *host_inert = NULL;
 static SDL_Surface *host_hover = NULL;
 static SDL_Surface *settings_inert = NULL;
@@ -106,6 +112,8 @@ static SDL_Surface *settings_hover6 = NULL;
 
 static SDL_Texture *texture_play_inert = NULL;
 static SDL_Texture *texture_play_hover = NULL;	
+static SDL_Texture *texture_connect_inert = NULL;
+static SDL_Texture *texture_connect_hover = NULL;	
 static SDL_Texture *texture_host_inert = NULL;
 static SDL_Texture *texture_host_hover = NULL;	
 static SDL_Texture *texture_settings_inert = NULL;

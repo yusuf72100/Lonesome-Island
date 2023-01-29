@@ -32,7 +32,6 @@ static char tramClient_receive[100];
 static player joueur;
 static player * joueurs;
 static int size;
-static int connected;
 
 typedef struct 
 {   

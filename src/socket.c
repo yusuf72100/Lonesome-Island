@@ -53,7 +53,7 @@ static void *sendToClient(send2Client *argClient)
             if(argClient->argt->sd[i].clientSocket != SOCKET_ERROR)
             {
                 buildtramClient_send(argClient->argt->sd[j].joueur, j, argClient->argt->size);
-                send(argClient->argt->sd[i].clientSocket,tramClient_send,(sizeof(char)*30),0);
+                if(send(argClient->argt->sd[i].clientSocket,tramClient_send,(sizeof(char)*30),0) == SOCKET_ERROR ) printf("Server: Packet lost\n");
                 //printf("Sended to client: %s\n",tramClient_send);
             }
             j++;
@@ -123,7 +123,6 @@ void disconnectPlayer(send2Client *argClient, int position)
         argClient->argt->sd[position] = argClient->argt->sd[position+1];
     }
     argClient->argt->size-=1;
-    printf("new size\n",argClient->argt->size);
 }
 
 //fonction qui prend en paramètre un client et l'écoute

@@ -1,6 +1,8 @@
 #include "client.h"
 #include "main.h"
 
+int connected = FALSE;
+
 static void traitData()
 {
     int position = 0;
@@ -122,7 +124,11 @@ static void buildTram(player joueur)
 void *sendDatas(player joueur)
 {
     buildTram(joueur);
-    send(*socket_Server,tramClient_send,(sizeof(char)*30),0);
+    if(send(*socket_Server,tramClient_send,(sizeof(char)*30),0) == SOCKET_ERROR)
+    {
+        stopConnection();
+        connected = TRUE;
+    }
 }
 
 void *stopConnection()
