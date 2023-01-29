@@ -61,7 +61,7 @@ static SDL_Surface *icon_surface = NULL;
 //texte assets
 static SDL_Surface *texte = NULL;
 static SDL_Texture *texte_texture = NULL;
-static SDL_Color blackColor = {255, 255, 255};
+static SDL_Color blackColor = {115, 88, 42};
 static TTF_Font *police = NULL;
 static SDL_Rect title_rect;
 

@@ -816,7 +816,7 @@ static void init_vars()
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de charger la texture de la souris...");
     }
-    texte = TTF_RenderText_Blended(police, "Lonesome Island!", blackColor);
+    texte = TTF_RenderText_Blended(police, "Lonesome Island", blackColor);
 
     if (texte == NULL)
     {
