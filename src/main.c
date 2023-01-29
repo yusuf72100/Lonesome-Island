@@ -369,49 +369,49 @@ static void *dessinerJoueurs()
     }
 }
 
-void delay_breath()
+static void delay_breath()
 {
     int milli_seconds = 2000;
     clock_t start_time = clock();
     while (clock() < start_time + milli_seconds && tabEvent[0] == SDL_FALSE && tabEvent[1] == SDL_FALSE && tabEvent[2] == SDL_FALSE && tabEvent[3] == SDL_FALSE && tabEvent[6] == SDL_FALSE && tabEvent[7] == SDL_FALSE);
 }
 
-void delay_running_left()
+static void delay_running_left()
 {
     int milli_seconds = 200;
     clock_t start_time = clock();
     while (clock() < start_time + milli_seconds && tabEvent[1] != SDL_FALSE);
 }
 
-void delay_running_right()
+static void delay_running_right()
 {
     int milli_seconds = 200;
     clock_t start_time = clock();
     while (clock() < start_time + milli_seconds && tabEvent[3] != SDL_FALSE);
 }
 
-void delay_running_up()
+static void delay_running_up()
 {
     int milli_seconds = 200;
     clock_t start_time = clock();
     while (clock() < start_time + milli_seconds && tabEvent[0] != SDL_FALSE);
 }
 
-void delay_running_down()
+static void delay_running_down()
 {
     int milli_seconds = 200;
     clock_t start_time = clock();
     while (clock() < start_time + milli_seconds && tabEvent[2] != SDL_FALSE);
 }
 
-void delay_settings_button_left()
+static void delay_settings_button_left()
 {
     int milli_seconds = 50;
     clock_t start_time = clock();
     while (clock() < start_time + milli_seconds && hover_settingsbutton == FALSE);
 }
 
-void delay_settings_button_right()
+static void delay_settings_button_right()
 {
     int milli_seconds = 50;
     clock_t start_time = clock();

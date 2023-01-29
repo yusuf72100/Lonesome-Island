@@ -91,7 +91,7 @@ void *receiveFromServer()
     while(TRUE)
     {
         recv(*socket_Server,tramClient_receive,(sizeof(char)*30),0);
-        //printf("Received from: %s\n",tramClient_receive);
+        //printf("Received from server: %s\n",tramClient_receive);
         traitData();
         synchDatas(joueurs,size);
     }

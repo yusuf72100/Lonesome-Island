@@ -50,7 +50,7 @@ static void *sendToClient(send2Client *argClient)
         //on envoi les coordonnées de tout le monde
         do
         {
-            if(argClient->argt->sd[i].clientSocket != SOCKET_ERROR)
+            if(argClient->argt->sd[i].clientSocket != INVALID_SOCKET)
             {
                 buildtramClient_send(argClient->argt->sd[j].joueur, j, argClient->argt->size);
                 if(send(argClient->argt->sd[i].clientSocket,tramClient_send,(sizeof(char)*30),0) == SOCKET_ERROR ) printf("Server: Packet lost\n");
@@ -128,21 +128,19 @@ void disconnectPlayer(send2Client *argClient, int position)
 //fonction qui prend en paramètre un client et l'écoute
 void *receiveFromClient(void *arg)
 {
-    int i = 0, connected = 1, position=0;
+    int i = 0, position=0;
     send2Client *argClient = (send2Client *)arg;
 
     //on récupère les données de positions des joueurs
-    while(argClient->argt->running == TRUE && connected)
+    while(argClient->argt->running == TRUE)
     {
         tramClient_receive[0] = '\0';
 
         if(recv(argClient->socket,tramClient_receive,(sizeof(char)*30),0) == SOCKET_ERROR)
         {
-            printf("Server: Client with id %d has been disconnected\n",i);
-            connected = 0;
+            printf("Server: Client with id %d has been disconnected\n",position);
             disconnectPlayer(argClient, position);
         }
-        
         else
         {
             //on stock les données du client
@@ -166,6 +164,7 @@ void *receiveFromClient(void *arg)
         }
 
     }
+    pthread_exit(&receive_from_client[i]);
 }
 
 //fonction qui accepte les clients
@@ -197,7 +196,7 @@ void *searchClients(void *arg)
         argClient[argt2->size-1].port = (int)ntohs(argt2->sd[argt2->size-1].addrClient.sin_port);
         argClient[argt2->size-1].argt = argt2;
         Sleep(500);
-        pthread_create(&receive_from_client,NULL,receiveFromClient,(void *)&argClient[argt2->size-1]);
+        pthread_create(&receive_from_client[argt2->size-1],NULL,receiveFromClient,(void *)&argClient[argt2->size-1]);
     }
 
     printf("close\n");
@@ -208,6 +207,7 @@ void *searchClients(void *arg)
 //fonction qui initialise et lance le serveur
 void *startServer()
 {
+    receive_from_client = malloc(sizeof(pthread_t)*10+1);
     socketDatas * sd = malloc(sizeof(socketDatas)*10+1);
     int  running = 0;
 
