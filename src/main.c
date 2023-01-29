@@ -349,6 +349,15 @@ static void dessinerJoueur(player Joueur)
         }
         SDL_RenderCopy(renderer, texture_joueur_down_2, NULL, &Joueur.playerRect);
     }
+    else
+    {
+        if(SDL_QueryTexture(texture_joueur_h1, NULL, NULL, &Joueur.playerRect.w,&Joueur.playerRect.h) != 0)
+        {
+            destroyAll(window, renderer);
+            SDL_ExitWithError("Impossible d'afficher la texture du joueur...");
+        }
+        SDL_RenderCopy(renderer, texture_joueur_h1, NULL, &Joueur.playerRect);
+    }
 }   
 
 static void *dessinerJoueurs()
