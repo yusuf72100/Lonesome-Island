@@ -25,7 +25,7 @@
 
 static Liste *l;
 
-extern int connected;
+extern int connectedError;
 
 static short loading;
 static short hover_playbutton = FALSE;

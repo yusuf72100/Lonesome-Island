@@ -703,7 +703,7 @@ static void doEvents()
         }
         if (strcmp(menu,"InGame") == 0)
         {
-            if(connected == FALSE) dessinerJoueurs();
+            if(connectedError == FALSE) dessinerJoueurs();
             else strcpy(menu, "Main");
         }
 }

@@ -33,6 +33,7 @@ static player joueur;
 static player * joueurs;
 static int size;
 
+
 typedef struct 
 {   
     SDL_Rect rect;

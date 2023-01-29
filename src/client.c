@@ -1,7 +1,7 @@
 #include "client.h"
 #include "main.h"
 
-int connected = FALSE;
+int connectedError= FALSE;
 
 static void traitData()
 {
@@ -127,7 +127,7 @@ void *sendDatas(player joueur)
     if(send(*socket_Server,tramClient_send,(sizeof(char)*30),0) == SOCKET_ERROR)
     {
         stopConnection();
-        connected = TRUE;
+        connectedError= TRUE;
     }
 }
 
@@ -152,8 +152,8 @@ int startConnection()
     *socket_Server = socket(AF_INET,SOCK_STREAM,IPPROTO_TCP);
 
     //on test la connexion
-    connected = connect(*socket_Server, (const struct sockaddr *)&addrServer, sizeof(addrServer));
-    if(connected == SOCKET_ERROR) 
+    connectedError= connect(*socket_Server, (const struct sockaddr *)&addrServer, sizeof(addrServer));
+    if(connectedError == SOCKET_ERROR) 
     {
         stopConnection();
         return 1;
