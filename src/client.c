@@ -143,7 +143,7 @@ int startConnection()
     addrServer.sin_addr.s_addr = inet_addr(IP_PUBLIC);      
     addrServer.sin_family = AF_INET;
     addrServer.sin_port = htons(4148);
-    *socket_Server = socket(AF_INET,SOCK_STREAM,0);
+    *socket_Server = socket(AF_INET,SOCK_STREAM,IPPROTO_TCP);
 
     //on test la connexion
     connected = connect(*socket_Server, (const struct sockaddr *)&addrServer, sizeof(addrServer));

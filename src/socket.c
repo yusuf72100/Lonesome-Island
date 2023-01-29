@@ -223,7 +223,7 @@ void *startServer()
     addrServer.sin_addr.s_addr = inet_addr(IP_LOCALE);    
     addrServer.sin_family = AF_INET;
     addrServer.sin_port = htons(4148);
-    socketServer = socket(AF_INET,SOCK_STREAM,0);
+    socketServer = socket(AF_INET,SOCK_STREAM,IPPROTO_TCP);
 
     bind(socketServer, (SOCKADDR *)&addrServer, sizeof(addrServer));
     printf("bind : %d\n", socketServer);

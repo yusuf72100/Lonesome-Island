@@ -464,26 +464,29 @@ static void *running_down_animation()
 
 static void draw_settings_button_animation()
 {
-    switch (settings_button_animation_state)
+    if(strcmp(menu,"Main") == 0)
     {
-    case 0:
-        dessinerButton(texture_settings_hover1, settings_button_rect, settings_hover1);
-        break;
-    case 1:
-        dessinerButton(texture_settings_hover2, settings_button_rect, settings_hover2);
-        break;
-    case 2:
-        dessinerButton(texture_settings_hover3, settings_button_rect, settings_hover3);
-        break;
-    case 3:
-        dessinerButton(texture_settings_hover4, settings_button_rect, settings_hover4);
-        break;
-    case 4:
-        dessinerButton(texture_settings_hover5, settings_button_rect, settings_hover5);
-        break;
-    default:
-        dessinerButton(texture_settings_hover6, settings_button_rect, settings_hover6);
-        break;
+        switch (settings_button_animation_state)
+        {
+        case 0:
+            dessinerButton(texture_settings_hover1, settings_button_rect, settings_hover1);
+            break;
+        case 1:
+            dessinerButton(texture_settings_hover2, settings_button_rect, settings_hover2);
+            break;
+        case 2:
+            dessinerButton(texture_settings_hover3, settings_button_rect, settings_hover3);
+            break;
+        case 3:
+            dessinerButton(texture_settings_hover4, settings_button_rect, settings_hover4);
+            break;
+        case 4:
+            dessinerButton(texture_settings_hover5, settings_button_rect, settings_hover5);
+            break;
+        default:
+            dessinerButton(texture_settings_hover6, settings_button_rect, settings_hover6);
+            break;
+        }
     }
 }
 
