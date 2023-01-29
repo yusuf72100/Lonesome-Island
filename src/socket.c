@@ -136,10 +136,11 @@ void *receiveFromClient(void *arg)
     {
         tramClient_receive[0] = '\0';
 
-        if(recv(argClient->socket,tramClient_receive,(sizeof(char)*30),0) == SOCKET_ERROR)
+        if(recv(argClient->socket,tramClient_receive,(sizeof(char)*30),0) == INVALID_SOCKET)
         {
             printf("Server: Client with id %d has been disconnected\n",position);
             disconnectPlayer(argClient, position);
+            pthread_exit(&receive_from_client[i]);
         }
         else
         {
