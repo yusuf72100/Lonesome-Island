@@ -362,7 +362,7 @@ static void dessinerJoueur(player Joueur)
 
 static void *dessinerJoueurs()
 {
-    //trierJoueurs();
+    trierJoueurs();
     for(int i = 1; i < size; i++)
     {
         dessinerJoueur(joueurs[i]);
