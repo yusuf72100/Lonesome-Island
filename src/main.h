@@ -7,8 +7,10 @@
 #include <SDL.h>  
 #include <SDL_image.h>
 #include <SDL_ttf.h>
+#include <SDL_mixer.h>
 #include "liste.h"
 #include "client.h"
+#include "sound.h"
 #include <windows.h>
 
 //animations states
@@ -143,6 +145,7 @@ static pthread_t server;
 static pthread_t sendtoserver;
 static pthread_t receivefromserver;
 static pthread_t animations_thread;
+
 static int animations_thread_running = FALSE;
 
 static void SDL_ExitWithError(const char *message);

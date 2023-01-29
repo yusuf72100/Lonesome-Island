@@ -632,10 +632,10 @@ static void doEvents()
         if(tabEvent[7])
         {
             //click LEFT DOWN
-
             //Connect button
             if(xMouse>=connect_button_rect.x+xWindow && xMouse<=connect_button_rect.x+connect_button_rect.w+xWindow && yMouse>=connect_button_rect.y+yWindow && yMouse<=connect_button_rect.y+connect_button_rect.h+yWindow && strcmp(menu,"Main") == 0)
             {
+                init_boop(&tabEvent[7]);
                 if (debug) printf("Connect button clicked\n");                                         
                 if(startConnection() == 0)                                     //on créer un client qui se connecte au serveur 
                 {
@@ -648,6 +648,7 @@ static void doEvents()
             //host button
             if(xMouse>=host_button_rect.x+xWindow && xMouse<=host_button_rect.x+host_button_rect.w+xWindow && yMouse>=host_button_rect.y+yWindow && yMouse<=host_button_rect.y+host_button_rect.h+yWindow && strcmp(menu,"Main") == 0)
             {
+                init_boop(&tabEvent[7]);
                 if (debug) printf("Host button clicked\n");
                 pthread_create(&server,NULL,startServer,NULL);              //on héberge le serveur 
                 Sleep(200);
@@ -658,16 +659,16 @@ static void doEvents()
                 strcpy(menu,"InGame");
             }
 
-            if(xMouse>=host_button_rect.x+xWindow && xMouse<=host_button_rect.x+host_button_rect.w+xWindow && yMouse>=host_button_rect.y+yWindow && yMouse<=host_button_rect.y+host_button_rect.h+yWindow && strcmp(menu,"Main") == 0)
+            //play button
+            if(xMouse>=play_button_rect.x+xWindow && xMouse<=play_button_rect.x+play_button_rect.w+xWindow && yMouse>=play_button_rect.y+yWindow && yMouse<=play_button_rect.y+play_button_rect.h+yWindow && strcmp(menu,"Main") == 0)
             {
-                if (debug) printf("Host button clicked\n");
-                pthread_create(&server,NULL,startServer,NULL);              //on héberge le serveur 
-                Sleep(200);
-                startConnection();                                          //on créer un client qui se connecte au serveur
-                Sleep(500);
-                Send2Server();
-                pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
-                strcpy(menu,"InGame");
+                init_boop(&tabEvent[7]);
+            }
+            
+            //settings button
+            if(xMouse>=settings_button_rect.x+xWindow && xMouse<=settings_button_rect.x+settings_button_rect.w+xWindow && yMouse>=settings_button_rect.y+yWindow && yMouse<=settings_button_rect.y+settings_button_rect.h+yWindow && strcmp(menu,"Main") == 0)
+            {
+                init_boop(&tabEvent[7]);
             }
         }
         if(!tabEvent[7])
@@ -735,7 +736,7 @@ static void init_vars()
 
     //tab d'event
     memset(tabEvent, 0, 7*sizeof(SDL_bool));
-    
+
     joueur.playerRect.x = 0;
     joueur.playerRect.y = 0;
     joueur.playerRect.w = 50;
@@ -807,7 +808,7 @@ static void init_vars()
     surface_joueur_down_2 = IMG_Load("resources/characters/player_down_2.png");
 
     if(SDL_Init(SDL_INIT_EVERYTHING != 0))
-        SDL_ExitWithError("Initialisation SDL");
+        SDL_ExitWithError("Failed init SDL");
 
     if((window = SDL_CreateWindow("Lonesome Island",  SDL_WINDOWPOS_CENTERED,  SDL_WINDOWPOS_CENTERED, 1920, 1080, SDL_WINDOW_MAXIMIZED)) == NULL)
         SDL_ExitWithError("Impossible de créer la fenêtre...");
@@ -972,6 +973,8 @@ int main(int argc, char *argv[])
     }
 
     init_vars();
+    initAudio();
+    creation_canaux_musique();
     int timer = 0;
     void* (*p)() = settings_button_animation_right;
     void* (*p2)() = settings_button_animation_left;
@@ -1016,6 +1019,7 @@ int main(int argc, char *argv[])
     TTF_Quit();
     SDL_Quit();
     stopConnection();
+    Mix_CloseAudio();
 
     return EXIT_SUCCESS;
 }
