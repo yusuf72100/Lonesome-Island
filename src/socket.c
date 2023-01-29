@@ -166,7 +166,6 @@ void *receiveFromClient(void *arg)
         }
 
     }
-    pthread_exit(&receive_from_client[i]);
 }
 
 //fonction qui accepte les clients
@@ -198,7 +197,7 @@ void *searchClients(void *arg)
         argClient[argt2->size-1].port = (int)ntohs(argt2->sd[argt2->size-1].addrClient.sin_port);
         argClient[argt2->size-1].argt = argt2;
         Sleep(500);
-        pthread_create(&receive_from_client[argt2->size-1],NULL,receiveFromClient,(void *)&argClient[argt2->size-1]);
+        pthread_create(&receive_from_client,NULL,receiveFromClient,(void *)&argClient[argt2->size-1]);
     }
 
     printf("close\n");
@@ -209,7 +208,6 @@ void *searchClients(void *arg)
 //fonction qui initialise et lance le serveur
 void *startServer()
 {
-    receive_from_client = malloc(sizeof(pthread_t)*10+1);
     socketDatas * sd = malloc(sizeof(socketDatas)*10+1);
     int  running = 0;
 

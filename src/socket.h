@@ -31,7 +31,7 @@
 
 typedef uint32_t socklen_t;
 
-static pthread_t *receive_from_client;
+static pthread_t receive_from_client;
 
 static char tramClient_send[100];
 static char tramClient_receive[100];

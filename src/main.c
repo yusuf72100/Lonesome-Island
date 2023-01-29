@@ -536,7 +536,7 @@ static void doEvents()
                 if(pthread_kill(animations_thread, 0) != 0){
                     pthread_create(&animations_thread, NULL, running_up_animation,NULL);   
                 }
-                pthread_create(&sendtoserver,NULL,Send2Server,NULL); 
+                Send2Server();
             }
         }
 
@@ -553,7 +553,7 @@ static void doEvents()
                     if(pthread_kill(animations_thread, 0) != 0){
                         pthread_create(&animations_thread, NULL, running_left_animation,NULL);   
                     }
-                    pthread_create(&sendtoserver,NULL,Send2Server,NULL); 
+                    Send2Server();
                 }
             }
         }
@@ -569,7 +569,7 @@ static void doEvents()
                 if(pthread_kill(animations_thread, 0) != 0){
                     pthread_create(&animations_thread, NULL, running_down_animation,NULL);   
                 }
-                pthread_create(&sendtoserver,NULL,Send2Server,NULL); 
+                Send2Server();
             }
         }
 
@@ -586,7 +586,7 @@ static void doEvents()
                     if(pthread_kill(animations_thread, 0) != 0){
                         pthread_create(&animations_thread, NULL, running_right_animation,NULL);   
                     }
-                    pthread_create(&sendtoserver,NULL,Send2Server,NULL); 
+                    Send2Server();
                 }
             }
         }
@@ -653,7 +653,7 @@ static void doEvents()
                 Sleep(200);
                 startConnection();                                          //on créer un client qui se connecte au serveur
                 Sleep(500);
-                pthread_create(&sendtoserver,NULL,Send2Server,NULL); 
+                Send2Server();
                 pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
                 strcpy(menu,"InGame");
             }
@@ -665,7 +665,7 @@ static void doEvents()
                 Sleep(200);
                 startConnection();                                          //on créer un client qui se connecte au serveur
                 Sleep(500);
-                pthread_create(&sendtoserver,NULL,Send2Server,NULL); 
+                Send2Server();
                 pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
                 strcpy(menu,"InGame");
             }
