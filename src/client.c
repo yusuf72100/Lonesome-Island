@@ -132,7 +132,7 @@ void *stopConnection()
     printf("connection closed\n");
 }
 
-void *startConnection()
+int startConnection()
 {   
     joueurs = malloc(sizeof(player) * 10);
     socket_Server = malloc(sizeof(SOCKET));
@@ -147,7 +147,12 @@ void *startConnection()
 
     //on test la connexion
     connected = connect(*socket_Server, (const struct sockaddr *)&addrServer, sizeof(addrServer));
-    if(connected) printf("Error: connection lost\n");
-    else printf("Connected\n");
+    if(connected == SOCKET_ERROR) 
+    {
+        stopConnection();
+        return 1;
+    }
 
+    printf("Connected\n");
+    return 0;
 }

@@ -102,43 +102,17 @@ static void drawMouse(SDL_Rect mouseRect, SDL_Texture *mousetexture)
         SDL_ExitWithError("Impossible d'afficher la texture du curseur...");
     }
 
-    if(SDL_RenderCopyEx(renderer, mousetexture, NULL, &mouseRect, 0 , NULL, SDL_FLIP_NONE) != 0)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de rotate le curseur...");
-    }
+    SDL_RenderCopy(renderer, mousetexture, NULL, &mouseRect);
 }
 
-//méthode pour dessiner plus facilement les rectangles (objets)
-static void dessinerRect(SDL_Rect rectangle, SDL_Renderer *renderer)
-{
-    if(SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE) != 0)
-        SDL_ExitWithError("Impossible de changer la couleur pour le rendu");
-        
-    SDL_RenderClear(renderer);
-
-    if(SDL_SetRenderDrawColor(renderer, 112, 168, 237, SDL_ALPHA_OPAQUE) != 0)
-        SDL_ExitWithError("Impossible de changer la couleur pour le rendu");
-
-    if(SDL_RenderFillRect(renderer, &rectangle) != 0)
-        SDL_ExitWithError("Impossible de dessiner un rectangle"); 
-
-    SDL_RenderPresent(renderer);
-}
-
-static void dessinerButton(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, SDL_Surface *surface)
+static void dessinerButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface)
 {
     if(SDL_QueryTexture(texture, NULL, NULL, &rectangle.w, &rectangle.h) != 0)
     {
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible d'afficher la texture du boutton jouer...");
     }
-
-    if(SDL_RenderCopyEx(renderer, texture, NULL, &rectangle, 0 , NULL, SDL_FLIP_NONE) != 0)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de rotate le boutton play...");
-    }
+    SDL_RenderCopy(renderer, texture, NULL, &rectangle);
 }
 
 static void checkEvents()
@@ -421,6 +395,20 @@ void delay_running_down()
     while (clock() < start_time + milli_seconds && tabEvent[2] != SDL_FALSE);
 }
 
+void delay_settings_button_left()
+{
+    int milli_seconds = 50;
+    clock_t start_time = clock();
+    while (clock() < start_time + milli_seconds && hover_settingsbutton == FALSE);
+}
+
+void delay_settings_button_right()
+{
+    int milli_seconds = 50;
+    clock_t start_time = clock();
+    while (clock() < start_time + milli_seconds);
+}
+
 static void *breathAnimation()
 {    
     joueur.animation_state = BREATH_START;
@@ -474,12 +462,61 @@ static void *running_down_animation()
     pthread_exit(&animations_thread);
 }
 
+static void draw_settings_button_animation()
+{
+    switch (settings_button_animation_state)
+    {
+    case 0:
+        dessinerButton(texture_settings_hover1, settings_button_rect, settings_hover1);
+        break;
+    case 1:
+        dessinerButton(texture_settings_hover2, settings_button_rect, settings_hover2);
+        break;
+    case 2:
+        dessinerButton(texture_settings_hover3, settings_button_rect, settings_hover3);
+        break;
+    case 3:
+        dessinerButton(texture_settings_hover4, settings_button_rect, settings_hover4);
+        break;
+    case 4:
+        dessinerButton(texture_settings_hover5, settings_button_rect, settings_hover5);
+        break;
+    default:
+        dessinerButton(texture_settings_hover6, settings_button_rect, settings_hover6);
+        break;
+    }
+}
+
+static void *settings_button_animation_left()
+{
+    for(settings_button_animation_state; settings_button_animation_state >= 0 && hover_settingsbutton == FALSE; settings_button_animation_state--)
+    {
+        delay_settings_button_left();
+    }
+
+    settings_button_animation_state=0;
+    animations_thread_running = FALSE;
+    pthread_exit(&animations_thread);
+}
+
+static void *settings_button_animation_right()
+{
+    for(settings_button_animation_state; settings_button_animation_state < 6 && hover_settingsbutton == TRUE; settings_button_animation_state++)
+    {
+        delay_settings_button_right();
+    }
+
+    while(hover_settingsbutton == TRUE);
+    animations_thread_running = FALSE;
+    pthread_exit(&animations_thread);
+}
+
 static void doEvents()
 {
     if(tabEvent[0])
         {
             //touche Z
-            if(play)
+            if(strcmp(menu,"InGame") == 0)
             {
                 if (debug) printf("Touche SDLK_z pressee | %s\n", eventTime());
                 joueur.playerRect.y = joueur.playerRect.y - 1;
@@ -494,7 +531,7 @@ static void doEvents()
         if(tabEvent[1])
         {
             //touche Q
-            if(play)
+            if(strcmp(menu,"InGame") == 0)
             {
                 joueur.playerRect.x = joueur.playerRect.x - 1;
                 if(tabEvent[0] == SDL_FALSE && tabEvent[2] == SDL_FALSE)
@@ -512,7 +549,7 @@ static void doEvents()
         if(tabEvent[2])
         {
             //touche S
-            if(play)
+            if(strcmp(menu,"InGame") == 0)
             {
                 if (debug) printf("Touche SDLK_s pressee | %s\n", eventTime());
                 joueur.playerRect.y = joueur.playerRect.y + 1;
@@ -527,7 +564,7 @@ static void doEvents()
         if(tabEvent[3])
         {
             //touche D
-            if(play)
+            if(strcmp(menu,"InGame") == 0)
             {
                 joueur.playerRect.x = joueur.playerRect.x + 1;
                 if(tabEvent[0] == SDL_FALSE && tabEvent[2] == SDL_FALSE)
@@ -545,7 +582,7 @@ static void doEvents()
         if(tabEvent[4])
         {
             //touche LEFT
-            if(play)
+            if(strcmp(menu,"InGame") == 0)
             {
                 //if (debug) printf("Touche SDLK_LEFT pressee | %s\n", eventTime());
                 if (debug) printf("Rotation : %d\n", rotation);
@@ -556,7 +593,7 @@ static void doEvents()
         if(tabEvent[5])
         {
             //touche RIGHT
-            if(play)
+            if(strcmp(menu,"InGame") == 0)
             {
                 //if (debug) printf("Touche SDLK_RIGHT pressee | %s\n", eventTime());
                 if (debug) printf("Rotation : %d\n", rotation);
@@ -566,7 +603,7 @@ static void doEvents()
         if(tabEvent[6])
         {
             //touche ESPACE
-            if(play)
+            if(strcmp(menu,"InGame") == 0)
             {
                 if (!loading)
                 { 
@@ -585,17 +622,19 @@ static void doEvents()
             //click LEFT DOWN
 
             //play button
-            if(xMouse>=350+xWindow && xMouse<=450+xWindow && yMouse>=250+yWindow && yMouse<=300+yWindow && !play)
+            if(xMouse>=play_button_rect.x+xWindow && xMouse<=play_button_rect.x+play_button_rect.w+xWindow && yMouse>=play_button_rect.y+yWindow && yMouse<=play_button_rect.y+play_button_rect.h+yWindow && strcmp(menu,"Main") == 0)
             {
-                if (debug) printf("Play button clicked\n");
-                startConnection();                                          //on créer un client qui se connecte au serveur 
-                Sleep(1000);
-                pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
-                play = 1;
+                if (debug) printf("Play button clicked\n");                                         
+                if(startConnection() == 0)                                     //on créer un client qui se connecte au serveur 
+                {
+                    Sleep(1000);
+                    pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
+                    strcpy(menu,"InGame");
+                }
             }
 
             //host button
-            if(xMouse>=350+xWindow && xMouse<=450+xWindow && yMouse>=450+yWindow && yMouse<=500+yWindow && !play)
+            if(xMouse>=host_button_rect.x+xWindow && xMouse<=host_button_rect.x+host_button_rect.w+xWindow && yMouse>=host_button_rect.y+yWindow && yMouse<=host_button_rect.y+host_button_rect.h+yWindow && strcmp(menu,"Main") == 0)
             {
                 if (debug) printf("Host button clicked\n");
                 pthread_create(&server,NULL,startServer,NULL);              //on héberge le serveur 
@@ -604,14 +643,27 @@ static void doEvents()
                 Sleep(500);
                 pthread_create(&sendtoserver,NULL,Send2Server,NULL); 
                 pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
-                play = 1;
+                strcpy(menu,"InGame");
+            }
+
+            if(xMouse>=host_button_rect.x+xWindow && xMouse<=host_button_rect.x+host_button_rect.w+xWindow && yMouse>=host_button_rect.y+yWindow && yMouse<=host_button_rect.y+host_button_rect.h+yWindow && strcmp(menu,"Main") == 0)
+            {
+                if (debug) printf("Host button clicked\n");
+                pthread_create(&server,NULL,startServer,NULL);              //on héberge le serveur 
+                Sleep(200);
+                startConnection();                                          //on créer un client qui se connecte au serveur
+                Sleep(500);
+                pthread_create(&sendtoserver,NULL,Send2Server,NULL); 
+                pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
+                strcpy(menu,"InGame");
             }
         }
         if(!tabEvent[7])
         {
             //click LEFT UP
-            hover_playbutton = 0;
-            hover_hostbutton = 0;
+            hover_playbutton = FALSE;
+            hover_hostbutton = FALSE;
+            hover_settingsbutton = FALSE;
         }
         if(tabEvent[8])
         {
@@ -623,29 +675,46 @@ static void doEvents()
         }
         if(tabEvent[0] == SDL_FALSE && tabEvent[1] == SDL_FALSE && tabEvent[2] == SDL_FALSE && tabEvent[3] == SDL_FALSE && tabEvent[6] == SDL_FALSE && tabEvent[7] == SDL_FALSE)
         {
-            if(play)
+            if(strcmp(menu,"InGame") == 0)
             {
                 if(pthread_kill(animations_thread, 0) != 0){
                     pthread_create(&animations_thread, NULL, breathAnimation,NULL);   
                 }
             }
         }
-        if(!hover_playbutton && !play)
+        if(hover_playbutton == FALSE && strcmp(menu,"Main") == 0)
         {
-            dessinerButton(texture_play_inert, renderer, play_button_rect, window, play_inert);
+            dessinerButton(texture_play_inert, play_button_rect, play_inert);
         }
-        if(!hover_hostbutton && !play)
+        if(hover_hostbutton == FALSE && strcmp(menu,"Main") == 0)
         {
-            dessinerButton(texture_host_inert, renderer, host_button_rect, window, host_inert);
+            dessinerButton(texture_host_inert, host_button_rect, host_inert);
         }
-        if (play)
+        if (strcmp(menu,"InGame") == 0)
         {
             dessinerJoueurs();
         }
 }
 
+static void init_texture(SDL_Surface **surface, SDL_Texture **texture)
+{
+    if(*surface == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger l'image...");
+    }
+    *texture = SDL_CreateTextureFromSurface(renderer, *surface);
+    SDL_FreeSurface(*surface);
+}
+
 static void init_vars()
 {
+    xMouse = 0, yMouse = 0;
+    xWindow = 0, yWindow = 0;
+
+    SDL_GetWindowPosition(window, &xWindow, &yWindow);
+    SDL_GetGlobalMouseState(&xMouse,&yMouse);
+
     loading = 0;
     l = creerListe();
     //freopen(newLogName(), "a+", stdout); 
@@ -665,38 +734,47 @@ static void init_vars()
     mouseRect.h = 50;
 
     //connect button
-    host_button_rect.x = 350;
-    host_button_rect.y = 450;
-    host_button_rect.w = 100;
-    host_button_rect.h = 50;
+    host_button_rect.w = 400;
+    host_button_rect.h = 200;
+    host_button_rect.x = (WindowW / 2) - (host_button_rect.w / 2);
+    host_button_rect.y = 500;
 
     //play button
-    play_button_rect.x = 350;
+    play_button_rect.w = 400;
+    play_button_rect.h = 200;
+    play_button_rect.x = (WindowW / 2) - (play_button_rect.w / 2);
     play_button_rect.y = 250;
-    play_button_rect.w = 100;
-    play_button_rect.h = 50;
 
-
-                                /* INIT TEXTURES AND MANAGE ERRORS */
-    /* ----------------------------------------------------------------------------------------- */      
+    //settings button
+    settings_button_rect.w = 150;
+    settings_button_rect.h = 150;
+    settings_button_rect.x = 30;
+    settings_button_rect.y = (WindowH - 50) - (settings_button_rect.h);
 
     //title rectangle
-    title_rect.x = 200;
-    title_rect.y = 100;
-    title_rect.w = 200;
-    title_rect.h = 200;
+    title_rect.w = 20;
+    title_rect.h = 20;
+    title_rect.x = 170;
+    title_rect.y = 20;
 
     //assets init
     icon_surface = IMG_Load("resources/icon.png");
     imagebullet = IMG_Load("resources/bullet.png");
+    mousesurface = IMG_Load("resources/cursor/cursor.png");
     background = IMG_Load("resources/background.png");
     play_inert = IMG_Load("resources/play_inert.png");
     play_hover = IMG_Load("resources/play_hover.png");
     host_inert = IMG_Load("resources/host_inert.png");
     host_hover = IMG_Load("resources/host_hover.png");
-    mousesurface = IMG_Load("resources/cursor/cursor.png");
-    
-    //player
+    settings_inert = IMG_Load("resources/settings_inert.png");
+    settings_hover1 = IMG_Load("resources/settings_hover1.png");
+    settings_hover2 = IMG_Load("resources/settings_hover2.png");
+    settings_hover3 = IMG_Load("resources/settings_hover3.png");
+    settings_hover4 = IMG_Load("resources/settings_hover4.png");
+    settings_hover5 = IMG_Load("resources/settings_hover5.png");
+    settings_hover6 = IMG_Load("resources/settings_hover6.png");
+
+    //player    
     surface_joueur_h1 = IMG_Load("resources/characters/player_h1.png");
     surface_joueur_h2 = IMG_Load("resources/characters/player_h2.png");
     surface_joueur_left_1 = IMG_Load("resources/characters/player_left_1.png");
@@ -711,21 +789,20 @@ static void init_vars()
     if(SDL_Init(SDL_INIT_EVERYTHING != 0))
         SDL_ExitWithError("Initialisation SDL");
 
-    if((window = SDL_CreateWindow("Lonesome Island",  SDL_WINDOWPOS_CENTERED,  SDL_WINDOWPOS_CENTERED, 696, 553, SDL_WINDOW_SHOWN)) == NULL)
+    if((window = SDL_CreateWindow("Lonesome Island",  SDL_WINDOWPOS_CENTERED,  SDL_WINDOWPOS_CENTERED, 1920, 1080, SDL_WINDOW_MAXIMIZED)) == NULL)
         SDL_ExitWithError("Impossible de créer la fenêtre...");
     
     if((renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED)) == NULL)
         SDL_ExitWithError("Impossible de créer le rendu...");
 
     SDL_SetWindowIcon(window, icon_surface);
-    SDL_SetWindowTitle(window,"Lonesome Island");
 
     if (TTF_Init() == -1)
     {
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de charger l'image...");
     }
-    police = TTF_OpenFont("resources/couscousse.ttf", 30);
+    police = TTF_OpenFont("resources/04b30.TTF", 30);
 
     if (police == NULL)
     {
@@ -733,14 +810,13 @@ static void init_vars()
         SDL_ExitWithError("Impossible de charger la police...");
     }
     mousetexture = SDL_CreateTextureFromSurface(renderer, mousesurface);
-    SDL_FreeSurface(mousesurface);
 
     if(mousesurface == NULL)
     {
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de charger la texture de la souris...");
     }
-    texte = TTF_RenderText_Blended(police, "Welcome young trout!", blackColor);
+    texte = TTF_RenderText_Blended(police, "Lonesome Island!", blackColor);
 
     if (texte == NULL)
     {
@@ -755,141 +831,32 @@ static void init_vars()
         SDL_ExitWithError("Impossible de charger l'image...");
     }
     SDL_BlitSurface(texte,NULL,background,&title_rect);
-    SDL_FreeSurface(texte);
-
-    if(play_inert == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger l'image...");
-    }
-    texture_play_inert = SDL_CreateTextureFromSurface(renderer, play_inert);
-    SDL_FreeSurface(play_inert);
     
-    if(play_hover == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger l'image...");
-    }
-    texture_play_hover = SDL_CreateTextureFromSurface(renderer, play_hover);
-    SDL_FreeSurface(play_hover);
+    //buttons
+    init_texture(&play_inert , &texture_play_inert);
+    init_texture(&play_hover , &texture_play_hover);
+    init_texture(&host_inert , &texture_host_inert);
+    init_texture(&host_hover , &texture_host_hover);
+    init_texture(&settings_inert , &texture_settings_inert);
+    init_texture(&settings_hover1 , &texture_settings_hover1);
+    init_texture(&settings_hover2 , &texture_settings_hover2);
+    init_texture(&settings_hover3 , &texture_settings_hover3);
+    init_texture(&settings_hover4 , &texture_settings_hover4);
+    init_texture(&settings_hover5 , &texture_settings_hover5);
+    init_texture(&settings_hover6 , &texture_settings_hover6);
 
-    if(host_inert == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger l'image...");
-    }
-    texture_host_inert = SDL_CreateTextureFromSurface(renderer, host_inert);
-    SDL_FreeSurface(host_inert);
-    
-    if(host_hover == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger l'image...");
-    }
-    texture_host_hover = SDL_CreateTextureFromSurface(renderer, host_hover);
-    SDL_FreeSurface(host_hover);
-
-    if(background == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger l'image...");
-    }
-    background_texture = SDL_CreateTextureFromSurface(renderer, background);
-    SDL_FreeSurface(background);
-
-    if(surface_joueur_h1 == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger l'image surface_joueur_h1...");
-    }
-    texture_joueur_h1 = SDL_CreateTextureFromSurface(renderer, surface_joueur_h1);
-    SDL_FreeSurface(surface_joueur_h1);
-
-    if(surface_joueur_h2 == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger la texture surface_joueur_h2...");
-    }
-    texture_joueur_h2 = SDL_CreateTextureFromSurface(renderer, surface_joueur_h2);
-    SDL_FreeSurface(surface_joueur_h2);
-
-    if(surface_joueur_left_1 == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger la texture texture_joueur_left_1...");
-    }
-    texture_joueur_left_1 = SDL_CreateTextureFromSurface(renderer, surface_joueur_left_1);
-    SDL_FreeSurface(surface_joueur_left_1);
-
-    if(surface_joueur_left_2 == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger la texture texture_joueur_left_2...");
-    }
-    texture_joueur_left_2 = SDL_CreateTextureFromSurface(renderer, surface_joueur_left_2);
-    SDL_FreeSurface(surface_joueur_left_2);
-
-    if(surface_joueur_right_1 == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger la texture texture_joueur_right_1...");
-    }
-    texture_joueur_right_1 = SDL_CreateTextureFromSurface(renderer, surface_joueur_right_1);
-    SDL_FreeSurface(surface_joueur_right_1);
-
-    if(surface_joueur_right_2 == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger la texture texture_joueur_right_2...");
-    }
-    texture_joueur_right_2 = SDL_CreateTextureFromSurface(renderer, surface_joueur_right_2);
-    SDL_FreeSurface(surface_joueur_right_2);
-
-    if(surface_joueur_up_1 == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger la texture texture_joueur_up_1...");
-    }
-    texture_joueur_up_1 = SDL_CreateTextureFromSurface(renderer, surface_joueur_up_1);
-    SDL_FreeSurface(surface_joueur_up_1);
-
-    if(surface_joueur_up_2 == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger la texture texture_joueur_up_2...");
-    }
-    texture_joueur_up_2 = SDL_CreateTextureFromSurface(renderer, surface_joueur_up_2);
-    SDL_FreeSurface(surface_joueur_up_2);
-
-    if(surface_joueur_down_1 == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger la texture texture_joueur_down_1...");
-    }
-    texture_joueur_down_1 = SDL_CreateTextureFromSurface(renderer, surface_joueur_down_1);
-    SDL_FreeSurface(surface_joueur_down_1);
-
-    if(surface_joueur_down_2 == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger la texture texture_joueur_down_2...");
-    }
-    texture_joueur_down_2 = SDL_CreateTextureFromSurface(renderer, surface_joueur_down_2);
-    SDL_FreeSurface(surface_joueur_down_2);
-
-    if(imagebullet == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger l'image de la bullet...");
-    }
-    texturebullet = SDL_CreateTextureFromSurface(renderer, imagebullet);
-    SDL_FreeSurface(imagebullet);
-
-    if(texturebullet == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger la texture de la bullet...");
-    }
+    //assets
+    init_texture(&background , &background_texture);
+    init_texture(&surface_joueur_h1 , &texture_joueur_h1);
+    init_texture(&surface_joueur_h2 , &texture_joueur_h2);
+    init_texture(&surface_joueur_left_1 , &texture_joueur_left_1);
+    init_texture(&surface_joueur_left_2 , &texture_joueur_left_2);
+    init_texture(&surface_joueur_right_1 , &texture_joueur_right_1);
+    init_texture(&surface_joueur_right_2 , &texture_joueur_right_2);
+    init_texture(&surface_joueur_up_1 , &texture_joueur_up_1);
+    init_texture(&surface_joueur_up_2 , &texture_joueur_up_2);
+    init_texture(&surface_joueur_down_1 , &texture_joueur_down_1);
+    init_texture(&surface_joueur_down_2 , &texture_joueur_down_2);
 }
 
 static void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, Bullet *b, int rotation, int vitesse)
@@ -923,52 +890,57 @@ static void initBullet(Bullet * b, int x, int y, int rotation)
     b->Vitesse = 2;
 }
 
-static void buttonHoverPlay(SDL_Window *window, SDL_Texture *texture_play_hover, SDL_Renderer *renderer, SDL_Rect play_button_rect)
+static void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, short *hover_button, char *menuTarget)
 {
-    int xMouse = 0, yMouse = 0;
-    int xWindow = 0, yWindow = 0;
+    xMouse = 0, yMouse = 0;
+    xWindow = 0, yWindow = 0;
 
     SDL_GetWindowPosition(window, &xWindow, &yWindow);
     SDL_GetGlobalMouseState(&xMouse,&yMouse);
 
-    if (!play)
+    if(strcmp(menu,menuTarget) == 0)
     {
-        if(xMouse>=350+xWindow && xMouse<=450+xWindow && yMouse>=250+yWindow && yMouse<=300+yWindow)
+        if(xMouse>=(button_rect->x)+xWindow && xMouse<=(button_rect->x)+(button_rect->w)+xWindow && yMouse>=(button_rect->y)+yWindow && yMouse<=(button_rect->y)+(button_rect->h)+yWindow)
         {
-            hover_playbutton = 1;
+            *hover_button = 1;
             if (debug) printf("Hover play button\n");
-            dessinerButton(texture_play_hover, renderer, play_button_rect, window, play_hover);
+            dessinerButton(button_texture, *button_rect, button_surface);
         }
         else
         {
-            hover_playbutton = 0;
+            *hover_button = 0;
             if (debug) printf("X: %d et y: %d\n",xMouse,yMouse);
         }
-    }   
+    }
 }
 
-static void buttonHoverHost(SDL_Window *window, SDL_Texture *texture_host_hover, SDL_Renderer *renderer, SDL_Rect host_button_rect)
+static void buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, char *menuTarget, void* (*p)(void*), void* (*p2)(void*))
 {
-    int xMouse = 0, yMouse = 0;
-    int xWindow = 0, yWindow = 0;
+    xMouse = 0, yMouse = 0;
+    xWindow = 0, yWindow = 0;
 
     SDL_GetWindowPosition(window, &xWindow, &yWindow);
     SDL_GetGlobalMouseState(&xMouse,&yMouse);
 
-    if (!play)
+    if(strcmp(menu,menuTarget) == 0)
     {
-        if(xMouse>=350+xWindow && xMouse<=450+xWindow && yMouse>=450+yWindow && yMouse<=500+yWindow)
+        if(xMouse>=(button_rect->x)+xWindow && xMouse<=(button_rect->x)+(button_rect->w)+xWindow && yMouse>=(button_rect->y)+yWindow && yMouse<=(button_rect->y)+(button_rect->h)+yWindow)
         {
-            hover_playbutton = 1;
-            if (debug) printf("Hover host button\n");
-            dessinerButton(texture_host_hover, renderer, host_button_rect, window, host_hover);
+            hover_settingsbutton = TRUE;
+            if(animations_thread_running == FALSE){
+                animations_thread_running = TRUE;
+                pthread_create(&animations_thread, NULL, p, NULL);   
+            }
         }
         else
-        {                
-            hover_hostbutton = 0;
-            if (debug) printf("X: %d et y: %d\n",xMouse,yMouse);
+        {
+            hover_settingsbutton = FALSE;            
+            if(animations_thread_running == FALSE){
+                animations_thread_running = TRUE;
+                pthread_create(&animations_thread, NULL, p2, NULL);   
+            }
         }
-    }   
+    }
 }
 
 //programme principal 
@@ -981,6 +953,8 @@ int main(int argc, char *argv[])
 
     init_vars();
     int timer = 0;
+    void* (*p)() = settings_button_animation_right;
+    void* (*p2)() = settings_button_animation_left;
 
     while(program_launched)
     {
@@ -1001,9 +975,12 @@ int main(int argc, char *argv[])
         mouseRect.x = xMouse-xWindow;
         mouseRect.y = yMouse-yWindow;
 
-        buttonHoverPlay(window, texture_play_hover, renderer, play_button_rect);
-        buttonHoverHost(window, texture_host_hover, renderer, host_button_rect);
+        buttonHover(play_hover, texture_play_hover, &play_button_rect, &hover_playbutton, "Main");
+        buttonHover(host_hover, texture_host_hover, &host_button_rect, &hover_hostbutton, "Main");
+        buttonHoverWithAnimation(settings_hover1, texture_settings_hover1, &settings_button_rect, "Main", p, p2);
+        draw_settings_button_animation();
         drawMouse(mouseRect, mousetexture);
+
         SDL_RenderPresent(renderer);
 
         if((timer = (1000 / 60)-(SDL_GetTicks() - tick)) > 0)

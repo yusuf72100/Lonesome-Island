@@ -26,14 +26,12 @@
 typedef uint32_t socklen_t;
 
 static SOCKET *socket_Server;
-static int connected;
 static char tramClient_send[100];
 static char tramClient_receive[100];
 
 static player joueur;
 static player * joueurs;
 static int size;
-
 static int connected;
 
 typedef struct 
@@ -46,7 +44,7 @@ void *sendDatas(player joueur);
 
 void *stopConnection();
 
-void *startConnection();
+int startConnection();
 
 void *receiveFromServer();
 

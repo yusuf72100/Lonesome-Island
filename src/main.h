@@ -26,18 +26,21 @@
 static Liste *l;
 
 static short loading;
-static short play = 0;
-static short hover_playbutton = 0;
-static short hover_hostbutton = 0;
-static short debug = 0; 
+static short hover_playbutton = FALSE;
+static short hover_hostbutton = FALSE;
+static short hover_settingsbutton = FALSE;
+static short debug = FALSE; 
 
+static int settings_button_animation_state = 0;
 static int tick=0;
 static int size;
 static int rotation = 0;
 static int xMouse, yMouse;
 static int xWindow = 0, yWindow = 0;
+static int WindowW = 1920, WindowH = 1080;
 
 static char *s;
+static char menu[10] = "Main";
 
 static Vecteur vecteur;
 static Bullet *bullet = NULL;
@@ -47,9 +50,10 @@ static SDL_bool tabEvent[9] = {SDL_FALSE};
 static SDL_Event event; 
 
 //menu buttons rectangle
+static SDL_Rect mouseRect;
 static SDL_Rect play_button_rect;
 static SDL_Rect host_button_rect;
-static SDL_Rect mouseRect;
+static SDL_Rect settings_button_rect;
 
 //window icon
 static SDL_Surface *icon_surface = NULL;
@@ -92,10 +96,25 @@ static SDL_Surface *play_inert = NULL;
 static SDL_Surface *play_hover = NULL;
 static SDL_Surface *host_inert = NULL;
 static SDL_Surface *host_hover = NULL;
+static SDL_Surface *settings_inert = NULL;
+static SDL_Surface *settings_hover1 = NULL;
+static SDL_Surface *settings_hover2 = NULL;
+static SDL_Surface *settings_hover3 = NULL;
+static SDL_Surface *settings_hover4 = NULL;
+static SDL_Surface *settings_hover5 = NULL;
+static SDL_Surface *settings_hover6 = NULL;
+
 static SDL_Texture *texture_play_inert = NULL;
 static SDL_Texture *texture_play_hover = NULL;	
 static SDL_Texture *texture_host_inert = NULL;
 static SDL_Texture *texture_host_hover = NULL;	
+static SDL_Texture *texture_settings_inert = NULL;
+static SDL_Texture *texture_settings_hover1 = NULL;
+static SDL_Texture *texture_settings_hover2 = NULL;
+static SDL_Texture *texture_settings_hover3 = NULL;
+static SDL_Texture *texture_settings_hover4 = NULL;
+static SDL_Texture *texture_settings_hover5 = NULL;
+static SDL_Texture *texture_settings_hover6 = NULL;
 
 //window init
 static SDL_Window *window = NULL;
@@ -116,6 +135,7 @@ static pthread_t server;
 static pthread_t sendtoserver;
 static pthread_t receivefromserver;
 static pthread_t animations_thread;
+static int animations_thread_running = FALSE;
 
 static void SDL_ExitWithError(const char *message);
 
@@ -149,12 +169,12 @@ char* eventTime();
 
 static void dessinerRect(SDL_Rect rectangle, SDL_Renderer *renderer);
 
-static void dessinerButton(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, SDL_Surface *surface);
+static void dessinerButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface);
 
 static void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, Bullet *b, int rotation, int vitesse);
 
 static void initBullet(Bullet * b, int x, int y, int rotation);
 
-static void buttonHoverPlay(SDL_Window *window, SDL_Texture *texture_play_hover, SDL_Renderer *renderer, SDL_Rect play_button_rect);
+static void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, short *hover_button, char *menuTarget);
 
-static void buttonHoverHost(SDL_Window *window, SDL_Texture *texture_host_hover, SDL_Renderer *renderer, SDL_Rect host_button_rect);
+static void init_texture(SDL_Surface **surface, SDL_Texture **texture);
