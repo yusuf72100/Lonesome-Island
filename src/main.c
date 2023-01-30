@@ -701,40 +701,6 @@ static void init_vars()
     joueur.playerRect.w = 50;
     joueur.playerRect.h = 81;
 
-    //cursor rectangle
-    mouseRect.w = 50;
-    mouseRect.h = 50;
-
-    //play button
-    play_button_rect.w = 400;
-    play_button_rect.h = 200;
-    play_button_rect.x = (WindowW / 2) - (play_button_rect.w / 2);
-    play_button_rect.y = 250;
-
-    //connect button
-    connect_button_rect.w = 400;
-    connect_button_rect.h = 200;
-    connect_button_rect.x = (WindowW / 2) - (connect_button_rect.w / 2);
-    connect_button_rect.y = 500;
-
-    //host button
-    host_button_rect.w = 400;
-    host_button_rect.h = 200;
-    host_button_rect.x = (WindowW / 2) - (host_button_rect.w / 2);
-    host_button_rect.y = 750;
-
-    //settings button
-    settings_button_rect.w = 150;
-    settings_button_rect.h = 150;
-    settings_button_rect.x = 30;
-    settings_button_rect.y = (WindowH - 50) - (settings_button_rect.h);
-
-    //title rectangle
-    title_rect.w = 20;
-    title_rect.h = 20;
-    title_rect.x = 170;
-    title_rect.y = 20;
-
     //assets init
     icon_surface = IMG_Load("resources/icon.png");
     imagebullet = IMG_Load("resources/bullet.png");
@@ -776,6 +742,13 @@ static void init_vars()
         SDL_ExitWithError("Impossible de créer le rendu...");
 
     SDL_SetWindowIcon(window, icon_surface);
+    SDL_GetCurrentDisplayMode(0,&DM);
+
+    //title rectangle
+    title_rect.w = 20;
+    title_rect.h = 20;
+    title_rect.x = (DM.w / 12);
+    title_rect.y = 20;
 
     if (TTF_Init() == -1)
     {
@@ -839,6 +812,35 @@ static void init_vars()
     init_texture(&surface_joueur_up_2 , &texture_joueur_up_2);
     init_texture(&surface_joueur_down_1 , &texture_joueur_down_1);
     init_texture(&surface_joueur_down_2 , &texture_joueur_down_2);
+
+     //cursor rectangle
+    mouseRect.w = 50;
+    mouseRect.h = 50;
+
+    //play button
+    play_button_rect.w = 400;
+    play_button_rect.h = 200;
+    play_button_rect.x = (DM.w / 2) - (play_button_rect.w / 2);
+    play_button_rect.y = 250;
+
+    //connect button
+    connect_button_rect.w = 400;
+    connect_button_rect.h = 200;
+    connect_button_rect.x = (DM.w / 2) - (connect_button_rect.w / 2);
+    connect_button_rect.y = 500;
+
+    //host button
+    host_button_rect.w = 400;
+    host_button_rect.h = 200;
+    host_button_rect.x = (DM.w / 2) - (host_button_rect.w / 2);
+    host_button_rect.y = 750;
+
+    //settings button
+    settings_button_rect.w = 150;
+    settings_button_rect.h = 150;
+    settings_button_rect.x = 30;
+    settings_button_rect.y = (DM.w / 2) - (settings_button_rect.h);
+
 }
 
 static void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, Bullet *b, int rotation, int vitesse)

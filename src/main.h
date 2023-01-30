@@ -40,7 +40,7 @@ static int settings_button_animation_state = 0;
 static int tick=0;
 static int size;
 static int rotation = 0;
-static int xMouse, yMouse;
+static int xMouse = 0, yMouse = 0;
 static int xWindow = 0, yWindow = 0;
 static int WindowW = 1920, WindowH = 1080;
 
@@ -60,6 +60,8 @@ static SDL_Rect play_button_rect;
 static SDL_Rect connect_button_rect;
 static SDL_Rect host_button_rect;
 static SDL_Rect settings_button_rect;
+
+static SDL_DisplayMode DM;
 
 //window icon
 static SDL_Surface *icon_surface = NULL;
