@@ -8,7 +8,7 @@ void initAudio()
 
 void creation_canaux_musique()
 {
-    if(Mix_AllocateChannels(2) == -1) SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Erreur chargement de la musique : %s", Mix_GetError());;
+    if(Mix_AllocateChannels(2) == -1) SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Erreur chargement de la musique : %s", Mix_GetError());
     /*Cannaux:
      *0:Musique fond
      *1:Effets joueur 1
