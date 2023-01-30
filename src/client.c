@@ -135,7 +135,7 @@ void *stopConnection()
 {
     closesocket(*socket_Server);
     WSACleanup();
-    printf("connection closed\n");
+    printf("Connection closed\n");
 }
 
 int startConnection()
@@ -146,15 +146,16 @@ int startConnection()
     WSADATA WSAData;
     WSAStartup(MAKEWORD(2,0), &WSAData);
     SOCKADDR_IN addrServer;
-    addrServer.sin_addr.s_addr = inet_addr(IP_PUBLIC);      
+    addrServer.sin_addr.s_addr = inet_addr(IP_LOCALE);      
     addrServer.sin_family = AF_INET;
     addrServer.sin_port = htons(4148);
     *socket_Server = socket(AF_INET,SOCK_STREAM,IPPROTO_TCP);
 
     //on test la connexion
-    connectedError= connect(*socket_Server, (const struct sockaddr *)&addrServer, sizeof(addrServer));
+    connectedError = connect(*socket_Server, (const struct sockaddr *)&addrServer, sizeof(addrServer));
     if(connectedError == SOCKET_ERROR) 
     {
+        printf("Error : ");
         stopConnection();
         return 1;
     }

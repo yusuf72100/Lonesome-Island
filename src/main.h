@@ -51,7 +51,7 @@ static Vecteur vecteur;
 static Bullet *bullet = NULL;
 
 static SDL_bool program_launched = SDL_TRUE;
-static SDL_bool tabEvent[9] = {SDL_FALSE};
+static SDL_bool tabEvent[10] = {SDL_FALSE};
 static SDL_Event event; 
 
 //menu buttons rectangle
@@ -69,7 +69,7 @@ static SDL_Surface *icon_surface = NULL;
 //texte assets
 static SDL_Surface *texte = NULL;
 static SDL_Texture *texte_texture = NULL;
-static SDL_Color blackColor = {115, 88, 42};
+static SDL_Color blackColor = {0, 0, 0};
 static TTF_Font *police = NULL;
 static SDL_Rect title_rect;
 

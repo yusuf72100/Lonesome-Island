@@ -162,8 +162,9 @@ static void checkEvents()
                         tabEvent[6] = SDL_TRUE;
                         break;
                     
-                    case SDL_MOUSEBUTTONUP:
-                        tabEvent[7] = SDL_TRUE;
+
+                    case SDLK_ESCAPE:
+                        tabEvent[10] = SDL_TRUE;
                         break;
                 }
 
@@ -199,6 +200,10 @@ static void checkEvents()
 
                     case SDLK_SPACE:
                         tabEvent[6] = SDL_FALSE;
+                        break;
+
+                    case SDLK_ESCAPE:
+                        tabEvent[10] = SDL_FALSE;
                         break;
 
                 }
@@ -271,6 +276,7 @@ static void trierJoueurs()
 //cette fonction dessinera le joueur en fonction de sa texture
 static void drawPlayer(SDL_Texture *texture_joueur, SDL_Rect playerRect)
 {
+    //printf("Player's datas: \nx: %d y:%d\n",playerRect.x, playerRect.y);
     if(SDL_QueryTexture(texture_joueur, NULL, NULL, &playerRect.w,&playerRect.h) != 0)
     {
         destroyAll(window, renderer);
@@ -341,7 +347,7 @@ static void *dessinerJoueurs()
 
 static void delay_breath()
 {
-    int milli_seconds = 2000;
+    int milli_seconds = 1000;
     clock_t start_time = clock();
     while (clock() < start_time + milli_seconds && tabEvent[0] == SDL_FALSE && tabEvent[1] == SDL_FALSE && tabEvent[2] == SDL_FALSE && tabEvent[3] == SDL_FALSE && tabEvent[6] == SDL_FALSE && tabEvent[7] == SDL_FALSE);
 }
@@ -391,13 +397,13 @@ static void delay_settings_button_right()
 static void *breathAnimation()
 {    
     joueur.animation_state = BREATH_START;
-    Send2Server();
+    pthread_create(&sendtoserver,NULL,Send2Server,NULL);
     delay_breath();
     joueur.animation_state++;
-    Send2Server();
+    pthread_create(&sendtoserver,NULL,Send2Server,NULL);
     delay_breath();
     joueur.animation_state--;
-    Send2Server();
+    pthread_create(&sendtoserver,NULL,Send2Server,NULL);
     pthread_exit(&animations_thread);
 }
 
@@ -493,6 +499,55 @@ static void *settings_button_animation_right()
     pthread_exit(&animations_thread);
 }
 
+static void drawTitle()
+{
+    if(SDL_QueryTexture(title_texture, NULL, NULL, &title_rect.w,&title_rect.h) != 0)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible d'afficher la texture du joueur...");
+    }
+    SDL_RenderCopy(renderer, title_texture, NULL, &title_rect);
+}
+
+static void drawError(SDL_Rect rect, SDL_Texture *texture)
+{
+    if(SDL_QueryTexture(texture, NULL, NULL, &rect.w,&rect.h) != 0)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible d'afficher la texture du joueur...");
+    }
+    SDL_RenderCopy(renderer, texture, NULL, &rect);
+}
+
+static void displayError(char *s, char *menuTarget)
+{
+    if(strcmp(menu,menuTarget) == 0)
+    {
+        SDL_Rect rect;
+        rect.x = 0;
+        rect.y = (WindowH / 2) - 100;
+        rect.w = WindowW;
+        rect.h = 200;
+
+        SDL_Rect error;
+        error.w = 200;
+        error.h = 500;
+        error.x = (WindowW / 2) - 315;
+        error.y = rect.y + (rect.h / 2) - 15;
+        
+        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+        SDL_RenderDrawRect(renderer, &rect);
+
+        SDL_RenderFillRect(renderer, &rect);
+
+        texte = TTF_RenderText_Blended(police, s, blackColor);
+        texte_texture = SDL_CreateTextureFromSurface(renderer, texte);
+        SDL_BlitSurface(texte,NULL,background,&error);
+
+        drawError(error, texte_texture);
+    }
+}
+
 static void doEvents()
 {
     if(tabEvent[0])
@@ -506,7 +561,7 @@ static void doEvents()
                 if(pthread_kill(animations_thread, 0) != 0){
                     pthread_create(&animations_thread, NULL, running_up_animation,NULL);   
                 }
-                Send2Server();
+                pthread_create(&sendtoserver,NULL,Send2Server,NULL);
             }
         }
 
@@ -523,7 +578,7 @@ static void doEvents()
                     if(pthread_kill(animations_thread, 0) != 0){
                         pthread_create(&animations_thread, NULL, running_left_animation,NULL);   
                     }
-                    Send2Server();
+                    pthread_create(&sendtoserver,NULL,Send2Server,NULL);
                 }
             }
         }
@@ -539,7 +594,7 @@ static void doEvents()
                 if(pthread_kill(animations_thread, 0) != 0){
                     pthread_create(&animations_thread, NULL, running_down_animation,NULL);   
                 }
-                Send2Server();
+                pthread_create(&sendtoserver,NULL,Send2Server,NULL);
             }
         }
 
@@ -556,7 +611,7 @@ static void doEvents()
                     if(pthread_kill(animations_thread, 0) != 0){
                         pthread_create(&animations_thread, NULL, running_right_animation,NULL);   
                     }
-                    Send2Server();
+                    pthread_create(&sendtoserver,NULL,Send2Server,NULL);
                 }
             }
         }
@@ -613,8 +668,12 @@ static void doEvents()
                     Sleep(1000);
                     pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
                     strcpy(menu,"InGame");
-                    hover_connectbutton = SDL_FALSE;
                 }
+                else
+                {
+                    strcpy(menu,"Error");
+                }
+                hover_connectbutton = SDL_FALSE;
             }
 
             //host button
@@ -626,7 +685,7 @@ static void doEvents()
                 Sleep(200);
                 startConnection();                                          //on créer un client qui se connecte au serveur
                 Sleep(500);
-                Send2Server();
+                pthread_create(&sendtoserver,NULL,Send2Server,NULL);
                 pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
                 strcpy(menu,"InGame");
                 hover_hostbutton = SDL_FALSE;
@@ -665,6 +724,14 @@ static void doEvents()
                 if(pthread_kill(animations_thread, 0) != 0){
                     pthread_create(&animations_thread, NULL, breathAnimation,NULL);   
                 }
+            }
+        }
+
+        if(tabEvent[10] == SDL_TRUE)
+        {
+            if(strcmp(menu,"Error") == 0)
+            {
+                strcpy(menu,"Main");
             }
         }
 
@@ -867,16 +934,6 @@ static void init_vars()
     settings_button_rect.y = DM.h - settings_button_rect.h - 50;
 }
 
-static void drawTitle()
-{
-    if(SDL_QueryTexture(title_texture, NULL, NULL, &title_rect.w,&title_rect.h) != 0)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible d'afficher la texture du joueur...");
-    }
-    SDL_RenderCopy(renderer, title_texture, NULL, &title_rect);
-}
-
 static void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, Bullet *b, int rotation, int vitesse)
 {
     if(SDL_QueryTexture(texture, NULL, NULL, &rectangle.w, &rectangle.h) != 0)
@@ -990,8 +1047,9 @@ int main(int argc, char *argv[])
         buttonHoverWithAnimation(settings_hover1, texture_settings_hover1, &settings_button_rect, &hover_settingsbutton, "Main", p, p2);
         draw_settings_button_animation();
         drawTitle();
+        displayError("Error: server offline...", "Error");
         drawMouse();
-        
+
         SDL_RenderPresent(renderer);
 
         if((timer = (1000 / 75)-(SDL_GetTicks() - tick)) > 0)

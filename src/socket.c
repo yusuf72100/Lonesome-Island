@@ -38,7 +38,6 @@ static void buildtramClient_send(player joueur, int i, int size)
 //envoi les données aux clients
 static void *sendToClient(send2Client *argClient)
 {
-    int err;
     int i = 1, j = 1;
     SOCKADDR_IN addr_Client;
     struct sockaddr_in* pV4Addr = (struct sockaddr_in*)&addr_Client;
@@ -53,7 +52,7 @@ static void *sendToClient(send2Client *argClient)
             if(argClient->argt->sd[i].clientSocket != INVALID_SOCKET)
             {
                 buildtramClient_send(argClient->argt->sd[j].joueur, j, argClient->argt->size);
-                if(send(argClient->argt->sd[i].clientSocket,tramClient_send,(sizeof(char)*30),0) == SOCKET_ERROR ) printf("Server: Packet lost\n");
+                if(send(argClient->argt->sd[i].clientSocket,tramClient_send,(sizeof(char)*30),0) == SOCKET_ERROR) printf("Server: Packet lost\n");
                 //printf("Sended to client: %s\n",tramClient_send);
             }
             j++;
@@ -200,7 +199,6 @@ void *searchClients(void *arg)
         pthread_create(&receive_from_client[argt2->size-1],NULL,receiveFromClient,(void *)&argClient[argt2->size-1]);
     }
 
-    printf("close\n");
     close(argt2->sd->socketServer);
     WSACleanup();
 }
