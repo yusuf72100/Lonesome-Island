@@ -40,7 +40,7 @@ static int settings_button_animation_state = 0;
 static int tick=0;
 static int size;
 static int rotation = 0;
-static int xMouse = 0, yMouse = 0;
+static SDL_Point mouse_position;   
 static int xWindow = 0, yWindow = 0;
 static int WindowW = 1920, WindowH = 1080;
 
@@ -132,8 +132,10 @@ static SDL_Texture *texture_settings_hover6 = NULL;
 static SDL_Window *window = NULL;
 static SDL_Renderer *renderer = NULL;
 static SDL_Texture *texture = NULL;
-static SDL_Surface *mousesurface = NULL;
-static SDL_Texture *mousetexture = NULL;
+static SDL_Surface *cursor = NULL;
+static SDL_Surface *cursor_select = NULL;
+static SDL_Texture *cursor_texture = NULL;
+static SDL_Texture *cursor_select_texture = NULL;
 
 //background 
 static SDL_Surface *background = NULL;
@@ -163,6 +165,8 @@ static void init_vars();
 static void *Send2Server();
 
 Vecteur InitVecteur(int angle, int vitesse);
+
+static void drawMouse();
 
 static void drawPlayer(SDL_Texture *texture_joueur, SDL_Rect playerRect);
 

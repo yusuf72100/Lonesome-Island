@@ -94,15 +94,26 @@ char* eventTime()
     return eventTime;
 }
 
-static void drawMouse(SDL_Rect mouseRect, SDL_Texture *mousetexture)
+static void drawMouse()
 {
-    if(SDL_QueryTexture(mousetexture, NULL, NULL, &mouseRect.w, &mouseRect.h) != 0)
+    if(hover_playbutton || hover_connectbutton || hover_hostbutton || hover_settingsbutton) 
     {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible d'afficher la texture du curseur...");
+        if(SDL_QueryTexture(cursor_select_texture, NULL, NULL, &mouseRect.w, &mouseRect.h) != 0)
+        {
+            destroyAll(window, renderer);
+            SDL_ExitWithError("Impossible d'afficher la texture du curseur...");
+        }
+        SDL_RenderCopy(renderer, cursor_select_texture, NULL, &mouseRect);
     }
-
-    SDL_RenderCopy(renderer, mousetexture, NULL, &mouseRect);
+    else
+    {
+        if(SDL_QueryTexture(cursor_texture, NULL, NULL, &mouseRect.w, &mouseRect.h) != 0)
+        {
+            destroyAll(window, renderer);
+            SDL_ExitWithError("Impossible d'afficher la texture du curseur...");
+        }
+        SDL_RenderCopy(renderer, cursor_texture, NULL, &mouseRect);
+    }
 }
 
 static void dessinerButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface)
@@ -592,7 +603,7 @@ static void doEvents()
         {
             //click LEFT DOWN
             //Connect button
-            if(xMouse>=connect_button_rect.x+xWindow && xMouse<=connect_button_rect.x+connect_button_rect.w+xWindow && yMouse>=connect_button_rect.y+yWindow && yMouse<=connect_button_rect.y+connect_button_rect.h+yWindow && strcmp(menu,"Main") == 0)
+            if(SDL_PointInRect(&mouse_position, &connect_button_rect) && strcmp(menu,"Main") == 0)
             {
                 init_boop(&tabEvent[7]);
                 if (debug) printf("Connect button clicked\n");                                         
@@ -605,7 +616,7 @@ static void doEvents()
             }
 
             //host button
-            if(xMouse>=host_button_rect.x+xWindow && xMouse<=host_button_rect.x+host_button_rect.w+xWindow && yMouse>=host_button_rect.y+yWindow && yMouse<=host_button_rect.y+host_button_rect.h+yWindow && strcmp(menu,"Main") == 0)
+            if(SDL_PointInRect(&mouse_position, &host_button_rect) && strcmp(menu,"Main") == 0)
             {
                 init_boop(&tabEvent[7]);
                 if (debug) printf("Host button clicked\n");
@@ -619,13 +630,13 @@ static void doEvents()
             }
 
             //play button
-            if(xMouse>=play_button_rect.x+xWindow && xMouse<=play_button_rect.x+play_button_rect.w+xWindow && yMouse>=play_button_rect.y+yWindow && yMouse<=play_button_rect.y+play_button_rect.h+yWindow && strcmp(menu,"Main") == 0)
+            if(SDL_PointInRect(&mouse_position, &play_button_rect) && strcmp(menu,"Main") == 0)
             {
                 init_boop(&tabEvent[7]);
             }
             
             //settings button
-            if(xMouse>=settings_button_rect.x+xWindow && xMouse<=settings_button_rect.x+settings_button_rect.w+xWindow && yMouse>=settings_button_rect.y+yWindow && yMouse<=settings_button_rect.y+settings_button_rect.h+yWindow && strcmp(menu,"Main") == 0)
+            if(SDL_PointInRect(&mouse_position, &settings_button_rect) && strcmp(menu,"Main") == 0)
             {
                 init_boop(&tabEvent[7]);
             }
@@ -681,11 +692,11 @@ static void init_texture(SDL_Surface **surface, SDL_Texture **texture)
 
 static void init_vars()
 {
-    xMouse = 0, yMouse = 0;
+    mouse_position.x = 0, mouse_position.y = 0;
     xWindow = 0, yWindow = 0;
 
     SDL_GetWindowPosition(window, &xWindow, &yWindow);
-    SDL_GetGlobalMouseState(&xMouse,&yMouse);
+    SDL_GetMouseState(&mouse_position.x,&mouse_position.y);
 
     loading = 0;
     l = creerListe();
@@ -704,7 +715,8 @@ static void init_vars()
     //assets init
     icon_surface = IMG_Load("resources/icon.png");
     imagebullet = IMG_Load("resources/bullet.png");
-    mousesurface = IMG_Load("resources/cursor/cursor.png");
+    cursor = IMG_Load("resources/cursor/cursor.png");
+    cursor_select = IMG_Load("resources/cursor/cursor_select.png");
     background = IMG_Load("resources/background.png");
     play_inert = IMG_Load("resources/play_inert.png");
     play_hover = IMG_Load("resources/play_hover.png");
@@ -762,15 +774,23 @@ static void init_vars()
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de charger la police...");
     }
-    mousetexture = SDL_CreateTextureFromSurface(renderer, mousesurface);
+    cursor_texture = SDL_CreateTextureFromSurface(renderer, cursor);
 
-    if(mousesurface == NULL)
+    if(cursor == NULL)
     {
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de charger la texture de la souris...");
     }
-    texte = TTF_RenderText_Blended(police, "Lonesome Island", blackColor);
+    
+    cursor_select_texture = SDL_CreateTextureFromSurface(renderer, cursor_select);
 
+    if(cursor_select == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger la texture de la souris...");
+    }
+
+    texte = TTF_RenderText_Blended(police, "Lonesome Island", blackColor);
     if (texte == NULL)
     {
         destroyAll(window, renderer);
@@ -813,7 +833,7 @@ static void init_vars()
     init_texture(&surface_joueur_down_1 , &texture_joueur_down_1);
     init_texture(&surface_joueur_down_2 , &texture_joueur_down_2);
 
-     //cursor rectangle
+    //cursor rectangle
     mouseRect.w = 50;
     mouseRect.h = 50;
 
@@ -839,8 +859,7 @@ static void init_vars()
     settings_button_rect.w = 150;
     settings_button_rect.h = 150;
     settings_button_rect.x = 30;
-    settings_button_rect.y = (DM.w / 2) - (settings_button_rect.h);
-
+    settings_button_rect.y = DM.h - settings_button_rect.h - 50;
 }
 
 static void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, Bullet *b, int rotation, int vitesse)
@@ -876,15 +895,9 @@ static void initBullet(Bullet * b, int x, int y, int rotation)
 
 static void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, short *hover_button, char *menuTarget)
 {
-    xMouse = 0, yMouse = 0;
-    xWindow = 0, yWindow = 0;
-
-    SDL_GetWindowPosition(window, &xWindow, &yWindow);
-    SDL_GetGlobalMouseState(&xMouse,&yMouse);
-
     if(strcmp(menu,menuTarget) == 0)
     {
-        if(xMouse>=(button_rect->x)+xWindow && xMouse<=(button_rect->x)+(button_rect->w)+xWindow && yMouse>=(button_rect->y)+yWindow && yMouse<=(button_rect->y)+(button_rect->h)+yWindow)
+        if(SDL_PointInRect(&mouse_position, button_rect))
         {
             *hover_button = TRUE;
             dessinerButton(button_texture, *button_rect, button_surface);
@@ -898,15 +911,10 @@ static void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture
 
 static void buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, char *menuTarget, void* (*p)(void*), void* (*p2)(void*))
 {
-    xMouse = 0, yMouse = 0;
-    xWindow = 0, yWindow = 0;
-
-    SDL_GetWindowPosition(window, &xWindow, &yWindow);
-    SDL_GetGlobalMouseState(&xMouse,&yMouse);
 
     if(strcmp(menu,menuTarget) == 0)
     {
-        if(xMouse>=(button_rect->x)+xWindow && xMouse<=(button_rect->x)+(button_rect->w)+xWindow && yMouse>=(button_rect->y)+yWindow && yMouse<=(button_rect->y)+(button_rect->h)+yWindow)
+        if(SDL_PointInRect(&mouse_position, button_rect))
         {
             hover_settingsbutton = TRUE;
             if(animations_thread_running == FALSE){
@@ -944,7 +952,7 @@ int main(int argc, char *argv[])
     {
         tick = SDL_GetTicks();
         SDL_RenderCopy(renderer, background_texture, NULL, NULL);
-        SDL_GetGlobalMouseState(&xMouse,&yMouse);
+        SDL_GetMouseState(&mouse_position.x,&mouse_position.y);
         SDL_GetWindowPosition(window, &xWindow, &yWindow);
         SDL_ShowCursor(SDL_DISABLE);
 
@@ -956,22 +964,22 @@ int main(int argc, char *argv[])
         //execution des events
         doEvents();
 
-        mouseRect.x = xMouse-xWindow;
-        mouseRect.y = yMouse-yWindow;
+        mouseRect.x = mouse_position.x;
+        mouseRect.y = mouse_position.y;
 
         buttonHover(play_hover, texture_play_hover, &play_button_rect, &hover_playbutton, "Main");
         buttonHover(connect_hover, texture_connect_hover, &connect_button_rect, &hover_connectbutton, "Main");
         buttonHover(host_hover, texture_host_hover, &host_button_rect, &hover_hostbutton, "Main");
         buttonHoverWithAnimation(settings_hover1, texture_settings_hover1, &settings_button_rect, "Main", p, p2);
         draw_settings_button_animation();
-        drawMouse(mouseRect, mousetexture);
-
+        drawMouse();
+        
         SDL_RenderPresent(renderer);
 
-        if((timer = (1000 / 60)-(SDL_GetTicks() - tick)) > 0)
+        if((timer = (1000 / 75)-(SDL_GetTicks() - tick)) > 0)
             SDL_Delay(timer);
         else    
-            SDL_Delay(15);
+            SDL_Delay(17);
     }  
 
     //free window
