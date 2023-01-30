@@ -7,3 +7,12 @@ le joueur a pour objectif de quitter l'île en réunissant les matériaux néces
 Pour réaliser sa quête, le joueur peut récolter les matières premières de l'île, fabriquer des outils de fortune
 ou encore se construire un habitat pour se proteger. Il doit également penser à subvenir à ses besoins vitaux
 que sont l'hydration et la nutrition. Enfin, il devra faire face à la faune locale qui s'avère plutot dangereuse.
+
+Syntaxe de définition de fonction:
+
+```C
+void function(params)
+{
+  printf("Ma fonction");
+}
+```
