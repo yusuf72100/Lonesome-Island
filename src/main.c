@@ -378,7 +378,7 @@ static void delay_settings_button_left()
 {
     int milli_seconds = 50;
     clock_t start_time = clock();
-    while (clock() < start_time + milli_seconds && hover_settingsbutton == FALSE);
+    while (clock() < start_time + milli_seconds && hover_settingsbutton == SDL_FALSE);
 }
 
 static void delay_settings_button_right()
@@ -471,7 +471,7 @@ static void draw_settings_button_animation()
 
 static void *settings_button_animation_left()
 {
-    for(settings_button_animation_state; settings_button_animation_state >= 0 && hover_settingsbutton == FALSE; settings_button_animation_state--)
+    for(settings_button_animation_state; settings_button_animation_state >= 0 && hover_settingsbutton == SDL_FALSE; settings_button_animation_state--)
     {
         delay_settings_button_left();
     }
@@ -483,12 +483,12 @@ static void *settings_button_animation_left()
 
 static void *settings_button_animation_right()
 {
-    for(settings_button_animation_state; settings_button_animation_state < 6 && hover_settingsbutton == TRUE; settings_button_animation_state++)
+    for(settings_button_animation_state; settings_button_animation_state < 6 && hover_settingsbutton == SDL_TRUE; settings_button_animation_state++)
     {
         delay_settings_button_right();
     }
 
-    while(hover_settingsbutton == TRUE);
+    while(hover_settingsbutton == SDL_TRUE);
     animations_thread_running = FALSE;
     pthread_exit(&animations_thread);
 }
@@ -602,6 +602,7 @@ static void doEvents()
         if(tabEvent[7])
         {
             //click LEFT DOWN
+            
             //Connect button
             if(SDL_PointInRect(&mouse_position, &connect_button_rect) && strcmp(menu,"Main") == 0)
             {
@@ -612,6 +613,7 @@ static void doEvents()
                     Sleep(1000);
                     pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
                     strcpy(menu,"InGame");
+                    hover_connectbutton = SDL_FALSE;
                 }
             }
 
@@ -627,26 +629,26 @@ static void doEvents()
                 Send2Server();
                 pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
                 strcpy(menu,"InGame");
+                hover_hostbutton = SDL_FALSE;
             }
 
             //play button
             if(SDL_PointInRect(&mouse_position, &play_button_rect) && strcmp(menu,"Main") == 0)
             {
                 init_boop(&tabEvent[7]);
+                hover_playbutton = SDL_FALSE;
             }
             
             //settings button
             if(SDL_PointInRect(&mouse_position, &settings_button_rect) && strcmp(menu,"Main") == 0)
             {
                 init_boop(&tabEvent[7]);
+                hover_settingsbutton = SDL_FALSE;
             }
         }
         if(!tabEvent[7])
         {
             //click LEFT UP
-            hover_playbutton = FALSE;
-            hover_hostbutton = FALSE;
-            hover_settingsbutton = FALSE;
         }
         if(tabEvent[8])
         {
@@ -724,6 +726,7 @@ static void init_vars()
     connect_hover = IMG_Load("resources/connect_hover.png");
     host_inert = IMG_Load("resources/host_inert.png");
     host_hover = IMG_Load("resources/host_hover.png");
+    title_surface = IMG_Load("resources/title.png");
     settings_inert = IMG_Load("resources/settings_inert.png");
     settings_hover1 = IMG_Load("resources/settings_hover1.png");
     settings_hover2 = IMG_Load("resources/settings_hover2.png");
@@ -757,9 +760,9 @@ static void init_vars()
     SDL_GetCurrentDisplayMode(0,&DM);
 
     //title rectangle
-    title_rect.w = 20;
-    title_rect.h = 20;
-    title_rect.x = (DM.w / 12);
+    title_rect.w = 500;
+    title_rect.h = 223;
+    title_rect.x = (DM.w / 2) - (title_rect.w / 2);
     title_rect.y = 20;
 
     if (TTF_Init() == -1)
@@ -790,7 +793,7 @@ static void init_vars()
         SDL_ExitWithError("Impossible de charger la texture de la souris...");
     }
 
-    texte = TTF_RenderText_Blended(police, "Lonesome Island", blackColor);
+    /*texte = TTF_RenderText_Blended(police, "Lonesome Island", blackColor);
     if (texte == NULL)
     {
         destroyAll(window, renderer);
@@ -804,8 +807,10 @@ static void init_vars()
         SDL_ExitWithError("Impossible de charger l'image...");
     }
     SDL_BlitSurface(texte,NULL,background,&title_rect);
-    
+    */
+
     //buttons
+    init_texture(&title_surface , &title_texture);
     init_texture(&play_inert , &texture_play_inert);
     init_texture(&play_hover , &texture_play_hover);
     init_texture(&connect_inert , &texture_connect_inert);
@@ -841,25 +846,35 @@ static void init_vars()
     play_button_rect.w = 400;
     play_button_rect.h = 200;
     play_button_rect.x = (DM.w / 2) - (play_button_rect.w / 2);
-    play_button_rect.y = 250;
+    play_button_rect.y = (((DM.h - title_rect.h) - (title_rect.y - 100)) / 3);
 
     //connect button
-    connect_button_rect.w = 400;
-    connect_button_rect.h = 200;
+    connect_button_rect.w = 500;
+    connect_button_rect.h = 250;
     connect_button_rect.x = (DM.w / 2) - (connect_button_rect.w / 2);
-    connect_button_rect.y = 500;
+    connect_button_rect.y = (((DM.h - title_rect.h) - (title_rect.y - 100)) / 3) + (connect_button_rect.h);
 
     //host button
     host_button_rect.w = 400;
     host_button_rect.h = 200;
     host_button_rect.x = (DM.w / 2) - (host_button_rect.w / 2);
-    host_button_rect.y = 750;
+    host_button_rect.y = (((DM.h - title_rect.h) - (title_rect.y - 100)) / 3) + (connect_button_rect.h*2) + 40;
 
     //settings button
     settings_button_rect.w = 150;
     settings_button_rect.h = 150;
     settings_button_rect.x = 30;
     settings_button_rect.y = DM.h - settings_button_rect.h - 50;
+}
+
+static void drawTitle()
+{
+    if(SDL_QueryTexture(title_texture, NULL, NULL, &title_rect.w,&title_rect.h) != 0)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible d'afficher la texture du joueur...");
+    }
+    SDL_RenderCopy(renderer, title_texture, NULL, &title_rect);
 }
 
 static void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, Bullet *b, int rotation, int vitesse)
@@ -893,30 +908,32 @@ static void initBullet(Bullet * b, int x, int y, int rotation)
     b->Vitesse = 2;
 }
 
-static void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, short *hover_button, char *menuTarget)
+static void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button, char *menuTarget)
 {
     if(strcmp(menu,menuTarget) == 0)
     {
         if(SDL_PointInRect(&mouse_position, button_rect))
         {
-            *hover_button = TRUE;
+            *hover_button = SDL_TRUE;
+            init_hover(hover_button);
             dessinerButton(button_texture, *button_rect, button_surface);
         }
         else
         {
-            *hover_button = FALSE;
+            *hover_button = SDL_FALSE;
         }
     }
 }
 
-static void buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, char *menuTarget, void* (*p)(void*), void* (*p2)(void*))
+static void buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button, char *menuTarget, void* (*p)(void*), void* (*p2)(void*))
 {
 
     if(strcmp(menu,menuTarget) == 0)
     {
         if(SDL_PointInRect(&mouse_position, button_rect))
         {
-            hover_settingsbutton = TRUE;
+            *hover_button = SDL_TRUE;
+            init_hover(hover_button);
             if(animations_thread_running == FALSE){
                 animations_thread_running = TRUE;
                 pthread_create(&animations_thread, NULL, p, NULL);   
@@ -924,7 +941,7 @@ static void buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *b
         }
         else
         {
-            hover_settingsbutton = FALSE;            
+            *hover_button = SDL_FALSE;            
             if(animations_thread_running == FALSE){
                 animations_thread_running = TRUE;
                 pthread_create(&animations_thread, NULL, p2, NULL);   
@@ -970,8 +987,9 @@ int main(int argc, char *argv[])
         buttonHover(play_hover, texture_play_hover, &play_button_rect, &hover_playbutton, "Main");
         buttonHover(connect_hover, texture_connect_hover, &connect_button_rect, &hover_connectbutton, "Main");
         buttonHover(host_hover, texture_host_hover, &host_button_rect, &hover_hostbutton, "Main");
-        buttonHoverWithAnimation(settings_hover1, texture_settings_hover1, &settings_button_rect, "Main", p, p2);
+        buttonHoverWithAnimation(settings_hover1, texture_settings_hover1, &settings_button_rect, &hover_settingsbutton, "Main", p, p2);
         draw_settings_button_animation();
+        drawTitle();
         drawMouse();
         
         SDL_RenderPresent(renderer);

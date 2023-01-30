@@ -13,7 +13,8 @@
         "unistd.h": "c",
         "client.h": "c",
         "init.h": "c",
-        "socket.h": "c"
+        "socket.h": "c",
+        "sdl_mixer.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

@@ -18,7 +18,24 @@ void creation_canaux_musique()
      *5:Dialogues
      *6:Buffer
      */
-    boop = Mix_LoadWAV("resources/boop.wav");
+    boop = Mix_LoadWAV("resources/sounds/boop.wav");
+    hover = Mix_LoadWAV("resources/sounds/hover.wav");
+}
+
+void *play_hover_audio(void *key)
+{
+    SDL_bool *temp = key;
+    Mix_PlayChannel(1, hover, 0);
+    while(*temp);
+    pthread_exit(NULL);
+}
+
+void init_hover(SDL_bool *key)
+{
+    if(pthread_kill(hover_Thread,0) != 0)
+    {
+        pthread_create(&hover_Thread,NULL,play_hover_audio,key);
+    }
 }
 
 void *play_boop(void *key)

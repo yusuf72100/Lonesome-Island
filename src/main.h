@@ -30,10 +30,10 @@ static Liste *l;
 extern int connectedError;
 
 static short loading;
-static short hover_playbutton = FALSE;
-static short hover_connectbutton = FALSE;
-static short hover_hostbutton = FALSE;
-static short hover_settingsbutton = FALSE;
+static SDL_bool hover_playbutton = SDL_FALSE;
+static SDL_bool hover_connectbutton = SDL_FALSE;
+static SDL_bool hover_hostbutton = SDL_FALSE;
+static SDL_bool hover_settingsbutton = SDL_FALSE;
 static short debug = FALSE; 
 
 static int settings_button_animation_state = 0;
@@ -77,6 +77,7 @@ static SDL_Rect title_rect;
 static SDL_Surface *imagebullet = NULL;
 static SDL_Texture *texturebullet = NULL;	
 
+static SDL_Surface *title_surface = NULL;
 static SDL_Surface *surface_joueur_h1 = NULL;
 static SDL_Surface *surface_joueur_h2 = NULL;
 static SDL_Surface *surface_joueur_left_1 = NULL;
@@ -88,6 +89,7 @@ static SDL_Surface *surface_joueur_up_2 = NULL;
 static SDL_Surface *surface_joueur_down_1 = NULL;
 static SDL_Surface *surface_joueur_down_2 = NULL;
 
+static SDL_Texture *title_texture = NULL;
 static SDL_Texture *texture_joueur_h1 = NULL;
 static SDL_Texture *texture_joueur_h2 = NULL;
 static SDL_Texture *texture_joueur_left_1 = NULL;
@@ -192,7 +194,7 @@ static void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect
 
 static void initBullet(Bullet * b, int x, int y, int rotation);
 
-static void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, short *hover_button, char *menuTarget);
+static void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button, char *menuTarget);
 
 static void init_texture(SDL_Surface **surface, SDL_Texture **texture);
 
