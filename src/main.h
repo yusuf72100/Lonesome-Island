@@ -162,7 +162,7 @@ static void *Send2Server();
 
 Vecteur InitVecteur(int angle, int vitesse);
 
-static void dessinerJoueur(player Joueur);
+static void drawPlayer(SDL_Texture *texture_joueur, SDL_Rect playerRect);
 
 static void destroyAll(SDL_Window *window, SDL_Renderer *renderer);
 
@@ -189,3 +189,5 @@ static void initBullet(Bullet * b, int x, int y, int rotation);
 static void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, short *hover_button, char *menuTarget);
 
 static void init_texture(SDL_Surface **surface, SDL_Texture **texture);
+
+static void switchAnimation(player Joueur);

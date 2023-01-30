@@ -245,8 +245,8 @@ static void trierJoueurs()
     for(i = 1; i < size; i++)
     {
         player buffer = joueurs[i];
-        position = 1;
-        for(j = 1; j <= size; j++)
+        position = i;
+        for(j = i; j < size; j++)
         {
             if(joueurs[i].playerRect.y > joueurs[j].playerRect.y) position++;
         }
@@ -257,106 +257,65 @@ static void trierJoueurs()
     }
 }
 
-static void dessinerJoueur(player Joueur)
+//cette fonction dessinera le joueur en fonction de sa texture
+static void drawPlayer(SDL_Texture *texture_joueur, SDL_Rect playerRect)
 {
-    if(Joueur.animation_state == BREATH_START)
+    if(SDL_QueryTexture(texture_joueur, NULL, NULL, &playerRect.w,&playerRect.h) != 0)
     {
-        if(SDL_QueryTexture(texture_joueur_h1, NULL, NULL, &Joueur.playerRect.w,&Joueur.playerRect.h) != 0)
-        {
-            destroyAll(window, renderer);
-            SDL_ExitWithError("Impossible d'afficher la texture du joueur...");
-        }
-        SDL_RenderCopy(renderer, texture_joueur_h1, NULL, &Joueur.playerRect);
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible d'afficher la texture du joueur...");
     }
-    else if(Joueur.animation_state == BREATH_END)
+    SDL_RenderCopy(renderer, texture_joueur, NULL, &playerRect);
+}
+
+//cette fonction choisira le bon asset pour la bonne animation
+static void switchAnimation(player Joueur)
+{
+    switch (Joueur.animation_state)
     {
-        if(SDL_QueryTexture(texture_joueur_h2, NULL, NULL, &Joueur.playerRect.w, &Joueur.playerRect.h) != 0)
-        {
-            destroyAll(window, renderer);
-            SDL_ExitWithError("Impossible d'afficher la texture du joueur...");
-        }
-        SDL_RenderCopy(renderer, texture_joueur_h2, NULL, &Joueur.playerRect);
-    }
-    else if(Joueur.animation_state == RUNNING_LEFT_START)
-    {
-        if(SDL_QueryTexture(texture_joueur_left_1, NULL, NULL, &Joueur.playerRect.w, &Joueur.playerRect.h) != 0)
-        {
-            destroyAll(window, renderer);
-            SDL_ExitWithError("Impossible d'afficher la texture du joueur running left 1 ...");
-        }
-        SDL_RenderCopy(renderer, texture_joueur_left_1, NULL, &Joueur.playerRect);
-    }
-    else if(Joueur.animation_state == RUNNING_LEFT_END)
-    {
-        if(SDL_QueryTexture(texture_joueur_left_2, NULL, NULL, &Joueur.playerRect.w, &Joueur.playerRect.h) != 0)
-        {
-            destroyAll(window, renderer);
-            SDL_ExitWithError("Impossible d'afficher la texture du joueur running left 2 ...");
-        }
-        SDL_RenderCopy(renderer, texture_joueur_left_2, NULL, &Joueur.playerRect);
-    }
-    else if(Joueur.animation_state == RUNNING_RIGHT_START)
-    {
-        if(SDL_QueryTexture(texture_joueur_right_1, NULL, NULL, &Joueur.playerRect.w, &Joueur.playerRect.h) != 0)
-        {
-            destroyAll(window, renderer);
-            SDL_ExitWithError("Impossible d'afficher la texture du joueur running right 1 ...");
-        }
-        SDL_RenderCopy(renderer, texture_joueur_right_1, NULL, &Joueur.playerRect);
-    }
-    else if(Joueur.animation_state == RUNNING_RIGHT_END)
-    {
-        if(SDL_QueryTexture(texture_joueur_right_2, NULL, NULL, &Joueur.playerRect.w, &Joueur.playerRect.h) != 0)
-        {
-            destroyAll(window, renderer);
-            SDL_ExitWithError("Impossible d'afficher la texture du joueur running right 2 ...");
-        }
-        SDL_RenderCopy(renderer, texture_joueur_right_2, NULL, &Joueur.playerRect);
-    }
-    else if(Joueur.animation_state == RUNNING_UP_START)
-    {
-        if(SDL_QueryTexture(texture_joueur_up_1, NULL, NULL, &Joueur.playerRect.w, &Joueur.playerRect.h) != 0)
-        {
-            destroyAll(window, renderer);
-            SDL_ExitWithError("Impossible d'afficher la texture du joueur running up 1 ...");
-        }
-        SDL_RenderCopy(renderer, texture_joueur_up_1, NULL, &Joueur.playerRect);
-    }
-    else if(Joueur.animation_state == RUNNING_UP_END)
-    {
-        if(SDL_QueryTexture(texture_joueur_up_2, NULL, NULL, &Joueur.playerRect.w, &Joueur.playerRect.h) != 0)
-        {
-            destroyAll(window, renderer);
-            SDL_ExitWithError("Impossible d'afficher la texture du joueur running up 2 ...");
-        }
-        SDL_RenderCopy(renderer, texture_joueur_up_2, NULL, &Joueur.playerRect);
-    }
-    else if(Joueur.animation_state == RUNNING_DOWN_START)
-    {
-        if(SDL_QueryTexture(texture_joueur_down_1, NULL, NULL, &Joueur.playerRect.w, &Joueur.playerRect.h) != 0)
-        {
-            destroyAll(window, renderer);
-            SDL_ExitWithError("Impossible d'afficher la texture du joueur running down 1 ...");
-        }
-        SDL_RenderCopy(renderer, texture_joueur_down_1, NULL, &Joueur.playerRect);
-    }
-    else if(Joueur.animation_state == RUNNING_DOWN_END)
-    {
-        if(SDL_QueryTexture(texture_joueur_down_2, NULL, NULL, &Joueur.playerRect.w, &Joueur.playerRect.h) != 0)
-        {
-            destroyAll(window, renderer);
-            SDL_ExitWithError("Impossible d'afficher la texture du joueur running down 2 ...");
-        }
-        SDL_RenderCopy(renderer, texture_joueur_down_2, NULL, &Joueur.playerRect);
-    }
-    else
-    {
-        if(SDL_QueryTexture(texture_joueur_h1, NULL, NULL, &Joueur.playerRect.w,&Joueur.playerRect.h) != 0)
-        {
-            destroyAll(window, renderer);
-            SDL_ExitWithError("Impossible d'afficher la texture du joueur...");
-        }
-        SDL_RenderCopy(renderer, texture_joueur_h1, NULL, &Joueur.playerRect);
+    case BREATH_START:
+        drawPlayer(texture_joueur_h1,Joueur.playerRect);
+        break;
+
+    case BREATH_END:
+        drawPlayer(texture_joueur_h2,Joueur.playerRect);
+        break;
+
+    case RUNNING_LEFT_START:
+        drawPlayer(texture_joueur_left_1,Joueur.playerRect);
+        break;
+
+    case RUNNING_LEFT_END:
+        drawPlayer(texture_joueur_left_2,Joueur.playerRect);
+        break;
+
+    case RUNNING_RIGHT_START:
+        drawPlayer(texture_joueur_right_1,Joueur.playerRect);
+        break;
+
+    case RUNNING_RIGHT_END:
+        drawPlayer(texture_joueur_right_2,Joueur.playerRect);
+        break;
+
+    case RUNNING_UP_START:
+        drawPlayer(texture_joueur_up_1,Joueur.playerRect);
+        break;
+
+    case RUNNING_UP_END:
+        drawPlayer(texture_joueur_up_2,Joueur.playerRect);
+        break;
+
+    case RUNNING_DOWN_START:
+        drawPlayer(texture_joueur_down_1,Joueur.playerRect);
+        break;
+
+    case RUNNING_DOWN_END:
+        drawPlayer(texture_joueur_down_2,Joueur.playerRect);
+        break;
+    
+    default:
+        drawPlayer(texture_joueur_h1,Joueur.playerRect);
+        break;
     }
 }   
 
@@ -365,7 +324,7 @@ static void *dessinerJoueurs()
     //trierJoueurs();
     for(int i = 1; i < size; i++)
     {
-        dessinerJoueur(joueurs[i]);
+        switchAnimation(joueurs[i]);
     }
 }
 
