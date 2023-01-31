@@ -36,7 +36,7 @@ static void buildtramClient_send(player joueur, int i, int size)
 }
 
 //envoi les données aux clients
-static void *sendToClient(send2Client *argClient)
+static void *sendToClient(send2Client *argClient, int position)
 {
     int i = 1, j = 1;
     SOCKADDR_IN addr_Client;
@@ -44,20 +44,15 @@ static void *sendToClient(send2Client *argClient)
     struct in_addr ipAddr = pV4Addr->sin_addr;
 
     //à tout le monde
+    buildtramClient_send(argClient->argt->sd[position].joueur, position, argClient->argt->size);
     do
     {
-        //on envoi les coordonnées de tout le monde
-        do
+        //on envoi les données du joueur en question
+        if(argClient->argt->sd[i].clientSocket != INVALID_SOCKET)
         {
-            if(argClient->argt->sd[i].clientSocket != INVALID_SOCKET)
-            {
-                buildtramClient_send(argClient->argt->sd[j].joueur, j, argClient->argt->size);
-                if(send(argClient->argt->sd[i].clientSocket,tramClient_send,(sizeof(char)*30),0) == SOCKET_ERROR) printf("Server: Packet lost\n");
-                //printf("Sended to client: %s\n",tramClient_send);
-            }
-            j++;
-        } while(j < argClient->argt->size);
-        j=1;
+            if(send(argClient->argt->sd[i].clientSocket,tramClient_send,(sizeof(char)*30),0) == SOCKET_ERROR) printf("Server: Packet lost\n");
+            //printf("Sended to client: %s\n",tramClient_send);
+        }
         i++;
     } while (i < argClient->argt->size);
     i=1;
@@ -158,7 +153,7 @@ void *receiveFromClient(void *arg)
 
             argClient->argt->sd[i].joueur.playerRect.w = 50;
             argClient->argt->sd[i].joueur.playerRect.h = 81;
-            sendToClient(argClient);
+            sendToClient(argClient, i);
             position = i;
             i=0;
         }

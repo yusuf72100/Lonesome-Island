@@ -79,7 +79,7 @@ void *searchClients(void *argt);
 
 void *receiveFromClient(void *arg);
 
-static void *sendToClient(send2Client *argClient);
+static void *sendToClient(send2Client *argClient, int position);
 
 void *startServer();
 
