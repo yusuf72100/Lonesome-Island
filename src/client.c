@@ -77,6 +77,21 @@ static void traitData()
             k=0;
             buffer[0] = '\0';
         }
+        if(tramClient_receive[j] == 'c')
+        {
+
+            j++;
+            while(tramClient_receive[j] >= '0' && tramClient_receive[j] <= '9')
+            {
+                buffer[k] = tramClient_receive[j];
+                k++;
+                j++;
+            }
+            buffer[k] = '\0';
+            joueurs[position].connected = atoi(buffer);
+            k=0;
+            buffer[0] = '\0';
+        }
         if(tramClient_receive[j] == 's')
         {
 
@@ -97,13 +112,13 @@ static void traitData()
 
 void *receiveFromServer()
 {
-    while(TRUE)
+    while(recv(*socket_Server,tramClient_receive,(sizeof(char)*30),0) != INVALID_SOCKET)
     {
-        recv(*socket_Server,tramClient_receive,(sizeof(char)*30),0);
         //printf("Received from server: %s\n",tramClient_receive);
         traitData();
         synchDatas(joueurs,size);
     }
+    stopConnection();
 }
 
 static void buildTram(player joueur)
@@ -142,7 +157,7 @@ void *sendDatas(player joueur)
     if(send(*socket_Server,tramClient_send,(sizeof(char)*30),0) == SOCKET_ERROR)
     {
         stopConnection();
-        connectedError= TRUE;
+        connectedError = TRUE;
     }
 }
 
@@ -150,6 +165,7 @@ void *stopConnection()
 {
     closesocket(*socket_Server);
     WSACleanup();
+
     printf("Connection closed\n");
 }
 
@@ -157,7 +173,6 @@ int startConnection()
 {   
     joueurs = malloc(sizeof(player) * 10);
     socket_Server = malloc(sizeof(SOCKET));
-    char *msg = malloc(sizeof(char)*2+1);
     WSADATA WSAData;
     WSAStartup(MAKEWORD(2,0), &WSAData);
     SOCKADDR_IN addrServer;

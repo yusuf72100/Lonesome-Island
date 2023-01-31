@@ -317,7 +317,7 @@ static void checkEvents()
 }
 
 /**
- * @brief Trie les joueurs en fonction de leur coordonnée Y et organise l'ordre d'affichage des joueurs.
+ * @brief Trie les joueurs en fonction de leur coordonnées Y et organise l'ordre d'affichage des joueurs.
  * 
  */
 static void trierJoueurs()
@@ -421,7 +421,8 @@ static void *dessinerJoueurs()
     //trierJoueurs();
     for(int i = 1; i < size; i++)
     {
-        switchAnimation(joueurs[i]);
+        if(joueurs[i].connected == TRUE)
+            switchAnimation(joueurs[i]);
     }
 }
 
@@ -1267,6 +1268,7 @@ int main(int argc, char *argv[])
     TTF_Quit();
     SDL_Quit();
     stopConnection();
+    stopServer();
     Mix_CloseAudio();
 
     return EXIT_SUCCESS;

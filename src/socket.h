@@ -48,6 +48,8 @@ static char tramClient_receive[100];
 static char recvBuffer[dataLen]; 
 static SOCKET socketServer;
 
+static int max_player = 10;
+
 /**
  * @brief Sauvegarde les informations de chaque joueurs relatives uniquement au jeu en lui-même (points de vie, coordonnées, animation...).
  * 
@@ -56,6 +58,7 @@ typedef struct
 {
     SDL_Rect playerRect;
     int animation_state;
+    int connected;
 
 }player;
 
@@ -84,6 +87,8 @@ typedef struct
 
 }argServer;
 
+static argServer *argt = NULL;
+
 /**
  * @brief Rassemble les données d'un seul joueur.
  * 
@@ -93,7 +98,10 @@ typedef struct send2Client
     SOCKET socket;
     int port;
     argServer * argt;
+
 }send2Client;
+
+static send2Client *argClient = NULL;
 
 void *clearInput(SOCKET socketClient);
 
@@ -105,5 +113,7 @@ void *receiveFromClient(void *arg);
 static void *sendToClient(send2Client *argClient, int position);
 
 void *startServer();
+
+void stopServer();
 
 #endif
