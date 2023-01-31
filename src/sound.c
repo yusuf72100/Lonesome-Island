@@ -9,12 +9,20 @@
 
 #include "sound.h"
 
+/**
+ * @brief Initialise le moteur audio.
+ * 
+ */
 void initAudio()
 {
     if(Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) == -1)
         printf("%s", Mix_GetError());
 }
 
+/**
+ * @brief Initialise les cannaux audio et les sons.
+ * 
+ */
 void creation_canaux_musique()
 {
     if(Mix_AllocateChannels(2) == -1) SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Erreur chargement de la musique : %s", Mix_GetError());
@@ -31,6 +39,12 @@ void creation_canaux_musique()
     hover = Mix_LoadWAV("resources/sounds/hover.wav");
 }
 
+/**
+ * @brief Son de survol de bouton. (se lance dans un thread)
+ * 
+ * @param key 
+ * @return void* 
+ */
 void *play_hover_audio(void *key)
 {
     SDL_bool *temp = key;
@@ -39,6 +53,11 @@ void *play_hover_audio(void *key)
     pthread_exit(NULL);
 }
 
+/**
+ * @brief Fonction qui lance le son de survol de bouton dans un thread dédié.
+ * 
+ * @param key 
+ */
 void init_hover(SDL_bool *key)
 {
     if(pthread_kill(hover_Thread,0) != 0)
@@ -47,6 +66,12 @@ void init_hover(SDL_bool *key)
     }
 }
 
+/**
+ * @brief Joue le son de clique sur un bouton.
+ * 
+ * @param key 
+ * @return void* 
+ */
 void *play_boop(void *key)
 {
     int *temp = key;
@@ -55,6 +80,11 @@ void *play_boop(void *key)
     pthread_exit(NULL);
 }
 
+/**
+ * @brief Fonction qui lance le son de clique de bouton dans un thread dédié.
+ * 
+ * @param key 
+ */
 void init_boop(SDL_bool *key)
 {
     if(pthread_kill(boop_Thread,0) != 0)
@@ -63,6 +93,11 @@ void init_boop(SDL_bool *key)
     }
 }
 
+/**
+ * @brief Détruit le son spécifié.
+ * 
+ * @param chunk 
+ */
 void detruire_musique(Mix_Chunk* chunk)
 {
     Mix_FreeChunk(chunk);

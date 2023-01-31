@@ -1,0 +1,4 @@
+<map id="init_boop" name="init_boop">
+<area shape="rect" id="node1" title="Fonction qui lance le son de clique de bouton dans un thread dédié." alt="" coords="5,5,80,31"/>
+<area shape="rect" id="node2" href="$sound_8c.html#a821870717dad737e58c42019d5502d4b" title="Joue le son de clique sur un bouton." alt="" coords="128,5,209,31"/>
+</map>

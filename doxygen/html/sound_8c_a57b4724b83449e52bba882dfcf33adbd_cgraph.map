@@ -1,0 +1,4 @@
+<map id="init_hover" name="init_hover">
+<area shape="rect" id="node1" title="Fonction qui lance le son de survol de bouton dans un thread dédié." alt="" coords="5,5,81,31"/>
+<area shape="rect" id="node2" href="$sound_8c.html#a57d534ee1e2bc6ccbd6b927c1a45c388" title="Son de survol de bouton." alt="" coords="129,5,251,31"/>
+</map>

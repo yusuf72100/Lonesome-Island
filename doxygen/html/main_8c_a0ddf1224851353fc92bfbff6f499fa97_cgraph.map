@@ -1,50 +1,52 @@
 <map id="main" name="main">
-<area shape="rect" id="node1" title="Programme principal." alt="" coords="5,393,56,419"/>
-<area shape="rect" id="node2" href="$main_8c.html#ae2ef131da56513e4d2954bf3258a3b6c" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="158,307,249,332"/>
-<area shape="rect" id="node4" href="$main_8c.html#a6bb510e9f9ce8cb081f3f9ce0beffe31" title="Détruit la fenêtre et le rendu." alt="" coords="956,180,1036,205"/>
-<area shape="rect" id="node5" href="$main_8c.html#ad750745b62d5f011d94bc69c00429e24" title="Affiche la texture de survol avec animation du bouton demandé en dans le menu souhaité." alt="" coords="116,984,291,1009"/>
-<area shape="rect" id="node6" href="$main_8c.html#a65942d285a85ebdda2445b5da031c2e2" title="Change les valeurs du tableau d&#39;évènements en fonction de nos instructions sur le clavier et la souri..." alt="" coords="155,1033,251,1059"/>
-<area shape="rect" id="node7" href="$main_8c.html#accc4bfec3e2cf262deaf6f7f38b844a1" title="Initialise les assets de l&#39;erreur dans le menu demandé avec SDL_TTF." alt="" coords="158,12,249,37"/>
-<area shape="rect" id="node9" href="$main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="166,657,241,683"/>
-<area shape="rect" id="node15" href="$client_8c.html#a1a44fcc8a4125e81a0730b67c2603470" title="Arrête la connexion avec le serveur." alt="" coords="940,508,1052,533"/>
-<area shape="rect" id="node39" href="$main_8c.html#a68d8e7c4fc5e810263c993446cf55141" title="Dessine le bouton de paramètres (à executer dans un thread uniquement)." alt="" coords="131,357,276,397"/>
-<area shape="rect" id="node40" href="$main_8c.html#a4dd509784585dea800b3115747c81c42" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="779,55,867,80"/>
-<area shape="rect" id="node41" href="$main_8c.html#a702d2b36ea1c2a7bbf074155664d6890" title="Dessine le titre dans le menu principal." alt="" coords="786,104,859,129"/>
-<area shape="rect" id="node42" href="$main_8c.html#a270d20bdcadebb9a08a01a55c37858a9" title="Initialise toutes les variables relatives aux menus." alt="" coords="607,205,676,231"/>
-<area shape="rect" id="node44" href="$main_8c.html#a38591baf8970dcb0e7ce4be16744422d" title="Animation du bouton paramètres quand on a pas le curseur dessus." alt="" coords="104,1083,303,1108"/>
-<area shape="rect" id="node46" href="$main_8c.html#a7e521ce6c884112536943900c5a71c03" title="Animation du bouton paramètres quand on a le curseur dessus." alt="" coords="116,1133,291,1173"/>
-<area shape="rect" id="node48" href="$socket_8c.html#ac1e551c19cd6ce8d7da8b13d1f290863" title="Arrête le serveur en déconnectant tous les clients d&#39;abord." alt="" coords="781,1032,864,1057"/>
-<area shape="rect" id="node3" href="$main_8c.html#a7ac041d77c29de2a5bd9a576076984e8" title="Dessine un bouton normal." alt="" coords="383,307,492,332"/>
-<area shape="rect" id="node8" href="$main_8c.html#afe3fb63c56410a3ac3ab9397fdc8df8c" title="Affiche l&#39;erreur à l&#39;écran." alt="" coords="784,5,861,31"/>
-<area shape="rect" id="node10" href="$main_8c.html#a4ea2b775628e7e2857760cb4a3f60e5f" title="Animation de respiration." alt="" coords="379,833,495,859"/>
-<area shape="rect" id="node12" href="$main_8c.html#a506eeac61f56b2e172d086173bac5995" title="Envoi les données du joueur actuel au serveur." alt="" coords="594,783,689,808"/>
-<area shape="rect" id="node16" href="$main_8c.html#a88c5ed6c9b3c2ac702ece04154da6091" title="Dessine tous les joueurs." alt="" coords="379,408,495,433"/>
-<area shape="rect" id="node19" href="$main_8c.html#ab5a2d27713f1814d93ff81281e653e22" title="Récupère l&#39;heure et la date actuelle." alt="" coords="397,633,477,659"/>
-<area shape="rect" id="node20" href="$client_8c.html#a37deea5f4750c52937a56b0e97d566b9" title="Établie la connexion avec le serveur." alt="" coords="759,608,887,633"/>
-<area shape="rect" id="node23" href="$main_8c.html#a74d9cf129eac9371caa5a93b97b4f95c" title="Met un cooldown pour un rechargement." alt="" coords="387,683,488,708"/>
-<area shape="rect" id="node24" href="$main_8c.html#aab679fb5812d80a69aef9f9224dce59d" title="Animation &quot;courrir en bas&quot;." alt="" coords="355,732,519,757"/>
-<area shape="rect" id="node26" href="$main_8c.html#a5cb6f61e6f291bd9c47559597a40f453" title="Animation &quot;courrir à gauche&quot;." alt="" coords="362,883,513,908"/>
-<area shape="rect" id="node28" href="$main_8c.html#a5477b836a24fe2e1ee5f364383ca792f" title="Animation &quot;courrir à droite&quot;." alt="" coords="358,932,517,957"/>
-<area shape="rect" id="node30" href="$main_8c.html#aa405b150ef4a5c5ed93e41f86ab83a39" title="Animation &quot;courrir àen haut&quot;." alt="" coords="363,457,511,483"/>
-<area shape="rect" id="node32" href="$client_8c.html#a3622090a7ff391221a74cad6493bbca9" title="Démarre la connexion au serveur et renvoi TRUE en cas d&#39;erreur sinon renvoi FALSE." alt="" coords="585,508,698,533"/>
-<area shape="rect" id="node33" href="$socket_8c.html#a3490387e86b9ba6a1ee9ed3984b637d5" title="Démarre le serveur et initie la table de clients." alt="" coords="395,981,479,1007"/>
-<area shape="rect" id="node11" href="$main_8c.html#af35c1f5cca32f075ebe22ddd0dfb92bb" title="Délai d&#39;animation de respiration." alt="" coords="593,833,689,859"/>
-<area shape="rect" id="node13" href="$client_8c.html#a7cea858f95329a092fd2cbc746c59728" title="Récupère les données du joueur et les envois au serveur via le socket." alt="" coords="781,559,865,584"/>
-<area shape="rect" id="node14" href="$client_8c.html#a5e0f51fafacc388da3b4ebbf686b0eda" title="Construit une trame réseau dédiée uniquement au serveur." alt="" coords="957,559,1035,584"/>
-<area shape="rect" id="node17" href="$main_8c.html#a124c70bcd0486f8db5d0292febf8c889" title="Applique la bonne texture au joueur en fonction de son animation." alt="" coords="583,357,700,383"/>
-<area shape="rect" id="node18" href="$main_8c.html#afd0ed75a870240cedc972c1fe3cb89c1" title="Dessine un joueur en fonction de ses coordonnées et de sa texture." alt="" coords="779,357,866,383"/>
-<area shape="rect" id="node21" href="$main_8c.html#a734d34007877ed5938e58dccb669ba96" title="Récupère les données depuis le socket client." alt="" coords="951,608,1041,633"/>
-<area shape="rect" id="node22" href="$client_8c.html#a5db5e79b1f9efa79675000da17beacfb" title="Traite les données reçus par le serveur." alt="" coords="961,768,1031,793"/>
-<area shape="rect" id="node25" href="$main_8c.html#a5c52acb6abf77193f4c902191f211531" title="Délai de l&#39;animation &quot;courrir en bas&quot;." alt="" coords="572,732,711,757"/>
-<area shape="rect" id="node27" href="$main_8c.html#aa62897adaeca75011f0bef5727bcf2e2" title="Délai de l&#39;animation &quot;courrir à gauche&quot;." alt="" coords="578,883,705,908"/>
-<area shape="rect" id="node29" href="$main_8c.html#aeadd8a4a4a24ab533b3020fe47e19063" title="Délai de l&#39;animation &quot;courrir à droite&quot;." alt="" coords="574,932,709,957"/>
-<area shape="rect" id="node31" href="$main_8c.html#a2b9c29db7f7ff4e4f0d734dc02243aab" title="Délai de l&#39;animation &quot;courrir en haut&quot;." alt="" coords="580,459,703,484"/>
-<area shape="rect" id="node34" href="$socket_8c.html#a68b45930fad2153f053144a8678afa1c" title="Gère la place des clients dans la table de client et reçoit les nouveaux clients." alt="" coords="591,981,692,1007"/>
-<area shape="rect" id="node35" href="$socket_8c.html#a3b61093f2f5316157d1e6d3d05cf5ebc" title="Écoute un client tant que la connexion est établie." alt="" coords="760,981,885,1007"/>
-<area shape="rect" id="node36" href="$socket_8c.html#adb3e88c50501cb4d59262878ebfffc55" title="Construit une trame dédiée uniquement au client i." alt="" coords="1251,956,1393,981"/>
-<area shape="rect" id="node37" href="$socket_8c.html#af93eb740b3e202bdcb05795a2da4ef8c" title="Déconnecte le client en fonction de sa position dans le tableau." alt="" coords="935,1032,1057,1057"/>
-<area shape="rect" id="node38" href="$socket_8c.html#af8f7aaaf34db2175c7a9c4ab7d3306fc" title="Envoie la donnée d&#39;un client à tous les autres y compris au client lui&#45;même." alt="" coords="1105,981,1203,1007"/>
-<area shape="rect" id="node43" href="$main_8c.html#ac96e8912bb03df1f73f5ccb6db495085" title="Initialise l&#39;asset demandé." alt="" coords="779,205,866,231"/>
-<area shape="rect" id="node45" href="$main_8c.html#aec630baf5c5e5f01272b95cd61c04c7f" title="Délai de l&#39;animation du bouton de paramètres quand on a pas le curseur dessus." alt="" coords="351,1083,524,1108"/>
-<area shape="rect" id="node47" href="$main_8c.html#a4fdbef41cc1c14f9866991fef22a3b62" title="Délai de l&#39;animation du bouton de paramètres quand on a le curseur dessus." alt="" coords="363,1133,512,1173"/>
+<area shape="rect" id="node1" title="Programme principal." alt="" coords="5,525,56,551"/>
+<area shape="rect" id="node2" href="$main_8c.html#ae2ef131da56513e4d2954bf3258a3b6c" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="158,192,249,217"/>
+<area shape="rect" id="node4" href="$main_8c.html#a6bb510e9f9ce8cb081f3f9ce0beffe31" title="Détruit la fenêtre et le rendu." alt="" coords="936,219,1016,244"/>
+<area shape="rect" id="node7" href="$main_8c.html#ad750745b62d5f011d94bc69c00429e24" title="Affiche la texture de survol avec animation du bouton demandé en dans le menu souhaité." alt="" coords="116,143,291,168"/>
+<area shape="rect" id="node8" href="$main_8c.html#a65942d285a85ebdda2445b5da031c2e2" title="Change les valeurs du tableau d&#39;évènements en fonction de nos instructions sur le clavier et la souri..." alt="" coords="155,759,251,784"/>
+<area shape="rect" id="node9" href="$sound_8c.html#acb373f7276274a75af2fc3ec23a8e266" title="Initialise les cannaux audio et les sons." alt="" coords="117,808,290,833"/>
+<area shape="rect" id="node10" href="$main_8c.html#accc4bfec3e2cf262deaf6f7f38b844a1" title="Initialise les assets de l&#39;erreur dans le menu demandé avec SDL_TTF." alt="" coords="158,241,249,267"/>
+<area shape="rect" id="node12" href="$main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="166,643,241,668"/>
+<area shape="rect" id="node17" href="$client_8c.html#a1a44fcc8a4125e81a0730b67c2603470" title="Arrête la connexion avec le serveur." alt="" coords="920,928,1032,953"/>
+<area shape="rect" id="node38" href="$main_8c.html#a68d8e7c4fc5e810263c993446cf55141" title="Dessine le bouton de paramètres (à executer dans un thread uniquement)." alt="" coords="131,342,276,382"/>
+<area shape="rect" id="node39" href="$main_8c.html#a4dd509784585dea800b3115747c81c42" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="771,244,859,269"/>
+<area shape="rect" id="node40" href="$main_8c.html#a702d2b36ea1c2a7bbf074155664d6890" title="Dessine le titre dans le menu principal." alt="" coords="779,345,852,371"/>
+<area shape="rect" id="node41" href="$main_8c.html#a270d20bdcadebb9a08a01a55c37858a9" title="Initialise toutes les variables relatives aux menus." alt="" coords="607,41,676,67"/>
+<area shape="rect" id="node43" href="$sound_8c.html#ab74d84d6d4c90b2b18669590af038a07" title="Initialise le moteur audio." alt="" coords="167,857,239,883"/>
+<area shape="rect" id="node44" href="$main_8c.html#a38591baf8970dcb0e7ce4be16744422d" title="Animation du bouton paramètres quand on a pas le curseur dessus." alt="" coords="104,935,303,960"/>
+<area shape="rect" id="node46" href="$main_8c.html#a7e521ce6c884112536943900c5a71c03" title="Animation du bouton paramètres quand on a le curseur dessus." alt="" coords="116,1041,291,1081"/>
+<area shape="rect" id="node48" href="$socket_8c.html#ac1e551c19cd6ce8d7da8b13d1f290863" title="Arrête le serveur en déconnectant tous les clients d&#39;abord." alt="" coords="162,1217,245,1243"/>
+<area shape="rect" id="node3" href="$main_8c.html#a7ac041d77c29de2a5bd9a576076984e8" title="Dessine un bouton normal." alt="" coords="383,295,492,320"/>
+<area shape="rect" id="node5" href="$sound_8c.html#a57b4724b83449e52bba882dfcf33adbd" title="Fonction qui lance le son de survol de bouton dans un thread dédié." alt="" coords="399,143,475,168"/>
+<area shape="rect" id="node6" href="$sound_8c.html#a57d534ee1e2bc6ccbd6b927c1a45c388" title="Son de survol de bouton." alt="" coords="581,143,702,168"/>
+<area shape="rect" id="node11" href="$main_8c.html#afe3fb63c56410a3ac3ab9397fdc8df8c" title="Affiche l&#39;erreur à l&#39;écran." alt="" coords="777,193,854,219"/>
+<area shape="rect" id="node13" href="$main_8c.html#a4ea2b775628e7e2857760cb4a3f60e5f" title="Animation de respiration." alt="" coords="379,892,495,917"/>
+<area shape="rect" id="node15" href="$main_8c.html#a506eeac61f56b2e172d086173bac5995" title="Envoi les données du joueur actuel au serveur." alt="" coords="594,992,689,1017"/>
+<area shape="rect" id="node18" href="$main_8c.html#a88c5ed6c9b3c2ac702ece04154da6091" title="Dessine tous les joueurs." alt="" coords="379,396,495,421"/>
+<area shape="rect" id="node21" href="$main_8c.html#ab5a2d27713f1814d93ff81281e653e22" title="Récupère l&#39;heure et la date actuelle." alt="" coords="397,965,477,991"/>
+<area shape="rect" id="node22" href="$sound_8c.html#a255dd9ed014ef2eaf3f9e53005134ec4" title="Fonction qui lance le son de clique de bouton dans un thread dédié." alt="" coords="400,445,475,471"/>
+<area shape="rect" id="node24" href="$client_8c.html#a37deea5f4750c52937a56b0e97d566b9" title="Établie la connexion avec le serveur." alt="" coords="373,791,501,816"/>
+<area shape="rect" id="node26" href="$main_8c.html#a74d9cf129eac9371caa5a93b97b4f95c" title="Met un cooldown pour un rechargement." alt="" coords="387,495,488,520"/>
+<area shape="rect" id="node27" href="$main_8c.html#aab679fb5812d80a69aef9f9224dce59d" title="Animation &quot;courrir en bas&quot;." alt="" coords="355,544,519,569"/>
+<area shape="rect" id="node29" href="$main_8c.html#a5cb6f61e6f291bd9c47559597a40f453" title="Animation &quot;courrir à gauche&quot;." alt="" coords="362,593,513,619"/>
+<area shape="rect" id="node31" href="$main_8c.html#a5477b836a24fe2e1ee5f364383ca792f" title="Animation &quot;courrir à droite&quot;." alt="" coords="358,643,517,668"/>
+<area shape="rect" id="node33" href="$main_8c.html#aa405b150ef4a5c5ed93e41f86ab83a39" title="Animation &quot;courrir àen haut&quot;." alt="" coords="363,692,511,717"/>
+<area shape="rect" id="node35" href="$client_8c.html#a3622090a7ff391221a74cad6493bbca9" title="Démarre la connexion au serveur et renvoi TRUE en cas d&#39;erreur sinon renvoi FALSE." alt="" coords="759,904,872,929"/>
+<area shape="rect" id="node36" href="$socket_8c.html#a3490387e86b9ba6a1ee9ed3984b637d5" title="Démarre le serveur et initie la table de clients." alt="" coords="395,741,479,767"/>
+<area shape="rect" id="node14" href="$main_8c.html#af35c1f5cca32f075ebe22ddd0dfb92bb" title="Délai d&#39;animation de respiration." alt="" coords="593,943,689,968"/>
+<area shape="rect" id="node16" href="$client_8c.html#a7cea858f95329a092fd2cbc746c59728" title="Récupère les données du joueur et les envois au serveur via le socket." alt="" coords="773,979,857,1004"/>
+<area shape="rect" id="node19" href="$main_8c.html#a124c70bcd0486f8db5d0292febf8c889" title="Applique la bonne texture au joueur en fonction de son animation." alt="" coords="583,396,700,421"/>
+<area shape="rect" id="node20" href="$main_8c.html#afd0ed75a870240cedc972c1fe3cb89c1" title="Dessine un joueur en fonction de ses coordonnées et de sa texture." alt="" coords="772,395,859,420"/>
+<area shape="rect" id="node23" href="$sound_8c.html#a821870717dad737e58c42019d5502d4b" title="Joue le son de clique sur un bouton." alt="" coords="601,445,682,471"/>
+<area shape="rect" id="node25" href="$client_8c.html#a5db5e79b1f9efa79675000da17beacfb" title="Traite les données reçus par le serveur." alt="" coords="606,791,677,816"/>
+<area shape="rect" id="node28" href="$main_8c.html#a5c52acb6abf77193f4c902191f211531" title="Délai de l&#39;animation &quot;courrir en bas&quot;." alt="" coords="572,544,711,569"/>
+<area shape="rect" id="node30" href="$main_8c.html#aa62897adaeca75011f0bef5727bcf2e2" title="Délai de l&#39;animation &quot;courrir à gauche&quot;." alt="" coords="578,593,705,619"/>
+<area shape="rect" id="node32" href="$main_8c.html#aeadd8a4a4a24ab533b3020fe47e19063" title="Délai de l&#39;animation &quot;courrir à droite&quot;." alt="" coords="574,643,709,668"/>
+<area shape="rect" id="node34" href="$main_8c.html#a2b9c29db7f7ff4e4f0d734dc02243aab" title="Délai de l&#39;animation &quot;courrir en haut&quot;." alt="" coords="580,692,703,717"/>
+<area shape="rect" id="node37" href="$socket_8c.html#a68b45930fad2153f053144a8678afa1c" title="Gère la place des clients dans la table de client et reçoit les nouveaux clients." alt="" coords="591,741,692,767"/>
+<area shape="rect" id="node42" href="$main_8c.html#ac96e8912bb03df1f73f5ccb6db495085" title="Initialise l&#39;asset demandé." alt="" coords="772,41,859,67"/>
+<area shape="rect" id="node45" href="$main_8c.html#aec630baf5c5e5f01272b95cd61c04c7f" title="Délai de l&#39;animation du bouton de paramètres quand on a pas le curseur dessus." alt="" coords="351,1117,524,1143"/>
+<area shape="rect" id="node47" href="$main_8c.html#a4fdbef41cc1c14f9866991fef22a3b62" title="Délai de l&#39;animation du bouton de paramètres quand on a le curseur dessus." alt="" coords="363,1167,512,1207"/>
+<area shape="rect" id="node49" href="$socket_8c.html#af93eb740b3e202bdcb05795a2da4ef8c" title="Déconnecte le client en fonction de sa position dans le tableau." alt="" coords="376,1232,499,1257"/>
+<area shape="rect" id="node50" href="$socket_8c.html#af8f7aaaf34db2175c7a9c4ab7d3306fc" title="Envoie la donnée d&#39;un client à tous les autres y compris au client lui&#45;même." alt="" coords="593,1232,690,1257"/>
 </map>

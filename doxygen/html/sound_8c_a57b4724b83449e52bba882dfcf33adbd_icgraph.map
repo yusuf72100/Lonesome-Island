@@ -1,0 +1,6 @@
+<map id="init_hover" name="init_hover">
+<area shape="rect" id="node1" title="Fonction qui lance le son de survol de bouton dans un thread dédié." alt="" coords="327,31,403,56"/>
+<area shape="rect" id="node2" href="$main_8c.html#ae2ef131da56513e4d2954bf3258a3b6c" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="146,5,237,31"/>
+<area shape="rect" id="node4" href="$main_8c.html#ad750745b62d5f011d94bc69c00429e24" title="Affiche la texture de survol avec animation du bouton demandé en dans le menu souhaité." alt="" coords="104,55,279,80"/>
+<area shape="rect" id="node3" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,31,56,56"/>
+</map>

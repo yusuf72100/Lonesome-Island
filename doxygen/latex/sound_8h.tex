@@ -33,25 +33,20 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 \item 
 \mbox{\Hypertarget{sound_8h_ab74d84d6d4c90b2b18669590af038a07}\label{sound_8h_ab74d84d6d4c90b2b18669590af038a07}} 
 void {\bfseries init\+Audio} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Initialise le moteur audio. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{sound_8h_acb373f7276274a75af2fc3ec23a8e266}\label{sound_8h_acb373f7276274a75af2fc3ec23a8e266}} 
 void {\bfseries creation\+\_\+canaux\+\_\+musique} ()
-\item 
-\mbox{\Hypertarget{sound_8h_a57d534ee1e2bc6ccbd6b927c1a45c388}\label{sound_8h_a57d534ee1e2bc6ccbd6b927c1a45c388}} 
-void $\ast$ {\bfseries play\+\_\+hover\+\_\+audio} (void $\ast$key)
-\item 
-\mbox{\Hypertarget{sound_8h_a821870717dad737e58c42019d5502d4b}\label{sound_8h_a821870717dad737e58c42019d5502d4b}} 
-void $\ast$ {\bfseries play\+\_\+boop} (void $\ast$key)
-\item 
-\mbox{\Hypertarget{sound_8h_a255dd9ed014ef2eaf3f9e53005134ec4}\label{sound_8h_a255dd9ed014ef2eaf3f9e53005134ec4}} 
-void {\bfseries init\+\_\+boop} (SDL\+\_\+bool $\ast$key)
-\item 
-\mbox{\Hypertarget{sound_8h_a57b4724b83449e52bba882dfcf33adbd}\label{sound_8h_a57b4724b83449e52bba882dfcf33adbd}} 
-void {\bfseries init\+\_\+hover} (SDL\+\_\+bool $\ast$key)
-\item 
-\mbox{\Hypertarget{sound_8h_a4ed860b41581767750c03e6fcca6b62f}\label{sound_8h_a4ed860b41581767750c03e6fcca6b62f}} 
-void {\bfseries detruire\+\_\+musique} (Mix\+\_\+\+Chunk $\ast$chunk)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Initialise les cannaux audio et les sons. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{sound_8h_a57d534ee1e2bc6ccbd6b927c1a45c388}{play\+\_\+hover\+\_\+audio}} (void $\ast$key)
+\begin{DoxyCompactList}\small\item\em Son de survol de bouton. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{sound_8h_a821870717dad737e58c42019d5502d4b}{play\+\_\+boop}} (void $\ast$key)
+\begin{DoxyCompactList}\small\item\em Joue le son de clique sur un bouton. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sound_8h_a255dd9ed014ef2eaf3f9e53005134ec4}{init\+\_\+boop}} (SDL\+\_\+bool $\ast$key)
+\begin{DoxyCompactList}\small\item\em Fonction qui lance le son de clique de bouton dans un thread dédié. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sound_8h_a57b4724b83449e52bba882dfcf33adbd}{init\+\_\+hover}} (SDL\+\_\+bool $\ast$key)
+\begin{DoxyCompactList}\small\item\em Fonction qui lance le son de survol de bouton dans un thread dédié. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sound_8h_a4ed860b41581767750c03e6fcca6b62f}{detruire\+\_\+musique}} (Mix\+\_\+\+Chunk $\ast$chunk)
+\begin{DoxyCompactList}\small\item\em Détruit le son spécifié. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -84,3 +79,137 @@ Yusuf Ulas
 \begin{DoxyCopyright}{Copyright}
 Copyright (c) 2023 
 \end{DoxyCopyright}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{sound_8h_a4ed860b41581767750c03e6fcca6b62f}\label{sound_8h_a4ed860b41581767750c03e6fcca6b62f}} 
+\index{sound.h@{sound.h}!detruire\_musique@{detruire\_musique}}
+\index{detruire\_musique@{detruire\_musique}!sound.h@{sound.h}}
+\doxysubsubsection{\texorpdfstring{detruire\_musique()}{detruire\_musique()}}
+{\footnotesize\ttfamily void detruire\+\_\+musique (\begin{DoxyParamCaption}\item[{Mix\+\_\+\+Chunk $\ast$}]{chunk }\end{DoxyParamCaption})}
+
+
+
+Détruit le son spécifié. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em chunk} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sound_8h_a255dd9ed014ef2eaf3f9e53005134ec4}\label{sound_8h_a255dd9ed014ef2eaf3f9e53005134ec4}} 
+\index{sound.h@{sound.h}!init\_boop@{init\_boop}}
+\index{init\_boop@{init\_boop}!sound.h@{sound.h}}
+\doxysubsubsection{\texorpdfstring{init\_boop()}{init\_boop()}}
+{\footnotesize\ttfamily void init\+\_\+boop (\begin{DoxyParamCaption}\item[{SDL\+\_\+bool $\ast$}]{key }\end{DoxyParamCaption})}
+
+
+
+Fonction qui lance le son de clique de bouton dans un thread dédié. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em key} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=233pt]{sound_8h_a255dd9ed014ef2eaf3f9e53005134ec4_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{sound_8h_a255dd9ed014ef2eaf3f9e53005134ec4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{sound_8h_a57b4724b83449e52bba882dfcf33adbd}\label{sound_8h_a57b4724b83449e52bba882dfcf33adbd}} 
+\index{sound.h@{sound.h}!init\_hover@{init\_hover}}
+\index{init\_hover@{init\_hover}!sound.h@{sound.h}}
+\doxysubsubsection{\texorpdfstring{init\_hover()}{init\_hover()}}
+{\footnotesize\ttfamily void init\+\_\+hover (\begin{DoxyParamCaption}\item[{SDL\+\_\+bool $\ast$}]{key }\end{DoxyParamCaption})}
+
+
+
+Fonction qui lance le son de survol de bouton dans un thread dédié. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em key} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{sound_8h_a57b4724b83449e52bba882dfcf33adbd_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sound_8h_a57b4724b83449e52bba882dfcf33adbd_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{sound_8h_a821870717dad737e58c42019d5502d4b}\label{sound_8h_a821870717dad737e58c42019d5502d4b}} 
+\index{sound.h@{sound.h}!play\_boop@{play\_boop}}
+\index{play\_boop@{play\_boop}!sound.h@{sound.h}}
+\doxysubsubsection{\texorpdfstring{play\_boop()}{play\_boop()}}
+{\footnotesize\ttfamily void $\ast$ play\+\_\+boop (\begin{DoxyParamCaption}\item[{void $\ast$}]{key }\end{DoxyParamCaption})}
+
+
+
+Joue le son de clique sur un bouton. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void$\ast$ 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sound_8h_a821870717dad737e58c42019d5502d4b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{sound_8h_a57d534ee1e2bc6ccbd6b927c1a45c388}\label{sound_8h_a57d534ee1e2bc6ccbd6b927c1a45c388}} 
+\index{sound.h@{sound.h}!play\_hover\_audio@{play\_hover\_audio}}
+\index{play\_hover\_audio@{play\_hover\_audio}!sound.h@{sound.h}}
+\doxysubsubsection{\texorpdfstring{play\_hover\_audio()}{play\_hover\_audio()}}
+{\footnotesize\ttfamily void $\ast$ play\+\_\+hover\+\_\+audio (\begin{DoxyParamCaption}\item[{void $\ast$}]{key }\end{DoxyParamCaption})}
+
+
+
+Son de survol de bouton. 
+
+(se lance dans un thread)
+
+
+\begin{DoxyParams}{Paramètres}
+{\em key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void$\ast$ 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sound_8h_a57d534ee1e2bc6ccbd6b927c1a45c388_icgraph}
+\end{center}
+\end{figure}

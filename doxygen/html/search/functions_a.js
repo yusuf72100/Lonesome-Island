@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['play_5fboop_0',['play_boop',['../sound_8c.html#a821870717dad737e58c42019d5502d4b',1,'play_boop(void *key):&#160;sound.c'],['../sound_8h.html#a821870717dad737e58c42019d5502d4b',1,'play_boop(void *key):&#160;sound.c']]],
-  ['play_5fhover_5faudio_1',['play_hover_audio',['../sound_8c.html#a57d534ee1e2bc6ccbd6b927c1a45c388',1,'play_hover_audio(void *key):&#160;sound.c'],['../sound_8h.html#a57d534ee1e2bc6ccbd6b927c1a45c388',1,'play_hover_audio(void *key):&#160;sound.c']]]
+  ['traitdata_0',['traitData',['../client_8c.html#a5db5e79b1f9efa79675000da17beacfb',1,'traitData():&#160;client.c'],['../socket_8c.html#acbb9a47a13a93e7936282bfe14f153eb',1,'traitData(send2Client *argClient, int indice):&#160;socket.c']]],
+  ['trierjoueurs_1',['trierJoueurs',['../main_8c.html#a1ca57dae62e24911260df3fa0a99dbcc',1,'main.c']]]
 ];

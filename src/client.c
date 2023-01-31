@@ -112,6 +112,7 @@ static void traitData()
             buffer[0] = '\0';
         }
     }
+    synchDatas(joueurs,size);
 }
 
 /**
@@ -125,7 +126,6 @@ void *receiveFromServer()
     {
         //printf("Received from server: %s\n",tramClient_receive);
         traitData();
-        synchDatas(joueurs,size);
     }
     stopConnection();
 }
