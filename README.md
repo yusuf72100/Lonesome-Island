@@ -28,5 +28,6 @@ if(ma_condition)
 do
 {
   printf(ma_condition);
+  
 }while(ma_condition);
 ```
