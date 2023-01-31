@@ -16,3 +16,17 @@ void function(params)
   printf("Ma fonction");
 }
 ```
+
+Syntaxe d'évaluation de condition:
+
+```C
+if(ma_condition)
+{
+  printf(ma_condition);
+}
+
+do
+{
+  printf(ma_condition);
+}while(ma_condition);
+```
