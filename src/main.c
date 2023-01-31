@@ -966,7 +966,7 @@ static void init_vars()
     imagebullet = IMG_Load("resources/bullet.png");
     cursor = IMG_Load("resources/cursor/cursor.png");
     cursor_select = IMG_Load("resources/cursor/cursor_select.png");
-    background = IMG_Load("resources/background.png");
+    background = IMG_Load("resources/bg.png");
     play_inert = IMG_Load("resources/play_inert.png");
     play_hover = IMG_Load("resources/play_hover.png");
     connect_inert = IMG_Load("resources/connect_inert.png");
