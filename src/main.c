@@ -1264,11 +1264,11 @@ int main(int argc, char *argv[])
 
     //free window
     destroyAll(window, renderer);
+    stopConnection();
+    stopServer();
     TTF_CloseFont(police);
     TTF_Quit();
     SDL_Quit();
-    stopConnection();
-    stopServer();
     Mix_CloseAudio();
 
     return EXIT_SUCCESS;
