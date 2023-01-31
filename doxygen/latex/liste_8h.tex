@@ -1,0 +1,125 @@
+\hypertarget{liste_8h}{}\doxysection{Référence du fichier C\+:/\+Users/\+Yusuf/\+Lonesome-\/\+Island/src/liste.h}
+\label{liste_8h}\index{C:/Users/Yusuf/Lonesome-\/Island/src/liste.h@{C:/Users/Yusuf/Lonesome-\/Island/src/liste.h}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$SDL.\+h$>$}\newline
+Graphe des dépendances par inclusion de liste.\+h\+:
+% FIG 0
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+% FIG 1
+\doxysubsection*{Structures de données}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_vecteur}{Vecteur}}
+\item 
+struct \mbox{\hyperlink{struct_bullet}{Bullet}}
+\item 
+struct \mbox{\hyperlink{structelement}{element}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structelement}{element}} \mbox{\hyperlink{liste_8h_a1602c68127f6be00daff3d6854ac092c}{Liste}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{liste_8h_a1602c68127f6be00daff3d6854ac092c}{Liste}} $\ast$ \mbox{\hyperlink{liste_8h_ab3363a7c6b440fc0cd7bdb3f6e19302f}{creer\+Liste}} ()
+\item 
+\mbox{\hyperlink{liste_8h_a1602c68127f6be00daff3d6854ac092c}{Liste}} $\ast$ \mbox{\hyperlink{liste_8h_a62fa5935c20cb8ce73de0e75bba01f89}{suivant}} (\mbox{\hyperlink{liste_8h_a1602c68127f6be00daff3d6854ac092c}{Liste}} $\ast$\mbox{\hyperlink{main_8h_a100c5469fba41c6bd841498127f40c26}{l}})
+\item 
+void \mbox{\hyperlink{liste_8h_a64ceff249cefa8e4608552dc3c1047ac}{supprimer\+Liste}} (\mbox{\hyperlink{liste_8h_a1602c68127f6be00daff3d6854ac092c}{Liste}} $\ast$\mbox{\hyperlink{main_8h_a100c5469fba41c6bd841498127f40c26}{l}})
+\item 
+void \mbox{\hyperlink{liste_8h_a3dbd05cdf3f104541f1714ce3a3f7fa2}{ajouter\+Element}} (\mbox{\hyperlink{liste_8h_a1602c68127f6be00daff3d6854ac092c}{Liste}} $\ast$\mbox{\hyperlink{main_8h_a100c5469fba41c6bd841498127f40c26}{l}}, \mbox{\hyperlink{struct_bullet}{Bullet}} $\ast$b)
+\item 
+int \mbox{\hyperlink{liste_8h_ac93f16608221423a2ebc06d81177d162}{lenght}} (\mbox{\hyperlink{liste_8h_a1602c68127f6be00daff3d6854ac092c}{Liste}} $\ast$\mbox{\hyperlink{main_8h_a100c5469fba41c6bd841498127f40c26}{l}})
+\item 
+int \mbox{\hyperlink{liste_8h_a0c4728d19aeee907159749b5efd13f28}{supprimer\+Element}} (\mbox{\hyperlink{liste_8h_a1602c68127f6be00daff3d6854ac092c}{Liste}} $\ast$\mbox{\hyperlink{main_8h_a100c5469fba41c6bd841498127f40c26}{l}}, \mbox{\hyperlink{struct_bullet}{Bullet}} $\ast$b)
+\item 
+int \mbox{\hyperlink{liste_8h_a5d848af68e26a39ab7c3d50360f0ed09}{element\+Compare}} (\mbox{\hyperlink{struct_bullet}{Bullet}} $\ast$b1, \mbox{\hyperlink{struct_bullet}{Bullet}} $\ast$b2)
+\item 
+int \mbox{\hyperlink{liste_8h_af481e57206c2a299756701764ce571c8}{has\+Next}} (\mbox{\hyperlink{liste_8h_a1602c68127f6be00daff3d6854ac092c}{Liste}} $\ast$\mbox{\hyperlink{main_8h_a100c5469fba41c6bd841498127f40c26}{l}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des définitions de type}
+\mbox{\Hypertarget{liste_8h_a1602c68127f6be00daff3d6854ac092c}\label{liste_8h_a1602c68127f6be00daff3d6854ac092c}} 
+\index{liste.h@{liste.h}!Liste@{Liste}}
+\index{Liste@{Liste}!liste.h@{liste.h}}
+\doxysubsubsection{\texorpdfstring{Liste}{Liste}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structelement}{element}} \mbox{\hyperlink{liste_8h_a1602c68127f6be00daff3d6854ac092c}{Liste}}}
+
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{liste_8h_a3dbd05cdf3f104541f1714ce3a3f7fa2}\label{liste_8h_a3dbd05cdf3f104541f1714ce3a3f7fa2}} 
+\index{liste.h@{liste.h}!ajouterElement@{ajouterElement}}
+\index{ajouterElement@{ajouterElement}!liste.h@{liste.h}}
+\doxysubsubsection{\texorpdfstring{ajouterElement()}{ajouterElement()}}
+{\footnotesize\ttfamily void ajouter\+Element (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{liste_8h_a1602c68127f6be00daff3d6854ac092c}{Liste}} $\ast$}]{l,  }\item[{\mbox{\hyperlink{struct_bullet}{Bullet}} $\ast$}]{b }\end{DoxyParamCaption})}
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+% FIG 2
+Voici le graphe des appelants de cette fonction \+:
+% FIG 3
+\mbox{\Hypertarget{liste_8h_ab3363a7c6b440fc0cd7bdb3f6e19302f}\label{liste_8h_ab3363a7c6b440fc0cd7bdb3f6e19302f}} 
+\index{liste.h@{liste.h}!creerListe@{creerListe}}
+\index{creerListe@{creerListe}!liste.h@{liste.h}}
+\doxysubsubsection{\texorpdfstring{creerListe()}{creerListe()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{liste_8h_a1602c68127f6be00daff3d6854ac092c}{Liste}} $\ast$ creer\+Liste (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Voici le graphe des appelants de cette fonction \+:
+% FIG 4
+\mbox{\Hypertarget{liste_8h_a5d848af68e26a39ab7c3d50360f0ed09}\label{liste_8h_a5d848af68e26a39ab7c3d50360f0ed09}} 
+\index{liste.h@{liste.h}!elementCompare@{elementCompare}}
+\index{elementCompare@{elementCompare}!liste.h@{liste.h}}
+\doxysubsubsection{\texorpdfstring{elementCompare()}{elementCompare()}}
+{\footnotesize\ttfamily int element\+Compare (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_bullet}{Bullet}} $\ast$}]{b1,  }\item[{\mbox{\hyperlink{struct_bullet}{Bullet}} $\ast$}]{b2 }\end{DoxyParamCaption})}
+
+Voici le graphe des appelants de cette fonction \+:
+% FIG 5
+\mbox{\Hypertarget{liste_8h_af481e57206c2a299756701764ce571c8}\label{liste_8h_af481e57206c2a299756701764ce571c8}} 
+\index{liste.h@{liste.h}!hasNext@{hasNext}}
+\index{hasNext@{hasNext}!liste.h@{liste.h}}
+\doxysubsubsection{\texorpdfstring{hasNext()}{hasNext()}}
+{\footnotesize\ttfamily int has\+Next (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{liste_8h_a1602c68127f6be00daff3d6854ac092c}{Liste}} $\ast$}]{l }\end{DoxyParamCaption})}
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+% FIG 6
+Voici le graphe des appelants de cette fonction \+:
+% FIG 7
+\mbox{\Hypertarget{liste_8h_ac93f16608221423a2ebc06d81177d162}\label{liste_8h_ac93f16608221423a2ebc06d81177d162}} 
+\index{liste.h@{liste.h}!lenght@{lenght}}
+\index{lenght@{lenght}!liste.h@{liste.h}}
+\doxysubsubsection{\texorpdfstring{lenght()}{lenght()}}
+{\footnotesize\ttfamily int lenght (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{liste_8h_a1602c68127f6be00daff3d6854ac092c}{Liste}} $\ast$}]{l }\end{DoxyParamCaption})}
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+% FIG 8
+Voici le graphe des appelants de cette fonction \+:
+% FIG 9
+\mbox{\Hypertarget{liste_8h_a62fa5935c20cb8ce73de0e75bba01f89}\label{liste_8h_a62fa5935c20cb8ce73de0e75bba01f89}} 
+\index{liste.h@{liste.h}!suivant@{suivant}}
+\index{suivant@{suivant}!liste.h@{liste.h}}
+\doxysubsubsection{\texorpdfstring{suivant()}{suivant()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{liste_8h_a1602c68127f6be00daff3d6854ac092c}{Liste}} $\ast$ suivant (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{liste_8h_a1602c68127f6be00daff3d6854ac092c}{Liste}} $\ast$}]{l }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{liste_8h_a0c4728d19aeee907159749b5efd13f28}\label{liste_8h_a0c4728d19aeee907159749b5efd13f28}} 
+\index{liste.h@{liste.h}!supprimerElement@{supprimerElement}}
+\index{supprimerElement@{supprimerElement}!liste.h@{liste.h}}
+\doxysubsubsection{\texorpdfstring{supprimerElement()}{supprimerElement()}}
+{\footnotesize\ttfamily int supprimer\+Element (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{liste_8h_a1602c68127f6be00daff3d6854ac092c}{Liste}} $\ast$}]{l,  }\item[{\mbox{\hyperlink{struct_bullet}{Bullet}} $\ast$}]{b }\end{DoxyParamCaption})}
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+% FIG 10
+Voici le graphe des appelants de cette fonction \+:
+% FIG 11
+\mbox{\Hypertarget{liste_8h_a64ceff249cefa8e4608552dc3c1047ac}\label{liste_8h_a64ceff249cefa8e4608552dc3c1047ac}} 
+\index{liste.h@{liste.h}!supprimerListe@{supprimerListe}}
+\index{supprimerListe@{supprimerListe}!liste.h@{liste.h}}
+\doxysubsubsection{\texorpdfstring{supprimerListe()}{supprimerListe()}}
+{\footnotesize\ttfamily void supprimer\+Liste (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{liste_8h_a1602c68127f6be00daff3d6854ac092c}{Liste}} $\ast$}]{l }\end{DoxyParamCaption})}
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+% FIG 12
+Voici le graphe des appelants de cette fonction \+:
+% FIG 13

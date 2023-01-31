@@ -1,0 +1,4 @@
+<map id="Send2Server" name="Send2Server">
+<area shape="rect" id="node1" title="Envoi les données du joueur actuel au serveur." alt="" coords="5,5,100,31"/>
+<area shape="rect" id="node2" href="$client_8c.html#a7cea858f95329a092fd2cbc746c59728" title="Récupère les données du joueur et les envois au serveur via le socket." alt="" coords="148,5,232,31"/>
+</map>

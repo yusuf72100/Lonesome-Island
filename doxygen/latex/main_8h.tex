@@ -1,0 +1,577 @@
+\hypertarget{main_8h}{}\doxysection{Référence du fichier C\+:/\+Users/\+Yusuf/\+Lonesome-\/\+Island/src/main.h}
+\label{main_8h}\index{C:/Users/Yusuf/Lonesome-\/Island/src/main.h@{C:/Users/Yusuf/Lonesome-\/Island/src/main.h}}
+
+
+Fichier contenant toutes les variables d\textquotesingle{}affichage.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$pthread.\+h$>$}\newline
+{\ttfamily \#include $<$SDL.\+h$>$}\newline
+{\ttfamily \#include $<$SDL\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include $<$SDL\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include $<$SDL\+\_\+mixer.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}liste.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}client.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sound.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$windows.\+h$>$}\newline
+Graphe des dépendances par inclusion de main.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8h_ac971b9020077a6c96a867c2d6bad7266}\label{main_8h_ac971b9020077a6c96a867c2d6bad7266}} 
+\#define {\bfseries BREATH\+\_\+\+START}~1
+\item 
+\mbox{\Hypertarget{main_8h_ab212497f44ccc957be0d972d21c6527b}\label{main_8h_ab212497f44ccc957be0d972d21c6527b}} 
+\#define {\bfseries BREATH\+\_\+\+END}~2
+\item 
+\mbox{\Hypertarget{main_8h_ad229ff5b79ad9f91813e17ec67d691c1}\label{main_8h_ad229ff5b79ad9f91813e17ec67d691c1}} 
+\#define {\bfseries RUNNING\+\_\+\+LEFT\+\_\+\+START}~3
+\item 
+\mbox{\Hypertarget{main_8h_a4d5d0c0097293d6170687f7a7746c54d}\label{main_8h_a4d5d0c0097293d6170687f7a7746c54d}} 
+\#define {\bfseries RUNNING\+\_\+\+LEFT\+\_\+\+END}~4
+\item 
+\mbox{\Hypertarget{main_8h_a0e9bb023e00b67479fd53d634d7275cd}\label{main_8h_a0e9bb023e00b67479fd53d634d7275cd}} 
+\#define {\bfseries RUNNING\+\_\+\+RIGHT\+\_\+\+START}~5
+\item 
+\mbox{\Hypertarget{main_8h_afbb370be5351f2ebe7029ebe25fb14bb}\label{main_8h_afbb370be5351f2ebe7029ebe25fb14bb}} 
+\#define {\bfseries RUNNING\+\_\+\+RIGHT\+\_\+\+END}~6
+\item 
+\mbox{\Hypertarget{main_8h_a0d47242e5e7d0c9b9ee8391ce9880cf9}\label{main_8h_a0d47242e5e7d0c9b9ee8391ce9880cf9}} 
+\#define {\bfseries RUNNING\+\_\+\+UP\+\_\+\+START}~7
+\item 
+\mbox{\Hypertarget{main_8h_a37b6a837f5fcfba091202dd84ee0d2e2}\label{main_8h_a37b6a837f5fcfba091202dd84ee0d2e2}} 
+\#define {\bfseries RUNNING\+\_\+\+UP\+\_\+\+END}~8
+\item 
+\mbox{\Hypertarget{main_8h_ade96a7466e7bdef9b853228e25cfa9b3}\label{main_8h_ade96a7466e7bdef9b853228e25cfa9b3}} 
+\#define {\bfseries RUNNING\+\_\+\+DOWN\+\_\+\+START}~9
+\item 
+\mbox{\Hypertarget{main_8h_a1740df2594a07807e03e7518bf490cd4}\label{main_8h_a1740df2594a07807e03e7518bf490cd4}} 
+\#define {\bfseries RUNNING\+\_\+\+DOWN\+\_\+\+END}~10
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8h_acd3f39401c59bbd01c9663c5348c63c1}\label{main_8h_acd3f39401c59bbd01c9663c5348c63c1}} 
+static void {\bfseries SDL\+\_\+\+Exit\+With\+Error} (const char $\ast$message)
+\item 
+\mbox{\Hypertarget{main_8h_a1ca57dae62e24911260df3fa0a99dbcc}\label{main_8h_a1ca57dae62e24911260df3fa0a99dbcc}} 
+static void {\bfseries trier\+Joueurs} ()
+\item 
+\mbox{\Hypertarget{main_8h_a65942d285a85ebdda2445b5da031c2e2}\label{main_8h_a65942d285a85ebdda2445b5da031c2e2}} 
+static void {\bfseries check\+Events} ()
+\item 
+\mbox{\Hypertarget{main_8h_a5d8c057a673692eabf25fa7d6c670c08}\label{main_8h_a5d8c057a673692eabf25fa7d6c670c08}} 
+static void {\bfseries do\+Events} ()
+\item 
+\mbox{\Hypertarget{main_8h_a270d20bdcadebb9a08a01a55c37858a9}\label{main_8h_a270d20bdcadebb9a08a01a55c37858a9}} 
+static void {\bfseries init\+\_\+vars} ()
+\item 
+void $\ast$ \mbox{\hyperlink{main_8h_a506eeac61f56b2e172d086173bac5995}{Send2\+Server}} ()
+\begin{DoxyCompactList}\small\item\em Envoi les données du joueur actuel au serveur. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_vecteur}{Vecteur}} \mbox{\hyperlink{main_8h_a5eaa5bf14462c0770a8514451b64df3c}{Init\+Vecteur}} (int angle, int vitesse)
+\begin{DoxyCompactList}\small\item\em Calcul un vecteur selon un angle de rotation et une vitesse. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8h_a4dd509784585dea800b3115747c81c42}\label{main_8h_a4dd509784585dea800b3115747c81c42}} 
+static void {\bfseries draw\+Mouse} ()
+\item 
+\mbox{\Hypertarget{main_8h_afd0ed75a870240cedc972c1fe3cb89c1}\label{main_8h_afd0ed75a870240cedc972c1fe3cb89c1}} 
+static void {\bfseries draw\+Player} (SDL\+\_\+\+Texture $\ast$texture\+\_\+joueur, SDL\+\_\+\+Rect player\+Rect)
+\item 
+\mbox{\Hypertarget{main_8h_a6bb510e9f9ce8cb081f3f9ce0beffe31}\label{main_8h_a6bb510e9f9ce8cb081f3f9ce0beffe31}} 
+static void {\bfseries destroy\+All} (SDL\+\_\+\+Window $\ast$window, SDL\+\_\+\+Renderer $\ast$renderer)
+\item 
+\mbox{\Hypertarget{main_8h_a74d9cf129eac9371caa5a93b97b4f95c}\label{main_8h_a74d9cf129eac9371caa5a93b97b4f95c}} 
+static void $\ast$ {\bfseries rechargement} ()
+\item 
+void $\ast$ \mbox{\hyperlink{main_8h_a734d34007877ed5938e58dccb669ba96}{synch\+Datas}} (\mbox{\hyperlink{structplayer}{player}} $\ast$Joueurs, int taille)
+\begin{DoxyCompactList}\small\item\em Récupère les données depuis le socket client. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8h_a718d61fe7c5a7e6c83c14f312105bfa8}\label{main_8h_a718d61fe7c5a7e6c83c14f312105bfa8}} 
+static void {\bfseries Update\+Bullet} (\mbox{\hyperlink{struct_bullet}{Bullet}} $\ast$b)
+\item 
+\mbox{\Hypertarget{main_8h_a84acced0d2e89231ccd8fb71a62ce1d6}\label{main_8h_a84acced0d2e89231ccd8fb71a62ce1d6}} 
+static void {\bfseries Update\+Bullet\+All} ()
+\item 
+char $\ast$ \mbox{\hyperlink{main_8h_ac1c725f21345e0148e7ca2fdc7fe77f9}{new\+Log\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Initialise un fichier logs. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{main_8h_ab5a2d27713f1814d93ff81281e653e22}{event\+Time}} ()
+\begin{DoxyCompactList}\small\item\em Récupère l\textquotesingle{}heure et la date actuelle. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8h_a4fd659e0d17ae8933d870380e9bc7d2e}\label{main_8h_a4fd659e0d17ae8933d870380e9bc7d2e}} 
+static void {\bfseries dessiner\+Rect} (SDL\+\_\+\+Rect rectangle, SDL\+\_\+\+Renderer $\ast$renderer)
+\item 
+\mbox{\Hypertarget{main_8h_a7ac041d77c29de2a5bd9a576076984e8}\label{main_8h_a7ac041d77c29de2a5bd9a576076984e8}} 
+static void {\bfseries dessiner\+Button} (SDL\+\_\+\+Texture $\ast$texture, SDL\+\_\+\+Rect rectangle, SDL\+\_\+\+Surface $\ast$surface)
+\item 
+\mbox{\Hypertarget{main_8h_a1e20727afdccf232581f83c7e4a4f470}\label{main_8h_a1e20727afdccf232581f83c7e4a4f470}} 
+static void {\bfseries dessiner\+Balle} (SDL\+\_\+\+Texture $\ast$texture, SDL\+\_\+\+Renderer $\ast$renderer, SDL\+\_\+\+Rect rectangle, SDL\+\_\+\+Window $\ast$window, \mbox{\hyperlink{struct_bullet}{Bullet}} $\ast$b, int rotation, int vitesse)
+\item 
+\mbox{\Hypertarget{main_8h_a4273912d67dc07dd74b4b4470ca02480}\label{main_8h_a4273912d67dc07dd74b4b4470ca02480}} 
+static void {\bfseries init\+Bullet} (\mbox{\hyperlink{struct_bullet}{Bullet}} $\ast$b, int x, int y, int rotation)
+\item 
+\mbox{\Hypertarget{main_8h_ae2ef131da56513e4d2954bf3258a3b6c}\label{main_8h_ae2ef131da56513e4d2954bf3258a3b6c}} 
+static void {\bfseries button\+Hover} (SDL\+\_\+\+Surface $\ast$button\+\_\+surface, SDL\+\_\+\+Texture $\ast$button\+\_\+texture, SDL\+\_\+\+Rect $\ast$button\+\_\+rect, SDL\+\_\+bool $\ast$hover\+\_\+button, char $\ast$menu\+Target)
+\item 
+\mbox{\Hypertarget{main_8h_ac96e8912bb03df1f73f5ccb6db495085}\label{main_8h_ac96e8912bb03df1f73f5ccb6db495085}} 
+static void {\bfseries init\+\_\+texture} (SDL\+\_\+\+Surface $\ast$$\ast$surface, SDL\+\_\+\+Texture $\ast$$\ast$texture)
+\item 
+\mbox{\Hypertarget{main_8h_a124c70bcd0486f8db5d0292febf8c889}\label{main_8h_a124c70bcd0486f8db5d0292febf8c889}} 
+static void {\bfseries switch\+Animation} (\mbox{\hyperlink{structplayer}{player}} Joueur)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8h_a100c5469fba41c6bd841498127f40c26}\label{main_8h_a100c5469fba41c6bd841498127f40c26}} 
+static \mbox{\hyperlink{structelement}{Liste}} $\ast$ {\bfseries l}
+\item 
+\mbox{\Hypertarget{main_8h_aff3044ad13b62f7063f2c121412e0258}\label{main_8h_aff3044ad13b62f7063f2c121412e0258}} 
+int {\bfseries connected\+Error}
+\item 
+\mbox{\Hypertarget{main_8h_a738f3c7f9e12119c9002616e5c1308c6}\label{main_8h_a738f3c7f9e12119c9002616e5c1308c6}} 
+static short {\bfseries loading}
+\item 
+\mbox{\Hypertarget{main_8h_a7fcc98d7a2f378204358946c3e1bac04}\label{main_8h_a7fcc98d7a2f378204358946c3e1bac04}} 
+static SDL\+\_\+bool {\bfseries hover\+\_\+playbutton} = SDL\+\_\+\+FALSE
+\item 
+\mbox{\Hypertarget{main_8h_ab833ce26952f7ff1e56aada97c6d733a}\label{main_8h_ab833ce26952f7ff1e56aada97c6d733a}} 
+static SDL\+\_\+bool {\bfseries hover\+\_\+connectbutton} = SDL\+\_\+\+FALSE
+\item 
+\mbox{\Hypertarget{main_8h_a0b654f1e24d29cea93a317e9c18a09ef}\label{main_8h_a0b654f1e24d29cea93a317e9c18a09ef}} 
+static SDL\+\_\+bool {\bfseries hover\+\_\+hostbutton} = SDL\+\_\+\+FALSE
+\item 
+\mbox{\Hypertarget{main_8h_a0221921ebfd919f98ce1a927443cf147}\label{main_8h_a0221921ebfd919f98ce1a927443cf147}} 
+static SDL\+\_\+bool {\bfseries hover\+\_\+settingsbutton} = SDL\+\_\+\+FALSE
+\item 
+\mbox{\Hypertarget{main_8h_abed0228c3c55764a26c422fde896f0a5}\label{main_8h_abed0228c3c55764a26c422fde896f0a5}} 
+static short {\bfseries debug} = FALSE
+\item 
+\mbox{\Hypertarget{main_8h_a966bfab8c0052224b945a713ad2a0d5c}\label{main_8h_a966bfab8c0052224b945a713ad2a0d5c}} 
+static int {\bfseries settings\+\_\+button\+\_\+animation\+\_\+state} = 0
+\item 
+\mbox{\Hypertarget{main_8h_ad4e0bbc0cc0ffb91120206fb4de60261}\label{main_8h_ad4e0bbc0cc0ffb91120206fb4de60261}} 
+static int {\bfseries tick} =0
+\item 
+\mbox{\Hypertarget{main_8h_a439227feff9d7f55384e8780cfc2eb82}\label{main_8h_a439227feff9d7f55384e8780cfc2eb82}} 
+static int {\bfseries size}
+\item 
+\mbox{\Hypertarget{main_8h_a2b174cfb62c7f343a1ed1cda3a372e38}\label{main_8h_a2b174cfb62c7f343a1ed1cda3a372e38}} 
+static int {\bfseries rotation} = 0
+\item 
+\mbox{\Hypertarget{main_8h_a7b934759372aeebd296c9a28e568d460}\label{main_8h_a7b934759372aeebd296c9a28e568d460}} 
+static SDL\+\_\+\+Point {\bfseries mouse\+\_\+position}
+\item 
+\mbox{\Hypertarget{main_8h_abfba48b60e305295f56643e4938f4b51}\label{main_8h_abfba48b60e305295f56643e4938f4b51}} 
+static int {\bfseries x\+Window} = 0
+\item 
+\mbox{\Hypertarget{main_8h_a01828dc3e420bb7a35b1d07ccd8b8ec5}\label{main_8h_a01828dc3e420bb7a35b1d07ccd8b8ec5}} 
+static int {\bfseries y\+Window} = 0
+\item 
+\mbox{\Hypertarget{main_8h_a66d573862b9f6a178e1b9d35a87dbd63}\label{main_8h_a66d573862b9f6a178e1b9d35a87dbd63}} 
+static int {\bfseries WindowW} = 1920
+\item 
+\mbox{\Hypertarget{main_8h_ac583e1a33ff68aacec20bac73d6a72fb}\label{main_8h_ac583e1a33ff68aacec20bac73d6a72fb}} 
+static int {\bfseries WindowH} = 1080
+\item 
+\mbox{\Hypertarget{main_8h_ab51cd24d34f6509eafb5e059f4c7d10e}\label{main_8h_ab51cd24d34f6509eafb5e059f4c7d10e}} 
+static char $\ast$ {\bfseries s}
+\item 
+\mbox{\Hypertarget{main_8h_aeee1c32cc23ec34d1f6fb19c091351e9}\label{main_8h_aeee1c32cc23ec34d1f6fb19c091351e9}} 
+static char {\bfseries menu} \mbox{[}10\mbox{]} = \char`\"{}Main\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8h_a909a79813c4acf0f11a1fc7c01204d67}\label{main_8h_a909a79813c4acf0f11a1fc7c01204d67}} 
+static \mbox{\hyperlink{struct_vecteur}{Vecteur}} {\bfseries vecteur}
+\item 
+\mbox{\Hypertarget{main_8h_aecc50182d564a1688000de7e0dae0c1a}\label{main_8h_aecc50182d564a1688000de7e0dae0c1a}} 
+static \mbox{\hyperlink{struct_bullet}{Bullet}} $\ast$ {\bfseries bullet} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_afca61ae64d5c0754713e0d62092cd8df}\label{main_8h_afca61ae64d5c0754713e0d62092cd8df}} 
+static SDL\+\_\+bool {\bfseries program\+\_\+launched} = SDL\+\_\+\+TRUE
+\item 
+\mbox{\Hypertarget{main_8h_a3db56054840f0a68209d52cd311cd4ec}\label{main_8h_a3db56054840f0a68209d52cd311cd4ec}} 
+static SDL\+\_\+bool {\bfseries tab\+Event} \mbox{[}10\mbox{]} = \{SDL\+\_\+\+FALSE\}
+\item 
+\mbox{\Hypertarget{main_8h_a6b57f01d3c576db5368dd0efc2f435a4}\label{main_8h_a6b57f01d3c576db5368dd0efc2f435a4}} 
+static SDL\+\_\+\+Event {\bfseries event}
+\item 
+\mbox{\Hypertarget{main_8h_a2c6e6f759488638d05e613ffb54f6af2}\label{main_8h_a2c6e6f759488638d05e613ffb54f6af2}} 
+static SDL\+\_\+\+Rect {\bfseries mouse\+Rect}
+\item 
+\mbox{\Hypertarget{main_8h_ab0a83805f97adb33cdaef83370e6014e}\label{main_8h_ab0a83805f97adb33cdaef83370e6014e}} 
+static SDL\+\_\+\+Rect {\bfseries play\+\_\+button\+\_\+rect}
+\item 
+\mbox{\Hypertarget{main_8h_a27ad283076ec925d1ef0387f26806815}\label{main_8h_a27ad283076ec925d1ef0387f26806815}} 
+static SDL\+\_\+\+Rect {\bfseries connect\+\_\+button\+\_\+rect}
+\item 
+\mbox{\Hypertarget{main_8h_ab6e5d5a2b8089a00f8915ed4cf4406ca}\label{main_8h_ab6e5d5a2b8089a00f8915ed4cf4406ca}} 
+static SDL\+\_\+\+Rect {\bfseries host\+\_\+button\+\_\+rect}
+\item 
+\mbox{\Hypertarget{main_8h_a47c83363e92e1fb2a513a930d3ed803b}\label{main_8h_a47c83363e92e1fb2a513a930d3ed803b}} 
+static SDL\+\_\+\+Rect {\bfseries settings\+\_\+button\+\_\+rect}
+\item 
+\mbox{\Hypertarget{main_8h_a4e152e6f15e7af4377e66feb4185cf29}\label{main_8h_a4e152e6f15e7af4377e66feb4185cf29}} 
+static SDL\+\_\+\+Display\+Mode {\bfseries DM}
+\item 
+\mbox{\Hypertarget{main_8h_a513b0e00a33b41c468c7b3acd0852ffa}\label{main_8h_a513b0e00a33b41c468c7b3acd0852ffa}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries icon\+\_\+surface} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_a5b66158197948c551bbf808da9f95726}\label{main_8h_a5b66158197948c551bbf808da9f95726}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries texte} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_ab90379313640b1524d0f0a734d7bf2a3}\label{main_8h_ab90379313640b1524d0f0a734d7bf2a3}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texte\+\_\+texture} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_a38016976ba60c75e4c030060f8a54983}\label{main_8h_a38016976ba60c75e4c030060f8a54983}} 
+static SDL\+\_\+\+Color {\bfseries black\+Color} = \{0, 0, 0\}
+\item 
+\mbox{\Hypertarget{main_8h_a49a11b0728728090fa1189391c9fe0c8}\label{main_8h_a49a11b0728728090fa1189391c9fe0c8}} 
+static TTF\+\_\+\+Font $\ast$ {\bfseries police} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_a760fa082fec3251fd63c859a8246a1ff}\label{main_8h_a760fa082fec3251fd63c859a8246a1ff}} 
+static SDL\+\_\+\+Rect {\bfseries title\+\_\+rect}
+\item 
+\mbox{\Hypertarget{main_8h_a43b8f996ad61ef3662a6ac7838447402}\label{main_8h_a43b8f996ad61ef3662a6ac7838447402}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries imagebullet} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_ac3b28aea48ecdf99831830420890aecf}\label{main_8h_ac3b28aea48ecdf99831830420890aecf}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texturebullet} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_a1a7838de69716982252a37a040f3b92f}\label{main_8h_a1a7838de69716982252a37a040f3b92f}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries title\+\_\+surface} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_a4b5693bed729908049dc62b7c48fb8fd}\label{main_8h_a4b5693bed729908049dc62b7c48fb8fd}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+joueur\+\_\+h1} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_a50208b763ed12627e311e353fb8a9849}\label{main_8h_a50208b763ed12627e311e353fb8a9849}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+joueur\+\_\+h2} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_a7bcfabaf798df6069d9f928797a0d75c}\label{main_8h_a7bcfabaf798df6069d9f928797a0d75c}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+joueur\+\_\+left\+\_\+1} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_a0fc2c35874551442aadd77a33ab49a2b}\label{main_8h_a0fc2c35874551442aadd77a33ab49a2b}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+joueur\+\_\+left\+\_\+2} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_a6aab6f66a42c8a20c583faf5963887c1}\label{main_8h_a6aab6f66a42c8a20c583faf5963887c1}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+joueur\+\_\+right\+\_\+1} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_a1c251ff0430f6e361f74597da92881a5}\label{main_8h_a1c251ff0430f6e361f74597da92881a5}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+joueur\+\_\+right\+\_\+2} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_ae5fb9c8d4fdc70e3cc05131fcf58984f}\label{main_8h_ae5fb9c8d4fdc70e3cc05131fcf58984f}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+joueur\+\_\+up\+\_\+1} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_aa11640a19e9e50084cb5507ff58c0e22}\label{main_8h_aa11640a19e9e50084cb5507ff58c0e22}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+joueur\+\_\+up\+\_\+2} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_a7faaa5dc58b1ddee279cb55ed9ba67dc}\label{main_8h_a7faaa5dc58b1ddee279cb55ed9ba67dc}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+joueur\+\_\+down\+\_\+1} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_a6c7b30f7a4e8cb2c08200c50df19c88e}\label{main_8h_a6c7b30f7a4e8cb2c08200c50df19c88e}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+joueur\+\_\+down\+\_\+2} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_ad7e5051c1c508b10a3f4cdeca6bc74ae}\label{main_8h_ad7e5051c1c508b10a3f4cdeca6bc74ae}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries title\+\_\+texture} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_a2c7c38b6706e68c380a82aa20f0a9fa6}\label{main_8h_a2c7c38b6706e68c380a82aa20f0a9fa6}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+joueur\+\_\+h1} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_a13775463b3d6cd547020c87bf2f33ca8}\label{main_8h_a13775463b3d6cd547020c87bf2f33ca8}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+joueur\+\_\+h2} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_a26b9a6f913bbcda07187a4ff69d7c05c}\label{main_8h_a26b9a6f913bbcda07187a4ff69d7c05c}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+joueur\+\_\+left\+\_\+1} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_aac7dbb28eb97ceb2025645aac4853447}\label{main_8h_aac7dbb28eb97ceb2025645aac4853447}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+joueur\+\_\+left\+\_\+2} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_a7f716a41d886b8d961a9866e8d565291}\label{main_8h_a7f716a41d886b8d961a9866e8d565291}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+joueur\+\_\+right\+\_\+1} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_aa9410915b83f62bf7f6b921d7ff6b670}\label{main_8h_aa9410915b83f62bf7f6b921d7ff6b670}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+joueur\+\_\+right\+\_\+2} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_aadd0c515f861d2562d21b0268c52f032}\label{main_8h_aadd0c515f861d2562d21b0268c52f032}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+joueur\+\_\+up\+\_\+1} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_abf89166148a42bac465d0842d956a59c}\label{main_8h_abf89166148a42bac465d0842d956a59c}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+joueur\+\_\+up\+\_\+2} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_ac54edfde5e8c3ebc18f57f0f2be09f66}\label{main_8h_ac54edfde5e8c3ebc18f57f0f2be09f66}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+joueur\+\_\+down\+\_\+1} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_af359d76528f4d8679b21058907141662}\label{main_8h_af359d76528f4d8679b21058907141662}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+joueur\+\_\+down\+\_\+2} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_ac6af59c429e1c59de9f7c434890cad0b}\label{main_8h_ac6af59c429e1c59de9f7c434890cad0b}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries play\+\_\+inert} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_a0ed491ecf2ea7d0aa391911486947514}\label{main_8h_a0ed491ecf2ea7d0aa391911486947514}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries play\+\_\+hover} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_ae3eac20d8070ad3dac35be53e7b812de}\label{main_8h_ae3eac20d8070ad3dac35be53e7b812de}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries connect\+\_\+inert} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_a0f6c62ee69334f38ab091cbac17150e6}\label{main_8h_a0f6c62ee69334f38ab091cbac17150e6}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries connect\+\_\+hover} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_a44a8146a34246f91daffafbd4c499560}\label{main_8h_a44a8146a34246f91daffafbd4c499560}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries host\+\_\+inert} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_a74add41d0f2821afa696b6c6d5ed72f9}\label{main_8h_a74add41d0f2821afa696b6c6d5ed72f9}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries host\+\_\+hover} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_a79f6dc4c8cd32ee2f7493b6b2ede6f14}\label{main_8h_a79f6dc4c8cd32ee2f7493b6b2ede6f14}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries settings\+\_\+inert} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_a0a46459f2c14ad46577e88b5a1d9850d}\label{main_8h_a0a46459f2c14ad46577e88b5a1d9850d}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries settings\+\_\+hover1} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_a5c00a8d0d08bbdd918c714278885b68f}\label{main_8h_a5c00a8d0d08bbdd918c714278885b68f}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries settings\+\_\+hover2} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_a31607c73c1f8fe67c2e739d5c98a5a09}\label{main_8h_a31607c73c1f8fe67c2e739d5c98a5a09}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries settings\+\_\+hover3} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_a811fe143d6302f3c9d9fc48a2eb6f898}\label{main_8h_a811fe143d6302f3c9d9fc48a2eb6f898}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries settings\+\_\+hover4} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_abcccd8e9b4b6ead8f7928bdb6c9583b9}\label{main_8h_abcccd8e9b4b6ead8f7928bdb6c9583b9}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries settings\+\_\+hover5} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_a96aa0f90b88f56f6960f0a7d6371d0aa}\label{main_8h_a96aa0f90b88f56f6960f0a7d6371d0aa}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries settings\+\_\+hover6} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_aaf6f7f1c89cf4f9d653a1bef253bbeaf}\label{main_8h_aaf6f7f1c89cf4f9d653a1bef253bbeaf}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+play\+\_\+inert} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_af623f5b52ceab1408373d7a64dcdb03f}\label{main_8h_af623f5b52ceab1408373d7a64dcdb03f}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+play\+\_\+hover} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_ac5236480b989bd321aa68756919ebae1}\label{main_8h_ac5236480b989bd321aa68756919ebae1}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+connect\+\_\+inert} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_aabef06c795f78ecdb54c6bee2096586c}\label{main_8h_aabef06c795f78ecdb54c6bee2096586c}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+connect\+\_\+hover} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_af308bd91cb997287edee02b8decaf8f7}\label{main_8h_af308bd91cb997287edee02b8decaf8f7}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+host\+\_\+inert} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_aa62961eae35b9603d86dcd55c2262c64}\label{main_8h_aa62961eae35b9603d86dcd55c2262c64}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+host\+\_\+hover} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_af35106b92a56d57f25448cf884d3faa3}\label{main_8h_af35106b92a56d57f25448cf884d3faa3}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+settings\+\_\+inert} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_aa0fd0205179b2e5546338b0f74a3cc6d}\label{main_8h_aa0fd0205179b2e5546338b0f74a3cc6d}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+settings\+\_\+hover1} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_a1282f52cf6dcdd5714cc9cc86e3daf5d}\label{main_8h_a1282f52cf6dcdd5714cc9cc86e3daf5d}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+settings\+\_\+hover2} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_ac45ae5c7fe73079f21375d797a2c4c7a}\label{main_8h_ac45ae5c7fe73079f21375d797a2c4c7a}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+settings\+\_\+hover3} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_ab32d0d319ef290b582651638aad6a900}\label{main_8h_ab32d0d319ef290b582651638aad6a900}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+settings\+\_\+hover4} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_aa782dded9471014971156a0aa48af174}\label{main_8h_aa782dded9471014971156a0aa48af174}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+settings\+\_\+hover5} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_ad9babf97e85ea127c1e9a725e3bb3c2a}\label{main_8h_ad9babf97e85ea127c1e9a725e3bb3c2a}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+settings\+\_\+hover6} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_aaa8e409e04dcf575ef63fd5fb3db06f9}\label{main_8h_aaa8e409e04dcf575ef63fd5fb3db06f9}} 
+static SDL\+\_\+\+Window $\ast$ {\bfseries window} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_a966da7a60c4ea3ba301e26ccc5efe452}\label{main_8h_a966da7a60c4ea3ba301e26ccc5efe452}} 
+static SDL\+\_\+\+Renderer $\ast$ {\bfseries renderer} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_a859b8efbf9abe8e82757ee5c75a0c97c}\label{main_8h_a859b8efbf9abe8e82757ee5c75a0c97c}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_ad3129c6baa0695652f0cf991c5a02fa0}\label{main_8h_ad3129c6baa0695652f0cf991c5a02fa0}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries cursor} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_aad3446b11cd5ce5087d7408eb39baa70}\label{main_8h_aad3446b11cd5ce5087d7408eb39baa70}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries cursor\+\_\+select} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_ac13e94db1231411511175a86fd90773a}\label{main_8h_ac13e94db1231411511175a86fd90773a}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries cursor\+\_\+texture} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_aec4c2f92bd53d64daea8376ccaee482d}\label{main_8h_aec4c2f92bd53d64daea8376ccaee482d}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries cursor\+\_\+select\+\_\+texture} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_a68389876c2746622931d187c587f9c4d}\label{main_8h_a68389876c2746622931d187c587f9c4d}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries background} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_a010bf5f9e86c34ba740704d8c755dcfa}\label{main_8h_a010bf5f9e86c34ba740704d8c755dcfa}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries background\+\_\+texture} = NULL
+\item 
+\mbox{\Hypertarget{main_8h_a24e9b1ee401b0d44b75170e22c43fa17}\label{main_8h_a24e9b1ee401b0d44b75170e22c43fa17}} 
+static \mbox{\hyperlink{structplayer}{player}} {\bfseries joueur}
+\item 
+\mbox{\Hypertarget{main_8h_a1d48ae43189b9843952e504854c47f06}\label{main_8h_a1d48ae43189b9843952e504854c47f06}} 
+static \mbox{\hyperlink{structplayer}{player}} $\ast$ {\bfseries joueurs}
+\item 
+\mbox{\Hypertarget{main_8h_a7292f6279b611a29ec39253ac349228b}\label{main_8h_a7292f6279b611a29ec39253ac349228b}} 
+static pthread\+\_\+t {\bfseries reloading}
+\item 
+\mbox{\Hypertarget{main_8h_a5c83de9b036b0b00d4563b644d4da05a}\label{main_8h_a5c83de9b036b0b00d4563b644d4da05a}} 
+static pthread\+\_\+t {\bfseries server}
+\item 
+\mbox{\Hypertarget{main_8h_a68326d089f135b87a2ff5deff255c327}\label{main_8h_a68326d089f135b87a2ff5deff255c327}} 
+static pthread\+\_\+t {\bfseries sendtoserver}
+\item 
+\mbox{\Hypertarget{main_8h_aed24b04fda7f5acc71aa109ed985aa45}\label{main_8h_aed24b04fda7f5acc71aa109ed985aa45}} 
+static pthread\+\_\+t {\bfseries receivefromserver}
+\item 
+\mbox{\Hypertarget{main_8h_a72ef0bd4977cf15f25a002c42d18ebd2}\label{main_8h_a72ef0bd4977cf15f25a002c42d18ebd2}} 
+static pthread\+\_\+t {\bfseries animations\+\_\+thread}
+\item 
+\mbox{\Hypertarget{main_8h_ae73449c6a045133991e1814884277bd8}\label{main_8h_ae73449c6a045133991e1814884277bd8}} 
+static int {\bfseries animations\+\_\+thread\+\_\+running} = FALSE
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier contenant toutes les variables d\textquotesingle{}affichage. 
+
+\begin{DoxyAuthor}{Auteur}
+Yusuf Ulas 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2023-\/01-\/31 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{main_8h_ab5a2d27713f1814d93ff81281e653e22}\label{main_8h_ab5a2d27713f1814d93ff81281e653e22}} 
+\index{main.h@{main.h}!eventTime@{eventTime}}
+\index{eventTime@{eventTime}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{eventTime()}{eventTime()}}
+{\footnotesize\ttfamily char $\ast$ event\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Récupère l\textquotesingle{}heure et la date actuelle. 
+
+\begin{DoxyReturn}{Renvoie}
+char$\ast$ 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=140pt]{main_8h_ab5a2d27713f1814d93ff81281e653e22_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{main_8h_ab5a2d27713f1814d93ff81281e653e22_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main_8h_a5eaa5bf14462c0770a8514451b64df3c}\label{main_8h_a5eaa5bf14462c0770a8514451b64df3c}} 
+\index{main.h@{main.h}!InitVecteur@{InitVecteur}}
+\index{InitVecteur@{InitVecteur}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{InitVecteur()}{InitVecteur()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vecteur}{Vecteur}} Init\+Vecteur (\begin{DoxyParamCaption}\item[{int}]{angle,  }\item[{int}]{vitesse }\end{DoxyParamCaption})}
+
+
+
+Calcul un vecteur selon un angle de rotation et une vitesse. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em angle} & \\
+\hline
+{\em vitesse} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\mbox{\hyperlink{struct_vecteur}{Vecteur}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8h_ac1c725f21345e0148e7ca2fdc7fe77f9}\label{main_8h_ac1c725f21345e0148e7ca2fdc7fe77f9}} 
+\index{main.h@{main.h}!newLogName@{newLogName}}
+\index{newLogName@{newLogName}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{newLogName()}{newLogName()}}
+{\footnotesize\ttfamily char $\ast$ new\+Log\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialise un fichier logs. 
+
+\begin{DoxyReturn}{Renvoie}
+char$\ast$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8h_a506eeac61f56b2e172d086173bac5995}\label{main_8h_a506eeac61f56b2e172d086173bac5995}} 
+\index{main.h@{main.h}!Send2Server@{Send2Server}}
+\index{Send2Server@{Send2Server}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{Send2Server()}{Send2Server()}}
+{\footnotesize\ttfamily void $\ast$ Send2\+Server (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Envoi les données du joueur actuel au serveur. 
+
+\begin{DoxyReturn}{Renvoie}
+void$\ast$ 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{main_8h_a506eeac61f56b2e172d086173bac5995_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8h_a506eeac61f56b2e172d086173bac5995_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main_8h_a734d34007877ed5938e58dccb669ba96}\label{main_8h_a734d34007877ed5938e58dccb669ba96}} 
+\index{main.h@{main.h}!synchDatas@{synchDatas}}
+\index{synchDatas@{synchDatas}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{synchDatas()}{synchDatas()}}
+{\footnotesize\ttfamily void $\ast$ synch\+Datas (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer}{player}} $\ast$}]{Joueurs,  }\item[{int}]{taille }\end{DoxyParamCaption})}
+
+
+
+Récupère les données depuis le socket client. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em Joueurs} & \\
+\hline
+{\em taille} & \\
+\hline
+\end{DoxyParams}

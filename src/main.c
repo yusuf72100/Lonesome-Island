@@ -1,19 +1,45 @@
+/**
+ * @file main.c
+ * @author Yusuf Ulas
+ * @brief Fichier principal du programme qui s'occupera de la partie graphique
+ * @version 0.1
+ * @date 2023-01-31
+ * @copyright Copyright (c) 2023
+ */
+
 #include "main.h"
 
 void SDL_ExitWithError(const char *message);
 
-void synchDatas(player * Joueurs, int taille)
+/**
+ * @brief Récupère les données depuis le socket client.
+ * 
+ * @param Joueurs 
+ * @param taille 
+ */
+void *synchDatas(player * Joueurs, int taille)
 {
     size = taille;
     joueurs = Joueurs;
 }
 
-//on envoi nos données
-static void *Send2Server()
+/**
+ * @brief Envoi les données du joueur actuel au serveur.
+ * 
+ * @return void* 
+ */
+void *Send2Server()
 {
     sendDatas(joueur);
 }
 
+/**
+ * @brief Calcul un vecteur selon un angle de rotation et une vitesse.
+ * 
+ * @param angle 
+ * @param vitesse 
+ * @return Vecteur 
+ */
 Vecteur InitVecteur(int angle, int vitesse)
 {
     Vecteur Vecteur;
@@ -33,12 +59,23 @@ Vecteur InitVecteur(int angle, int vitesse)
     return Vecteur;
 }
 
+/**
+ * @brief Détruit la fenêtre et le rendu. (plus souvent utilisée lors d'une erreur de chargement d'un asset)
+ * 
+ * @param window 
+ * @param renderer 
+ */
 static void destroyAll(SDL_Window *window, SDL_Renderer *renderer)
 {
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
 }
 
+/**
+ * @brief Met un cooldown pour un rechargement. (s'execute uniquement dans un thread)
+ * 
+ * @return void* 
+ */
 static void *rechargement()
 {
     Sleep(5000);
@@ -62,6 +99,11 @@ static void UpdateBulletAll()
     }
 }
 
+/**
+ * @brief Initialise un fichier logs.
+ * 
+ * @return char* 
+ */
 char* newLogName()
 {
     struct tm * timeinfo;
@@ -79,6 +121,11 @@ char* newLogName()
     return logName;
 }
 
+/**
+ * @brief Récupère l'heure et la date actuelle.
+ * 
+ * @return char* 
+ */
 char* eventTime()
 {
     char *eventTime = malloc(sizeof(char)*100); 
@@ -94,6 +141,10 @@ char* eventTime()
     return eventTime;
 }
 
+/**
+ * @brief Dessine le bon curseur en fonction de site on survol un bouton ou pas.
+ * 
+ */
 static void drawMouse()
 {
     if(hover_playbutton || hover_connectbutton || hover_hostbutton || hover_settingsbutton) 
@@ -116,6 +167,13 @@ static void drawMouse()
     }
 }
 
+/**
+ * @brief Dessine un bouton normal.
+ * 
+ * @param texture 
+ * @param rectangle 
+ * @param surface 
+ */
 static void dessinerButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface)
 {
     if(SDL_QueryTexture(texture, NULL, NULL, &rectangle.w, &rectangle.h) != 0)
@@ -126,6 +184,10 @@ static void dessinerButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface
     SDL_RenderCopy(renderer, texture, NULL, &rectangle);
 }
 
+/**
+ * @brief Change les valeurs du tableau d'évènements en fonction de nos instructions sur le clavier et la souris.
+ * 
+ */
 static void checkEvents()
 {
     switch(event.type)
@@ -254,6 +316,10 @@ static void checkEvents()
             }
 }
 
+/**
+ * @brief Trie les joueurs en fonction de leur coordonnée Y et organise l'ordre d'affichage des joueurs.
+ * 
+ */
 static void trierJoueurs()
 {
     int position;
@@ -273,7 +339,12 @@ static void trierJoueurs()
     }
 }
 
-//cette fonction dessinera le joueur en fonction de sa texture
+/**
+ * @brief Dessine un joueur en fonction de ses coordonnées et de sa texture.
+ * 
+ * @param texture_joueur 
+ * @param playerRect 
+ */
 static void drawPlayer(SDL_Texture *texture_joueur, SDL_Rect playerRect)
 {
     //printf("Player's datas: \nx: %d y:%d\n",playerRect.x, playerRect.y);
@@ -285,7 +356,11 @@ static void drawPlayer(SDL_Texture *texture_joueur, SDL_Rect playerRect)
     SDL_RenderCopy(renderer, texture_joueur, NULL, &playerRect);
 }
 
-//cette fonction choisira le bon asset pour la bonne animation
+/**
+ * @brief Applique la bonne texture au joueur en fonction de son animation.
+ * 
+ * @param Joueur 
+ */
 static void switchAnimation(player Joueur)
 {
     switch (Joueur.animation_state)
@@ -336,6 +411,11 @@ static void switchAnimation(player Joueur)
     }
 }   
 
+/**
+ * @brief Dessine tous les joueurs.
+ * 
+ * @return void* 
+ */
 static void *dessinerJoueurs()
 {
     //trierJoueurs();
@@ -345,6 +425,10 @@ static void *dessinerJoueurs()
     }
 }
 
+/**
+ * @brief Délai d'animation de respiration 
+ * 
+ */
 static void delay_breath()
 {
     int milli_seconds = 1000;
@@ -352,6 +436,10 @@ static void delay_breath()
     while (clock() < start_time + milli_seconds && tabEvent[0] == SDL_FALSE && tabEvent[1] == SDL_FALSE && tabEvent[2] == SDL_FALSE && tabEvent[3] == SDL_FALSE && tabEvent[6] == SDL_FALSE && tabEvent[7] == SDL_FALSE);
 }
 
+/**
+ * @brief Délai de l'animation "courrir à gauche"
+ * 
+ */
 static void delay_running_left()
 {
     int milli_seconds = 200;
@@ -359,6 +447,10 @@ static void delay_running_left()
     while (clock() < start_time + milli_seconds && tabEvent[1] != SDL_FALSE);
 }
 
+/**
+ * @brief Délai de l'animation "courrir à droite"
+ * 
+ */
 static void delay_running_right()
 {
     int milli_seconds = 200;
@@ -366,6 +458,10 @@ static void delay_running_right()
     while (clock() < start_time + milli_seconds && tabEvent[3] != SDL_FALSE);
 }
 
+/**
+ * @brief Délai de l'animation "courrir en haut"
+ * 
+ */
 static void delay_running_up()
 {
     int milli_seconds = 200;
@@ -373,6 +469,10 @@ static void delay_running_up()
     while (clock() < start_time + milli_seconds && tabEvent[0] != SDL_FALSE);
 }
 
+/**
+ * @brief Délai de l'animation "courrir en bas"
+ * 
+ */
 static void delay_running_down()
 {
     int milli_seconds = 200;
@@ -380,6 +480,10 @@ static void delay_running_down()
     while (clock() < start_time + milli_seconds && tabEvent[2] != SDL_FALSE);
 }
 
+/**
+ * @brief Délai de l'animation du bouton de paramètres quand on a pas le curseur dessus 
+ * 
+ */
 static void delay_settings_button_left()
 {
     int milli_seconds = 50;
@@ -387,6 +491,10 @@ static void delay_settings_button_left()
     while (clock() < start_time + milli_seconds && hover_settingsbutton == SDL_FALSE);
 }
 
+/**
+ * @brief Délai de l'animation du bouton de paramètres quand on a le curseur dessus 
+ * 
+ */
 static void delay_settings_button_right()
 {
     int milli_seconds = 50;
@@ -394,6 +502,11 @@ static void delay_settings_button_right()
     while (clock() < start_time + milli_seconds);
 }
 
+/**
+ * @brief Animation de respiration
+ * 
+ * @return void* 
+ */
 static void *breathAnimation()
 {    
     joueur.animation_state = BREATH_START;
@@ -407,6 +520,11 @@ static void *breathAnimation()
     pthread_exit(&animations_thread);
 }
 
+/**
+ * @brief Animation "courrir à gauche"
+ * 
+ * @return void* 
+ */
 static void *running_left_animation()
 {
     joueur.animation_state = RUNNING_LEFT_START;
@@ -417,6 +535,11 @@ static void *running_left_animation()
     pthread_exit(&animations_thread);
 }
 
+/**
+ * @brief Animation "courrir à droite"
+ * 
+ * @return void* 
+ */
 static void *running_right_animation()
 {
     joueur.animation_state = RUNNING_RIGHT_START;
@@ -427,6 +550,11 @@ static void *running_right_animation()
     pthread_exit(&animations_thread);
 }
 
+/**
+ * @brief Animation "courrir àen haut"
+ * 
+ * @return void* 
+ */
 static void *running_up_animation()
 {
     joueur.animation_state = RUNNING_UP_START;
@@ -437,6 +565,11 @@ static void *running_up_animation()
     pthread_exit(&animations_thread);
 }
 
+/**
+ * @brief Animation "courrir en bas"
+ * 
+ * @return void* 
+ */
 static void *running_down_animation()
 {
     joueur.animation_state = RUNNING_DOWN_START;
@@ -447,6 +580,11 @@ static void *running_down_animation()
     pthread_exit(&animations_thread);
 }
 
+/**
+ * @brief Dessine le bouton de paramètres (à executer dans un thread uniquement).
+ * 
+ * @return void* 
+ */
 static void draw_settings_button_animation()
 {
     if(strcmp(menu,"Main") == 0)
@@ -475,6 +613,11 @@ static void draw_settings_button_animation()
     }
 }
 
+/**
+ * @brief Animation du bouton paramètres quand on a pas le curseur dessus.
+ * 
+ * @return void* 
+ */
 static void *settings_button_animation_left()
 {
     for(settings_button_animation_state; settings_button_animation_state >= 0 && hover_settingsbutton == SDL_FALSE; settings_button_animation_state--)
@@ -487,6 +630,11 @@ static void *settings_button_animation_left()
     pthread_exit(&animations_thread);
 }
 
+/**
+ * @brief Animation du bouton paramètres quand on a le curseur dessus.
+ * 
+ * @return void* 
+ */
 static void *settings_button_animation_right()
 {
     for(settings_button_animation_state; settings_button_animation_state < 6 && hover_settingsbutton == SDL_TRUE; settings_button_animation_state++)
@@ -499,6 +647,11 @@ static void *settings_button_animation_right()
     pthread_exit(&animations_thread);
 }
 
+/**
+ * @brief Dessine le titre dans le menu principal
+ * 
+ * @return void* 
+ */
 static void drawTitle()
 {
     if(SDL_QueryTexture(title_texture, NULL, NULL, &title_rect.w,&title_rect.h) != 0)
@@ -509,6 +662,12 @@ static void drawTitle()
     SDL_RenderCopy(renderer, title_texture, NULL, &title_rect);
 }
 
+/**
+ * @brief Affiche l'erreur à l'écran
+ * 
+ * @param rect 
+ * @param texture 
+ */
 static void drawError(SDL_Rect rect, SDL_Texture *texture)
 {
     if(SDL_QueryTexture(texture, NULL, NULL, &rect.w,&rect.h) != 0)
@@ -519,6 +678,12 @@ static void drawError(SDL_Rect rect, SDL_Texture *texture)
     SDL_RenderCopy(renderer, texture, NULL, &rect);
 }
 
+/**
+ * @brief Initialise les assets de l'erreur dans le menu demandé avec SDL_TTF 
+ * @param s
+ * @param menuTarget
+ * @return void* 
+ */
 static void displayError(char *s, char *menuTarget)
 {
     if(strcmp(menu,menuTarget) == 0)
@@ -548,6 +713,10 @@ static void displayError(char *s, char *menuTarget)
     }
 }
 
+/**
+ * @brief Execute les events en fonction du tableau d'évènements
+ * 
+ */
 static void doEvents()
 {
     if(tabEvent[0])
@@ -748,6 +917,12 @@ static void doEvents()
         }
 }
 
+/**
+ * @brief Initialise l'asset demandé.
+ * 
+ * @param surface 
+ * @param texture 
+ */
 static void init_texture(SDL_Surface **surface, SDL_Texture **texture)
 {
     if(*surface == NULL)
@@ -759,6 +934,10 @@ static void init_texture(SDL_Surface **surface, SDL_Texture **texture)
     SDL_FreeSurface(*surface);
 }
 
+/**
+ * @brief Initialise toutes les variables relatives aux menus.
+ * 
+ */
 static void init_vars()
 {
     mouse_position.x = 0, mouse_position.y = 0;
@@ -965,6 +1144,15 @@ static void initBullet(Bullet * b, int x, int y, int rotation)
     b->Vitesse = 2;
 }
 
+/**
+ * @brief Affiche la texture de survol du bouton demandé en dans le menu souhaité.
+ * 
+ * @param button_surface 
+ * @param button_texture 
+ * @param button_rect 
+ * @param hover_button 
+ * @param menuTarget 
+ */
 static void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button, char *menuTarget)
 {
     if(strcmp(menu,menuTarget) == 0)
@@ -982,6 +1170,15 @@ static void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture
     }
 }
 
+/**
+ * @brief Affiche la texture de survol avec animation du bouton demandé en dans le menu souhaité.
+ * 
+ * @param button_surface 
+ * @param button_texture 
+ * @param button_rect 
+ * @param hover_button 
+ * @param menuTarget 
+ */
 static void buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button, char *menuTarget, void* (*p)(void*), void* (*p2)(void*))
 {
 
@@ -1007,7 +1204,13 @@ static void buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *b
     }
 }
 
-//programme principal 
+/**
+ * @brief Programme principal 
+ * 
+ * @param argc 
+ * @param argv 
+ * @return int 
+ */
 int main(int argc, char *argv[])
 {
     if (argc == 2 && !strcmp(argv[1],"-d"))

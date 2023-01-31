@@ -1,0 +1,5 @@
+<map id="draw_settings_button_animation" name="draw_settings_button_animation">
+<area shape="rect" id="node1" title="Dessine le bouton de paramètres (à executer dans un thread uniquement)." alt="" coords="5,5,151,45"/>
+<area shape="rect" id="node2" href="$main_8c.html#a7ac041d77c29de2a5bd9a576076984e8" title="Dessine un bouton normal." alt="" coords="199,13,308,38"/>
+<area shape="rect" id="node3" href="$main_8c.html#a6bb510e9f9ce8cb081f3f9ce0beffe31" title="Détruit la fenêtre et le rendu." alt="" coords="356,13,436,38"/>
+</map>

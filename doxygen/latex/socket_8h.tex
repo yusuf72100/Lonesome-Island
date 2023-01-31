@@ -1,0 +1,122 @@
+\hypertarget{socket_8h}{}\doxysection{Référence du fichier C\+:/\+Users/\+Yusuf/\+Lonesome-\/\+Island/src/socket.h}
+\label{socket_8h}\index{C:/Users/Yusuf/Lonesome-\/Island/src/socket.h@{C:/Users/Yusuf/Lonesome-\/Island/src/socket.h}}
+
+
+Fichier qui contient les informations relatives aux clients et au serveur point de vu socket.  
+
+
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$winsock2.\+h$>$}\newline
+{\ttfamily \#include $<$Ws2ipdef.\+h$>$}\newline
+{\ttfamily \#include $<$pthread.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$SDL.\+h$>$}\newline
+{\ttfamily \#include $<$SDL\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include $<$SDL\+\_\+ttf.\+h$>$}\newline
+Graphe des dépendances par inclusion de socket.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{socket_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{socket_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Structures de données}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structplayer}{player}}
+\begin{DoxyCompactList}\small\item\em Sauvegarde les informations de chaque joueurs relatives uniquement au jeu en lui-\/même (points de vie, coordonnées, animation...). \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structsocket_datas}{socket\+Datas}}
+\begin{DoxyCompactList}\small\item\em Sauvegarde les informations de chaque joueurs relatives au socket et à la connection au serveur (adresse ip, port, données de jeu, socket...). \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structarg_server}{arg\+Server}}
+\begin{DoxyCompactList}\small\item\em Rassemble toutes les données de tous les joueurs dans le but de pouvoir communiquer tout cela dans des threads. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structsend2_client}{send2\+Client}}
+\begin{DoxyCompactList}\small\item\em Rassemble les données d\textquotesingle{}un seul joueur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{socket_8h_aa8cecfc5c5c054d2875c03e77b7be15d}\label{socket_8h_aa8cecfc5c5c054d2875c03e77b7be15d}} 
+\#define {\bfseries TRUE}~1
+\item 
+\mbox{\Hypertarget{socket_8h_aa93f0eb578d23995850d61f7d61c55c1}\label{socket_8h_aa93f0eb578d23995850d61f7d61c55c1}} 
+\#define {\bfseries FALSE}~0
+\item 
+\mbox{\Hypertarget{socket_8h_a84ac3266d9efb284e798de99c6bd8165}\label{socket_8h_a84ac3266d9efb284e798de99c6bd8165}} 
+\#define {\bfseries data\+Len}~5
+\item 
+\mbox{\Hypertarget{socket_8h_ab88eb169a168b47e25d70b2f442f6c5b}\label{socket_8h_ab88eb169a168b47e25d70b2f442f6c5b}} 
+\#define {\bfseries IP\+\_\+\+LOCALE}~\char`\"{}192.\+168.\+1.\+16\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{socket_8h_a3f5f480bed01f54df564b99350f1d1bb}\label{socket_8h_a3f5f480bed01f54df564b99350f1d1bb}} 
+typedef uint32\+\_\+t {\bfseries socklen\+\_\+t}
+\item 
+\mbox{\Hypertarget{socket_8h_aa66179db696591eb40fed14d270a661d}\label{socket_8h_aa66179db696591eb40fed14d270a661d}} 
+typedef struct \mbox{\hyperlink{structsend2_client}{send2\+Client}} {\bfseries send2\+Client}
+\begin{DoxyCompactList}\small\item\em Rassemble les données d\textquotesingle{}un seul joueur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{socket_8h_a10d588931e71363df68940a8dd01b898}\label{socket_8h_a10d588931e71363df68940a8dd01b898}} 
+void $\ast$ {\bfseries clear\+Input} (SOCKET socket\+Client)
+\item 
+\mbox{\Hypertarget{socket_8h_ad768973bc551435391fa1ddfbb0355a1}\label{socket_8h_ad768973bc551435391fa1ddfbb0355a1}} 
+void $\ast$ {\bfseries search\+Clients} (void $\ast$argt)
+\item 
+\mbox{\Hypertarget{socket_8h_a3b61093f2f5316157d1e6d3d05cf5ebc}\label{socket_8h_a3b61093f2f5316157d1e6d3d05cf5ebc}} 
+void $\ast$ {\bfseries receive\+From\+Client} (void $\ast$arg)
+\item 
+\mbox{\Hypertarget{socket_8h_af8f7aaaf34db2175c7a9c4ab7d3306fc}\label{socket_8h_af8f7aaaf34db2175c7a9c4ab7d3306fc}} 
+static void $\ast$ {\bfseries send\+To\+Client} (\mbox{\hyperlink{structsend2_client}{send2\+Client}} $\ast$arg\+Client, int position)
+\item 
+\mbox{\Hypertarget{socket_8h_a3490387e86b9ba6a1ee9ed3984b637d5}\label{socket_8h_a3490387e86b9ba6a1ee9ed3984b637d5}} 
+void $\ast$ {\bfseries start\+Server} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{socket_8h_a07e65b6c6f657726ba33df7d15c5037b}\label{socket_8h_a07e65b6c6f657726ba33df7d15c5037b}} 
+static pthread\+\_\+t $\ast$ {\bfseries receive\+\_\+from\+\_\+client}
+\item 
+\mbox{\Hypertarget{socket_8h_a85a10c25e058d41a68a7b526a5d3fed4}\label{socket_8h_a85a10c25e058d41a68a7b526a5d3fed4}} 
+static char {\bfseries tram\+Client\+\_\+send} \mbox{[}100\mbox{]}
+\item 
+\mbox{\Hypertarget{socket_8h_a07ca08cdb87ab3025235c2dad252e007}\label{socket_8h_a07ca08cdb87ab3025235c2dad252e007}} 
+static char {\bfseries tram\+Client\+\_\+receive} \mbox{[}100\mbox{]}
+\item 
+\mbox{\Hypertarget{socket_8h_a4d3f21e6344e01f9aee2f659c02e09cf}\label{socket_8h_a4d3f21e6344e01f9aee2f659c02e09cf}} 
+static char {\bfseries recv\+Buffer} \mbox{[}data\+Len\mbox{]}
+\item 
+\mbox{\Hypertarget{socket_8h_a6f392692ec414375d2aff500177111e2}\label{socket_8h_a6f392692ec414375d2aff500177111e2}} 
+static SOCKET {\bfseries socket\+Server}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier qui contient les informations relatives aux clients et au serveur point de vu socket. 
+
+\begin{DoxyAuthor}{Auteur}
+Yusuf Ulas 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2023-\/01-\/31 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}

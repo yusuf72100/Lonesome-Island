@@ -1,0 +1,17 @@
+<map id="destroyAll" name="destroyAll">
+<area shape="rect" id="node1" title="Détruit la fenêtre et le rendu." alt="" coords="761,247,841,272"/>
+<area shape="rect" id="node2" href="$main_8c.html#a7ac041d77c29de2a5bd9a576076984e8" title="Dessine un bouton normal." alt="" coords="301,65,410,91"/>
+<area shape="rect" id="node4" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,196,56,221"/>
+<area shape="rect" id="node7" href="$main_8c.html#afe3fb63c56410a3ac3ab9397fdc8df8c" title="Affiche l&#39;erreur à l&#39;écran." alt="" coords="631,221,709,247"/>
+<area shape="rect" id="node9" href="$main_8c.html#a4dd509784585dea800b3115747c81c42" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="476,272,564,297"/>
+<area shape="rect" id="node10" href="$main_8c.html#afd0ed75a870240cedc972c1fe3cb89c1" title="Dessine un joueur en fonction de ses coordonnées et de sa texture." alt="" coords="627,120,713,145"/>
+<area shape="rect" id="node13" href="$main_8c.html#a702d2b36ea1c2a7bbf074155664d6890" title="Dessine le titre dans le menu principal." alt="" coords="319,323,392,348"/>
+<area shape="rect" id="node14" href="$main_8c.html#ac96e8912bb03df1f73f5ccb6db495085" title="Initialise l&#39;asset demandé." alt="" coords="627,373,713,399"/>
+<area shape="rect" id="node15" href="$main_8c.html#a270d20bdcadebb9a08a01a55c37858a9" title="Initialise toutes les variables relatives aux menus." alt="" coords="485,373,555,399"/>
+<area shape="rect" id="node3" href="$main_8c.html#ae2ef131da56513e4d2954bf3258a3b6c" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="131,5,222,31"/>
+<area shape="rect" id="node5" href="$main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="139,120,214,145"/>
+<area shape="rect" id="node6" href="$main_8c.html#a68d8e7c4fc5e810263c993446cf55141" title="Dessine le bouton de paramètres (à executer dans un thread uniquement)." alt="" coords="104,55,249,95"/>
+<area shape="rect" id="node8" href="$main_8c.html#accc4bfec3e2cf262deaf6f7f38b844a1" title="Initialise les assets de l&#39;erreur dans le menu demandé avec SDL_TTF." alt="" coords="310,221,401,247"/>
+<area shape="rect" id="node11" href="$main_8c.html#a124c70bcd0486f8db5d0292febf8c889" title="Applique la bonne texture au joueur en fonction de son animation." alt="" coords="461,120,579,145"/>
+<area shape="rect" id="node12" href="$main_8c.html#a88c5ed6c9b3c2ac702ece04154da6091" title="Dessine tous les joueurs." alt="" coords="297,120,413,145"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="dessinerButton" name="dessinerButton">
+<area shape="rect" id="node1" title="Dessine un bouton normal." alt="" coords="5,5,115,31"/>
+<area shape="rect" id="node2" href="$main_8c.html#a6bb510e9f9ce8cb081f3f9ce0beffe31" title="Détruit la fenêtre et le rendu." alt="" coords="163,5,243,31"/>
+</map>

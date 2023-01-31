@@ -1,3 +1,12 @@
+/**
+ * @file main.h
+ * @author Yusuf Ulas
+ * @brief Fichier contenant toutes les variables d'affichage
+ * @version 0.1
+ * @date 2023-01-31
+ * @copyright Copyright (c) 2023
+ */
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
@@ -164,7 +173,7 @@ static void doEvents();
 
 static void init_vars();
 
-static void *Send2Server();
+void *Send2Server();
 
 Vecteur InitVecteur(int angle, int vitesse);
 
@@ -176,7 +185,7 @@ static void destroyAll(SDL_Window *window, SDL_Renderer *renderer);
 
 static void *rechargement();
 
-void synchDatas(player * Joueurs, int taille);
+void *synchDatas(player * Joueurs, int taille);
 
 static void UpdateBullet(Bullet * b);
 

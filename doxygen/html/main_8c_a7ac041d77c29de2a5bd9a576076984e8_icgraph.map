@@ -1,0 +1,7 @@
+<map id="dessinerButton" name="dessinerButton">
+<area shape="rect" id="node1" title="Dessine un bouton normal." alt="" coords="297,55,407,80"/>
+<area shape="rect" id="node2" href="$main_8c.html#ae2ef131da56513e4d2954bf3258a3b6c" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="131,5,222,31"/>
+<area shape="rect" id="node4" href="$main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="139,55,214,80"/>
+<area shape="rect" id="node5" href="$main_8c.html#a68d8e7c4fc5e810263c993446cf55141" title="Dessine le bouton de paramètres (à executer dans un thread uniquement)." alt="" coords="104,105,249,145"/>
+<area shape="rect" id="node3" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,55,56,80"/>
+</map>

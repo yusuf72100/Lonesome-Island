@@ -1,0 +1,6 @@
+<map id="dessinerJoueurs" name="dessinerJoueurs">
+<area shape="rect" id="node1" title="Dessine tous les joueurs." alt="" coords="5,5,121,31"/>
+<area shape="rect" id="node2" href="$main_8c.html#a124c70bcd0486f8db5d0292febf8c889" title="Applique la bonne texture au joueur en fonction de son animation." alt="" coords="169,5,287,31"/>
+<area shape="rect" id="node3" href="$main_8c.html#afd0ed75a870240cedc972c1fe3cb89c1" title="Dessine un joueur en fonction de ses coordonnées et de sa texture." alt="" coords="335,5,421,31"/>
+<area shape="rect" id="node4" href="$main_8c.html#a6bb510e9f9ce8cb081f3f9ce0beffe31" title="Détruit la fenêtre et le rendu." alt="" coords="469,5,549,31"/>
+</map>

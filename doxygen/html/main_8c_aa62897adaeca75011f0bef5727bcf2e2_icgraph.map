@@ -1,0 +1,6 @@
+<map id="delay_running_left" name="delay_running_left">
+<area shape="rect" id="node1" title="Délai de l&#39;animation &quot;courrir à gauche&quot;." alt="" coords="425,5,552,31"/>
+<area shape="rect" id="node2" href="$main_8c.html#a5cb6f61e6f291bd9c47559597a40f453" title="Animation &quot;courrir à gauche&quot;." alt="" coords="227,5,377,31"/>
+<area shape="rect" id="node3" href="$main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
+<area shape="rect" id="node4" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>

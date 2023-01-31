@@ -1,0 +1,22 @@
+<map id="doEvents" name="doEvents">
+<area shape="rect" id="node1" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="5,256,80,281"/>
+<area shape="rect" id="node2" href="$main_8c.html#a4ea2b775628e7e2857760cb4a3f60e5f" title="Animation de respiration." alt="" coords="152,5,268,31"/>
+<area shape="rect" id="node4" href="$main_8c.html#a506eeac61f56b2e172d086173bac5995" title="Envoi les données du joueur actuel au serveur." alt="" coords="362,56,457,81"/>
+<area shape="rect" id="node6" href="$main_8c.html#a7ac041d77c29de2a5bd9a576076984e8" title="Dessine un bouton normal." alt="" coords="527,107,636,132"/>
+<area shape="rect" id="node8" href="$main_8c.html#a88c5ed6c9b3c2ac702ece04154da6091" title="Dessine tous les joueurs." alt="" coords="152,157,268,183"/>
+<area shape="rect" id="node11" href="$main_8c.html#ab5a2d27713f1814d93ff81281e653e22" title="Récupère l&#39;heure et la date actuelle." alt="" coords="170,231,250,256"/>
+<area shape="rect" id="node12" href="$main_8c.html#a74d9cf129eac9371caa5a93b97b4f95c" title="Met un cooldown pour un rechargement." alt="" coords="159,280,261,305"/>
+<area shape="rect" id="node13" href="$main_8c.html#aab679fb5812d80a69aef9f9224dce59d" title="Animation &quot;courrir en bas&quot;." alt="" coords="128,329,292,355"/>
+<area shape="rect" id="node15" href="$main_8c.html#a5cb6f61e6f291bd9c47559597a40f453" title="Animation &quot;courrir à gauche&quot;." alt="" coords="135,379,285,404"/>
+<area shape="rect" id="node17" href="$main_8c.html#a5477b836a24fe2e1ee5f364383ca792f" title="Animation &quot;courrir à droite&quot;." alt="" coords="131,428,289,453"/>
+<area shape="rect" id="node19" href="$main_8c.html#aa405b150ef4a5c5ed93e41f86ab83a39" title="Animation &quot;courrir àen haut&quot;." alt="" coords="136,477,284,503"/>
+<area shape="rect" id="node3" href="$main_8c.html#af35c1f5cca32f075ebe22ddd0dfb92bb" title="Délai d&#39;animation de respiration." alt="" coords="361,5,457,31"/>
+<area shape="rect" id="node5" href="$client_8c.html#a7cea858f95329a092fd2cbc746c59728" title="Récupère les données du joueur et les envois au serveur via le socket." alt="" coords="539,56,623,81"/>
+<area shape="rect" id="node7" href="$main_8c.html#a6bb510e9f9ce8cb081f3f9ce0beffe31" title="Détruit la fenêtre et le rendu." alt="" coords="684,132,764,157"/>
+<area shape="rect" id="node9" href="$main_8c.html#a124c70bcd0486f8db5d0292febf8c889" title="Applique la bonne texture au joueur en fonction de son animation." alt="" coords="351,157,468,183"/>
+<area shape="rect" id="node10" href="$main_8c.html#afd0ed75a870240cedc972c1fe3cb89c1" title="Dessine un joueur en fonction de ses coordonnées et de sa texture." alt="" coords="538,156,625,181"/>
+<area shape="rect" id="node14" href="$main_8c.html#a5c52acb6abf77193f4c902191f211531" title="Délai de l&#39;animation &quot;courrir en bas&quot;." alt="" coords="340,329,479,355"/>
+<area shape="rect" id="node16" href="$main_8c.html#aa62897adaeca75011f0bef5727bcf2e2" title="Délai de l&#39;animation &quot;courrir à gauche&quot;." alt="" coords="346,379,473,404"/>
+<area shape="rect" id="node18" href="$main_8c.html#aeadd8a4a4a24ab533b3020fe47e19063" title="Délai de l&#39;animation &quot;courrir à droite&quot;." alt="" coords="342,428,477,453"/>
+<area shape="rect" id="node20" href="$main_8c.html#a2b9c29db7f7ff4e4f0d734dc02243aab" title="Délai de l&#39;animation &quot;courrir en haut&quot;." alt="" coords="348,477,471,503"/>
+</map>

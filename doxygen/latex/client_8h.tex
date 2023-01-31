@@ -1,0 +1,137 @@
+\hypertarget{client_8h}{}\doxysection{Référence du fichier C\+:/\+Users/\+Yusuf/\+Lonesome-\/\+Island/src/client.h}
+\label{client_8h}\index{C:/Users/Yusuf/Lonesome-\/Island/src/client.h@{C:/Users/Yusuf/Lonesome-\/Island/src/client.h}}
+
+
+Fichier content toutes les informations relatives au client et au serveur.  
+
+
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$winsock2.\+h$>$}\newline
+{\ttfamily \#include $<$Ws2ipdef.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$pthread.\+h$>$}\newline
+{\ttfamily \#include $<$SDL.\+h$>$}\newline
+{\ttfamily \#include $<$SDL\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include $<$SDL\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}socket.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de client.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{client_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{client_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{client_8h_a84ac3266d9efb284e798de99c6bd8165}\label{client_8h_a84ac3266d9efb284e798de99c6bd8165}} 
+\#define {\bfseries data\+Len}~5
+\item 
+\mbox{\Hypertarget{client_8h_a6a6d4c37e9c1a541267e020f87005a0a}\label{client_8h_a6a6d4c37e9c1a541267e020f87005a0a}} 
+\#define {\bfseries THREAD\+\_\+\+NULL}~0
+\item 
+\mbox{\Hypertarget{client_8h_a1813aeb5238cbb35d4545968e5b4a277}\label{client_8h_a1813aeb5238cbb35d4545968e5b4a277}} 
+\#define {\bfseries IP\+\_\+\+PUBLIC}~\char`\"{}90.\+59.\+36.\+118\char`\"{}
+\item 
+\mbox{\Hypertarget{client_8h_ab88eb169a168b47e25d70b2f442f6c5b}\label{client_8h_ab88eb169a168b47e25d70b2f442f6c5b}} 
+\#define {\bfseries IP\+\_\+\+LOCALE}~\char`\"{}192.\+168.\+1.\+16\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{client_8h_a3f5f480bed01f54df564b99350f1d1bb}\label{client_8h_a3f5f480bed01f54df564b99350f1d1bb}} 
+typedef uint32\+\_\+t {\bfseries socklen\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \mbox{\hyperlink{client_8h_a7cea858f95329a092fd2cbc746c59728}{send\+Datas}} (\mbox{\hyperlink{structplayer}{player}} joueur)
+\begin{DoxyCompactList}\small\item\em Récupère les données du joueur et les envois au serveur via le socket. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{client_8h_a37deea5f4750c52937a56b0e97d566b9}\label{client_8h_a37deea5f4750c52937a56b0e97d566b9}} 
+void $\ast$ {\bfseries receive\+From\+Server} ()
+\item 
+\mbox{\Hypertarget{client_8h_a34c23ce43e0af97b03b90b87f4d1e053}\label{client_8h_a34c23ce43e0af97b03b90b87f4d1e053}} 
+void $\ast$ {\bfseries stop\+Connection} ()
+\item 
+\mbox{\Hypertarget{client_8h_a3622090a7ff391221a74cad6493bbca9}\label{client_8h_a3622090a7ff391221a74cad6493bbca9}} 
+int {\bfseries start\+Connection} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{client_8h_a0a299e154b22b16b2a385707fa25564b}\label{client_8h_a0a299e154b22b16b2a385707fa25564b}} 
+static SOCKET $\ast$ {\bfseries socket\+\_\+\+Server}
+\item 
+\mbox{\Hypertarget{client_8h_a85a10c25e058d41a68a7b526a5d3fed4}\label{client_8h_a85a10c25e058d41a68a7b526a5d3fed4}} 
+static char {\bfseries tram\+Client\+\_\+send} \mbox{[}100\mbox{]}
+\item 
+\mbox{\Hypertarget{client_8h_a07ca08cdb87ab3025235c2dad252e007}\label{client_8h_a07ca08cdb87ab3025235c2dad252e007}} 
+static char {\bfseries tram\+Client\+\_\+receive} \mbox{[}100\mbox{]}
+\item 
+\mbox{\Hypertarget{client_8h_a24e9b1ee401b0d44b75170e22c43fa17}\label{client_8h_a24e9b1ee401b0d44b75170e22c43fa17}} 
+static \mbox{\hyperlink{structplayer}{player}} {\bfseries joueur}
+\item 
+\mbox{\Hypertarget{client_8h_a1d48ae43189b9843952e504854c47f06}\label{client_8h_a1d48ae43189b9843952e504854c47f06}} 
+static \mbox{\hyperlink{structplayer}{player}} $\ast$ {\bfseries joueurs}
+\item 
+\mbox{\Hypertarget{client_8h_a439227feff9d7f55384e8780cfc2eb82}\label{client_8h_a439227feff9d7f55384e8780cfc2eb82}} 
+static int {\bfseries size}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier content toutes les informations relatives au client et au serveur. 
+
+\begin{DoxyAuthor}{Auteur}
+Yusuf Ulas 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2023-\/01-\/31 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{client_8h_a7cea858f95329a092fd2cbc746c59728}\label{client_8h_a7cea858f95329a092fd2cbc746c59728}} 
+\index{client.h@{client.h}!sendDatas@{sendDatas}}
+\index{sendDatas@{sendDatas}!client.h@{client.h}}
+\doxysubsubsection{\texorpdfstring{sendDatas()}{sendDatas()}}
+{\footnotesize\ttfamily void $\ast$ send\+Datas (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer}{player}}}]{joueur }\end{DoxyParamCaption})}
+
+
+
+Récupère les données du joueur et les envois au serveur via le socket. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joueur} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void$\ast$ 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{client_8h_a7cea858f95329a092fd2cbc746c59728_icgraph}
+\end{center}
+\end{figure}

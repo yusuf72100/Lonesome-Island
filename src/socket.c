@@ -1,3 +1,12 @@
+/**
+ * @file socket.c
+ * @author Yusuf Ulas
+ * @brief Fichier qui s'occupera uniquement du serveur
+ * @version 0.1
+ * @date 2023-01-31
+ * @copyright Copyright (c) 2023
+ */
+
 #include "socket.h"
 
 static void buildtramClient_send(player joueur, int i, int size)

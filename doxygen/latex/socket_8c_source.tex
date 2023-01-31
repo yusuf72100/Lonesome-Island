@@ -1,0 +1,249 @@
+\hypertarget{socket_8c_source}{}\doxysection{socket.\+c}
+\label{socket_8c_source}\index{C:/Users/Yusuf/Lonesome-\/Island/src/socket.c@{C:/Users/Yusuf/Lonesome-\/Island/src/socket.c}}
+\mbox{\hyperlink{socket_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{socket_8h}{socket.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00012}00012\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ buildtramClient\_send(\mbox{\hyperlink{structplayer}{player}}\ joueur,\ \textcolor{keywordtype}{int}\ i,\ \textcolor{keywordtype}{int}\ size)}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00013}00013\ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00014}00014\ \ \ \ \ tramClient\_send[0]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00015}00015\ \ \ \ \ \textcolor{keywordtype}{char}\ bufferI[3]\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00016}00016\ \ \ \ \ \textcolor{keywordtype}{char}\ dataI[4]\ =\ \textcolor{stringliteral}{"{}i"{}};}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00017}00017\ \ \ \ \ itoa(i,\ bufferI,\ 10);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00018}00018\ \ \ \ \ strcat(dataI,\ bufferI);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00019}00019\ \ \ \ \ strcat(tramClient\_send,\ dataI);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00021}00021\ \ \ \ \ \textcolor{keywordtype}{char}\ bufferX[3]\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00022}00022\ \ \ \ \ \textcolor{keywordtype}{char}\ dataX[4]\ =\ \textcolor{stringliteral}{"{}x"{}};}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00023}00023\ \ \ \ \ itoa(joueur.playerRect.x,\ bufferX,\ 10);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00024}00024\ \ \ \ \ strcat(dataX,\ bufferX);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00025}00025\ \ \ \ \ strcat(tramClient\_send,\ dataX);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00027}00027\ \ \ \ \ \textcolor{keywordtype}{char}\ bufferY[3]\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00028}00028\ \ \ \ \ \textcolor{keywordtype}{char}\ dataY[4]\ =\ \textcolor{stringliteral}{"{}y"{}};}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00029}00029\ \ \ \ \ itoa(joueur.playerRect.y,\ bufferY,\ 10);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00030}00030\ \ \ \ \ strcat(dataY,\ bufferY);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00031}00031\ \ \ \ \ strcat(tramClient\_send,\ dataY);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00032}00032\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00033}00033\ \ \ \ \ \textcolor{keywordtype}{char}\ bufferA[3]\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00034}00034\ \ \ \ \ \textcolor{keywordtype}{char}\ dataA[4]\ =\ \textcolor{stringliteral}{"{}a"{}};}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00035}00035\ \ \ \ \ itoa(joueur.animation\_state,\ bufferA,\ 10);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00036}00036\ \ \ \ \ strcat(dataA,\ bufferA);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00037}00037\ \ \ \ \ strcat(tramClient\_send,\ dataA);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00039}00039\ \ \ \ \ \textcolor{keywordtype}{char}\ bufferS[3]\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00040}00040\ \ \ \ \ \textcolor{keywordtype}{char}\ dataS[4]\ =\ \textcolor{stringliteral}{"{}s"{}};}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00041}00041\ \ \ \ \ itoa(size,\ bufferS,\ 10);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00042}00042\ \ \ \ \ strcat(dataS,\ bufferS);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00043}00043\ \ \ \ \ strcat(tramClient\_send,\ dataS);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00045}00045\ \}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00047}00047\ \textcolor{comment}{//envoi\ les\ données\ aux\ clients}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00048}00048\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ *sendToClient(\mbox{\hyperlink{structsend2_client}{send2Client}}\ *argClient,\ \textcolor{keywordtype}{int}\ position)}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00049}00049\ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00050}00050\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 1,\ j\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00051}00051\ \ \ \ \ SOCKADDR\_IN\ addr\_Client;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00052}00052\ \ \ \ \ \textcolor{keyword}{struct\ }sockaddr\_in*\ pV4Addr\ =\ (\textcolor{keyword}{struct\ }sockaddr\_in*)\&addr\_Client;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00053}00053\ \ \ \ \ \textcolor{keyword}{struct\ }in\_addr\ ipAddr\ =\ pV4Addr-\/>sin\_addr;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00055}00055\ \ \ \ \ \textcolor{comment}{//à\ tout\ le\ monde}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00056}00056\ \ \ \ \ buildtramClient\_send(argClient-\/>argt-\/>sd[position].joueur,\ position,\ argClient-\/>argt-\/>size);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00057}00057\ \ \ \ \ \textcolor{keywordflow}{do}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00058}00058\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{comment}{//on\ envoi\ les\ données\ du\ joueur\ en\ question}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(argClient-\/>argt-\/>sd[i].clientSocket\ !=\ INVALID\_SOCKET)}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(send(argClient-\/>argt-\/>sd[i].clientSocket,tramClient\_send,(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char})*30),0)\ ==\ SOCKET\_ERROR)\ printf(\textcolor{stringliteral}{"{}Server:\ Packet\ lost\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//printf("{}Sended\ to\ client:\ \%s\(\backslash\)n"{},tramClient\_send);}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00064}00064\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00065}00065\ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00066}00066\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (i\ <\ argClient-\/>argt-\/>size);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00067}00067\ \ \ \ \ i=1;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00068}00068\ \}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00070}00070\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ traitData(\mbox{\hyperlink{structsend2_client}{send2Client}}\ *argClient,\ \textcolor{keywordtype}{int}\ indice)}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00071}00071\ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00072}00072\ \ \ \ \ \textcolor{keywordtype}{int}\ j,\ k;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00073}00073\ \ \ \ \ \textcolor{keywordtype}{char}\ buffer[20]\ =\ \textcolor{stringliteral}{"{}\(\backslash\)0"{}};}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00074}00074\ \ \ \ \ \textcolor{keywordflow}{for}(j\ =\ 0;\ tramClient\_receive[j]!=\textcolor{charliteral}{'\(\backslash\)0'};\ j++)\{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ k\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(tramClient\_receive[j]\ ==\ \textcolor{charliteral}{'x'})}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00078}00078\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ j++;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(tramClient\_receive[j]\ >=\ \textcolor{charliteral}{'0'}\ \&\&\ tramClient\_receive[j]\ <=\ \textcolor{charliteral}{'9'})}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ buffer[k]\ =\ tramClient\_receive[j];}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ k++;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ j++;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ buffer[k]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ argClient-\/>argt-\/>sd[indice].joueur.playerRect.x\ =\ atoi(buffer);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ k=0;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ buffer[0]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(tramClient\_receive[j]\ ==\ \textcolor{charliteral}{'y'})}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00092}00092\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ j++;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(tramClient\_receive[j]\ >=\ \textcolor{charliteral}{'0'}\ \&\&\ tramClient\_receive[j]\ <=\ \textcolor{charliteral}{'9'})}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ buffer[k]\ =\ tramClient\_receive[j];}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ k++;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ j++;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ buffer[k]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ argClient-\/>argt-\/>sd[indice].joueur.playerRect.y\ =\ atoi(buffer);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ k=0;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ buffer[0]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00104}00104\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00105}00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(tramClient\_receive[j]\ ==\ \textcolor{charliteral}{'a'})}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00106}00106\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ j++;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(tramClient\_receive[j]\ >=\ \textcolor{charliteral}{'0'}\ \&\&\ tramClient\_receive[j]\ <=\ \textcolor{charliteral}{'9'})}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ buffer[k]\ =\ tramClient\_receive[j];}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ k++;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ j++;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ buffer[k]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ argClient-\/>argt-\/>sd[indice].joueur.animation\_state\ =\ atoi(buffer);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ k=0;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ buffer[0]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00118}00118\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00119}00119\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00120}00120\ \}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00122}00122\ \textcolor{keywordtype}{void}\ disconnectPlayer(\mbox{\hyperlink{structsend2_client}{send2Client}}\ *argClient,\ \textcolor{keywordtype}{int}\ position)}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00123}00123\ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00124}00124\ \ \ \ \ \textcolor{keywordflow}{for}(position;\ position\ <\ argClient-\/>argt-\/>size-\/1;\ position++)}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00125}00125\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00126}00126\ \ \ \ \ \ \ \ \ argClient-\/>argt-\/>sd[position]\ =\ argClient-\/>argt-\/>sd[position+1];}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00127}00127\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00128}00128\ \ \ \ \ argClient-\/>argt-\/>size-\/=1;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00129}00129\ \}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00131}00131\ \textcolor{comment}{//fonction\ qui\ prend\ en\ paramètre\ un\ client\ et\ l'écoute}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00132}00132\ \textcolor{keywordtype}{void}\ *receiveFromClient(\textcolor{keywordtype}{void}\ *arg)}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00133}00133\ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00134}00134\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0,\ position=0;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00135}00135\ \ \ \ \ \mbox{\hyperlink{structsend2_client}{send2Client}}\ *argClient\ =\ (\mbox{\hyperlink{structsend2_client}{send2Client}}\ *)arg;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00137}00137\ \ \ \ \ \textcolor{comment}{//on\ récupère\ les\ données\ de\ positions\ des\ joueurs}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00138}00138\ \ \ \ \ \textcolor{keywordflow}{while}(argClient-\/>argt-\/>running\ ==\ TRUE)}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00139}00139\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00140}00140\ \ \ \ \ \ \ \ \ tramClient\_receive[0]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00142}00142\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(recv(argClient-\/>socket,tramClient\_receive,(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char})*30),0)\ ==\ INVALID\_SOCKET)}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00143}00143\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Server:\ Client\ with\ id\ \%d\ has\ been\ disconnected\(\backslash\)n"{}},position);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ disconnectPlayer(argClient,\ position);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ pthread\_exit(\&receive\_from\_client[i]);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00147}00147\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00148}00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00149}00149\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//on\ stock\ les\ données\ du\ client}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }sockaddr\_in*\ pV4Addr\ =\ (\textcolor{keyword}{struct\ }sockaddr\_in*)\&argClient-\/>socket;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct}\ in\_addr\ ipAddr\ =\ pV4Addr-\/>sin\_addr;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ socklen\_t\ len\ =\ \textcolor{keyword}{sizeof}(*pV4Addr);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//on\ cherche\ la\ position\ du\ client\ dans\ le\ tableau\ de\ données}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (strcmp(inet\_ntoa(argClient-\/>argt-\/>sd[i].addrClient.sin\_addr),inet\_ntoa(ipAddr))\ ||\ ((int)ntohs(argClient-\/>argt-\/>sd[i].addrClient.sin\_port)\ !=\ argClient-\/>port));}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ traitData(argClient,\ i);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ argClient-\/>argt-\/>sd[i].joueur.playerRect.w\ =\ 50;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ argClient-\/>argt-\/>sd[i].joueur.playerRect.h\ =\ 81;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ sendToClient(argClient,\ i);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ position\ =\ i;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ i=0;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00168}00168\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00170}00170\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00171}00171\ \ \ \ \ pthread\_exit(\&receive\_from\_client[i]);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00172}00172\ \}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00174}00174\ \textcolor{comment}{//fonction\ qui\ accepte\ les\ clients}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00175}00175\ \textcolor{keywordtype}{void}\ *searchClients(\textcolor{keywordtype}{void}\ *arg)}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00176}00176\ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00177}00177\ \ \ \ \ \mbox{\hyperlink{structarg_server}{argServer}}\ *argt2\ =\ (\mbox{\hyperlink{structarg_server}{argServer}}*)arg;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00178}00178\ \ \ \ \ socklen\_t\ csize\ =\ \textcolor{keyword}{sizeof}(argt2-\/>sd-\/>addrClient);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00179}00179\ \ \ \ \ \mbox{\hyperlink{structsocket_datas}{socketDatas}}\ *\ newSd\ =\ argt2-\/>sd;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00180}00180\ \ \ \ \ SOCKET\ socketClient;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00181}00181\ \ \ \ \ argt2-\/>running\ =\ TRUE;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00182}00182\ \ \ \ \ \mbox{\hyperlink{structsend2_client}{send2Client}}\ *argClient\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structsend2_client}{send2Client}})*10+1);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00184}00184\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Server\ running\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00185}00185\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00186}00186\ \ \ \ \ \textcolor{keywordflow}{while}(argt2-\/>running)}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00187}00187\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00188}00188\ \ \ \ \ \ \ \ \ socketClient\ =\ accept(argt2-\/>sd-\/>socketServer,\ (\textcolor{keyword}{struct}\ sockaddr\ *)\&argt2-\/>sd[argt2-\/>size].addrClient,\ \&csize);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00189}00189\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(socketClient\ !=\ INVALID\_SOCKET)}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00190}00190\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00191}00191\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }sockaddr\_in*\ pV4Addr\ =\ (\textcolor{keyword}{struct\ }sockaddr\_in*)\&argt2-\/>sd[argt2-\/>size].addrClient;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct}\ in\_addr\ ipAddr\ =\ pV4Addr-\/>sin\_addr;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \ \ argt2-\/>sd[argt2-\/>size].socketServer\ =\ socketServer;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ argt2-\/>sd[argt2-\/>size].clientSocket\ =\ socketClient;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}1\ new\ client\ connected\ with\ ip\ \%s\ and\ port\ \%d\(\backslash\)n"{}},inet\_ntoa(argt2-\/>sd[argt2-\/>size].addrClient.sin\_addr),\ (int)ntohs(argt2-\/>sd[argt2-\/>size].addrClient.sin\_port));}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Connected\ clients\ :\ \%d\(\backslash\)n"{}},argt2-\/>size);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ argt2-\/>size++;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00198}00198\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00199}00199\ \ \ \ \ \ \ \ \ argClient[argt2-\/>size-\/1].socket\ =\ socketClient;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00200}00200\ \ \ \ \ \ \ \ \ argClient[argt2-\/>size-\/1].port\ =\ (int)ntohs(argt2-\/>sd[argt2-\/>size-\/1].addrClient.sin\_port);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00201}00201\ \ \ \ \ \ \ \ \ argClient[argt2-\/>size-\/1].argt\ =\ argt2;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00202}00202\ \ \ \ \ \ \ \ \ Sleep(500);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00203}00203\ \ \ \ \ \ \ \ \ pthread\_create(\&receive\_from\_client[argt2-\/>size-\/1],NULL,receiveFromClient,(\textcolor{keywordtype}{void}\ *)\&argClient[argt2-\/>size-\/1]);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00204}00204\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00205}00205\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00206}00206\ \ \ \ \ close(argt2-\/>sd-\/>socketServer);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00207}00207\ \ \ \ \ WSACleanup();}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00208}00208\ \}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00210}00210\ \textcolor{comment}{//fonction\ qui\ initialise\ et\ lance\ le\ serveur}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00211}00211\ \textcolor{keywordtype}{void}\ *startServer()}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00212}00212\ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00213}00213\ \ \ \ \ receive\_from\_client\ =\ malloc(\textcolor{keyword}{sizeof}(pthread\_t)*10+1);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00214}00214\ \ \ \ \ \mbox{\hyperlink{structsocket_datas}{socketDatas}}\ *\ sd\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structsocket_datas}{socketDatas}})*10+1);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00215}00215\ \ \ \ \ \textcolor{keywordtype}{int}\ \ running\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00216}00216\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00217}00217\ \ \ \ \ SOCKET\ clientSocket;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00218}00218\ \ \ \ \ WSADATA\ WSAData;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00219}00219\ \ \ \ \ WSAStartup(MAKEWORD(2,0),\ \&WSAData);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00221}00221\ \ \ \ \ \textcolor{comment}{//socket\ du\ serveur}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00222}00222\ \ \ \ \ SOCKADDR\_IN\ addrServer;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00223}00223\ \ \ \ \ addrServer.sin\_addr.s\_addr\ =\ inet\_addr(IP\_LOCALE);\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00224}00224\ \ \ \ \ addrServer.sin\_family\ =\ AF\_INET;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00225}00225\ \ \ \ \ addrServer.sin\_port\ =\ htons(4148);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00226}00226\ \ \ \ \ socketServer\ =\ socket(AF\_INET,SOCK\_STREAM,IPPROTO\_TCP);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00227}00227\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00228}00228\ \ \ \ \ bind(socketServer,\ (SOCKADDR\ *)\&addrServer,\ \textcolor{keyword}{sizeof}(addrServer));}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00229}00229\ \ \ \ \ printf(\textcolor{stringliteral}{"{}bind\ :\ \%d\(\backslash\)n"{}},\ socketServer);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00230}00230\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00231}00231\ \ \ \ \ listen(socketServer,\ 5);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00232}00232\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Listening\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00233}00233\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00234}00234\ \ \ \ \ \mbox{\hyperlink{structarg_server}{argServer}}\ *argt\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structarg_server}{argServer}}));}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00235}00235\ \ \ \ \ argt-\/>sd\ =\ sd;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00236}00236\ \ \ \ \ argt-\/>running\ =\ running;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00237}00237\ \ \ \ \ argt-\/>size\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00238}00238\ \ \ \ \ \textcolor{comment}{//socket\ des\ clients}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00239}00239\ \ \ \ \ SOCKADDR\_IN\ addrClient;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00240}00240\ \ \ \ \ socklen\_t\ csize\ =\ \textcolor{keyword}{sizeof}(addrClient);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00241}00241\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00242}00242\ \ \ \ \ argt-\/>sd-\/>socketServer\ =\ socketServer;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00243}00243\ \ \ \ \ argt-\/>sd-\/>clientSocket\ =\ clientSocket;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00244}00244\ \ \ \ \ argt-\/>sd-\/>addrClient\ =\ addrClient;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00245}00245\ \ \ \ \ argt-\/>sd-\/>joueur.playerRect.w\ =\ 50;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00246}00246\ \ \ \ \ argt-\/>sd-\/>joueur.playerRect.h\ =\ 81;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00247}00247\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00248}00248\ \ \ \ \ \textcolor{comment}{//on\ lance\ et\ attend\ l'arrêt\ du\ serveur}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00249}00249\ \ \ \ \ searchClients((\textcolor{keywordtype}{void}*)argt);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00250}00250\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Fin\ du\ serveur\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00251}00251\ \}}
+
+\end{DoxyCode}

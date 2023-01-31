@@ -1,0 +1,54 @@
+\hypertarget{liste_8h_source}{}\doxysection{liste.\+h}
+\label{liste_8h_source}\index{C:/Users/Yusuf/Lonesome-\/Island/src/liste.h@{C:/Users/Yusuf/Lonesome-\/Island/src/liste.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ LISTE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ LISTE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <SDL.h>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \ \textcolor{keywordtype}{double}\ x;}
+\DoxyCodeLine{00010\ \ \ \ \ \ \textcolor{keywordtype}{double}\ y;}
+\DoxyCodeLine{00011\ \ \ \ \ \ }
+\DoxyCodeLine{00012\ \}\mbox{\hyperlink{struct_vecteur}{Vecteur}};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ \ \ \textcolor{keywordtype}{float}\ DirX,DirY;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Vecteur\ normalisé\ pour\ la\ direction\ (DirX\ =\ cos(Angle),\ DirY\ =\ -\/sin(Angle))}}
+\DoxyCodeLine{00017\ \ \ \textcolor{keywordtype}{int}\ Vitesse;}
+\DoxyCodeLine{00018\ \ \ \textcolor{keywordtype}{int}\ rotation;}
+\DoxyCodeLine{00019\ \ \ \textcolor{keywordtype}{int}\ age;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ SDL\_Rect\ rectangle;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \}\mbox{\hyperlink{struct_bullet}{Bullet}};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structelement}{element}}}
+\DoxyCodeLine{00026\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{struct_bullet}{Bullet}}\ *b;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structelement}{element}}\ *suivant;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \}\mbox{\hyperlink{structelement}{Liste}};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \mbox{\hyperlink{structelement}{Liste}}\ *creerListe();}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \mbox{\hyperlink{structelement}{Liste}}*\ suivant(\mbox{\hyperlink{structelement}{Liste}}\ *l);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keywordtype}{void}\ supprimerListe(\mbox{\hyperlink{structelement}{Liste}}\ *l);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keywordtype}{void}\ ajouterElement(\mbox{\hyperlink{structelement}{Liste}}\ *l,\ \mbox{\hyperlink{struct_bullet}{Bullet}}\ *b);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{int}\ lenght(\mbox{\hyperlink{structelement}{Liste}}\ *l);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keywordtype}{int}\ supprimerElement(\mbox{\hyperlink{structelement}{Liste}}\ *l,\ \mbox{\hyperlink{struct_bullet}{Bullet}}\ *b);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{int}\ elementCompare(\mbox{\hyperlink{struct_bullet}{Bullet}}\ *b1,\ \mbox{\hyperlink{struct_bullet}{Bullet}}\ *b2);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keywordtype}{int}\ hasNext(\mbox{\hyperlink{structelement}{Liste}}\ *l);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

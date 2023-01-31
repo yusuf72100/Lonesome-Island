@@ -1,0 +1,4 @@
+<map id="drawError" name="drawError">
+<area shape="rect" id="node1" title="Affiche l&#39;erreur à l&#39;écran." alt="" coords="5,5,83,31"/>
+<area shape="rect" id="node2" href="$main_8c.html#a6bb510e9f9ce8cb081f3f9ce0beffe31" title="Détruit la fenêtre et le rendu." alt="" coords="131,5,211,31"/>
+</map>

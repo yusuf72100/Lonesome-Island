@@ -1,3 +1,12 @@
+/**
+ * @file sound.h
+ * @author Yusuf Ulas
+ * @brief Fichier contenant les sons
+ * @version 0.1
+ * @date 2023-01-31
+ * @copyright Copyright (c) 2023
+ */
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>

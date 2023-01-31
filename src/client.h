@@ -1,3 +1,12 @@
+/**
+ * @file client.h
+ * @author Yusuf Ulas
+ * @brief Fichier content toutes les informations relatives au client et au serveur 
+ * @version 0.1
+ * @date 2023-01-31
+ * @copyright Copyright (c) 2023
+ */
+
 #ifndef CLIENT_H
 #define CLIENT_H
 
@@ -16,8 +25,6 @@
 #include "socket.h"
 #pragma comment(lib, "ws2_32.lib")
  
-#define TRUE 1
-#define FALSE 0
 #define dataLen 5
 #define THREAD_NULL 0
 #define IP_PUBLIC "90.59.36.118"
@@ -33,19 +40,12 @@ static player joueur;
 static player * joueurs;
 static int size;
 
-
-typedef struct 
-{   
-    SDL_Rect rect;
-    int rotation;
-}argDessinerJoueurs;
-
 void *sendDatas(player joueur);
+
+void *receiveFromServer();
 
 void *stopConnection();
 
 int startConnection();
-
-void *receiveFromServer();
 
 #endif

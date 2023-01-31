@@ -1,0 +1,4 @@
+<map id="drawTitle" name="drawTitle">
+<area shape="rect" id="node1" title="Dessine le titre dans le menu principal." alt="" coords="5,5,79,31"/>
+<area shape="rect" id="node2" href="$main_8c.html#a6bb510e9f9ce8cb081f3f9ce0beffe31" title="Détruit la fenêtre et le rendu." alt="" coords="127,5,207,31"/>
+</map>

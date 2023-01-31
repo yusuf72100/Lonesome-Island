@@ -1,0 +1,36 @@
+\hypertarget{sound_8h_source}{}\doxysection{sound.\+h}
+\label{sound_8h_source}\index{C:/Users/Yusuf/Lonesome-\/Island/src/sound.h@{C:/Users/Yusuf/Lonesome-\/Island/src/sound.h}}
+\mbox{\hyperlink{sound_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <time.h>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <SDL.h>}\ \ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <SDL\_mixer.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <windows.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <pthread.h>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{static}\ Mix\_Chunk*\ boop\ =\ NULL;}
+\DoxyCodeLine{00021\ \textcolor{keyword}{static}\ Mix\_Chunk*\ hover\ =\ NULL;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{static}\ pthread\_t\ hover\_Thread;}
+\DoxyCodeLine{00024\ \textcolor{keyword}{static}\ pthread\_t\ boop\_Thread;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ initAudio();}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keywordtype}{void}\ creation\_canaux\_musique();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keywordtype}{void}\ *play\_hover\_audio(\textcolor{keywordtype}{void}\ *key);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keywordtype}{void}\ *play\_boop(\textcolor{keywordtype}{void}\ *key);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keywordtype}{void}\ init\_boop(SDL\_bool\ *key);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keywordtype}{void}\ init\_hover(SDL\_bool\ *key);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keywordtype}{void}\ detruire\_musique(Mix\_Chunk*\ chunk);}
+
+\end{DoxyCode}

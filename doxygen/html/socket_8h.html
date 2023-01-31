@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Lonesome Island: Référence du fichier C:/Users/Yusuf/Lonesome-Island/src/socket.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Lonesome Island
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Structures de données</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Définitions de type</a> &#124;
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier socket.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Fichier qui contient les informations relatives aux clients et au serveur point de vu socket.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;winsock2.h&gt;</code><br />
+<code>#include &lt;Ws2ipdef.h&gt;</code><br />
+<code>#include &lt;pthread.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;SDL.h&gt;</code><br />
+<code>#include &lt;SDL_image.h&gt;</code><br />
+<code>#include &lt;SDL_ttf.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de socket.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="socket_8h__incl.png" border="0" usemap="#a_c_1_2_users_2_yusuf_2_lonesome-_island_2src_2socket_8h" alt=""/></div>
+<map name="a_c_1_2_users_2_yusuf_2_lonesome-_island_2src_2socket_8h" id="a_c_1_2_users_2_yusuf_2_lonesome-_island_2src_2socket_8h">
+<area shape="rect" title="Fichier qui contient les informations relatives aux clients et au serveur point de vu socket." alt="" coords="428,5,603,45"/>
+<area shape="rect" title=" " alt="" coords="5,93,73,119"/>
+<area shape="rect" title=" " alt="" coords="98,93,159,119"/>
+<area shape="rect" title=" " alt="" coords="183,93,247,119"/>
+<area shape="rect" title=" " alt="" coords="272,93,337,119"/>
+<area shape="rect" title=" " alt="" coords="361,93,448,119"/>
+<area shape="rect" title=" " alt="" coords="472,93,559,119"/>
+<area shape="rect" title=" " alt="" coords="583,93,659,119"/>
+<area shape="rect" title=" " alt="" coords="683,93,748,119"/>
+<area shape="rect" title=" " alt="" coords="773,93,831,119"/>
+<area shape="rect" title=" " alt="" coords="856,93,956,119"/>
+<area shape="rect" title=" " alt="" coords="980,93,1056,119"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
+<div class="dyncontent">
+<div class="center"><img src="socket_8h__dep__incl.png" border="0" usemap="#a_c_1_2_users_2_yusuf_2_lonesome-_island_2src_2socket_8hdep" alt=""/></div>
+<map name="a_c_1_2_users_2_yusuf_2_lonesome-_island_2src_2socket_8hdep" id="a_c_1_2_users_2_yusuf_2_lonesome-_island_2src_2socket_8hdep">
+<area shape="rect" title="Fichier qui contient les informations relatives aux clients et au serveur point de vu socket." alt="" coords="167,5,341,45"/>
+<area shape="rect" href="client_8h.html" title="Fichier content toutes les informations relatives au client et au serveur." alt="" coords="68,93,243,133"/>
+<area shape="rect" href="socket_8c.html" title="Fichier qui s&#39;occupera uniquement du serveur." alt="" coords="267,93,441,133"/>
+<area shape="rect" href="client_8c.html" title="Fichier qui contient la configuration du socket client." alt="" coords="5,269,180,309"/>
+<area shape="rect" href="main_8h.html" title="Fichier contenant toutes les variables d&#39;affichage." alt="" coords="131,181,305,221"/>
+<area shape="rect" href="main_8c.html" title="Fichier principal du programme qui s&#39;occupera de la partie graphique." alt="" coords="204,269,379,309"/>
+</map>
+</div>
+</div>
+<p><a href="socket_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Structures de données</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structplayer.html">player</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sauvegarde les informations de chaque joueurs relatives uniquement au jeu en lui-même (points de vie, coordonnées, animation...).  <a href="structplayer.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsocket_datas.html">socketDatas</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sauvegarde les informations de chaque joueurs relatives au socket et à la connection au serveur (adresse ip, port, données de jeu, socket...).  <a href="structsocket_datas.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structarg_server.html">argServer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rassemble toutes les données de tous les joueurs dans le but de pouvoir communiquer tout cela dans des threads.  <a href="structarg_server.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsend2_client.html">send2Client</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rassemble les données d'un seul joueur.  <a href="structsend2_client.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:aa8cecfc5c5c054d2875c03e77b7be15d"><td class="memItemLeft" align="right" valign="top"><a id="aa8cecfc5c5c054d2875c03e77b7be15d" name="aa8cecfc5c5c054d2875c03e77b7be15d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>TRUE</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:aa8cecfc5c5c054d2875c03e77b7be15d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa93f0eb578d23995850d61f7d61c55c1"><td class="memItemLeft" align="right" valign="top"><a id="aa93f0eb578d23995850d61f7d61c55c1" name="aa93f0eb578d23995850d61f7d61c55c1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>FALSE</b>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:aa93f0eb578d23995850d61f7d61c55c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84ac3266d9efb284e798de99c6bd8165"><td class="memItemLeft" align="right" valign="top"><a id="a84ac3266d9efb284e798de99c6bd8165" name="a84ac3266d9efb284e798de99c6bd8165"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>dataLen</b>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:a84ac3266d9efb284e798de99c6bd8165"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab88eb169a168b47e25d70b2f442f6c5b"><td class="memItemLeft" align="right" valign="top"><a id="ab88eb169a168b47e25d70b2f442f6c5b" name="ab88eb169a168b47e25d70b2f442f6c5b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>IP_LOCALE</b>&#160;&#160;&#160;&quot;192.168.1.16&quot;</td></tr>
+<tr class="separator:ab88eb169a168b47e25d70b2f442f6c5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:a3f5f480bed01f54df564b99350f1d1bb"><td class="memItemLeft" align="right" valign="top"><a id="a3f5f480bed01f54df564b99350f1d1bb" name="a3f5f480bed01f54df564b99350f1d1bb"></a>
+typedef uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>socklen_t</b></td></tr>
+<tr class="separator:a3f5f480bed01f54df564b99350f1d1bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa66179db696591eb40fed14d270a661d"><td class="memItemLeft" align="right" valign="top"><a id="aa66179db696591eb40fed14d270a661d" name="aa66179db696591eb40fed14d270a661d"></a>
+typedef struct <a class="el" href="structsend2_client.html">send2Client</a>&#160;</td><td class="memItemRight" valign="bottom"><b>send2Client</b></td></tr>
+<tr class="memdesc:aa66179db696591eb40fed14d270a661d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rassemble les données d'un seul joueur. <br /></td></tr>
+<tr class="separator:aa66179db696591eb40fed14d270a661d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a10d588931e71363df68940a8dd01b898"><td class="memItemLeft" align="right" valign="top"><a id="a10d588931e71363df68940a8dd01b898" name="a10d588931e71363df68940a8dd01b898"></a>
+void *&#160;</td><td class="memItemRight" valign="bottom"><b>clearInput</b> (SOCKET socketClient)</td></tr>
+<tr class="separator:a10d588931e71363df68940a8dd01b898"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad768973bc551435391fa1ddfbb0355a1"><td class="memItemLeft" align="right" valign="top"><a id="ad768973bc551435391fa1ddfbb0355a1" name="ad768973bc551435391fa1ddfbb0355a1"></a>
+void *&#160;</td><td class="memItemRight" valign="bottom"><b>searchClients</b> (void *argt)</td></tr>
+<tr class="separator:ad768973bc551435391fa1ddfbb0355a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b61093f2f5316157d1e6d3d05cf5ebc"><td class="memItemLeft" align="right" valign="top"><a id="a3b61093f2f5316157d1e6d3d05cf5ebc" name="a3b61093f2f5316157d1e6d3d05cf5ebc"></a>
+void *&#160;</td><td class="memItemRight" valign="bottom"><b>receiveFromClient</b> (void *arg)</td></tr>
+<tr class="separator:a3b61093f2f5316157d1e6d3d05cf5ebc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8f7aaaf34db2175c7a9c4ab7d3306fc"><td class="memItemLeft" align="right" valign="top"><a id="af8f7aaaf34db2175c7a9c4ab7d3306fc" name="af8f7aaaf34db2175c7a9c4ab7d3306fc"></a>
+static void *&#160;</td><td class="memItemRight" valign="bottom"><b>sendToClient</b> (<a class="el" href="structsend2_client.html">send2Client</a> *argClient, int position)</td></tr>
+<tr class="separator:af8f7aaaf34db2175c7a9c4ab7d3306fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3490387e86b9ba6a1ee9ed3984b637d5"><td class="memItemLeft" align="right" valign="top"><a id="a3490387e86b9ba6a1ee9ed3984b637d5" name="a3490387e86b9ba6a1ee9ed3984b637d5"></a>
+void *&#160;</td><td class="memItemRight" valign="bottom"><b>startServer</b> ()</td></tr>
+<tr class="separator:a3490387e86b9ba6a1ee9ed3984b637d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a07e65b6c6f657726ba33df7d15c5037b"><td class="memItemLeft" align="right" valign="top"><a id="a07e65b6c6f657726ba33df7d15c5037b" name="a07e65b6c6f657726ba33df7d15c5037b"></a>
+static pthread_t *&#160;</td><td class="memItemRight" valign="bottom"><b>receive_from_client</b></td></tr>
+<tr class="separator:a07e65b6c6f657726ba33df7d15c5037b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85a10c25e058d41a68a7b526a5d3fed4"><td class="memItemLeft" align="right" valign="top"><a id="a85a10c25e058d41a68a7b526a5d3fed4" name="a85a10c25e058d41a68a7b526a5d3fed4"></a>
+static char&#160;</td><td class="memItemRight" valign="bottom"><b>tramClient_send</b> [100]</td></tr>
+<tr class="separator:a85a10c25e058d41a68a7b526a5d3fed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07ca08cdb87ab3025235c2dad252e007"><td class="memItemLeft" align="right" valign="top"><a id="a07ca08cdb87ab3025235c2dad252e007" name="a07ca08cdb87ab3025235c2dad252e007"></a>
+static char&#160;</td><td class="memItemRight" valign="bottom"><b>tramClient_receive</b> [100]</td></tr>
+<tr class="separator:a07ca08cdb87ab3025235c2dad252e007"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d3f21e6344e01f9aee2f659c02e09cf"><td class="memItemLeft" align="right" valign="top"><a id="a4d3f21e6344e01f9aee2f659c02e09cf" name="a4d3f21e6344e01f9aee2f659c02e09cf"></a>
+static char&#160;</td><td class="memItemRight" valign="bottom"><b>recvBuffer</b> [dataLen]</td></tr>
+<tr class="separator:a4d3f21e6344e01f9aee2f659c02e09cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f392692ec414375d2aff500177111e2"><td class="memItemLeft" align="right" valign="top"><a id="a6f392692ec414375d2aff500177111e2" name="a6f392692ec414375d2aff500177111e2"></a>
+static SOCKET&#160;</td><td class="memItemRight" valign="bottom"><b>socketServer</b></td></tr>
+<tr class="separator:a6f392692ec414375d2aff500177111e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Fichier qui contient les informations relatives aux clients et au serveur point de vu socket. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Yusuf Ulas </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2023-01-31 </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2023 </dd></dl>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+</small></address>
+</body>
+</html>

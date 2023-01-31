@@ -1,0 +1,82 @@
+\hypertarget{liste_8c_source}{}\doxysection{liste.\+c}
+\label{liste_8c_source}\index{C:/Users/Yusuf/Lonesome-\/Island/src/liste.c@{C:/Users/Yusuf/Lonesome-\/Island/src/liste.c}}
+\mbox{\hyperlink{liste_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}liste.h"{}}}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00012}00012\ \textcolor{keywordtype}{void}\ supprimerListe(\mbox{\hyperlink{structelement}{Liste}}\ *l)}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00013}00013\ \{}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00014}00014\ \ \ \ \ \textcolor{keywordflow}{if}(l-\/>suivant\ !=\ NULL)}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00015}00015\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00016}00016\ \ \ \ \ \ \ \ \ supprimerListe(l-\/>suivant);}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00017}00017\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00018}00018\ \ \ \ \ free(l);}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00019}00019\ \}}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00021}00021\ \mbox{\hyperlink{structelement}{Liste}}\ *creerListe()}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00022}00022\ \{}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00023}00023\ \ \ \ \ \mbox{\hyperlink{structelement}{Liste}}\ *nouveau\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structelement}{Liste}}*)\ +\ 100);}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00024}00024\ \ \ \ \ nouveau-\/>b\ =\ NULL;\ }
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00025}00025\ \ \ \ \ nouveau-\/>suivant\ =\ NULL;\ }
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00027}00027\ \ \ \ \ \textcolor{keywordflow}{return}\ nouveau;}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00028}00028\ \}}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00030}00030\ \mbox{\hyperlink{structelement}{Liste}}*\ suivant(\mbox{\hyperlink{structelement}{Liste}}\ *l)}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00031}00031\ \{}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00032}00032\ \ \ \ \ \textcolor{keywordflow}{return}\ l-\/>suivant;}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00033}00033\ \}}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00035}00035\ \textcolor{keywordtype}{void}\ ajouterElement(\mbox{\hyperlink{structelement}{Liste}}\ *l,\ \mbox{\hyperlink{struct_bullet}{Bullet}}\ *b)}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00036}00036\ \{}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{if}(l-\/>suivant\ !=\ NULL)}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00038}00038\ \ \ \ \ \ \ \ \ ajouterElement(l-\/>suivant,b);}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00040}00040\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00041}00041\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00042}00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structelement}{Liste}}\ *nouveau\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structelement}{Liste}}*)\ +\ 100);}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00043}00043\ \ \ \ \ \ \ \ \ nouveau-\/>b\ =\ b;\ }
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00044}00044\ \ \ \ \ \ \ \ \ nouveau-\/>suivant\ =\ NULL;\ }
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00045}00045\ \ \ \ \ \ \ \ \ l-\/>suivant\ =\ nouveau;}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00046}00046\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00047}00047\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00048}00048\ \}}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00050}00050\ \textcolor{comment}{//\ renvoi\ la\ longueur\ de\ la\ liste}}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00051}00051\ \textcolor{keywordtype}{int}\ lenght(\mbox{\hyperlink{structelement}{Liste}}\ *l)}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00052}00052\ \{}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00053}00053\ \ \ \ \ \textcolor{keywordflow}{if}(l-\/>suivant\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00055}00055\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1\ +\ lenght(l-\/>suivant);}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00057}00057\ \}}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00059}00059\ \textcolor{keywordtype}{int}\ elementCompare(\mbox{\hyperlink{struct_bullet}{Bullet}}\ *b1,\ \mbox{\hyperlink{struct_bullet}{Bullet}}\ *b2)}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00060}00060\ \{}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00061}00061\ \ \ \ \ \textcolor{keywordflow}{return}(b1-\/>DirX\ ==\ b2-\/>DirX\ \&\&\ b1-\/>DirY\ ==\ b2-\/>DirY\ \&\&\ b1-\/>Vitesse\ ==\ b2-\/>Vitesse\ \&\&\ b1-\/>rotation\ ==\ b2-\/>rotation\ \&\&\ b1-\/>rectangle.x\ ==\ b1-\/>rectangle.y\ \&\&\ b1-\/>rectangle.y\ ==\ b2-\/>rectangle.y\ \&\&\ b1-\/>rectangle.h\ ==\ b2-\/>rectangle.h\ \&\&\ b1-\/>rectangle.w\ ==\ b2-\/>rectangle.w);}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00062}00062\ \}}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00064}00064\ \textcolor{keywordtype}{int}\ supprimerElement(\mbox{\hyperlink{structelement}{Liste}}\ *l,\ \mbox{\hyperlink{struct_bullet}{Bullet}}\ *b)}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00065}00065\ \{}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00066}00066\ \ \ \ \ \textcolor{keywordflow}{if}(elementCompare(l-\/>suivant-\/>b,\ b))}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00067}00067\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structelement}{Liste}}*\ elementSup\ =\ l-\/>suivant;}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00069}00069\ \ \ \ \ \ \ \ \ l-\/>suivant\ =\ elementSup-\/>suivant;}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00070}00070\ \ \ \ \ \ \ \ \ free(elementSup);}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00071}00071\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00073}00073\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ supprimerElement(l-\/>suivant,b);}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00075}00075\ \}}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00077}00077\ \textcolor{comment}{//\ renvoi\ 0\ si\ la\ liste\ n'a\ plus\ de\ place}}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00078}00078\ \textcolor{keywordtype}{int}\ hasNext(\mbox{\hyperlink{structelement}{Liste}}\ *l)}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00079}00079\ \{}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00080}00080\ \ \ \ \ \textcolor{keywordflow}{if}(l\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00081}00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00083}00083\ \ \ \ \ \textcolor{keywordflow}{return}\ lenght(l);}
+\DoxyCodeLine{\Hypertarget{liste_8c_source_l00084}00084\ \}}
+
+\end{DoxyCode}

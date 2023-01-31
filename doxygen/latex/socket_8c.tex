@@ -1,0 +1,57 @@
+\hypertarget{socket_8c}{}\doxysection{Référence du fichier C\+:/\+Users/\+Yusuf/\+Lonesome-\/\+Island/src/socket.c}
+\label{socket_8c}\index{C:/Users/Yusuf/Lonesome-\/Island/src/socket.c@{C:/Users/Yusuf/Lonesome-\/Island/src/socket.c}}
+
+
+Fichier qui s\textquotesingle{}occupera uniquement du serveur.  
+
+
+{\ttfamily \#include \char`\"{}socket.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de socket.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{socket_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{socket_8c_a3dcd3c30720aba1561c8aa376a2474c5}\label{socket_8c_a3dcd3c30720aba1561c8aa376a2474c5}} 
+static void {\bfseries buildtram\+Client\+\_\+send} (\mbox{\hyperlink{structplayer}{player}} joueur, int i, int size)
+\item 
+\mbox{\Hypertarget{socket_8c_af8f7aaaf34db2175c7a9c4ab7d3306fc}\label{socket_8c_af8f7aaaf34db2175c7a9c4ab7d3306fc}} 
+static void $\ast$ {\bfseries send\+To\+Client} (\mbox{\hyperlink{structsend2_client}{send2\+Client}} $\ast$arg\+Client, int position)
+\item 
+\mbox{\Hypertarget{socket_8c_acbb9a47a13a93e7936282bfe14f153eb}\label{socket_8c_acbb9a47a13a93e7936282bfe14f153eb}} 
+static void {\bfseries trait\+Data} (\mbox{\hyperlink{structsend2_client}{send2\+Client}} $\ast$arg\+Client, int indice)
+\item 
+\mbox{\Hypertarget{socket_8c_af93eb740b3e202bdcb05795a2da4ef8c}\label{socket_8c_af93eb740b3e202bdcb05795a2da4ef8c}} 
+void {\bfseries disconnect\+Player} (\mbox{\hyperlink{structsend2_client}{send2\+Client}} $\ast$arg\+Client, int position)
+\item 
+\mbox{\Hypertarget{socket_8c_a3b61093f2f5316157d1e6d3d05cf5ebc}\label{socket_8c_a3b61093f2f5316157d1e6d3d05cf5ebc}} 
+void $\ast$ {\bfseries receive\+From\+Client} (void $\ast$arg)
+\item 
+\mbox{\Hypertarget{socket_8c_a68b45930fad2153f053144a8678afa1c}\label{socket_8c_a68b45930fad2153f053144a8678afa1c}} 
+void $\ast$ {\bfseries search\+Clients} (void $\ast$arg)
+\item 
+\mbox{\Hypertarget{socket_8c_a3490387e86b9ba6a1ee9ed3984b637d5}\label{socket_8c_a3490387e86b9ba6a1ee9ed3984b637d5}} 
+void $\ast$ {\bfseries start\+Server} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier qui s\textquotesingle{}occupera uniquement du serveur. 
+
+\begin{DoxyAuthor}{Auteur}
+Yusuf Ulas 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2023-\/01-\/31 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}

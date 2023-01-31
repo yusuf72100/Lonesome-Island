@@ -1,3 +1,12 @@
+/**
+ * @file socket.h
+ * @author Yusuf Ulas
+ * @brief Fichier qui contient les informations relatives aux clients et au serveur point de vu socket
+ * @version 0.1
+ * @date 2023-01-31
+ * @copyright Copyright (c) 2023
+ */
+
 #ifndef SOCKET_H
 #define SOCKET_H
 
@@ -39,6 +48,10 @@ static char tramClient_receive[100];
 static char recvBuffer[dataLen]; 
 static SOCKET socketServer;
 
+/**
+ * @brief Sauvegarde les informations de chaque joueurs relatives uniquement au jeu en lui-même (points de vie, coordonnées, animation...).
+ * 
+ */
 typedef struct
 {
     SDL_Rect playerRect;
@@ -46,7 +59,10 @@ typedef struct
 
 }player;
 
-
+/**
+ * @brief Sauvegarde les informations de chaque joueurs relatives au socket et à la connection au serveur (adresse ip, port, données de jeu, socket...).
+ * 
+ */
 typedef struct 
 {
     SOCKET socketServer;
@@ -56,6 +72,10 @@ typedef struct
 
 }socketDatas;
 
+/**
+ * @brief Rassemble toutes les données de tous les joueurs dans le but de pouvoir communiquer tout cela dans des threads.
+ * 
+ */
 typedef struct 
 {
     socketDatas * sd;
@@ -64,7 +84,10 @@ typedef struct
 
 }argServer;
 
-
+/**
+ * @brief Rassemble les données d'un seul joueur.
+ * 
+ */
 typedef struct send2Client
 {
     SOCKET socket;

@@ -1,0 +1,6 @@
+<map id="delay_breath" name="delay_breath">
+<area shape="rect" id="node1" title="Délai d&#39;animation de respiration." alt="" coords="391,5,487,31"/>
+<area shape="rect" id="node2" href="$main_8c.html#a4ea2b775628e7e2857760cb4a3f60e5f" title="Animation de respiration." alt="" coords="227,5,343,31"/>
+<area shape="rect" id="node3" href="$main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
+<area shape="rect" id="node4" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>

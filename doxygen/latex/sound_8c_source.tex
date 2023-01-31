@@ -1,0 +1,67 @@
+\hypertarget{sound_8c_source}{}\doxysection{sound.\+c}
+\label{sound_8c_source}\index{C:/Users/Yusuf/Lonesome-\/Island/src/sound.c@{C:/Users/Yusuf/Lonesome-\/Island/src/sound.c}}
+\mbox{\hyperlink{sound_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{sound_8h}{sound.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00012}00012\ \textcolor{keywordtype}{void}\ initAudio()}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00013}00013\ \{}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00014}00014\ \ \ \ \ \textcolor{keywordflow}{if}(Mix\_OpenAudio(44100,\ MIX\_DEFAULT\_FORMAT,\ MIX\_DEFAULT\_CHANNELS,\ 1024)\ ==\ -\/1)}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00015}00015\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%s"{}},\ Mix\_GetError());}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00016}00016\ \}}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00018}00018\ \textcolor{keywordtype}{void}\ creation\_canaux\_musique()}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00019}00019\ \{}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00020}00020\ \ \ \ \ \textcolor{keywordflow}{if}(Mix\_AllocateChannels(2)\ ==\ -\/1)\ SDL\_LogError(SDL\_LOG\_CATEGORY\_APPLICATION,\ \textcolor{stringliteral}{"{}Erreur\ chargement\ de\ la\ musique\ :\ \%s"{}},\ Mix\_GetError());}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00021}00021\ \ \ \ \ \textcolor{comment}{/*Cannaux:}}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00022}00022\ \textcolor{comment}{\ \ \ \ \ *0:Musique\ fond}}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00023}00023\ \textcolor{comment}{\ \ \ \ \ *1:Effets\ joueur\ 1}}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00024}00024\ \textcolor{comment}{\ \ \ \ \ *2:Effets\ Joueur\ 2}}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00025}00025\ \textcolor{comment}{\ \ \ \ \ *3:Effets\ Joueur\ 3}}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00026}00026\ \textcolor{comment}{\ \ \ \ \ *4:Effets\ Joueur\ 4}}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00027}00027\ \textcolor{comment}{\ \ \ \ \ *5:Dialogues}}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00028}00028\ \textcolor{comment}{\ \ \ \ \ *6:Buffer}}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00029}00029\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00030}00030\ \ \ \ \ boop\ =\ Mix\_LoadWAV(\textcolor{stringliteral}{"{}resources/sounds/boop.wav"{}});}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00031}00031\ \ \ \ \ hover\ =\ Mix\_LoadWAV(\textcolor{stringliteral}{"{}resources/sounds/hover.wav"{}});}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00032}00032\ \}}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00034}00034\ \textcolor{keywordtype}{void}\ *play\_hover\_audio(\textcolor{keywordtype}{void}\ *key)}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00035}00035\ \{}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00036}00036\ \ \ \ \ SDL\_bool\ *temp\ =\ key;}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00037}00037\ \ \ \ \ Mix\_PlayChannel(1,\ hover,\ 0);}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00038}00038\ \ \ \ \ \textcolor{keywordflow}{while}(*temp);}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00039}00039\ \ \ \ \ pthread\_exit(NULL);}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00040}00040\ \}}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00042}00042\ \textcolor{keywordtype}{void}\ init\_hover(SDL\_bool\ *key)}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00043}00043\ \{}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00044}00044\ \ \ \ \ \textcolor{keywordflow}{if}(pthread\_kill(hover\_Thread,0)\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00045}00045\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00046}00046\ \ \ \ \ \ \ \ \ pthread\_create(\&hover\_Thread,NULL,play\_hover\_audio,key);}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00047}00047\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00048}00048\ \}}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00050}00050\ \textcolor{keywordtype}{void}\ *play\_boop(\textcolor{keywordtype}{void}\ *key)}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00051}00051\ \{}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00052}00052\ \ \ \ \ \textcolor{keywordtype}{int}\ *temp\ =\ key;}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00053}00053\ \ \ \ \ Mix\_PlayChannel(0,\ boop,\ 0);}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00054}00054\ \ \ \ \ \textcolor{keywordflow}{while}(*temp);}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00055}00055\ \ \ \ \ pthread\_exit(NULL);}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00056}00056\ \}}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00058}00058\ \textcolor{keywordtype}{void}\ init\_boop(SDL\_bool\ *key)}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00059}00059\ \{}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00060}00060\ \ \ \ \ \textcolor{keywordflow}{if}(pthread\_kill(boop\_Thread,0)\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00061}00061\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00062}00062\ \ \ \ \ \ \ \ \ pthread\_create(\&boop\_Thread,NULL,play\_boop,key);}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00063}00063\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00064}00064\ \}}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00066}00066\ \textcolor{keywordtype}{void}\ detruire\_musique(Mix\_Chunk*\ chunk)}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00067}00067\ \{}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00068}00068\ \ \ \ \ Mix\_FreeChunk(chunk);}
+\DoxyCodeLine{\Hypertarget{sound_8c_source_l00069}00069\ \}}
+
+\end{DoxyCode}

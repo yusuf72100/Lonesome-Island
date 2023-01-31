@@ -1,0 +1,172 @@
+\hypertarget{client_8c_source}{}\doxysection{client.\+c}
+\label{client_8c_source}\index{C:/Users/Yusuf/Lonesome-\/Island/src/client.c@{C:/Users/Yusuf/Lonesome-\/Island/src/client.c}}
+\mbox{\hyperlink{client_8c}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{client_8h}{client.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{main_8h}{main.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00013}00013\ \textcolor{keywordtype}{int}\ connectedError=\ FALSE;}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00015}00015\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ traitData()}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00016}00016\ \{}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00017}00017\ \ \ \ \ \textcolor{keywordtype}{int}\ position\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00018}00018\ \ \ \ \ \textcolor{keywordtype}{int}\ j,\ k;}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00019}00019\ \ \ \ \ \textcolor{keywordtype}{char}\ buffer[20]\ =\ \textcolor{stringliteral}{"{}\(\backslash\)0"{}};}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00020}00020\ \ \ \ \ \textcolor{comment}{//printf("{}tien\ :\ \%s"{},tramClient\_receive);}}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00021}00021\ \ \ \ \ \textcolor{keywordflow}{for}(j\ =\ 0;\ tramClient\_receive[j]!=\textcolor{charliteral}{'\(\backslash\)0'};\ j++)\{}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00022}00022\ \ \ \ \ \ \ \ \ k\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(tramClient\_receive[j]\ ==\ \textcolor{charliteral}{'i'})}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00025}00025\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ j++;}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(tramClient\_receive[j]\ >=\ \textcolor{charliteral}{'0'}\ \&\&\ tramClient\_receive[j]\ <=\ \textcolor{charliteral}{'9'})}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ buffer[k]\ =\ tramClient\_receive[j];}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ k++;}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ j++;}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ buffer[k]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ position\ =\ atoi(buffer);}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ k=0;}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ buffer[0]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00037}00037\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(tramClient\_receive[j]\ ==\ \textcolor{charliteral}{'x'})}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00039}00039\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ j++;}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(tramClient\_receive[j]\ >=\ \textcolor{charliteral}{'0'}\ \&\&\ tramClient\_receive[j]\ <=\ \textcolor{charliteral}{'9'})}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ buffer[k]\ =\ tramClient\_receive[j];}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ k++;}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ j++;}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ buffer[k]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ joueurs[position].playerRect.x\ =\ atoi(buffer);}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ k=0;}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ buffer[0]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(tramClient\_receive[j]\ ==\ \textcolor{charliteral}{'y'})}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00053}00053\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ j++;}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(tramClient\_receive[j]\ >=\ \textcolor{charliteral}{'0'}\ \&\&\ tramClient\_receive[j]\ <=\ \textcolor{charliteral}{'9'})}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ buffer[k]\ =\ tramClient\_receive[j];}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ k++;}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ j++;}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ buffer[k]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ joueurs[position].playerRect.y\ =\ atoi(buffer);}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ k=0;}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ buffer[0]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00065}00065\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(tramClient\_receive[j]\ ==\ \textcolor{charliteral}{'a'})}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00067}00067\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ j++;}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(tramClient\_receive[j]\ >=\ \textcolor{charliteral}{'0'}\ \&\&\ tramClient\_receive[j]\ <=\ \textcolor{charliteral}{'9'})}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ buffer[k]\ =\ tramClient\_receive[j];}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ k++;}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ j++;}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ buffer[k]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ joueurs[position].animation\_state\ =\ atoi(buffer);}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ k=0;}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ buffer[0]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00079}00079\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(tramClient\_receive[j]\ ==\ \textcolor{charliteral}{'s'})}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00081}00081\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ j++;}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(tramClient\_receive[j]\ >=\ \textcolor{charliteral}{'0'}\ \&\&\ tramClient\_receive[j]\ <=\ \textcolor{charliteral}{'9'})}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ buffer[k]\ =\ tramClient\_receive[j];}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ k++;}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ j++;}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ buffer[k]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ size\ =\ atoi(buffer);}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ k=0;}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ buffer[0]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00095}00095\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00096}00096\ \}}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00098}00098\ \textcolor{keywordtype}{void}\ *receiveFromServer()}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00099}00099\ \{}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00100}00100\ \ \ \ \ \textcolor{keywordflow}{while}(TRUE)}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00101}00101\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00102}00102\ \ \ \ \ \ \ \ \ recv(*socket\_Server,tramClient\_receive,(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char})*30),0);}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00103}00103\ \ \ \ \ \ \ \ \ \textcolor{comment}{//printf("{}Received\ from\ server:\ \%s\(\backslash\)n"{},tramClient\_receive);}}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00104}00104\ \ \ \ \ \ \ \ \ traitData();}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00105}00105\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{main_8c_a734d34007877ed5938e58dccb669ba96}{synchDatas}}(joueurs,size);}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00106}00106\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00107}00107\ \}}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00109}00109\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ buildTram(\mbox{\hyperlink{structplayer}{player}}\ joueur)}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00110}00110\ \{}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00111}00111\ \ \ \ \ tramClient\_send[0]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00112}00112\ \ \ \ \ strcat(tramClient\_send,\ \textcolor{stringliteral}{"{}fff\ "{}});}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00113}00113\ \ \ \ \ \textcolor{keywordtype}{char}\ bufferX[3]\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00114}00114\ \ \ \ \ \textcolor{keywordtype}{char}\ dataX[4]\ =\ \textcolor{stringliteral}{"{}x"{}};}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00115}00115\ \ \ \ \ itoa(joueur.playerRect.x,\ bufferX,\ 10);}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00116}00116\ \ \ \ \ strcat(dataX,\ bufferX);}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00117}00117\ \ \ \ \ strcat(tramClient\_send,\ dataX);}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00119}00119\ \ \ \ \ \textcolor{keywordtype}{char}\ bufferY[3]\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00120}00120\ \ \ \ \ \textcolor{keywordtype}{char}\ dataY[4]\ =\ \textcolor{stringliteral}{"{}y"{}};}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00121}00121\ \ \ \ \ itoa(joueur.playerRect.y,\ bufferY,\ 10);}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00122}00122\ \ \ \ \ strcat(dataY,\ bufferY);}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00123}00123\ \ \ \ \ strcat(tramClient\_send,\ dataY);}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00124}00124\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00125}00125\ \ \ \ \ \textcolor{keywordtype}{char}\ bufferA[3]\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00126}00126\ \ \ \ \ \textcolor{keywordtype}{char}\ dataA[4]\ =\ \textcolor{stringliteral}{"{}a"{}};}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00127}00127\ \ \ \ \ itoa(joueur.animation\_state,\ bufferA,\ 10);}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00128}00128\ \ \ \ \ strcat(dataA,\ bufferA);}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00129}00129\ \ \ \ \ strcat(tramClient\_send,\ dataA);}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00130}00130\ \ \ \ \ strcat(tramClient\_send,\ \textcolor{stringliteral}{"{}\ fff"{}});}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00131}00131\ \}}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00133}00133\ \textcolor{keywordtype}{void}\ *sendDatas(\mbox{\hyperlink{structplayer}{player}}\ joueur)}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00134}00134\ \{}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00135}00135\ \ \ \ \ buildTram(joueur);}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00136}00136\ \ \ \ \ \textcolor{keywordflow}{if}(send(*socket\_Server,tramClient\_send,(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char})*30),0)\ ==\ SOCKET\_ERROR)}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00137}00137\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ stopConnection();}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00139}00139\ \ \ \ \ \ \ \ \ connectedError=\ TRUE;}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00140}00140\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00141}00141\ \}}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00143}00143\ \textcolor{keywordtype}{void}\ *stopConnection()}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00144}00144\ \{}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00145}00145\ \ \ \ \ closesocket(*socket\_Server);}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00146}00146\ \ \ \ \ WSACleanup();}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00147}00147\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Connection\ closed\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00148}00148\ \}}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00150}00150\ \textcolor{keywordtype}{int}\ startConnection()}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00151}00151\ \{\ \ \ }
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00152}00152\ \ \ \ \ joueurs\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structplayer}{player}})\ *\ 10);}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00153}00153\ \ \ \ \ socket\_Server\ =\ malloc(\textcolor{keyword}{sizeof}(SOCKET));}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00154}00154\ \ \ \ \ \textcolor{keywordtype}{char}\ *msg\ =\ malloc(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char})*2+1);}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00155}00155\ \ \ \ \ WSADATA\ WSAData;}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00156}00156\ \ \ \ \ WSAStartup(MAKEWORD(2,0),\ \&WSAData);}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00157}00157\ \ \ \ \ SOCKADDR\_IN\ addrServer;}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00158}00158\ \ \ \ \ addrServer.sin\_addr.s\_addr\ =\ inet\_addr(IP\_LOCALE);\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00159}00159\ \ \ \ \ addrServer.sin\_family\ =\ AF\_INET;}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00160}00160\ \ \ \ \ addrServer.sin\_port\ =\ htons(4148);}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00161}00161\ \ \ \ \ *socket\_Server\ =\ socket(AF\_INET,SOCK\_STREAM,IPPROTO\_TCP);}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00163}00163\ \ \ \ \ \textcolor{comment}{//on\ test\ la\ connexion}}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00164}00164\ \ \ \ \ connectedError\ =\ connect(*socket\_Server,\ (\textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ sockaddr\ *)\&addrServer,\ \textcolor{keyword}{sizeof}(addrServer));}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00165}00165\ \ \ \ \ \textcolor{keywordflow}{if}(connectedError\ ==\ SOCKET\_ERROR)\ }
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00166}00166\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00167}00167\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Error\ :\ "{}});}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00168}00168\ \ \ \ \ \ \ \ \ stopConnection();}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00169}00169\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00170}00170\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00172}00172\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Connected\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00173}00173\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{client_8c_source_l00174}00174\ \}}
+
+\end{DoxyCode}

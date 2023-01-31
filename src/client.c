@@ -1,3 +1,12 @@
+/**
+ * @file client.c
+ * @author Yusuf Ulas
+ * @brief Fichier qui contient la configuration du socket client
+ * @version 0.1
+ * @date 2023-01-31
+ * @copyright Copyright (c) 2023
+ */
+
 #include "client.h"
 #include "main.h"
 
@@ -121,6 +130,12 @@ static void buildTram(player joueur)
     strcat(tramClient_send, " fff");
 }
 
+/**
+ * @brief Récupère les données du joueur et les envois au serveur via le socket.
+ * 
+ * @param joueur 
+ * @return void* 
+ */
 void *sendDatas(player joueur)
 {
     buildTram(joueur);

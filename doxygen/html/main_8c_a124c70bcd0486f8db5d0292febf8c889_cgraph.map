@@ -1,0 +1,5 @@
+<map id="switchAnimation" name="switchAnimation">
+<area shape="rect" id="node1" title="Applique la bonne texture au joueur en fonction de son animation." alt="" coords="5,5,123,31"/>
+<area shape="rect" id="node2" href="$main_8c.html#afd0ed75a870240cedc972c1fe3cb89c1" title="Dessine un joueur en fonction de ses coordonnées et de sa texture." alt="" coords="171,5,257,31"/>
+<area shape="rect" id="node3" href="$main_8c.html#a6bb510e9f9ce8cb081f3f9ce0beffe31" title="Détruit la fenêtre et le rendu." alt="" coords="305,5,385,31"/>
+</map>

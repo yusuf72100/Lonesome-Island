@@ -1,0 +1,49 @@
+\hypertarget{client_8h_source}{}\doxysection{client.\+h}
+\label{client_8h_source}\index{C:/Users/Yusuf/Lonesome-\/Island/src/client.h@{C:/Users/Yusuf/Lonesome-\/Island/src/client.h}}
+\mbox{\hyperlink{client_8h}{Aller à la documentation de ce fichier.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ CLIENT\_H}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ CLIENT\_H}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <winsock2.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <Ws2ipdef.h>}\ \ \ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <pthread.h>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <SDL.h>}\ \ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <SDL\_image.h>}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <SDL\_ttf.h>}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{socket_8h}{socket.h}}"{}}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#pragma\ comment(lib,\ "{}ws2\_32.lib"{}})}
+\DoxyCodeLine{00027\ \ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ dataLen\ 5}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ THREAD\_NULL\ 0}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ IP\_PUBLIC\ "{}90.59.36.118"{}}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ IP\_LOCALE\ "{}192.168.1.16"{}}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{typedef}\ uint32\_t\ socklen\_t;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{static}\ SOCKET\ *socket\_Server;}
+\DoxyCodeLine{00036\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ tramClient\_send[100];}
+\DoxyCodeLine{00037\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ tramClient\_receive[100];}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structplayer}{player}}\ joueur;}
+\DoxyCodeLine{00040\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structplayer}{player}}\ *\ joueurs;}
+\DoxyCodeLine{00041\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ size;}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{client_8h_a7cea858f95329a092fd2cbc746c59728}{sendDatas}}(\mbox{\hyperlink{structplayer}{player}}\ joueur);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keywordtype}{void}\ *receiveFromServer();}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keywordtype}{void}\ *stopConnection();}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{int}\ startConnection();}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

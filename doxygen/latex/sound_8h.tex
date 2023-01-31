@@ -1,0 +1,88 @@
+\hypertarget{sound_8h}{}\doxysection{Référence du fichier C\+:/\+Users/\+Yusuf/\+Lonesome-\/\+Island/src/sound.h}
+\label{sound_8h}\index{C:/Users/Yusuf/Lonesome-\/Island/src/sound.h@{C:/Users/Yusuf/Lonesome-\/Island/src/sound.h}}
+
+
+Fichier contenant les sons.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$SDL.\+h$>$}\newline
+{\ttfamily \#include $<$SDL\+\_\+mixer.\+h$>$}\newline
+{\ttfamily \#include $<$windows.\+h$>$}\newline
+{\ttfamily \#include $<$pthread.\+h$>$}\newline
+Graphe des dépendances par inclusion de sound.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sound_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sound_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{sound_8h_ab74d84d6d4c90b2b18669590af038a07}\label{sound_8h_ab74d84d6d4c90b2b18669590af038a07}} 
+void {\bfseries init\+Audio} ()
+\item 
+\mbox{\Hypertarget{sound_8h_acb373f7276274a75af2fc3ec23a8e266}\label{sound_8h_acb373f7276274a75af2fc3ec23a8e266}} 
+void {\bfseries creation\+\_\+canaux\+\_\+musique} ()
+\item 
+\mbox{\Hypertarget{sound_8h_a57d534ee1e2bc6ccbd6b927c1a45c388}\label{sound_8h_a57d534ee1e2bc6ccbd6b927c1a45c388}} 
+void $\ast$ {\bfseries play\+\_\+hover\+\_\+audio} (void $\ast$key)
+\item 
+\mbox{\Hypertarget{sound_8h_a821870717dad737e58c42019d5502d4b}\label{sound_8h_a821870717dad737e58c42019d5502d4b}} 
+void $\ast$ {\bfseries play\+\_\+boop} (void $\ast$key)
+\item 
+\mbox{\Hypertarget{sound_8h_a255dd9ed014ef2eaf3f9e53005134ec4}\label{sound_8h_a255dd9ed014ef2eaf3f9e53005134ec4}} 
+void {\bfseries init\+\_\+boop} (SDL\+\_\+bool $\ast$key)
+\item 
+\mbox{\Hypertarget{sound_8h_a57b4724b83449e52bba882dfcf33adbd}\label{sound_8h_a57b4724b83449e52bba882dfcf33adbd}} 
+void {\bfseries init\+\_\+hover} (SDL\+\_\+bool $\ast$key)
+\item 
+\mbox{\Hypertarget{sound_8h_a4ed860b41581767750c03e6fcca6b62f}\label{sound_8h_a4ed860b41581767750c03e6fcca6b62f}} 
+void {\bfseries detruire\+\_\+musique} (Mix\+\_\+\+Chunk $\ast$chunk)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{sound_8h_a891e259185a0a34b742d3444fec0429a}\label{sound_8h_a891e259185a0a34b742d3444fec0429a}} 
+static Mix\+\_\+\+Chunk $\ast$ {\bfseries boop} = NULL
+\item 
+\mbox{\Hypertarget{sound_8h_ab42a12648ed1ba7b07eb669bc576a410}\label{sound_8h_ab42a12648ed1ba7b07eb669bc576a410}} 
+static Mix\+\_\+\+Chunk $\ast$ {\bfseries hover} = NULL
+\item 
+\mbox{\Hypertarget{sound_8h_a1c8b2c46c6a49312866afeb1fea0bc74}\label{sound_8h_a1c8b2c46c6a49312866afeb1fea0bc74}} 
+static pthread\+\_\+t {\bfseries hover\+\_\+\+Thread}
+\item 
+\mbox{\Hypertarget{sound_8h_a6250718c487566113b33ca2ed3c3297e}\label{sound_8h_a6250718c487566113b33ca2ed3c3297e}} 
+static pthread\+\_\+t {\bfseries boop\+\_\+\+Thread}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier contenant les sons. 
+
+\begin{DoxyAuthor}{Auteur}
+Yusuf Ulas 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2023-\/01-\/31 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
