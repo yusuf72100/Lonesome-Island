@@ -138,7 +138,7 @@ void disconnectPlayer(send2Client *argClient, int position)
 //fonction qui prend en paramètre un client et l'écoute
 void *receiveFromClient(void *arg)
 {
-    int i = 0, position=0;
+    int i = 0, position=0, init = FALSE;
     send2Client *argClient = (send2Client *)arg;
 
     //on récupère les données de positions des joueurs
@@ -165,11 +165,25 @@ void *receiveFromClient(void *arg)
             } while (strcmp(inet_ntoa(argClient->argt->sd[i].addrClient.sin_addr),inet_ntoa(ipAddr)) || ((int)ntohs(argClient->argt->sd[i].addrClient.sin_port) != argClient->port));
 
             traitData(argClient, i);
-
             argClient->argt->sd[i].joueur.connected = TRUE;
             argClient->argt->sd[i].joueur.playerRect.w = 50;
             argClient->argt->sd[i].joueur.playerRect.h = 81;
-            sendToClient(argClient, i);
+            
+            if(init == FALSE)
+            {
+                //on initialise la connexion
+                for(int j = 1; j<max_player; j++)
+                {
+                    buildtramClient_send(argClient->argt->sd[j].joueur, j);
+                    if(argClient->argt->sd[j].clientSocket != INVALID_SOCKET && argClient->argt->sd[j].joueur.connected == TRUE)
+                    {
+                        if(send(argClient->argt->sd[i].clientSocket,tramClient_send,(sizeof(char)*30),0) == SOCKET_ERROR) printf("Server: Packet lost for %d\n",i);
+                    }
+                }
+                init = TRUE;
+            }
+            
+            else sendToClient(argClient, i);
             position = i;
             i=0;
         }
@@ -233,6 +247,11 @@ void stopServer()
     free(argt);
     free(argClient);
 
+    receive_from_client = NULL;
+    argt->sd = NULL;
+    argt = NULL;
+    argClient = NULL;
+    
     WSACleanup();
 }
 
