@@ -9,6 +9,12 @@
 
 #include "socket.h"
 
+/**
+ * @brief Construit une trame dédiée uniquement au client i.
+ * 
+ * @param joueur 
+ * @param i 
+ */
 static void buildtramClient_send(player joueur, int i)
 {
     tramClient_send[0] = '\0';
@@ -50,7 +56,13 @@ static void buildtramClient_send(player joueur, int i)
 
 }
 
-//envoi les données aux clients
+/**
+ * @brief Envoie la donnée d'un client à tous les autres y compris au client lui-même.
+ * 
+ * @param argClient 
+ * @param position 
+ * @return void* 
+ */
 static void *sendToClient(send2Client *argClient, int position)
 {
     int i = 1, j = 1;
@@ -73,6 +85,12 @@ static void *sendToClient(send2Client *argClient, int position)
     i=1;
 }
 
+/**
+ * @brief Décrypte la trame reçut par le client indice.
+ * 
+ * @param argClient 
+ * @param indice 
+ */
 static void traitData(send2Client *argClient, int indice)
 {
     int j, k;
@@ -125,6 +143,12 @@ static void traitData(send2Client *argClient, int indice)
     }
 }
 
+/**
+ * @brief Déconnecte le client en fonction de sa position dans le tableau.
+ * 
+ * @param argClient 
+ * @param position 
+ */
 void disconnectPlayer(send2Client *argClient, int position)
 {
     argClient->argt->sd[position].joueur.connected = FALSE;
@@ -135,7 +159,12 @@ void disconnectPlayer(send2Client *argClient, int position)
     close(argt->sd[position].clientSocket);
 }
 
-//fonction qui prend en paramètre un client et l'écoute
+/**
+ * @brief Écoute un client tant que la connexion est établie. (se lance dans un thread)
+ * 
+ * @param arg 
+ * @return void* 
+ */
 void *receiveFromClient(void *arg)
 {
     int i = 0, position=0, init = FALSE;
@@ -192,7 +221,12 @@ void *receiveFromClient(void *arg)
     pthread_exit(&receive_from_client[i]);
 }
 
-//fonction qui accepte les clients
+/**
+ * @brief Gère la place des clients dans la table de client et reçoit les nouveaux clients. (se lance dans un sous-thread)
+ * 
+ * @param arg 
+ * @return void* 
+ */
 void *searchClients(void *arg)
 {
     int place;
@@ -235,6 +269,10 @@ void *searchClients(void *arg)
     WSACleanup();
 }
 
+/**
+ * @brief Arrête le serveur en déconnectant tous les clients d'abord.
+ * 
+ */
 void stopServer()
 {
     if(argt->running == TRUE)
@@ -255,7 +293,11 @@ void stopServer()
     WSACleanup();
 }
 
-//fonction qui initialise et lance le serveur
+/**
+ * @brief Démarre le serveur et initie la table de clients. (se lance dans un thread)
+ * 
+ * @return void* 
+ */
 void *startServer()
 {
     receive_from_client = malloc(sizeof(pthread_t)*max_player+1);

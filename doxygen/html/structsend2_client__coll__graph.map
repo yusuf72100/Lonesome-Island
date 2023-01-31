@@ -1,6 +1,6 @@
 <map id="send2Client" name="send2Client">
-<area shape="rect" id="node1" title="Rassemble les données d&#39;un seul joueur." alt="" coords="23,484,114,576"/>
-<area shape="rect" id="node2" href="$structarg_server.html" title="Rassemble toutes les données de tous les joueurs dans le but de pouvoir communiquer tout cela dans de..." alt="" coords="31,329,107,421"/>
-<area shape="rect" id="node3" href="$structsocket_datas.html" title="Sauvegarde les informations de chaque joueurs relatives au socket et à la connection au serveur (adre..." alt="" coords="14,160,123,267"/>
-<area shape="rect" id="node4" href="$structplayer.html" title="Sauvegarde les informations de chaque joueurs relatives uniquement au jeu en lui&#45;même (points de vie,..." alt="" coords="5,5,132,97"/>
+<area shape="rect" id="node1" title="Rassemble les données d&#39;un seul joueur." alt="" coords="23,499,114,591"/>
+<area shape="rect" id="node2" href="$structarg_server.html" title="Rassemble toutes les données de tous les joueurs dans le but de pouvoir communiquer tout cela dans de..." alt="" coords="31,344,107,436"/>
+<area shape="rect" id="node3" href="$structsocket_datas.html" title="Sauvegarde les informations de chaque joueurs relatives au socket et à la connection au serveur (adre..." alt="" coords="14,175,123,281"/>
+<area shape="rect" id="node4" href="$structplayer.html" title="Sauvegarde les informations de chaque joueurs relatives uniquement au jeu en lui&#45;même (points de vie,..." alt="" coords="5,5,132,112"/>
 </map>

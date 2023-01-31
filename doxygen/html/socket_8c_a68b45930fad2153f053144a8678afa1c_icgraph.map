@@ -1,0 +1,6 @@
+<map id="searchClients" name="searchClients">
+<area shape="rect" id="node1" title="Gère la place des clients dans la table de client et reçoit les nouveaux clients." alt="" coords="359,5,460,31"/>
+<area shape="rect" id="node2" href="$socket_8c.html#a3490387e86b9ba6a1ee9ed3984b637d5" title="Démarre le serveur et initie la table de clients." alt="" coords="227,5,311,31"/>
+<area shape="rect" id="node3" href="$main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
+<area shape="rect" id="node4" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>

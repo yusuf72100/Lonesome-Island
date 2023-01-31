@@ -12,6 +12,10 @@
 
 int connectedError= FALSE;
 
+/**
+ * @brief Traite les données reçus par le serveur
+ * 
+ */
 static void traitData()
 {
     int position = 0;
@@ -110,6 +114,11 @@ static void traitData()
     }
 }
 
+/**
+ * @brief Établie la connexion avec le serveur. (se lance dans un thread)
+ * 
+ * @return void* 
+ */
 void *receiveFromServer()
 {
     while(recv(*socket_Server,tramClient_receive,(sizeof(char)*30),0) != INVALID_SOCKET)
@@ -121,6 +130,11 @@ void *receiveFromServer()
     stopConnection();
 }
 
+/**
+ * @brief Construit une trame réseau dédiée uniquement au serveur.
+ * 
+ * @param joueur 
+ */
 static void buildTram(player joueur)
 {
     tramClient_send[0] = '\0';
@@ -161,7 +175,12 @@ void *sendDatas(player joueur)
     }
 }
 
-void *stopConnection()
+/**
+ * @brief Arrête la connexion avec le serveur.
+ * 
+ * @return void* 
+ */
+void stopConnection()
 {
     closesocket(*socket_Server);
     WSACleanup();
@@ -169,6 +188,11 @@ void *stopConnection()
     printf("Connection closed\n");
 }
 
+/**
+ * @brief Démarre la connexion au serveur et renvoi TRUE en cas d'erreur sinon renvoi FALSE.
+ * 
+ * @return int 
+ */
 int startConnection()
 {   
     joueurs = malloc(sizeof(player) * 10);

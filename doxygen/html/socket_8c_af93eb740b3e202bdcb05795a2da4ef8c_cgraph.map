@@ -1,0 +1,5 @@
+<map id="disconnectPlayer" name="disconnectPlayer">
+<area shape="rect" id="node1" title="Déconnecte le client en fonction de sa position dans le tableau." alt="" coords="5,5,128,31"/>
+<area shape="rect" id="node2" href="$socket_8c.html#af8f7aaaf34db2175c7a9c4ab7d3306fc" title="Envoie la donnée d&#39;un client à tous les autres y compris au client lui&#45;même." alt="" coords="176,5,273,31"/>
+<area shape="rect" id="node3" href="$socket_8c.html#adb3e88c50501cb4d59262878ebfffc55" title="Construit une trame dédiée uniquement au client i." alt="" coords="321,5,464,31"/>
+</map>

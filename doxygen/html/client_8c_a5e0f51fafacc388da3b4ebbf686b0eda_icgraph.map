@@ -1,0 +1,8 @@
+<map id="buildTram" name="buildTram">
+<area shape="rect" id="node1" title="Construit une trame réseau dédiée uniquement au serveur." alt="" coords="665,31,744,56"/>
+<area shape="rect" id="node2" href="$client_8c.html#a7cea858f95329a092fd2cbc746c59728" title="Récupère les données du joueur et les envois au serveur via le socket." alt="" coords="533,31,617,56"/>
+<area shape="rect" id="node3" href="$main_8c.html#a506eeac61f56b2e172d086173bac5995" title="Envoi les données du joueur actuel au serveur." alt="" coords="391,31,485,56"/>
+<area shape="rect" id="node4" href="$main_8c.html#a4ea2b775628e7e2857760cb4a3f60e5f" title="Animation de respiration." alt="" coords="227,5,343,31"/>
+<area shape="rect" id="node5" href="$main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,31,179,56"/>
+<area shape="rect" id="node6" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,31,56,56"/>
+</map>

@@ -3,4 +3,6 @@
 <area shape="rect" id="node2" href="$main_8c.html#af35c1f5cca32f075ebe22ddd0dfb92bb" title="Délai d&#39;animation de respiration." alt="" coords="169,5,265,31"/>
 <area shape="rect" id="node3" href="$main_8c.html#a506eeac61f56b2e172d086173bac5995" title="Envoi les données du joueur actuel au serveur." alt="" coords="170,55,265,80"/>
 <area shape="rect" id="node4" href="$client_8c.html#a7cea858f95329a092fd2cbc746c59728" title="Récupère les données du joueur et les envois au serveur via le socket." alt="" coords="313,55,397,80"/>
+<area shape="rect" id="node5" href="$client_8c.html#a5e0f51fafacc388da3b4ebbf686b0eda" title="Construit une trame réseau dédiée uniquement au serveur." alt="" coords="462,29,541,55"/>
+<area shape="rect" id="node6" href="$client_8c.html#a1a44fcc8a4125e81a0730b67c2603470" title="Arrête la connexion avec le serveur." alt="" coords="445,79,557,104"/>
 </map>

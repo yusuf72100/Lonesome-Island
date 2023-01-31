@@ -7,8 +7,7 @@ Fichier qui contient la configuration du socket client.
 
 {\ttfamily \#include \char`\"{}client.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
-Graphe des dépendances par inclusion de client.\+c\+:
-\nopagebreak
+Graphe des dépendances par inclusion de client.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -18,23 +17,18 @@ Graphe des dépendances par inclusion de client.\+c\+:
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{client_8c_a5db5e79b1f9efa79675000da17beacfb}\label{client_8c_a5db5e79b1f9efa79675000da17beacfb}} 
-static void {\bfseries trait\+Data} ()
-\item 
-\mbox{\Hypertarget{client_8c_a37deea5f4750c52937a56b0e97d566b9}\label{client_8c_a37deea5f4750c52937a56b0e97d566b9}} 
-void $\ast$ {\bfseries receive\+From\+Server} ()
-\item 
-\mbox{\Hypertarget{client_8c_a5e0f51fafacc388da3b4ebbf686b0eda}\label{client_8c_a5e0f51fafacc388da3b4ebbf686b0eda}} 
-static void {\bfseries build\+Tram} (\mbox{\hyperlink{structplayer}{player}} joueur)
-\item 
+static void \mbox{\hyperlink{client_8c_a5db5e79b1f9efa79675000da17beacfb}{trait\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Traite les données reçus par le serveur. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{client_8c_a37deea5f4750c52937a56b0e97d566b9}{receive\+From\+Server}} ()
+\begin{DoxyCompactList}\small\item\em Établie la connexion avec le serveur. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{client_8c_a5e0f51fafacc388da3b4ebbf686b0eda}{build\+Tram}} (\mbox{\hyperlink{structplayer}{player}} joueur)
+\begin{DoxyCompactList}\small\item\em Construit une trame réseau dédiée uniquement au serveur. \end{DoxyCompactList}\item 
 void $\ast$ \mbox{\hyperlink{client_8c_a7cea858f95329a092fd2cbc746c59728}{send\+Datas}} (\mbox{\hyperlink{structplayer}{player}} joueur)
 \begin{DoxyCompactList}\small\item\em Récupère les données du joueur et les envois au serveur via le socket. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{client_8c_a34c23ce43e0af97b03b90b87f4d1e053}\label{client_8c_a34c23ce43e0af97b03b90b87f4d1e053}} 
-void $\ast$ {\bfseries stop\+Connection} ()
-\item 
-\mbox{\Hypertarget{client_8c_a3622090a7ff391221a74cad6493bbca9}\label{client_8c_a3622090a7ff391221a74cad6493bbca9}} 
-int {\bfseries start\+Connection} ()
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{client_8c_a1a44fcc8a4125e81a0730b67c2603470}{stop\+Connection}} ()
+\begin{DoxyCompactList}\small\item\em Arrête la connexion avec le serveur. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{client_8c_a3622090a7ff391221a74cad6493bbca9}{start\+Connection}} ()
+\begin{DoxyCompactList}\small\item\em Démarre la connexion au serveur et renvoi TRUE en cas d\textquotesingle{}erreur sinon renvoi FALSE. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -61,6 +55,60 @@ Copyright (c) 2023
 
 
 \doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{client_8c_a5e0f51fafacc388da3b4ebbf686b0eda}\label{client_8c_a5e0f51fafacc388da3b4ebbf686b0eda}} 
+\index{client.c@{client.c}!buildTram@{buildTram}}
+\index{buildTram@{buildTram}!client.c@{client.c}}
+\doxysubsubsection{\texorpdfstring{buildTram()}{buildTram()}}
+{\footnotesize\ttfamily static void build\+Tram (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer}{player}}}]{joueur }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Construit une trame réseau dédiée uniquement au serveur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em joueur} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{client_8c_a5e0f51fafacc388da3b4ebbf686b0eda_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{client_8c_a37deea5f4750c52937a56b0e97d566b9}\label{client_8c_a37deea5f4750c52937a56b0e97d566b9}} 
+\index{client.c@{client.c}!receiveFromServer@{receiveFromServer}}
+\index{receiveFromServer@{receiveFromServer}!client.c@{client.c}}
+\doxysubsubsection{\texorpdfstring{receiveFromServer()}{receiveFromServer()}}
+{\footnotesize\ttfamily void $\ast$ receive\+From\+Server (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Établie la connexion avec le serveur. 
+
+(se lance dans un thread)
+
+\begin{DoxyReturn}{Renvoie}
+void$\ast$ 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{client_8c_a37deea5f4750c52937a56b0e97d566b9_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{client_8c_a37deea5f4750c52937a56b0e97d566b9_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{client_8c_a7cea858f95329a092fd2cbc746c59728}\label{client_8c_a7cea858f95329a092fd2cbc746c59728}} 
 \index{client.c@{client.c}!sendDatas@{sendDatas}}
 \index{sendDatas@{sendDatas}!client.c@{client.c}}
@@ -79,11 +127,86 @@ Récupère les données du joueur et les envois au serveur via le socket.
 \begin{DoxyReturn}{Renvoie}
 void$\ast$ 
 \end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=263pt]{client_8c_a7cea858f95329a092fd2cbc746c59728_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{client_8c_a7cea858f95329a092fd2cbc746c59728_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{client_8c_a3622090a7ff391221a74cad6493bbca9}\label{client_8c_a3622090a7ff391221a74cad6493bbca9}} 
+\index{client.c@{client.c}!startConnection@{startConnection}}
+\index{startConnection@{startConnection}!client.c@{client.c}}
+\doxysubsubsection{\texorpdfstring{startConnection()}{startConnection()}}
+{\footnotesize\ttfamily int start\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Démarre la connexion au serveur et renvoi TRUE en cas d\textquotesingle{}erreur sinon renvoi FALSE. 
+
+\begin{DoxyReturn}{Renvoie}
+int 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{client_8c_a3622090a7ff391221a74cad6493bbca9_cgraph}
+\end{center}
+\end{figure}
 Voici le graphe des appelants de cette fonction \+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{client_8c_a7cea858f95329a092fd2cbc746c59728_icgraph}
+\includegraphics[width=331pt]{client_8c_a3622090a7ff391221a74cad6493bbca9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{client_8c_a1a44fcc8a4125e81a0730b67c2603470}\label{client_8c_a1a44fcc8a4125e81a0730b67c2603470}} 
+\index{client.c@{client.c}!stopConnection@{stopConnection}}
+\index{stopConnection@{stopConnection}!client.c@{client.c}}
+\doxysubsubsection{\texorpdfstring{stopConnection()}{stopConnection()}}
+{\footnotesize\ttfamily void stop\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Arrête la connexion avec le serveur. 
+
+\begin{DoxyReturn}{Renvoie}
+void$\ast$ 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{client_8c_a1a44fcc8a4125e81a0730b67c2603470_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{client_8c_a5db5e79b1f9efa79675000da17beacfb}\label{client_8c_a5db5e79b1f9efa79675000da17beacfb}} 
+\index{client.c@{client.c}!traitData@{traitData}}
+\index{traitData@{traitData}!client.c@{client.c}}
+\doxysubsubsection{\texorpdfstring{traitData()}{traitData()}}
+{\footnotesize\ttfamily static void trait\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Traite les données reçus par le serveur. 
+
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{client_8c_a5db5e79b1f9efa79675000da17beacfb_icgraph}
 \end{center}
 \end{figure}

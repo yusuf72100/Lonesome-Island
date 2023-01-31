@@ -1,0 +1,4 @@
+<map id="sendToClient" name="sendToClient">
+<area shape="rect" id="node1" title="Envoie la donnée d&#39;un client à tous les autres y compris au client lui&#45;même." alt="" coords="5,5,103,31"/>
+<area shape="rect" id="node2" href="$socket_8c.html#adb3e88c50501cb4d59262878ebfffc55" title="Construit une trame dédiée uniquement au client i." alt="" coords="151,5,293,31"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="stopConnection" name="stopConnection">
+<area shape="rect" id="node1" title="Arrête la connexion avec le serveur." alt="" coords="699,69,811,94"/>
+<area shape="rect" id="node2" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,43,56,69"/>
+<area shape="rect" id="node3" href="$client_8c.html#a37deea5f4750c52937a56b0e97d566b9" title="Établie la connexion avec le serveur." alt="" coords="391,43,519,69"/>
+<area shape="rect" id="node5" href="$client_8c.html#a7cea858f95329a092fd2cbc746c59728" title="Récupère les données du joueur et les envois au serveur via le socket." alt="" coords="567,94,651,119"/>
+<area shape="rect" id="node8" href="$client_8c.html#a3622090a7ff391221a74cad6493bbca9" title="Démarre la connexion au serveur et renvoi TRUE en cas d&#39;erreur sinon renvoi FALSE." alt="" coords="228,194,341,219"/>
+<area shape="rect" id="node4" href="$main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,94,179,119"/>
+<area shape="rect" id="node6" href="$main_8c.html#a506eeac61f56b2e172d086173bac5995" title="Envoi les données du joueur actuel au serveur." alt="" coords="407,94,502,119"/>
+<area shape="rect" id="node7" href="$main_8c.html#a4ea2b775628e7e2857760cb4a3f60e5f" title="Animation de respiration." alt="" coords="227,145,343,170"/>
+</map>

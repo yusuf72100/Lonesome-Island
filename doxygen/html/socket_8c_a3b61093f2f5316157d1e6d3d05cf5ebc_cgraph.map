@@ -1,0 +1,7 @@
+<map id="receiveFromClient" name="receiveFromClient">
+<area shape="rect" id="node1" title="Écoute un client tant que la connexion est établie." alt="" coords="5,59,131,84"/>
+<area shape="rect" id="node2" href="$socket_8c.html#adb3e88c50501cb4d59262878ebfffc55" title="Construit une trame dédiée uniquement au client i." alt="" coords="495,8,637,33"/>
+<area shape="rect" id="node3" href="$socket_8c.html#af93eb740b3e202bdcb05795a2da4ef8c" title="Déconnecte le client en fonction de sa position dans le tableau." alt="" coords="179,33,301,59"/>
+<area shape="rect" id="node4" href="$socket_8c.html#af8f7aaaf34db2175c7a9c4ab7d3306fc" title="Envoie la donnée d&#39;un client à tous les autres y compris au client lui&#45;même." alt="" coords="349,33,447,59"/>
+<area shape="rect" id="node5" href="$client_8c.html#a5db5e79b1f9efa79675000da17beacfb" title="Traite les données reçus par le serveur." alt="" coords="205,135,275,160"/>
+</map>

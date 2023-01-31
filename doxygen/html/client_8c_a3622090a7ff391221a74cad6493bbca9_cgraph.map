@@ -1,0 +1,4 @@
+<map id="startConnection" name="startConnection">
+<area shape="rect" id="node1" title="Démarre la connexion au serveur et renvoi TRUE en cas d&#39;erreur sinon renvoi FALSE." alt="" coords="5,5,119,31"/>
+<area shape="rect" id="node2" href="$client_8c.html#a1a44fcc8a4125e81a0730b67c2603470" title="Arrête la connexion avec le serveur." alt="" coords="167,5,279,31"/>
+</map>

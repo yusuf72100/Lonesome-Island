@@ -1,0 +1,5 @@
+<map id="sendDatas" name="sendDatas">
+<area shape="rect" id="node1" title="Récupère les données du joueur et les envois au serveur via le socket." alt="" coords="5,31,89,56"/>
+<area shape="rect" id="node2" href="$client_8c.html#a5e0f51fafacc388da3b4ebbf686b0eda" title="Construit une trame réseau dédiée uniquement au serveur." alt="" coords="154,5,233,31"/>
+<area shape="rect" id="node3" href="$client_8c.html#a1a44fcc8a4125e81a0730b67c2603470" title="Arrête la connexion avec le serveur." alt="" coords="137,55,249,80"/>
+</map>

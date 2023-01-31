@@ -1,0 +1,5 @@
+<map id="startConnection" name="startConnection">
+<area shape="rect" id="node1" title="Démarre la connexion au serveur et renvoi TRUE en cas d&#39;erreur sinon renvoi FALSE." alt="" coords="227,5,340,31"/>
+<area shape="rect" id="node2" href="$main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
+<area shape="rect" id="node3" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>

@@ -44,7 +44,7 @@ void *sendDatas(player joueur);
 
 void *receiveFromServer();
 
-void *stopConnection();
+void stopConnection();
 
 int startConnection();
 

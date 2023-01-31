@@ -1,0 +1,10 @@
+<map id="sendToClient" name="sendToClient">
+<area shape="rect" id="node1" title="Envoie la donnée d&#39;un client à tous les autres y compris au client lui&#45;même." alt="" coords="852,31,949,56"/>
+<area shape="rect" id="node2" href="$socket_8c.html#af93eb740b3e202bdcb05795a2da4ef8c" title="Déconnecte le client en fonction de sa position dans le tableau." alt="" coords="681,56,804,81"/>
+<area shape="rect" id="node3" href="$socket_8c.html#a3b61093f2f5316157d1e6d3d05cf5ebc" title="Écoute un client tant que la connexion est établie." alt="" coords="508,5,633,31"/>
+<area shape="rect" id="node8" href="$socket_8c.html#ac1e551c19cd6ce8d7da8b13d1f290863" title="Arrête le serveur en déconnectant tous les clients d&#39;abord." alt="" coords="368,56,451,81"/>
+<area shape="rect" id="node4" href="$socket_8c.html#a68b45930fad2153f053144a8678afa1c" title="Gère la place des clients dans la table de client et reçoit les nouveaux clients." alt="" coords="359,5,460,31"/>
+<area shape="rect" id="node5" href="$socket_8c.html#a3490387e86b9ba6a1ee9ed3984b637d5" title="Démarre le serveur et initie la table de clients." alt="" coords="227,5,311,31"/>
+<area shape="rect" id="node6" href="$main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
+<area shape="rect" id="node7" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,31,56,56"/>
+</map>
