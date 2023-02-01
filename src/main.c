@@ -351,9 +351,12 @@ static void doEvents()
                 if (debug) printf("Touche SDLK_z pressee | %s\n", eventTime());
                 joueur.playerRect.y = joueur.playerRect.y - 3;
 
-                if(pthread_kill(animations_thread, 0) != 0)
-                    pthread_create(&animations_thread, NULL, running_up_animation,(void *)&joueur);  
-                pthread_create(&sendtoserver,NULL,Send2Server,NULL);
+                if(tabEvent[1] == SDL_FALSE && tabEvent[3] == SDL_FALSE)
+                {
+                    if(pthread_kill(animations_thread, 0) != 0)
+                        pthread_create(&animations_thread, NULL, running_up_animation,(void *)&joueur);  
+                    pthread_create(&sendtoserver,NULL,Send2Server,NULL);
+                }
             }
         }
 
@@ -363,14 +366,11 @@ static void doEvents()
             if(strcmp(getMenu(),"InGame") == 0)
             {
                 joueur.playerRect.x = joueur.playerRect.x - 3;
-                if(tabEvent[0] == SDL_FALSE && tabEvent[2] == SDL_FALSE)
-                {
-                    if (debug) printf("Touche SDLK_q pressee | %s\n", eventTime());
-                    
-                    if(pthread_kill(animations_thread, 0) != 0)
-                        pthread_create(&animations_thread, NULL, running_left_animation,(void *)&joueur);  
-                    pthread_create(&sendtoserver,NULL,Send2Server,NULL);
-                }
+                if (debug) printf("Touche SDLK_q pressee | %s\n", eventTime());
+                
+                if(pthread_kill(animations_thread, 0) != 0)
+                    pthread_create(&animations_thread, NULL, running_left_animation,(void *)&joueur);  
+                pthread_create(&sendtoserver,NULL,Send2Server,NULL);
             }
         }
 
@@ -381,10 +381,13 @@ static void doEvents()
             {
                 if (debug) printf("Touche SDLK_s pressee | %s\n", eventTime());
                 joueur.playerRect.y = joueur.playerRect.y + 3;
-                
-                if(pthread_kill(animations_thread, 0) != 0)
-                    pthread_create(&animations_thread, NULL, running_down_animation,(void *)&joueur);  
-                pthread_create(&sendtoserver,NULL,Send2Server,NULL);
+
+                if(tabEvent[1] == SDL_FALSE && tabEvent[3] == SDL_FALSE)
+                {
+                    if(pthread_kill(animations_thread, 0) != 0)
+                        pthread_create(&animations_thread, NULL, running_down_animation,(void *)&joueur);  
+                    pthread_create(&sendtoserver,NULL,Send2Server,NULL);
+                }
             }
         }
 
@@ -394,14 +397,11 @@ static void doEvents()
             if(strcmp(getMenu(),"InGame") == 0)
             {
                 joueur.playerRect.x = joueur.playerRect.x + 3;
-                if(tabEvent[0] == SDL_FALSE && tabEvent[2] == SDL_FALSE)
-                {
-                    if (debug) printf("Touche SDLK_d pressee | %s\n", eventTime());
+                if (debug) printf("Touche SDLK_d pressee | %s\n", eventTime());
 
-                    if(pthread_kill(animations_thread, 0) != 0)
-                        pthread_create(&animations_thread, NULL, running_right_animation,(void *)&joueur);  
-                    pthread_create(&sendtoserver,NULL,Send2Server,NULL);
-                }
+                if(pthread_kill(animations_thread, 0) != 0)
+                    pthread_create(&animations_thread, NULL, running_right_animation,(void *)&joueur);  
+                pthread_create(&sendtoserver,NULL,Send2Server,NULL);
             }
         }
 
