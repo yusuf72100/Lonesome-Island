@@ -273,7 +273,7 @@ static void switchAnimation(player Joueur)
 void *dessinerJoueurs(player *joueurs, int size)
 {
     //trierJoueurs();
-    for(int i = 1; i < size; i++)
+    for(int i = 1; i <= size; i++)
     {
         if(joueurs[i].connected == TRUE)
         {
@@ -531,15 +531,6 @@ void init_menus_vars()
 
     SDL_GetWindowPosition(window, &xWindow, &yWindow);
     SDL_GetMouseState(&mouse_position.x,&mouse_position.y);
-
-    loading = 0;
-    l = creerListe();
-    //freopen(newLogName(), "a+", stdout); 
-
-    rotation = 0;
-
-    //tab d'event
-    memset(tabEvent, 0, 7*sizeof(SDL_bool));
 
     joueur.playerRect.x = 0;
     joueur.playerRect.y = 0;

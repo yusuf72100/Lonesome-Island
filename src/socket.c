@@ -167,7 +167,7 @@ void disconnectPlayer(send2Client *argClient, int position)
  */
 void *receiveFromClient(void *arg)
 {
-    int i = 0, position=0, init = FALSE;
+    int i = 0, position=0;
     send2Client *argClient = (send2Client *)arg;
 
     //on récupère les données de positions des joueurs
@@ -193,26 +193,11 @@ void *receiveFromClient(void *arg)
                 i++;
             } while (strcmp(inet_ntoa(argClient->argt->sd[i].addrClient.sin_addr),inet_ntoa(ipAddr)) || ((int)ntohs(argClient->argt->sd[i].addrClient.sin_port) != argClient->port));
 
+            sendToClient(argClient, i);
             traitData(argClient, i);
             argClient->argt->sd[i].joueur.connected = TRUE;
             argClient->argt->sd[i].joueur.playerRect.w = 50;
             argClient->argt->sd[i].joueur.playerRect.h = 81;
-            
-            if(init == FALSE)
-            {
-                //on initialise la connexion
-                for(int j = 1; j<max_player; j++)
-                {
-                    buildtramClient_send(argClient->argt->sd[j].joueur, j);
-                    if(argClient->argt->sd[j].clientSocket != INVALID_SOCKET && argClient->argt->sd[j].joueur.connected == TRUE)
-                    {
-                        if(send(argClient->argt->sd[i].clientSocket,tramClient_send,(sizeof(char)*30),0) == SOCKET_ERROR) printf("Server: Packet lost for %d\n",i);
-                    }
-                }
-                init = TRUE;
-            }
-            
-            else sendToClient(argClient, i);
             position = i;
             i=0;
         }
@@ -261,6 +246,7 @@ void *searchClients(void *arg)
             argClient[place].port = (int)ntohs(argt2->sd[place].addrClient.sin_port);
             argClient[place].argt = argt2;
             Sleep(500);
+            argt->sd[place].joueur.connected = TRUE;
             pthread_create(&receive_from_client[place],NULL,receiveFromClient,(void *)&argClient[place]);
         }
     }
@@ -320,7 +306,7 @@ void *startServer()
     bind(socketServer, (SOCKADDR *)&addrServer, sizeof(addrServer));
     printf("bind : %d\n", socketServer);
 
-    listen(socketServer, max_player);
+    listen(socketServer, max_player+1);
     printf("Listening\n");
 
     argt = malloc(sizeof(argServer));
@@ -332,7 +318,7 @@ void *startServer()
     SOCKADDR_IN addrClient;
     socklen_t csize = sizeof(addrClient);
 
-    for(int i = 1; i < max_player; i++)
+    for(int i = 1; i <= max_player +1; i++)
         argt->sd[i].joueur.connected = FALSE;
 
     argt->sd->socketServer = socketServer;

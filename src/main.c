@@ -471,9 +471,7 @@ static void doEvents()
                 init_boop(&tabEvent[7]);
                 if (debug) printf("Host button clicked\n");
                 pthread_create(&server,NULL,startServer,NULL);              //on héberge le serveur 
-                Sleep(200);
                 startConnection();                                          //on créer un client qui se connecte au serveur
-                Sleep(500);
                 pthread_create(&sendtoserver,NULL,Send2Server,NULL);
                 pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
                 changeMenu("InGame");
