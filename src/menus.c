@@ -276,7 +276,9 @@ void *dessinerJoueurs(player *joueurs, int size)
     for(int i = 1; i < size; i++)
     {
         if(joueurs[i].connected == TRUE)
+        {
             switchAnimation(joueurs[i]);
+        }
     }
 }
 

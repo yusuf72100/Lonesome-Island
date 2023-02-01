@@ -327,14 +327,17 @@ void *startServer()
     argt->sd = sd;
     argt->running = TRUE;
     argt->size = 1;
+    
     //socket des clients
     SOCKADDR_IN addrClient;
     socklen_t csize = sizeof(addrClient);
 
+    for(int i = 1; i < max_player; i++)
+        argt->sd[i].joueur.connected = FALSE;
+
     argt->sd->socketServer = socketServer;
     argt->sd->clientSocket = clientSocket;
     argt->sd->addrClient = addrClient;
-    argt->sd->joueur.connected = FALSE;
     argt->sd->joueur.playerRect.w = 50;
     argt->sd->joueur.playerRect.h = 81;
 
