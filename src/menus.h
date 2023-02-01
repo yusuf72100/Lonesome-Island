@@ -1,5 +1,5 @@
 /**
- * @file main.h
+ * @file menus.h
  * @author Yusuf Ulas
  * @brief Fichier contenant toutes les variables d'affichage
  * @version 0.1
@@ -168,15 +168,7 @@ static void SDL_ExitWithError(const char *message);
 
 static void trierJoueurs();
 
-static void checkEvents();
-
-static void doEvents();
-
 static void init_vars();
-
-void *Send2Server();
-
-Vecteur InitVecteur(int angle, int vitesse);
 
 static void drawMouse();
 
@@ -184,25 +176,11 @@ static void drawPlayer(SDL_Texture *texture_joueur, SDL_Rect playerRect);
 
 static void destroyAll(SDL_Window *window, SDL_Renderer *renderer);
 
-static void *rechargement();
-
-void *synchDatas(player * Joueurs, int taille);
-
-static void UpdateBullet(Bullet * b);
-
-static void UpdateBulletAll();
-
-char* newLogName();
-
-char* eventTime();
-
 static void dessinerRect(SDL_Rect rectangle, SDL_Renderer *renderer);
 
 static void dessinerButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface);
 
 static void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, Bullet *b, int rotation, int vitesse);
-
-static void initBullet(Bullet * b, int x, int y, int rotation);
 
 static void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button, char *menuTarget);
 
