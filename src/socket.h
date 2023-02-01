@@ -105,7 +105,8 @@ static send2Client *argClient = NULL;
 
 void *clearInput(SOCKET socketClient);
 
-//fonction qui accepte les clients
+static int findPosition(send2Client *argClient);
+
 void *searchClients(void *argt);
 
 void *receiveFromClient(void *arg);

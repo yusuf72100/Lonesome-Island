@@ -21,7 +21,7 @@ static void traitData()
     int position = 0;
     int j, k;
     char buffer[20] = "\0";
-    //printf("tien : %s",tramClient_receive);
+
     for(j = 0; tramClient_receive[j]!='\0'; j++){
         k = 0;
 

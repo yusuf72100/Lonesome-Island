@@ -81,7 +81,7 @@ static void *sendToClient(send2Client *argClient, int position)
             //printf("Sended to client: %s\n",tramClient_send);
         }
         i++;
-    } while (i < max_player);
+    } while (i <= max_player);
     i=1;
 }
 
@@ -160,6 +160,43 @@ void disconnectPlayer(send2Client *argClient, int position)
 }
 
 /**
+ * @brief Cherche la position du client dans le tableau des clients
+ * 
+ * @param argClient 
+ * @return int 
+ */
+int findPosition(send2Client *argClient)
+{
+    int position = 0;
+
+    struct sockaddr_in* pV4Addr = (struct sockaddr_in*)&argClient->socket;
+    struct in_addr ipAddr = pV4Addr->sin_addr;
+    socklen_t len = sizeof(*pV4Addr);
+
+    do
+    {
+        position++;
+    } while (strcmp(inet_ntoa(argClient->argt->sd[position].addrClient.sin_addr),inet_ntoa(ipAddr)) || ((int)ntohs(argClient->argt->sd[position].addrClient.sin_port) != argClient->port));
+
+    return position;
+}
+
+void initConnection(void *arg, int position)
+{
+    send2Client *argClient = arg;
+
+    for(int i = 1; i <= max_player; i++)
+    {
+        buildtramClient_send(argClient->argt->sd[i].joueur, i);
+
+        if(argClient->argt->sd[i].clientSocket != INVALID_SOCKET && argClient->argt->sd[i].joueur.connected == TRUE)
+        {
+            if(send(argClient->argt->sd[position].clientSocket,tramClient_send,(sizeof(char)*30),0) == SOCKET_ERROR) printf("Server: Packet lost for %d\n",i);
+        }
+    }
+}
+
+/**
  * @brief Écoute un client tant que la connexion est établie. (se lance dans un thread)
  * 
  * @param arg 
@@ -182,22 +219,14 @@ void *receiveFromClient(void *arg)
         }
         else
         {
-            //on stock les données du client
-            struct sockaddr_in* pV4Addr = (struct sockaddr_in*)&argClient->socket;
-            struct in_addr ipAddr = pV4Addr->sin_addr;
-            socklen_t len = sizeof(*pV4Addr);
+           
+            i = findPosition(argClient);
 
-            //on cherche la position du client dans le tableau de données
-            do
-            {
-                i++;
-            } while (strcmp(inet_ntoa(argClient->argt->sd[i].addrClient.sin_addr),inet_ntoa(ipAddr)) || ((int)ntohs(argClient->argt->sd[i].addrClient.sin_port) != argClient->port));
-
-            sendToClient(argClient, i);
             traitData(argClient, i);
             argClient->argt->sd[i].joueur.connected = TRUE;
             argClient->argt->sd[i].joueur.playerRect.w = 50;
             argClient->argt->sd[i].joueur.playerRect.h = 81;
+            sendToClient(argClient, i);
             position = i;
             i=0;
         }
@@ -245,7 +274,6 @@ void *searchClients(void *arg)
             argClient[place].socket = socketClient;
             argClient[place].port = (int)ntohs(argt2->sd[place].addrClient.sin_port);
             argClient[place].argt = argt2;
-            Sleep(500);
             argt->sd[place].joueur.connected = TRUE;
             pthread_create(&receive_from_client[place],NULL,receiveFromClient,(void *)&argClient[place]);
         }
