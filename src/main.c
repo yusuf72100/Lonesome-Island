@@ -172,6 +172,14 @@ static void checkEvents()
                     case SDLK_ESCAPE:
                         tabEvent[10] = SDL_TRUE;
                         break;
+
+                    case SDLK_LALT:
+                        tabEvent[11] = SDL_TRUE;
+                        break;
+
+                    case SDLK_RETURN:
+                        tabEvent[12] = SDL_TRUE;
+                        break;
                 }
 
             break;
@@ -210,6 +218,14 @@ static void checkEvents()
 
                     case SDLK_ESCAPE:
                         tabEvent[10] = SDL_FALSE;
+                        break;
+
+                    case SDLK_LALT:
+                        tabEvent[11] = SDL_FALSE;
+                        break;
+
+                    case SDLK_RETURN:
+                        tabEvent[12] = SDL_FALSE;
                         break;
 
                 }
@@ -519,6 +535,11 @@ static void doEvents()
             {
                 changeMenu("Main");
             }
+        }
+
+        if(tabEvent[11] == SDL_TRUE && tabEvent[12] == SDL_TRUE)
+        {
+            toggleFullscreen();
         }
 
         drawButtons();

@@ -705,6 +705,21 @@ static void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect
     }
 }
 
+void toggleFullscreen()
+{
+    if(fullscreen == SDL_FALSE)
+    {
+        SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
+        fullscreen = TRUE;
+        Sleep(200);
+    }
+    else{
+        SDL_SetWindowFullscreen(window, 0);
+        fullscreen = FALSE;
+        Sleep(200);
+    }
+}
+
 /**
  * @brief Affiche la texture de survol du bouton demandé en dans le menu souhaité.
  * 

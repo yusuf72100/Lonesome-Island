@@ -39,9 +39,10 @@ static SDL_bool hover_playbutton = SDL_FALSE;
 static SDL_bool hover_connectbutton = SDL_FALSE;
 static SDL_bool hover_hostbutton = SDL_FALSE;
 static SDL_bool hover_settingsbutton = SDL_FALSE;
+static SDL_bool fullscreen = SDL_FALSE;
 
-static int settings_button_animation_state = 0;
 static SDL_Point mouse_position;   
+static int settings_button_animation_state = 0;
 static int xWindow = 0, yWindow = 0;
 static int WindowW = 1920, WindowH = 1080;
 
@@ -147,6 +148,8 @@ void changeButtonState(char *button);
 void startAnimation(char *animation, player *joueur);
 
 int onButton(char *button);
+
+void toggleFullscreen();
 
 void drawButtons();
 

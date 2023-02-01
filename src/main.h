@@ -39,7 +39,7 @@ static Vecteur vecteur;
 static Bullet *bullet = NULL;
 
 static SDL_bool program_launched = SDL_TRUE;
-static SDL_bool tabEvent[10] = {SDL_FALSE};
+static SDL_bool tabEvent[12] = {SDL_FALSE};
 static SDL_Event event; 
 
 static player joueur;
