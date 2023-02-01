@@ -8,9 +8,109 @@
  */
 
 #include "main.h"
+#include "menus.h"
 
 void SDL_ExitWithError(const char *message);
 
+void startAnimation(char *animation, player *joueur)
+{
+    if(animations_thread_running == FALSE){
+        if(strcmp(animation,"running_up") == 0)
+            pthread_create(&animations_thread, NULL, running_up_animation,(void *)joueur);  
+
+        else if(strcmp(animation,"running_down") == 0)
+            pthread_create(&animations_thread, NULL, running_down_animation,(void *)joueur); 
+
+        else if(strcmp(animation,"running_left") == 0)
+            pthread_create(&animations_thread, NULL, running_left_animation,(void *)joueur);  
+
+        else if(strcmp(animation,"running_right") == 0)
+            pthread_create(&animations_thread, NULL, running_right_animation,(void *)joueur);  
+
+        else if(strcmp(animation,"breath_animation") == 0)
+            pthread_create(&animations_thread, NULL, breathAnimation,(void *)joueur);  
+    }
+}
+
+void changeButtonState(char *button)
+{
+    if(strcmp(button, "connect") == 0)
+    {
+        if(hover_connectbutton == FALSE) hover_connectbutton = TRUE;
+        else hover_connectbutton = FALSE;
+    }
+    else if(strcmp(button, "host") == 0)
+    {
+        if(hover_hostbutton == FALSE) hover_hostbutton = TRUE;
+        else hover_hostbutton = FALSE;
+    }
+    else if(strcmp(button, "play") == 0)
+    {
+        if(hover_playbutton == FALSE) hover_playbutton = TRUE;
+        else hover_playbutton = FALSE;
+    }
+    else if(strcmp(button, "settings") == 0)
+    {
+        if(hover_settingsbutton == FALSE) hover_settingsbutton = TRUE;
+        else hover_settingsbutton = FALSE;
+    }
+        
+}
+
+int onButton(char *button)
+{
+    if(strcmp(button, "connect") == 0)
+        return SDL_PointInRect(&mouse_position, &connect_button_rect);
+    else if(strcmp(button, "host") == 0)
+        return SDL_PointInRect(&mouse_position, &host_button_rect);
+    else if(strcmp(button, "play") == 0)
+        return SDL_PointInRect(&mouse_position, &play_button_rect);
+    else if(strcmp(button, "settings") == 0)
+        return SDL_PointInRect(&mouse_position, &settings_button_rect);
+    else return FALSE;
+}
+
+void drawButtons()
+{
+    dessinerButton(texture_play_inert, play_button_rect, play_inert, "Main");
+    dessinerButton(texture_connect_inert, connect_button_rect, connect_inert, "Main");
+    dessinerButton(texture_host_inert, host_button_rect, host_inert, "Main");
+}
+
+void mainMenu()
+{
+    mouseRect.x = mouse_position.x;
+    mouseRect.y = mouse_position.y;
+
+    buttonHover(play_hover, texture_play_hover, &play_button_rect, &hover_playbutton, "Main");
+    buttonHover(connect_hover, texture_connect_hover, &connect_button_rect, &hover_connectbutton, "Main");
+    buttonHover(host_hover, texture_host_hover, &host_button_rect, &hover_hostbutton, "Main");
+    buttonHoverWithAnimation(settings_hover1, texture_settings_hover1, &settings_button_rect, &hover_settingsbutton, "Main", settings_button_animation_right, settings_button_animation_left);
+    draw_settings_button_animation();
+    drawTitle();
+    displayError("Error: server offline...", "Error");
+    drawMouse();
+
+    SDL_RenderPresent(renderer);
+}
+
+void update_screen()
+{
+    SDL_RenderCopy(renderer, background_texture, NULL, NULL);
+    SDL_GetMouseState(&mouse_position.x,&mouse_position.y);
+    SDL_GetWindowPosition(window, &xWindow, &yWindow);
+    SDL_ShowCursor(SDL_DISABLE);
+}
+
+char *getMenu()
+{
+    return (menu);
+}
+
+void changeMenu(char *menuTarget)
+{
+    strcpy(menu, menuTarget);
+}
 
 /**
  * @brief Détruit la fenêtre et le rendu. (plus souvent utilisée lors d'une erreur de chargement d'un asset)
@@ -18,7 +118,7 @@ void SDL_ExitWithError(const char *message);
  * @param window 
  * @param renderer 
  */
-static void destroyAll(SDL_Window *window, SDL_Renderer *renderer)
+void destroyAll()
 {
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
@@ -28,7 +128,7 @@ static void destroyAll(SDL_Window *window, SDL_Renderer *renderer)
  * @brief Dessine le bon curseur en fonction de site on survol un bouton ou pas.
  * 
  */
-static void drawMouse()
+void drawMouse()
 {
     if(hover_playbutton || hover_connectbutton || hover_hostbutton || hover_settingsbutton) 
     {
@@ -57,14 +157,17 @@ static void drawMouse()
  * @param rectangle 
  * @param surface 
  */
-static void dessinerButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface)
+void dessinerButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface, char *menuTarget)
 {
-    if(SDL_QueryTexture(texture, NULL, NULL, &rectangle.w, &rectangle.h) != 0)
+    if(strcmp(menu, menuTarget) == 0)
     {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible d'afficher la texture du boutton jouer...");
+        if(SDL_QueryTexture(texture, NULL, NULL, &rectangle.w, &rectangle.h) != 0)
+        {
+            destroyAll(window, renderer);
+            SDL_ExitWithError("Impossible d'afficher la texture du boutton jouer...");
+        }
+        SDL_RenderCopy(renderer, texture, NULL, &rectangle);
     }
-    SDL_RenderCopy(renderer, texture, NULL, &rectangle);
 }
 
 /**
@@ -96,7 +199,7 @@ static void trierJoueurs()
  * @param texture_joueur 
  * @param playerRect 
  */
-static void drawPlayer(SDL_Texture *texture_joueur, SDL_Rect playerRect)
+void drawPlayer(SDL_Texture *texture_joueur, SDL_Rect playerRect)
 {
     //printf("Player's datas: \nx: %d y:%d\n",playerRect.x, playerRect.y);
     if(SDL_QueryTexture(texture_joueur, NULL, NULL, &playerRect.w,&playerRect.h) != 0)
@@ -167,7 +270,7 @@ static void switchAnimation(player Joueur)
  * 
  * @return void* 
  */
-static void *dessinerJoueurs()
+void *dessinerJoueurs(player *joueurs, int size)
 {
     //trierJoueurs();
     for(int i = 1; i < size; i++)
@@ -183,17 +286,18 @@ static void *dessinerJoueurs()
  * 
  * @return void* 
  */
-static void *breathAnimation()
+void *breathAnimation(void *j)
 {    
-    joueur.animation_state = BREATH_START;
-    pthread_create(&sendtoserver,NULL,Send2Server,NULL);
+    player *joueur = j;
+    joueur->animation_state = BREATH_START;
+    Send2Server();
     delay_breath();
-    joueur.animation_state++;
-    pthread_create(&sendtoserver,NULL,Send2Server,NULL);
+    joueur->animation_state++;
+    Send2Server();
     delay_breath();
-    joueur.animation_state--;
-    pthread_create(&sendtoserver,NULL,Send2Server,NULL);
-    pthread_exit(&animations_thread);
+    joueur->animation_state--;
+    Send2Server();
+    animations_thread_running = FALSE;
 }
 
 /**
@@ -201,14 +305,16 @@ static void *breathAnimation()
  * 
  * @return void* 
  */
-static void *running_left_animation()
+void *running_left_animation(void *j)
 {
-    joueur.animation_state = RUNNING_LEFT_START;
+    player *joueur = j;
+    joueur->animation_state = RUNNING_LEFT_START;
     delay_running_left();
-    joueur.animation_state++;
+    joueur->animation_state++;
     delay_running_left();
-    joueur.animation_state--;
+    joueur->animation_state--;
     pthread_exit(&animations_thread);
+    animations_thread_running = FALSE;
 }
 
 /**
@@ -216,14 +322,16 @@ static void *running_left_animation()
  * 
  * @return void* 
  */
-static void *running_right_animation()
+void *running_right_animation(void *j)
 {
-    joueur.animation_state = RUNNING_RIGHT_START;
+    player *joueur = j;
+    joueur->animation_state = RUNNING_RIGHT_START;
     delay_running_right();
-    joueur.animation_state++;
+    joueur->animation_state++;
     delay_running_right();
-    joueur.animation_state--;
+    joueur->animation_state--;
     pthread_exit(&animations_thread);
+    animations_thread_running = FALSE;
 }
 
 /**
@@ -231,14 +339,16 @@ static void *running_right_animation()
  * 
  * @return void* 
  */
-static void *running_up_animation()
+void *running_up_animation(void *j)
 {
-    joueur.animation_state = RUNNING_UP_START;
+    player *joueur = j;
+    joueur->animation_state = RUNNING_UP_START;
     delay_running_up();
-    joueur.animation_state++;
+    joueur->animation_state++;
     delay_running_up();
-    joueur.animation_state--;
+    joueur->animation_state--;
     pthread_exit(&animations_thread);
+    animations_thread_running = FALSE;
 }
 
 /**
@@ -246,14 +356,16 @@ static void *running_up_animation()
  * 
  * @return void* 
  */
-static void *running_down_animation()
+void *running_down_animation(void *j)
 {
-    joueur.animation_state = RUNNING_DOWN_START;
+    player *joueur = j;
+    joueur->animation_state = RUNNING_DOWN_START;
     delay_running_down();
-    joueur.animation_state++;
+    joueur->animation_state++;
     delay_running_down();
-    joueur.animation_state--;
+    joueur->animation_state--;
     pthread_exit(&animations_thread);
+    animations_thread_running = FALSE;
 }
 
 /**
@@ -261,29 +373,29 @@ static void *running_down_animation()
  * 
  * @return void* 
  */
-static void draw_settings_button_animation()
+void draw_settings_button_animation()
 {
     if(strcmp(menu,"Main") == 0)
     {
         switch (settings_button_animation_state)
         {
         case 0:
-            dessinerButton(texture_settings_hover1, settings_button_rect, settings_hover1);
+            dessinerButton(texture_settings_hover1, settings_button_rect, settings_hover1, "Main");
             break;
         case 1:
-            dessinerButton(texture_settings_hover2, settings_button_rect, settings_hover2);
+            dessinerButton(texture_settings_hover2, settings_button_rect, settings_hover2, "Main");
             break;
         case 2:
-            dessinerButton(texture_settings_hover3, settings_button_rect, settings_hover3);
+            dessinerButton(texture_settings_hover3, settings_button_rect, settings_hover3, "Main");
             break;
         case 3:
-            dessinerButton(texture_settings_hover4, settings_button_rect, settings_hover4);
+            dessinerButton(texture_settings_hover4, settings_button_rect, settings_hover4, "Main");
             break;
         case 4:
-            dessinerButton(texture_settings_hover5, settings_button_rect, settings_hover5);
+            dessinerButton(texture_settings_hover5, settings_button_rect, settings_hover5, "Main");
             break;
         default:
-            dessinerButton(texture_settings_hover6, settings_button_rect, settings_hover6);
+            dessinerButton(texture_settings_hover6, settings_button_rect, settings_hover6, "Main");
             break;
         }
     }
@@ -294,7 +406,7 @@ static void draw_settings_button_animation()
  * 
  * @return void* 
  */
-static void *settings_button_animation_left()
+void *settings_button_animation_left()
 {
     for(settings_button_animation_state; settings_button_animation_state >= 0 && hover_settingsbutton == SDL_FALSE; settings_button_animation_state--)
     {
@@ -311,7 +423,7 @@ static void *settings_button_animation_left()
  * 
  * @return void* 
  */
-static void *settings_button_animation_right()
+void *settings_button_animation_right()
 {
     for(settings_button_animation_state; settings_button_animation_state < 6 && hover_settingsbutton == SDL_TRUE; settings_button_animation_state++)
     {
@@ -328,7 +440,7 @@ static void *settings_button_animation_right()
  * 
  * @return void* 
  */
-static void drawTitle()
+void drawTitle()
 {
     if(SDL_QueryTexture(title_texture, NULL, NULL, &title_rect.w,&title_rect.h) != 0)
     {
@@ -344,7 +456,7 @@ static void drawTitle()
  * @param rect 
  * @param texture 
  */
-static void drawError(SDL_Rect rect, SDL_Texture *texture)
+void drawError(SDL_Rect rect, SDL_Texture *texture)
 {
     if(SDL_QueryTexture(texture, NULL, NULL, &rect.w,&rect.h) != 0)
     {
@@ -360,7 +472,7 @@ static void drawError(SDL_Rect rect, SDL_Texture *texture)
  * @param menuTarget
  * @return void* 
  */
-static void displayError(char *s, char *menuTarget)
+void displayError(char *s, char *menuTarget)
 {
     if(strcmp(menu,menuTarget) == 0)
     {
@@ -410,7 +522,7 @@ static void init_texture(SDL_Surface **surface, SDL_Texture **texture)
  * @brief Initialise toutes les variables relatives aux menus.
  * 
  */
-static void init_vars()
+void init_menus_vars()
 {
     mouse_position.x = 0, mouse_position.y = 0;
     xWindow = 0, yWindow = 0;
@@ -609,7 +721,7 @@ static void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect
  * @param hover_button 
  * @param menuTarget 
  */
-static void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button, char *menuTarget)
+void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button, char *menuTarget)
 {
     if(strcmp(menu,menuTarget) == 0)
     {
@@ -617,7 +729,7 @@ static void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture
         {
             *hover_button = SDL_TRUE;
             init_hover(hover_button);
-            dessinerButton(button_texture, *button_rect, button_surface);
+            dessinerButton(button_texture, *button_rect, button_surface, menuTarget);
         }
         else
         {
@@ -635,7 +747,7 @@ static void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture
  * @param hover_button 
  * @param menuTarget 
  */
-static void buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button, char *menuTarget, void* (*p)(void*), void* (*p2)(void*))
+void buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button, char *menuTarget, void* (*p)(void*), void* (*p2)(void*))
 {
 
     if(strcmp(menu,menuTarget) == 0)

@@ -277,20 +277,23 @@ void stopServer()
 {
     if(argt->running == TRUE)
     {
-        for(int i = 1; i<=max_player+1; i++)
-            disconnectPlayer(argClient, i);
-    }
-    free(receive_from_client);
-    free(argt->sd);
-    free(argt);
-    free(argClient);
+        for(int i = 2; i<=max_player+1; i++)
+            if(argt->sd[i].joueur.connected == TRUE)
+                disconnectPlayer(argClient, i);
 
-    receive_from_client = NULL;
-    argt->sd = NULL;
-    argt = NULL;
-    argClient = NULL;
-    
-    WSACleanup();
+        free(argt->sd);
+        free(argt);
+        free(argClient);
+        free(receive_from_client);
+
+        receive_from_client = NULL;
+        argt->sd = NULL;
+        argt = NULL;
+        argClient = NULL;
+        
+        printf("Server: server cleared!\n");
+        WSACleanup();
+    }
 }
 
 /**
@@ -302,7 +305,6 @@ void *startServer()
 {
     receive_from_client = malloc(sizeof(pthread_t)*max_player+1);
     socketDatas * sd = malloc(sizeof(socketDatas)*max_player+1);
-    int  running = 0;
 
     SOCKET clientSocket;
     WSADATA WSAData;
@@ -318,12 +320,12 @@ void *startServer()
     bind(socketServer, (SOCKADDR *)&addrServer, sizeof(addrServer));
     printf("bind : %d\n", socketServer);
 
-    listen(socketServer, 5);
+    listen(socketServer, max_player);
     printf("Listening\n");
 
     argt = malloc(sizeof(argServer));
     argt->sd = sd;
-    argt->running = running;
+    argt->running = TRUE;
     argt->size = 1;
     //socket des clients
     SOCKADDR_IN addrClient;

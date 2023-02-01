@@ -19,8 +19,6 @@
 #include <SDL_mixer.h>
 #include "liste.h"
 #include "client.h"
-#include "sound.h"
-#include "menus.h"
 #include <windows.h>
 
 //animations states
@@ -37,32 +35,17 @@
 
 static Liste *l;
 
-extern int connectedError;
-
-static short loading;
 static SDL_bool hover_playbutton = SDL_FALSE;
 static SDL_bool hover_connectbutton = SDL_FALSE;
 static SDL_bool hover_hostbutton = SDL_FALSE;
 static SDL_bool hover_settingsbutton = SDL_FALSE;
-static short debug = FALSE; 
 
 static int settings_button_animation_state = 0;
-static int tick=0;
-static int size;
-static int rotation = 0;
 static SDL_Point mouse_position;   
 static int xWindow = 0, yWindow = 0;
 static int WindowW = 1920, WindowH = 1080;
 
-static char *s;
 static char menu[10] = "Main";
-
-static Vecteur vecteur;
-static Bullet *bullet = NULL;
-
-static SDL_bool program_launched = SDL_TRUE;
-static SDL_bool tabEvent[10] = {SDL_FALSE};
-static SDL_Event event; 
 
 //menu buttons rectangle
 static SDL_Rect mouseRect;
@@ -153,37 +136,70 @@ static SDL_Texture *cursor_select_texture = NULL;
 static SDL_Surface *background = NULL;
 static SDL_Texture *background_texture = NULL;
 
-static player joueur;
-static player * joueurs;
-
-static pthread_t reloading;
-static pthread_t server;
-static pthread_t sendtoserver;
-static pthread_t receivefromserver;
-static pthread_t animations_thread;
-
 static int animations_thread_running = FALSE;
 
 static void SDL_ExitWithError(const char *message);
 
 static void trierJoueurs();
 
-static void init_vars();
+void changeButtonState(char *button);
 
-static void drawMouse();
+void startAnimation(char *animation, player *joueur);
 
-static void drawPlayer(SDL_Texture *texture_joueur, SDL_Rect playerRect);
+int onButton(char *button);
 
-static void destroyAll(SDL_Window *window, SDL_Renderer *renderer);
+void drawButtons();
+
+void mainMenu();
+
+void update_screen();
+
+void init_menus_vars();
+
+void drawMouse();
+
+void drawPlayer(SDL_Texture *texture_joueur, SDL_Rect playerRect);
+
+void destroyAll();
 
 static void dessinerRect(SDL_Rect rectangle, SDL_Renderer *renderer);
 
-static void dessinerButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface);
+void dessinerButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface, char *menuTarget);
 
 static void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, Bullet *b, int rotation, int vitesse);
 
-static void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button, char *menuTarget);
+void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button, char *menuTarget);
+
+void buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button, char *menuTarget, void* (*p)(void*), void* (*p2)(void*));
 
 static void init_texture(SDL_Surface **surface, SDL_Texture **texture);
 
 static void switchAnimation(player Joueur);
+
+void displayError(char *s, char *menuTarget);
+
+void drawError(SDL_Rect rect, SDL_Texture *texture);
+
+void drawTitle();
+
+void *settings_button_animation_right();
+
+void *settings_button_animation_left();
+
+void draw_settings_button_animation();
+
+void *running_down_animation(void *j);
+
+void *running_up_animation(void *j);
+
+void *running_right_animation(void *j);
+
+void *running_left_animation(void *j);
+
+void *breathAnimation(void *j);
+
+char *getMenu();
+
+void changeMenu(char *menuTarget);
+
+void *dessinerJoueurs(player *joueurs, int size);
