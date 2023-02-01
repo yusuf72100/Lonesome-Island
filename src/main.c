@@ -539,12 +539,10 @@ static void init_vars()
     loading = 0;
     l = creerListe();
     //freopen(newLogName(), "a+", stdout); 
-
     rotation = 0;
-
     //tab d'event
     memset(tabEvent, 0, 7*sizeof(SDL_bool));
-
+    init_menus_vars();
 }
 
 static void initBullet(Bullet * b, int x, int y, int rotation)
@@ -578,7 +576,6 @@ int main(int argc, char *argv[])
     }
 
     init_vars();
-    init_menus_vars();
     initAudio();
     creation_canaux_musique();
     int timer = 0;
@@ -594,7 +591,6 @@ int main(int argc, char *argv[])
 
         //execution des events
         doEvents();
-
         mainMenu();
 
         if((timer = (1000 / 75)-(SDL_GetTicks() - tick)) > 0)
