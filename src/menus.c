@@ -718,6 +718,9 @@ static void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect
     }
 }
 
+/**
+ * @brief Change le mode plein écran.
+*/
 void toggleFullscreen()
 {
     if(fullscreen == SDL_FALSE)
