@@ -98,7 +98,7 @@ char* newLogName()
 
     time (&now);
     timeinfo = localtime ( &now );
-    char *logName = malloc(sizeof(char)*100);
+    char logName[100];
 
     //strcpy("logs/", logName);
     strftime(logName,30,"%b.%d.%Y.%H.%M.%S",timeinfo);
