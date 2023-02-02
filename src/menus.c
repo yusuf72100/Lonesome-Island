@@ -12,6 +12,12 @@
 
 void SDL_ExitWithError(const char *message);
 
+/**
+ * @brief Commence l'animation souhaitée au joueur demandé.
+ * 
+ * @param animation 
+ * @param joueur 
+*/
 void startAnimation(char *animation, player *joueur)
 {
     if(animations_thread_running == FALSE){
@@ -32,6 +38,11 @@ void startAnimation(char *animation, player *joueur)
     }
 }
 
+/**
+ * @brief Renvoi TRUE si le curseur est sur le boutton passé en paramètre.
+ * 
+ * @param button 
+*/
 void changeButtonState(char *button)
 {
     if(strcmp(button, "connect") == 0)
@@ -57,6 +68,11 @@ void changeButtonState(char *button)
         
 }
 
+/**
+ * @brief Renvoi TRUE si le curseur est sur le boutton passé en paramètre sinon renvoi FALSE si le curseur est sur aucun boutton.
+ * 
+ * @param button 
+*/
 int onButton(char *button)
 {
     if(strcmp(button, "connect") == 0)
@@ -70,6 +86,10 @@ int onButton(char *button)
     else return FALSE;
 }
 
+/**
+ * @brief Essaye de dessiner tous les bouttons.
+ * 
+*/
 void drawButtons()
 {
     dessinerButton(texture_play_inert, play_button_rect, play_inert, "Main");
@@ -77,6 +97,10 @@ void drawButtons()
     dessinerButton(texture_host_inert, host_button_rect, host_inert, "Main");
 }
 
+/**
+ * @brief Met à jour les valeurs de l'écran.
+ * 
+*/
 void update_screen()
 {
     SDL_RenderCopy(renderer, background_texture, NULL, NULL);
@@ -85,11 +109,20 @@ void update_screen()
     SDL_ShowCursor(SDL_DISABLE);
 }
 
+/**
+ * @brief Nous renvoi le valeur du menu.
+ * 
+*/
 char *getMenu()
 {
     return (menu);
 }
 
+/**
+ * @brief Change de menu.
+ * 
+ * @param menuTarget 
+*/
 void changeMenu(char *menuTarget)
 {
     strcpy(menu, menuTarget);
@@ -762,6 +795,10 @@ void buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *button_t
     }
 }
 
+/**
+ * @brief Affiche le menu principal
+ * 
+*/
 void mainMenu()
 {
     mouseRect.x = mouse_position.x;
@@ -779,6 +816,11 @@ void mainMenu()
     SDL_RenderPresent(renderer);
 }
 
+/**
+ * @brief Nous renvoi une erreur SDL.
+ * 
+ * @param message 
+*/
 static void SDL_ExitWithError(const char *message)
 {
     SDL_Log("ERREUR : %s > %s\n", message, SDL_GetError());
