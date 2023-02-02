@@ -56,4 +56,3 @@ _(pour le lien mettez simplement l'URL de votre projets suivi de ``/tags``)_
 * **Yusuf Ulas** _alias_ [@yusuf72100](https://github.com/yusuf72100)
 * **Luca Pouceau** _alias_ [@Izleam](https://github.com/IzeLeam)
 * **Elvin Maubert** _alias_ [@Elvin](https://github.com/Elvin-19)
-
