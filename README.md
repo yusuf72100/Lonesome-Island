@@ -15,9 +15,7 @@ que sont l'hydration et la nutrition. Enfin, il devra faire face à la faune loc
 Entrez les programmes/logiciels/ressources que vous avez utilisé pour développer votre projet
 
 _exemples :_
-* [Materialize.css](http://materializecss.com) - Framework CSS (front-end)
-* [Atom](https://atom.io/) - Editeur de textes
-
+* [Visual Stuio Code](https://atom.io/](https://code.visualstudio.com/) - Editeur de textes
 
 ## Syntaxes
 
@@ -56,6 +54,6 @@ _(pour le lien mettez simplement l'URL de votre projets suivi de ``/tags``)_
 ## Auteurs
 Listez le(s) auteur(s) du projet ici !
 * **Yusuf Ulas** _alias_ [@yusuf72100](https://github.com/yusuf72100)
-* * **Luca Pouceau** _alias_ [@Izleam](https://github.com/IzeLeam)
-
+* **Luca Pouceau** _alias_ [@Izleam](https://github.com/IzeLeam)
+* **Elvin Maubert** _alias_ [@Elvin](https://github.com/Elvin-19)
 
