@@ -77,23 +77,6 @@ void drawButtons()
     dessinerButton(texture_host_inert, host_button_rect, host_inert, "Main");
 }
 
-void mainMenu()
-{
-    mouseRect.x = mouse_position.x;
-    mouseRect.y = mouse_position.y;
-
-    buttonHover(play_hover, texture_play_hover, &play_button_rect, &hover_playbutton, "Main");
-    buttonHover(connect_hover, texture_connect_hover, &connect_button_rect, &hover_connectbutton, "Main");
-    buttonHover(host_hover, texture_host_hover, &host_button_rect, &hover_hostbutton, "Main");
-    buttonHoverWithAnimation(settings_hover1, texture_settings_hover1, &settings_button_rect, &hover_settingsbutton, "Main", settings_button_animation_right, settings_button_animation_left);
-    draw_settings_button_animation();
-    drawTitle();
-    displayError("Error: server offline...", "Error");
-    drawMouse();
-
-    SDL_RenderPresent(renderer);
-}
-
 void update_screen()
 {
     SDL_RenderCopy(renderer, background_texture, NULL, NULL);
@@ -777,6 +760,23 @@ void buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *button_t
             }
         }
     }
+}
+
+void mainMenu()
+{
+    mouseRect.x = mouse_position.x;
+    mouseRect.y = mouse_position.y;
+
+    buttonHover(play_hover, texture_play_hover, &play_button_rect, &hover_playbutton, "Main");
+    buttonHover(connect_hover, texture_connect_hover, &connect_button_rect, &hover_connectbutton, "Main");
+    buttonHover(host_hover, texture_host_hover, &host_button_rect, &hover_hostbutton, "Main");
+    buttonHoverWithAnimation(settings_hover1, texture_settings_hover1, &settings_button_rect, &hover_settingsbutton, "Main", settings_button_animation_right, settings_button_animation_left);
+    draw_settings_button_animation();
+    drawTitle();
+    displayError("Error: server offline...", "Error");
+    drawMouse();
+
+    SDL_RenderPresent(renderer);
 }
 
 static void SDL_ExitWithError(const char *message)
