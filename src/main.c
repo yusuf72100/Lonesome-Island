@@ -619,7 +619,6 @@ int main(int argc, char *argv[])
             SDL_Delay(17);
     }  
 
-    //free window
     stopServer();
     stopConnection();
     TTF_CloseFont(police);
