@@ -141,7 +141,7 @@ static int animations_thread_running = FALSE;
 
 static void SDL_ExitWithError(const char *message);
 
-static void trierJoueurs();
+static void sortPlayers();
 
 void changeButtonState(char *button);
 
@@ -164,8 +164,6 @@ void drawMouse();
 void drawPlayer(SDL_Texture *texture_joueur, SDL_Rect playerRect);
 
 void destroyAll();
-
-static void dessinerRect(SDL_Rect rectangle, SDL_Renderer *renderer);
 
 void drawButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface, char *menuTarget);
 

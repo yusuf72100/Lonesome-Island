@@ -187,7 +187,7 @@ void drawButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface, 
  * @brief Trie les joueurs en fonction de leur coordonnées Y et organise l'ordre d'affichage des joueurs.
  * 
  */
-static void trierJoueurs()
+static void sortPlayers()
 {
     int position;
     int i,j;
@@ -285,7 +285,7 @@ static void switchAnimation(player Joueur)
  */
 void *drawPlayers(player *joueurs, int size)
 {
-    //trierJoueurs();
+    //sortPlayers();
     for(int i = 1; i <= size; i++)
     {
         if(joueurs[i].connected == TRUE)
