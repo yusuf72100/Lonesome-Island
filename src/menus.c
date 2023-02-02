@@ -732,7 +732,7 @@ void toggleFullscreen()
         SDL_SetWindowFullscreen(window, 0);
         fullscreen = FALSE;
     }
-    Sleep(200);
+    Sleep(500);
 }
 
 /**
