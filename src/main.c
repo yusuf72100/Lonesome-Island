@@ -168,7 +168,6 @@ static void checkEvents()
                         tabEvent[6] = SDL_TRUE;
                         break;
                     
-
                     case SDLK_ESCAPE:
                         tabEvent[10] = SDL_TRUE;
                         break;
