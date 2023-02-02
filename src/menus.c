@@ -17,7 +17,7 @@ void SDL_ExitWithError(const char *message);
  * 
  * @param animation 
  * @param joueur 
-*/
+ */
 void startAnimation(char *animation, player *joueur)
 {
     if(animations_thread_running == FALSE){
@@ -42,7 +42,7 @@ void startAnimation(char *animation, player *joueur)
  * @brief Renvoi TRUE si le curseur est sur le boutton passé en paramètre.
  * 
  * @param button 
-*/
+ */
 void changeButtonState(char *button)
 {
     if(strcmp(button, "connect") == 0)
@@ -71,7 +71,7 @@ void changeButtonState(char *button)
  * @brief Renvoi TRUE si le curseur est sur le boutton passé en paramètre sinon renvoi FALSE si le curseur est sur aucun boutton.
  * 
  * @param button 
-*/
+ */
 int onButton(char *button)
 {
     if(strcmp(button, "connect") == 0)
@@ -88,7 +88,7 @@ int onButton(char *button)
 /**
  * @brief Essaye de dessiner tous les bouttons.
  * 
-*/
+ */
 void drawButtons()
 {
     dessinerButton(texture_play_inert, play_button_rect, play_inert, "Main");
@@ -99,7 +99,7 @@ void drawButtons()
 /**
  * @brief Met à jour les valeurs de l'écran.
  * 
-*/
+ */
 void update_screen()
 {
     SDL_RenderCopy(renderer, background_texture, NULL, NULL);
@@ -111,7 +111,7 @@ void update_screen()
 /**
  * @brief Nous renvoi le menu dans lequel le client se trouve.
  * 
-*/
+ */
 char *getMenu()
 {
     return (menu);
@@ -121,7 +121,7 @@ char *getMenu()
  * @brief Change de menu.
  * 
  * @param menuTarget 
-*/
+ */
 void changeMenu(char *menuTarget)
 {
     strcpy(menu, menuTarget);
