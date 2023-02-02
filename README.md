@@ -10,7 +10,7 @@ Pour réaliser sa quête, le joueur peut récolter les matières premières de l
 ou encore se construire un habitat pour se proteger. Il doit également penser à subvenir à ses besoins vitaux
 que sont l'hydration et la nutrition. Enfin, il devra faire face à la faune locale qui s'avère plutot dangereuse.
 
-## Fabriqué avec
+## Developpé avec
 
 Logiciels avec lequels ce projet est développé:
 
