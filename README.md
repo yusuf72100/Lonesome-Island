@@ -26,7 +26,7 @@ do
 # Lonesome Island
 _(juste en dessous des badges sympatiques à placer)_
 
-[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)  [![forthebadge](https://forthebadge.com/images/badges/uses-html.svg)](http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)  [![forthebadge](https://forthebadge.com/images/badges/uses-c.svg)](http://forthebadge.com)
 
 
 Lonesome Island est un jeu de survie. Le joueur débute le jeu en arivant sur une île déserte. Tout en survivant, 
