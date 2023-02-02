@@ -2,7 +2,7 @@
 
 ![alt text](https://github.com/yusuf72100/Lonesome-Island/blob/main/resources/title.png?raw=true)
 
-[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)  ![alt text](https://github.com/yusuf72100/Lonesome-Island/blob/main/language-c.svg?raw=true)
+[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)  ![alt text](https://github.com/yusuf72100/Lonesome-Island/blob/main/github/language-c.svg?raw=true)
 
 Lonesome Island est un jeu de survie. Le joueur débute le jeu en arivant sur une île déserte. Tout en survivant, 
 le joueur a pour objectif de quitter l'île en réunissant les matériaux nécessaires à la construcion d'un radeau.
