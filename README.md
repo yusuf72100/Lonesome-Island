@@ -12,7 +12,7 @@ que sont l'hydration et la nutrition. Enfin, il devra faire face à la faune loc
 
 ## Fabriqué avec
 
-Logiciels avec lequel ce projet a été développé:
+Logiciels avec lequels ce projet a été développé:
 
 * [Visual Studio Code](https://code.visualstudio.com) 
 
