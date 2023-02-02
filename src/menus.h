@@ -61,16 +61,14 @@ static SDL_DisplayMode DM;
 static SDL_Surface *icon_surface = NULL;
     
 //texte assets
-static SDL_Surface *texte = NULL;
-static SDL_Texture *texte_texture = NULL;
 static SDL_Color blackColor = {0, 0, 0};
 static TTF_Font *police = NULL;
 static SDL_Rect title_rect;
 
 //game assets
 static SDL_Surface *imagebullet = NULL;
-static SDL_Texture *texturebullet = NULL;	
-
+static SDL_Surface *texte = NULL;
+static SDL_Texture *texte_texture = NULL;
 static SDL_Surface *title_surface = NULL;
 static SDL_Surface *surface_joueur_h1 = NULL;
 static SDL_Surface *surface_joueur_h2 = NULL;
@@ -83,6 +81,7 @@ static SDL_Surface *surface_joueur_up_2 = NULL;
 static SDL_Surface *surface_joueur_down_1 = NULL;
 static SDL_Surface *surface_joueur_down_2 = NULL;
 
+static SDL_Texture *texturebullet = NULL;	
 static SDL_Texture *title_texture = NULL;
 static SDL_Texture *texture_joueur_h1 = NULL;
 static SDL_Texture *texture_joueur_h2 = NULL;
