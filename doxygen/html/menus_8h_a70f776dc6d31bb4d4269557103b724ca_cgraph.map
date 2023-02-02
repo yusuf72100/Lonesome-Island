@@ -1,0 +1,8 @@
+<map id="buttonHover" name="buttonHover">
+<area shape="rect" id="node1" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="5,80,96,105"/>
+<area shape="rect" id="node2" href="$menus_8c.html#aef0d7f69d6b9591122c752e2a00751db" title="Dessine un bouton normal." alt="" coords="144,55,231,80"/>
+<area shape="rect" id="node5" href="$sound_8c.html#a57b4724b83449e52bba882dfcf33adbd" title="Fonction qui lance le son de survol de bouton dans un thread dédié." alt="" coords="149,104,225,129"/>
+<area shape="rect" id="node3" href="$menus_8c.html#a3ccdb6767f1237284bf7c8e0d3e3eacb" title="Détruit la fenêtre et le rendu." alt="" coords="305,5,385,31"/>
+<area shape="rect" id="node4" href="$menus_8c.html#acd3f39401c59bbd01c9663c5348c63c1" title="Nous renvoi une erreur SDL." alt="" coords="279,55,411,80"/>
+<area shape="rect" id="node6" href="$sound_8c.html#a57d534ee1e2bc6ccbd6b927c1a45c388" title="Son de survol de bouton." alt="" coords="284,104,405,129"/>
+</map>

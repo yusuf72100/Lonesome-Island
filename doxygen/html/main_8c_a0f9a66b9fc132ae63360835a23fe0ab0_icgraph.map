@@ -1,0 +1,6 @@
+<map id="delay_settings_button_left" name="delay_settings_button_left">
+<area shape="rect" id="node1" title="Délai de l&#39;animation du bouton de paramètres quand on a pas le curseur dessus." alt="" coords="481,5,655,31"/>
+<area shape="rect" id="node2" href="$menus_8c.html#ab6d77ef359eb1ad9820145690e17a427" title="Animation du bouton paramètres quand on a pas le curseur dessus." alt="" coords="235,5,433,31"/>
+<area shape="rect" id="node3" href="$menus_8c.html#ab3002fe8e0074c9e2ecb5b835e5e819f" title="Affiche le menu principal." alt="" coords="104,5,187,31"/>
+<area shape="rect" id="node4" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>

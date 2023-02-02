@@ -1,0 +1,6 @@
+<map id="init_texture" name="init_texture">
+<area shape="rect" id="node1" title="Initialise l&#39;asset demandé." alt="" coords="384,5,471,31"/>
+<area shape="rect" id="node2" href="$menus_8c.html#a48e3fe80d276c94e23eed3c1017a05ee" title="Initialise toutes les variables relatives aux menus." alt="" coords="221,5,336,31"/>
+<area shape="rect" id="node3" href="$main_8c.html#a270d20bdcadebb9a08a01a55c37858a9" title="Initialise toutes les variables relatives aux menus." alt="" coords="104,5,173,31"/>
+<area shape="rect" id="node4" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>

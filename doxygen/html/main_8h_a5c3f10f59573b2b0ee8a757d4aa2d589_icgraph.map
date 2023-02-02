@@ -1,0 +1,7 @@
+<map id="delay_running_up" name="delay_running_up">
+<area shape="rect" id="node1" title="Délai de l&#39;animation &quot;courrir en haut&quot;." alt="" coords="455,31,577,56"/>
+<area shape="rect" id="node2" href="$menus_8c.html#ad1aa5c5c7c6e33913f1a654a09ba6a00" title="Animation &quot;courrir àen haut&quot;." alt="" coords="259,31,407,56"/>
+<area shape="rect" id="node3" href="$main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="120,5,195,31"/>
+<area shape="rect" id="node5" href="$menus_8c.html#a18f5d14ec140197dd0e7627c3c6b7a47" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="104,55,211,80"/>
+<area shape="rect" id="node4" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>

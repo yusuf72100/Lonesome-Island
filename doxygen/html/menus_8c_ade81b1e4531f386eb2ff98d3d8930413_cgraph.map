@@ -1,0 +1,6 @@
+<map id="displayError" name="displayError">
+<area shape="rect" id="node1" title="Initialise les assets de l&#39;erreur dans le menu demandé avec SDL_TTF." alt="" coords="5,31,96,56"/>
+<area shape="rect" id="node2" href="$menus_8c.html#ae06068ec3d07bace5f405fbf6eeb3c20" title="Affiche l&#39;erreur à l&#39;écran." alt="" coords="144,31,221,56"/>
+<area shape="rect" id="node3" href="$menus_8c.html#a3ccdb6767f1237284bf7c8e0d3e3eacb" title="Détruit la fenêtre et le rendu." alt="" coords="295,5,375,31"/>
+<area shape="rect" id="node4" href="$menus_8c.html#acd3f39401c59bbd01c9663c5348c63c1" title="Nous renvoi une erreur SDL." alt="" coords="269,55,401,80"/>
+</map>

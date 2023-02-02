@@ -24,6 +24,11 @@ static void \mbox{\hyperlink{socket_8c_acbb9a47a13a93e7936282bfe14f153eb}{trait\
 \begin{DoxyCompactList}\small\item\em Décrypte la trame reçut par le client indice. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{socket_8c_af93eb740b3e202bdcb05795a2da4ef8c}{disconnect\+Player}} (\mbox{\hyperlink{structsend2_client}{send2\+Client}} $\ast$arg\+Client, int position)
 \begin{DoxyCompactList}\small\item\em Déconnecte le client en fonction de sa position dans le tableau. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{socket_8c_a88d900ece06509fc9c398d81b5200e71}{find\+Position}} (\mbox{\hyperlink{structsend2_client}{send2\+Client}} $\ast$arg\+Client)
+\begin{DoxyCompactList}\small\item\em Cherche la position du client dans le tableau des clients. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{socket_8c_a42c0b3f427a2ebf97ad8fb6aedfacf8c}\label{socket_8c_a42c0b3f427a2ebf97ad8fb6aedfacf8c}} 
+void {\bfseries init\+Connection} (void $\ast$arg, int position)
+\item 
 void $\ast$ \mbox{\hyperlink{socket_8c_a3b61093f2f5316157d1e6d3d05cf5ebc}{receive\+From\+Client}} (void $\ast$arg)
 \begin{DoxyCompactList}\small\item\em Écoute un client tant que la connexion est établie. \end{DoxyCompactList}\item 
 void $\ast$ \mbox{\hyperlink{socket_8c_a68b45930fad2153f053144a8678afa1c}{search\+Clients}} (void $\ast$arg)
@@ -70,7 +75,8 @@ Construit une trame dédiée uniquement au client i.
 {\em i} & \\
 \hline
 \end{DoxyParams}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -108,6 +114,32 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \includegraphics[width=350pt]{socket_8c_af93eb740b3e202bdcb05795a2da4ef8c_icgraph}
 \end{center}
 \end{figure}
+\mbox{\Hypertarget{socket_8c_a88d900ece06509fc9c398d81b5200e71}\label{socket_8c_a88d900ece06509fc9c398d81b5200e71}} 
+\index{socket.c@{socket.c}!findPosition@{findPosition}}
+\index{findPosition@{findPosition}!socket.c@{socket.c}}
+\doxysubsubsection{\texorpdfstring{findPosition()}{findPosition()}}
+{\footnotesize\ttfamily int find\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structsend2_client}{send2\+Client}} $\ast$}]{arg\+Client }\end{DoxyParamCaption})}
+
+
+
+Cherche la position du client dans le tableau des clients. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em arg\+Client} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{socket_8c_a88d900ece06509fc9c398d81b5200e71_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{socket_8c_a3b61093f2f5316157d1e6d3d05cf5ebc}\label{socket_8c_a3b61093f2f5316157d1e6d3d05cf5ebc}} 
 \index{socket.c@{socket.c}!receiveFromClient@{receiveFromClient}}
 \index{receiveFromClient@{receiveFromClient}!socket.c@{socket.c}}
@@ -128,7 +160,8 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{DoxyReturn}{Renvoie}
 void$\ast$ 
 \end{DoxyReturn}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -162,7 +195,8 @@ Gère la place des clients dans la table de client et reçoit les nouveaux clien
 \begin{DoxyReturn}{Renvoie}
 void$\ast$ 
 \end{DoxyReturn}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -225,7 +259,8 @@ Démarre le serveur et initie la table de clients.
 \begin{DoxyReturn}{Renvoie}
 void$\ast$ 
 \end{DoxyReturn}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

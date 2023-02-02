@@ -1,0 +1,844 @@
+\hypertarget{menus_8c}{}\doxysection{Référence du fichier C\+:/\+Users/\+Yusuf/\+Lonesome-\/\+Island/src/menus.c}
+\label{menus_8c}\index{C:/Users/Yusuf/Lonesome-\/Island/src/menus.c@{C:/Users/Yusuf/Lonesome-\/Island/src/menus.c}}
+
+
+Fichier qui s\textquotesingle{}occupera de l\textquotesingle{}affichage des éléments.  
+
+
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}menus.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de menus.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{menus_8c_acd3f39401c59bbd01c9663c5348c63c1}{SDL\+\_\+\+Exit\+With\+Error}} (const char $\ast$message)
+\begin{DoxyCompactList}\small\item\em Nous renvoi une erreur SDL. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menus_8c_a18f5d14ec140197dd0e7627c3c6b7a47}{start\+Animation}} (char $\ast$animation, \mbox{\hyperlink{structplayer}{player}} $\ast$joueur)
+\begin{DoxyCompactList}\small\item\em Commence l\textquotesingle{}animation souhaitée au joueur demandé. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menus_8c_a9310b9a509b196dead801a8afe8f735a}{change\+Button\+State}} (char $\ast$button)
+\begin{DoxyCompactList}\small\item\em Change l\textquotesingle{}état du boutton de survol ciblé. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{menus_8c_a1bd07c916c27ca0eb4e4a8aad057fc59}{on\+Button}} (char $\ast$button)
+\begin{DoxyCompactList}\small\item\em Renvoi TRUE si le curseur est sur le boutton passé en paramètre sinon renvoi FALSE si le curseur est sur aucun boutton. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{menus_8c_a258a73384029adb1d7e22ca959235633}\label{menus_8c_a258a73384029adb1d7e22ca959235633}} 
+void {\bfseries draw\+Buttons} ()
+\begin{DoxyCompactList}\small\item\em Essaye de dessiner tous les bouttons. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{menus_8c_a10da25e92e69613be93d099bb029feb2}\label{menus_8c_a10da25e92e69613be93d099bb029feb2}} 
+void {\bfseries update\+\_\+screen} ()
+\begin{DoxyCompactList}\small\item\em Met à jour les valeurs de l\textquotesingle{}écran. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{menus_8c_a272acb896d5e5413328204c4060b1598}\label{menus_8c_a272acb896d5e5413328204c4060b1598}} 
+char $\ast$ {\bfseries get\+Menu} ()
+\begin{DoxyCompactList}\small\item\em Nous renvoi le menu dans lequel le client se trouve. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menus_8c_aa3d16c0615cae07eb3845131203c1c72}{change\+Menu}} (char $\ast$menu\+Target)
+\begin{DoxyCompactList}\small\item\em Change de menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menus_8c_a3ccdb6767f1237284bf7c8e0d3e3eacb}{destroy\+All}} ()
+\begin{DoxyCompactList}\small\item\em Détruit la fenêtre et le rendu. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{menus_8c_aab7430a217db9969c46ead48adffbd05}\label{menus_8c_aab7430a217db9969c46ead48adffbd05}} 
+void {\bfseries draw\+Mouse} ()
+\begin{DoxyCompactList}\small\item\em Dessine le bon curseur en fonction de site on survol un bouton ou pas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menus_8c_aef0d7f69d6b9591122c752e2a00751db}{draw\+Button}} (SDL\+\_\+\+Texture $\ast$texture, SDL\+\_\+\+Rect rectangle, SDL\+\_\+\+Surface $\ast$surface, char $\ast$menu\+Target)
+\begin{DoxyCompactList}\small\item\em Dessine un bouton normal. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{menus_8c_a0e6bd1afb7d1264f682820e9fa3ac010}\label{menus_8c_a0e6bd1afb7d1264f682820e9fa3ac010}} 
+static void {\bfseries sort\+Players} ()
+\begin{DoxyCompactList}\small\item\em Trie les joueurs en fonction de leur coordonnées Y et organise l\textquotesingle{}ordre d\textquotesingle{}affichage des joueurs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menus_8c_a2dfe41d8c0f122241c47441391c02de3}{draw\+Player}} (SDL\+\_\+\+Texture $\ast$texture\+\_\+joueur, SDL\+\_\+\+Rect player\+Rect)
+\begin{DoxyCompactList}\small\item\em Dessine un joueur en fonction de ses coordonnées et de sa texture. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{menus_8c_a124c70bcd0486f8db5d0292febf8c889}{switch\+Animation}} (\mbox{\hyperlink{structplayer}{player}} Joueur)
+\begin{DoxyCompactList}\small\item\em Applique la bonne texture au joueur en fonction de son animation. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{menus_8c_a9e5f626ab953d2b6f672f20c3742287d}{draw\+Players}} (\mbox{\hyperlink{structplayer}{player}} $\ast$joueurs, int size)
+\begin{DoxyCompactList}\small\item\em Dessine tous les joueurs. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{menus_8c_a0fa3f94da8421e8f4e5d11404f87856b}{breath\+Animation}} (void $\ast$j)
+\begin{DoxyCompactList}\small\item\em Animation de respiration. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{menus_8c_a2fdf89dd6b22fb5e5d73f8370470985b}{running\+\_\+left\+\_\+animation}} (void $\ast$j)
+\begin{DoxyCompactList}\small\item\em Animation \char`\"{}courrir à gauche\char`\"{}. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{menus_8c_a1fdb9aee8fd08118ac0bc4234da6a2eb}{running\+\_\+right\+\_\+animation}} (void $\ast$j)
+\begin{DoxyCompactList}\small\item\em Animation \char`\"{}courrir à droite\char`\"{}. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{menus_8c_ad1aa5c5c7c6e33913f1a654a09ba6a00}{running\+\_\+up\+\_\+animation}} (void $\ast$j)
+\begin{DoxyCompactList}\small\item\em Animation \char`\"{}courrir àen haut\char`\"{}. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{menus_8c_a2baaae2f0feebce6bd015a37345e2270}{running\+\_\+down\+\_\+animation}} (void $\ast$j)
+\begin{DoxyCompactList}\small\item\em Animation \char`\"{}courrir en bas\char`\"{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menus_8c_a7847849e8e072c2895401120c061bac0}{draw\+\_\+settings\+\_\+button\+\_\+animation}} ()
+\begin{DoxyCompactList}\small\item\em Dessine le bouton de paramètres (à executer dans un thread uniquement). \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{menus_8c_ab6d77ef359eb1ad9820145690e17a427}{settings\+\_\+button\+\_\+animation\+\_\+left}} ()
+\begin{DoxyCompactList}\small\item\em Animation du bouton paramètres quand on a pas le curseur dessus. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{menus_8c_a48c083415f7a9126fec9cc228b651991}{settings\+\_\+button\+\_\+animation\+\_\+right}} ()
+\begin{DoxyCompactList}\small\item\em Animation du bouton paramètres quand on a le curseur dessus. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menus_8c_a72036abbb16f3b007110ff03d748e0b1}{draw\+Title}} ()
+\begin{DoxyCompactList}\small\item\em Dessine le titre dans le menu principal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menus_8c_ae06068ec3d07bace5f405fbf6eeb3c20}{draw\+Error}} (SDL\+\_\+\+Rect rect, SDL\+\_\+\+Texture $\ast$texture)
+\begin{DoxyCompactList}\small\item\em Affiche l\textquotesingle{}erreur à l\textquotesingle{}écran. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menus_8c_ade81b1e4531f386eb2ff98d3d8930413}{display\+Error}} (char $\ast$s, char $\ast$menu\+Target)
+\begin{DoxyCompactList}\small\item\em Initialise les assets de l\textquotesingle{}erreur dans le menu demandé avec SDL\+\_\+\+TTF. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{menus_8c_ac96e8912bb03df1f73f5ccb6db495085}{init\+\_\+texture}} (SDL\+\_\+\+Surface $\ast$$\ast$surface, SDL\+\_\+\+Texture $\ast$$\ast$texture)
+\begin{DoxyCompactList}\small\item\em Initialise l\textquotesingle{}asset demandé. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{menus_8c_a48e3fe80d276c94e23eed3c1017a05ee}\label{menus_8c_a48e3fe80d276c94e23eed3c1017a05ee}} 
+void {\bfseries init\+\_\+menus\+\_\+vars} ()
+\begin{DoxyCompactList}\small\item\em Initialise toutes les variables relatives aux menus. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{menus_8c_a1e20727afdccf232581f83c7e4a4f470}\label{menus_8c_a1e20727afdccf232581f83c7e4a4f470}} 
+static void {\bfseries dessiner\+Balle} (SDL\+\_\+\+Texture $\ast$texture, SDL\+\_\+\+Renderer $\ast$renderer, SDL\+\_\+\+Rect rectangle, SDL\+\_\+\+Window $\ast$window, \mbox{\hyperlink{struct_bullet}{Bullet}} $\ast$b, int rotation, int vitesse)
+\item 
+\mbox{\Hypertarget{menus_8c_aad0757276ad4bc900c8826f8ecbe6ecc}\label{menus_8c_aad0757276ad4bc900c8826f8ecbe6ecc}} 
+void {\bfseries toggle\+Fullscreen} ()
+\begin{DoxyCompactList}\small\item\em Change le mode plein écran. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menus_8c_a70f776dc6d31bb4d4269557103b724ca}{button\+Hover}} (SDL\+\_\+\+Surface $\ast$button\+\_\+surface, SDL\+\_\+\+Texture $\ast$button\+\_\+texture, SDL\+\_\+\+Rect $\ast$button\+\_\+rect, SDL\+\_\+bool $\ast$hover\+\_\+button, char $\ast$menu\+Target)
+\begin{DoxyCompactList}\small\item\em Affiche la texture de survol du bouton demandé en dans le menu souhaité. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menus_8c_ac08bc7c592426e91140a694c8707ec18}{button\+Hover\+With\+Animation}} (SDL\+\_\+\+Surface $\ast$button\+\_\+surface, SDL\+\_\+\+Texture $\ast$button\+\_\+texture, SDL\+\_\+\+Rect $\ast$button\+\_\+rect, SDL\+\_\+bool $\ast$hover\+\_\+button, char $\ast$menu\+Target, void $\ast$($\ast$p)(void $\ast$), void $\ast$($\ast$p2)(void $\ast$))
+\begin{DoxyCompactList}\small\item\em Affiche la texture de survol avec animation du bouton demandé en dans le menu souhaité. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menus_8c_ab3002fe8e0074c9e2ecb5b835e5e819f}{main\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Affiche le menu principal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier qui s\textquotesingle{}occupera de l\textquotesingle{}affichage des éléments. 
+
+\begin{DoxyAuthor}{Auteur}
+Yusuf Ulas 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2023-\/01-\/31 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{menus_8c_a0fa3f94da8421e8f4e5d11404f87856b}\label{menus_8c_a0fa3f94da8421e8f4e5d11404f87856b}} 
+\index{menus.c@{menus.c}!breathAnimation@{breathAnimation}}
+\index{breathAnimation@{breathAnimation}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{breathAnimation()}{breathAnimation()}}
+{\footnotesize\ttfamily void $\ast$ breath\+Animation (\begin{DoxyParamCaption}\item[{void $\ast$}]{j }\end{DoxyParamCaption})}
+
+
+
+Animation de respiration. 
+
+\begin{DoxyReturn}{Renvoie}
+void$\ast$ 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_a0fa3f94da8421e8f4e5d11404f87856b_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_a0fa3f94da8421e8f4e5d11404f87856b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8c_a70f776dc6d31bb4d4269557103b724ca}\label{menus_8c_a70f776dc6d31bb4d4269557103b724ca}} 
+\index{menus.c@{menus.c}!buttonHover@{buttonHover}}
+\index{buttonHover@{buttonHover}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{buttonHover()}{buttonHover()}}
+{\footnotesize\ttfamily void button\+Hover (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Surface $\ast$}]{button\+\_\+surface,  }\item[{SDL\+\_\+\+Texture $\ast$}]{button\+\_\+texture,  }\item[{SDL\+\_\+\+Rect $\ast$}]{button\+\_\+rect,  }\item[{SDL\+\_\+bool $\ast$}]{hover\+\_\+button,  }\item[{char $\ast$}]{menu\+Target }\end{DoxyParamCaption})}
+
+
+
+Affiche la texture de survol du bouton demandé en dans le menu souhaité. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em button\+\_\+surface} & \\
+\hline
+{\em button\+\_\+texture} & \\
+\hline
+{\em button\+\_\+rect} & \\
+\hline
+{\em hover\+\_\+button} & \\
+\hline
+{\em menu\+Target} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_a70f776dc6d31bb4d4269557103b724ca_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{menus_8c_a70f776dc6d31bb4d4269557103b724ca_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8c_ac08bc7c592426e91140a694c8707ec18}\label{menus_8c_ac08bc7c592426e91140a694c8707ec18}} 
+\index{menus.c@{menus.c}!buttonHoverWithAnimation@{buttonHoverWithAnimation}}
+\index{buttonHoverWithAnimation@{buttonHoverWithAnimation}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{buttonHoverWithAnimation()}{buttonHoverWithAnimation()}}
+{\footnotesize\ttfamily void button\+Hover\+With\+Animation (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Surface $\ast$}]{button\+\_\+surface,  }\item[{SDL\+\_\+\+Texture $\ast$}]{button\+\_\+texture,  }\item[{SDL\+\_\+\+Rect $\ast$}]{button\+\_\+rect,  }\item[{SDL\+\_\+bool $\ast$}]{hover\+\_\+button,  }\item[{char $\ast$}]{menu\+Target,  }\item[{void $\ast$($\ast$)(void $\ast$)}]{p,  }\item[{void $\ast$($\ast$)(void $\ast$)}]{p2 }\end{DoxyParamCaption})}
+
+
+
+Affiche la texture de survol avec animation du bouton demandé en dans le menu souhaité. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em button\+\_\+surface} & \\
+\hline
+{\em button\+\_\+texture} & \\
+\hline
+{\em button\+\_\+rect} & \\
+\hline
+{\em hover\+\_\+button} & \\
+\hline
+{\em menu\+Target} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_ac08bc7c592426e91140a694c8707ec18_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_ac08bc7c592426e91140a694c8707ec18_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8c_a9310b9a509b196dead801a8afe8f735a}\label{menus_8c_a9310b9a509b196dead801a8afe8f735a}} 
+\index{menus.c@{menus.c}!changeButtonState@{changeButtonState}}
+\index{changeButtonState@{changeButtonState}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{changeButtonState()}{changeButtonState()}}
+{\footnotesize\ttfamily void change\+Button\+State (\begin{DoxyParamCaption}\item[{char $\ast$}]{button }\end{DoxyParamCaption})}
+
+
+
+Change l\textquotesingle{}état du boutton de survol ciblé. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{menus_8c_a9310b9a509b196dead801a8afe8f735a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8c_aa3d16c0615cae07eb3845131203c1c72}\label{menus_8c_aa3d16c0615cae07eb3845131203c1c72}} 
+\index{menus.c@{menus.c}!changeMenu@{changeMenu}}
+\index{changeMenu@{changeMenu}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{changeMenu()}{changeMenu()}}
+{\footnotesize\ttfamily void change\+Menu (\begin{DoxyParamCaption}\item[{char $\ast$}]{menu\+Target }\end{DoxyParamCaption})}
+
+
+
+Change de menu. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em menu\+Target} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{menus_8c_aa3d16c0615cae07eb3845131203c1c72_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8c_a3ccdb6767f1237284bf7c8e0d3e3eacb}\label{menus_8c_a3ccdb6767f1237284bf7c8e0d3e3eacb}} 
+\index{menus.c@{menus.c}!destroyAll@{destroyAll}}
+\index{destroyAll@{destroyAll}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{destroyAll()}{destroyAll()}}
+{\footnotesize\ttfamily void destroy\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Détruit la fenêtre et le rendu. 
+
+(plus souvent utilisée lors d\textquotesingle{}une erreur de chargement d\textquotesingle{}un asset) Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_a3ccdb6767f1237284bf7c8e0d3e3eacb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8c_ade81b1e4531f386eb2ff98d3d8930413}\label{menus_8c_ade81b1e4531f386eb2ff98d3d8930413}} 
+\index{menus.c@{menus.c}!displayError@{displayError}}
+\index{displayError@{displayError}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{displayError()}{displayError()}}
+{\footnotesize\ttfamily void display\+Error (\begin{DoxyParamCaption}\item[{char $\ast$}]{s,  }\item[{char $\ast$}]{menu\+Target }\end{DoxyParamCaption})}
+
+
+
+Initialise les assets de l\textquotesingle{}erreur dans le menu demandé avec SDL\+\_\+\+TTF. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em s} & \\
+\hline
+{\em menu\+Target} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void$\ast$ 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_ade81b1e4531f386eb2ff98d3d8930413_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{menus_8c_ade81b1e4531f386eb2ff98d3d8930413_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8c_a7847849e8e072c2895401120c061bac0}\label{menus_8c_a7847849e8e072c2895401120c061bac0}} 
+\index{menus.c@{menus.c}!draw\_settings\_button\_animation@{draw\_settings\_button\_animation}}
+\index{draw\_settings\_button\_animation@{draw\_settings\_button\_animation}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{draw\_settings\_button\_animation()}{draw\_settings\_button\_animation()}}
+{\footnotesize\ttfamily void draw\+\_\+settings\+\_\+button\+\_\+animation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Dessine le bouton de paramètres (à executer dans un thread uniquement). 
+
+\begin{DoxyReturn}{Renvoie}
+void$\ast$ 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_a7847849e8e072c2895401120c061bac0_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_a7847849e8e072c2895401120c061bac0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8c_aef0d7f69d6b9591122c752e2a00751db}\label{menus_8c_aef0d7f69d6b9591122c752e2a00751db}} 
+\index{menus.c@{menus.c}!drawButton@{drawButton}}
+\index{drawButton@{drawButton}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{drawButton()}{drawButton()}}
+{\footnotesize\ttfamily void draw\+Button (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Texture $\ast$}]{texture,  }\item[{SDL\+\_\+\+Rect}]{rectangle,  }\item[{SDL\+\_\+\+Surface $\ast$}]{surface,  }\item[{char $\ast$}]{menu\+Target }\end{DoxyParamCaption})}
+
+
+
+Dessine un bouton normal. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em texture} & \\
+\hline
+{\em rectangle} & \\
+\hline
+{\em surface} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{menus_8c_aef0d7f69d6b9591122c752e2a00751db_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_aef0d7f69d6b9591122c752e2a00751db_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8c_ae06068ec3d07bace5f405fbf6eeb3c20}\label{menus_8c_ae06068ec3d07bace5f405fbf6eeb3c20}} 
+\index{menus.c@{menus.c}!drawError@{drawError}}
+\index{drawError@{drawError}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{drawError()}{drawError()}}
+{\footnotesize\ttfamily void draw\+Error (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Rect}]{rect,  }\item[{SDL\+\_\+\+Texture $\ast$}]{texture }\end{DoxyParamCaption})}
+
+
+
+Affiche l\textquotesingle{}erreur à l\textquotesingle{}écran. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rect} & \\
+\hline
+{\em texture} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{menus_8c_ae06068ec3d07bace5f405fbf6eeb3c20_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_ae06068ec3d07bace5f405fbf6eeb3c20_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8c_a2dfe41d8c0f122241c47441391c02de3}\label{menus_8c_a2dfe41d8c0f122241c47441391c02de3}} 
+\index{menus.c@{menus.c}!drawPlayer@{drawPlayer}}
+\index{drawPlayer@{drawPlayer}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{drawPlayer()}{drawPlayer()}}
+{\footnotesize\ttfamily void draw\+Player (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Texture $\ast$}]{texture\+\_\+joueur,  }\item[{SDL\+\_\+\+Rect}]{player\+Rect }\end{DoxyParamCaption})}
+
+
+
+Dessine un joueur en fonction de ses coordonnées et de sa texture. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em texture\+\_\+joueur} & \\
+\hline
+{\em player\+Rect} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{menus_8c_a2dfe41d8c0f122241c47441391c02de3_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_a2dfe41d8c0f122241c47441391c02de3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8c_a9e5f626ab953d2b6f672f20c3742287d}\label{menus_8c_a9e5f626ab953d2b6f672f20c3742287d}} 
+\index{menus.c@{menus.c}!drawPlayers@{drawPlayers}}
+\index{drawPlayers@{drawPlayers}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{drawPlayers()}{drawPlayers()}}
+{\footnotesize\ttfamily void $\ast$ draw\+Players (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer}{player}} $\ast$}]{joueurs,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+Dessine tous les joueurs. 
+
+\begin{DoxyReturn}{Renvoie}
+void$\ast$ 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_a9e5f626ab953d2b6f672f20c3742287d_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{menus_8c_a9e5f626ab953d2b6f672f20c3742287d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8c_a72036abbb16f3b007110ff03d748e0b1}\label{menus_8c_a72036abbb16f3b007110ff03d748e0b1}} 
+\index{menus.c@{menus.c}!drawTitle@{drawTitle}}
+\index{drawTitle@{drawTitle}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{drawTitle()}{drawTitle()}}
+{\footnotesize\ttfamily void draw\+Title (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Dessine le titre dans le menu principal. 
+
+\begin{DoxyReturn}{Renvoie}
+void$\ast$ 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{menus_8c_a72036abbb16f3b007110ff03d748e0b1_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=307pt]{menus_8c_a72036abbb16f3b007110ff03d748e0b1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8c_ac96e8912bb03df1f73f5ccb6db495085}\label{menus_8c_ac96e8912bb03df1f73f5ccb6db495085}} 
+\index{menus.c@{menus.c}!init\_texture@{init\_texture}}
+\index{init\_texture@{init\_texture}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{init\_texture()}{init\_texture()}}
+{\footnotesize\ttfamily static void init\+\_\+texture (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Surface $\ast$$\ast$}]{surface,  }\item[{SDL\+\_\+\+Texture $\ast$$\ast$}]{texture }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Initialise l\textquotesingle{}asset demandé. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em surface} & \\
+\hline
+{\em texture} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{menus_8c_ac96e8912bb03df1f73f5ccb6db495085_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_ac96e8912bb03df1f73f5ccb6db495085_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8c_ab3002fe8e0074c9e2ecb5b835e5e819f}\label{menus_8c_ab3002fe8e0074c9e2ecb5b835e5e819f}} 
+\index{menus.c@{menus.c}!mainMenu@{mainMenu}}
+\index{mainMenu@{mainMenu}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{mainMenu()}{mainMenu()}}
+{\footnotesize\ttfamily void main\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Affiche le menu principal. 
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_ab3002fe8e0074c9e2ecb5b835e5e819f_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{menus_8c_ab3002fe8e0074c9e2ecb5b835e5e819f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8c_a1bd07c916c27ca0eb4e4a8aad057fc59}\label{menus_8c_a1bd07c916c27ca0eb4e4a8aad057fc59}} 
+\index{menus.c@{menus.c}!onButton@{onButton}}
+\index{onButton@{onButton}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{onButton()}{onButton()}}
+{\footnotesize\ttfamily int on\+Button (\begin{DoxyParamCaption}\item[{char $\ast$}]{button }\end{DoxyParamCaption})}
+
+
+
+Renvoi TRUE si le curseur est sur le boutton passé en paramètre sinon renvoi FALSE si le curseur est sur aucun boutton. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{menus_8c_a1bd07c916c27ca0eb4e4a8aad057fc59_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8c_a2baaae2f0feebce6bd015a37345e2270}\label{menus_8c_a2baaae2f0feebce6bd015a37345e2270}} 
+\index{menus.c@{menus.c}!running\_down\_animation@{running\_down\_animation}}
+\index{running\_down\_animation@{running\_down\_animation}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{running\_down\_animation()}{running\_down\_animation()}}
+{\footnotesize\ttfamily void $\ast$ running\+\_\+down\+\_\+animation (\begin{DoxyParamCaption}\item[{void $\ast$}]{j }\end{DoxyParamCaption})}
+
+
+
+Animation \char`\"{}courrir en bas\char`\"{}. 
+
+\begin{DoxyReturn}{Renvoie}
+void$\ast$ 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=343pt]{menus_8c_a2baaae2f0feebce6bd015a37345e2270_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_a2baaae2f0feebce6bd015a37345e2270_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8c_a2fdf89dd6b22fb5e5d73f8370470985b}\label{menus_8c_a2fdf89dd6b22fb5e5d73f8370470985b}} 
+\index{menus.c@{menus.c}!running\_left\_animation@{running\_left\_animation}}
+\index{running\_left\_animation@{running\_left\_animation}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{running\_left\_animation()}{running\_left\_animation()}}
+{\footnotesize\ttfamily void $\ast$ running\+\_\+left\+\_\+animation (\begin{DoxyParamCaption}\item[{void $\ast$}]{j }\end{DoxyParamCaption})}
+
+
+
+Animation \char`\"{}courrir à gauche\char`\"{}. 
+
+\begin{DoxyReturn}{Renvoie}
+void$\ast$ 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{menus_8c_a2fdf89dd6b22fb5e5d73f8370470985b_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_a2fdf89dd6b22fb5e5d73f8370470985b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8c_a1fdb9aee8fd08118ac0bc4234da6a2eb}\label{menus_8c_a1fdb9aee8fd08118ac0bc4234da6a2eb}} 
+\index{menus.c@{menus.c}!running\_right\_animation@{running\_right\_animation}}
+\index{running\_right\_animation@{running\_right\_animation}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{running\_right\_animation()}{running\_right\_animation()}}
+{\footnotesize\ttfamily void $\ast$ running\+\_\+right\+\_\+animation (\begin{DoxyParamCaption}\item[{void $\ast$}]{j }\end{DoxyParamCaption})}
+
+
+
+Animation \char`\"{}courrir à droite\char`\"{}. 
+
+\begin{DoxyReturn}{Renvoie}
+void$\ast$ 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{menus_8c_a1fdb9aee8fd08118ac0bc4234da6a2eb_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_a1fdb9aee8fd08118ac0bc4234da6a2eb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8c_ad1aa5c5c7c6e33913f1a654a09ba6a00}\label{menus_8c_ad1aa5c5c7c6e33913f1a654a09ba6a00}} 
+\index{menus.c@{menus.c}!running\_up\_animation@{running\_up\_animation}}
+\index{running\_up\_animation@{running\_up\_animation}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{running\_up\_animation()}{running\_up\_animation()}}
+{\footnotesize\ttfamily void $\ast$ running\+\_\+up\+\_\+animation (\begin{DoxyParamCaption}\item[{void $\ast$}]{j }\end{DoxyParamCaption})}
+
+
+
+Animation \char`\"{}courrir àen haut\char`\"{}. 
+
+\begin{DoxyReturn}{Renvoie}
+void$\ast$ 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=319pt]{menus_8c_ad1aa5c5c7c6e33913f1a654a09ba6a00_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_ad1aa5c5c7c6e33913f1a654a09ba6a00_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8c_acd3f39401c59bbd01c9663c5348c63c1}\label{menus_8c_acd3f39401c59bbd01c9663c5348c63c1}} 
+\index{menus.c@{menus.c}!SDL\_ExitWithError@{SDL\_ExitWithError}}
+\index{SDL\_ExitWithError@{SDL\_ExitWithError}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{SDL\_ExitWithError()}{SDL\_ExitWithError()}}
+{\footnotesize\ttfamily static void SDL\+\_\+\+Exit\+With\+Error (\begin{DoxyParamCaption}\item[{const char $\ast$}]{message }\end{DoxyParamCaption})}
+
+
+
+Nous renvoi une erreur SDL. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em message} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_acd3f39401c59bbd01c9663c5348c63c1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8c_ab6d77ef359eb1ad9820145690e17a427}\label{menus_8c_ab6d77ef359eb1ad9820145690e17a427}} 
+\index{menus.c@{menus.c}!settings\_button\_animation\_left@{settings\_button\_animation\_left}}
+\index{settings\_button\_animation\_left@{settings\_button\_animation\_left}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{settings\_button\_animation\_left()}{settings\_button\_animation\_left()}}
+{\footnotesize\ttfamily void $\ast$ settings\+\_\+button\+\_\+animation\+\_\+left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Animation du bouton paramètres quand on a pas le curseur dessus. 
+
+\begin{DoxyReturn}{Renvoie}
+void$\ast$ 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_ab6d77ef359eb1ad9820145690e17a427_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_ab6d77ef359eb1ad9820145690e17a427_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8c_a48c083415f7a9126fec9cc228b651991}\label{menus_8c_a48c083415f7a9126fec9cc228b651991}} 
+\index{menus.c@{menus.c}!settings\_button\_animation\_right@{settings\_button\_animation\_right}}
+\index{settings\_button\_animation\_right@{settings\_button\_animation\_right}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{settings\_button\_animation\_right()}{settings\_button\_animation\_right()}}
+{\footnotesize\ttfamily void $\ast$ settings\+\_\+button\+\_\+animation\+\_\+right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Animation du bouton paramètres quand on a le curseur dessus. 
+
+\begin{DoxyReturn}{Renvoie}
+void$\ast$ 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_a48c083415f7a9126fec9cc228b651991_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_a48c083415f7a9126fec9cc228b651991_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8c_a18f5d14ec140197dd0e7627c3c6b7a47}\label{menus_8c_a18f5d14ec140197dd0e7627c3c6b7a47}} 
+\index{menus.c@{menus.c}!startAnimation@{startAnimation}}
+\index{startAnimation@{startAnimation}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{startAnimation()}{startAnimation()}}
+{\footnotesize\ttfamily void start\+Animation (\begin{DoxyParamCaption}\item[{char $\ast$}]{animation,  }\item[{\mbox{\hyperlink{structplayer}{player}} $\ast$}]{joueur }\end{DoxyParamCaption})}
+
+
+
+Commence l\textquotesingle{}animation souhaitée au joueur demandé. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em animation} & \\
+\hline
+{\em joueur} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_a18f5d14ec140197dd0e7627c3c6b7a47_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8c_a124c70bcd0486f8db5d0292febf8c889}\label{menus_8c_a124c70bcd0486f8db5d0292febf8c889}} 
+\index{menus.c@{menus.c}!switchAnimation@{switchAnimation}}
+\index{switchAnimation@{switchAnimation}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{switchAnimation()}{switchAnimation()}}
+{\footnotesize\ttfamily static void switch\+Animation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer}{player}}}]{Joueur }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Applique la bonne texture au joueur en fonction de son animation. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em Joueur} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_a124c70bcd0486f8db5d0292febf8c889_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_a124c70bcd0486f8db5d0292febf8c889_icgraph}
+\end{center}
+\end{figure}

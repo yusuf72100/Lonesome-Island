@@ -18,191 +18,70 @@
 \DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{sound_8h}{sound.h}}"{}}}
 \DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <windows.h>}}
 \DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \textcolor{comment}{//animations\ states}}
-\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ BREATH\_START\ 1}}
-\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ BREATH\_END\ 2}}
-\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ RUNNING\_LEFT\_START\ 3}}
-\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ RUNNING\_LEFT\_END\ 4}}
-\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ RUNNING\_RIGHT\_START\ 5}}
-\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ RUNNING\_RIGHT\_END\ 6}}
-\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ RUNNING\_UP\_START\ 7}}
-\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ RUNNING\_UP\_END\ 8}}
-\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ RUNNING\_DOWN\_START\ 9}}
-\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ RUNNING\_DOWN\_END\ 10}}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structelement}{Liste}}\ *l;}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ connectedError;}
+\DoxyCodeLine{00025\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structelement}{Liste}}\ *l;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ connectedError;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{short}\ loading;}
+\DoxyCodeLine{00030\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{short}\ debug\ =\ FALSE;\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ tick=0;}
+\DoxyCodeLine{00033\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ size;}
+\DoxyCodeLine{00034\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ rotation\ =\ 0;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ *s;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{static}\ \mbox{\hyperlink{struct_vecteur}{Vecteur}}\ vecteur;}
+\DoxyCodeLine{00039\ \textcolor{keyword}{static}\ \mbox{\hyperlink{struct_bullet}{Bullet}}\ *bullet\ =\ NULL;}
 \DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{short}\ loading;}
-\DoxyCodeLine{00042\ \textcolor{keyword}{static}\ SDL\_bool\ hover\_playbutton\ =\ SDL\_FALSE;}
-\DoxyCodeLine{00043\ \textcolor{keyword}{static}\ SDL\_bool\ hover\_connectbutton\ =\ SDL\_FALSE;}
-\DoxyCodeLine{00044\ \textcolor{keyword}{static}\ SDL\_bool\ hover\_hostbutton\ =\ SDL\_FALSE;}
-\DoxyCodeLine{00045\ \textcolor{keyword}{static}\ SDL\_bool\ hover\_settingsbutton\ =\ SDL\_FALSE;}
-\DoxyCodeLine{00046\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{short}\ debug\ =\ FALSE;\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{static}\ SDL\_bool\ program\_launched\ =\ SDL\_TRUE;}
+\DoxyCodeLine{00042\ \textcolor{keyword}{static}\ SDL\_bool\ tabEvent[12]\ =\ \{SDL\_FALSE\};}
+\DoxyCodeLine{00043\ \textcolor{keyword}{static}\ SDL\_Event\ event;\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structplayer}{player}}\ joueur;}
+\DoxyCodeLine{00046\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structplayer}{player}}\ *\ joueurs;}
 \DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ settings\_button\_animation\_state\ =\ 0;}
-\DoxyCodeLine{00049\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ tick=0;}
-\DoxyCodeLine{00050\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ size;}
-\DoxyCodeLine{00051\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ rotation\ =\ 0;}
-\DoxyCodeLine{00052\ \textcolor{keyword}{static}\ SDL\_Point\ mouse\_position;\ \ \ }
-\DoxyCodeLine{00053\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ xWindow\ =\ 0,\ yWindow\ =\ 0;}
-\DoxyCodeLine{00054\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ WindowW\ =\ 1920,\ WindowH\ =\ 1080;}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ *s;}
-\DoxyCodeLine{00057\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ menu[10]\ =\ \textcolor{stringliteral}{"{}Main"{}};}
+\DoxyCodeLine{00048\ \textcolor{keyword}{static}\ pthread\_t\ reloading;}
+\DoxyCodeLine{00049\ \textcolor{keyword}{static}\ pthread\_t\ server;}
+\DoxyCodeLine{00050\ \textcolor{keyword}{static}\ pthread\_t\ sendtoserver;}
+\DoxyCodeLine{00051\ \textcolor{keyword}{static}\ pthread\_t\ receivefromserver;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{static}\ pthread\_t\ animations\_thread;}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ checkEvents();}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ doEvents();}
 \DoxyCodeLine{00058\ }
-\DoxyCodeLine{00059\ \textcolor{keyword}{static}\ \mbox{\hyperlink{struct_vecteur}{Vecteur}}\ vecteur;}
-\DoxyCodeLine{00060\ \textcolor{keyword}{static}\ \mbox{\hyperlink{struct_bullet}{Bullet}}\ *bullet\ =\ NULL;}
-\DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \textcolor{keyword}{static}\ SDL\_bool\ program\_launched\ =\ SDL\_TRUE;}
-\DoxyCodeLine{00063\ \textcolor{keyword}{static}\ SDL\_bool\ tabEvent[10]\ =\ \{SDL\_FALSE\};}
-\DoxyCodeLine{00064\ \textcolor{keyword}{static}\ SDL\_Event\ event;\ }
-\DoxyCodeLine{00065\ }
-\DoxyCodeLine{00066\ \textcolor{comment}{//menu\ buttons\ rectangle}}
-\DoxyCodeLine{00067\ \textcolor{keyword}{static}\ SDL\_Rect\ mouseRect;}
-\DoxyCodeLine{00068\ \textcolor{keyword}{static}\ SDL\_Rect\ play\_button\_rect;}
-\DoxyCodeLine{00069\ \textcolor{keyword}{static}\ SDL\_Rect\ connect\_button\_rect;}
-\DoxyCodeLine{00070\ \textcolor{keyword}{static}\ SDL\_Rect\ host\_button\_rect;}
-\DoxyCodeLine{00071\ \textcolor{keyword}{static}\ SDL\_Rect\ settings\_button\_rect;}
+\DoxyCodeLine{00059\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{main_8h_a506eeac61f56b2e172d086173bac5995}{Send2Server}}();}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \mbox{\hyperlink{struct_vecteur}{Vecteur}}\ \mbox{\hyperlink{main_8h_a5eaa5bf14462c0770a8514451b64df3c}{InitVecteur}}(\textcolor{keywordtype}{int}\ angle,\ \textcolor{keywordtype}{int}\ vitesse);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8h_a0caf52e6e1d7fb594108d8d4f4fbcd77}{delay\_settings\_button\_right}}();}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8h_a0f9a66b9fc132ae63360835a23fe0ab0}{delay\_settings\_button\_left}}();}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8h_a400d947e8338483aca91275e6b09c08e}{delay\_running\_down}}();}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8h_a5c3f10f59573b2b0ee8a757d4aa2d589}{delay\_running\_up}}();}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8h_a22982612c2117162b7a74c76eb20028a}{delay\_running\_right}}();}
 \DoxyCodeLine{00072\ }
-\DoxyCodeLine{00073\ \textcolor{keyword}{static}\ SDL\_DisplayMode\ DM;}
+\DoxyCodeLine{00073\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8h_a87f15eea45228c1b2d66df42116d7599}{delay\_running\_left}}();}
 \DoxyCodeLine{00074\ }
-\DoxyCodeLine{00075\ \textcolor{comment}{//window\ icon}}
-\DoxyCodeLine{00076\ \textcolor{keyword}{static}\ SDL\_Surface\ *icon\_surface\ =\ NULL;}
-\DoxyCodeLine{00077\ \ \ \ \ }
-\DoxyCodeLine{00078\ \textcolor{comment}{//texte\ assets}}
-\DoxyCodeLine{00079\ \textcolor{keyword}{static}\ SDL\_Surface\ *texte\ =\ NULL;}
-\DoxyCodeLine{00080\ \textcolor{keyword}{static}\ SDL\_Texture\ *texte\_texture\ =\ NULL;}
-\DoxyCodeLine{00081\ \textcolor{keyword}{static}\ SDL\_Color\ blackColor\ =\ \{0,\ 0,\ 0\};}
-\DoxyCodeLine{00082\ \textcolor{keyword}{static}\ TTF\_Font\ *police\ =\ NULL;}
-\DoxyCodeLine{00083\ \textcolor{keyword}{static}\ SDL\_Rect\ title\_rect;}
+\DoxyCodeLine{00075\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8h_a4f3c96146210adc4a3276d1e8bb2453c}{delay\_breath}}();}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ *rechargement();}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{main_8h_a734d34007877ed5938e58dccb669ba96}{synchDatas}}(\mbox{\hyperlink{structplayer}{player}}\ *\ Joueurs,\ \textcolor{keywordtype}{int}\ taille);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ UpdateBullet(\mbox{\hyperlink{struct_bullet}{Bullet}}\ *\ b);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ UpdateBulletAll();}
 \DoxyCodeLine{00084\ }
-\DoxyCodeLine{00085\ \textcolor{comment}{//game\ assets}}
-\DoxyCodeLine{00086\ \textcolor{keyword}{static}\ SDL\_Surface\ *imagebullet\ =\ NULL;}
-\DoxyCodeLine{00087\ \textcolor{keyword}{static}\ SDL\_Texture\ *texturebullet\ =\ NULL;\ \ \ }
+\DoxyCodeLine{00085\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{main_8h_ac1c725f21345e0148e7ca2fdc7fe77f9}{newLogName}}();}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{main_8h_ab5a2d27713f1814d93ff81281e653e22}{eventTime}}();}
 \DoxyCodeLine{00088\ }
-\DoxyCodeLine{00089\ \textcolor{keyword}{static}\ SDL\_Surface\ *title\_surface\ =\ NULL;}
-\DoxyCodeLine{00090\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_joueur\_h1\ =\ NULL;}
-\DoxyCodeLine{00091\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_joueur\_h2\ =\ NULL;}
-\DoxyCodeLine{00092\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_joueur\_left\_1\ =\ NULL;}
-\DoxyCodeLine{00093\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_joueur\_left\_2\ =\ NULL;}
-\DoxyCodeLine{00094\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_joueur\_right\_1\ =\ NULL;}
-\DoxyCodeLine{00095\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_joueur\_right\_2\ =\ NULL;}
-\DoxyCodeLine{00096\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_joueur\_up\_1\ =\ NULL;}
-\DoxyCodeLine{00097\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_joueur\_up\_2\ =\ NULL;}
-\DoxyCodeLine{00098\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_joueur\_down\_1\ =\ NULL;}
-\DoxyCodeLine{00099\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_joueur\_down\_2\ =\ NULL;}
-\DoxyCodeLine{00100\ }
-\DoxyCodeLine{00101\ \textcolor{keyword}{static}\ SDL\_Texture\ *title\_texture\ =\ NULL;}
-\DoxyCodeLine{00102\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_joueur\_h1\ =\ NULL;}
-\DoxyCodeLine{00103\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_joueur\_h2\ =\ NULL;}
-\DoxyCodeLine{00104\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_joueur\_left\_1\ =\ NULL;}
-\DoxyCodeLine{00105\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_joueur\_left\_2\ =\ NULL;}
-\DoxyCodeLine{00106\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_joueur\_right\_1\ =\ NULL;}
-\DoxyCodeLine{00107\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_joueur\_right\_2\ =\ NULL;}
-\DoxyCodeLine{00108\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_joueur\_up\_1\ =\ NULL;}
-\DoxyCodeLine{00109\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_joueur\_up\_2\ =\ NULL;}
-\DoxyCodeLine{00110\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_joueur\_down\_1\ =\ NULL;}
-\DoxyCodeLine{00111\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_joueur\_down\_2\ =\ NULL;}
-\DoxyCodeLine{00112\ }
-\DoxyCodeLine{00113\ \textcolor{comment}{//menu\ assets}}
-\DoxyCodeLine{00114\ \textcolor{keyword}{static}\ SDL\_Surface\ *play\_inert\ =\ NULL;}
-\DoxyCodeLine{00115\ \textcolor{keyword}{static}\ SDL\_Surface\ *play\_hover\ =\ NULL;}
-\DoxyCodeLine{00116\ \textcolor{keyword}{static}\ SDL\_Surface\ *connect\_inert\ =\ NULL;}
-\DoxyCodeLine{00117\ \textcolor{keyword}{static}\ SDL\_Surface\ *connect\_hover\ =\ NULL;}
-\DoxyCodeLine{00118\ \textcolor{keyword}{static}\ SDL\_Surface\ *host\_inert\ =\ NULL;}
-\DoxyCodeLine{00119\ \textcolor{keyword}{static}\ SDL\_Surface\ *host\_hover\ =\ NULL;}
-\DoxyCodeLine{00120\ \textcolor{keyword}{static}\ SDL\_Surface\ *settings\_inert\ =\ NULL;}
-\DoxyCodeLine{00121\ \textcolor{keyword}{static}\ SDL\_Surface\ *settings\_hover1\ =\ NULL;}
-\DoxyCodeLine{00122\ \textcolor{keyword}{static}\ SDL\_Surface\ *settings\_hover2\ =\ NULL;}
-\DoxyCodeLine{00123\ \textcolor{keyword}{static}\ SDL\_Surface\ *settings\_hover3\ =\ NULL;}
-\DoxyCodeLine{00124\ \textcolor{keyword}{static}\ SDL\_Surface\ *settings\_hover4\ =\ NULL;}
-\DoxyCodeLine{00125\ \textcolor{keyword}{static}\ SDL\_Surface\ *settings\_hover5\ =\ NULL;}
-\DoxyCodeLine{00126\ \textcolor{keyword}{static}\ SDL\_Surface\ *settings\_hover6\ =\ NULL;}
-\DoxyCodeLine{00127\ }
-\DoxyCodeLine{00128\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_play\_inert\ =\ NULL;}
-\DoxyCodeLine{00129\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_play\_hover\ =\ NULL;\ \ }
-\DoxyCodeLine{00130\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_connect\_inert\ =\ NULL;}
-\DoxyCodeLine{00131\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_connect\_hover\ =\ NULL;\ \ \ }
-\DoxyCodeLine{00132\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_host\_inert\ =\ NULL;}
-\DoxyCodeLine{00133\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_host\_hover\ =\ NULL;\ \ }
-\DoxyCodeLine{00134\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_settings\_inert\ =\ NULL;}
-\DoxyCodeLine{00135\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_settings\_hover1\ =\ NULL;}
-\DoxyCodeLine{00136\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_settings\_hover2\ =\ NULL;}
-\DoxyCodeLine{00137\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_settings\_hover3\ =\ NULL;}
-\DoxyCodeLine{00138\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_settings\_hover4\ =\ NULL;}
-\DoxyCodeLine{00139\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_settings\_hover5\ =\ NULL;}
-\DoxyCodeLine{00140\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_settings\_hover6\ =\ NULL;}
-\DoxyCodeLine{00141\ }
-\DoxyCodeLine{00142\ \textcolor{comment}{//window\ init}}
-\DoxyCodeLine{00143\ \textcolor{keyword}{static}\ SDL\_Window\ *window\ =\ NULL;}
-\DoxyCodeLine{00144\ \textcolor{keyword}{static}\ SDL\_Renderer\ *renderer\ =\ NULL;}
-\DoxyCodeLine{00145\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\ =\ NULL;}
-\DoxyCodeLine{00146\ \textcolor{keyword}{static}\ SDL\_Surface\ *cursor\ =\ NULL;}
-\DoxyCodeLine{00147\ \textcolor{keyword}{static}\ SDL\_Surface\ *cursor\_select\ =\ NULL;}
-\DoxyCodeLine{00148\ \textcolor{keyword}{static}\ SDL\_Texture\ *cursor\_texture\ =\ NULL;}
-\DoxyCodeLine{00149\ \textcolor{keyword}{static}\ SDL\_Texture\ *cursor\_select\_texture\ =\ NULL;}
-\DoxyCodeLine{00150\ }
-\DoxyCodeLine{00151\ \textcolor{comment}{//background\ }}
-\DoxyCodeLine{00152\ \textcolor{keyword}{static}\ SDL\_Surface\ *background\ =\ NULL;}
-\DoxyCodeLine{00153\ \textcolor{keyword}{static}\ SDL\_Texture\ *background\_texture\ =\ NULL;}
-\DoxyCodeLine{00154\ }
-\DoxyCodeLine{00155\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structplayer}{player}}\ joueur;}
-\DoxyCodeLine{00156\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structplayer}{player}}\ *\ joueurs;}
-\DoxyCodeLine{00157\ }
-\DoxyCodeLine{00158\ \textcolor{keyword}{static}\ pthread\_t\ reloading;}
-\DoxyCodeLine{00159\ \textcolor{keyword}{static}\ pthread\_t\ server;}
-\DoxyCodeLine{00160\ \textcolor{keyword}{static}\ pthread\_t\ sendtoserver;}
-\DoxyCodeLine{00161\ \textcolor{keyword}{static}\ pthread\_t\ receivefromserver;}
-\DoxyCodeLine{00162\ \textcolor{keyword}{static}\ pthread\_t\ animations\_thread;}
-\DoxyCodeLine{00163\ }
-\DoxyCodeLine{00164\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ animations\_thread\_running\ =\ FALSE;}
-\DoxyCodeLine{00165\ }
-\DoxyCodeLine{00166\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ SDL\_ExitWithError(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *message);}
-\DoxyCodeLine{00167\ }
-\DoxyCodeLine{00168\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ trierJoueurs();}
-\DoxyCodeLine{00169\ }
-\DoxyCodeLine{00170\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ checkEvents();}
-\DoxyCodeLine{00171\ }
-\DoxyCodeLine{00172\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ doEvents();}
-\DoxyCodeLine{00173\ }
-\DoxyCodeLine{00174\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ init\_vars();}
-\DoxyCodeLine{00175\ }
-\DoxyCodeLine{00176\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{main_8h_a506eeac61f56b2e172d086173bac5995}{Send2Server}}();}
-\DoxyCodeLine{00177\ }
-\DoxyCodeLine{00178\ \mbox{\hyperlink{struct_vecteur}{Vecteur}}\ \mbox{\hyperlink{main_8h_a5eaa5bf14462c0770a8514451b64df3c}{InitVecteur}}(\textcolor{keywordtype}{int}\ angle,\ \textcolor{keywordtype}{int}\ vitesse);}
-\DoxyCodeLine{00179\ }
-\DoxyCodeLine{00180\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ drawMouse();}
-\DoxyCodeLine{00181\ }
-\DoxyCodeLine{00182\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ drawPlayer(SDL\_Texture\ *texture\_joueur,\ SDL\_Rect\ playerRect);}
-\DoxyCodeLine{00183\ }
-\DoxyCodeLine{00184\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ destroyAll(SDL\_Window\ *window,\ SDL\_Renderer\ *renderer);}
-\DoxyCodeLine{00185\ }
-\DoxyCodeLine{00186\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ *rechargement();}
-\DoxyCodeLine{00187\ }
-\DoxyCodeLine{00188\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{main_8h_a734d34007877ed5938e58dccb669ba96}{synchDatas}}(\mbox{\hyperlink{structplayer}{player}}\ *\ Joueurs,\ \textcolor{keywordtype}{int}\ taille);}
-\DoxyCodeLine{00189\ }
-\DoxyCodeLine{00190\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ UpdateBullet(\mbox{\hyperlink{struct_bullet}{Bullet}}\ *\ b);}
-\DoxyCodeLine{00191\ }
-\DoxyCodeLine{00192\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ UpdateBulletAll();}
-\DoxyCodeLine{00193\ }
-\DoxyCodeLine{00194\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{main_8h_ac1c725f21345e0148e7ca2fdc7fe77f9}{newLogName}}();}
-\DoxyCodeLine{00195\ }
-\DoxyCodeLine{00196\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{main_8h_ab5a2d27713f1814d93ff81281e653e22}{eventTime}}();}
-\DoxyCodeLine{00197\ }
-\DoxyCodeLine{00198\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ dessinerRect(SDL\_Rect\ rectangle,\ SDL\_Renderer\ *renderer);}
-\DoxyCodeLine{00199\ }
-\DoxyCodeLine{00200\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ dessinerButton(SDL\_Texture\ *texture,\ SDL\_Rect\ rectangle,\ SDL\_Surface\ *surface);}
-\DoxyCodeLine{00201\ }
-\DoxyCodeLine{00202\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ dessinerBalle(SDL\_Texture\ *texture,\ SDL\_Renderer\ *renderer,\ SDL\_Rect\ rectangle,\ SDL\_Window\ *window,\ \mbox{\hyperlink{struct_bullet}{Bullet}}\ *b,\ \textcolor{keywordtype}{int}\ rotation,\ \textcolor{keywordtype}{int}\ vitesse);}
-\DoxyCodeLine{00203\ }
-\DoxyCodeLine{00204\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ initBullet(\mbox{\hyperlink{struct_bullet}{Bullet}}\ *\ b,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ rotation);}
-\DoxyCodeLine{00205\ }
-\DoxyCodeLine{00206\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ buttonHover(SDL\_Surface\ *button\_surface,\ SDL\_Texture\ *button\_texture,\ SDL\_Rect\ *button\_rect,\ SDL\_bool\ *hover\_button,\ \textcolor{keywordtype}{char}\ *menuTarget);}
-\DoxyCodeLine{00207\ }
-\DoxyCodeLine{00208\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ init\_texture(SDL\_Surface\ **surface,\ SDL\_Texture\ **texture);}
-\DoxyCodeLine{00209\ }
-\DoxyCodeLine{00210\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ switchAnimation(\mbox{\hyperlink{structplayer}{player}}\ Joueur);}
+\DoxyCodeLine{00089\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ initBullet(\mbox{\hyperlink{struct_bullet}{Bullet}}\ *\ b,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ rotation);}
 
 \end{DoxyCode}

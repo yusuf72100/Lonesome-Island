@@ -2,11 +2,13 @@
 \label{main_8c}\index{C:/Users/Yusuf/Lonesome-\/Island/src/main.c@{C:/Users/Yusuf/Lonesome-\/Island/src/main.c}}
 
 
-Fichier principal du programme qui s\textquotesingle{}occupera de la partie graphique.  
+Fichier principal du programme qui s\textquotesingle{}occupera de la partie jeu.  
 
 
+{\ttfamily \#include \char`\"{}menus.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
-Graphe des dépendances par inclusion de main.\+c\+:\nopagebreak
+Graphe des dépendances par inclusion de main.\+c\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -16,17 +18,12 @@ Graphe des dépendances par inclusion de main.\+c\+:\nopagebreak
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{main_8c_acd3f39401c59bbd01c9663c5348c63c1}\label{main_8c_acd3f39401c59bbd01c9663c5348c63c1}} 
-void {\bfseries SDL\+\_\+\+Exit\+With\+Error} (const char $\ast$message)
-\item 
 void $\ast$ \mbox{\hyperlink{main_8c_a734d34007877ed5938e58dccb669ba96}{synch\+Datas}} (\mbox{\hyperlink{structplayer}{player}} $\ast$Joueurs, int taille)
 \begin{DoxyCompactList}\small\item\em Récupère les données depuis le socket client. \end{DoxyCompactList}\item 
 void $\ast$ \mbox{\hyperlink{main_8c_a506eeac61f56b2e172d086173bac5995}{Send2\+Server}} ()
 \begin{DoxyCompactList}\small\item\em Envoi les données du joueur actuel au serveur. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_vecteur}{Vecteur}} \mbox{\hyperlink{main_8c_a5eaa5bf14462c0770a8514451b64df3c}{Init\+Vecteur}} (int angle, int vitesse)
 \begin{DoxyCompactList}\small\item\em Calcul un vecteur selon un angle de rotation et une vitesse. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{main_8c_a6bb510e9f9ce8cb081f3f9ce0beffe31}{destroy\+All}} (SDL\+\_\+\+Window $\ast$window, SDL\+\_\+\+Renderer $\ast$renderer)
-\begin{DoxyCompactList}\small\item\em Détruit la fenêtre et le rendu. \end{DoxyCompactList}\item 
 static void $\ast$ \mbox{\hyperlink{main_8c_a74d9cf129eac9371caa5a93b97b4f95c}{rechargement}} ()
 \begin{DoxyCompactList}\small\item\em Met un cooldown pour un rechargement. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{main_8c_a718d61fe7c5a7e6c83c14f312105bfa8}\label{main_8c_a718d61fe7c5a7e6c83c14f312105bfa8}} 
@@ -39,82 +36,37 @@ char $\ast$ \mbox{\hyperlink{main_8c_ac1c725f21345e0148e7ca2fdc7fe77f9}{new\+Log
 \begin{DoxyCompactList}\small\item\em Initialise un fichier logs. \end{DoxyCompactList}\item 
 char $\ast$ \mbox{\hyperlink{main_8c_ab5a2d27713f1814d93ff81281e653e22}{event\+Time}} ()
 \begin{DoxyCompactList}\small\item\em Récupère l\textquotesingle{}heure et la date actuelle. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{main_8c_a4dd509784585dea800b3115747c81c42}\label{main_8c_a4dd509784585dea800b3115747c81c42}} 
-static void {\bfseries draw\+Mouse} ()
-\begin{DoxyCompactList}\small\item\em Dessine le bon curseur en fonction de site on survol un bouton ou pas. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{main_8c_a7ac041d77c29de2a5bd9a576076984e8}{dessiner\+Button}} (SDL\+\_\+\+Texture $\ast$texture, SDL\+\_\+\+Rect rectangle, SDL\+\_\+\+Surface $\ast$surface)
-\begin{DoxyCompactList}\small\item\em Dessine un bouton normal. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{main_8c_a65942d285a85ebdda2445b5da031c2e2}\label{main_8c_a65942d285a85ebdda2445b5da031c2e2}} 
 static void {\bfseries check\+Events} ()
 \begin{DoxyCompactList}\small\item\em Change les valeurs du tableau d\textquotesingle{}évènements en fonction de nos instructions sur le clavier et la souris. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{main_8c_a1ca57dae62e24911260df3fa0a99dbcc}\label{main_8c_a1ca57dae62e24911260df3fa0a99dbcc}} 
-static void {\bfseries trier\+Joueurs} ()
-\begin{DoxyCompactList}\small\item\em Trie les joueurs en fonction de leur coordonnées Y et organise l\textquotesingle{}ordre d\textquotesingle{}affichage des joueurs. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{main_8c_afd0ed75a870240cedc972c1fe3cb89c1}{draw\+Player}} (SDL\+\_\+\+Texture $\ast$texture\+\_\+joueur, SDL\+\_\+\+Rect player\+Rect)
-\begin{DoxyCompactList}\small\item\em Dessine un joueur en fonction de ses coordonnées et de sa texture. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{main_8c_a124c70bcd0486f8db5d0292febf8c889}{switch\+Animation}} (\mbox{\hyperlink{structplayer}{player}} Joueur)
-\begin{DoxyCompactList}\small\item\em Applique la bonne texture au joueur en fonction de son animation. \end{DoxyCompactList}\item 
-static void $\ast$ \mbox{\hyperlink{main_8c_a88c5ed6c9b3c2ac702ece04154da6091}{dessiner\+Joueurs}} ()
-\begin{DoxyCompactList}\small\item\em Dessine tous les joueurs. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{main_8c_af35c1f5cca32f075ebe22ddd0dfb92bb}{delay\+\_\+breath}} ()
+void \mbox{\hyperlink{main_8c_a4f3c96146210adc4a3276d1e8bb2453c}{delay\+\_\+breath}} ()
 \begin{DoxyCompactList}\small\item\em Délai d\textquotesingle{}animation de respiration. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{main_8c_aa62897adaeca75011f0bef5727bcf2e2}{delay\+\_\+running\+\_\+left}} ()
+void \mbox{\hyperlink{main_8c_a87f15eea45228c1b2d66df42116d7599}{delay\+\_\+running\+\_\+left}} ()
 \begin{DoxyCompactList}\small\item\em Délai de l\textquotesingle{}animation \char`\"{}courrir à gauche\char`\"{}. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{main_8c_aeadd8a4a4a24ab533b3020fe47e19063}{delay\+\_\+running\+\_\+right}} ()
+void \mbox{\hyperlink{main_8c_a22982612c2117162b7a74c76eb20028a}{delay\+\_\+running\+\_\+right}} ()
 \begin{DoxyCompactList}\small\item\em Délai de l\textquotesingle{}animation \char`\"{}courrir à droite\char`\"{}. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{main_8c_a2b9c29db7f7ff4e4f0d734dc02243aab}{delay\+\_\+running\+\_\+up}} ()
+void \mbox{\hyperlink{main_8c_a5c3f10f59573b2b0ee8a757d4aa2d589}{delay\+\_\+running\+\_\+up}} ()
 \begin{DoxyCompactList}\small\item\em Délai de l\textquotesingle{}animation \char`\"{}courrir en haut\char`\"{}. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{main_8c_a5c52acb6abf77193f4c902191f211531}{delay\+\_\+running\+\_\+down}} ()
+void \mbox{\hyperlink{main_8c_a400d947e8338483aca91275e6b09c08e}{delay\+\_\+running\+\_\+down}} ()
 \begin{DoxyCompactList}\small\item\em Délai de l\textquotesingle{}animation \char`\"{}courrir en bas\char`\"{}. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{main_8c_aec630baf5c5e5f01272b95cd61c04c7f}{delay\+\_\+settings\+\_\+button\+\_\+left}} ()
+void \mbox{\hyperlink{main_8c_a0f9a66b9fc132ae63360835a23fe0ab0}{delay\+\_\+settings\+\_\+button\+\_\+left}} ()
 \begin{DoxyCompactList}\small\item\em Délai de l\textquotesingle{}animation du bouton de paramètres quand on a pas le curseur dessus. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{main_8c_a4fdbef41cc1c14f9866991fef22a3b62}{delay\+\_\+settings\+\_\+button\+\_\+right}} ()
+void \mbox{\hyperlink{main_8c_a0caf52e6e1d7fb594108d8d4f4fbcd77}{delay\+\_\+settings\+\_\+button\+\_\+right}} ()
 \begin{DoxyCompactList}\small\item\em Délai de l\textquotesingle{}animation du bouton de paramètres quand on a le curseur dessus. \end{DoxyCompactList}\item 
-static void $\ast$ \mbox{\hyperlink{main_8c_a4ea2b775628e7e2857760cb4a3f60e5f}{breath\+Animation}} ()
-\begin{DoxyCompactList}\small\item\em Animation de respiration. \end{DoxyCompactList}\item 
-static void $\ast$ \mbox{\hyperlink{main_8c_a5cb6f61e6f291bd9c47559597a40f453}{running\+\_\+left\+\_\+animation}} ()
-\begin{DoxyCompactList}\small\item\em Animation \char`\"{}courrir à gauche\char`\"{}. \end{DoxyCompactList}\item 
-static void $\ast$ \mbox{\hyperlink{main_8c_a5477b836a24fe2e1ee5f364383ca792f}{running\+\_\+right\+\_\+animation}} ()
-\begin{DoxyCompactList}\small\item\em Animation \char`\"{}courrir à droite\char`\"{}. \end{DoxyCompactList}\item 
-static void $\ast$ \mbox{\hyperlink{main_8c_aa405b150ef4a5c5ed93e41f86ab83a39}{running\+\_\+up\+\_\+animation}} ()
-\begin{DoxyCompactList}\small\item\em Animation \char`\"{}courrir àen haut\char`\"{}. \end{DoxyCompactList}\item 
-static void $\ast$ \mbox{\hyperlink{main_8c_aab679fb5812d80a69aef9f9224dce59d}{running\+\_\+down\+\_\+animation}} ()
-\begin{DoxyCompactList}\small\item\em Animation \char`\"{}courrir en bas\char`\"{}. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{main_8c_a68d8e7c4fc5e810263c993446cf55141}{draw\+\_\+settings\+\_\+button\+\_\+animation}} ()
-\begin{DoxyCompactList}\small\item\em Dessine le bouton de paramètres (à executer dans un thread uniquement). \end{DoxyCompactList}\item 
-static void $\ast$ \mbox{\hyperlink{main_8c_a38591baf8970dcb0e7ce4be16744422d}{settings\+\_\+button\+\_\+animation\+\_\+left}} ()
-\begin{DoxyCompactList}\small\item\em Animation du bouton paramètres quand on a pas le curseur dessus. \end{DoxyCompactList}\item 
-static void $\ast$ \mbox{\hyperlink{main_8c_a7e521ce6c884112536943900c5a71c03}{settings\+\_\+button\+\_\+animation\+\_\+right}} ()
-\begin{DoxyCompactList}\small\item\em Animation du bouton paramètres quand on a le curseur dessus. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{main_8c_a702d2b36ea1c2a7bbf074155664d6890}{draw\+Title}} ()
-\begin{DoxyCompactList}\small\item\em Dessine le titre dans le menu principal. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{main_8c_afe3fb63c56410a3ac3ab9397fdc8df8c}{draw\+Error}} (SDL\+\_\+\+Rect rect, SDL\+\_\+\+Texture $\ast$texture)
-\begin{DoxyCompactList}\small\item\em Affiche l\textquotesingle{}erreur à l\textquotesingle{}écran. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{main_8c_accc4bfec3e2cf262deaf6f7f38b844a1}{display\+Error}} (char $\ast$s, char $\ast$menu\+Target)
-\begin{DoxyCompactList}\small\item\em Initialise les assets de l\textquotesingle{}erreur dans le menu demandé avec SDL\+\_\+\+TTF. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{main_8c_a5d8c057a673692eabf25fa7d6c670c08}{do\+Events}} ()
 \begin{DoxyCompactList}\small\item\em Execute les events en fonction du tableau d\textquotesingle{}évènements. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{main_8c_ac96e8912bb03df1f73f5ccb6db495085}{init\+\_\+texture}} (SDL\+\_\+\+Surface $\ast$$\ast$surface, SDL\+\_\+\+Texture $\ast$$\ast$texture)
-\begin{DoxyCompactList}\small\item\em Initialise l\textquotesingle{}asset demandé. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{main_8c_a270d20bdcadebb9a08a01a55c37858a9}\label{main_8c_a270d20bdcadebb9a08a01a55c37858a9}} 
 static void {\bfseries init\+\_\+vars} ()
 \begin{DoxyCompactList}\small\item\em Initialise toutes les variables relatives aux menus. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{main_8c_a1e20727afdccf232581f83c7e4a4f470}\label{main_8c_a1e20727afdccf232581f83c7e4a4f470}} 
-static void {\bfseries dessiner\+Balle} (SDL\+\_\+\+Texture $\ast$texture, SDL\+\_\+\+Renderer $\ast$renderer, SDL\+\_\+\+Rect rectangle, SDL\+\_\+\+Window $\ast$window, \mbox{\hyperlink{struct_bullet}{Bullet}} $\ast$b, int rotation, int vitesse)
-\item 
 \mbox{\Hypertarget{main_8c_a4273912d67dc07dd74b4b4470ca02480}\label{main_8c_a4273912d67dc07dd74b4b4470ca02480}} 
 static void {\bfseries init\+Bullet} (\mbox{\hyperlink{struct_bullet}{Bullet}} $\ast$b, int x, int y, int rotation)
 \item 
-static void \mbox{\hyperlink{main_8c_ae2ef131da56513e4d2954bf3258a3b6c}{button\+Hover}} (SDL\+\_\+\+Surface $\ast$button\+\_\+surface, SDL\+\_\+\+Texture $\ast$button\+\_\+texture, SDL\+\_\+\+Rect $\ast$button\+\_\+rect, SDL\+\_\+bool $\ast$hover\+\_\+button, char $\ast$menu\+Target)
-\begin{DoxyCompactList}\small\item\em Affiche la texture de survol du bouton demandé en dans le menu souhaité. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{main_8c_ad750745b62d5f011d94bc69c00429e24}{button\+Hover\+With\+Animation}} (SDL\+\_\+\+Surface $\ast$button\+\_\+surface, SDL\+\_\+\+Texture $\ast$button\+\_\+texture, SDL\+\_\+\+Rect $\ast$button\+\_\+rect, SDL\+\_\+bool $\ast$hover\+\_\+button, char $\ast$menu\+Target, void $\ast$($\ast$p)(void $\ast$), void $\ast$($\ast$p2)(void $\ast$))
-\begin{DoxyCompactList}\small\item\em Affiche la texture de survol avec animation du bouton demandé en dans le menu souhaité. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{main_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
 \begin{DoxyCompactList}\small\item\em Programme principal. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
-Fichier principal du programme qui s\textquotesingle{}occupera de la partie graphique. 
+Fichier principal du programme qui s\textquotesingle{}occupera de la partie jeu. 
 
 \begin{DoxyAuthor}{Auteur}
 Yusuf Ulas 
@@ -131,346 +83,130 @@ Copyright (c) 2023
 
 
 \doxysubsection{Documentation des fonctions}
-\mbox{\Hypertarget{main_8c_a4ea2b775628e7e2857760cb4a3f60e5f}\label{main_8c_a4ea2b775628e7e2857760cb4a3f60e5f}} 
-\index{main.c@{main.c}!breathAnimation@{breathAnimation}}
-\index{breathAnimation@{breathAnimation}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{breathAnimation()}{breathAnimation()}}
-{\footnotesize\ttfamily static void $\ast$ breath\+Animation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Animation de respiration. 
-
-\begin{DoxyReturn}{Renvoie}
-void$\ast$ 
-\end{DoxyReturn}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{main_8c_a4ea2b775628e7e2857760cb4a3f60e5f_cgraph}
-\end{center}
-\end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=333pt]{main_8c_a4ea2b775628e7e2857760cb4a3f60e5f_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{main_8c_ae2ef131da56513e4d2954bf3258a3b6c}\label{main_8c_ae2ef131da56513e4d2954bf3258a3b6c}} 
-\index{main.c@{main.c}!buttonHover@{buttonHover}}
-\index{buttonHover@{buttonHover}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{buttonHover()}{buttonHover()}}
-{\footnotesize\ttfamily static void button\+Hover (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Surface $\ast$}]{button\+\_\+surface,  }\item[{SDL\+\_\+\+Texture $\ast$}]{button\+\_\+texture,  }\item[{SDL\+\_\+\+Rect $\ast$}]{button\+\_\+rect,  }\item[{SDL\+\_\+bool $\ast$}]{hover\+\_\+button,  }\item[{char $\ast$}]{menu\+Target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Affiche la texture de survol du bouton demandé en dans le menu souhaité. 
-
-
-\begin{DoxyParams}{Paramètres}
-{\em button\+\_\+surface} & \\
-\hline
-{\em button\+\_\+texture} & \\
-\hline
-{\em button\+\_\+rect} & \\
-\hline
-{\em hover\+\_\+button} & \\
-\hline
-{\em menu\+Target} & \\
-\hline
-\end{DoxyParams}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{main_8c_ae2ef131da56513e4d2954bf3258a3b6c_cgraph}
-\end{center}
-\end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=222pt]{main_8c_ae2ef131da56513e4d2954bf3258a3b6c_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{main_8c_ad750745b62d5f011d94bc69c00429e24}\label{main_8c_ad750745b62d5f011d94bc69c00429e24}} 
-\index{main.c@{main.c}!buttonHoverWithAnimation@{buttonHoverWithAnimation}}
-\index{buttonHoverWithAnimation@{buttonHoverWithAnimation}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{buttonHoverWithAnimation()}{buttonHoverWithAnimation()}}
-{\footnotesize\ttfamily static void button\+Hover\+With\+Animation (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Surface $\ast$}]{button\+\_\+surface,  }\item[{SDL\+\_\+\+Texture $\ast$}]{button\+\_\+texture,  }\item[{SDL\+\_\+\+Rect $\ast$}]{button\+\_\+rect,  }\item[{SDL\+\_\+bool $\ast$}]{hover\+\_\+button,  }\item[{char $\ast$}]{menu\+Target,  }\item[{void $\ast$($\ast$)(void $\ast$)}]{p,  }\item[{void $\ast$($\ast$)(void $\ast$)}]{p2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Affiche la texture de survol avec animation du bouton demandé en dans le menu souhaité. 
-
-
-\begin{DoxyParams}{Paramètres}
-{\em button\+\_\+surface} & \\
-\hline
-{\em button\+\_\+texture} & \\
-\hline
-{\em button\+\_\+rect} & \\
-\hline
-{\em hover\+\_\+button} & \\
-\hline
-{\em menu\+Target} & \\
-\hline
-\end{DoxyParams}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{main_8c_ad750745b62d5f011d94bc69c00429e24_cgraph}
-\end{center}
-\end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=285pt]{main_8c_ad750745b62d5f011d94bc69c00429e24_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{main_8c_af35c1f5cca32f075ebe22ddd0dfb92bb}\label{main_8c_af35c1f5cca32f075ebe22ddd0dfb92bb}} 
+\mbox{\Hypertarget{main_8c_a4f3c96146210adc4a3276d1e8bb2453c}\label{main_8c_a4f3c96146210adc4a3276d1e8bb2453c}} 
 \index{main.c@{main.c}!delay\_breath@{delay\_breath}}
 \index{delay\_breath@{delay\_breath}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{delay\_breath()}{delay\_breath()}}
-{\footnotesize\ttfamily static void delay\+\_\+breath (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily void delay\+\_\+breath (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
 Délai d\textquotesingle{}animation de respiration. 
 
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{main_8c_af35c1f5cca32f075ebe22ddd0dfb92bb_icgraph}
+\includegraphics[width=350pt]{main_8c_a4f3c96146210adc4a3276d1e8bb2453c_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{main_8c_a5c52acb6abf77193f4c902191f211531}\label{main_8c_a5c52acb6abf77193f4c902191f211531}} 
+\mbox{\Hypertarget{main_8c_a400d947e8338483aca91275e6b09c08e}\label{main_8c_a400d947e8338483aca91275e6b09c08e}} 
 \index{main.c@{main.c}!delay\_running\_down@{delay\_running\_down}}
 \index{delay\_running\_down@{delay\_running\_down}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{delay\_running\_down()}{delay\_running\_down()}}
-{\footnotesize\ttfamily static void delay\+\_\+running\+\_\+down (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily void delay\+\_\+running\+\_\+down (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
 Délai de l\textquotesingle{}animation \char`\"{}courrir en bas\char`\"{}. 
 
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{main_8c_a5c52acb6abf77193f4c902191f211531_icgraph}
+\includegraphics[width=350pt]{main_8c_a400d947e8338483aca91275e6b09c08e_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{main_8c_aa62897adaeca75011f0bef5727bcf2e2}\label{main_8c_aa62897adaeca75011f0bef5727bcf2e2}} 
+\mbox{\Hypertarget{main_8c_a87f15eea45228c1b2d66df42116d7599}\label{main_8c_a87f15eea45228c1b2d66df42116d7599}} 
 \index{main.c@{main.c}!delay\_running\_left@{delay\_running\_left}}
 \index{delay\_running\_left@{delay\_running\_left}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{delay\_running\_left()}{delay\_running\_left()}}
-{\footnotesize\ttfamily static void delay\+\_\+running\+\_\+left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily void delay\+\_\+running\+\_\+left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
 Délai de l\textquotesingle{}animation \char`\"{}courrir à gauche\char`\"{}. 
 
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{main_8c_aa62897adaeca75011f0bef5727bcf2e2_icgraph}
+\includegraphics[width=350pt]{main_8c_a87f15eea45228c1b2d66df42116d7599_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{main_8c_aeadd8a4a4a24ab533b3020fe47e19063}\label{main_8c_aeadd8a4a4a24ab533b3020fe47e19063}} 
+\mbox{\Hypertarget{main_8c_a22982612c2117162b7a74c76eb20028a}\label{main_8c_a22982612c2117162b7a74c76eb20028a}} 
 \index{main.c@{main.c}!delay\_running\_right@{delay\_running\_right}}
 \index{delay\_running\_right@{delay\_running\_right}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{delay\_running\_right()}{delay\_running\_right()}}
-{\footnotesize\ttfamily static void delay\+\_\+running\+\_\+right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily void delay\+\_\+running\+\_\+right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
 Délai de l\textquotesingle{}animation \char`\"{}courrir à droite\char`\"{}. 
 
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{main_8c_aeadd8a4a4a24ab533b3020fe47e19063_icgraph}
+\includegraphics[width=350pt]{main_8c_a22982612c2117162b7a74c76eb20028a_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{main_8c_a2b9c29db7f7ff4e4f0d734dc02243aab}\label{main_8c_a2b9c29db7f7ff4e4f0d734dc02243aab}} 
+\mbox{\Hypertarget{main_8c_a5c3f10f59573b2b0ee8a757d4aa2d589}\label{main_8c_a5c3f10f59573b2b0ee8a757d4aa2d589}} 
 \index{main.c@{main.c}!delay\_running\_up@{delay\_running\_up}}
 \index{delay\_running\_up@{delay\_running\_up}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{delay\_running\_up()}{delay\_running\_up()}}
-{\footnotesize\ttfamily static void delay\+\_\+running\+\_\+up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily void delay\+\_\+running\+\_\+up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
 Délai de l\textquotesingle{}animation \char`\"{}courrir en haut\char`\"{}. 
 
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{main_8c_a2b9c29db7f7ff4e4f0d734dc02243aab_icgraph}
+\includegraphics[width=350pt]{main_8c_a5c3f10f59573b2b0ee8a757d4aa2d589_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{main_8c_aec630baf5c5e5f01272b95cd61c04c7f}\label{main_8c_aec630baf5c5e5f01272b95cd61c04c7f}} 
+\mbox{\Hypertarget{main_8c_a0f9a66b9fc132ae63360835a23fe0ab0}\label{main_8c_a0f9a66b9fc132ae63360835a23fe0ab0}} 
 \index{main.c@{main.c}!delay\_settings\_button\_left@{delay\_settings\_button\_left}}
 \index{delay\_settings\_button\_left@{delay\_settings\_button\_left}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{delay\_settings\_button\_left()}{delay\_settings\_button\_left()}}
-{\footnotesize\ttfamily static void delay\+\_\+settings\+\_\+button\+\_\+left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily void delay\+\_\+settings\+\_\+button\+\_\+left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
 Délai de l\textquotesingle{}animation du bouton de paramètres quand on a pas le curseur dessus. 
 
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{main_8c_aec630baf5c5e5f01272b95cd61c04c7f_icgraph}
+\includegraphics[width=350pt]{main_8c_a0f9a66b9fc132ae63360835a23fe0ab0_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{main_8c_a4fdbef41cc1c14f9866991fef22a3b62}\label{main_8c_a4fdbef41cc1c14f9866991fef22a3b62}} 
+\mbox{\Hypertarget{main_8c_a0caf52e6e1d7fb594108d8d4f4fbcd77}\label{main_8c_a0caf52e6e1d7fb594108d8d4f4fbcd77}} 
 \index{main.c@{main.c}!delay\_settings\_button\_right@{delay\_settings\_button\_right}}
 \index{delay\_settings\_button\_right@{delay\_settings\_button\_right}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{delay\_settings\_button\_right()}{delay\_settings\_button\_right()}}
-{\footnotesize\ttfamily static void delay\+\_\+settings\+\_\+button\+\_\+right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily void delay\+\_\+settings\+\_\+button\+\_\+right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
 Délai de l\textquotesingle{}animation du bouton de paramètres quand on a le curseur dessus. 
 
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{main_8c_a4fdbef41cc1c14f9866991fef22a3b62_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{main_8c_a7ac041d77c29de2a5bd9a576076984e8}\label{main_8c_a7ac041d77c29de2a5bd9a576076984e8}} 
-\index{main.c@{main.c}!dessinerButton@{dessinerButton}}
-\index{dessinerButton@{dessinerButton}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{dessinerButton()}{dessinerButton()}}
-{\footnotesize\ttfamily static void dessiner\+Button (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Texture $\ast$}]{texture,  }\item[{SDL\+\_\+\+Rect}]{rectangle,  }\item[{SDL\+\_\+\+Surface $\ast$}]{surface }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Dessine un bouton normal. 
-
-
-\begin{DoxyParams}{Paramètres}
-{\em texture} & \\
-\hline
-{\em rectangle} & \\
-\hline
-{\em surface} & \\
-\hline
-\end{DoxyParams}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=258pt]{main_8c_a7ac041d77c29de2a5bd9a576076984e8_cgraph}
-\end{center}
-\end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{main_8c_a7ac041d77c29de2a5bd9a576076984e8_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{main_8c_a88c5ed6c9b3c2ac702ece04154da6091}\label{main_8c_a88c5ed6c9b3c2ac702ece04154da6091}} 
-\index{main.c@{main.c}!dessinerJoueurs@{dessinerJoueurs}}
-\index{dessinerJoueurs@{dessinerJoueurs}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{dessinerJoueurs()}{dessinerJoueurs()}}
-{\footnotesize\ttfamily static void $\ast$ dessiner\+Joueurs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Dessine tous les joueurs. 
-
-\begin{DoxyReturn}{Renvoie}
-void$\ast$ 
-\end{DoxyReturn}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{main_8c_a88c5ed6c9b3c2ac702ece04154da6091_cgraph}
-\end{center}
-\end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=333pt]{main_8c_a88c5ed6c9b3c2ac702ece04154da6091_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{main_8c_a6bb510e9f9ce8cb081f3f9ce0beffe31}\label{main_8c_a6bb510e9f9ce8cb081f3f9ce0beffe31}} 
-\index{main.c@{main.c}!destroyAll@{destroyAll}}
-\index{destroyAll@{destroyAll}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{destroyAll()}{destroyAll()}}
-{\footnotesize\ttfamily static void destroy\+All (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Window $\ast$}]{window,  }\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Détruit la fenêtre et le rendu. 
-
-(plus souvent utilisée lors d\textquotesingle{}une erreur de chargement d\textquotesingle{}un asset)
-
-
-\begin{DoxyParams}{Paramètres}
-{\em window} & \\
-\hline
-{\em renderer} & \\
-\hline
-\end{DoxyParams}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{main_8c_a6bb510e9f9ce8cb081f3f9ce0beffe31_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{main_8c_accc4bfec3e2cf262deaf6f7f38b844a1}\label{main_8c_accc4bfec3e2cf262deaf6f7f38b844a1}} 
-\index{main.c@{main.c}!displayError@{displayError}}
-\index{displayError@{displayError}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{displayError()}{displayError()}}
-{\footnotesize\ttfamily static void display\+Error (\begin{DoxyParamCaption}\item[{char $\ast$}]{s,  }\item[{char $\ast$}]{menu\+Target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Initialise les assets de l\textquotesingle{}erreur dans le menu demandé avec SDL\+\_\+\+TTF. 
-
-
-\begin{DoxyParams}{Paramètres}
-{\em s} & \\
-\hline
-{\em menu\+Target} & \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
-void$\ast$ 
-\end{DoxyReturn}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=338pt]{main_8c_accc4bfec3e2cf262deaf6f7f38b844a1_cgraph}
-\end{center}
-\end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=222pt]{main_8c_accc4bfec3e2cf262deaf6f7f38b844a1_icgraph}
+\includegraphics[width=350pt]{main_8c_a0caf52e6e1d7fb594108d8d4f4fbcd77_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{main_8c_a5d8c057a673692eabf25fa7d6c670c08}\label{main_8c_a5d8c057a673692eabf25fa7d6c670c08}} 
@@ -498,122 +234,6 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \includegraphics[width=210pt]{main_8c_a5d8c057a673692eabf25fa7d6c670c08_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{main_8c_a68d8e7c4fc5e810263c993446cf55141}\label{main_8c_a68d8e7c4fc5e810263c993446cf55141}} 
-\index{main.c@{main.c}!draw\_settings\_button\_animation@{draw\_settings\_button\_animation}}
-\index{draw\_settings\_button\_animation@{draw\_settings\_button\_animation}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{draw\_settings\_button\_animation()}{draw\_settings\_button\_animation()}}
-{\footnotesize\ttfamily static void draw\+\_\+settings\+\_\+button\+\_\+animation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Dessine le bouton de paramètres (à executer dans un thread uniquement). 
-
-\begin{DoxyReturn}{Renvoie}
-void$\ast$ 
-\end{DoxyReturn}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{main_8c_a68d8e7c4fc5e810263c993446cf55141_cgraph}
-\end{center}
-\end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=263pt]{main_8c_a68d8e7c4fc5e810263c993446cf55141_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{main_8c_afe3fb63c56410a3ac3ab9397fdc8df8c}\label{main_8c_afe3fb63c56410a3ac3ab9397fdc8df8c}} 
-\index{main.c@{main.c}!drawError@{drawError}}
-\index{drawError@{drawError}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{drawError()}{drawError()}}
-{\footnotesize\ttfamily static void draw\+Error (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Rect}]{rect,  }\item[{SDL\+\_\+\+Texture $\ast$}]{texture }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Affiche l\textquotesingle{}erreur à l\textquotesingle{}écran. 
-
-
-\begin{DoxyParams}{Paramètres}
-{\em rect} & \\
-\hline
-{\em texture} & \\
-\hline
-\end{DoxyParams}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=234pt]{main_8c_afe3fb63c56410a3ac3ab9397fdc8df8c_cgraph}
-\end{center}
-\end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=316pt]{main_8c_afe3fb63c56410a3ac3ab9397fdc8df8c_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{main_8c_afd0ed75a870240cedc972c1fe3cb89c1}\label{main_8c_afd0ed75a870240cedc972c1fe3cb89c1}} 
-\index{main.c@{main.c}!drawPlayer@{drawPlayer}}
-\index{drawPlayer@{drawPlayer}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{drawPlayer()}{drawPlayer()}}
-{\footnotesize\ttfamily static void draw\+Player (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Texture $\ast$}]{texture\+\_\+joueur,  }\item[{SDL\+\_\+\+Rect}]{player\+Rect }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Dessine un joueur en fonction de ses coordonnées et de sa texture. 
-
-
-\begin{DoxyParams}{Paramètres}
-{\em texture\+\_\+joueur} & \\
-\hline
-{\em player\+Rect} & \\
-\hline
-\end{DoxyParams}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=241pt]{main_8c_afd0ed75a870240cedc972c1fe3cb89c1_cgraph}
-\end{center}
-\end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{main_8c_afd0ed75a870240cedc972c1fe3cb89c1_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{main_8c_a702d2b36ea1c2a7bbf074155664d6890}\label{main_8c_a702d2b36ea1c2a7bbf074155664d6890}} 
-\index{main.c@{main.c}!drawTitle@{drawTitle}}
-\index{drawTitle@{drawTitle}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{drawTitle()}{drawTitle()}}
-{\footnotesize\ttfamily static void draw\+Title (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Dessine le titre dans le menu principal. 
-
-\begin{DoxyReturn}{Renvoie}
-void$\ast$ 
-\end{DoxyReturn}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=231pt]{main_8c_a702d2b36ea1c2a7bbf074155664d6890_cgraph}
-\end{center}
-\end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=209pt]{main_8c_a702d2b36ea1c2a7bbf074155664d6890_icgraph}
-\end{center}
-\end{figure}
 \mbox{\Hypertarget{main_8c_ab5a2d27713f1814d93ff81281e653e22}\label{main_8c_ab5a2d27713f1814d93ff81281e653e22}} 
 \index{main.c@{main.c}!eventTime@{eventTime}}
 \index{eventTime@{eventTime}!main.c@{main.c}}
@@ -639,37 +259,6 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{center}
 \leavevmode
 \includegraphics[width=306pt]{main_8c_ab5a2d27713f1814d93ff81281e653e22_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{main_8c_ac96e8912bb03df1f73f5ccb6db495085}\label{main_8c_ac96e8912bb03df1f73f5ccb6db495085}} 
-\index{main.c@{main.c}!init\_texture@{init\_texture}}
-\index{init\_texture@{init\_texture}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{init\_texture()}{init\_texture()}}
-{\footnotesize\ttfamily static void init\+\_\+texture (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Surface $\ast$$\ast$}]{surface,  }\item[{SDL\+\_\+\+Texture $\ast$$\ast$}]{texture }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Initialise l\textquotesingle{}asset demandé. 
-
-
-\begin{DoxyParams}{Paramètres}
-{\em surface} & \\
-\hline
-{\em texture} & \\
-\hline
-\end{DoxyParams}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=241pt]{main_8c_ac96e8912bb03df1f73f5ccb6db495085_cgraph}
-\end{center}
-\end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=307pt]{main_8c_ac96e8912bb03df1f73f5ccb6db495085_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{main_8c_a5eaa5bf14462c0770a8514451b64df3c}\label{main_8c_a5eaa5bf14462c0770a8514451b64df3c}} 
@@ -755,114 +344,6 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \includegraphics[width=322pt]{main_8c_a74d9cf129eac9371caa5a93b97b4f95c_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{main_8c_aab679fb5812d80a69aef9f9224dce59d}\label{main_8c_aab679fb5812d80a69aef9f9224dce59d}} 
-\index{main.c@{main.c}!running\_down\_animation@{running\_down\_animation}}
-\index{running\_down\_animation@{running\_down\_animation}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{running\_down\_animation()}{running\_down\_animation()}}
-{\footnotesize\ttfamily static void $\ast$ running\+\_\+down\+\_\+animation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Animation \char`\"{}courrir en bas\char`\"{}. 
-
-\begin{DoxyReturn}{Renvoie}
-void$\ast$ 
-\end{DoxyReturn}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=343pt]{main_8c_aab679fb5812d80a69aef9f9224dce59d_cgraph}
-\end{center}
-\end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{main_8c_aab679fb5812d80a69aef9f9224dce59d_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{main_8c_a5cb6f61e6f291bd9c47559597a40f453}\label{main_8c_a5cb6f61e6f291bd9c47559597a40f453}} 
-\index{main.c@{main.c}!running\_left\_animation@{running\_left\_animation}}
-\index{running\_left\_animation@{running\_left\_animation}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{running\_left\_animation()}{running\_left\_animation()}}
-{\footnotesize\ttfamily static void $\ast$ running\+\_\+left\+\_\+animation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Animation \char`\"{}courrir à gauche\char`\"{}. 
-
-\begin{DoxyReturn}{Renvoie}
-void$\ast$ 
-\end{DoxyReturn}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=324pt]{main_8c_a5cb6f61e6f291bd9c47559597a40f453_cgraph}
-\end{center}
-\end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{main_8c_a5cb6f61e6f291bd9c47559597a40f453_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{main_8c_a5477b836a24fe2e1ee5f364383ca792f}\label{main_8c_a5477b836a24fe2e1ee5f364383ca792f}} 
-\index{main.c@{main.c}!running\_right\_animation@{running\_right\_animation}}
-\index{running\_right\_animation@{running\_right\_animation}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{running\_right\_animation()}{running\_right\_animation()}}
-{\footnotesize\ttfamily static void $\ast$ running\+\_\+right\+\_\+animation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Animation \char`\"{}courrir à droite\char`\"{}. 
-
-\begin{DoxyReturn}{Renvoie}
-void$\ast$ 
-\end{DoxyReturn}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=336pt]{main_8c_a5477b836a24fe2e1ee5f364383ca792f_cgraph}
-\end{center}
-\end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{main_8c_a5477b836a24fe2e1ee5f364383ca792f_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{main_8c_aa405b150ef4a5c5ed93e41f86ab83a39}\label{main_8c_aa405b150ef4a5c5ed93e41f86ab83a39}} 
-\index{main.c@{main.c}!running\_up\_animation@{running\_up\_animation}}
-\index{running\_up\_animation@{running\_up\_animation}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{running\_up\_animation()}{running\_up\_animation()}}
-{\footnotesize\ttfamily static void $\ast$ running\+\_\+up\+\_\+animation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Animation \char`\"{}courrir àen haut\char`\"{}. 
-
-\begin{DoxyReturn}{Renvoie}
-void$\ast$ 
-\end{DoxyReturn}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=319pt]{main_8c_aa405b150ef4a5c5ed93e41f86ab83a39_cgraph}
-\end{center}
-\end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{main_8c_aa405b150ef4a5c5ed93e41f86ab83a39_icgraph}
-\end{center}
-\end{figure}
 \mbox{\Hypertarget{main_8c_a506eeac61f56b2e172d086173bac5995}\label{main_8c_a506eeac61f56b2e172d086173bac5995}} 
 \index{main.c@{main.c}!Send2Server@{Send2Server}}
 \index{Send2Server@{Send2Server}!main.c@{main.c}}
@@ -883,94 +364,12 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \includegraphics[width=350pt]{main_8c_a506eeac61f56b2e172d086173bac5995_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{main_8c_a506eeac61f56b2e172d086173bac5995_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{main_8c_a38591baf8970dcb0e7ce4be16744422d}\label{main_8c_a38591baf8970dcb0e7ce4be16744422d}} 
-\index{main.c@{main.c}!settings\_button\_animation\_left@{settings\_button\_animation\_left}}
-\index{settings\_button\_animation\_left@{settings\_button\_animation\_left}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{settings\_button\_animation\_left()}{settings\_button\_animation\_left()}}
-{\footnotesize\ttfamily static void $\ast$ settings\+\_\+button\+\_\+animation\+\_\+left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Animation du bouton paramètres quand on a pas le curseur dessus. 
-
-\begin{DoxyReturn}{Renvoie}
-void$\ast$ 
-\end{DoxyReturn}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{main_8c_a38591baf8970dcb0e7ce4be16744422d_cgraph}
-\end{center}
-\end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=303pt]{main_8c_a38591baf8970dcb0e7ce4be16744422d_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{main_8c_a7e521ce6c884112536943900c5a71c03}\label{main_8c_a7e521ce6c884112536943900c5a71c03}} 
-\index{main.c@{main.c}!settings\_button\_animation\_right@{settings\_button\_animation\_right}}
-\index{settings\_button\_animation\_right@{settings\_button\_animation\_right}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{settings\_button\_animation\_right()}{settings\_button\_animation\_right()}}
-{\footnotesize\ttfamily static void $\ast$ settings\+\_\+button\+\_\+animation\+\_\+right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Animation du bouton paramètres quand on a le curseur dessus. 
-
-\begin{DoxyReturn}{Renvoie}
-void$\ast$ 
-\end{DoxyReturn}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{main_8c_a7e521ce6c884112536943900c5a71c03_cgraph}
-\end{center}
-\end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=285pt]{main_8c_a7e521ce6c884112536943900c5a71c03_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{main_8c_a124c70bcd0486f8db5d0292febf8c889}\label{main_8c_a124c70bcd0486f8db5d0292febf8c889}} 
-\index{main.c@{main.c}!switchAnimation@{switchAnimation}}
-\index{switchAnimation@{switchAnimation}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{switchAnimation()}{switchAnimation()}}
-{\footnotesize\ttfamily static void switch\+Animation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer}{player}}}]{Joueur }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Applique la bonne texture au joueur en fonction de son animation. 
-
-
-\begin{DoxyParams}{Paramètres}
-{\em Joueur} & \\
-\hline
-\end{DoxyParams}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{main_8c_a124c70bcd0486f8db5d0292febf8c889_cgraph}
-\end{center}
-\end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{main_8c_a124c70bcd0486f8db5d0292febf8c889_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{main_8c_a734d34007877ed5938e58dccb669ba96}\label{main_8c_a734d34007877ed5938e58dccb669ba96}} 

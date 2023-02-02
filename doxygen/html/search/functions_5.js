@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['main_0',['main',['../main_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main.c']]]
+  ['getmenu_0',['getMenu',['../menus_8c.html#a272acb896d5e5413328204c4060b1598',1,'getMenu():&#160;menus.c'],['../menus_8h.html#a272acb896d5e5413328204c4060b1598',1,'getMenu():&#160;menus.c']]]
 ];

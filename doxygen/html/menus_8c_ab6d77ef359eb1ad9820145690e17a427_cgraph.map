@@ -1,0 +1,4 @@
+<map id="settings_button_animation_left" name="settings_button_animation_left">
+<area shape="rect" id="node1" title="Animation du bouton paramètres quand on a pas le curseur dessus." alt="" coords="5,5,204,31"/>
+<area shape="rect" id="node2" href="$main_8c.html#a0f9a66b9fc132ae63360835a23fe0ab0" title="Délai de l&#39;animation du bouton de paramètres quand on a pas le curseur dessus." alt="" coords="252,5,425,31"/>
+</map>

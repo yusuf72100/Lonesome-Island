@@ -1,0 +1,1092 @@
+\hypertarget{menus_8h}{}\doxysection{Référence du fichier C\+:/\+Users/\+Yusuf/\+Lonesome-\/\+Island/src/menus.h}
+\label{menus_8h}\index{C:/Users/Yusuf/Lonesome-\/Island/src/menus.h@{C:/Users/Yusuf/Lonesome-\/Island/src/menus.h}}
+
+
+Fichier contenant toutes les variables d\textquotesingle{}affichage.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$pthread.\+h$>$}\newline
+{\ttfamily \#include $<$SDL.\+h$>$}\newline
+{\ttfamily \#include $<$SDL\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include $<$SDL\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include $<$SDL\+\_\+mixer.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}liste.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}client.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$windows.\+h$>$}\newline
+Graphe des dépendances par inclusion de menus.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{menus_8h_ac971b9020077a6c96a867c2d6bad7266}\label{menus_8h_ac971b9020077a6c96a867c2d6bad7266}} 
+\#define {\bfseries BREATH\+\_\+\+START}~1
+\item 
+\mbox{\Hypertarget{menus_8h_ab212497f44ccc957be0d972d21c6527b}\label{menus_8h_ab212497f44ccc957be0d972d21c6527b}} 
+\#define {\bfseries BREATH\+\_\+\+END}~2
+\item 
+\mbox{\Hypertarget{menus_8h_ad229ff5b79ad9f91813e17ec67d691c1}\label{menus_8h_ad229ff5b79ad9f91813e17ec67d691c1}} 
+\#define {\bfseries RUNNING\+\_\+\+LEFT\+\_\+\+START}~3
+\item 
+\mbox{\Hypertarget{menus_8h_a4d5d0c0097293d6170687f7a7746c54d}\label{menus_8h_a4d5d0c0097293d6170687f7a7746c54d}} 
+\#define {\bfseries RUNNING\+\_\+\+LEFT\+\_\+\+END}~4
+\item 
+\mbox{\Hypertarget{menus_8h_a0e9bb023e00b67479fd53d634d7275cd}\label{menus_8h_a0e9bb023e00b67479fd53d634d7275cd}} 
+\#define {\bfseries RUNNING\+\_\+\+RIGHT\+\_\+\+START}~5
+\item 
+\mbox{\Hypertarget{menus_8h_afbb370be5351f2ebe7029ebe25fb14bb}\label{menus_8h_afbb370be5351f2ebe7029ebe25fb14bb}} 
+\#define {\bfseries RUNNING\+\_\+\+RIGHT\+\_\+\+END}~6
+\item 
+\mbox{\Hypertarget{menus_8h_a0d47242e5e7d0c9b9ee8391ce9880cf9}\label{menus_8h_a0d47242e5e7d0c9b9ee8391ce9880cf9}} 
+\#define {\bfseries RUNNING\+\_\+\+UP\+\_\+\+START}~7
+\item 
+\mbox{\Hypertarget{menus_8h_a37b6a837f5fcfba091202dd84ee0d2e2}\label{menus_8h_a37b6a837f5fcfba091202dd84ee0d2e2}} 
+\#define {\bfseries RUNNING\+\_\+\+UP\+\_\+\+END}~8
+\item 
+\mbox{\Hypertarget{menus_8h_ade96a7466e7bdef9b853228e25cfa9b3}\label{menus_8h_ade96a7466e7bdef9b853228e25cfa9b3}} 
+\#define {\bfseries RUNNING\+\_\+\+DOWN\+\_\+\+START}~9
+\item 
+\mbox{\Hypertarget{menus_8h_a1740df2594a07807e03e7518bf490cd4}\label{menus_8h_a1740df2594a07807e03e7518bf490cd4}} 
+\#define {\bfseries RUNNING\+\_\+\+DOWN\+\_\+\+END}~10
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{menus_8h_acd3f39401c59bbd01c9663c5348c63c1}{SDL\+\_\+\+Exit\+With\+Error}} (const char $\ast$message)
+\begin{DoxyCompactList}\small\item\em Nous renvoi une erreur SDL. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{menus_8h_a0e6bd1afb7d1264f682820e9fa3ac010}\label{menus_8h_a0e6bd1afb7d1264f682820e9fa3ac010}} 
+static void {\bfseries sort\+Players} ()
+\item 
+void \mbox{\hyperlink{menus_8h_a9310b9a509b196dead801a8afe8f735a}{change\+Button\+State}} (char $\ast$button)
+\begin{DoxyCompactList}\small\item\em Change l\textquotesingle{}état du boutton de survol ciblé. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menus_8h_a18f5d14ec140197dd0e7627c3c6b7a47}{start\+Animation}} (char $\ast$animation, \mbox{\hyperlink{structplayer}{player}} $\ast$joueur)
+\begin{DoxyCompactList}\small\item\em Commence l\textquotesingle{}animation souhaitée au joueur demandé. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{menus_8h_a1bd07c916c27ca0eb4e4a8aad057fc59}{on\+Button}} (char $\ast$button)
+\begin{DoxyCompactList}\small\item\em Renvoi TRUE si le curseur est sur le boutton passé en paramètre sinon renvoi FALSE si le curseur est sur aucun boutton. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{menus_8h_aad0757276ad4bc900c8826f8ecbe6ecc}\label{menus_8h_aad0757276ad4bc900c8826f8ecbe6ecc}} 
+void {\bfseries toggle\+Fullscreen} ()
+\begin{DoxyCompactList}\small\item\em Change le mode plein écran. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{menus_8h_a258a73384029adb1d7e22ca959235633}\label{menus_8h_a258a73384029adb1d7e22ca959235633}} 
+void {\bfseries draw\+Buttons} ()
+\begin{DoxyCompactList}\small\item\em Essaye de dessiner tous les bouttons. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menus_8h_ab3002fe8e0074c9e2ecb5b835e5e819f}{main\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Affiche le menu principal. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{menus_8h_a10da25e92e69613be93d099bb029feb2}\label{menus_8h_a10da25e92e69613be93d099bb029feb2}} 
+void {\bfseries update\+\_\+screen} ()
+\begin{DoxyCompactList}\small\item\em Met à jour les valeurs de l\textquotesingle{}écran. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{menus_8h_a48e3fe80d276c94e23eed3c1017a05ee}\label{menus_8h_a48e3fe80d276c94e23eed3c1017a05ee}} 
+void {\bfseries init\+\_\+menus\+\_\+vars} ()
+\begin{DoxyCompactList}\small\item\em Initialise toutes les variables relatives aux menus. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{menus_8h_aab7430a217db9969c46ead48adffbd05}\label{menus_8h_aab7430a217db9969c46ead48adffbd05}} 
+void {\bfseries draw\+Mouse} ()
+\begin{DoxyCompactList}\small\item\em Dessine le bon curseur en fonction de site on survol un bouton ou pas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menus_8h_a2dfe41d8c0f122241c47441391c02de3}{draw\+Player}} (SDL\+\_\+\+Texture $\ast$texture\+\_\+joueur, SDL\+\_\+\+Rect player\+Rect)
+\begin{DoxyCompactList}\small\item\em Dessine un joueur en fonction de ses coordonnées et de sa texture. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menus_8h_a3ccdb6767f1237284bf7c8e0d3e3eacb}{destroy\+All}} ()
+\begin{DoxyCompactList}\small\item\em Détruit la fenêtre et le rendu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menus_8h_aef0d7f69d6b9591122c752e2a00751db}{draw\+Button}} (SDL\+\_\+\+Texture $\ast$texture, SDL\+\_\+\+Rect rectangle, SDL\+\_\+\+Surface $\ast$surface, char $\ast$menu\+Target)
+\begin{DoxyCompactList}\small\item\em Dessine un bouton normal. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{menus_8h_a1e20727afdccf232581f83c7e4a4f470}\label{menus_8h_a1e20727afdccf232581f83c7e4a4f470}} 
+static void {\bfseries dessiner\+Balle} (SDL\+\_\+\+Texture $\ast$texture, SDL\+\_\+\+Renderer $\ast$renderer, SDL\+\_\+\+Rect rectangle, SDL\+\_\+\+Window $\ast$window, \mbox{\hyperlink{struct_bullet}{Bullet}} $\ast$b, int rotation, int vitesse)
+\item 
+void \mbox{\hyperlink{menus_8h_a70f776dc6d31bb4d4269557103b724ca}{button\+Hover}} (SDL\+\_\+\+Surface $\ast$button\+\_\+surface, SDL\+\_\+\+Texture $\ast$button\+\_\+texture, SDL\+\_\+\+Rect $\ast$button\+\_\+rect, SDL\+\_\+bool $\ast$hover\+\_\+button, char $\ast$menu\+Target)
+\begin{DoxyCompactList}\small\item\em Affiche la texture de survol du bouton demandé en dans le menu souhaité. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menus_8h_ac08bc7c592426e91140a694c8707ec18}{button\+Hover\+With\+Animation}} (SDL\+\_\+\+Surface $\ast$button\+\_\+surface, SDL\+\_\+\+Texture $\ast$button\+\_\+texture, SDL\+\_\+\+Rect $\ast$button\+\_\+rect, SDL\+\_\+bool $\ast$hover\+\_\+button, char $\ast$menu\+Target, void $\ast$($\ast$p)(void $\ast$), void $\ast$($\ast$p2)(void $\ast$))
+\begin{DoxyCompactList}\small\item\em Affiche la texture de survol avec animation du bouton demandé en dans le menu souhaité. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{menus_8h_ac96e8912bb03df1f73f5ccb6db495085}\label{menus_8h_ac96e8912bb03df1f73f5ccb6db495085}} 
+static void {\bfseries init\+\_\+texture} (SDL\+\_\+\+Surface $\ast$$\ast$surface, SDL\+\_\+\+Texture $\ast$$\ast$texture)
+\item 
+\mbox{\Hypertarget{menus_8h_a124c70bcd0486f8db5d0292febf8c889}\label{menus_8h_a124c70bcd0486f8db5d0292febf8c889}} 
+static void {\bfseries switch\+Animation} (\mbox{\hyperlink{structplayer}{player}} Joueur)
+\item 
+void \mbox{\hyperlink{menus_8h_ade81b1e4531f386eb2ff98d3d8930413}{display\+Error}} (char $\ast$s, char $\ast$menu\+Target)
+\begin{DoxyCompactList}\small\item\em Initialise les assets de l\textquotesingle{}erreur dans le menu demandé avec SDL\+\_\+\+TTF. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menus_8h_ae06068ec3d07bace5f405fbf6eeb3c20}{draw\+Error}} (SDL\+\_\+\+Rect rect, SDL\+\_\+\+Texture $\ast$texture)
+\begin{DoxyCompactList}\small\item\em Affiche l\textquotesingle{}erreur à l\textquotesingle{}écran. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menus_8h_a72036abbb16f3b007110ff03d748e0b1}{draw\+Title}} ()
+\begin{DoxyCompactList}\small\item\em Dessine le titre dans le menu principal. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{menus_8h_a48c083415f7a9126fec9cc228b651991}{settings\+\_\+button\+\_\+animation\+\_\+right}} ()
+\begin{DoxyCompactList}\small\item\em Animation du bouton paramètres quand on a le curseur dessus. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{menus_8h_ab6d77ef359eb1ad9820145690e17a427}{settings\+\_\+button\+\_\+animation\+\_\+left}} ()
+\begin{DoxyCompactList}\small\item\em Animation du bouton paramètres quand on a pas le curseur dessus. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menus_8h_a7847849e8e072c2895401120c061bac0}{draw\+\_\+settings\+\_\+button\+\_\+animation}} ()
+\begin{DoxyCompactList}\small\item\em Dessine le bouton de paramètres (à executer dans un thread uniquement). \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{menus_8h_a2baaae2f0feebce6bd015a37345e2270}{running\+\_\+down\+\_\+animation}} (void $\ast$j)
+\begin{DoxyCompactList}\small\item\em Animation \char`\"{}courrir en bas\char`\"{}. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{menus_8h_ad1aa5c5c7c6e33913f1a654a09ba6a00}{running\+\_\+up\+\_\+animation}} (void $\ast$j)
+\begin{DoxyCompactList}\small\item\em Animation \char`\"{}courrir àen haut\char`\"{}. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{menus_8h_a1fdb9aee8fd08118ac0bc4234da6a2eb}{running\+\_\+right\+\_\+animation}} (void $\ast$j)
+\begin{DoxyCompactList}\small\item\em Animation \char`\"{}courrir à droite\char`\"{}. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{menus_8h_a2fdf89dd6b22fb5e5d73f8370470985b}{running\+\_\+left\+\_\+animation}} (void $\ast$j)
+\begin{DoxyCompactList}\small\item\em Animation \char`\"{}courrir à gauche\char`\"{}. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{menus_8h_a0fa3f94da8421e8f4e5d11404f87856b}{breath\+Animation}} (void $\ast$j)
+\begin{DoxyCompactList}\small\item\em Animation de respiration. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{menus_8h_a272acb896d5e5413328204c4060b1598}\label{menus_8h_a272acb896d5e5413328204c4060b1598}} 
+char $\ast$ {\bfseries get\+Menu} ()
+\begin{DoxyCompactList}\small\item\em Nous renvoi le menu dans lequel le client se trouve. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menus_8h_aa3d16c0615cae07eb3845131203c1c72}{change\+Menu}} (char $\ast$menu\+Target)
+\begin{DoxyCompactList}\small\item\em Change de menu. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{menus_8h_a9e5f626ab953d2b6f672f20c3742287d}{draw\+Players}} (\mbox{\hyperlink{structplayer}{player}} $\ast$joueurs, int size)
+\begin{DoxyCompactList}\small\item\em Dessine tous les joueurs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{menus_8h_a100c5469fba41c6bd841498127f40c26}\label{menus_8h_a100c5469fba41c6bd841498127f40c26}} 
+static \mbox{\hyperlink{structelement}{Liste}} $\ast$ {\bfseries l}
+\item 
+\mbox{\Hypertarget{menus_8h_a7b934759372aeebd296c9a28e568d460}\label{menus_8h_a7b934759372aeebd296c9a28e568d460}} 
+static SDL\+\_\+\+Point {\bfseries mouse\+\_\+position}
+\item 
+\mbox{\Hypertarget{menus_8h_a7fcc98d7a2f378204358946c3e1bac04}\label{menus_8h_a7fcc98d7a2f378204358946c3e1bac04}} 
+static SDL\+\_\+bool {\bfseries hover\+\_\+playbutton} = SDL\+\_\+\+FALSE
+\item 
+\mbox{\Hypertarget{menus_8h_ab833ce26952f7ff1e56aada97c6d733a}\label{menus_8h_ab833ce26952f7ff1e56aada97c6d733a}} 
+static SDL\+\_\+bool {\bfseries hover\+\_\+connectbutton} = SDL\+\_\+\+FALSE
+\item 
+\mbox{\Hypertarget{menus_8h_a0b654f1e24d29cea93a317e9c18a09ef}\label{menus_8h_a0b654f1e24d29cea93a317e9c18a09ef}} 
+static SDL\+\_\+bool {\bfseries hover\+\_\+hostbutton} = SDL\+\_\+\+FALSE
+\item 
+\mbox{\Hypertarget{menus_8h_a0221921ebfd919f98ce1a927443cf147}\label{menus_8h_a0221921ebfd919f98ce1a927443cf147}} 
+static SDL\+\_\+bool {\bfseries hover\+\_\+settingsbutton} = SDL\+\_\+\+FALSE
+\item 
+\mbox{\Hypertarget{menus_8h_a3e839b4da416cd25fccdfcd4d05c9d4e}\label{menus_8h_a3e839b4da416cd25fccdfcd4d05c9d4e}} 
+static SDL\+\_\+bool {\bfseries fullscreen} = SDL\+\_\+\+FALSE
+\item 
+\mbox{\Hypertarget{menus_8h_a966bfab8c0052224b945a713ad2a0d5c}\label{menus_8h_a966bfab8c0052224b945a713ad2a0d5c}} 
+static int {\bfseries settings\+\_\+button\+\_\+animation\+\_\+state} = 0
+\item 
+\mbox{\Hypertarget{menus_8h_abfba48b60e305295f56643e4938f4b51}\label{menus_8h_abfba48b60e305295f56643e4938f4b51}} 
+static int {\bfseries x\+Window} = 0
+\item 
+\mbox{\Hypertarget{menus_8h_a01828dc3e420bb7a35b1d07ccd8b8ec5}\label{menus_8h_a01828dc3e420bb7a35b1d07ccd8b8ec5}} 
+static int {\bfseries y\+Window} = 0
+\item 
+\mbox{\Hypertarget{menus_8h_a66d573862b9f6a178e1b9d35a87dbd63}\label{menus_8h_a66d573862b9f6a178e1b9d35a87dbd63}} 
+static int {\bfseries WindowW} = 1920
+\item 
+\mbox{\Hypertarget{menus_8h_ac583e1a33ff68aacec20bac73d6a72fb}\label{menus_8h_ac583e1a33ff68aacec20bac73d6a72fb}} 
+static int {\bfseries WindowH} = 1080
+\item 
+\mbox{\Hypertarget{menus_8h_aeee1c32cc23ec34d1f6fb19c091351e9}\label{menus_8h_aeee1c32cc23ec34d1f6fb19c091351e9}} 
+static char {\bfseries menu} \mbox{[}10\mbox{]} = \char`\"{}Main\char`\"{}
+\item 
+\mbox{\Hypertarget{menus_8h_a2c6e6f759488638d05e613ffb54f6af2}\label{menus_8h_a2c6e6f759488638d05e613ffb54f6af2}} 
+static SDL\+\_\+\+Rect {\bfseries mouse\+Rect}
+\item 
+\mbox{\Hypertarget{menus_8h_ab0a83805f97adb33cdaef83370e6014e}\label{menus_8h_ab0a83805f97adb33cdaef83370e6014e}} 
+static SDL\+\_\+\+Rect {\bfseries play\+\_\+button\+\_\+rect}
+\item 
+\mbox{\Hypertarget{menus_8h_a27ad283076ec925d1ef0387f26806815}\label{menus_8h_a27ad283076ec925d1ef0387f26806815}} 
+static SDL\+\_\+\+Rect {\bfseries connect\+\_\+button\+\_\+rect}
+\item 
+\mbox{\Hypertarget{menus_8h_ab6e5d5a2b8089a00f8915ed4cf4406ca}\label{menus_8h_ab6e5d5a2b8089a00f8915ed4cf4406ca}} 
+static SDL\+\_\+\+Rect {\bfseries host\+\_\+button\+\_\+rect}
+\item 
+\mbox{\Hypertarget{menus_8h_a47c83363e92e1fb2a513a930d3ed803b}\label{menus_8h_a47c83363e92e1fb2a513a930d3ed803b}} 
+static SDL\+\_\+\+Rect {\bfseries settings\+\_\+button\+\_\+rect}
+\item 
+\mbox{\Hypertarget{menus_8h_a4e152e6f15e7af4377e66feb4185cf29}\label{menus_8h_a4e152e6f15e7af4377e66feb4185cf29}} 
+static SDL\+\_\+\+Display\+Mode {\bfseries DM}
+\item 
+\mbox{\Hypertarget{menus_8h_a513b0e00a33b41c468c7b3acd0852ffa}\label{menus_8h_a513b0e00a33b41c468c7b3acd0852ffa}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries icon\+\_\+surface} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a38016976ba60c75e4c030060f8a54983}\label{menus_8h_a38016976ba60c75e4c030060f8a54983}} 
+static SDL\+\_\+\+Color {\bfseries black\+Color} = \{0, 0, 0\}
+\item 
+\mbox{\Hypertarget{menus_8h_a49a11b0728728090fa1189391c9fe0c8}\label{menus_8h_a49a11b0728728090fa1189391c9fe0c8}} 
+static TTF\+\_\+\+Font $\ast$ {\bfseries police} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a760fa082fec3251fd63c859a8246a1ff}\label{menus_8h_a760fa082fec3251fd63c859a8246a1ff}} 
+static SDL\+\_\+\+Rect {\bfseries title\+\_\+rect}
+\item 
+\mbox{\Hypertarget{menus_8h_a43b8f996ad61ef3662a6ac7838447402}\label{menus_8h_a43b8f996ad61ef3662a6ac7838447402}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries imagebullet} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a5b66158197948c551bbf808da9f95726}\label{menus_8h_a5b66158197948c551bbf808da9f95726}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries texte} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_ab90379313640b1524d0f0a734d7bf2a3}\label{menus_8h_ab90379313640b1524d0f0a734d7bf2a3}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texte\+\_\+texture} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a1a7838de69716982252a37a040f3b92f}\label{menus_8h_a1a7838de69716982252a37a040f3b92f}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries title\+\_\+surface} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a4b5693bed729908049dc62b7c48fb8fd}\label{menus_8h_a4b5693bed729908049dc62b7c48fb8fd}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+joueur\+\_\+h1} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a50208b763ed12627e311e353fb8a9849}\label{menus_8h_a50208b763ed12627e311e353fb8a9849}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+joueur\+\_\+h2} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a7bcfabaf798df6069d9f928797a0d75c}\label{menus_8h_a7bcfabaf798df6069d9f928797a0d75c}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+joueur\+\_\+left\+\_\+1} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a0fc2c35874551442aadd77a33ab49a2b}\label{menus_8h_a0fc2c35874551442aadd77a33ab49a2b}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+joueur\+\_\+left\+\_\+2} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a6aab6f66a42c8a20c583faf5963887c1}\label{menus_8h_a6aab6f66a42c8a20c583faf5963887c1}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+joueur\+\_\+right\+\_\+1} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a1c251ff0430f6e361f74597da92881a5}\label{menus_8h_a1c251ff0430f6e361f74597da92881a5}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+joueur\+\_\+right\+\_\+2} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_ae5fb9c8d4fdc70e3cc05131fcf58984f}\label{menus_8h_ae5fb9c8d4fdc70e3cc05131fcf58984f}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+joueur\+\_\+up\+\_\+1} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_aa11640a19e9e50084cb5507ff58c0e22}\label{menus_8h_aa11640a19e9e50084cb5507ff58c0e22}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+joueur\+\_\+up\+\_\+2} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a7faaa5dc58b1ddee279cb55ed9ba67dc}\label{menus_8h_a7faaa5dc58b1ddee279cb55ed9ba67dc}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+joueur\+\_\+down\+\_\+1} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a6c7b30f7a4e8cb2c08200c50df19c88e}\label{menus_8h_a6c7b30f7a4e8cb2c08200c50df19c88e}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+joueur\+\_\+down\+\_\+2} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_ac3b28aea48ecdf99831830420890aecf}\label{menus_8h_ac3b28aea48ecdf99831830420890aecf}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texturebullet} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_ad7e5051c1c508b10a3f4cdeca6bc74ae}\label{menus_8h_ad7e5051c1c508b10a3f4cdeca6bc74ae}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries title\+\_\+texture} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a2c7c38b6706e68c380a82aa20f0a9fa6}\label{menus_8h_a2c7c38b6706e68c380a82aa20f0a9fa6}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+joueur\+\_\+h1} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a13775463b3d6cd547020c87bf2f33ca8}\label{menus_8h_a13775463b3d6cd547020c87bf2f33ca8}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+joueur\+\_\+h2} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a26b9a6f913bbcda07187a4ff69d7c05c}\label{menus_8h_a26b9a6f913bbcda07187a4ff69d7c05c}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+joueur\+\_\+left\+\_\+1} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_aac7dbb28eb97ceb2025645aac4853447}\label{menus_8h_aac7dbb28eb97ceb2025645aac4853447}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+joueur\+\_\+left\+\_\+2} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a7f716a41d886b8d961a9866e8d565291}\label{menus_8h_a7f716a41d886b8d961a9866e8d565291}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+joueur\+\_\+right\+\_\+1} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_aa9410915b83f62bf7f6b921d7ff6b670}\label{menus_8h_aa9410915b83f62bf7f6b921d7ff6b670}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+joueur\+\_\+right\+\_\+2} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_aadd0c515f861d2562d21b0268c52f032}\label{menus_8h_aadd0c515f861d2562d21b0268c52f032}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+joueur\+\_\+up\+\_\+1} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_abf89166148a42bac465d0842d956a59c}\label{menus_8h_abf89166148a42bac465d0842d956a59c}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+joueur\+\_\+up\+\_\+2} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_ac54edfde5e8c3ebc18f57f0f2be09f66}\label{menus_8h_ac54edfde5e8c3ebc18f57f0f2be09f66}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+joueur\+\_\+down\+\_\+1} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_af359d76528f4d8679b21058907141662}\label{menus_8h_af359d76528f4d8679b21058907141662}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+joueur\+\_\+down\+\_\+2} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_ac6af59c429e1c59de9f7c434890cad0b}\label{menus_8h_ac6af59c429e1c59de9f7c434890cad0b}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries play\+\_\+inert} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a0ed491ecf2ea7d0aa391911486947514}\label{menus_8h_a0ed491ecf2ea7d0aa391911486947514}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries play\+\_\+hover} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_ae3eac20d8070ad3dac35be53e7b812de}\label{menus_8h_ae3eac20d8070ad3dac35be53e7b812de}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries connect\+\_\+inert} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a0f6c62ee69334f38ab091cbac17150e6}\label{menus_8h_a0f6c62ee69334f38ab091cbac17150e6}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries connect\+\_\+hover} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a44a8146a34246f91daffafbd4c499560}\label{menus_8h_a44a8146a34246f91daffafbd4c499560}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries host\+\_\+inert} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a74add41d0f2821afa696b6c6d5ed72f9}\label{menus_8h_a74add41d0f2821afa696b6c6d5ed72f9}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries host\+\_\+hover} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a79f6dc4c8cd32ee2f7493b6b2ede6f14}\label{menus_8h_a79f6dc4c8cd32ee2f7493b6b2ede6f14}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries settings\+\_\+inert} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a0a46459f2c14ad46577e88b5a1d9850d}\label{menus_8h_a0a46459f2c14ad46577e88b5a1d9850d}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries settings\+\_\+hover1} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a5c00a8d0d08bbdd918c714278885b68f}\label{menus_8h_a5c00a8d0d08bbdd918c714278885b68f}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries settings\+\_\+hover2} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a31607c73c1f8fe67c2e739d5c98a5a09}\label{menus_8h_a31607c73c1f8fe67c2e739d5c98a5a09}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries settings\+\_\+hover3} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a811fe143d6302f3c9d9fc48a2eb6f898}\label{menus_8h_a811fe143d6302f3c9d9fc48a2eb6f898}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries settings\+\_\+hover4} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_abcccd8e9b4b6ead8f7928bdb6c9583b9}\label{menus_8h_abcccd8e9b4b6ead8f7928bdb6c9583b9}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries settings\+\_\+hover5} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a96aa0f90b88f56f6960f0a7d6371d0aa}\label{menus_8h_a96aa0f90b88f56f6960f0a7d6371d0aa}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries settings\+\_\+hover6} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_aaf6f7f1c89cf4f9d653a1bef253bbeaf}\label{menus_8h_aaf6f7f1c89cf4f9d653a1bef253bbeaf}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+play\+\_\+inert} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_af623f5b52ceab1408373d7a64dcdb03f}\label{menus_8h_af623f5b52ceab1408373d7a64dcdb03f}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+play\+\_\+hover} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_ac5236480b989bd321aa68756919ebae1}\label{menus_8h_ac5236480b989bd321aa68756919ebae1}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+connect\+\_\+inert} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_aabef06c795f78ecdb54c6bee2096586c}\label{menus_8h_aabef06c795f78ecdb54c6bee2096586c}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+connect\+\_\+hover} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_af308bd91cb997287edee02b8decaf8f7}\label{menus_8h_af308bd91cb997287edee02b8decaf8f7}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+host\+\_\+inert} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_aa62961eae35b9603d86dcd55c2262c64}\label{menus_8h_aa62961eae35b9603d86dcd55c2262c64}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+host\+\_\+hover} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_af35106b92a56d57f25448cf884d3faa3}\label{menus_8h_af35106b92a56d57f25448cf884d3faa3}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+settings\+\_\+inert} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_aa0fd0205179b2e5546338b0f74a3cc6d}\label{menus_8h_aa0fd0205179b2e5546338b0f74a3cc6d}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+settings\+\_\+hover1} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a1282f52cf6dcdd5714cc9cc86e3daf5d}\label{menus_8h_a1282f52cf6dcdd5714cc9cc86e3daf5d}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+settings\+\_\+hover2} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_ac45ae5c7fe73079f21375d797a2c4c7a}\label{menus_8h_ac45ae5c7fe73079f21375d797a2c4c7a}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+settings\+\_\+hover3} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_ab32d0d319ef290b582651638aad6a900}\label{menus_8h_ab32d0d319ef290b582651638aad6a900}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+settings\+\_\+hover4} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_aa782dded9471014971156a0aa48af174}\label{menus_8h_aa782dded9471014971156a0aa48af174}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+settings\+\_\+hover5} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_ad9babf97e85ea127c1e9a725e3bb3c2a}\label{menus_8h_ad9babf97e85ea127c1e9a725e3bb3c2a}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+settings\+\_\+hover6} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_aaa8e409e04dcf575ef63fd5fb3db06f9}\label{menus_8h_aaa8e409e04dcf575ef63fd5fb3db06f9}} 
+static SDL\+\_\+\+Window $\ast$ {\bfseries window} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a966da7a60c4ea3ba301e26ccc5efe452}\label{menus_8h_a966da7a60c4ea3ba301e26ccc5efe452}} 
+static SDL\+\_\+\+Renderer $\ast$ {\bfseries renderer} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a859b8efbf9abe8e82757ee5c75a0c97c}\label{menus_8h_a859b8efbf9abe8e82757ee5c75a0c97c}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_ad3129c6baa0695652f0cf991c5a02fa0}\label{menus_8h_ad3129c6baa0695652f0cf991c5a02fa0}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries cursor} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_aad3446b11cd5ce5087d7408eb39baa70}\label{menus_8h_aad3446b11cd5ce5087d7408eb39baa70}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries cursor\+\_\+select} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_ac13e94db1231411511175a86fd90773a}\label{menus_8h_ac13e94db1231411511175a86fd90773a}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries cursor\+\_\+texture} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_aec4c2f92bd53d64daea8376ccaee482d}\label{menus_8h_aec4c2f92bd53d64daea8376ccaee482d}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries cursor\+\_\+select\+\_\+texture} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a68389876c2746622931d187c587f9c4d}\label{menus_8h_a68389876c2746622931d187c587f9c4d}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries background} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a010bf5f9e86c34ba740704d8c755dcfa}\label{menus_8h_a010bf5f9e86c34ba740704d8c755dcfa}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries background\+\_\+texture} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_ae73449c6a045133991e1814884277bd8}\label{menus_8h_ae73449c6a045133991e1814884277bd8}} 
+static int {\bfseries animations\+\_\+thread\+\_\+running} = FALSE
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier contenant toutes les variables d\textquotesingle{}affichage. 
+
+\begin{DoxyAuthor}{Auteur}
+Yusuf Ulas 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2023-\/01-\/31 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{menus_8h_a0fa3f94da8421e8f4e5d11404f87856b}\label{menus_8h_a0fa3f94da8421e8f4e5d11404f87856b}} 
+\index{menus.h@{menus.h}!breathAnimation@{breathAnimation}}
+\index{breathAnimation@{breathAnimation}!menus.h@{menus.h}}
+\doxysubsubsection{\texorpdfstring{breathAnimation()}{breathAnimation()}}
+{\footnotesize\ttfamily void $\ast$ breath\+Animation (\begin{DoxyParamCaption}\item[{void $\ast$}]{j }\end{DoxyParamCaption})}
+
+
+
+Animation de respiration. 
+
+\begin{DoxyReturn}{Renvoie}
+void$\ast$ 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8h_a0fa3f94da8421e8f4e5d11404f87856b_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8h_a0fa3f94da8421e8f4e5d11404f87856b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8h_a70f776dc6d31bb4d4269557103b724ca}\label{menus_8h_a70f776dc6d31bb4d4269557103b724ca}} 
+\index{menus.h@{menus.h}!buttonHover@{buttonHover}}
+\index{buttonHover@{buttonHover}!menus.h@{menus.h}}
+\doxysubsubsection{\texorpdfstring{buttonHover()}{buttonHover()}}
+{\footnotesize\ttfamily void button\+Hover (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Surface $\ast$}]{button\+\_\+surface,  }\item[{SDL\+\_\+\+Texture $\ast$}]{button\+\_\+texture,  }\item[{SDL\+\_\+\+Rect $\ast$}]{button\+\_\+rect,  }\item[{SDL\+\_\+bool $\ast$}]{hover\+\_\+button,  }\item[{char $\ast$}]{menu\+Target }\end{DoxyParamCaption})}
+
+
+
+Affiche la texture de survol du bouton demandé en dans le menu souhaité. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em button\+\_\+surface} & \\
+\hline
+{\em button\+\_\+texture} & \\
+\hline
+{\em button\+\_\+rect} & \\
+\hline
+{\em hover\+\_\+button} & \\
+\hline
+{\em menu\+Target} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8h_a70f776dc6d31bb4d4269557103b724ca_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{menus_8h_a70f776dc6d31bb4d4269557103b724ca_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8h_ac08bc7c592426e91140a694c8707ec18}\label{menus_8h_ac08bc7c592426e91140a694c8707ec18}} 
+\index{menus.h@{menus.h}!buttonHoverWithAnimation@{buttonHoverWithAnimation}}
+\index{buttonHoverWithAnimation@{buttonHoverWithAnimation}!menus.h@{menus.h}}
+\doxysubsubsection{\texorpdfstring{buttonHoverWithAnimation()}{buttonHoverWithAnimation()}}
+{\footnotesize\ttfamily void button\+Hover\+With\+Animation (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Surface $\ast$}]{button\+\_\+surface,  }\item[{SDL\+\_\+\+Texture $\ast$}]{button\+\_\+texture,  }\item[{SDL\+\_\+\+Rect $\ast$}]{button\+\_\+rect,  }\item[{SDL\+\_\+bool $\ast$}]{hover\+\_\+button,  }\item[{char $\ast$}]{menu\+Target,  }\item[{void $\ast$($\ast$)(void $\ast$)}]{p,  }\item[{void $\ast$($\ast$)(void $\ast$)}]{p2 }\end{DoxyParamCaption})}
+
+
+
+Affiche la texture de survol avec animation du bouton demandé en dans le menu souhaité. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em button\+\_\+surface} & \\
+\hline
+{\em button\+\_\+texture} & \\
+\hline
+{\em button\+\_\+rect} & \\
+\hline
+{\em hover\+\_\+button} & \\
+\hline
+{\em menu\+Target} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8h_ac08bc7c592426e91140a694c8707ec18_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8h_ac08bc7c592426e91140a694c8707ec18_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8h_a9310b9a509b196dead801a8afe8f735a}\label{menus_8h_a9310b9a509b196dead801a8afe8f735a}} 
+\index{menus.h@{menus.h}!changeButtonState@{changeButtonState}}
+\index{changeButtonState@{changeButtonState}!menus.h@{menus.h}}
+\doxysubsubsection{\texorpdfstring{changeButtonState()}{changeButtonState()}}
+{\footnotesize\ttfamily void change\+Button\+State (\begin{DoxyParamCaption}\item[{char $\ast$}]{button }\end{DoxyParamCaption})}
+
+
+
+Change l\textquotesingle{}état du boutton de survol ciblé. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{menus_8h_a9310b9a509b196dead801a8afe8f735a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8h_aa3d16c0615cae07eb3845131203c1c72}\label{menus_8h_aa3d16c0615cae07eb3845131203c1c72}} 
+\index{menus.h@{menus.h}!changeMenu@{changeMenu}}
+\index{changeMenu@{changeMenu}!menus.h@{menus.h}}
+\doxysubsubsection{\texorpdfstring{changeMenu()}{changeMenu()}}
+{\footnotesize\ttfamily void change\+Menu (\begin{DoxyParamCaption}\item[{char $\ast$}]{menu\+Target }\end{DoxyParamCaption})}
+
+
+
+Change de menu. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em menu\+Target} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{menus_8h_aa3d16c0615cae07eb3845131203c1c72_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8h_a3ccdb6767f1237284bf7c8e0d3e3eacb}\label{menus_8h_a3ccdb6767f1237284bf7c8e0d3e3eacb}} 
+\index{menus.h@{menus.h}!destroyAll@{destroyAll}}
+\index{destroyAll@{destroyAll}!menus.h@{menus.h}}
+\doxysubsubsection{\texorpdfstring{destroyAll()}{destroyAll()}}
+{\footnotesize\ttfamily void destroy\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Détruit la fenêtre et le rendu. 
+
+(plus souvent utilisée lors d\textquotesingle{}une erreur de chargement d\textquotesingle{}un asset) Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8h_a3ccdb6767f1237284bf7c8e0d3e3eacb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8h_ade81b1e4531f386eb2ff98d3d8930413}\label{menus_8h_ade81b1e4531f386eb2ff98d3d8930413}} 
+\index{menus.h@{menus.h}!displayError@{displayError}}
+\index{displayError@{displayError}!menus.h@{menus.h}}
+\doxysubsubsection{\texorpdfstring{displayError()}{displayError()}}
+{\footnotesize\ttfamily void display\+Error (\begin{DoxyParamCaption}\item[{char $\ast$}]{s,  }\item[{char $\ast$}]{menu\+Target }\end{DoxyParamCaption})}
+
+
+
+Initialise les assets de l\textquotesingle{}erreur dans le menu demandé avec SDL\+\_\+\+TTF. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em s} & \\
+\hline
+{\em menu\+Target} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void$\ast$ 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8h_ade81b1e4531f386eb2ff98d3d8930413_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{menus_8h_ade81b1e4531f386eb2ff98d3d8930413_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8h_a7847849e8e072c2895401120c061bac0}\label{menus_8h_a7847849e8e072c2895401120c061bac0}} 
+\index{menus.h@{menus.h}!draw\_settings\_button\_animation@{draw\_settings\_button\_animation}}
+\index{draw\_settings\_button\_animation@{draw\_settings\_button\_animation}!menus.h@{menus.h}}
+\doxysubsubsection{\texorpdfstring{draw\_settings\_button\_animation()}{draw\_settings\_button\_animation()}}
+{\footnotesize\ttfamily void draw\+\_\+settings\+\_\+button\+\_\+animation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Dessine le bouton de paramètres (à executer dans un thread uniquement). 
+
+\begin{DoxyReturn}{Renvoie}
+void$\ast$ 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8h_a7847849e8e072c2895401120c061bac0_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8h_a7847849e8e072c2895401120c061bac0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8h_aef0d7f69d6b9591122c752e2a00751db}\label{menus_8h_aef0d7f69d6b9591122c752e2a00751db}} 
+\index{menus.h@{menus.h}!drawButton@{drawButton}}
+\index{drawButton@{drawButton}!menus.h@{menus.h}}
+\doxysubsubsection{\texorpdfstring{drawButton()}{drawButton()}}
+{\footnotesize\ttfamily void draw\+Button (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Texture $\ast$}]{texture,  }\item[{SDL\+\_\+\+Rect}]{rectangle,  }\item[{SDL\+\_\+\+Surface $\ast$}]{surface,  }\item[{char $\ast$}]{menu\+Target }\end{DoxyParamCaption})}
+
+
+
+Dessine un bouton normal. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em texture} & \\
+\hline
+{\em rectangle} & \\
+\hline
+{\em surface} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{menus_8h_aef0d7f69d6b9591122c752e2a00751db_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8h_aef0d7f69d6b9591122c752e2a00751db_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8h_ae06068ec3d07bace5f405fbf6eeb3c20}\label{menus_8h_ae06068ec3d07bace5f405fbf6eeb3c20}} 
+\index{menus.h@{menus.h}!drawError@{drawError}}
+\index{drawError@{drawError}!menus.h@{menus.h}}
+\doxysubsubsection{\texorpdfstring{drawError()}{drawError()}}
+{\footnotesize\ttfamily void draw\+Error (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Rect}]{rect,  }\item[{SDL\+\_\+\+Texture $\ast$}]{texture }\end{DoxyParamCaption})}
+
+
+
+Affiche l\textquotesingle{}erreur à l\textquotesingle{}écran. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em rect} & \\
+\hline
+{\em texture} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{menus_8h_ae06068ec3d07bace5f405fbf6eeb3c20_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8h_ae06068ec3d07bace5f405fbf6eeb3c20_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8h_a2dfe41d8c0f122241c47441391c02de3}\label{menus_8h_a2dfe41d8c0f122241c47441391c02de3}} 
+\index{menus.h@{menus.h}!drawPlayer@{drawPlayer}}
+\index{drawPlayer@{drawPlayer}!menus.h@{menus.h}}
+\doxysubsubsection{\texorpdfstring{drawPlayer()}{drawPlayer()}}
+{\footnotesize\ttfamily void draw\+Player (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Texture $\ast$}]{texture\+\_\+joueur,  }\item[{SDL\+\_\+\+Rect}]{player\+Rect }\end{DoxyParamCaption})}
+
+
+
+Dessine un joueur en fonction de ses coordonnées et de sa texture. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em texture\+\_\+joueur} & \\
+\hline
+{\em player\+Rect} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{menus_8h_a2dfe41d8c0f122241c47441391c02de3_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8h_a2dfe41d8c0f122241c47441391c02de3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8h_a9e5f626ab953d2b6f672f20c3742287d}\label{menus_8h_a9e5f626ab953d2b6f672f20c3742287d}} 
+\index{menus.h@{menus.h}!drawPlayers@{drawPlayers}}
+\index{drawPlayers@{drawPlayers}!menus.h@{menus.h}}
+\doxysubsubsection{\texorpdfstring{drawPlayers()}{drawPlayers()}}
+{\footnotesize\ttfamily void $\ast$ draw\+Players (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer}{player}} $\ast$}]{joueurs,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+Dessine tous les joueurs. 
+
+\begin{DoxyReturn}{Renvoie}
+void$\ast$ 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8h_a9e5f626ab953d2b6f672f20c3742287d_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{menus_8h_a9e5f626ab953d2b6f672f20c3742287d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8h_a72036abbb16f3b007110ff03d748e0b1}\label{menus_8h_a72036abbb16f3b007110ff03d748e0b1}} 
+\index{menus.h@{menus.h}!drawTitle@{drawTitle}}
+\index{drawTitle@{drawTitle}!menus.h@{menus.h}}
+\doxysubsubsection{\texorpdfstring{drawTitle()}{drawTitle()}}
+{\footnotesize\ttfamily void draw\+Title (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Dessine le titre dans le menu principal. 
+
+\begin{DoxyReturn}{Renvoie}
+void$\ast$ 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{menus_8h_a72036abbb16f3b007110ff03d748e0b1_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=307pt]{menus_8h_a72036abbb16f3b007110ff03d748e0b1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8h_ab3002fe8e0074c9e2ecb5b835e5e819f}\label{menus_8h_ab3002fe8e0074c9e2ecb5b835e5e819f}} 
+\index{menus.h@{menus.h}!mainMenu@{mainMenu}}
+\index{mainMenu@{mainMenu}!menus.h@{menus.h}}
+\doxysubsubsection{\texorpdfstring{mainMenu()}{mainMenu()}}
+{\footnotesize\ttfamily void main\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Affiche le menu principal. 
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8h_ab3002fe8e0074c9e2ecb5b835e5e819f_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{menus_8h_ab3002fe8e0074c9e2ecb5b835e5e819f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8h_a1bd07c916c27ca0eb4e4a8aad057fc59}\label{menus_8h_a1bd07c916c27ca0eb4e4a8aad057fc59}} 
+\index{menus.h@{menus.h}!onButton@{onButton}}
+\index{onButton@{onButton}!menus.h@{menus.h}}
+\doxysubsubsection{\texorpdfstring{onButton()}{onButton()}}
+{\footnotesize\ttfamily int on\+Button (\begin{DoxyParamCaption}\item[{char $\ast$}]{button }\end{DoxyParamCaption})}
+
+
+
+Renvoi TRUE si le curseur est sur le boutton passé en paramètre sinon renvoi FALSE si le curseur est sur aucun boutton. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{menus_8h_a1bd07c916c27ca0eb4e4a8aad057fc59_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8h_a2baaae2f0feebce6bd015a37345e2270}\label{menus_8h_a2baaae2f0feebce6bd015a37345e2270}} 
+\index{menus.h@{menus.h}!running\_down\_animation@{running\_down\_animation}}
+\index{running\_down\_animation@{running\_down\_animation}!menus.h@{menus.h}}
+\doxysubsubsection{\texorpdfstring{running\_down\_animation()}{running\_down\_animation()}}
+{\footnotesize\ttfamily void $\ast$ running\+\_\+down\+\_\+animation (\begin{DoxyParamCaption}\item[{void $\ast$}]{j }\end{DoxyParamCaption})}
+
+
+
+Animation \char`\"{}courrir en bas\char`\"{}. 
+
+\begin{DoxyReturn}{Renvoie}
+void$\ast$ 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=343pt]{menus_8h_a2baaae2f0feebce6bd015a37345e2270_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8h_a2baaae2f0feebce6bd015a37345e2270_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8h_a2fdf89dd6b22fb5e5d73f8370470985b}\label{menus_8h_a2fdf89dd6b22fb5e5d73f8370470985b}} 
+\index{menus.h@{menus.h}!running\_left\_animation@{running\_left\_animation}}
+\index{running\_left\_animation@{running\_left\_animation}!menus.h@{menus.h}}
+\doxysubsubsection{\texorpdfstring{running\_left\_animation()}{running\_left\_animation()}}
+{\footnotesize\ttfamily void $\ast$ running\+\_\+left\+\_\+animation (\begin{DoxyParamCaption}\item[{void $\ast$}]{j }\end{DoxyParamCaption})}
+
+
+
+Animation \char`\"{}courrir à gauche\char`\"{}. 
+
+\begin{DoxyReturn}{Renvoie}
+void$\ast$ 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{menus_8h_a2fdf89dd6b22fb5e5d73f8370470985b_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8h_a2fdf89dd6b22fb5e5d73f8370470985b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8h_a1fdb9aee8fd08118ac0bc4234da6a2eb}\label{menus_8h_a1fdb9aee8fd08118ac0bc4234da6a2eb}} 
+\index{menus.h@{menus.h}!running\_right\_animation@{running\_right\_animation}}
+\index{running\_right\_animation@{running\_right\_animation}!menus.h@{menus.h}}
+\doxysubsubsection{\texorpdfstring{running\_right\_animation()}{running\_right\_animation()}}
+{\footnotesize\ttfamily void $\ast$ running\+\_\+right\+\_\+animation (\begin{DoxyParamCaption}\item[{void $\ast$}]{j }\end{DoxyParamCaption})}
+
+
+
+Animation \char`\"{}courrir à droite\char`\"{}. 
+
+\begin{DoxyReturn}{Renvoie}
+void$\ast$ 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{menus_8h_a1fdb9aee8fd08118ac0bc4234da6a2eb_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8h_a1fdb9aee8fd08118ac0bc4234da6a2eb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8h_ad1aa5c5c7c6e33913f1a654a09ba6a00}\label{menus_8h_ad1aa5c5c7c6e33913f1a654a09ba6a00}} 
+\index{menus.h@{menus.h}!running\_up\_animation@{running\_up\_animation}}
+\index{running\_up\_animation@{running\_up\_animation}!menus.h@{menus.h}}
+\doxysubsubsection{\texorpdfstring{running\_up\_animation()}{running\_up\_animation()}}
+{\footnotesize\ttfamily void $\ast$ running\+\_\+up\+\_\+animation (\begin{DoxyParamCaption}\item[{void $\ast$}]{j }\end{DoxyParamCaption})}
+
+
+
+Animation \char`\"{}courrir àen haut\char`\"{}. 
+
+\begin{DoxyReturn}{Renvoie}
+void$\ast$ 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=319pt]{menus_8h_ad1aa5c5c7c6e33913f1a654a09ba6a00_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8h_ad1aa5c5c7c6e33913f1a654a09ba6a00_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8h_acd3f39401c59bbd01c9663c5348c63c1}\label{menus_8h_acd3f39401c59bbd01c9663c5348c63c1}} 
+\index{menus.h@{menus.h}!SDL\_ExitWithError@{SDL\_ExitWithError}}
+\index{SDL\_ExitWithError@{SDL\_ExitWithError}!menus.h@{menus.h}}
+\doxysubsubsection{\texorpdfstring{SDL\_ExitWithError()}{SDL\_ExitWithError()}}
+{\footnotesize\ttfamily static void SDL\+\_\+\+Exit\+With\+Error (\begin{DoxyParamCaption}\item[{const char $\ast$}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Nous renvoi une erreur SDL. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em message} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8h_acd3f39401c59bbd01c9663c5348c63c1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8h_ab6d77ef359eb1ad9820145690e17a427}\label{menus_8h_ab6d77ef359eb1ad9820145690e17a427}} 
+\index{menus.h@{menus.h}!settings\_button\_animation\_left@{settings\_button\_animation\_left}}
+\index{settings\_button\_animation\_left@{settings\_button\_animation\_left}!menus.h@{menus.h}}
+\doxysubsubsection{\texorpdfstring{settings\_button\_animation\_left()}{settings\_button\_animation\_left()}}
+{\footnotesize\ttfamily void $\ast$ settings\+\_\+button\+\_\+animation\+\_\+left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Animation du bouton paramètres quand on a pas le curseur dessus. 
+
+\begin{DoxyReturn}{Renvoie}
+void$\ast$ 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8h_ab6d77ef359eb1ad9820145690e17a427_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8h_ab6d77ef359eb1ad9820145690e17a427_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8h_a48c083415f7a9126fec9cc228b651991}\label{menus_8h_a48c083415f7a9126fec9cc228b651991}} 
+\index{menus.h@{menus.h}!settings\_button\_animation\_right@{settings\_button\_animation\_right}}
+\index{settings\_button\_animation\_right@{settings\_button\_animation\_right}!menus.h@{menus.h}}
+\doxysubsubsection{\texorpdfstring{settings\_button\_animation\_right()}{settings\_button\_animation\_right()}}
+{\footnotesize\ttfamily void $\ast$ settings\+\_\+button\+\_\+animation\+\_\+right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Animation du bouton paramètres quand on a le curseur dessus. 
+
+\begin{DoxyReturn}{Renvoie}
+void$\ast$ 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8h_a48c083415f7a9126fec9cc228b651991_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8h_a48c083415f7a9126fec9cc228b651991_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8h_a18f5d14ec140197dd0e7627c3c6b7a47}\label{menus_8h_a18f5d14ec140197dd0e7627c3c6b7a47}} 
+\index{menus.h@{menus.h}!startAnimation@{startAnimation}}
+\index{startAnimation@{startAnimation}!menus.h@{menus.h}}
+\doxysubsubsection{\texorpdfstring{startAnimation()}{startAnimation()}}
+{\footnotesize\ttfamily void start\+Animation (\begin{DoxyParamCaption}\item[{char $\ast$}]{animation,  }\item[{\mbox{\hyperlink{structplayer}{player}} $\ast$}]{joueur }\end{DoxyParamCaption})}
+
+
+
+Commence l\textquotesingle{}animation souhaitée au joueur demandé. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em animation} & \\
+\hline
+{\em joueur} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8h_a18f5d14ec140197dd0e7627c3c6b7a47_cgraph}
+\end{center}
+\end{figure}

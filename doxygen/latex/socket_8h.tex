@@ -23,7 +23,8 @@ Graphe des dépendances par inclusion de socket.\+h\+:\nopagebreak
 \includegraphics[width=350pt]{socket_8h__incl}
 \end{center}
 \end{figure}
-Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:\nopagebreak
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -71,6 +72,8 @@ typedef struct \mbox{\hyperlink{structsend2_client}{send2\+Client}} {\bfseries s
 \mbox{\Hypertarget{socket_8h_a10d588931e71363df68940a8dd01b898}\label{socket_8h_a10d588931e71363df68940a8dd01b898}} 
 void $\ast$ {\bfseries clear\+Input} (SOCKET socket\+Client)
 \item 
+static int \mbox{\hyperlink{socket_8h_a49cbd679b22e0661bdc353826c8c5086}{find\+Position}} (\mbox{\hyperlink{structsend2_client}{send2\+Client}} $\ast$arg\+Client)
+\begin{DoxyCompactList}\small\item\em Cherche la position du client dans le tableau des clients. \end{DoxyCompactList}\item 
 void $\ast$ \mbox{\hyperlink{socket_8h_ad768973bc551435391fa1ddfbb0355a1}{search\+Clients}} (void $\ast$argt)
 \begin{DoxyCompactList}\small\item\em Gère la place des clients dans la table de client et reçoit les nouveaux clients. \end{DoxyCompactList}\item 
 void $\ast$ \mbox{\hyperlink{socket_8h_a3b61093f2f5316157d1e6d3d05cf5ebc}{receive\+From\+Client}} (void $\ast$arg)
@@ -130,6 +133,32 @@ Copyright (c) 2023
 
 
 \doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{socket_8h_a49cbd679b22e0661bdc353826c8c5086}\label{socket_8h_a49cbd679b22e0661bdc353826c8c5086}} 
+\index{socket.h@{socket.h}!findPosition@{findPosition}}
+\index{findPosition@{findPosition}!socket.h@{socket.h}}
+\doxysubsubsection{\texorpdfstring{findPosition()}{findPosition()}}
+{\footnotesize\ttfamily static int find\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structsend2_client}{send2\+Client}} $\ast$}]{arg\+Client }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Cherche la position du client dans le tableau des clients. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em arg\+Client} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{socket_8h_a49cbd679b22e0661bdc353826c8c5086_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{socket_8h_a3b61093f2f5316157d1e6d3d05cf5ebc}\label{socket_8h_a3b61093f2f5316157d1e6d3d05cf5ebc}} 
 \index{socket.h@{socket.h}!receiveFromClient@{receiveFromClient}}
 \index{receiveFromClient@{receiveFromClient}!socket.h@{socket.h}}
@@ -150,7 +179,8 @@ Copyright (c) 2023
 \begin{DoxyReturn}{Renvoie}
 void$\ast$ 
 \end{DoxyReturn}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -184,7 +214,8 @@ Gère la place des clients dans la table de client et reçoit les nouveaux clien
 \begin{DoxyReturn}{Renvoie}
 void$\ast$ 
 \end{DoxyReturn}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -213,7 +244,8 @@ Démarre le serveur et initie la table de clients.
 \begin{DoxyReturn}{Renvoie}
 void$\ast$ 
 \end{DoxyReturn}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

@@ -1,0 +1,7 @@
+<map id="drawPlayer" name="drawPlayer">
+<area shape="rect" id="node1" title="Dessine un joueur en fonction de ses coordonnées et de sa texture." alt="" coords="533,5,620,31"/>
+<area shape="rect" id="node2" href="$menus_8c.html#a124c70bcd0486f8db5d0292febf8c889" title="Applique la bonne texture au joueur en fonction de son animation." alt="" coords="368,5,485,31"/>
+<area shape="rect" id="node3" href="$menus_8c.html#a9e5f626ab953d2b6f672f20c3742287d" title="Dessine tous les joueurs." alt="" coords="227,5,320,31"/>
+<area shape="rect" id="node4" href="$main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
+<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>

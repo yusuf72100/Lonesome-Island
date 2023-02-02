@@ -120,12 +120,14 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 <div class="dyncontent">
 <div class="center"><img src="socket_8h__dep__incl.png" border="0" usemap="#a_c_1_2_users_2_yusuf_2_lonesome-_island_2src_2socket_8hdep" alt=""/></div>
 <map name="a_c_1_2_users_2_yusuf_2_lonesome-_island_2src_2socket_8hdep" id="a_c_1_2_users_2_yusuf_2_lonesome-_island_2src_2socket_8hdep">
-<area shape="rect" title="Fichier qui contient les informations relatives aux clients et au serveur point de vu socket." alt="" coords="167,5,341,45"/>
-<area shape="rect" href="client_8h.html" title="Fichier content toutes les informations relatives au client et au serveur." alt="" coords="68,93,243,133"/>
-<area shape="rect" href="socket_8c.html" title="Fichier qui s&#39;occupera uniquement du serveur." alt="" coords="267,93,441,133"/>
+<area shape="rect" title="Fichier qui contient les informations relatives aux clients et au serveur point de vu socket." alt="" coords="284,5,459,45"/>
+<area shape="rect" href="client_8h.html" title="Fichier content toutes les informations relatives au client et au serveur." alt="" coords="185,93,360,133"/>
+<area shape="rect" href="socket_8c.html" title="Fichier qui s&#39;occupera uniquement du serveur." alt="" coords="384,93,559,133"/>
 <area shape="rect" href="client_8c.html" title="Fichier qui contient la configuration du socket client." alt="" coords="5,269,180,309"/>
-<area shape="rect" href="main_8h.html" title="Fichier contenant toutes les variables d&#39;affichage." alt="" coords="131,181,305,221"/>
-<area shape="rect" href="main_8c.html" title="Fichier principal du programme qui s&#39;occupera de la partie graphique." alt="" coords="204,269,379,309"/>
+<area shape="rect" href="main_8h.html" title="Fichier contenant toutes les variables d&#39;affichage." alt="" coords="185,181,360,221"/>
+<area shape="rect" href="menus_8h.html" title="Fichier contenant toutes les variables d&#39;affichage." alt="" coords="384,181,559,221"/>
+<area shape="rect" href="main_8c.html" title="Fichier principal du programme qui s&#39;occupera de la partie jeu." alt="" coords="403,269,577,309"/>
+<area shape="rect" href="menus_8c.html" title="Fichier qui s&#39;occupera de l&#39;affichage des éléments." alt="" coords="204,269,379,309"/>
 </map>
 </div>
 </div>
@@ -176,6 +178,9 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a10d588931e71363df68940a8dd01b898"><td class="memItemLeft" align="right" valign="top"><a id="a10d588931e71363df68940a8dd01b898" name="a10d588931e71363df68940a8dd01b898"></a>
 void *&#160;</td><td class="memItemRight" valign="bottom"><b>clearInput</b> (SOCKET socketClient)</td></tr>
 <tr class="separator:a10d588931e71363df68940a8dd01b898"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49cbd679b22e0661bdc353826c8c5086"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="socket_8h.html#a49cbd679b22e0661bdc353826c8c5086">findPosition</a> (<a class="el" href="structsend2_client.html">send2Client</a> *argClient)</td></tr>
+<tr class="memdesc:a49cbd679b22e0661bdc353826c8c5086"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cherche la position du client dans le tableau des clients.  <br /></td></tr>
+<tr class="separator:a49cbd679b22e0661bdc353826c8c5086"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad768973bc551435391fa1ddfbb0355a1"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="socket_8h.html#ad768973bc551435391fa1ddfbb0355a1">searchClients</a> (void *argt)</td></tr>
 <tr class="memdesc:ad768973bc551435391fa1ddfbb0355a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gère la place des clients dans la table de client et reçoit les nouveaux clients.  <br /></td></tr>
 <tr class="separator:ad768973bc551435391fa1ddfbb0355a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -227,6 +232,54 @@ static <a class="el" href="structsend2_client.html">send2Client</a> *&#160;</td>
 <dl class="section date"><dt>Date</dt><dd>2023-01-31 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2023 </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a49cbd679b22e0661bdc353826c8c5086" name="a49cbd679b22e0661bdc353826c8c5086"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49cbd679b22e0661bdc353826c8c5086">&#9670;&#160;</a></span>findPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int findPosition </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structsend2_client.html">send2Client</a> *&#160;</td>
+          <td class="paramname"><em>argClient</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Cherche la position du client dans le tableau des clients. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">argClient</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int </dd></dl>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="socket_8h_a49cbd679b22e0661bdc353826c8c5086_icgraph.png" border="0" usemap="#asocket_8h_a49cbd679b22e0661bdc353826c8c5086_icgraph" alt=""/></div>
+<map name="asocket_8h_a49cbd679b22e0661bdc353826c8c5086_icgraph" id="asocket_8h_a49cbd679b22e0661bdc353826c8c5086_icgraph">
+<area shape="rect" title="Cherche la position du client dans le tableau des clients." alt="" coords="681,5,771,31"/>
+<area shape="rect" href="socket_8c.html#a3b61093f2f5316157d1e6d3d05cf5ebc" title="Écoute un client tant que la connexion est établie." alt="" coords="508,5,633,31"/>
+<area shape="rect" href="socket_8c.html#a68b45930fad2153f053144a8678afa1c" title="Gère la place des clients dans la table de client et reçoit les nouveaux clients." alt="" coords="359,5,460,31"/>
+<area shape="rect" href="socket_8c.html#a3490387e86b9ba6a1ee9ed3984b637d5" title="Démarre le serveur et initie la table de clients." alt="" coords="227,5,311,31"/>
+<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a3b61093f2f5316157d1e6d3d05cf5ebc" name="a3b61093f2f5316157d1e6d3d05cf5ebc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3b61093f2f5316157d1e6d3d05cf5ebc">&#9670;&#160;</a></span>receiveFromClient()</h2>
 
@@ -257,12 +310,13 @@ Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="socket_8h_a3b61093f2f5316157d1e6d3d05cf5ebc_cgraph.png" border="0" usemap="#asocket_8h_a3b61093f2f5316157d1e6d3d05cf5ebc_cgraph" alt=""/></div>
 <map name="asocket_8h_a3b61093f2f5316157d1e6d3d05cf5ebc_cgraph" id="asocket_8h_a3b61093f2f5316157d1e6d3d05cf5ebc_cgraph">
-<area shape="rect" title="Écoute un client tant que la connexion est établie." alt="" coords="5,60,131,85"/>
-<area shape="rect" href="socket_8c.html#adb3e88c50501cb4d59262878ebfffc55" title="Construit une trame dédiée uniquement au client i." alt="" coords="495,9,637,35"/>
-<area shape="rect" href="socket_8c.html#af93eb740b3e202bdcb05795a2da4ef8c" title="Déconnecte le client en fonction de sa position dans le tableau." alt="" coords="179,35,301,60"/>
-<area shape="rect" href="socket_8c.html#af8f7aaaf34db2175c7a9c4ab7d3306fc" title="Envoie la donnée d&#39;un client à tous les autres y compris au client lui&#45;même." alt="" coords="349,35,447,60"/>
-<area shape="rect" href="client_8c.html#a5db5e79b1f9efa79675000da17beacfb" title="Traite les données reçus par le serveur." alt="" coords="205,136,275,161"/>
-<area shape="rect" href="main_8c.html#a734d34007877ed5938e58dccb669ba96" title="Récupère les données depuis le socket client." alt="" coords="353,136,443,161"/>
+<area shape="rect" title="Écoute un client tant que la connexion est établie." alt="" coords="5,81,131,107"/>
+<area shape="rect" href="socket_8c.html#af93eb740b3e202bdcb05795a2da4ef8c" title="Déconnecte le client en fonction de sa position dans le tableau." alt="" coords="179,5,301,31"/>
+<area shape="rect" href="socket_8c.html#af8f7aaaf34db2175c7a9c4ab7d3306fc" title="Envoie la donnée d&#39;un client à tous les autres y compris au client lui&#45;même." alt="" coords="349,31,447,56"/>
+<area shape="rect" href="socket_8c.html#a88d900ece06509fc9c398d81b5200e71" title="Cherche la position du client dans le tableau des clients." alt="" coords="195,107,285,132"/>
+<area shape="rect" href="client_8c.html#a5db5e79b1f9efa79675000da17beacfb" title="Traite les données reçus par le serveur." alt="" coords="205,156,275,181"/>
+<area shape="rect" href="socket_8c.html#adb3e88c50501cb4d59262878ebfffc55" title="Construit une trame dédiée uniquement au client i." alt="" coords="495,31,637,56"/>
+<area shape="rect" href="main_8c.html#a734d34007877ed5938e58dccb669ba96" title="Récupère les données depuis le socket client." alt="" coords="353,156,443,181"/>
 </map>
 </div>
 <div class="dynheader">
@@ -310,13 +364,14 @@ Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="socket_8h_ad768973bc551435391fa1ddfbb0355a1_cgraph.png" border="0" usemap="#asocket_8h_ad768973bc551435391fa1ddfbb0355a1_cgraph" alt=""/></div>
 <map name="asocket_8h_ad768973bc551435391fa1ddfbb0355a1_cgraph" id="asocket_8h_ad768973bc551435391fa1ddfbb0355a1_cgraph">
-<area shape="rect" title="Gère la place des clients dans la table de client et reçoit les nouveaux clients." alt="" coords="5,60,107,85"/>
-<area shape="rect" href="socket_8c.html#a3b61093f2f5316157d1e6d3d05cf5ebc" title="Écoute un client tant que la connexion est établie." alt="" coords="155,60,280,85"/>
-<area shape="rect" href="socket_8c.html#adb3e88c50501cb4d59262878ebfffc55" title="Construit une trame dédiée uniquement au client i." alt="" coords="644,9,787,35"/>
-<area shape="rect" href="socket_8c.html#af93eb740b3e202bdcb05795a2da4ef8c" title="Déconnecte le client en fonction de sa position dans le tableau." alt="" coords="328,35,451,60"/>
-<area shape="rect" href="socket_8c.html#af8f7aaaf34db2175c7a9c4ab7d3306fc" title="Envoie la donnée d&#39;un client à tous les autres y compris au client lui&#45;même." alt="" coords="499,35,596,60"/>
-<area shape="rect" href="client_8c.html#a5db5e79b1f9efa79675000da17beacfb" title="Traite les données reçus par le serveur." alt="" coords="354,136,425,161"/>
-<area shape="rect" href="main_8c.html#a734d34007877ed5938e58dccb669ba96" title="Récupère les données depuis le socket client." alt="" coords="502,136,593,161"/>
+<area shape="rect" title="Gère la place des clients dans la table de client et reçoit les nouveaux clients." alt="" coords="5,81,107,107"/>
+<area shape="rect" href="socket_8c.html#a3b61093f2f5316157d1e6d3d05cf5ebc" title="Écoute un client tant que la connexion est établie." alt="" coords="155,81,280,107"/>
+<area shape="rect" href="socket_8c.html#af93eb740b3e202bdcb05795a2da4ef8c" title="Déconnecte le client en fonction de sa position dans le tableau." alt="" coords="328,5,451,31"/>
+<area shape="rect" href="socket_8c.html#af8f7aaaf34db2175c7a9c4ab7d3306fc" title="Envoie la donnée d&#39;un client à tous les autres y compris au client lui&#45;même." alt="" coords="499,31,596,56"/>
+<area shape="rect" href="socket_8c.html#a88d900ece06509fc9c398d81b5200e71" title="Cherche la position du client dans le tableau des clients." alt="" coords="345,107,434,132"/>
+<area shape="rect" href="client_8c.html#a5db5e79b1f9efa79675000da17beacfb" title="Traite les données reçus par le serveur." alt="" coords="354,156,425,181"/>
+<area shape="rect" href="socket_8c.html#adb3e88c50501cb4d59262878ebfffc55" title="Construit une trame dédiée uniquement au client i." alt="" coords="644,31,787,56"/>
+<area shape="rect" href="main_8c.html#a734d34007877ed5938e58dccb669ba96" title="Récupère les données depuis le socket client." alt="" coords="502,156,593,181"/>
 </map>
 </div>
 <div class="dynheader">
@@ -356,14 +411,15 @@ Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="socket_8h_a3490387e86b9ba6a1ee9ed3984b637d5_cgraph.png" border="0" usemap="#asocket_8h_a3490387e86b9ba6a1ee9ed3984b637d5_cgraph" alt=""/></div>
 <map name="asocket_8h_a3490387e86b9ba6a1ee9ed3984b637d5_cgraph" id="asocket_8h_a3490387e86b9ba6a1ee9ed3984b637d5_cgraph">
-<area shape="rect" title="Démarre le serveur et initie la table de clients." alt="" coords="5,60,89,85"/>
-<area shape="rect" href="socket_8c.html#a68b45930fad2153f053144a8678afa1c" title="Gère la place des clients dans la table de client et reçoit les nouveaux clients." alt="" coords="137,60,239,85"/>
-<area shape="rect" href="socket_8c.html#a3b61093f2f5316157d1e6d3d05cf5ebc" title="Écoute un client tant que la connexion est établie." alt="" coords="287,60,412,85"/>
-<area shape="rect" href="socket_8c.html#adb3e88c50501cb4d59262878ebfffc55" title="Construit une trame dédiée uniquement au client i." alt="" coords="776,9,919,35"/>
-<area shape="rect" href="socket_8c.html#af93eb740b3e202bdcb05795a2da4ef8c" title="Déconnecte le client en fonction de sa position dans le tableau." alt="" coords="460,35,583,60"/>
-<area shape="rect" href="socket_8c.html#af8f7aaaf34db2175c7a9c4ab7d3306fc" title="Envoie la donnée d&#39;un client à tous les autres y compris au client lui&#45;même." alt="" coords="631,35,728,60"/>
-<area shape="rect" href="client_8c.html#a5db5e79b1f9efa79675000da17beacfb" title="Traite les données reçus par le serveur." alt="" coords="486,136,557,161"/>
-<area shape="rect" href="main_8c.html#a734d34007877ed5938e58dccb669ba96" title="Récupère les données depuis le socket client." alt="" coords="634,136,725,161"/>
+<area shape="rect" title="Démarre le serveur et initie la table de clients." alt="" coords="5,81,89,107"/>
+<area shape="rect" href="socket_8c.html#a68b45930fad2153f053144a8678afa1c" title="Gère la place des clients dans la table de client et reçoit les nouveaux clients." alt="" coords="137,81,239,107"/>
+<area shape="rect" href="socket_8c.html#a3b61093f2f5316157d1e6d3d05cf5ebc" title="Écoute un client tant que la connexion est établie." alt="" coords="287,81,412,107"/>
+<area shape="rect" href="socket_8c.html#af93eb740b3e202bdcb05795a2da4ef8c" title="Déconnecte le client en fonction de sa position dans le tableau." alt="" coords="460,5,583,31"/>
+<area shape="rect" href="socket_8c.html#af8f7aaaf34db2175c7a9c4ab7d3306fc" title="Envoie la donnée d&#39;un client à tous les autres y compris au client lui&#45;même." alt="" coords="631,31,728,56"/>
+<area shape="rect" href="socket_8c.html#a88d900ece06509fc9c398d81b5200e71" title="Cherche la position du client dans le tableau des clients." alt="" coords="477,107,566,132"/>
+<area shape="rect" href="client_8c.html#a5db5e79b1f9efa79675000da17beacfb" title="Traite les données reçus par le serveur." alt="" coords="486,156,557,181"/>
+<area shape="rect" href="socket_8c.html#adb3e88c50501cb4d59262878ebfffc55" title="Construit une trame dédiée uniquement au client i." alt="" coords="776,31,919,56"/>
+<area shape="rect" href="main_8c.html#a734d34007877ed5938e58dccb669ba96" title="Récupère les données depuis le socket client." alt="" coords="634,156,725,181"/>
 </map>
 </div>
 <div class="dynheader">

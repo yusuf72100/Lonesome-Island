@@ -1,0 +1,17 @@
+<map id="startAnimation" name="startAnimation">
+<area shape="rect" id="node1" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="5,153,112,179"/>
+<area shape="rect" id="node2" href="$menus_8c.html#a0fa3f94da8421e8f4e5d11404f87856b" title="Animation de respiration." alt="" coords="184,55,300,80"/>
+<area shape="rect" id="node8" href="$menus_8c.html#a2baaae2f0feebce6bd015a37345e2270" title="Animation &quot;courrir en bas&quot;." alt="" coords="160,104,324,129"/>
+<area shape="rect" id="node10" href="$menus_8c.html#a2fdf89dd6b22fb5e5d73f8370470985b" title="Animation &quot;courrir à gauche&quot;." alt="" coords="167,153,317,179"/>
+<area shape="rect" id="node12" href="$menus_8c.html#a1fdb9aee8fd08118ac0bc4234da6a2eb" title="Animation &quot;courrir à droite&quot;." alt="" coords="163,203,321,228"/>
+<area shape="rect" id="node14" href="$menus_8c.html#ad1aa5c5c7c6e33913f1a654a09ba6a00" title="Animation &quot;courrir àen haut&quot;." alt="" coords="168,252,316,277"/>
+<area shape="rect" id="node3" href="$main_8c.html#a4f3c96146210adc4a3276d1e8bb2453c" title="Délai d&#39;animation de respiration." alt="" coords="393,5,489,31"/>
+<area shape="rect" id="node4" href="$main_8c.html#a506eeac61f56b2e172d086173bac5995" title="Envoi les données du joueur actuel au serveur." alt="" coords="394,55,489,80"/>
+<area shape="rect" id="node5" href="$client_8c.html#a7cea858f95329a092fd2cbc746c59728" title="Récupère les données du joueur et les envois au serveur via le socket." alt="" coords="559,55,643,80"/>
+<area shape="rect" id="node6" href="$client_8c.html#a5e0f51fafacc388da3b4ebbf686b0eda" title="Construit une trame réseau dédiée uniquement au serveur." alt="" coords="707,29,786,55"/>
+<area shape="rect" id="node7" href="$client_8c.html#a1a44fcc8a4125e81a0730b67c2603470" title="Arrête la connexion avec le serveur." alt="" coords="691,79,803,104"/>
+<area shape="rect" id="node9" href="$main_8c.html#a400d947e8338483aca91275e6b09c08e" title="Délai de l&#39;animation &quot;courrir en bas&quot;." alt="" coords="372,104,511,129"/>
+<area shape="rect" id="node11" href="$main_8c.html#a87f15eea45228c1b2d66df42116d7599" title="Délai de l&#39;animation &quot;courrir à gauche&quot;." alt="" coords="378,153,505,179"/>
+<area shape="rect" id="node13" href="$main_8c.html#a22982612c2117162b7a74c76eb20028a" title="Délai de l&#39;animation &quot;courrir à droite&quot;." alt="" coords="374,203,509,228"/>
+<area shape="rect" id="node15" href="$main_8c.html#a5c3f10f59573b2b0ee8a757d4aa2d589" title="Délai de l&#39;animation &quot;courrir en haut&quot;." alt="" coords="380,252,503,277"/>
+</map>
