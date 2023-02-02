@@ -130,8 +130,6 @@ void changeMenu(char *menuTarget)
 /**
  * @brief Détruit la fenêtre et le rendu. (plus souvent utilisée lors d'une erreur de chargement d'un asset)
  * 
- * @param window 
- * @param renderer 
  */
 void destroyAll()
 {
