@@ -84,7 +84,8 @@ _(pour le lien mettez simplement l'URL de votre projets suivi de ``/tags``)_
 
 ## Auteurs
 Listez le(s) auteur(s) du projet ici !
-* **Jhon doe** _alias_ [@outout14](https://github.com/outout14)
+* **Yusuf Ulas** _alias_ [@outout14](https://github.com/yusuf72100)
+* * **Luca Pouceau** _alias_ [@outout14](https://github.com/IzeLeam)
 
 Lisez la liste des [contributeurs](https://github.com/your/project/contributors) pour voir qui à aidé au projet !
 
