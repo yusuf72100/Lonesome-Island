@@ -12,10 +12,11 @@ que sont l'hydration et la nutrition. Enfin, il devra faire face à la faune loc
 
 ## Fabriqué avec
 
-Entrez les programmes/logiciels/ressources que vous avez utilisé pour développer votre projet
+Logiciels avec lequel ce projet a été développé:
 
-_exemples :_
 * [Visual Studio Code](https://code.visualstudio.com) 
+
+* [Github Desktop](https://desktop.github.com) 
 
 ## Syntaxes
 
