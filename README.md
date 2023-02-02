@@ -52,7 +52,7 @@ Liste des versions : [Cliquer pour afficher](https://github.com/your/project-nam
 _(pour le lien mettez simplement l'URL de votre projets suivi de ``/tags``)_
 
 ## Auteurs
-Listez le(s) auteur(s) du projet ici !
+
 * **Yusuf Ulas** _alias_ [@yusuf72100](https://github.com/yusuf72100)
 * **Luca Pouceau** _alias_ [@Izleam](https://github.com/IzeLeam)
 * **Elvin Maubert** _alias_ [@Elvin](https://github.com/Elvin-19)
