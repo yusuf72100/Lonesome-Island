@@ -466,7 +466,7 @@ void drawTitle()
 }
 
 /**
- * @brief Affiche l'erreur à l'écran
+ * @brief Affiche l'erreur à l'écran.
  * 
  * @param rect 
  * @param texture 
