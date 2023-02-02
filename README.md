@@ -15,7 +15,7 @@ que sont l'hydration et la nutrition. Enfin, il devra faire face à la faune loc
 Entrez les programmes/logiciels/ressources que vous avez utilisé pour développer votre projet
 
 _exemples :_
-* [Visual Stuio Code](https://atom.io/](https://code.visualstudio.com/) - Editeur de textes
+* [Visual Studio Code](https://atom.io/](https://code.visualstudio.com/) - Editeur de textes
 
 ## Syntaxes
 
