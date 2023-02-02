@@ -65,7 +65,6 @@ void changeButtonState(char *button)
         if(hover_settingsbutton == FALSE) hover_settingsbutton = TRUE;
         else hover_settingsbutton = FALSE;
     }
-        
 }
 
 /**
