@@ -795,7 +795,7 @@ void buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *button_t
 /**
  * @brief Affiche le menu principal
  * 
-*/
+ */
 void mainMenu()
 {
     mouseRect.x = mouse_position.x;
@@ -817,7 +817,7 @@ void mainMenu()
  * @brief Nous renvoi une erreur SDL.
  * 
  * @param message 
-*/
+ */
 static void SDL_ExitWithError(const char *message)
 {
     SDL_Log("ERREUR : %s > %s\n", message, SDL_GetError());
