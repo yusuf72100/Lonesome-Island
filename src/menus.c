@@ -804,6 +804,7 @@ void mainMenu()
     mouseRect.x = mouse_position.x;
     mouseRect.y = mouse_position.y;
 
+    drawButtons();
     buttonHover(play_hover, texture_play_hover, &play_button_rect, &hover_playbutton, "Main");
     buttonHover(connect_hover, texture_connect_hover, &connect_button_rect, &hover_connectbutton, "Main");
     buttonHover(host_hover, texture_host_hover, &host_button_rect, &hover_hostbutton, "Main");

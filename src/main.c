@@ -542,7 +542,6 @@ static void doEvents()
             toggleFullscreen();
         }
 
-        drawButtons();
         if (strcmp(getMenu(),"InGame") == 0)
         {
             if(connectedError == FALSE) drawPlayers(joueurs, size);
