@@ -87,12 +87,4 @@ Listez le(s) auteur(s) du projet ici !
 * **Yusuf Ulas** _alias_ [@yusuf72100](https://github.com/yusuf72100)
 * * **Luca Pouceau** _alias_ [@Izleam](https://github.com/IzeLeam)
 
-Lisez la liste des [contributeurs](https://github.com/your/project/contributors) pour voir qui à aidé au projet !
-
-_(pour le lien mettez simplement l'URL de votre projet suivi de ``/contirubors``)_
-
-## License
-
-Ce projet est sous licence ``exemple: WTFTPL`` - voir le fichier [LICENSE.md](LICENSE.md) pour plus d'informations
-
 
