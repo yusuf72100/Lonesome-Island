@@ -109,7 +109,7 @@ void update_screen()
 }
 
 /**
- * @brief Nous renvoi le valeur du menu.
+ * @brief Nous renvoi le menu dans lequel le client se trouve.
  * 
 */
 char *getMenu()
