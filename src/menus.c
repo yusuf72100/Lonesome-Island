@@ -39,7 +39,7 @@ void startAnimation(char *animation, player *joueur)
 }
 
 /**
- * @brief Renvoi TRUE si le curseur est sur le boutton passé en paramètre.
+ * @brief Change l'état du boutton de survol ciblé.
  * 
  * @param button 
  */
