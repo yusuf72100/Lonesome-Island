@@ -530,6 +530,7 @@ static void doEvents()
 
         if(tabEvent[10] == SDL_TRUE)
         {
+            //touche ESCAPE
             if(strcmp(getMenu(),"Error") == 0)
             {
                 changeMenu("Main");
