@@ -804,6 +804,7 @@ void mainMenu()
     mouseRect.x = mouse_position.x;
     mouseRect.y = mouse_position.y;
 
+    drawMouse();
     drawButtons();
     buttonHover(play_hover, texture_play_hover, &play_button_rect, &hover_playbutton, "Main");
     buttonHover(connect_hover, texture_connect_hover, &connect_button_rect, &hover_connectbutton, "Main");
@@ -812,7 +813,6 @@ void mainMenu()
     draw_settings_button_animation();
     drawTitle();
     displayError("Error: server offline...", "Error");
-    drawMouse();
 
     SDL_RenderPresent(renderer);
 }
