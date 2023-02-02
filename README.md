@@ -1,12 +1,4 @@
-# Lonesome Island
 
-ULAS Yusuf, POURCEAU Luca and MAUBERT Elvin.
-
-Lonesome Island est un jeu de survie. Le joueur débute le jeu en arivant sur une île déserte. Tout en survivant, 
-le joueur a pour objectif de quitter l'île en réunissant les matériaux nécessaires à la construcion d'un radeau.
-Pour réaliser sa quête, le joueur peut récolter les matières premières de l'île, fabriquer des outils de fortune
-ou encore se construire un habitat pour se proteger. Il doit également penser à subvenir à ses besoins vitaux
-que sont l'hydration et la nutrition. Enfin, il devra faire face à la faune locale qui s'avère plutot dangereuse.
 
 Syntaxe de définition de fonction:
 
@@ -31,12 +23,17 @@ do
   
 }while(ma_condition);
 ```
-# Titre du projet
+# Lonesome Island
 _(juste en dessous des badges sympatiques à placer)_
 
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)  [![forthebadge](http://forthebadge.com/images/badges/powered-by-electricity.svg)](http://forthebadge.com)
 
-Une petite description du projet
+
+Lonesome Island est un jeu de survie. Le joueur débute le jeu en arivant sur une île déserte. Tout en survivant, 
+le joueur a pour objectif de quitter l'île en réunissant les matériaux nécessaires à la construcion d'un radeau.
+Pour réaliser sa quête, le joueur peut récolter les matières premières de l'île, fabriquer des outils de fortune
+ou encore se construire un habitat pour se proteger. Il doit également penser à subvenir à ses besoins vitaux
+que sont l'hydration et la nutrition. Enfin, il devra faire face à la faune locale qui s'avère plutot dangereuse.
 
 ## Pour commencer
 
