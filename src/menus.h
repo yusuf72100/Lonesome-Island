@@ -167,7 +167,7 @@ void destroyAll();
 
 static void dessinerRect(SDL_Rect rectangle, SDL_Renderer *renderer);
 
-void dessinerButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface, char *menuTarget);
+void drawButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface, char *menuTarget);
 
 static void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, Bullet *b, int rotation, int vitesse);
 
@@ -205,4 +205,4 @@ char *getMenu();
 
 void changeMenu(char *menuTarget);
 
-void *dessinerJoueurs(player *joueurs, int size);
+void *drawPlayers(player *joueurs, int size);

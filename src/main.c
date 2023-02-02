@@ -545,7 +545,7 @@ static void doEvents()
         drawButtons();
         if (strcmp(getMenu(),"InGame") == 0)
         {
-            if(connectedError == FALSE) dessinerJoueurs(joueurs, size);
+            if(connectedError == FALSE) drawPlayers(joueurs, size);
             else changeMenu("Main");
         }
 }

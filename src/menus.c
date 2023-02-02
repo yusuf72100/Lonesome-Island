@@ -91,9 +91,9 @@ int onButton(char *button)
  */
 void drawButtons()
 {
-    dessinerButton(texture_play_inert, play_button_rect, play_inert, "Main");
-    dessinerButton(texture_connect_inert, connect_button_rect, connect_inert, "Main");
-    dessinerButton(texture_host_inert, host_button_rect, host_inert, "Main");
+    drawButton(texture_play_inert, play_button_rect, play_inert, "Main");
+    drawButton(texture_connect_inert, connect_button_rect, connect_inert, "Main");
+    drawButton(texture_host_inert, host_button_rect, host_inert, "Main");
 }
 
 /**
@@ -170,7 +170,7 @@ void drawMouse()
  * @param rectangle 
  * @param surface 
  */
-void dessinerButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface, char *menuTarget)
+void drawButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface, char *menuTarget)
 {
     if(strcmp(menu, menuTarget) == 0)
     {
@@ -283,7 +283,7 @@ static void switchAnimation(player Joueur)
  * 
  * @return void* 
  */
-void *dessinerJoueurs(player *joueurs, int size)
+void *drawPlayers(player *joueurs, int size)
 {
     //trierJoueurs();
     for(int i = 1; i <= size; i++)
@@ -395,22 +395,22 @@ void draw_settings_button_animation()
         switch (settings_button_animation_state)
         {
         case 0:
-            dessinerButton(texture_settings_hover1, settings_button_rect, settings_hover1, "Main");
+            drawButton(texture_settings_hover1, settings_button_rect, settings_hover1, "Main");
             break;
         case 1:
-            dessinerButton(texture_settings_hover2, settings_button_rect, settings_hover2, "Main");
+            drawButton(texture_settings_hover2, settings_button_rect, settings_hover2, "Main");
             break;
         case 2:
-            dessinerButton(texture_settings_hover3, settings_button_rect, settings_hover3, "Main");
+            drawButton(texture_settings_hover3, settings_button_rect, settings_hover3, "Main");
             break;
         case 3:
-            dessinerButton(texture_settings_hover4, settings_button_rect, settings_hover4, "Main");
+            drawButton(texture_settings_hover4, settings_button_rect, settings_hover4, "Main");
             break;
         case 4:
-            dessinerButton(texture_settings_hover5, settings_button_rect, settings_hover5, "Main");
+            drawButton(texture_settings_hover5, settings_button_rect, settings_hover5, "Main");
             break;
         default:
-            dessinerButton(texture_settings_hover6, settings_button_rect, settings_hover6, "Main");
+            drawButton(texture_settings_hover6, settings_button_rect, settings_hover6, "Main");
             break;
         }
     }
@@ -752,7 +752,7 @@ void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_R
         {
             *hover_button = SDL_TRUE;
             init_hover(hover_button);
-            dessinerButton(button_texture, *button_rect, button_surface, menuTarget);
+            drawButton(button_texture, *button_rect, button_surface, menuTarget);
         }
         else
         {
