@@ -1,7 +1,7 @@
 /**
  * @file main.c
  * @author Yusuf Ulas
- * @brief Fichier principal du programme qui s'occupera de la partie graphique
+ * @brief Fichier principal du programme qui s'occupera de la partie jeu
  * @version 0.1
  * @date 2023-01-31
  * @copyright Copyright (c) 2023
