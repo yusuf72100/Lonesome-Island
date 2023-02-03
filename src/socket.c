@@ -317,6 +317,14 @@ void stopServer()
  */
 void *startServer()
 {
+    item bois = {
+        .stack = 64,
+        .eatable = FALSE,
+        .isTool = FALSE,
+        .isWeapon = FALSE,  
+        .damage = 0
+    };
+
     receive_from_client = malloc(sizeof(pthread_t)*max_player+1);
     socketDatas * sd = malloc(sizeof(socketDatas)*max_player+1);
 

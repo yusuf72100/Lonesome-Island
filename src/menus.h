@@ -7,6 +7,9 @@
  * @copyright Copyright (c) 2023
  */
 
+#ifndef MENUS_H
+#define MENUS_H
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
@@ -204,3 +207,5 @@ char *getMenu();
 void changeMenu(char *menuTarget);
 
 void *drawPlayers(player *joueurs, int size);
+
+#endif

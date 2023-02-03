@@ -71,6 +71,7 @@ void changeButtonState(char *button)
  * @brief Renvoi TRUE si le curseur est sur le boutton passé en paramètre sinon renvoi FALSE si le curseur est sur aucun boutton.
  * 
  * @param button 
+ * @return int
  */
 int onButton(char *button)
 {
@@ -110,7 +111,7 @@ void update_screen()
 
 /**
  * @brief Nous renvoi le menu dans lequel le client se trouve.
- * 
+ * @return char*
  */
 char *getMenu()
 {
@@ -295,7 +296,6 @@ void *drawPlayers(player *joueurs, int size)
     }
 }
 
-
 /**
  * @brief Animation de respiration
  * 
@@ -453,7 +453,6 @@ void *settings_button_animation_right()
 /**
  * @brief Dessine le titre dans le menu principal
  * 
- * @return void* 
  */
 void drawTitle()
 {
