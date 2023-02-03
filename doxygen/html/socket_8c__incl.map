@@ -1,6 +1,6 @@
 <map id="C:/Users/Yusuf/Lonesome&#45;Island/src/socket.c" name="C:/Users/Yusuf/Lonesome&#45;Island/src/socket.c">
-<area shape="rect" id="node1" title="Fichier qui s&#39;occupera uniquement du serveur." alt="" coords="428,5,603,45"/>
-<area shape="rect" id="node2" href="$socket_8h.html" title="Fichier qui contient les informations relatives aux clients et au serveur point de vu socket." alt="" coords="479,93,551,119"/>
+<area shape="rect" id="node1" title="Fichier qui s&#39;occupera uniquement du serveur." alt="" coords="480,5,655,45"/>
+<area shape="rect" id="node2" href="$socket_8h.html" title="Fichier qui contient les informations relatives aux clients et au serveur point de vu socket." alt="" coords="531,93,603,119"/>
 <area shape="rect" id="node3" title=" " alt="" coords="5,167,73,192"/>
 <area shape="rect" id="node4" title=" " alt="" coords="98,167,159,192"/>
 <area shape="rect" id="node5" title=" " alt="" coords="183,167,247,192"/>
@@ -9,7 +9,8 @@
 <area shape="rect" id="node8" title=" " alt="" coords="472,167,559,192"/>
 <area shape="rect" id="node9" title=" " alt="" coords="583,167,659,192"/>
 <area shape="rect" id="node10" title=" " alt="" coords="683,167,748,192"/>
-<area shape="rect" id="node11" title=" " alt="" coords="773,167,831,192"/>
-<area shape="rect" id="node12" title=" " alt="" coords="856,167,956,192"/>
-<area shape="rect" id="node13" title=" " alt="" coords="980,167,1056,192"/>
+<area shape="rect" id="node11" title=" " alt="" coords="902,240,961,265"/>
+<area shape="rect" id="node12" title=" " alt="" coords="824,167,924,192"/>
+<area shape="rect" id="node13" title=" " alt="" coords="948,167,1024,192"/>
+<area shape="rect" id="node14" href="$defs_8h.html" title="Fichier contenant toutes les définitions de structures et de types." alt="" coords="1048,167,1105,192"/>
 </map>

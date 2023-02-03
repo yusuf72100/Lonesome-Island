@@ -6,5 +6,6 @@ var searchData=
   ['init_5ftexture_3',['init_texture',['../menus_8c.html#ac96e8912bb03df1f73f5ccb6db495085',1,'menus.c']]],
   ['init_5fvars_4',['init_vars',['../main_8c.html#a270d20bdcadebb9a08a01a55c37858a9',1,'main.c']]],
   ['initaudio_5',['initAudio',['../sound_8c.html#ab74d84d6d4c90b2b18669590af038a07',1,'initAudio():&#160;sound.c'],['../sound_8h.html#ab74d84d6d4c90b2b18669590af038a07',1,'initAudio():&#160;sound.c']]],
-  ['initvecteur_6',['InitVecteur',['../main_8c.html#a5eaa5bf14462c0770a8514451b64df3c',1,'InitVecteur(int angle, int vitesse):&#160;main.c'],['../main_8h.html#a5eaa5bf14462c0770a8514451b64df3c',1,'InitVecteur(int angle, int vitesse):&#160;main.c']]]
+  ['initvecteur_6',['InitVecteur',['../main_8c.html#a5eaa5bf14462c0770a8514451b64df3c',1,'InitVecteur(int angle, int vitesse):&#160;main.c'],['../main_8h.html#a5eaa5bf14462c0770a8514451b64df3c',1,'InitVecteur(int angle, int vitesse):&#160;main.c']]],
+  ['item_7',['item',['../structitem.html',1,'']]]
 ];
