@@ -106,12 +106,6 @@ static SDL_Surface *connect_hover = NULL;
 static SDL_Surface *host_inert = NULL;
 static SDL_Surface *host_hover = NULL;
 static SDL_Surface *settings_inert = NULL;
-static SDL_Surface *settings_hover1 = NULL;
-static SDL_Surface *settings_hover2 = NULL;
-static SDL_Surface *settings_hover3 = NULL;
-static SDL_Surface *settings_hover4 = NULL;
-static SDL_Surface *settings_hover5 = NULL;
-static SDL_Surface *settings_hover6 = NULL;
 
 static SDL_Texture *texture_play_inert = NULL;
 static SDL_Texture *texture_play_hover = NULL;	
@@ -120,12 +114,6 @@ static SDL_Texture *texture_connect_hover = NULL;
 static SDL_Texture *texture_host_inert = NULL;
 static SDL_Texture *texture_host_hover = NULL;	
 static SDL_Texture *texture_settings_inert = NULL;
-static SDL_Texture *texture_settings_hover1 = NULL;
-static SDL_Texture *texture_settings_hover2 = NULL;
-static SDL_Texture *texture_settings_hover3 = NULL;
-static SDL_Texture *texture_settings_hover4 = NULL;
-static SDL_Texture *texture_settings_hover5 = NULL;
-static SDL_Texture *texture_settings_hover6 = NULL;
 
 //window init
 static SDL_Window *window = NULL;
@@ -189,8 +177,6 @@ void drawTitle();
 void *settings_button_animation_right();
 
 void *settings_button_animation_left();
-
-void draw_settings_button_animation();
 
 void *running_down_animation(void *j);
 

@@ -13,6 +13,16 @@
 void SDL_ExitWithError(const char *message);
 
 /**
+ * @brief Détruit la fenêtre et le rendu. (plus souvent utilisée lors d'une erreur de chargement d'un asset)
+ * 
+ */
+void destroyAll()
+{
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+}
+
+/**
  * @brief Commence l'animation souhaitée au joueur demandé.
  * 
  * @param animation 
@@ -129,16 +139,6 @@ void changeMenu(char *menuTarget)
 }
 
 /**
- * @brief Détruit la fenêtre et le rendu. (plus souvent utilisée lors d'une erreur de chargement d'un asset)
- * 
- */
-void destroyAll()
-{
-    SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
-}
-
-/**
  * @brief Dessine le bon curseur en fonction de site on survol un bouton ou pas.
  * 
  */
@@ -184,6 +184,19 @@ void drawButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface, 
     }
 }
 
+void drawButton_withRotation(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface, char *menuTarget)
+{
+    if(strcmp(menu, menuTarget) == 0)
+    {
+        if(SDL_RenderCopyEx(renderer, texture, NULL, &rectangle, settings_button_animation_state, NULL, SDL_FLIP_NONE) != 0)
+        {
+            destroyAll(window, renderer);
+            SDL_ExitWithError("Impossible de rotate du boutton jouer...");
+        }   
+    }
+}
+
+
 /**
  * @brief Trie les joueurs en fonction de leur coordonnées Y et organise l'ordre d'affichage des joueurs.
  * 
@@ -215,7 +228,6 @@ static void sortPlayers()
  */
 void drawPlayer(SDL_Texture *texture_joueur, SDL_Rect playerRect)
 {
-    //printf("Player's datas: \nx: %d y:%d\n",playerRect.x, playerRect.y);
     if(SDL_QueryTexture(texture_joueur, NULL, NULL, &playerRect.w,&playerRect.h) != 0)
     {
         destroyAll(window, renderer);
@@ -384,46 +396,13 @@ void *running_down_animation(void *j)
 }
 
 /**
- * @brief Dessine le bouton de paramètres (à executer dans un thread uniquement).
- * 
- * @return void* 
- */
-void draw_settings_button_animation()
-{
-    if(strcmp(menu,"Main") == 0)
-    {
-        switch (settings_button_animation_state)
-        {
-        case 0:
-            drawButton(texture_settings_hover1, settings_button_rect, settings_hover1, "Main");
-            break;
-        case 1:
-            drawButton(texture_settings_hover2, settings_button_rect, settings_hover2, "Main");
-            break;
-        case 2:
-            drawButton(texture_settings_hover3, settings_button_rect, settings_hover3, "Main");
-            break;
-        case 3:
-            drawButton(texture_settings_hover4, settings_button_rect, settings_hover4, "Main");
-            break;
-        case 4:
-            drawButton(texture_settings_hover5, settings_button_rect, settings_hover5, "Main");
-            break;
-        default:
-            drawButton(texture_settings_hover6, settings_button_rect, settings_hover6, "Main");
-            break;
-        }
-    }
-}
-
-/**
  * @brief Animation du bouton paramètres quand on a pas le curseur dessus.
  * 
  * @return void* 
  */
 void *settings_button_animation_left()
 {
-    for(settings_button_animation_state; settings_button_animation_state >= 0 && hover_settingsbutton == SDL_FALSE; settings_button_animation_state--)
+    for(settings_button_animation_state; settings_button_animation_state >= 0 && hover_settingsbutton == SDL_FALSE; settings_button_animation_state-=10)
     {
         delay_settings_button_left();
     }
@@ -440,7 +419,7 @@ void *settings_button_animation_left()
  */
 void *settings_button_animation_right()
 {
-    for(settings_button_animation_state; settings_button_animation_state < 6 && hover_settingsbutton == SDL_TRUE; settings_button_animation_state++)
+    for(settings_button_animation_state; settings_button_animation_state < 180 && hover_settingsbutton == SDL_TRUE; settings_button_animation_state+=10)
     {
         delay_settings_button_right();
     }
@@ -563,12 +542,6 @@ void init_menus_vars()
     host_hover = IMG_Load("resources/host_hover.png");
     title_surface = IMG_Load("resources/title.png");
     settings_inert = IMG_Load("resources/settings_inert.png");
-    settings_hover1 = IMG_Load("resources/settings_hover1.png");
-    settings_hover2 = IMG_Load("resources/settings_hover2.png");
-    settings_hover3 = IMG_Load("resources/settings_hover3.png");
-    settings_hover4 = IMG_Load("resources/settings_hover4.png");
-    settings_hover5 = IMG_Load("resources/settings_hover5.png");
-    settings_hover6 = IMG_Load("resources/settings_hover6.png");
 
     //player    
     surface_joueur_h1 = IMG_Load("resources/characters/player_h1.png");
@@ -653,12 +626,6 @@ void init_menus_vars()
     init_texture(&host_inert , &texture_host_inert);
     init_texture(&host_hover , &texture_host_hover);
     init_texture(&settings_inert , &texture_settings_inert);
-    init_texture(&settings_hover1 , &texture_settings_hover1);
-    init_texture(&settings_hover2 , &texture_settings_hover2);
-    init_texture(&settings_hover3 , &texture_settings_hover3);
-    init_texture(&settings_hover4 , &texture_settings_hover4);
-    init_texture(&settings_hover5 , &texture_settings_hover5);
-    init_texture(&settings_hover6 , &texture_settings_hover6);
 
     //assets
     init_texture(&background , &background_texture);
@@ -807,8 +774,8 @@ void mainMenu()
     buttonHover(play_hover, texture_play_hover, &play_button_rect, &hover_playbutton, "Main");
     buttonHover(connect_hover, texture_connect_hover, &connect_button_rect, &hover_connectbutton, "Main");
     buttonHover(host_hover, texture_host_hover, &host_button_rect, &hover_hostbutton, "Main");
-    buttonHoverWithAnimation(settings_hover1, texture_settings_hover1, &settings_button_rect, &hover_settingsbutton, "Main", settings_button_animation_right, settings_button_animation_left);
-    draw_settings_button_animation();
+    buttonHoverWithAnimation(settings_inert, texture_settings_inert, &settings_button_rect, &hover_settingsbutton, "Main", settings_button_animation_right, settings_button_animation_left);
+    drawButton_withRotation(texture_settings_inert, settings_button_rect, settings_inert, "Main");
     drawTitle();
     drawMouse();
     displayError("Error: server offline...", "Error");
