@@ -58,6 +58,7 @@ static SDL_Rect play_button_rect;
 static SDL_Rect connect_button_rect;
 static SDL_Rect host_button_rect;
 static SDL_Rect settings_button_rect;
+static SDL_Rect inventory_rect;
 
 static SDL_DisplayMode DM;
 
@@ -70,6 +71,7 @@ static TTF_Font *police = NULL;
 static SDL_Rect title_rect;
 
 //game assets
+static SDL_Surface *inventory_surface = NULL;
 static SDL_Surface *imagebullet = NULL;
 static SDL_Surface *texte = NULL;
 static SDL_Texture *texte_texture = NULL;
@@ -85,6 +87,7 @@ static SDL_Surface *surface_joueur_up_2 = NULL;
 static SDL_Surface *surface_joueur_down_1 = NULL;
 static SDL_Surface *surface_joueur_down_2 = NULL;
 
+static SDL_Texture *inventory_texture = NULL;
 static SDL_Texture *texturebullet = NULL;	
 static SDL_Texture *title_texture = NULL;
 static SDL_Texture *texture_joueur_h1 = NULL;
@@ -144,6 +147,8 @@ void toggleFullscreen();
 
 void drawButtons();
 
+void drawMenu();
+
 void mainMenu();
 
 void update_screen();
@@ -156,19 +161,19 @@ void drawPlayer(SDL_Texture *texture_joueur, SDL_Rect playerRect);
 
 void destroyAll();
 
-void drawButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface, char *menuTarget);
+void drawButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface);
 
 static void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, Bullet *b, int rotation, int vitesse);
 
-void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button, char *menuTarget);
+void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button);
 
-void buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button, char *menuTarget, void* (*p)(void*), void* (*p2)(void*));
+void buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button, void* (*p)(void*), void* (*p2)(void*));
 
 static void init_texture(SDL_Surface **surface, SDL_Texture **texture);
 
 static void switchAnimation(player Joueur);
 
-void displayError(char *s, char *menuTarget);
+void displayError(char *s);
 
 void drawError(SDL_Rect rect, SDL_Texture *texture);
 

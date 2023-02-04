@@ -30,6 +30,7 @@ static short loading;
 static short debug = FALSE; 
 
 static int tick=0;
+static int tabTick[20] = {0};
 static int size;
 static int rotation = 0;
 
@@ -39,7 +40,7 @@ static Vecteur vecteur;
 static Bullet *bullet = NULL;
 
 static SDL_bool program_launched = SDL_TRUE;
-static SDL_bool tabEvent[12] = {SDL_FALSE};
+static SDL_bool tabEvent[20] = {SDL_FALSE};
 static SDL_Event event; 
 
 static player joueur;
@@ -49,7 +50,6 @@ static pthread_t reloading;
 static pthread_t server;
 static pthread_t sendtoserver;
 static pthread_t receivefromserver;
-
 static pthread_t animations_thread;
 
 static void checkEvents();

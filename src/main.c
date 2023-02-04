@@ -179,6 +179,10 @@ static void checkEvents()
                     case SDLK_RETURN:
                         tabEvent[12] = SDL_TRUE;
                         break;
+
+                    case SDLK_TAB:
+                        tabEvent[13] = SDL_TRUE;
+                        break;
                 }
 
             break;
@@ -227,6 +231,9 @@ static void checkEvents()
                         tabEvent[12] = SDL_FALSE;
                         break;
 
+                    case SDLK_TAB:
+                        tabEvent[13] = SDL_FALSE;
+                        break;
                 }
 
             break;
@@ -275,6 +282,12 @@ static void checkEvents()
             }
 }
 
+void delay_key(int temps)
+{
+    clock_t start_time = clock();
+    while (clock() < start_time + temps);
+}
+
 /**
  * @brief Délai d'animation de respiration 
  * 
@@ -283,7 +296,7 @@ void delay_breath()
 {
     int milli_seconds = 1000;
     clock_t start_time = clock();
-    while (clock() < start_time + milli_seconds && tabEvent[0] == SDL_FALSE && tabEvent[1] == SDL_FALSE && tabEvent[2] == SDL_FALSE && tabEvent[3] == SDL_FALSE && tabEvent[6] == SDL_FALSE && tabEvent[7] == SDL_FALSE);
+    while (clock() < start_time + milli_seconds && !tabEvent[0] && !tabEvent[1] && !tabEvent[2] && !tabEvent[3] && !tabEvent[6] && !tabEvent[7]);
 }
 
 /**
@@ -294,7 +307,7 @@ void delay_running_left()
 {
     int milli_seconds = 200;
     clock_t start_time = clock();
-    while (clock() < start_time + milli_seconds && tabEvent[1] != SDL_FALSE);
+    while (clock() < start_time + milli_seconds && tabEvent[1]);
 }
 
 /**
@@ -305,7 +318,7 @@ void delay_running_right()
 {
     int milli_seconds = 200;
     clock_t start_time = clock();
-    while (clock() < start_time + milli_seconds && tabEvent[3] != SDL_FALSE);
+    while (clock() < start_time + milli_seconds && tabEvent[3]);
 }
 
 /**
@@ -316,7 +329,7 @@ void delay_running_up()
 {
     int milli_seconds = 200;
     clock_t start_time = clock();
-    while (clock() < start_time + milli_seconds && tabEvent[0] != SDL_FALSE);
+    while (clock() < start_time + milli_seconds && tabEvent[0]);
 }
 
 /**
@@ -327,7 +340,7 @@ void delay_running_down()
 {
     int milli_seconds = 200;
     clock_t start_time = clock();
-    while (clock() < start_time + milli_seconds && tabEvent[2] != SDL_FALSE);
+    while (clock() < start_time + milli_seconds && tabEvent[2]);
 }
 
 /**
@@ -338,7 +351,7 @@ void delay_settings_button_left()
 {
     int milli_seconds = 50;
     clock_t start_time = clock();
-    while (clock() < start_time + milli_seconds && hover_settingsbutton == SDL_FALSE);
+    while (clock() < start_time + milli_seconds && !hover_settingsbutton);
 }
 
 /**
@@ -519,16 +532,16 @@ static void doEvents()
         {
             //click MIDDLE
         }
-        if(tabEvent[0] == SDL_FALSE && tabEvent[1] == SDL_FALSE && tabEvent[2] == SDL_FALSE && tabEvent[3] == SDL_FALSE && tabEvent[6] == SDL_FALSE && tabEvent[7] == SDL_FALSE)
+        if(!tabEvent[0] && !tabEvent[1] && !tabEvent[2] && !tabEvent[3] && !tabEvent[6] && !tabEvent[7])
         {
-            if(strcmp(getMenu(),"InGame") == 0)
+            if(strcmp(getMenu(),"InGame") == 0 || strcmp(getMenu(),"Inventory") == 0)
             {
                 if(pthread_kill(animations_thread, 0) != 0)
                     pthread_create(&animations_thread, NULL, breathAnimation,(void *)&joueur);  
             }
         }
 
-        if(tabEvent[10] == SDL_TRUE)
+        if(tabEvent[10])
         {
             //touche ESCAPE
             if(strcmp(getMenu(),"Error") == 0)
@@ -537,12 +550,32 @@ static void doEvents()
             }
         }
 
-        if(tabEvent[11] == SDL_TRUE && tabEvent[12] == SDL_TRUE)
+        if(tabEvent[11] && tabEvent[12])
         {
             toggleFullscreen();
         }
 
-        if (strcmp(getMenu(),"InGame") == 0)
+        if(tabEvent[13])
+        {
+            if(strcmp(getMenu(),"InGame") == 0)
+            {
+                if((SDL_GetTicks() - tabTick[13]) >= 500)
+                {
+                    changeMenu("Inventory");
+                    tabTick[13] = SDL_GetTicks();
+                }
+            }
+            else 
+            {
+                if((SDL_GetTicks() - tabTick[13]) >= 500)
+                {
+                    changeMenu("InGame");
+                    tabTick[13] = SDL_GetTicks();
+                }
+            }
+        }
+
+        if (strcmp(getMenu(),"InGame") == 0 || strcmp(getMenu(),"Inventory") == 0)
         {
             if(connectedError == FALSE) drawPlayers(joueurs, size);
             else changeMenu("Main");
@@ -611,7 +644,7 @@ int main(int argc, char *argv[])
 
         //execution des events
         doEvents();
-        mainMenu();
+        drawMenu();
 
         if((timer = (1000 / 75)-(SDL_GetTicks() - tick)) > 0)
             SDL_Delay(timer);

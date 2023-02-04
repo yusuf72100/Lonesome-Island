@@ -102,9 +102,9 @@ int onButton(char *button)
  */
 void drawButtons()
 {
-    drawButton(texture_play_inert, play_button_rect, play_inert, "Main");
-    drawButton(texture_connect_inert, connect_button_rect, connect_inert, "Main");
-    drawButton(texture_host_inert, host_button_rect, host_inert, "Main");
+    drawButton(texture_play_inert, play_button_rect, play_inert);
+    drawButton(texture_connect_inert, connect_button_rect, connect_inert);
+    drawButton(texture_host_inert, host_button_rect, host_inert);
 }
 
 /**
@@ -171,31 +171,32 @@ void drawMouse()
  * @param rectangle 
  * @param surface 
  */
-void drawButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface, char *menuTarget)
+void drawButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface)
 {
-    if(strcmp(menu, menuTarget) == 0)
+    if(SDL_QueryTexture(texture, NULL, NULL, &rectangle.w, &rectangle.h) != 0)
     {
-        if(SDL_QueryTexture(texture, NULL, NULL, &rectangle.w, &rectangle.h) != 0)
-        {
-            destroyAll(window, renderer);
-            SDL_ExitWithError("Impossible d'afficher la texture du boutton jouer...");
-        }
-        SDL_RenderCopy(renderer, texture, NULL, &rectangle);
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible d'afficher la texture du boutton jouer...");
     }
+    SDL_RenderCopy(renderer, texture, NULL, &rectangle);
 }
 
-void drawButton_withRotation(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface, char *menuTarget)
+/**
+ * @brief Dessine un boutton en fonction d'une certaine rotation.
+ * 
+ * @param texture 
+ * @param rectangle 
+ * @param surface 
+ * @param menuTarget 
+ */
+void drawButton_withRotation(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface)
 {
-    if(strcmp(menu, menuTarget) == 0)
+    if(SDL_RenderCopyEx(renderer, texture, NULL, &rectangle, settings_button_animation_state, NULL, SDL_FLIP_NONE) != 0)
     {
-        if(SDL_RenderCopyEx(renderer, texture, NULL, &rectangle, settings_button_animation_state, NULL, SDL_FLIP_NONE) != 0)
-        {
-            destroyAll(window, renderer);
-            SDL_ExitWithError("Impossible de rotate du boutton jouer...");
-        }   
-    }
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de rotate du boutton jouer...");
+    }   
 }
-
 
 /**
  * @brief Trie les joueurs en fonction de leur coordonnées Y et organise l'ordre d'affichage des joueurs.
@@ -465,33 +466,30 @@ void drawError(SDL_Rect rect, SDL_Texture *texture)
  * @param menuTarget
  * @return void* 
  */
-void displayError(char *s, char *menuTarget)
+void displayError(char *s)
 {
-    if(strcmp(menu,menuTarget) == 0)
-    {
-        SDL_Rect rect;
-        rect.x = 0;
-        rect.y = (WindowH / 2) - 100;
-        rect.w = WindowW;
-        rect.h = 200;
+    SDL_Rect rect;
+    rect.x = 0;
+    rect.y = (WindowH / 2) - 100;
+    rect.w = WindowW;
+    rect.h = 200;
 
-        SDL_Rect error;
-        error.w = 200;
-        error.h = 500;
-        error.x = (WindowW / 2) - 315;
-        error.y = rect.y + (rect.h / 2) - 15;
-        
-        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-        SDL_RenderDrawRect(renderer, &rect);
+    SDL_Rect error;
+    error.w = 200;
+    error.h = 500;
+    error.x = (WindowW / 2) - 315;
+    error.y = rect.y + (rect.h / 2) - 15;
+    
+    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+    SDL_RenderDrawRect(renderer, &rect);
 
-        SDL_RenderFillRect(renderer, &rect);
+    SDL_RenderFillRect(renderer, &rect);
 
-        texte = TTF_RenderText_Blended(police, s, blackColor);
-        texte_texture = SDL_CreateTextureFromSurface(renderer, texte);
-        SDL_BlitSurface(texte,NULL,background,&error);
+    texte = TTF_RenderText_Blended(police, s, blackColor);
+    texte_texture = SDL_CreateTextureFromSurface(renderer, texte);
+    SDL_BlitSurface(texte,NULL,background,&error);
 
-        drawError(error, texte_texture);
-    }
+    drawError(error, texte_texture);
 }
 
 /**
@@ -529,6 +527,7 @@ void init_menus_vars()
     joueur.playerRect.h = 81;
 
     //assets init
+    inventory_surface = IMG_Load("resources/inventory.png");;
     icon_surface = IMG_Load("resources/icon.png");
     imagebullet = IMG_Load("resources/bullet.png");
     cursor = IMG_Load("resources/cursor/cursor.png");
@@ -626,6 +625,7 @@ void init_menus_vars()
     init_texture(&host_inert , &texture_host_inert);
     init_texture(&host_hover , &texture_host_hover);
     init_texture(&settings_inert , &texture_settings_inert);
+    init_texture(&inventory_surface , &inventory_texture);
 
     //assets
     init_texture(&background , &background_texture);
@@ -667,6 +667,12 @@ void init_menus_vars()
     settings_button_rect.h = 150;
     settings_button_rect.x = 30;
     settings_button_rect.y = DM.h - settings_button_rect.h - 50;
+
+    //inventory 
+    inventory_rect.w = 800;
+    inventory_rect.h = 500;
+    inventory_rect.x = (DM.w / 2) - (inventory_rect.w / 2);
+    inventory_rect.y = (DM.h / 2) - (inventory_rect.h / 2);
 }
 
 static void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, Bullet *b, int rotation, int vitesse)
@@ -710,20 +716,18 @@ void toggleFullscreen()
  * @param hover_button 
  * @param menuTarget 
  */
-void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button, char *menuTarget)
+void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button)
 {
-    if(strcmp(menu,menuTarget) == 0)
+
+    if(SDL_PointInRect(&mouse_position, button_rect))
     {
-        if(SDL_PointInRect(&mouse_position, button_rect))
-        {
-            *hover_button = SDL_TRUE;
-            init_hover(hover_button);
-            drawButton(button_texture, *button_rect, button_surface, menuTarget);
-        }
-        else
-        {
-            *hover_button = SDL_FALSE;
-        }
+        *hover_button = SDL_TRUE;
+        init_hover(hover_button);
+        drawButton(button_texture, *button_rect, button_surface);
+    }
+    else
+    {
+        *hover_button = SDL_FALSE;
     }
 }
 
@@ -736,29 +740,40 @@ void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_R
  * @param hover_button 
  * @param menuTarget 
  */
-void buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button, char *menuTarget, void* (*p)(void*), void* (*p2)(void*))
+void buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button, void* (*p)(void*), void* (*p2)(void*))
 {
 
-    if(strcmp(menu,menuTarget) == 0)
+    if(SDL_PointInRect(&mouse_position, button_rect))
     {
-        if(SDL_PointInRect(&mouse_position, button_rect))
-        {
-            *hover_button = SDL_TRUE;
-            init_hover(hover_button);
-            if(animations_thread_running == FALSE){
-                animations_thread_running = TRUE;
-                pthread_create(&animations_thread, NULL, p, NULL);   
-            }
-        }
-        else
-        {
-            *hover_button = SDL_FALSE;            
-            if(animations_thread_running == FALSE){
-                animations_thread_running = TRUE;
-                pthread_create(&animations_thread, NULL, p2, NULL);   
-            }
+        *hover_button = SDL_TRUE;
+        init_hover(hover_button);
+        if(animations_thread_running == FALSE){
+            animations_thread_running = TRUE;
+            pthread_create(&animations_thread, NULL, p, NULL);   
         }
     }
+    else
+    {
+        *hover_button = SDL_FALSE;            
+        if(animations_thread_running == FALSE){
+            animations_thread_running = TRUE;
+            pthread_create(&animations_thread, NULL, p2, NULL);   
+        }
+    }
+}
+
+/**
+ * @brief Dessine l'inventaire.
+ * 
+ */
+void drawInventory()
+{
+    if(SDL_QueryTexture(inventory_texture, NULL, NULL, &inventory_rect.w, &inventory_rect.h) != 0)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible d'afficher la texture de la balle...");
+    }
+    SDL_RenderCopy(renderer, inventory_texture, NULL, &inventory_rect);
 }
 
 /**
@@ -771,14 +786,46 @@ void mainMenu()
     mouseRect.y = mouse_position.y;
 
     drawButtons();
-    buttonHover(play_hover, texture_play_hover, &play_button_rect, &hover_playbutton, "Main");
-    buttonHover(connect_hover, texture_connect_hover, &connect_button_rect, &hover_connectbutton, "Main");
-    buttonHover(host_hover, texture_host_hover, &host_button_rect, &hover_hostbutton, "Main");
-    buttonHoverWithAnimation(settings_inert, texture_settings_inert, &settings_button_rect, &hover_settingsbutton, "Main", settings_button_animation_right, settings_button_animation_left);
-    drawButton_withRotation(texture_settings_inert, settings_button_rect, settings_inert, "Main");
+    buttonHover(play_hover, texture_play_hover, &play_button_rect, &hover_playbutton);
+    buttonHover(connect_hover, texture_connect_hover, &connect_button_rect, &hover_connectbutton);
+    buttonHover(host_hover, texture_host_hover, &host_button_rect, &hover_hostbutton);
+    buttonHoverWithAnimation(settings_inert, texture_settings_inert, &settings_button_rect, &hover_settingsbutton, settings_button_animation_right, settings_button_animation_left);
+    drawButton_withRotation(texture_settings_inert, settings_button_rect, settings_inert);
     drawTitle();
     drawMouse();
-    displayError("Error: server offline...", "Error");
+}
+
+/**
+ * @brief Dessine le menu en jeu.
+ * 
+ */
+void IngameMenu()
+{
+    mouseRect.x = mouse_position.x;
+    mouseRect.y = mouse_position.y;
+    drawMouse();
+}
+
+/**
+ * @brief Dessin le menu de l'inventaire.
+ * 
+ */
+void InventoryMenu()
+{
+    IngameMenu();
+    drawInventory();
+    drawMouse();
+}
+
+/**
+ * @brief Dessine le bon menu.
+ * 
+ */
+void drawMenu()
+{
+    if(strcmp(menu, "Main") == 0) mainMenu();
+    else if(strcmp(menu, "InGame") == 0) IngameMenu();
+    else if(strcmp(menu, "Inventory") == 0) InventoryMenu();
 
     SDL_RenderPresent(renderer);
 }
