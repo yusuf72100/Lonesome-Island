@@ -374,7 +374,7 @@ static void doEvents()
     if(tabEvent[0])
         {
             //touche Z
-            if (strcmp(getMenu(),"InGame") == 0)
+            if (getMenu() == INGAME)
             {
                 if (debug) printf("Touche SDLK_z pressee | %s\n", eventTime());
                 joueur.playerRect.y = joueur.playerRect.y - 3;
@@ -391,7 +391,7 @@ static void doEvents()
         if(tabEvent[1])
         {
             //touche Q
-            if(strcmp(getMenu(),"InGame") == 0)
+            if(getMenu() == INGAME)
             {
                 joueur.playerRect.x = joueur.playerRect.x - 3;
                 if (debug) printf("Touche SDLK_q pressee | %s\n", eventTime());
@@ -405,7 +405,7 @@ static void doEvents()
         if(tabEvent[2])
         {
             //touche S
-            if(strcmp(getMenu(),"InGame") == 0)
+            if(getMenu() == INGAME)
             {
                 if (debug) printf("Touche SDLK_s pressee | %s\n", eventTime());
                 joueur.playerRect.y = joueur.playerRect.y + 3;
@@ -422,7 +422,7 @@ static void doEvents()
         if(tabEvent[3])
         {
             //touche D
-            if(strcmp(getMenu(),"InGame") == 0)
+            if(getMenu() == INGAME)
             {
                 joueur.playerRect.x = joueur.playerRect.x + 3;
                 if (debug) printf("Touche SDLK_d pressee | %s\n", eventTime());
@@ -436,7 +436,7 @@ static void doEvents()
         if(tabEvent[4])
         {
             //touche LEFT
-            if(strcmp(getMenu(),"InGame") == 0)
+            if(getMenu() == INGAME)
             {
                 //if (debug) printf("Touche SDLK_LEFT pressee | %s\n", eventTime());
                 if (debug) printf("Rotation : %d\n", rotation);
@@ -447,7 +447,7 @@ static void doEvents()
         if(tabEvent[5])
         {
             //touche RIGHT
-            if(strcmp(getMenu(),"InGame") == 0)
+            if(getMenu() == INGAME)
             {
                 //if (debug) printf("Touche SDLK_RIGHT pressee | %s\n", eventTime());
                 if (debug) printf("Rotation : %d\n", rotation);
@@ -457,7 +457,7 @@ static void doEvents()
         if(tabEvent[6])
         {
             //touche ESPACE
-            if(strcmp(getMenu(),"InGame") == 0)
+            if(getMenu() == INGAME)
             {
                 if (!loading)
                 { 
@@ -476,7 +476,7 @@ static void doEvents()
             //click LEFT DOWN
             
             //Connect button
-            if(onButton("connect") && strcmp(getMenu(),"Main") == 0)
+            if(onButton("connect") && getMenu() == MAIN)
             {
                 init_boop(&tabEvent[7]);
                 if (debug) printf("Connect button clicked\n");                                         
@@ -484,17 +484,17 @@ static void doEvents()
                 {
                     Sleep(1000);
                     pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
-                    changeMenu("InGame");
+                    changeMenu(INGAME);
                 }
                 else
                 {
-                    changeMenu("Error");
+                    changeMenu(ERR);
                 }
                 changeButtonState("connect");
             }
 
             //host button
-            if(onButton("host") && strcmp(getMenu(),"Main") == 0)
+            if(onButton("host") && getMenu() == MAIN)
             {
                 init_boop(&tabEvent[7]);
                 if (debug) printf("Host button clicked\n");
@@ -502,19 +502,19 @@ static void doEvents()
                 startConnection();                                          //on créer un client qui se connecte au serveur
                 pthread_create(&sendtoserver,NULL,Send2Server,NULL);
                 pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
-                changeMenu("InGame");
+                changeMenu(INGAME);
                 changeButtonState("host");
             }
 
             //play button
-            if(onButton("play") && strcmp(getMenu(),"Main") == 0)
+            if(onButton("play") && getMenu() == MAIN)
             {
                 init_boop(&tabEvent[7]);
                 changeButtonState("play");
             }
             
             //settings button
-            if(onButton("settings") && strcmp(getMenu(),"Main") == 0)
+            if(onButton("settings") && getMenu() == MAIN)
             {
                 init_boop(&tabEvent[7]);
                 changeButtonState("settings");
@@ -534,7 +534,7 @@ static void doEvents()
         }
         if(!tabEvent[0] && !tabEvent[1] && !tabEvent[2] && !tabEvent[3] && !tabEvent[6] && !tabEvent[7])
         {
-            if(strcmp(getMenu(),"InGame") == 0 || strcmp(getMenu(),"Inventory") == 0)
+            if(getMenu() == INGAME || getMenu() == INVENTORY)
             {
                 if(pthread_kill(animations_thread, 0) != 0)
                     pthread_create(&animations_thread, NULL, breathAnimation,(void *)&joueur);  
@@ -544,9 +544,9 @@ static void doEvents()
         if(tabEvent[10])
         {
             //touche ESCAPE
-            if(strcmp(getMenu(),"Error") == 0)
+            if(getMenu() == ERROR)
             {
-                changeMenu("Main");
+                changeMenu(MAIN);
             }
         }
 
@@ -557,11 +557,11 @@ static void doEvents()
 
         if(tabEvent[13])
         {
-            if(strcmp(getMenu(),"InGame") == 0)
+            if(getMenu() == INGAME)
             {
                 if((SDL_GetTicks() - tabTick[13]) >= 500)
                 {
-                    changeMenu("Inventory");
+                    changeMenu(INVENTORY);
                     tabTick[13] = SDL_GetTicks();
                 }
             }
@@ -569,16 +569,16 @@ static void doEvents()
             {
                 if((SDL_GetTicks() - tabTick[13]) >= 500)
                 {
-                    changeMenu("InGame");
+                    changeMenu(INGAME);
                     tabTick[13] = SDL_GetTicks();
                 }
             }
         }
 
-        if (strcmp(getMenu(),"InGame") == 0 || strcmp(getMenu(),"Inventory") == 0)
+        if (getMenu() == INGAME || getMenu() == INVENTORY)
         {
             if(connectedError == FALSE) drawPlayers(joueurs, size);
-            else changeMenu("Main");
+            else changeMenu(MAIN);
         }
 }
 

@@ -50,8 +50,6 @@ static int settings_button_animation_state = 0;
 static int xWindow = 0, yWindow = 0;
 static int WindowW = 1920, WindowH = 1080;
 
-static char menu[10] = "Main";
-
 //menu buttons rectangle
 static SDL_Rect mouseRect;
 static SDL_Rect play_button_rect;
@@ -192,10 +190,6 @@ void *running_right_animation(void *j);
 void *running_left_animation(void *j);
 
 void *breathAnimation(void *j);
-
-char *getMenu();
-
-void changeMenu(char *menuTarget);
 
 void *drawPlayers(player *joueurs, int size);
 

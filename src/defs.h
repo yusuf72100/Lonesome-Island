@@ -11,6 +11,12 @@
 
 #include <SDL.h>
 
+#define TRUE 1
+#define FALSE 0
+
+typedef enum {MAIN, INGAME, INVENTORY, ERR} T_MENU;
+typedef enum {WEAPON, FOOD, TOOL} T_ITEM;
+
 /**
  * @brief Sauvegarde les informations de chaque joueurs relatives uniquement au jeu en lui-même (points de vie, coordonnées, animation...).
  * 
@@ -20,8 +26,16 @@ typedef struct
     SDL_Rect playerRect;
     int animation_state;
     int connected;
-
 }player;
+
+/**
+ * @brief Définition d'un weapon.
+ * 
+ */
+typedef struct
+{
+    int damage; 
+}weapon;
 
 /**
  * @brief Item avec ses stats.
@@ -29,12 +43,10 @@ typedef struct
  */
 typedef struct 
 {
-    int stack;
-    int eatable;
-    int isTool;
-    int isWeapon;
-    int damage;
+    void *Item;
+    char name[20];
     SDL_Texture *texture;
+    T_ITEM itemType;
 }item;
 
 /**
@@ -43,14 +55,20 @@ typedef struct
  */
 typedef struct
 {
-    item Item;
+    item item;
     int number;
 }case_inventory;
+
+extern T_MENU menu;
 
 extern item bois;
 
 extern SDL_bool tabEvent[20];
 
 extern case_inventory mat_inventory[3][10];
+
+extern void changeMenu(T_MENU menuTarget);
+
+extern T_MENU getMenu();
 
 #endif

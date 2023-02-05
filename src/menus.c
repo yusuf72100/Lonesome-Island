@@ -120,25 +120,6 @@ void update_screen()
 }
 
 /**
- * @brief Nous renvoi le menu dans lequel le client se trouve.
- * @return char*
- */
-char *getMenu()
-{
-    return (menu);
-}
-
-/**
- * @brief Change de menu.
- * 
- * @param menuTarget 
- */
-void changeMenu(char *menuTarget)
-{
-    strcpy(menu, menuTarget);
-}
-
-/**
  * @brief Dessine le bon curseur en fonction de site on survol un bouton ou pas.
  * 
  */
@@ -461,10 +442,9 @@ void drawError(SDL_Rect rect, SDL_Texture *texture)
 }
 
 /**
- * @brief Initialise les assets de l'erreur dans le menu demandé avec SDL_TTF 
- * @param s
- * @param menuTarget
- * @return void* 
+ * @brief Dessine l'erreur avec TTF.
+ * 
+ * @param s 
  */
 void displayError(char *s)
 {
@@ -738,7 +718,8 @@ void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_R
  * @param button_texture 
  * @param button_rect 
  * @param hover_button 
- * @param menuTarget 
+ * @param p 
+ * @param p2 
  */
 void buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button, void* (*p)(void*), void* (*p2)(void*))
 {
@@ -823,9 +804,9 @@ void InventoryMenu()
  */
 void drawMenu()
 {
-    if(strcmp(menu, "Main") == 0) mainMenu();
-    else if(strcmp(menu, "InGame") == 0) IngameMenu();
-    else if(strcmp(menu, "Inventory") == 0) InventoryMenu();
+    if(menu == MAIN) mainMenu();
+    else if(menu == INGAME) IngameMenu();
+    else if(menu == INVENTORY) InventoryMenu();
 
     SDL_RenderPresent(renderer);
 }

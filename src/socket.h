@@ -26,8 +26,6 @@
 #include <SDL_ttf.h>
 #include "defs.h"
 
-#define TRUE 1
-#define FALSE 0
 #define dataLen 5
 #define IP_LOCALE "192.168.1.16"
 
