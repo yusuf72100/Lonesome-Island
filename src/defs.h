@@ -34,8 +34,23 @@ typedef struct
     int isTool;
     int isWeapon;
     int damage;
+    SDL_Texture *texture;
 }item;
 
+/**
+ * @brief Stockera les informations de chaque case de l'inventaire du joueur.
+ * 
+ */
+typedef struct
+{
+    item Item;
+    int number;
+}case_inventory;
+
 extern item bois;
+
+extern SDL_bool tabEvent[20];
+
+extern case_inventory mat_inventory[3][10];
 
 #endif

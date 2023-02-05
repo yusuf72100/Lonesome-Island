@@ -670,9 +670,9 @@ void init_menus_vars()
 
     //inventory 
     inventory_rect.w = 800;
-    inventory_rect.h = 500;
+    inventory_rect.h = 350;
     inventory_rect.x = (DM.w / 2) - (inventory_rect.w / 2);
-    inventory_rect.y = (DM.h / 2) - (inventory_rect.h / 2);
+    inventory_rect.y = DM.h - inventory_rect.h - 20;
 }
 
 static void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, Bullet *b, int rotation, int vitesse)
