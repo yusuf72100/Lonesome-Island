@@ -55,7 +55,7 @@ typedef struct
  */
 typedef struct
 {
-    item item;
+    item Item;
     int number;
 }case_inventory;
 
