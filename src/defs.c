@@ -26,7 +26,7 @@ case_inventory mat_inventory[3][10];
 
 /**
  * @brief Nous renvoi le menu dans lequel le client se trouve.
- * @return char*
+ * @return T_MENU
  */
 T_MENU getMenu()
 {
