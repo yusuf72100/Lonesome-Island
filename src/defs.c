@@ -1,7 +1,7 @@
 /**
- * @file defs.h
+ * @file defs.c
  * @author Yusuf Ulas
- * @brief Fichier contenant toutes les définitions de structures et de types
+ * @brief Fichier qui initialisera les variables globales.
  * @version 0.1
  * @date 2023-01-31
  * @copyright Copyright (c) 2023
