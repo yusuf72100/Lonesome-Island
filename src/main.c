@@ -557,9 +557,10 @@ static void doEvents()
 
         if(tabEvent[13])
         {
+            //touche TAB
             if(getMenu() == INGAME)
             {
-                if((SDL_GetTicks() - tabTick[13]) >= 500)
+                if((SDL_GetTicks() - tabTick[13]) >= 200)
                 {
                     changeMenu(INVENTORY);
                     tabTick[13] = SDL_GetTicks();
@@ -567,7 +568,7 @@ static void doEvents()
             }
             else 
             {
-                if((SDL_GetTicks() - tabTick[13]) >= 500)
+                if((SDL_GetTicks() - tabTick[13]) >= 200)
                 {
                     changeMenu(INGAME);
                     tabTick[13] = SDL_GetTicks();
