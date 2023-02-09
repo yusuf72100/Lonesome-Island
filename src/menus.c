@@ -646,7 +646,7 @@ void init_menus_vars()
     settings_button_rect.w = 150;
     settings_button_rect.h = 150;
     settings_button_rect.x = 30;
-    settings_button_rect.y = DM.h - settings_button_rect.h - 50;
+    settings_button_rect.y = DM.h - settings_button_rect.h - ((DM.h * 3) / 100);
 
     //inventory 
     inventory_rect.w = 800;
