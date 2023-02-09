@@ -10,6 +10,10 @@ Pour réaliser sa quête, le joueur peut récolter les matières premières de l
 ou encore se construire un habitat pour se proteger. Il doit également penser à subvenir à ses besoins vitaux
 que sont l'hydration et la nutrition. Enfin, il devra faire face à la faune locale qui s'avère plutot dangereuse.
 
+## Cadre du projet
+
+Ce jeu a été créé dans le cadre d'un projet réalisé par des étudiants en informatique à l'institue Claude Chappe à l'Université du Mans.
+
 ## Developpé avec
 
 Logiciels avec lequels ce projet est développé:
