@@ -14,7 +14,7 @@
 #define TRUE 1
 #define FALSE 0
 
-typedef enum {MAIN, INGAME, INVENTORY, ERR} T_MENU;
+typedef enum {MAIN, INGAME, INVENTORY, SETTINGS, ERR} T_MENU;
 typedef enum {WEAPON, FOOD, TOOL} T_ITEM;
 
 extern int SOLO;
