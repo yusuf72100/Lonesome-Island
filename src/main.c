@@ -520,6 +520,7 @@ static void doEvents()
             {
                 init_boop(&tabEvent[7]);
                 changeButtonState("settings");
+                changeMenu(SETTINGS);
             }
         }
         if(!tabEvent[7])

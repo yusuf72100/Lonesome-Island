@@ -292,7 +292,7 @@ void *drawPlayers(player *joueurs, int size)
 
 void *drawSoloPlayer(player joueur)
 {
-    
+
 }
 
 /**
@@ -809,10 +809,21 @@ void InventoryMenu()
  */
 void drawMenu()
 {
-    if(menu == MAIN) mainMenu();
-    else if(menu == INGAME) IngameMenu();
-    else if(menu == INVENTORY) InventoryMenu();
-
+    switch (menu)
+    {
+    case MAIN:
+        mainMenu();
+        break;
+    case INGAME:
+        IngameMenu();
+        break;
+    case INVENTORY:
+        InventoryMenu();
+        break;
+    default:
+        break;
+    }
+    
     SDL_RenderPresent(renderer);
 }
 
