@@ -28,7 +28,7 @@ typedef struct
     SDL_Rect playerRect;
     int animation_state;
     int connected;
-}player;
+}player_t;
 
 /**
  * @brief Définition d'un weapon.

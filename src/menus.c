@@ -28,7 +28,7 @@ void destroyAll()
  * @param animation 
  * @param joueur 
  */
-void startAnimation(char *animation, player *joueur)
+void startAnimation(char *animation, player_t *joueur)
 {
     if(animations_thread_running == FALSE){
         if(strcmp(animation,"running_up") == 0)
@@ -189,7 +189,7 @@ static void sortPlayers()
     int i,j;
     for(i = 1; i < size; i++)
     {
-        player buffer = joueurs[i];
+        player_t buffer = joueurs[i];
         position = i;
         for(j = i; j < size; j++)
         {
@@ -223,7 +223,7 @@ void drawPlayer(SDL_Texture *texture_joueur, SDL_Rect playerRect)
  * 
  * @param Joueur 
  */
-static void switchAnimation(player Joueur)
+static void switchAnimation(player_t Joueur)
 {
     switch (Joueur.animation_state)
     {
@@ -278,7 +278,7 @@ static void switchAnimation(player Joueur)
  * 
  * @return void* 
  */
-void *drawPlayers(player *joueurs, int size)
+void *drawPlayers(player_t *joueurs, int size)
 {
     //sortPlayers();
     for(int i = 1; i <= size; i++)
@@ -290,7 +290,7 @@ void *drawPlayers(player *joueurs, int size)
     }
 }
 
-void *drawSoloPlayer(player joueur)
+void *drawSoloPlayer(player_t joueur)
 {
 
 }
@@ -302,7 +302,7 @@ void *drawSoloPlayer(player joueur)
  */
 void *breathAnimation(void *j)
 {    
-    player *joueur = j;
+    player_t *joueur = j;
     joueur->animation_state = BREATH_START;
     if(!SOLO) Send2Server();
     delay_breath();
@@ -321,7 +321,7 @@ void *breathAnimation(void *j)
  */
 void *running_left_animation(void *j)
 {
-    player *joueur = j;
+    player_t *joueur = j;
     joueur->animation_state = RUNNING_LEFT_START;
     delay_running_left();
     joueur->animation_state++;
@@ -338,7 +338,7 @@ void *running_left_animation(void *j)
  */
 void *running_right_animation(void *j)
 {
-    player *joueur = j;
+    player_t *joueur = j;
     joueur->animation_state = RUNNING_RIGHT_START;
     delay_running_right();
     joueur->animation_state++;
@@ -355,7 +355,7 @@ void *running_right_animation(void *j)
  */
 void *running_up_animation(void *j)
 {
-    player *joueur = j;
+    player_t *joueur = j;
     joueur->animation_state = RUNNING_UP_START;
     delay_running_up();
     joueur->animation_state++;
@@ -372,7 +372,7 @@ void *running_up_animation(void *j)
  */
 void *running_down_animation(void *j)
 {
-    player *joueur = j;
+    player_t *joueur = j;
     joueur->animation_state = RUNNING_DOWN_START;
     delay_running_down();
     joueur->animation_state++;
@@ -823,7 +823,7 @@ void drawMenu()
     default:
         break;
     }
-    
+
     SDL_RenderPresent(renderer);
 }
 

@@ -42,8 +42,8 @@ static Bullet *bullet = NULL;
 static SDL_bool program_launched = SDL_TRUE;
 static SDL_Event event; 
 
-static player joueur;
-static player * joueurs;
+static player_t joueur;
+static player_t * joueurs;
 
 static pthread_t reloading;
 static pthread_t server;
@@ -75,7 +75,7 @@ void delay_breath();
 
 static void *rechargement();
 
-void *synchDatas(player * Joueurs, int taille);
+void *synchDatas(player_t * Joueurs, int taille);
 
 static void UpdateBullet(Bullet * b);
 

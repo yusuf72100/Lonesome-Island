@@ -36,11 +36,11 @@ static SOCKET *socket_Server;
 static char tramClient_send[100];
 static char tramClient_receive[100];
 
-static player joueur;
-static player * joueurs;
+static player_t joueur;
+static player_t * joueurs;
 static int size;
 
-void *sendDatas(player joueur);
+void *sendDatas(player_t joueur);
 
 void *receiveFromServer();
 

@@ -16,7 +16,7 @@
  * @param Joueurs 
  * @param taille 
  */
-void *synchDatas(player * Joueurs, int taille)
+void *synchDatas(player_t * Joueurs, int taille)
 {
     size = taille;
     joueurs = Joueurs;

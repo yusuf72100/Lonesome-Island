@@ -16,7 +16,7 @@
 #define WATER 2
 #define CONSTRUCTOR 3
 
-typedef enum {NORTH, EAST, SOUTH, WEST}facing_e;
+typedef enum {NORTH, EAST, SOUTH, WEST} facing_e;
 
 typedef struct position_s{
     int x;
@@ -162,17 +162,6 @@ int main(int argc, char *argv[]) {
     (void) argc;
     (void) argv;
 
-    SDL_Window *window = NULL;
-    SDL_Renderer *render = NULL;
-    SDL_Event event;
-
-    if(SDL_Init(SDL_INIT_EVERYTHING) != 0) printf("error");
-
-    window = SDL_CreateWindow("Survival Island", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1350, 700, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
-    render = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-    if(window == NULL || render == NULL) printf("error");
-    SDL_SetWindowMinimumSize(window, 500, 500);
-
     player_t* player = createPlayer("IzeLeam", 16, 18, NORTH);
     setPlayerFacing(render, player, NORTH);
     
@@ -226,7 +215,6 @@ int main(int argc, char *argv[]) {
             SDL_RenderPresent(render);
         }
     }
-
 
     SDL_DestroyRenderer(render);
     SDL_DestroyWindow(window);

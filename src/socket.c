@@ -15,7 +15,7 @@
  * @param joueur 
  * @param i 
  */
-static void buildtramClient_send(player joueur, int i)
+static void buildtramClient_send(player_t joueur, int i)
 {
     tramClient_send[0] = '\0';
     char bufferI[3] = "";

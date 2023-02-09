@@ -137,7 +137,7 @@ static void sortPlayers();
 
 void changeButtonState(char *button);
 
-void startAnimation(char *animation, player *joueur);
+void startAnimation(char *animation, player_t *joueur);
 
 int onButton(char *button);
 
@@ -169,7 +169,7 @@ void buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *button_t
 
 static void init_texture(SDL_Surface **surface, SDL_Texture **texture);
 
-static void switchAnimation(player Joueur);
+static void switchAnimation(player_t Joueur);
 
 void displayError(char *s);
 
@@ -191,6 +191,6 @@ void *running_left_animation(void *j);
 
 void *breathAnimation(void *j);
 
-void *drawPlayers(player *joueurs, int size);
+void *drawPlayers(player_t *joueurs, int size);
 
 #endif

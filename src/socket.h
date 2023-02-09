@@ -50,7 +50,7 @@ typedef struct
     SOCKET socketServer;
     SOCKET clientSocket;
     SOCKADDR_IN addrClient;
-    player joueur;
+    player_t joueur;
 
 }socketDatas;
 

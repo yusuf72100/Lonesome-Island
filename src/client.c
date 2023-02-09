@@ -135,7 +135,7 @@ void *receiveFromServer()
  * 
  * @param joueur 
  */
-static void buildTram(player joueur)
+static void buildTram(player_t joueur)
 {
     tramClient_send[0] = '\0';
     strcat(tramClient_send, "fff ");
@@ -165,7 +165,7 @@ static void buildTram(player joueur)
  * @param joueur 
  * @return void* 
  */
-void *sendDatas(player joueur)
+void *sendDatas(player_t joueur)
 {
     buildTram(joueur);
     if(send(*socket_Server,tramClient_send,(sizeof(char)*30),0) == SOCKET_ERROR)
@@ -195,7 +195,7 @@ void stopConnection()
  */
 int startConnection()
 {   
-    joueurs = malloc(sizeof(player) * 10);
+    joueurs = malloc(sizeof(player_t) * 10);
     socket_Server = malloc(sizeof(SOCKET));
     WSADATA WSAData;
     WSAStartup(MAKEWORD(2,0), &WSAData);
