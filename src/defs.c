@@ -9,6 +9,8 @@
 
 #include "defs.h"
 
+int SOLO = FALSE;
+
 item axe = {
     .itemType = WEAPON,
     .name = "Hache",

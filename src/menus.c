@@ -290,6 +290,11 @@ void *drawPlayers(player *joueurs, int size)
     }
 }
 
+void *drawSoloPlayer(player joueur)
+{
+    
+}
+
 /**
  * @brief Animation de respiration
  * 
@@ -299,13 +304,13 @@ void *breathAnimation(void *j)
 {    
     player *joueur = j;
     joueur->animation_state = BREATH_START;
-    Send2Server();
+    if(!SOLO) Send2Server();
     delay_breath();
     joueur->animation_state++;
-    Send2Server();
+    if(!SOLO) Send2Server();
     delay_breath();
     joueur->animation_state--;
-    Send2Server();
+    if(!SOLO) Send2Server();
     animations_thread_running = FALSE;
 }
 

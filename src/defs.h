@@ -17,6 +17,8 @@
 typedef enum {MAIN, INGAME, INVENTORY, ERR} T_MENU;
 typedef enum {WEAPON, FOOD, TOOL} T_ITEM;
 
+extern int SOLO;
+
 /**
  * @brief Sauvegarde les informations de chaque joueurs relatives uniquement au jeu en lui-même (points de vie, coordonnées, animation...).
  * 

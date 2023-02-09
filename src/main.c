@@ -511,6 +511,8 @@ static void doEvents()
             {
                 init_boop(&tabEvent[7]);
                 changeButtonState("play");
+                changeMenu(INGAME);
+                SOLO = TRUE;
             }
             
             //settings button
@@ -534,7 +536,7 @@ static void doEvents()
         }
         if(!tabEvent[0] && !tabEvent[1] && !tabEvent[2] && !tabEvent[3] && !tabEvent[6] && !tabEvent[7])
         {
-            if(getMenu() == INGAME || getMenu() == INVENTORY)
+            if((getMenu() == INGAME || getMenu() == INVENTORY) && !SOLO)
             {
                 if(pthread_kill(animations_thread, 0) != 0)
                     pthread_create(&animations_thread, NULL, breathAnimation,(void *)&joueur);  
@@ -576,10 +578,14 @@ static void doEvents()
             }
         }
 
-        if (getMenu() == INGAME || getMenu() == INVENTORY)
+        if ((getMenu() == INGAME || getMenu() == INVENTORY) && !SOLO)
         {
             if(connectedError == FALSE) drawPlayers(joueurs, size);
             else changeMenu(MAIN);
+        }
+        else if ((getMenu() == INGAME || getMenu() == INVENTORY) && SOLO)
+        {
+            drawPlayers(joueurs, 1);
         }
 }
 
