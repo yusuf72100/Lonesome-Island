@@ -12,7 +12,7 @@ que sont l'hydration et la nutrition. Enfin, il devra faire face à la faune loc
 
 ## Cadre du projet
 
-Ce jeu a été créé dans le cadre d'un projet réalisé par des étudiants en informatique à l'institue Claude Chappe à l'Université du Mans.
+Ce jeu a été créé dans le cadre d'un projet réalisé par des étudiants en informatique à l'institue Claude Chappe à l'Université du Mans en 2023.
 
 ## Developpé avec
 
