@@ -579,11 +579,13 @@ static void doEvents()
             }
         }
 
+        // Multi-joueurs
         if ((getMenu() == INGAME || getMenu() == INVENTORY) && !SOLO)
         {
             if(connectedError == FALSE) drawPlayers(joueurs, size);
             else changeMenu(MAIN);
         }
+        // solo
         else if ((getMenu() == INGAME || getMenu() == INVENTORY) && SOLO)
         {
             drawPlayers(joueurs, 1);

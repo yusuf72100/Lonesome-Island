@@ -1,4 +1,55 @@
-#include "map.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <SDL.h>
+#include <SDL_image.h>
+#include <time.h>
+#include "defs.h"
+ 
+#define TILE_SIZE 16
+#define MAP_SIZE 100
+#define RENDER 10
+#define TOTALRENDER 21
+
+#define BIOME 0
+#define UTILS 1
+
+#define GRASS 0
+#define WATER 2
+#define CONSTRUCTOR 3
+
+typedef enum {NORTH, EAST, SOUTH, WEST} facing_e;
+
+int map[MAP_SIZE][MAP_SIZE];
+int quit = 0;
+
+typedef struct position_s{
+    int x;
+    int y;
+}position_t;
+
+typedef struct camera_s {
+    position_t start;
+    int XRender;
+    int YRender;
+}camera_t;
+
+typedef struct player_s {
+    char* name;
+    position_t pos;
+    facing_e facing;
+    SDL_Texture* texture;
+}player_t;
+
+player_t* createPlayer(char* name, int x, int y, facing_e facing) {
+    player_t* player;
+    player->name = name;
+    position_t pos;
+    pos.x = x;
+    pos.y = y;
+    player->pos = pos;
+    player->facing = NORTH;
+    return player;
+}
 
 void setPlayerFacing(SDL_Renderer* render, player_t* player, facing_e face) {
     SDL_Surface* img = IMG_Load("resources/player_faces.png");
@@ -117,10 +168,14 @@ int main(int argc, char *argv[]) {
 
     player_t* player = createPlayer("IzeLeam", 16, 18, NORTH);
     setPlayerFacing(render, player, NORTH);
+    
+    int map[MAP_SIZE][MAP_SIZE];
     init_map(map);
 
     renderMapOnPlayer(&render, map, window, player);
+    SDL_RenderPresent(render);
 
+    int quit = 0;
     while(!quit){
 
         SDL_Delay(50);
@@ -161,8 +216,8 @@ int main(int argc, char *argv[]) {
        
                     break;
             }
+            SDL_RenderPresent(render);
         }
-        SDL_RenderPresent(render);
     }
 
     SDL_DestroyRenderer(render);
