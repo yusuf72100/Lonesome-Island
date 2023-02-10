@@ -17,8 +17,7 @@ Fichier content toutes les informations relatives au client et au serveur.
 {\ttfamily \#include $<$SDL\+\_\+image.\+h$>$}\newline
 {\ttfamily \#include $<$SDL\+\_\+ttf.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}socket.\+h\char`\"{}}\newline
-Graphe des dépendances par inclusion de client.\+h\+:
-\nopagebreak
+Graphe des dépendances par inclusion de client.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -56,7 +55,7 @@ typedef uint32\+\_\+t {\bfseries socklen\+\_\+t}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-void $\ast$ \mbox{\hyperlink{client_8h_a7cea858f95329a092fd2cbc746c59728}{send\+Datas}} (\mbox{\hyperlink{structplayer}{player}} joueur)
+void $\ast$ \mbox{\hyperlink{client_8h_a6ff46bda2f9d755b3e1b4a941b10e8e1}{send\+Datas}} (\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} joueur)
 \begin{DoxyCompactList}\small\item\em Récupère les données du joueur et les envois au serveur via le socket. \end{DoxyCompactList}\item 
 void $\ast$ \mbox{\hyperlink{client_8h_a37deea5f4750c52937a56b0e97d566b9}{receive\+From\+Server}} ()
 \begin{DoxyCompactList}\small\item\em Établie la connexion avec le serveur. \end{DoxyCompactList}\item 
@@ -76,11 +75,11 @@ static char {\bfseries tram\+Client\+\_\+send} \mbox{[}100\mbox{]}
 \mbox{\Hypertarget{client_8h_a07ca08cdb87ab3025235c2dad252e007}\label{client_8h_a07ca08cdb87ab3025235c2dad252e007}} 
 static char {\bfseries tram\+Client\+\_\+receive} \mbox{[}100\mbox{]}
 \item 
-\mbox{\Hypertarget{client_8h_a24e9b1ee401b0d44b75170e22c43fa17}\label{client_8h_a24e9b1ee401b0d44b75170e22c43fa17}} 
-static \mbox{\hyperlink{structplayer}{player}} {\bfseries joueur}
+\mbox{\Hypertarget{client_8h_ad92f2b056653cc55a088e47aff07f4aa}\label{client_8h_ad92f2b056653cc55a088e47aff07f4aa}} 
+static \mbox{\hyperlink{structplayer__t}{player\+\_\+t}} {\bfseries joueur}
 \item 
-\mbox{\Hypertarget{client_8h_a1d48ae43189b9843952e504854c47f06}\label{client_8h_a1d48ae43189b9843952e504854c47f06}} 
-static \mbox{\hyperlink{structplayer}{player}} $\ast$ {\bfseries joueurs}
+\mbox{\Hypertarget{client_8h_a551000248d53b0f87524224317c61f10}\label{client_8h_a551000248d53b0f87524224317c61f10}} 
+static \mbox{\hyperlink{structplayer__t}{player\+\_\+t}} $\ast$ {\bfseries joueurs}
 \item 
 \mbox{\Hypertarget{client_8h_a439227feff9d7f55384e8780cfc2eb82}\label{client_8h_a439227feff9d7f55384e8780cfc2eb82}} 
 static int {\bfseries size}
@@ -120,7 +119,8 @@ Copyright (c) 2023
 \begin{DoxyReturn}{Renvoie}
 void$\ast$ 
 \end{DoxyReturn}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -134,11 +134,11 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \includegraphics[width=342pt]{client_8h_a37deea5f4750c52937a56b0e97d566b9_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{client_8h_a7cea858f95329a092fd2cbc746c59728}\label{client_8h_a7cea858f95329a092fd2cbc746c59728}} 
+\mbox{\Hypertarget{client_8h_a6ff46bda2f9d755b3e1b4a941b10e8e1}\label{client_8h_a6ff46bda2f9d755b3e1b4a941b10e8e1}} 
 \index{client.h@{client.h}!sendDatas@{sendDatas}}
 \index{sendDatas@{sendDatas}!client.h@{client.h}}
 \doxysubsubsection{\texorpdfstring{sendDatas()}{sendDatas()}}
-{\footnotesize\ttfamily void $\ast$ send\+Datas (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer}{player}}}]{joueur }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void $\ast$ send\+Datas (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer__t}{player\+\_\+t}}}]{joueur }\end{DoxyParamCaption})}
 
 
 
@@ -152,18 +152,20 @@ Récupère les données du joueur et les envois au serveur via le socket.
 \begin{DoxyReturn}{Renvoie}
 void$\ast$ 
 \end{DoxyReturn}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=263pt]{client_8h_a7cea858f95329a092fd2cbc746c59728_cgraph}
+\includegraphics[width=263pt]{client_8h_a6ff46bda2f9d755b3e1b4a941b10e8e1_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{client_8h_a7cea858f95329a092fd2cbc746c59728_icgraph}
+\includegraphics[width=350pt]{client_8h_a6ff46bda2f9d755b3e1b4a941b10e8e1_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{client_8h_a3622090a7ff391221a74cad6493bbca9}\label{client_8h_a3622090a7ff391221a74cad6493bbca9}} 
@@ -206,7 +208,8 @@ Arrête la connexion avec le serveur.
 \begin{DoxyReturn}{Renvoie}
 void$\ast$ 
 \end{DoxyReturn}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

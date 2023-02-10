@@ -1,4 +1,4 @@
 <map id="traitData" name="traitData">
 <area shape="rect" id="node1" title="Traite les données reçus par le serveur." alt="" coords="5,5,76,31"/>
-<area shape="rect" id="node2" href="$main_8c.html#a734d34007877ed5938e58dccb669ba96" title="Récupère les données depuis le socket client." alt="" coords="124,5,215,31"/>
+<area shape="rect" id="node2" href="$main_8c.html#a6f34c428b3f0a7afe10321406af12adb" title="Récupère les données depuis le socket client." alt="" coords="124,5,215,31"/>
 </map>

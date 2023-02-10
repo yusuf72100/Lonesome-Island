@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['getmenu_0',['getMenu',['../menus_8c.html#a272acb896d5e5413328204c4060b1598',1,'getMenu():&#160;menus.c'],['../menus_8h.html#a272acb896d5e5413328204c4060b1598',1,'getMenu():&#160;menus.c']]]
+  ['getmenu_0',['getMenu',['../defs_8c.html#a46ada666e9f33f66113ea70f035ba7a4',1,'getMenu():&#160;defs.c'],['../defs_8h.html#a46ada666e9f33f66113ea70f035ba7a4',1,'getMenu():&#160;defs.c']]]
 ];

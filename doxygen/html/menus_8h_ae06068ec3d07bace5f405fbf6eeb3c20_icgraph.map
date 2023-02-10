@@ -1,6 +1,4 @@
 <map id="drawError" name="drawError">
-<area shape="rect" id="node1" title="Affiche l&#39;erreur à l&#39;écran." alt="" coords="373,5,451,31"/>
-<area shape="rect" id="node2" href="$menus_8c.html#ade81b1e4531f386eb2ff98d3d8930413" title="Initialise les assets de l&#39;erreur dans le menu demandé avec SDL_TTF." alt="" coords="235,5,325,31"/>
-<area shape="rect" id="node3" href="$menus_8c.html#ab3002fe8e0074c9e2ecb5b835e5e819f" title="Affiche le menu principal." alt="" coords="104,5,187,31"/>
-<area shape="rect" id="node4" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+<area shape="rect" id="node1" title="Affiche l&#39;erreur à l&#39;écran." alt="" coords="144,5,221,31"/>
+<area shape="rect" id="node2" href="$menus_8c.html#a9cde538499636a6a74cb0f3e206d4a73" title="Dessine l&#39;erreur avec TTF." alt="" coords="5,5,96,31"/>
 </map>

@@ -85,6 +85,15 @@ static SDL_Surface *surface_joueur_up_2 = NULL;
 static SDL_Surface *surface_joueur_down_1 = NULL;
 static SDL_Surface *surface_joueur_down_2 = NULL;
 
+//items surfaces
+static SDL_Surface *apple_food_surface = NULL;
+
+//items textures
+static SDL_Texture *apple_food_texture = NULL;
+
+//items rectangles
+static SDL_Rect apple_food_rect;
+
 static SDL_Texture *inventory_texture = NULL;
 static SDL_Texture *texturebullet = NULL;	
 static SDL_Texture *title_texture = NULL;

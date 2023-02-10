@@ -1,4 +1,5 @@
 <map id="socketDatas" name="socketDatas">
-<area shape="rect" id="node1" title="Sauvegarde les informations de chaque joueurs relatives au socket et à la connection au serveur (adre..." alt="" coords="14,175,123,281"/>
-<area shape="rect" id="node2" href="$structplayer.html" title="Sauvegarde les informations de chaque joueurs relatives uniquement au jeu en lui&#45;même (points de vie,..." alt="" coords="5,5,132,112"/>
+<area shape="rect" id="node1" title="Sauvegarde les informations de chaque joueurs relatives au socket et à la connection au serveur (adre..." alt="" coords="5,329,115,436"/>
+<area shape="rect" id="node2" href="$structplayer__s.html" title=" " alt="" coords="23,160,97,267"/>
+<area shape="rect" id="node3" href="$structposition__s.html" title=" " alt="" coords="19,5,101,97"/>
 </map>

@@ -37,7 +37,14 @@ typedef struct
 typedef struct
 {
     int damage; 
-}weapon;
+}weapon_t;
+
+typedef struct 
+{
+    int feed;
+    int thirst;
+}food_t;
+
 
 /**
  * @brief Item avec ses stats.
@@ -49,7 +56,7 @@ typedef struct
     char name[20];
     SDL_Texture *texture;
     T_ITEM itemType;
-}item;
+}item_t;
 
 /**
  * @brief Stockera les informations de chaque case de l'inventaire du joueur.
@@ -57,13 +64,13 @@ typedef struct
  */
 typedef struct
 {
-    item Item;
+    item_t Item;
     int number;
 }case_inventory;
 
 extern T_MENU menu;
 
-extern item bois;
+extern item_t bois;
 
 extern SDL_bool tabEvent[20];
 

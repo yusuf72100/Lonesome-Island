@@ -11,11 +11,18 @@
 
 int SOLO = FALSE;
 
-item axe = {
+item_t axe = {
     .itemType = WEAPON,
     .name = "Hache",
     .texture = NULL,
-    .Item = &(weapon){ .damage = 5 }
+    .Item = &(weapon_t){ .damage = 5 }
+};
+
+item_t apple = {
+    .itemType = FOOD,
+    .name = "Pomme",
+    .texture = NULL,
+    .Item = &(food_t){ .feed = 15, .thirst = 5 }
 };
 
 // printf("Le champ damage de l'objet weapon est %d\n", ((weapon*)axe.Item)->damage);

@@ -2,5 +2,5 @@
 <area shape="rect" id="node1" title="Établie la connexion avec le serveur." alt="" coords="5,31,133,56"/>
 <area shape="rect" id="node2" href="$client_8c.html#a1a44fcc8a4125e81a0730b67c2603470" title="Arrête la connexion avec le serveur." alt="" coords="181,5,293,31"/>
 <area shape="rect" id="node3" href="$client_8c.html#a5db5e79b1f9efa79675000da17beacfb" title="Traite les données reçus par le serveur." alt="" coords="202,55,273,80"/>
-<area shape="rect" id="node4" href="$main_8c.html#a734d34007877ed5938e58dccb669ba96" title="Récupère les données depuis le socket client." alt="" coords="341,55,432,80"/>
+<area shape="rect" id="node4" href="$main_8c.html#a6f34c428b3f0a7afe10321406af12adb" title="Récupère les données depuis le socket client." alt="" coords="341,55,432,80"/>
 </map>

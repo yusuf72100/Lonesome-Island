@@ -19,8 +19,7 @@ Fichier contenant toutes les variables d\textquotesingle{}affichage.
 {\ttfamily \#include \char`\"{}client.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}sound.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$windows.\+h$>$}\newline
-Graphe des dépendances par inclusion de main.\+h\+:
-\nopagebreak
+Graphe des dépendances par inclusion de main.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -64,7 +63,7 @@ void \mbox{\hyperlink{main_8h_a4f3c96146210adc4a3276d1e8bb2453c}{delay\+\_\+brea
 \mbox{\Hypertarget{main_8h_a74d9cf129eac9371caa5a93b97b4f95c}\label{main_8h_a74d9cf129eac9371caa5a93b97b4f95c}} 
 static void $\ast$ {\bfseries rechargement} ()
 \item 
-void $\ast$ \mbox{\hyperlink{main_8h_a734d34007877ed5938e58dccb669ba96}{synch\+Datas}} (\mbox{\hyperlink{structplayer}{player}} $\ast$Joueurs, int taille)
+void $\ast$ \mbox{\hyperlink{main_8h_a6f34c428b3f0a7afe10321406af12adb}{synch\+Datas}} (\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} $\ast$Joueurs, int taille)
 \begin{DoxyCompactList}\small\item\em Récupère les données depuis le socket client. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{main_8h_a718d61fe7c5a7e6c83c14f312105bfa8}\label{main_8h_a718d61fe7c5a7e6c83c14f312105bfa8}} 
 static void {\bfseries Update\+Bullet} (\mbox{\hyperlink{struct_bullet}{Bullet}} $\ast$b)
@@ -97,6 +96,9 @@ static short {\bfseries debug} = FALSE
 \mbox{\Hypertarget{main_8h_ad4e0bbc0cc0ffb91120206fb4de60261}\label{main_8h_ad4e0bbc0cc0ffb91120206fb4de60261}} 
 static int {\bfseries tick} =0
 \item 
+\mbox{\Hypertarget{main_8h_a03feae73ce48c80f7d23c32c530f3615}\label{main_8h_a03feae73ce48c80f7d23c32c530f3615}} 
+static int {\bfseries tab\+Tick} \mbox{[}20\mbox{]} = \{0\}
+\item 
 \mbox{\Hypertarget{main_8h_a439227feff9d7f55384e8780cfc2eb82}\label{main_8h_a439227feff9d7f55384e8780cfc2eb82}} 
 static int {\bfseries size}
 \item 
@@ -115,17 +117,14 @@ static \mbox{\hyperlink{struct_bullet}{Bullet}} $\ast$ {\bfseries bullet} = NULL
 \mbox{\Hypertarget{main_8h_afca61ae64d5c0754713e0d62092cd8df}\label{main_8h_afca61ae64d5c0754713e0d62092cd8df}} 
 static SDL\+\_\+bool {\bfseries program\+\_\+launched} = SDL\+\_\+\+TRUE
 \item 
-\mbox{\Hypertarget{main_8h_aa61009df0cfd4177ea74db85711f8a29}\label{main_8h_aa61009df0cfd4177ea74db85711f8a29}} 
-static SDL\+\_\+bool {\bfseries tab\+Event} \mbox{[}12\mbox{]} = \{SDL\+\_\+\+FALSE\}
-\item 
 \mbox{\Hypertarget{main_8h_a6b57f01d3c576db5368dd0efc2f435a4}\label{main_8h_a6b57f01d3c576db5368dd0efc2f435a4}} 
 static SDL\+\_\+\+Event {\bfseries event}
 \item 
-\mbox{\Hypertarget{main_8h_a24e9b1ee401b0d44b75170e22c43fa17}\label{main_8h_a24e9b1ee401b0d44b75170e22c43fa17}} 
-static \mbox{\hyperlink{structplayer}{player}} {\bfseries joueur}
+\mbox{\Hypertarget{main_8h_ad92f2b056653cc55a088e47aff07f4aa}\label{main_8h_ad92f2b056653cc55a088e47aff07f4aa}} 
+static \mbox{\hyperlink{structplayer__t}{player\+\_\+t}} {\bfseries joueur}
 \item 
-\mbox{\Hypertarget{main_8h_a1d48ae43189b9843952e504854c47f06}\label{main_8h_a1d48ae43189b9843952e504854c47f06}} 
-static \mbox{\hyperlink{structplayer}{player}} $\ast$ {\bfseries joueurs}
+\mbox{\Hypertarget{main_8h_a551000248d53b0f87524224317c61f10}\label{main_8h_a551000248d53b0f87524224317c61f10}} 
+static \mbox{\hyperlink{structplayer__t}{player\+\_\+t}} $\ast$ {\bfseries joueurs}
 \item 
 \mbox{\Hypertarget{main_8h_a7292f6279b611a29ec39253ac349228b}\label{main_8h_a7292f6279b611a29ec39253ac349228b}} 
 static pthread\+\_\+t {\bfseries reloading}
@@ -172,7 +171,8 @@ Copyright (c) 2023
 
 Délai d\textquotesingle{}animation de respiration. 
 
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -189,7 +189,8 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 
 Délai de l\textquotesingle{}animation \char`\"{}courrir en bas\char`\"{}. 
 
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -206,7 +207,8 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 
 Délai de l\textquotesingle{}animation \char`\"{}courrir à gauche\char`\"{}. 
 
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -223,7 +225,8 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 
 Délai de l\textquotesingle{}animation \char`\"{}courrir à droite\char`\"{}. 
 
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -240,7 +243,8 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 
 Délai de l\textquotesingle{}animation \char`\"{}courrir en haut\char`\"{}. 
 
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -257,7 +261,8 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 
 Délai de l\textquotesingle{}animation du bouton de paramètres quand on a pas le curseur dessus. 
 
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -274,7 +279,8 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 
 Délai de l\textquotesingle{}animation du bouton de paramètres quand on a le curseur dessus. 
 
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -354,25 +360,27 @@ Envoi les données du joueur actuel au serveur.
 \begin{DoxyReturn}{Renvoie}
 void$\ast$ 
 \end{DoxyReturn}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{main_8h_a506eeac61f56b2e172d086173bac5995_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{main_8h_a506eeac61f56b2e172d086173bac5995_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{main_8h_a734d34007877ed5938e58dccb669ba96}\label{main_8h_a734d34007877ed5938e58dccb669ba96}} 
+\mbox{\Hypertarget{main_8h_a6f34c428b3f0a7afe10321406af12adb}\label{main_8h_a6f34c428b3f0a7afe10321406af12adb}} 
 \index{main.h@{main.h}!synchDatas@{synchDatas}}
 \index{synchDatas@{synchDatas}!main.h@{main.h}}
 \doxysubsubsection{\texorpdfstring{synchDatas()}{synchDatas()}}
-{\footnotesize\ttfamily void $\ast$ synch\+Datas (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer}{player}} $\ast$}]{Joueurs,  }\item[{int}]{taille }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void $\ast$ synch\+Datas (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} $\ast$}]{Joueurs,  }\item[{int}]{taille }\end{DoxyParamCaption})}
 
 
 
@@ -385,10 +393,11 @@ Récupère les données depuis le socket client.
 {\em taille} & \\
 \hline
 \end{DoxyParams}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{main_8h_a734d34007877ed5938e58dccb669ba96_icgraph}
+\includegraphics[width=350pt]{main_8h_a6f34c428b3f0a7afe10321406af12adb_icgraph}
 \end{center}
 \end{figure}

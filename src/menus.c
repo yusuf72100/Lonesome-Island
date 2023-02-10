@@ -495,22 +495,11 @@ static void init_texture(SDL_Surface **surface, SDL_Texture **texture)
 }
 
 /**
- * @brief Initialise toutes les variables relatives aux menus.
+ * @brief Initialise les surfaces du jeu.
  * 
  */
-void init_menus_vars()
+static void surfacesInit()
 {
-    mouse_position.x = 0, mouse_position.y = 0;
-    xWindow = 0, yWindow = 0;
-
-    SDL_GetWindowPosition(window, &xWindow, &yWindow);
-    SDL_GetMouseState(&mouse_position.x,&mouse_position.y);
-
-    joueur.playerRect.x = 0;
-    joueur.playerRect.y = 0;
-    joueur.playerRect.w = 50;
-    joueur.playerRect.h = 81;
-
     //assets init
     inventory_surface = IMG_Load("resources/inventory.png");;
     icon_surface = IMG_Load("resources/icon.png");
@@ -538,7 +527,14 @@ void init_menus_vars()
     surface_joueur_up_2 = IMG_Load("resources/characters/player_up_2.png");
     surface_joueur_down_1 = IMG_Load("resources/characters/player_down_1.png");
     surface_joueur_down_2 = IMG_Load("resources/characters/player_down_2.png");
+}
 
+/**
+ * @brief Initialise les éléments de la fenêtre.
+ * 
+ */
+static void windowInit()
+{
     if(SDL_Init(SDL_INIT_EVERYTHING != 0))
         SDL_ExitWithError("Failed init SDL");
 
@@ -550,12 +546,102 @@ void init_menus_vars()
 
     SDL_SetWindowIcon(window, icon_surface);
     SDL_GetCurrentDisplayMode(0,&DM);
+}
+
+/**
+ * @brief Initialise les textures du jeu.
+ * 
+ */
+static void texturesInit()
+{
+    //buttons
+    init_texture(&title_surface , &title_texture);
+    init_texture(&play_inert , &texture_play_inert);
+    init_texture(&play_hover , &texture_play_hover);
+    init_texture(&connect_inert , &texture_connect_inert);
+    init_texture(&connect_hover , &texture_connect_hover);
+    init_texture(&host_inert , &texture_host_inert);
+    init_texture(&host_hover , &texture_host_hover);
+    init_texture(&settings_inert , &texture_settings_inert);
+    init_texture(&inventory_surface , &inventory_texture);
+
+    //assets
+    init_texture(&background , &background_texture);
+    init_texture(&surface_joueur_h1 , &texture_joueur_h1);
+    init_texture(&surface_joueur_h2 , &texture_joueur_h2);
+    init_texture(&surface_joueur_left_1 , &texture_joueur_left_1);
+    init_texture(&surface_joueur_left_2 , &texture_joueur_left_2);
+    init_texture(&surface_joueur_right_1 , &texture_joueur_right_1);
+    init_texture(&surface_joueur_right_2 , &texture_joueur_right_2);
+    init_texture(&surface_joueur_up_1 , &texture_joueur_up_1);
+    init_texture(&surface_joueur_up_2 , &texture_joueur_up_2);
+    init_texture(&surface_joueur_down_1 , &texture_joueur_down_1);
+    init_texture(&surface_joueur_down_2 , &texture_joueur_down_2);
+}
+
+static void rectanglesInit()
+{
+    //player rectangle
+    joueur.playerRect.x = 0;
+    joueur.playerRect.y = 0;
+    joueur.playerRect.w = 50;
+    joueur.playerRect.h = 81;
 
     //title rectangle
     title_rect.w = 500;
     title_rect.h = 223;
     title_rect.x = (DM.w / 2) - (title_rect.w / 2);
     title_rect.y = 20;
+
+    //cursor rectangle
+    mouseRect.w = 50;
+    mouseRect.h = 50;
+
+    //play button
+    play_button_rect.w = 400;
+    play_button_rect.h = 200;
+    play_button_rect.x = (DM.w / 2) - (play_button_rect.w / 2);
+    play_button_rect.y = (((DM.h - title_rect.h) - (title_rect.y - 100)) / 3);
+
+    //connect button
+    connect_button_rect.w = 500;
+    connect_button_rect.h = 250;
+    connect_button_rect.x = (DM.w / 2) - (connect_button_rect.w / 2);
+    connect_button_rect.y = (((DM.h - title_rect.h) - (title_rect.y - 100)) / 3) + (connect_button_rect.h);
+
+    //host button
+    host_button_rect.w = 400;
+    host_button_rect.h = 200;
+    host_button_rect.x = (DM.w / 2) - (host_button_rect.w / 2);
+    host_button_rect.y = (((DM.h - title_rect.h) - (title_rect.y - 100)) / 3) + (connect_button_rect.h*2) + 40;
+
+    //settings button
+    settings_button_rect.w = 150;
+    settings_button_rect.h = 150;
+    settings_button_rect.x = 30;
+    settings_button_rect.y = DM.h - settings_button_rect.h - ((DM.h * 3) / 100);
+
+    //inventory 
+    inventory_rect.w = 800;
+    inventory_rect.h = 350;
+    inventory_rect.x = (DM.w / 2) - (inventory_rect.w / 2);
+    inventory_rect.y = DM.h - inventory_rect.h - 20;
+}
+
+/**
+ * @brief Initialise toutes les variables relatives aux menus.
+ * 
+ */
+void init_menus_vars()
+{
+    mouse_position.x = 0, mouse_position.y = 0;
+    xWindow = 0, yWindow = 0;
+
+    SDL_GetWindowPosition(window, &xWindow, &yWindow);
+    SDL_GetMouseState(&mouse_position.x,&mouse_position.y);
+
+    surfacesInit();
+    windowInit();
 
     if (TTF_Init() == -1)
     {
@@ -601,63 +687,8 @@ void init_menus_vars()
     SDL_BlitSurface(texte,NULL,background,&title_rect);
     */
 
-    //buttons
-    init_texture(&title_surface , &title_texture);
-    init_texture(&play_inert , &texture_play_inert);
-    init_texture(&play_hover , &texture_play_hover);
-    init_texture(&connect_inert , &texture_connect_inert);
-    init_texture(&connect_hover , &texture_connect_hover);
-    init_texture(&host_inert , &texture_host_inert);
-    init_texture(&host_hover , &texture_host_hover);
-    init_texture(&settings_inert , &texture_settings_inert);
-    init_texture(&inventory_surface , &inventory_texture);
-
-    //assets
-    init_texture(&background , &background_texture);
-    init_texture(&surface_joueur_h1 , &texture_joueur_h1);
-    init_texture(&surface_joueur_h2 , &texture_joueur_h2);
-    init_texture(&surface_joueur_left_1 , &texture_joueur_left_1);
-    init_texture(&surface_joueur_left_2 , &texture_joueur_left_2);
-    init_texture(&surface_joueur_right_1 , &texture_joueur_right_1);
-    init_texture(&surface_joueur_right_2 , &texture_joueur_right_2);
-    init_texture(&surface_joueur_up_1 , &texture_joueur_up_1);
-    init_texture(&surface_joueur_up_2 , &texture_joueur_up_2);
-    init_texture(&surface_joueur_down_1 , &texture_joueur_down_1);
-    init_texture(&surface_joueur_down_2 , &texture_joueur_down_2);
-
-    //cursor rectangle
-    mouseRect.w = 50;
-    mouseRect.h = 50;
-
-    //play button
-    play_button_rect.w = 400;
-    play_button_rect.h = 200;
-    play_button_rect.x = (DM.w / 2) - (play_button_rect.w / 2);
-    play_button_rect.y = (((DM.h - title_rect.h) - (title_rect.y - 100)) / 3);
-
-    //connect button
-    connect_button_rect.w = 500;
-    connect_button_rect.h = 250;
-    connect_button_rect.x = (DM.w / 2) - (connect_button_rect.w / 2);
-    connect_button_rect.y = (((DM.h - title_rect.h) - (title_rect.y - 100)) / 3) + (connect_button_rect.h);
-
-    //host button
-    host_button_rect.w = 400;
-    host_button_rect.h = 200;
-    host_button_rect.x = (DM.w / 2) - (host_button_rect.w / 2);
-    host_button_rect.y = (((DM.h - title_rect.h) - (title_rect.y - 100)) / 3) + (connect_button_rect.h*2) + 40;
-
-    //settings button
-    settings_button_rect.w = 150;
-    settings_button_rect.h = 150;
-    settings_button_rect.x = 30;
-    settings_button_rect.y = DM.h - settings_button_rect.h - ((DM.h * 3) / 100);
-
-    //inventory 
-    inventory_rect.w = 800;
-    inventory_rect.h = 350;
-    inventory_rect.x = (DM.w / 2) - (inventory_rect.w / 2);
-    inventory_rect.y = DM.h - inventory_rect.h - 20;
+    texturesInit();
+    rectanglesInit();
 }
 
 static void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, Bullet *b, int rotation, int vitesse)
@@ -762,6 +793,17 @@ void drawInventory()
     SDL_RenderCopy(renderer, inventory_texture, NULL, &inventory_rect);
 }
 
+void drawCases()
+{
+    for(int i = 0; i < 3; i++)
+    {
+        for(int j = 0; j < 10; j++)
+        {
+            
+        }
+    }
+}
+
 /**
  * @brief Affiche le menu principal
  * 
@@ -800,6 +842,7 @@ void InventoryMenu()
 {
     IngameMenu();
     drawInventory();
+    drawCases();
     drawMouse();
 }
 

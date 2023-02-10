@@ -116,9 +116,9 @@ Graphe des dépendances par inclusion de main.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:a734d34007877ed5938e58dccb669ba96"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a734d34007877ed5938e58dccb669ba96">synchDatas</a> (<a class="el" href="structplayer.html">player</a> *Joueurs, int taille)</td></tr>
-<tr class="memdesc:a734d34007877ed5938e58dccb669ba96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère les données depuis le socket client.  <br /></td></tr>
-<tr class="separator:a734d34007877ed5938e58dccb669ba96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f34c428b3f0a7afe10321406af12adb"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a6f34c428b3f0a7afe10321406af12adb">synchDatas</a> (<a class="el" href="structplayer__t.html">player_t</a> *Joueurs, int taille)</td></tr>
+<tr class="memdesc:a6f34c428b3f0a7afe10321406af12adb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère les données depuis le socket client.  <br /></td></tr>
+<tr class="separator:a6f34c428b3f0a7afe10321406af12adb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a506eeac61f56b2e172d086173bac5995"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a506eeac61f56b2e172d086173bac5995">Send2Server</a> ()</td></tr>
 <tr class="memdesc:a506eeac61f56b2e172d086173bac5995"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envoi les données du joueur actuel au serveur.  <br /></td></tr>
 <tr class="separator:a506eeac61f56b2e172d086173bac5995"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -144,6 +144,9 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateBulletAl
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>checkEvents</b> ()</td></tr>
 <tr class="memdesc:a65942d285a85ebdda2445b5da031c2e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change les valeurs du tableau d'évènements en fonction de nos instructions sur le clavier et la souris. <br /></td></tr>
 <tr class="separator:a65942d285a85ebdda2445b5da031c2e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab307fa8c5dfa880536562da6b5d35916"><td class="memItemLeft" align="right" valign="top"><a id="ab307fa8c5dfa880536562da6b5d35916" name="ab307fa8c5dfa880536562da6b5d35916"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>delay_key</b> (int temps)</td></tr>
+<tr class="separator:ab307fa8c5dfa880536562da6b5d35916"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f3c96146210adc4a3276d1e8bb2453c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a4f3c96146210adc4a3276d1e8bb2453c">delay_breath</a> ()</td></tr>
 <tr class="memdesc:a4f3c96146210adc4a3276d1e8bb2453c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Délai d'animation de respiration.  <br /></td></tr>
 <tr class="separator:a4f3c96146210adc4a3276d1e8bb2453c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -210,7 +213,7 @@ Voici le graphe des appelants de cette fonction :</div>
 <area shape="rect" title="Délai d&#39;animation de respiration." alt="" coords="423,31,519,56"/>
 <area shape="rect" href="menus_8c.html#a0fa3f94da8421e8f4e5d11404f87856b" title="Animation de respiration." alt="" coords="259,31,375,56"/>
 <area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="120,5,195,31"/>
-<area shape="rect" href="menus_8c.html#a18f5d14ec140197dd0e7627c3c6b7a47" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="104,55,211,80"/>
+<area shape="rect" href="menus_8c.html#a8cbdceb9c205a8d9c279691a09b337a1" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="104,55,211,80"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
 </map>
 </div>
@@ -241,7 +244,7 @@ Voici le graphe des appelants de cette fonction :</div>
 <area shape="rect" title="Délai de l&#39;animation &quot;courrir en bas&quot;." alt="" coords="471,31,609,56"/>
 <area shape="rect" href="menus_8c.html#a2baaae2f0feebce6bd015a37345e2270" title="Animation &quot;courrir en bas&quot;." alt="" coords="259,31,423,56"/>
 <area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="120,5,195,31"/>
-<area shape="rect" href="menus_8c.html#a18f5d14ec140197dd0e7627c3c6b7a47" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="104,55,211,80"/>
+<area shape="rect" href="menus_8c.html#a8cbdceb9c205a8d9c279691a09b337a1" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="104,55,211,80"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
 </map>
 </div>
@@ -272,7 +275,7 @@ Voici le graphe des appelants de cette fonction :</div>
 <area shape="rect" title="Délai de l&#39;animation &quot;courrir à gauche&quot;." alt="" coords="457,31,584,56"/>
 <area shape="rect" href="menus_8c.html#a2fdf89dd6b22fb5e5d73f8370470985b" title="Animation &quot;courrir à gauche&quot;." alt="" coords="259,31,409,56"/>
 <area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="120,5,195,31"/>
-<area shape="rect" href="menus_8c.html#a18f5d14ec140197dd0e7627c3c6b7a47" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="104,55,211,80"/>
+<area shape="rect" href="menus_8c.html#a8cbdceb9c205a8d9c279691a09b337a1" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="104,55,211,80"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
 </map>
 </div>
@@ -303,7 +306,7 @@ Voici le graphe des appelants de cette fonction :</div>
 <area shape="rect" title="Délai de l&#39;animation &quot;courrir à droite&quot;." alt="" coords="465,31,600,56"/>
 <area shape="rect" href="menus_8c.html#a1fdb9aee8fd08118ac0bc4234da6a2eb" title="Animation &quot;courrir à droite&quot;." alt="" coords="259,31,417,56"/>
 <area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="120,5,195,31"/>
-<area shape="rect" href="menus_8c.html#a18f5d14ec140197dd0e7627c3c6b7a47" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="104,55,211,80"/>
+<area shape="rect" href="menus_8c.html#a8cbdceb9c205a8d9c279691a09b337a1" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="104,55,211,80"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
 </map>
 </div>
@@ -334,7 +337,7 @@ Voici le graphe des appelants de cette fonction :</div>
 <area shape="rect" title="Délai de l&#39;animation &quot;courrir en haut&quot;." alt="" coords="455,31,577,56"/>
 <area shape="rect" href="menus_8c.html#ad1aa5c5c7c6e33913f1a654a09ba6a00" title="Animation &quot;courrir àen haut&quot;." alt="" coords="259,31,407,56"/>
 <area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="120,5,195,31"/>
-<area shape="rect" href="menus_8c.html#a18f5d14ec140197dd0e7627c3c6b7a47" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="104,55,211,80"/>
+<area shape="rect" href="menus_8c.html#a8cbdceb9c205a8d9c279691a09b337a1" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="104,55,211,80"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
 </map>
 </div>
@@ -362,9 +365,10 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8c_a0f9a66b9fc132ae63360835a23fe0ab0_icgraph.png" border="0" usemap="#amain_8c_a0f9a66b9fc132ae63360835a23fe0ab0_icgraph" alt=""/></div>
 <map name="amain_8c_a0f9a66b9fc132ae63360835a23fe0ab0_icgraph" id="amain_8c_a0f9a66b9fc132ae63360835a23fe0ab0_icgraph">
-<area shape="rect" title="Délai de l&#39;animation du bouton de paramètres quand on a pas le curseur dessus." alt="" coords="481,5,655,31"/>
-<area shape="rect" href="menus_8c.html#ab6d77ef359eb1ad9820145690e17a427" title="Animation du bouton paramètres quand on a pas le curseur dessus." alt="" coords="235,5,433,31"/>
-<area shape="rect" href="menus_8c.html#ab3002fe8e0074c9e2ecb5b835e5e819f" title="Affiche le menu principal." alt="" coords="104,5,187,31"/>
+<area shape="rect" title="Délai de l&#39;animation du bouton de paramètres quand on a pas le curseur dessus." alt="" coords="611,5,784,31"/>
+<area shape="rect" href="menus_8c.html#ab6d77ef359eb1ad9820145690e17a427" title="Animation du bouton paramètres quand on a pas le curseur dessus." alt="" coords="364,5,563,31"/>
+<area shape="rect" href="menus_8c.html#ab3002fe8e0074c9e2ecb5b835e5e819f" title="Affiche le menu principal." alt="" coords="233,5,316,31"/>
+<area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,5,185,31"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
 </map>
 </div>
@@ -392,9 +396,10 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8c_a0caf52e6e1d7fb594108d8d4f4fbcd77_icgraph.png" border="0" usemap="#amain_8c_a0caf52e6e1d7fb594108d8d4f4fbcd77_icgraph" alt=""/></div>
 <map name="amain_8c_a0caf52e6e1d7fb594108d8d4f4fbcd77_icgraph" id="amain_8c_a0caf52e6e1d7fb594108d8d4f4fbcd77_icgraph">
-<area shape="rect" title="Délai de l&#39;animation du bouton de paramètres quand on a le curseur dessus." alt="" coords="457,5,607,45"/>
-<area shape="rect" href="menus_8c.html#a48c083415f7a9126fec9cc228b651991" title="Animation du bouton paramètres quand on a le curseur dessus." alt="" coords="235,5,409,45"/>
-<area shape="rect" href="menus_8c.html#ab3002fe8e0074c9e2ecb5b835e5e819f" title="Affiche le menu principal." alt="" coords="104,13,187,38"/>
+<area shape="rect" title="Délai de l&#39;animation du bouton de paramètres quand on a le curseur dessus." alt="" coords="587,5,736,45"/>
+<area shape="rect" href="menus_8c.html#a48c083415f7a9126fec9cc228b651991" title="Animation du bouton paramètres quand on a le curseur dessus." alt="" coords="364,5,539,45"/>
+<area shape="rect" href="menus_8c.html#ab3002fe8e0074c9e2ecb5b835e5e819f" title="Affiche le menu principal." alt="" coords="233,13,316,38"/>
+<area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,13,185,38"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,13,56,38"/>
 </map>
 </div>
@@ -434,10 +439,10 @@ Voici le graphe d'appel pour cette fonction :</div>
 <area shape="rect" href="menus_8c.html#a0fa3f94da8421e8f4e5d11404f87856b" title="Animation de respiration." alt="" coords="152,80,268,105"/>
 <area shape="rect" href="main_8c.html#a506eeac61f56b2e172d086173bac5995" title="Envoi les données du joueur actuel au serveur." alt="" coords="362,229,457,255"/>
 <area shape="rect" href="menus_8c.html#a9310b9a509b196dead801a8afe8f735a" title="Change l&#39;état du boutton de survol ciblé." alt="" coords="143,129,277,155"/>
-<area shape="rect" href="menus_8c.html#aa3d16c0615cae07eb3845131203c1c72" title="Change de menu." alt="" coords="162,179,258,204"/>
-<area shape="rect" href="menus_8c.html#a9e5f626ab953d2b6f672f20c3742287d" title="Dessine tous les joueurs." alt="" coords="163,31,257,56"/>
+<area shape="rect" href="defs_8c.html#acbae57aa2d8c508e63c0597b44024977" title="Change de menu." alt="" coords="162,179,258,204"/>
+<area shape="rect" href="menus_8c.html#ab804df0c510979d77fd5599feef21ae0" title="Dessine tous les joueurs." alt="" coords="163,31,257,56"/>
 <area shape="rect" href="main_8c.html#ab5a2d27713f1814d93ff81281e653e22" title="Récupère l&#39;heure et la date actuelle." alt="" coords="170,304,250,329"/>
-<area shape="rect" href="menus_8c.html#a272acb896d5e5413328204c4060b1598" title="Nous renvoi le menu dans lequel le client se trouve." alt="" coords="174,353,246,379"/>
+<area shape="rect" href="defs_8c.html#a46ada666e9f33f66113ea70f035ba7a4" title="Nous renvoi le menu dans lequel le client se trouve." alt="" coords="174,353,246,379"/>
 <area shape="rect" href="sound_8c.html#a255dd9ed014ef2eaf3f9e53005134ec4" title="Fonction qui lance le son de clique de bouton dans un thread dédié." alt="" coords="173,403,247,428"/>
 <area shape="rect" href="menus_8c.html#a1bd07c916c27ca0eb4e4a8aad057fc59" title="Renvoi TRUE si le curseur est sur le boutton passé en paramètre sinon renvoi FALSE si le curseur est ..." alt="" coords="173,452,247,477"/>
 <area shape="rect" href="client_8c.html#a37deea5f4750c52937a56b0e97d566b9" title="Établie la connexion avec le serveur." alt="" coords="527,776,655,801"/>
@@ -450,16 +455,16 @@ Voici le graphe d'appel pour cette fonction :</div>
 <area shape="rect" href="socket_8c.html#a3490387e86b9ba6a1ee9ed3984b637d5" title="Démarre le serveur et initie la table de clients." alt="" coords="168,852,252,877"/>
 <area shape="rect" href="menus_8c.html#aad0757276ad4bc900c8826f8ecbe6ecc" title="Change le mode plein écran." alt="" coords="151,901,269,927"/>
 <area shape="rect" href="main_8c.html#a4f3c96146210adc4a3276d1e8bb2453c" title="Délai d&#39;animation de respiration." alt="" coords="361,80,457,105"/>
-<area shape="rect" href="client_8c.html#a7cea858f95329a092fd2cbc746c59728" title="Récupère les données du joueur et les envois au serveur via le socket." alt="" coords="549,341,633,367"/>
-<area shape="rect" href="client_8c.html#a5e0f51fafacc388da3b4ebbf686b0eda" title="Construit une trame réseau dédiée uniquement au serveur." alt="" coords="729,341,808,367"/>
+<area shape="rect" href="client_8c.html#a6ff46bda2f9d755b3e1b4a941b10e8e1" title="Récupère les données du joueur et les envois au serveur via le socket." alt="" coords="549,341,633,367"/>
+<area shape="rect" href="client_8c.html#ad2e9b80b5c5fa53e006e439a25c692cc" title="Construit une trame réseau dédiée uniquement au serveur." alt="" coords="729,341,808,367"/>
 <area shape="rect" href="client_8c.html#a1a44fcc8a4125e81a0730b67c2603470" title="Arrête la connexion avec le serveur." alt="" coords="713,503,825,528"/>
-<area shape="rect" href="menus_8c.html#a124c70bcd0486f8db5d0292febf8c889" title="Applique la bonne texture au joueur en fonction de son animation." alt="" coords="351,31,468,56"/>
+<area shape="rect" href="menus_8c.html#a6806c9e2f2bcbf342c2bfa91336c2d27" title="Applique la bonne texture au joueur en fonction de son animation." alt="" coords="351,31,468,56"/>
 <area shape="rect" href="menus_8c.html#a2dfe41d8c0f122241c47441391c02de3" title="Dessine un joueur en fonction de ses coordonnées et de sa texture." alt="" coords="547,31,634,56"/>
 <area shape="rect" href="menus_8c.html#a3ccdb6767f1237284bf7c8e0d3e3eacb" title="Détruit la fenêtre et le rendu." alt="" coords="729,5,809,31"/>
 <area shape="rect" href="menus_8c.html#acd3f39401c59bbd01c9663c5348c63c1" title="Nous renvoi une erreur SDL." alt="" coords="703,55,835,80"/>
 <area shape="rect" href="sound_8c.html#a821870717dad737e58c42019d5502d4b" title="Joue le son de clique sur un bouton." alt="" coords="369,403,450,428"/>
 <area shape="rect" href="client_8c.html#a5db5e79b1f9efa79675000da17beacfb" title="Traite les données reçus par le serveur." alt="" coords="733,776,804,801"/>
-<area shape="rect" href="main_8c.html#a734d34007877ed5938e58dccb669ba96" title="Récupère les données depuis le socket client." alt="" coords="886,776,977,801"/>
+<area shape="rect" href="main_8c.html#a6f34c428b3f0a7afe10321406af12adb" title="Récupère les données depuis le socket client." alt="" coords="886,776,977,801"/>
 <area shape="rect" href="main_8c.html#a400d947e8338483aca91275e6b09c08e" title="Délai de l&#39;animation &quot;courrir en bas&quot;." alt="" coords="340,603,479,628"/>
 <area shape="rect" href="main_8c.html#a87f15eea45228c1b2d66df42116d7599" title="Délai de l&#39;animation &quot;courrir à gauche&quot;." alt="" coords="346,652,473,677"/>
 <area shape="rect" href="main_8c.html#a22982612c2117162b7a74c76eb20028a" title="Délai de l&#39;animation &quot;courrir à droite&quot;." alt="" coords="342,701,477,727"/>
@@ -469,7 +474,7 @@ Voici le graphe d'appel pour cette fonction :</div>
 <area shape="rect" href="socket_8c.html#af93eb740b3e202bdcb05795a2da4ef8c" title="Déconnecte le client en fonction de sa position dans le tableau." alt="" coords="707,927,830,952"/>
 <area shape="rect" href="socket_8c.html#af8f7aaaf34db2175c7a9c4ab7d3306fc" title="Envoie la donnée d&#39;un client à tous les autres y compris au client lui&#45;même." alt="" coords="883,876,980,901"/>
 <area shape="rect" href="socket_8c.html#a88d900ece06509fc9c398d81b5200e71" title="Cherche la position du client dans le tableau des clients." alt="" coords="724,877,813,903"/>
-<area shape="rect" href="socket_8c.html#adb3e88c50501cb4d59262878ebfffc55" title="Construit une trame dédiée uniquement au client i." alt="" coords="1028,876,1171,901"/>
+<area shape="rect" href="socket_8c.html#ac422f6ffe2be4ee3387e8b98b6393193" title="Construit une trame dédiée uniquement au client i." alt="" coords="1028,876,1171,901"/>
 </map>
 </div>
 <div class="dynheader">
@@ -600,56 +605,56 @@ Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph.png" border="0" usemap="#amain_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph" alt=""/></div>
 <map name="amain_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph" id="amain_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph">
-<area shape="rect" title="Programme principal." alt="" coords="5,1000,56,1025"/>
-<area shape="rect" href="main_8c.html#a65942d285a85ebdda2445b5da031c2e2" title="Change les valeurs du tableau d&#39;évènements en fonction de nos instructions sur le clavier et la souri..." alt="" coords="143,425,239,451"/>
-<area shape="rect" href="sound_8c.html#acb373f7276274a75af2fc3ec23a8e266" title="Initialise les cannaux audio et les sons." alt="" coords="104,475,277,500"/>
-<area shape="rect" href="menus_8c.html#a3ccdb6767f1237284bf7c8e0d3e3eacb" title="Détruit la fenêtre et le rendu." alt="" coords="601,1051,681,1076"/>
-<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="153,524,228,549"/>
-<area shape="rect" href="client_8c.html#a1a44fcc8a4125e81a0730b67c2603470" title="Arrête la connexion avec le serveur." alt="" coords="920,580,1032,605"/>
-<area shape="rect" href="main_8c.html#a270d20bdcadebb9a08a01a55c37858a9" title="Initialise toutes les variables relatives aux menus." alt="" coords="156,975,225,1000"/>
-<area shape="rect" href="sound_8c.html#ab74d84d6d4c90b2b18669590af038a07" title="Initialise le moteur audio." alt="" coords="155,1076,227,1101"/>
-<area shape="rect" href="menus_8c.html#ab3002fe8e0074c9e2ecb5b835e5e819f" title="Affiche le menu principal." alt="" coords="149,1232,232,1257"/>
-<area shape="rect" href="socket_8c.html#ac1e551c19cd6ce8d7da8b13d1f290863" title="Arrête le serveur en déconnectant tous les clients d&#39;abord." alt="" coords="149,1281,232,1307"/>
-<area shape="rect" href="menus_8c.html#a10da25e92e69613be93d099bb029feb2" title="Met à jour les valeurs de l&#39;écran." alt="" coords="137,1331,244,1356"/>
-<area shape="rect" href="menus_8c.html#a0fa3f94da8421e8f4e5d11404f87856b" title="Animation de respiration." alt="" coords="367,624,483,649"/>
-<area shape="rect" href="main_8c.html#a506eeac61f56b2e172d086173bac5995" title="Envoi les données du joueur actuel au serveur." alt="" coords="594,673,689,699"/>
-<area shape="rect" href="menus_8c.html#a9310b9a509b196dead801a8afe8f735a" title="Change l&#39;état du boutton de survol ciblé." alt="" coords="358,824,491,849"/>
-<area shape="rect" href="menus_8c.html#aa3d16c0615cae07eb3845131203c1c72" title="Change de menu." alt="" coords="377,873,473,899"/>
-<area shape="rect" href="menus_8c.html#a9e5f626ab953d2b6f672f20c3742287d" title="Dessine tous les joueurs." alt="" coords="378,775,471,800"/>
-<area shape="rect" href="main_8c.html#ab5a2d27713f1814d93ff81281e653e22" title="Récupère l&#39;heure et la date actuelle." alt="" coords="385,79,465,104"/>
-<area shape="rect" href="menus_8c.html#a272acb896d5e5413328204c4060b1598" title="Nous renvoi le menu dans lequel le client se trouve." alt="" coords="389,128,461,153"/>
-<area shape="rect" href="sound_8c.html#a255dd9ed014ef2eaf3f9e53005134ec4" title="Fonction qui lance le son de clique de bouton dans un thread dédié." alt="" coords="387,5,462,31"/>
-<area shape="rect" href="menus_8c.html#a1bd07c916c27ca0eb4e4a8aad057fc59" title="Renvoi TRUE si le curseur est sur le boutton passé en paramètre sinon renvoi FALSE si le curseur est ..." alt="" coords="387,227,462,252"/>
-<area shape="rect" href="client_8c.html#a37deea5f4750c52937a56b0e97d566b9" title="Établie la connexion avec le serveur." alt="" coords="361,177,489,203"/>
-<area shape="rect" href="main_8c.html#a74d9cf129eac9371caa5a93b97b4f95c" title="Met un cooldown pour un rechargement." alt="" coords="374,325,475,351"/>
-<area shape="rect" href="menus_8c.html#a2baaae2f0feebce6bd015a37345e2270" title="Animation &quot;courrir en bas&quot;." alt="" coords="343,276,507,301"/>
-<area shape="rect" href="menus_8c.html#a2fdf89dd6b22fb5e5d73f8370470985b" title="Animation &quot;courrir à gauche&quot;." alt="" coords="349,375,500,400"/>
-<area shape="rect" href="menus_8c.html#a1fdb9aee8fd08118ac0bc4234da6a2eb" title="Animation &quot;courrir à droite&quot;." alt="" coords="345,424,504,449"/>
-<area shape="rect" href="menus_8c.html#ad1aa5c5c7c6e33913f1a654a09ba6a00" title="Animation &quot;courrir àen haut&quot;." alt="" coords="351,473,499,499"/>
-<area shape="rect" href="client_8c.html#a3622090a7ff391221a74cad6493bbca9" title="Démarre la connexion au serveur et renvoi TRUE en cas d&#39;erreur sinon renvoi FALSE." alt="" coords="759,561,872,587"/>
-<area shape="rect" href="socket_8c.html#a3490387e86b9ba6a1ee9ed3984b637d5" title="Démarre le serveur et initie la table de clients." alt="" coords="383,575,467,600"/>
-<area shape="rect" href="menus_8c.html#aad0757276ad4bc900c8826f8ecbe6ecc" title="Change le mode plein écran." alt="" coords="366,725,483,751"/>
-<area shape="rect" href="main_8c.html#a4f3c96146210adc4a3276d1e8bb2453c" title="Délai d&#39;animation de respiration." alt="" coords="593,624,689,649"/>
-<area shape="rect" href="client_8c.html#a7cea858f95329a092fd2cbc746c59728" title="Récupère les données du joueur et les envois au serveur via le socket." alt="" coords="773,655,857,680"/>
-<area shape="rect" href="menus_8c.html#a124c70bcd0486f8db5d0292febf8c889" title="Applique la bonne texture au joueur en fonction de son animation." alt="" coords="583,775,700,800"/>
-<area shape="rect" href="sound_8c.html#a821870717dad737e58c42019d5502d4b" title="Joue le son de clique sur un bouton." alt="" coords="601,5,682,31"/>
-<area shape="rect" href="client_8c.html#a5db5e79b1f9efa79675000da17beacfb" title="Traite les données reçus par le serveur." alt="" coords="606,228,677,253"/>
-<area shape="rect" href="main_8c.html#a400d947e8338483aca91275e6b09c08e" title="Délai de l&#39;animation &quot;courrir en bas&quot;." alt="" coords="572,277,711,303"/>
-<area shape="rect" href="main_8c.html#a87f15eea45228c1b2d66df42116d7599" title="Délai de l&#39;animation &quot;courrir à gauche&quot;." alt="" coords="578,375,705,400"/>
-<area shape="rect" href="main_8c.html#a22982612c2117162b7a74c76eb20028a" title="Délai de l&#39;animation &quot;courrir à droite&quot;." alt="" coords="574,424,709,449"/>
-<area shape="rect" href="main_8c.html#a5c3f10f59573b2b0ee8a757d4aa2d589" title="Délai de l&#39;animation &quot;courrir en haut&quot;." alt="" coords="580,473,703,499"/>
-<area shape="rect" href="socket_8c.html#a68b45930fad2153f053144a8678afa1c" title="Gère la place des clients dans la table de client et reçoit les nouveaux clients." alt="" coords="591,575,692,600"/>
-<area shape="rect" href="menus_8c.html#a48e3fe80d276c94e23eed3c1017a05ee" title="Initialise toutes les variables relatives aux menus." alt="" coords="367,975,482,1000"/>
-<area shape="rect" href="menus_8c.html#a70f776dc6d31bb4d4269557103b724ca" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="379,1289,470,1315"/>
-<area shape="rect" href="menus_8c.html#ac08bc7c592426e91140a694c8707ec18" title="Affiche la texture de survol avec animation du bouton demandé en dans le menu souhaité." alt="" coords="337,1339,512,1364"/>
-<area shape="rect" href="menus_8c.html#ade81b1e4531f386eb2ff98d3d8930413" title="Initialise les assets de l&#39;erreur dans le menu demandé avec SDL_TTF." alt="" coords="379,1388,470,1413"/>
-<area shape="rect" href="menus_8c.html#a7847849e8e072c2895401120c061bac0" title="Dessine le bouton de paramètres (à executer dans un thread uniquement)." alt="" coords="352,1438,497,1478"/>
-<area shape="rect" href="menus_8c.html#a258a73384029adb1d7e22ca959235633" title="Essaye de dessiner tous les bouttons." alt="" coords="377,1503,472,1528"/>
-<area shape="rect" href="menus_8c.html#aab7430a217db9969c46ead48adffbd05" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="381,1076,469,1101"/>
-<area shape="rect" href="menus_8c.html#a72036abbb16f3b007110ff03d748e0b1" title="Dessine le titre dans le menu principal." alt="" coords="388,1125,461,1151"/>
-<area shape="rect" href="menus_8c.html#ab6d77ef359eb1ad9820145690e17a427" title="Animation du bouton paramètres quand on a pas le curseur dessus." alt="" coords="325,1175,524,1200"/>
-<area shape="rect" href="menus_8c.html#a48c083415f7a9126fec9cc228b651991" title="Animation du bouton paramètres quand on a le curseur dessus." alt="" coords="337,1225,512,1265"/>
-<area shape="rect" href="socket_8c.html#af93eb740b3e202bdcb05795a2da4ef8c" title="Déconnecte le client en fonction de sa position dans le tableau." alt="" coords="363,1552,486,1577"/>
+<area shape="rect" title="Programme principal." alt="" coords="5,1081,56,1107"/>
+<area shape="rect" href="main_8c.html#a65942d285a85ebdda2445b5da031c2e2" title="Change les valeurs du tableau d&#39;évènements en fonction de nos instructions sur le clavier et la souri..." alt="" coords="143,431,239,456"/>
+<area shape="rect" href="sound_8c.html#acb373f7276274a75af2fc3ec23a8e266" title="Initialise les cannaux audio et les sons." alt="" coords="104,480,277,505"/>
+<area shape="rect" href="menus_8c.html#a3ccdb6767f1237284bf7c8e0d3e3eacb" title="Détruit la fenêtre et le rendu." alt="" coords="963,1196,1043,1221"/>
+<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="153,529,228,555"/>
+<area shape="rect" href="client_8c.html#a1a44fcc8a4125e81a0730b67c2603470" title="Arrête la connexion avec le serveur." alt="" coords="947,499,1059,524"/>
+<area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="150,1065,231,1091"/>
+<area shape="rect" href="main_8c.html#a270d20bdcadebb9a08a01a55c37858a9" title="Initialise toutes les variables relatives aux menus." alt="" coords="156,1143,225,1168"/>
+<area shape="rect" href="sound_8c.html#ab74d84d6d4c90b2b18669590af038a07" title="Initialise le moteur audio." alt="" coords="155,1275,227,1300"/>
+<area shape="rect" href="socket_8c.html#ac1e551c19cd6ce8d7da8b13d1f290863" title="Arrête le serveur en déconnectant tous les clients d&#39;abord." alt="" coords="149,1324,232,1349"/>
+<area shape="rect" href="menus_8c.html#a10da25e92e69613be93d099bb029feb2" title="Met à jour les valeurs de l&#39;écran." alt="" coords="137,1373,244,1399"/>
+<area shape="rect" href="menus_8c.html#a0fa3f94da8421e8f4e5d11404f87856b" title="Animation de respiration." alt="" coords="349,431,465,456"/>
+<area shape="rect" href="main_8c.html#a506eeac61f56b2e172d086173bac5995" title="Envoi les données du joueur actuel au serveur." alt="" coords="559,381,654,407"/>
+<area shape="rect" href="menus_8c.html#a9310b9a509b196dead801a8afe8f735a" title="Change l&#39;état du boutton de survol ciblé." alt="" coords="341,529,474,555"/>
+<area shape="rect" href="defs_8c.html#acbae57aa2d8c508e63c0597b44024977" title="Change de menu." alt="" coords="359,579,455,604"/>
+<area shape="rect" href="menus_8c.html#ab804df0c510979d77fd5599feef21ae0" title="Dessine tous les joueurs." alt="" coords="361,480,454,505"/>
+<area shape="rect" href="main_8c.html#ab5a2d27713f1814d93ff81281e653e22" title="Récupère l&#39;heure et la date actuelle." alt="" coords="367,701,447,727"/>
+<area shape="rect" href="defs_8c.html#a46ada666e9f33f66113ea70f035ba7a4" title="Nous renvoi le menu dans lequel le client se trouve." alt="" coords="371,751,443,776"/>
+<area shape="rect" href="sound_8c.html#a255dd9ed014ef2eaf3f9e53005134ec4" title="Fonction qui lance le son de clique de bouton dans un thread dédié." alt="" coords="370,800,445,825"/>
+<area shape="rect" href="menus_8c.html#a1bd07c916c27ca0eb4e4a8aad057fc59" title="Renvoi TRUE si le curseur est sur le boutton passé en paramètre sinon renvoi FALSE si le curseur est ..." alt="" coords="370,849,445,875"/>
+<area shape="rect" href="client_8c.html#a37deea5f4750c52937a56b0e97d566b9" title="Établie la connexion avec le serveur." alt="" coords="343,628,471,653"/>
+<area shape="rect" href="main_8c.html#a74d9cf129eac9371caa5a93b97b4f95c" title="Met un cooldown pour un rechargement." alt="" coords="357,899,458,924"/>
+<area shape="rect" href="menus_8c.html#a2baaae2f0feebce6bd015a37345e2270" title="Animation &quot;courrir en bas&quot;." alt="" coords="325,83,489,108"/>
+<area shape="rect" href="menus_8c.html#a2fdf89dd6b22fb5e5d73f8370470985b" title="Animation &quot;courrir à gauche&quot;." alt="" coords="332,132,483,157"/>
+<area shape="rect" href="menus_8c.html#a1fdb9aee8fd08118ac0bc4234da6a2eb" title="Animation &quot;courrir à droite&quot;." alt="" coords="328,181,487,207"/>
+<area shape="rect" href="menus_8c.html#ad1aa5c5c7c6e33913f1a654a09ba6a00" title="Animation &quot;courrir àen haut&quot;." alt="" coords="333,231,481,256"/>
+<area shape="rect" href="client_8c.html#a3622090a7ff391221a74cad6493bbca9" title="Démarre la connexion au serveur et renvoi TRUE en cas d&#39;erreur sinon renvoi FALSE." alt="" coords="755,213,868,239"/>
+<area shape="rect" href="socket_8c.html#a3490387e86b9ba6a1ee9ed3984b637d5" title="Démarre le serveur et initie la table de clients." alt="" coords="365,280,449,305"/>
+<area shape="rect" href="menus_8c.html#aad0757276ad4bc900c8826f8ecbe6ecc" title="Change le mode plein écran." alt="" coords="349,381,466,407"/>
+<area shape="rect" href="main_8c.html#a4f3c96146210adc4a3276d1e8bb2453c" title="Délai d&#39;animation de respiration." alt="" coords="559,431,655,456"/>
+<area shape="rect" href="client_8c.html#a6ff46bda2f9d755b3e1b4a941b10e8e1" title="Récupère les données du joueur et les envois au serveur via le socket." alt="" coords="769,443,853,468"/>
+<area shape="rect" href="menus_8c.html#a6806c9e2f2bcbf342c2bfa91336c2d27" title="Applique la bonne texture au joueur en fonction de son animation." alt="" coords="548,480,665,505"/>
+<area shape="rect" href="sound_8c.html#a821870717dad737e58c42019d5502d4b" title="Joue le son de clique sur un bouton." alt="" coords="566,800,647,825"/>
+<area shape="rect" href="client_8c.html#a5db5e79b1f9efa79675000da17beacfb" title="Traite les données reçus par le serveur." alt="" coords="571,628,642,653"/>
+<area shape="rect" href="main_8c.html#a400d947e8338483aca91275e6b09c08e" title="Délai de l&#39;animation &quot;courrir en bas&quot;." alt="" coords="537,83,676,108"/>
+<area shape="rect" href="main_8c.html#a87f15eea45228c1b2d66df42116d7599" title="Délai de l&#39;animation &quot;courrir à gauche&quot;." alt="" coords="543,132,670,157"/>
+<area shape="rect" href="main_8c.html#a22982612c2117162b7a74c76eb20028a" title="Délai de l&#39;animation &quot;courrir à droite&quot;." alt="" coords="539,181,674,207"/>
+<area shape="rect" href="main_8c.html#a5c3f10f59573b2b0ee8a757d4aa2d589" title="Délai de l&#39;animation &quot;courrir en haut&quot;." alt="" coords="545,231,668,256"/>
+<area shape="rect" href="socket_8c.html#a68b45930fad2153f053144a8678afa1c" title="Gère la place des clients dans la table de client et reçoit les nouveaux clients." alt="" coords="556,280,657,305"/>
+<area shape="rect" href="menus_8c.html#ac4c9f25aa12dff823919430e1f6193a2" title="Dessine le menu en jeu." alt="" coords="559,1051,655,1076"/>
+<area shape="rect" href="menus_8c.html#ad91f44597d803d249e1b96e7569f8199" title="Dessin le menu de l&#39;inventaire." alt="" coords="355,1000,460,1025"/>
+<area shape="rect" href="menus_8c.html#ab3002fe8e0074c9e2ecb5b835e5e819f" title="Affiche le menu principal." alt="" coords="565,1100,648,1125"/>
+<area shape="rect" href="menus_8c.html#aab7430a217db9969c46ead48adffbd05" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="767,999,855,1024"/>
+<area shape="rect" href="menus_8c.html#aed543fd0f875dcbff172087fe7b23025" title="Dessine l&#39;inventaire." alt="" coords="761,949,861,975"/>
+<area shape="rect" href="menus_8c.html#ab5e1f7649b8b40f10bd9168c6a098883" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="766,1048,857,1073"/>
+<area shape="rect" href="menus_8c.html#ad9a4714e86590146659768dcd5357272" title="Affiche la texture de survol avec animation du bouton demandé en dans le menu souhaité." alt="" coords="724,1097,899,1123"/>
+<area shape="rect" href="menus_8c.html#af533a07a1593c721a25b080bf2cc10d9" title="Dessine un boutton en fonction d&#39;une certaine rotation." alt="" coords="729,1196,894,1221"/>
+<area shape="rect" href="menus_8c.html#a258a73384029adb1d7e22ca959235633" title="Essaye de dessiner tous les bouttons." alt="" coords="764,1147,859,1172"/>
+<area shape="rect" href="menus_8c.html#a48e3fe80d276c94e23eed3c1017a05ee" title="Initialise toutes les variables relatives aux menus." alt="" coords="754,1245,869,1271"/>
+<area shape="rect" href="socket_8c.html#af93eb740b3e202bdcb05795a2da4ef8c" title="Déconnecte le client en fonction de sa position dans le tableau." alt="" coords="346,1324,469,1349"/>
 </map>
 </div>
 
@@ -737,8 +742,8 @@ Voici le graphe d'appel pour cette fonction :</div>
 <div class="center"><img src="main_8c_a506eeac61f56b2e172d086173bac5995_cgraph.png" border="0" usemap="#amain_8c_a506eeac61f56b2e172d086173bac5995_cgraph" alt=""/></div>
 <map name="amain_8c_a506eeac61f56b2e172d086173bac5995_cgraph" id="amain_8c_a506eeac61f56b2e172d086173bac5995_cgraph">
 <area shape="rect" title="Envoi les données du joueur actuel au serveur." alt="" coords="5,31,100,56"/>
-<area shape="rect" href="client_8c.html#a7cea858f95329a092fd2cbc746c59728" title="Récupère les données du joueur et les envois au serveur via le socket." alt="" coords="148,31,232,56"/>
-<area shape="rect" href="client_8c.html#a5e0f51fafacc388da3b4ebbf686b0eda" title="Construit une trame réseau dédiée uniquement au serveur." alt="" coords="297,5,375,31"/>
+<area shape="rect" href="client_8c.html#a6ff46bda2f9d755b3e1b4a941b10e8e1" title="Récupère les données du joueur et les envois au serveur via le socket." alt="" coords="148,31,232,56"/>
+<area shape="rect" href="client_8c.html#ad2e9b80b5c5fa53e006e439a25c692cc" title="Construit une trame réseau dédiée uniquement au serveur." alt="" coords="297,5,375,31"/>
 <area shape="rect" href="client_8c.html#a1a44fcc8a4125e81a0730b67c2603470" title="Arrête la connexion avec le serveur." alt="" coords="280,55,392,80"/>
 </map>
 </div>
@@ -750,15 +755,15 @@ Voici le graphe des appelants de cette fonction :</div>
 <area shape="rect" title="Envoi les données du joueur actuel au serveur." alt="" coords="423,29,517,55"/>
 <area shape="rect" href="menus_8c.html#a0fa3f94da8421e8f4e5d11404f87856b" title="Animation de respiration." alt="" coords="259,55,375,80"/>
 <area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="120,5,195,31"/>
-<area shape="rect" href="menus_8c.html#a18f5d14ec140197dd0e7627c3c6b7a47" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="104,55,211,80"/>
+<area shape="rect" href="menus_8c.html#a8cbdceb9c205a8d9c279691a09b337a1" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="104,55,211,80"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a734d34007877ed5938e58dccb669ba96" name="a734d34007877ed5938e58dccb669ba96"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a734d34007877ed5938e58dccb669ba96">&#9670;&#160;</a></span>synchDatas()</h2>
+<a id="a6f34c428b3f0a7afe10321406af12adb" name="a6f34c428b3f0a7afe10321406af12adb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f34c428b3f0a7afe10321406af12adb">&#9670;&#160;</a></span>synchDatas()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -766,7 +771,7 @@ Voici le graphe des appelants de cette fonction :</div>
         <tr>
           <td class="memname">void * synchDatas </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structplayer.html">player</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structplayer__t.html">player_t</a> *&#160;</td>
           <td class="paramname"><em>Joueurs</em>, </td>
         </tr>
         <tr>
@@ -794,8 +799,8 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="main_8c_a734d34007877ed5938e58dccb669ba96_icgraph.png" border="0" usemap="#amain_8c_a734d34007877ed5938e58dccb669ba96_icgraph" alt=""/></div>
-<map name="amain_8c_a734d34007877ed5938e58dccb669ba96_icgraph" id="amain_8c_a734d34007877ed5938e58dccb669ba96_icgraph">
+<div class="center"><img src="main_8c_a6f34c428b3f0a7afe10321406af12adb_icgraph.png" border="0" usemap="#amain_8c_a6f34c428b3f0a7afe10321406af12adb_icgraph" alt=""/></div>
+<map name="amain_8c_a6f34c428b3f0a7afe10321406af12adb_icgraph" id="amain_8c_a6f34c428b3f0a7afe10321406af12adb_icgraph">
 <area shape="rect" title="Récupère les données depuis le socket client." alt="" coords="827,31,917,56"/>
 <area shape="rect" href="client_8c.html#a5db5e79b1f9efa79675000da17beacfb" title="Traite les données reçus par le serveur." alt="" coords="708,31,779,56"/>
 <area shape="rect" href="socket_8c.html#a3b61093f2f5316157d1e6d3d05cf5ebc" title="Écoute un client tant que la connexion est établie." alt="" coords="535,5,660,31"/>

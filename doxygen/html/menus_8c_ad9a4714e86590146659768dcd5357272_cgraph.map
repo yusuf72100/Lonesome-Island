@@ -1,0 +1,5 @@
+<map id="buttonHoverWithAnimation" name="buttonHoverWithAnimation">
+<area shape="rect" id="node1" title="Affiche la texture de survol avec animation du bouton demandé en dans le menu souhaité." alt="" coords="5,5,180,31"/>
+<area shape="rect" id="node2" href="$sound_8c.html#a57b4724b83449e52bba882dfcf33adbd" title="Fonction qui lance le son de survol de bouton dans un thread dédié." alt="" coords="228,5,304,31"/>
+<area shape="rect" id="node3" href="$sound_8c.html#a57d534ee1e2bc6ccbd6b927c1a45c388" title="Son de survol de bouton." alt="" coords="352,5,473,31"/>
+</map>

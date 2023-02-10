@@ -1,0 +1,234 @@
+\hypertarget{map_8h_source}{}\doxysection{map.\+h}
+\label{map_8h_source}\index{C:/Users/Yusuf/Lonesome-\/Island/src/map.h@{C:/Users/Yusuf/Lonesome-\/Island/src/map.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <SDL.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <SDL\_image.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <time.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{defs_8h}{defs.h}}"{}}}
+\DoxyCodeLine{00007\ \ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ TILE\_SIZE\ 16}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ MAP\_SIZE\ 100}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ RENDER\ 10}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ TOTALRENDER\ 21}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ BIOME\ 0}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ UTILS\ 1}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ GRASS\ 0}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ WATER\ 2}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ CONSTRUCTOR\ 3}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{NORTH,\ EAST,\ SOUTH,\ WEST\}\ facing\_e;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keywordtype}{int}\ map[MAP\_SIZE][MAP\_SIZE];}
+\DoxyCodeLine{00023\ \textcolor{keywordtype}{int}\ quit\ =\ 0;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structposition__s}{position\_s}}\{}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ x;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ y;}
+\DoxyCodeLine{00028\ \}\mbox{\hyperlink{structposition__s}{position\_t}};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcamera__s}{camera\_s}}\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{structposition__s}{position\_t}}\ start;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ XRender;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{int}\ YRender;}
+\DoxyCodeLine{00034\ \}\mbox{\hyperlink{structcamera__s}{camera\_t}};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structplayer__s}{player\_s}}\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{char}*\ name;}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{structposition__s}{position\_t}}\ pos;}
+\DoxyCodeLine{00039\ \ \ \ \ facing\_e\ facing;}
+\DoxyCodeLine{00040\ \ \ \ \ SDL\_Texture*\ texture;}
+\DoxyCodeLine{00041\ \}\mbox{\hyperlink{structplayer__t}{player\_t}};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \mbox{\hyperlink{structplayer__t}{player\_t}}*\ createPlayer(\textcolor{keywordtype}{char}*\ name,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ facing\_e\ facing)\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{structplayer__t}{player\_t}}*\ player;}
+\DoxyCodeLine{00045\ \ \ \ \ player-\/>name\ =\ name;}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{structposition__s}{position\_t}}\ pos;}
+\DoxyCodeLine{00047\ \ \ \ \ pos.x\ =\ x;}
+\DoxyCodeLine{00048\ \ \ \ \ pos.y\ =\ y;}
+\DoxyCodeLine{00049\ \ \ \ \ player-\/>pos\ =\ pos;}
+\DoxyCodeLine{00050\ \ \ \ \ player-\/>facing\ =\ NORTH;}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{return}\ player;}
+\DoxyCodeLine{00052\ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{void}\ setPlayerFacing(SDL\_Renderer*\ render,\ \mbox{\hyperlink{structplayer__t}{player\_t}}*\ player,\ facing\_e\ face)\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ SDL\_Surface*\ img\ =\ IMG\_Load(\textcolor{stringliteral}{"{}resources/player\_faces.png"{}});}
+\DoxyCodeLine{00056\ \ \ \ \ SDL\_Surface*\ \textcolor{keyword}{final}\ =\ SDL\_CreateRGBSurface(0,\ 16,\ 16,\ 32,\ 0,\ 0,\ 0,\ 0);}
+\DoxyCodeLine{00057\ \ \ \ \ }
+\DoxyCodeLine{00058\ \ \ \ \ SDL\_Rect\ src\ =\ \{face*TILE\_SIZE,\ 0,\ TILE\_SIZE,\ TILE\_SIZE\};}
+\DoxyCodeLine{00059\ \ \ \ \ SDL\_Rect\ dest\ =\ \{0,\ 0,\ TILE\_SIZE,\ TILE\_SIZE\};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ SDL\_BlitSurface(img,\ \&src,\ \textcolor{keyword}{final},\ \&dest);}
+\DoxyCodeLine{00062\ \ \ \ \ player-\/>texture\ =\ SDL\_CreateTextureFromSurface(render,\ \textcolor{keyword}{final});}
+\DoxyCodeLine{00063\ \ \ \ \ player-\/>facing\ =\ face;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ SDL\_FreeSurface(img);}
+\DoxyCodeLine{00066\ \ \ \ \ SDL\_FreeSurface(\textcolor{keyword}{final});}
+\DoxyCodeLine{00067\ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{keywordtype}{void}\ init\_border\_map(\textcolor{keywordtype}{int}\ map[MAP\_SIZE][MAP\_SIZE])\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{int}\ coin\ =\ MAP\_SIZE*0.1;}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ coin;\ i\ <\ MAP\_SIZE-\/coin;\ i++)\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ j\ =\ coin;\ j\ <\ MAP\_SIZE-\/coin;\ j++)\{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ map[i][j]\ =\ GRASS;}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00075\ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{keywordtype}{void}\ init\_map(\textcolor{keywordtype}{int}\ map[MAP\_SIZE][MAP\_SIZE])\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{int}\ i,\ j,\ text;}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ i\ <\ MAP\_SIZE;\ i++)\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(j\ =\ 0;\ j\ <\ MAP\_SIZE;\ j++)\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ text\ =\ WATER;}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(i\ ==\ 0\ ||\ j\ ==\ 0)\ text\ =\ CONSTRUCTOR;}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ map[i][j]\ =\ text;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \}\ \ \ \ \ }
+\DoxyCodeLine{00086\ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \ \ \ \ init\_border\_map(map);}
+\DoxyCodeLine{00088\ \}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \textcolor{keywordtype}{int}\ movePlayer(\mbox{\hyperlink{structplayer__t}{player\_t}}\ *player,\ \textcolor{keywordtype}{int}\ map[MAP\_SIZE][MAP\_SIZE],\ \textcolor{keywordtype}{int}\ facing)\ \{}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \mbox{\hyperlink{structposition__s}{position\_t}}\ transfer\ =\ \{player-\/>pos.x,\ player-\/>pos.y\};}
+\DoxyCodeLine{00093\ \ \ \ \ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{switch}(facing)\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ NORTH:}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ transfer.y-\/-\/;}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ EAST:}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ transfer.x++;}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ SOUTH:}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ transfer.y++;}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ WEST:}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ transfer.x-\/-\/;}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00107\ \ \ \ \ \}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{if}(transfer.x\ <\ 0\ ||\ transfer.x\ >\ MAP\_SIZE-\/1\ ||\ transfer.y\ <\ 0\ ||\ transfer.y\ >\ MAP\_SIZE)\ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ player-\/>pos.x\ =\ transfer.x;}
+\DoxyCodeLine{00112\ \ \ \ \ player-\/>pos.y\ =\ transfer.y;}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00114\ \}}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \textcolor{keywordtype}{void}\ renderMapOnPlayer(SDL\_Renderer\ **render,\ \textcolor{keywordtype}{int}\ map[MAP\_SIZE][MAP\_SIZE],\ SDL\_Window*\ window,\ \mbox{\hyperlink{structplayer__t}{player\_t}}*\ player)\ \{}
+\DoxyCodeLine{00117\ \ \ \ \ }
+\DoxyCodeLine{00118\ \ \ \ \ SDL\_Surface\ *tileset;}
+\DoxyCodeLine{00119\ \ \ \ \ tileset\ =\ IMG\_Load(\textcolor{stringliteral}{"{}resources/tileset.png"{}});}
+\DoxyCodeLine{00120\ \ \ \ \ SDL\_Texture\ *texture\ =\ SDL\_CreateTextureFromSurface(*render,\ tileset);}
+\DoxyCodeLine{00121\ \ \ \ \ SDL\_FreeSurface(tileset);}
+\DoxyCodeLine{00122\ \ \ \ \ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{int}\ w,\ h;}
+\DoxyCodeLine{00124\ \ \ \ \ SDL\_GetWindowSize(window,\ \&w,\ \&h);}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{int}\ tileSize\ =\ w/TOTALRENDER;}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{int}\ totalYRender\ =\ h/tileSize;}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{int}\ YRender\ =\ totalYRender\%2\ ==\ 0\ ?\ totalYRender/2-\/1\ :\ totalYRender/2;}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \mbox{\hyperlink{structposition__s}{position\_t}}\ start\ =\ \{player-\/>pos.x\ -\/\ RENDER,\ player-\/>pos.y\ -\/\ YRender\};}
+\DoxyCodeLine{00130\ \ \ \ \ }
+\DoxyCodeLine{00131\ \ \ \ \ SDL\_Rect\ src\ =\ \{0,\ 0,\ TILE\_SIZE,\ TILE\_SIZE\};}
+\DoxyCodeLine{00132\ \ \ \ \ SDL\_Rect\ dest\ =\ \{0,\ 0,\ tileSize,\ tileSize\};}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <=\ TOTALRENDER;\ i++)\ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <=\ totalYRender;\ j++)\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ src.x\ =\ map[i+start.x][j+start.y]*TILE\_SIZE;}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ src.y\ =\ BIOME;}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ dest.x\ =\ i*tileSize;}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ dest.y\ =\ j*tileSize;}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_RenderCopy(*render,\ texture,\ \&src,\ \&dest);}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00144\ \ \ \ \ \}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ src.x\ =\ 0;}
+\DoxyCodeLine{00147\ \ \ \ \ src.y\ =\ 0;}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ dest.x\ =\ (RENDER)*tileSize;}
+\DoxyCodeLine{00150\ \ \ \ \ dest.y\ =\ (YRender)*tileSize;}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ SDL\_RenderCopy(*render,\ player-\/>texture,\ \&src,\ \&dest);}
+\DoxyCodeLine{00153\ \}}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \textcolor{keywordtype}{void}\ afficher\_map(\textcolor{keywordtype}{int}\ map[MAP\_SIZE][MAP\_SIZE])\ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordtype}{int}\ i,\ j;}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ i\ <\ MAP\_SIZE;\ i++)\ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(j\ =\ 0;\ j\ <\ MAP\_SIZE;\ j++)\ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%2d"{}},\ map[i][j]);}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \}\ \ }
+\DoxyCodeLine{00161\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00162\ \ \ \ \ \}}
+\DoxyCodeLine{00163\ \}}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{main_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ *argv[])\ \{}
+\DoxyCodeLine{00166\ \ \ \ \ (void)\ argc;}
+\DoxyCodeLine{00167\ \ \ \ \ (void)\ argv;}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \mbox{\hyperlink{structplayer__t}{player\_t}}*\ player\ =\ createPlayer(\textcolor{stringliteral}{"{}IzeLeam"{}},\ 16,\ 18,\ NORTH);}
+\DoxyCodeLine{00170\ \ \ \ \ setPlayerFacing(render,\ player,\ NORTH);}
+\DoxyCodeLine{00171\ \ \ \ \ }
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordtype}{int}\ map[MAP\_SIZE][MAP\_SIZE];}
+\DoxyCodeLine{00173\ \ \ \ \ init\_map(map);}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ renderMapOnPlayer(\&render,\ map,\ window,\ player);}
+\DoxyCodeLine{00176\ \ \ \ \ SDL\_RenderPresent(render);}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keywordtype}{int}\ quit\ =\ 0;}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordflow}{while}(!quit)\{}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ SDL\_Delay(50);}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(SDL\_PollEvent(\&event))\ \{}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(event.type\ ==\ SDL\_MOUSEMOTION)\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(event.type)\ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ SDL\_QUIT\ :}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ quit\ =\ 1;}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ SDL\_WINDOWEVENT\_RESIZED\ :\ }
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ renderMapOnPlayer(\&render,\ map,\ window,\ player);}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ SDL\_KEYDOWN\ :}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ facing\ =\ 0;}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(event.key.keysym.scancode)\ \{}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ SDL\_SCANCODE\_W\ :}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ facing\ =\ NORTH;}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ SDL\_SCANCODE\_A\ :}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ facing\ =\ WEST;}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ SDL\_SCANCODE\_S\ :}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ facing\ =\ SOUTH;}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ SDL\_SCANCODE\_D\ :}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ facing\ =\ EAST;}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ setPlayerFacing(render,\ player,\ facing);}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(movePlayer(player,\ map,\ facing))\ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ renderMapOnPlayer(\&render,\ map,\ window,\ player);}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Player\ :\ x=\%d\ |\ y=\%d\(\backslash\)n"{}},\ player-\/>pos.x,\ player-\/>pos.y);}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_RenderPresent(render);}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00221\ \ \ \ \ \}}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \ \ \ \ SDL\_DestroyRenderer(render);}
+\DoxyCodeLine{00224\ \ \ \ \ SDL\_DestroyWindow(window);}
+\DoxyCodeLine{00225\ \ \ \ \ SDL\_Quit();}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00228\ \}}
+
+\end{DoxyCode}

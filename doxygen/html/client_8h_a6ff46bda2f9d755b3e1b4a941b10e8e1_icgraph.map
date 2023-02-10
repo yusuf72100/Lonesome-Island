@@ -1,0 +1,8 @@
+<map id="sendDatas" name="sendDatas">
+<area shape="rect" id="node1" title="Récupère les données du joueur et les envois au serveur via le socket." alt="" coords="565,29,649,55"/>
+<area shape="rect" id="node2" href="$main_8c.html#a506eeac61f56b2e172d086173bac5995" title="Envoi les données du joueur actuel au serveur." alt="" coords="423,29,517,55"/>
+<area shape="rect" id="node3" href="$menus_8c.html#a0fa3f94da8421e8f4e5d11404f87856b" title="Animation de respiration." alt="" coords="259,55,375,80"/>
+<area shape="rect" id="node4" href="$main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="120,5,195,31"/>
+<area shape="rect" id="node6" href="$menus_8c.html#a8cbdceb9c205a8d9c279691a09b337a1" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="104,55,211,80"/>
+<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>

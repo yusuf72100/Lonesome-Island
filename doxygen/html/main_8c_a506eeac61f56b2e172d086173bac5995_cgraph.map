@@ -1,6 +1,6 @@
 <map id="Send2Server" name="Send2Server">
 <area shape="rect" id="node1" title="Envoi les données du joueur actuel au serveur." alt="" coords="5,31,100,56"/>
-<area shape="rect" id="node2" href="$client_8c.html#a7cea858f95329a092fd2cbc746c59728" title="Récupère les données du joueur et les envois au serveur via le socket." alt="" coords="148,31,232,56"/>
-<area shape="rect" id="node3" href="$client_8c.html#a5e0f51fafacc388da3b4ebbf686b0eda" title="Construit une trame réseau dédiée uniquement au serveur." alt="" coords="297,5,375,31"/>
+<area shape="rect" id="node2" href="$client_8c.html#a6ff46bda2f9d755b3e1b4a941b10e8e1" title="Récupère les données du joueur et les envois au serveur via le socket." alt="" coords="148,31,232,56"/>
+<area shape="rect" id="node3" href="$client_8c.html#ad2e9b80b5c5fa53e006e439a25c692cc" title="Construit une trame réseau dédiée uniquement au serveur." alt="" coords="297,5,375,31"/>
 <area shape="rect" id="node4" href="$client_8c.html#a1a44fcc8a4125e81a0730b67c2603470" title="Arrête la connexion avec le serveur." alt="" coords="280,55,392,80"/>
 </map>

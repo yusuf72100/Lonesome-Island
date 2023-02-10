@@ -6,8 +6,7 @@ Fichier contenant toutes les définitions de structures et de types.
 
 
 {\ttfamily \#include $<$SDL.\+h$>$}\newline
-Graphe des dépendances par inclusion de defs.\+h\+:
-\nopagebreak
+Graphe des dépendances par inclusion de defs.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -25,15 +24,68 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 \doxysubsection*{Structures de données}
 \begin{DoxyCompactItemize}
 \item 
-struct \mbox{\hyperlink{structplayer}{player}}
+struct \mbox{\hyperlink{structplayer__t}{player\+\_\+t}}
 \begin{DoxyCompactList}\small\item\em Sauvegarde les informations de chaque joueurs relatives uniquement au jeu en lui-\/même (points de vie, coordonnées, animation...). \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structitem}{item}}
-\begin{DoxyCompactList}\small\item\em Item avec ses stats. \end{DoxyCompactList}\end{DoxyCompactItemize}
+struct \mbox{\hyperlink{structweapon__t}{weapon\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Définition d\textquotesingle{}un weapon. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structfood__t}{food\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structitem__t}{item\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Item avec ses stats. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structcase__inventory}{case\+\_\+inventory}}
+\begin{DoxyCompactList}\small\item\em Stockera les informations de chaque case de l\textquotesingle{}inventaire du joueur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{defs_8h_aa8cecfc5c5c054d2875c03e77b7be15d}\label{defs_8h_aa8cecfc5c5c054d2875c03e77b7be15d}} 
+\#define {\bfseries TRUE}~1
+\item 
+\mbox{\Hypertarget{defs_8h_aa93f0eb578d23995850d61f7d61c55c1}\label{defs_8h_aa93f0eb578d23995850d61f7d61c55c1}} 
+\#define {\bfseries FALSE}~0
+\end{DoxyCompactItemize}
+\doxysubsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{defs_8h_ac74f3fe130dd2907991df748d4dc4a13}\label{defs_8h_ac74f3fe130dd2907991df748d4dc4a13}} 
+enum {\bfseries T\+\_\+\+MENU} \{ \newline
+{\bfseries MAIN}
+, {\bfseries INGAME}
+, {\bfseries INVENTORY}
+, {\bfseries SETTINGS}
+, \newline
+{\bfseries ERR}
+ \}
+\item 
+\mbox{\Hypertarget{defs_8h_a1e4d49e165def01fa142ef71ed172564}\label{defs_8h_a1e4d49e165def01fa142ef71ed172564}} 
+enum {\bfseries T\+\_\+\+ITEM} \{ {\bfseries WEAPON}
+, {\bfseries FOOD}
+, {\bfseries TOOL}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{defs_8h_acbae57aa2d8c508e63c0597b44024977}{change\+Menu}} (T\+\_\+\+MENU menu\+Target)
+\begin{DoxyCompactList}\small\item\em Change de menu. \end{DoxyCompactList}\item 
+T\+\_\+\+MENU \mbox{\hyperlink{defs_8h_a46ada666e9f33f66113ea70f035ba7a4}{get\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Nous renvoi le menu dans lequel le client se trouve. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{defs_8h_a3f86b4dc7fdb89915e47e97ba31978cf}\label{defs_8h_a3f86b4dc7fdb89915e47e97ba31978cf}} 
-\mbox{\hyperlink{structitem}{item}} {\bfseries bois}
+\mbox{\Hypertarget{defs_8h_aef93a21306f15a44929d28318aab5ffb}\label{defs_8h_aef93a21306f15a44929d28318aab5ffb}} 
+int {\bfseries SOLO}
+\item 
+\mbox{\Hypertarget{defs_8h_a70ae92227e50fde6d6e4568d3ce849d9}\label{defs_8h_a70ae92227e50fde6d6e4568d3ce849d9}} 
+T\+\_\+\+MENU {\bfseries menu}
+\item 
+\mbox{\Hypertarget{defs_8h_a5ab9cc24e0890801f13949ebbef0949b}\label{defs_8h_a5ab9cc24e0890801f13949ebbef0949b}} 
+\mbox{\hyperlink{structitem__t}{item\+\_\+t}} {\bfseries bois}
+\item 
+\mbox{\Hypertarget{defs_8h_a59600277ef5467e1f4aa8f46789d6d12}\label{defs_8h_a59600277ef5467e1f4aa8f46789d6d12}} 
+SDL\+\_\+bool {\bfseries tab\+Event} \mbox{[}20\mbox{]}
+\item 
+\mbox{\Hypertarget{defs_8h_a2ef9fdf65d6a7d2e7bea9a793682d40f}\label{defs_8h_a2ef9fdf65d6a7d2e7bea9a793682d40f}} 
+\mbox{\hyperlink{structcase__inventory}{case\+\_\+inventory}} {\bfseries mat\+\_\+inventory} \mbox{[}3\mbox{]}\mbox{[}10\mbox{]}
 \end{DoxyCompactItemize}
 
 
@@ -52,3 +104,50 @@ Yusuf Ulas
 \begin{DoxyCopyright}{Copyright}
 Copyright (c) 2023 
 \end{DoxyCopyright}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{defs_8h_acbae57aa2d8c508e63c0597b44024977}\label{defs_8h_acbae57aa2d8c508e63c0597b44024977}} 
+\index{defs.h@{defs.h}!changeMenu@{changeMenu}}
+\index{changeMenu@{changeMenu}!defs.h@{defs.h}}
+\doxysubsubsection{\texorpdfstring{changeMenu()}{changeMenu()}}
+{\footnotesize\ttfamily void change\+Menu (\begin{DoxyParamCaption}\item[{T\+\_\+\+MENU}]{menu\+Target }\end{DoxyParamCaption})}
+
+
+
+Change de menu. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em menu\+Target} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{defs_8h_acbae57aa2d8c508e63c0597b44024977_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{defs_8h_a46ada666e9f33f66113ea70f035ba7a4}\label{defs_8h_a46ada666e9f33f66113ea70f035ba7a4}} 
+\index{defs.h@{defs.h}!getMenu@{getMenu}}
+\index{getMenu@{getMenu}!defs.h@{defs.h}}
+\doxysubsubsection{\texorpdfstring{getMenu()}{getMenu()}}
+{\footnotesize\ttfamily T\+\_\+\+MENU get\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Nous renvoi le menu dans lequel le client se trouve. 
+
+\begin{DoxyReturn}{Renvoie}
+T\+\_\+\+MENU 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{defs_8h_a46ada666e9f33f66113ea70f035ba7a4_icgraph}
+\end{center}
+\end{figure}

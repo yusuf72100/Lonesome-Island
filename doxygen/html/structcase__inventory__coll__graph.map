@@ -1,0 +1,4 @@
+<map id="case_inventory" name="case_inventory">
+<area shape="rect" id="node1" title="Stockera les informations de chaque case de l&#39;inventaire du joueur." alt="" coords="5,189,113,267"/>
+<area shape="rect" id="node2" href="$structitem__t.html" title="Item avec ses stats." alt="" coords="16,5,103,127"/>
+</map>

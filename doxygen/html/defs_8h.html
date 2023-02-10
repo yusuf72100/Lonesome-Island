@@ -75,6 +75,9 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Structures de données</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#enum-members">Énumérations</a> &#124;
+<a href="#func-members">Fonctions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">Référence du fichier defs.h</div></div>
 </div><!--header-->
@@ -97,15 +100,17 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 <div class="dyncontent">
 <div class="center"><img src="defs_8h__dep__incl.png" border="0" usemap="#a_c_1_2_users_2_yusuf_2_lonesome-_island_2src_2defs_8hdep" alt=""/></div>
 <map name="a_c_1_2_users_2_yusuf_2_lonesome-_island_2src_2defs_8hdep" id="a_c_1_2_users_2_yusuf_2_lonesome-_island_2src_2defs_8hdep">
-<area shape="rect" title="Fichier contenant toutes les définitions de structures et de types." alt="" coords="284,5,459,45"/>
-<area shape="rect" href="socket_8h.html" title="Fichier qui contient les informations relatives aux clients et au serveur point de vu socket." alt="" coords="284,93,459,133"/>
-<area shape="rect" href="client_8h.html" title="Fichier content toutes les informations relatives au client et au serveur." alt="" coords="185,181,360,221"/>
-<area shape="rect" href="socket_8c.html" title="Fichier qui s&#39;occupera uniquement du serveur." alt="" coords="384,181,559,221"/>
-<area shape="rect" href="client_8c.html" title="Fichier qui contient la configuration du socket client." alt="" coords="5,357,180,397"/>
-<area shape="rect" href="main_8h.html" title="Fichier contenant toutes les variables d&#39;affichage." alt="" coords="185,269,360,309"/>
-<area shape="rect" href="menus_8h.html" title="Fichier contenant toutes les variables d&#39;affichage." alt="" coords="384,269,559,309"/>
-<area shape="rect" href="main_8c.html" title="Fichier principal du programme qui s&#39;occupera de la partie jeu." alt="" coords="403,357,577,397"/>
-<area shape="rect" href="menus_8c.html" title="Fichier qui s&#39;occupera de l&#39;affichage des éléments." alt="" coords="204,357,379,397"/>
+<area shape="rect" title="Fichier contenant toutes les définitions de structures et de types." alt="" coords="204,5,379,45"/>
+<area shape="rect" href="defs_8c.html" title="Fichier qui initialisera les variables globales." alt="" coords="5,93,180,133"/>
+<area shape="rect" href="map_8h_source.html" title=" " alt="" coords="204,93,379,133"/>
+<area shape="rect" href="socket_8h.html" title="Fichier qui contient les informations relatives aux clients et au serveur point de vu socket." alt="" coords="403,93,577,133"/>
+<area shape="rect" href="client_8h.html" title="Fichier content toutes les informations relatives au client et au serveur." alt="" coords="304,181,479,221"/>
+<area shape="rect" href="socket_8c.html" title="Fichier qui s&#39;occupera uniquement du serveur." alt="" coords="503,181,677,221"/>
+<area shape="rect" href="client_8c.html" title="Fichier qui contient la configuration du socket client." alt="" coords="124,357,299,397"/>
+<area shape="rect" href="main_8h.html" title="Fichier contenant toutes les variables d&#39;affichage." alt="" coords="304,269,479,309"/>
+<area shape="rect" href="menus_8h.html" title="Fichier contenant toutes les variables d&#39;affichage." alt="" coords="503,269,677,309"/>
+<area shape="rect" href="main_8c.html" title="Fichier principal du programme qui s&#39;occupera de la partie jeu." alt="" coords="521,357,696,397"/>
+<area shape="rect" href="menus_8c.html" title="Fichier qui s&#39;occupera de l&#39;affichage des éléments." alt="" coords="323,357,497,397"/>
 </map>
 </div>
 </div>
@@ -113,18 +118,74 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Structures de données</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structplayer.html">player</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sauvegarde les informations de chaque joueurs relatives uniquement au jeu en lui-même (points de vie, coordonnées, animation...).  <a href="structplayer.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structplayer__t.html">player_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sauvegarde les informations de chaque joueurs relatives uniquement au jeu en lui-même (points de vie, coordonnées, animation...).  <a href="structplayer__t.html#details">Plus de détails...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structitem.html">item</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Item avec ses stats.  <a href="structitem.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structweapon__t.html">weapon_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Définition d'un weapon.  <a href="structweapon__t.html#details">Plus de détails...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfood__t.html">food_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structitem__t.html">item_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Item avec ses stats.  <a href="structitem__t.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcase__inventory.html">case_inventory</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stockera les informations de chaque case de l'inventaire du joueur.  <a href="structcase__inventory.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:aa8cecfc5c5c054d2875c03e77b7be15d"><td class="memItemLeft" align="right" valign="top"><a id="aa8cecfc5c5c054d2875c03e77b7be15d" name="aa8cecfc5c5c054d2875c03e77b7be15d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>TRUE</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:aa8cecfc5c5c054d2875c03e77b7be15d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa93f0eb578d23995850d61f7d61c55c1"><td class="memItemLeft" align="right" valign="top"><a id="aa93f0eb578d23995850d61f7d61c55c1" name="aa93f0eb578d23995850d61f7d61c55c1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>FALSE</b>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:aa93f0eb578d23995850d61f7d61c55c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:ac74f3fe130dd2907991df748d4dc4a13"><td class="memItemLeft" align="right" valign="top"><a id="ac74f3fe130dd2907991df748d4dc4a13" name="ac74f3fe130dd2907991df748d4dc4a13"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>T_MENU</b> { <br />
+&#160;&#160;<b>MAIN</b>
+, <b>INGAME</b>
+, <b>INVENTORY</b>
+, <b>SETTINGS</b>
+, <br />
+&#160;&#160;<b>ERR</b>
+<br />
+ }</td></tr>
+<tr class="separator:ac74f3fe130dd2907991df748d4dc4a13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e4d49e165def01fa142ef71ed172564"><td class="memItemLeft" align="right" valign="top"><a id="a1e4d49e165def01fa142ef71ed172564" name="a1e4d49e165def01fa142ef71ed172564"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>T_ITEM</b> { <b>WEAPON</b>
+, <b>FOOD</b>
+, <b>TOOL</b>
+ }</td></tr>
+<tr class="separator:a1e4d49e165def01fa142ef71ed172564"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:acbae57aa2d8c508e63c0597b44024977"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="defs_8h.html#acbae57aa2d8c508e63c0597b44024977">changeMenu</a> (T_MENU menuTarget)</td></tr>
+<tr class="memdesc:acbae57aa2d8c508e63c0597b44024977"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change de menu.  <br /></td></tr>
+<tr class="separator:acbae57aa2d8c508e63c0597b44024977"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46ada666e9f33f66113ea70f035ba7a4"><td class="memItemLeft" align="right" valign="top">T_MENU&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="defs_8h.html#a46ada666e9f33f66113ea70f035ba7a4">getMenu</a> ()</td></tr>
+<tr class="memdesc:a46ada666e9f33f66113ea70f035ba7a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nous renvoi le menu dans lequel le client se trouve.  <br /></td></tr>
+<tr class="separator:a46ada666e9f33f66113ea70f035ba7a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a3f86b4dc7fdb89915e47e97ba31978cf"><td class="memItemLeft" align="right" valign="top"><a id="a3f86b4dc7fdb89915e47e97ba31978cf" name="a3f86b4dc7fdb89915e47e97ba31978cf"></a>
-<a class="el" href="structitem.html">item</a>&#160;</td><td class="memItemRight" valign="bottom"><b>bois</b></td></tr>
-<tr class="separator:a3f86b4dc7fdb89915e47e97ba31978cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef93a21306f15a44929d28318aab5ffb"><td class="memItemLeft" align="right" valign="top"><a id="aef93a21306f15a44929d28318aab5ffb" name="aef93a21306f15a44929d28318aab5ffb"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>SOLO</b></td></tr>
+<tr class="separator:aef93a21306f15a44929d28318aab5ffb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70ae92227e50fde6d6e4568d3ce849d9"><td class="memItemLeft" align="right" valign="top"><a id="a70ae92227e50fde6d6e4568d3ce849d9" name="a70ae92227e50fde6d6e4568d3ce849d9"></a>
+T_MENU&#160;</td><td class="memItemRight" valign="bottom"><b>menu</b></td></tr>
+<tr class="separator:a70ae92227e50fde6d6e4568d3ce849d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ab9cc24e0890801f13949ebbef0949b"><td class="memItemLeft" align="right" valign="top"><a id="a5ab9cc24e0890801f13949ebbef0949b" name="a5ab9cc24e0890801f13949ebbef0949b"></a>
+<a class="el" href="structitem__t.html">item_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>bois</b></td></tr>
+<tr class="separator:a5ab9cc24e0890801f13949ebbef0949b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59600277ef5467e1f4aa8f46789d6d12"><td class="memItemLeft" align="right" valign="top"><a id="a59600277ef5467e1f4aa8f46789d6d12" name="a59600277ef5467e1f4aa8f46789d6d12"></a>
+SDL_bool&#160;</td><td class="memItemRight" valign="bottom"><b>tabEvent</b> [20]</td></tr>
+<tr class="separator:a59600277ef5467e1f4aa8f46789d6d12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ef9fdf65d6a7d2e7bea9a793682d40f"><td class="memItemLeft" align="right" valign="top"><a id="a2ef9fdf65d6a7d2e7bea9a793682d40f" name="a2ef9fdf65d6a7d2e7bea9a793682d40f"></a>
+<a class="el" href="structcase__inventory.html">case_inventory</a>&#160;</td><td class="memItemRight" valign="bottom"><b>mat_inventory</b> [3][10]</td></tr>
+<tr class="separator:a2ef9fdf65d6a7d2e7bea9a793682d40f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Fichier contenant toutes les définitions de structures et de types. </p>
@@ -132,7 +193,74 @@ Variables</h2></td></tr>
 <dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2023-01-31 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2023 </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="acbae57aa2d8c508e63c0597b44024977" name="acbae57aa2d8c508e63c0597b44024977"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbae57aa2d8c508e63c0597b44024977">&#9670;&#160;</a></span>changeMenu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void changeMenu </td>
+          <td>(</td>
+          <td class="paramtype">T_MENU&#160;</td>
+          <td class="paramname"><em>menuTarget</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Change de menu. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">menuTarget</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="defs_8h_acbae57aa2d8c508e63c0597b44024977_icgraph.png" border="0" usemap="#adefs_8h_acbae57aa2d8c508e63c0597b44024977_icgraph" alt=""/></div>
+<map name="adefs_8h_acbae57aa2d8c508e63c0597b44024977_icgraph" id="adefs_8h_acbae57aa2d8c508e63c0597b44024977_icgraph">
+<area shape="rect" title="Change de menu." alt="" coords="227,5,323,31"/>
+<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a46ada666e9f33f66113ea70f035ba7a4" name="a46ada666e9f33f66113ea70f035ba7a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46ada666e9f33f66113ea70f035ba7a4">&#9670;&#160;</a></span>getMenu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_MENU getMenu </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Nous renvoi le menu dans lequel le client se trouve. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>T_MENU </dd></dl>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="defs_8h_a46ada666e9f33f66113ea70f035ba7a4_icgraph.png" border="0" usemap="#adefs_8h_a46ada666e9f33f66113ea70f035ba7a4_icgraph" alt=""/></div>
+<map name="adefs_8h_a46ada666e9f33f66113ea70f035ba7a4_icgraph" id="adefs_8h_a46ada666e9f33f66113ea70f035ba7a4_icgraph">
+<area shape="rect" title="Nous renvoi le menu dans lequel le client se trouve." alt="" coords="227,5,299,31"/>
+<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6

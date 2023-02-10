@@ -176,9 +176,9 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>doEvents</b> (
 <tr class="memitem:a74d9cf129eac9371caa5a93b97b4f95c"><td class="memItemLeft" align="right" valign="top"><a id="a74d9cf129eac9371caa5a93b97b4f95c" name="a74d9cf129eac9371caa5a93b97b4f95c"></a>
 static void *&#160;</td><td class="memItemRight" valign="bottom"><b>rechargement</b> ()</td></tr>
 <tr class="separator:a74d9cf129eac9371caa5a93b97b4f95c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a734d34007877ed5938e58dccb669ba96"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8h.html#a734d34007877ed5938e58dccb669ba96">synchDatas</a> (<a class="el" href="structplayer.html">player</a> *Joueurs, int taille)</td></tr>
-<tr class="memdesc:a734d34007877ed5938e58dccb669ba96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère les données depuis le socket client.  <br /></td></tr>
-<tr class="separator:a734d34007877ed5938e58dccb669ba96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f34c428b3f0a7afe10321406af12adb"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8h.html#a6f34c428b3f0a7afe10321406af12adb">synchDatas</a> (<a class="el" href="structplayer__t.html">player_t</a> *Joueurs, int taille)</td></tr>
+<tr class="memdesc:a6f34c428b3f0a7afe10321406af12adb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère les données depuis le socket client.  <br /></td></tr>
+<tr class="separator:a6f34c428b3f0a7afe10321406af12adb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a718d61fe7c5a7e6c83c14f312105bfa8"><td class="memItemLeft" align="right" valign="top"><a id="a718d61fe7c5a7e6c83c14f312105bfa8" name="a718d61fe7c5a7e6c83c14f312105bfa8"></a>
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateBullet</b> (<a class="el" href="struct_bullet.html">Bullet</a> *b)</td></tr>
 <tr class="separator:a718d61fe7c5a7e6c83c14f312105bfa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -212,6 +212,9 @@ static short&#160;</td><td class="memItemRight" valign="bottom"><b>debug</b> = F
 <tr class="memitem:ad4e0bbc0cc0ffb91120206fb4de60261"><td class="memItemLeft" align="right" valign="top"><a id="ad4e0bbc0cc0ffb91120206fb4de60261" name="ad4e0bbc0cc0ffb91120206fb4de60261"></a>
 static int&#160;</td><td class="memItemRight" valign="bottom"><b>tick</b> =0</td></tr>
 <tr class="separator:ad4e0bbc0cc0ffb91120206fb4de60261"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03feae73ce48c80f7d23c32c530f3615"><td class="memItemLeft" align="right" valign="top"><a id="a03feae73ce48c80f7d23c32c530f3615" name="a03feae73ce48c80f7d23c32c530f3615"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>tabTick</b> [20] = {0}</td></tr>
+<tr class="separator:a03feae73ce48c80f7d23c32c530f3615"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a439227feff9d7f55384e8780cfc2eb82"><td class="memItemLeft" align="right" valign="top"><a id="a439227feff9d7f55384e8780cfc2eb82" name="a439227feff9d7f55384e8780cfc2eb82"></a>
 static int&#160;</td><td class="memItemRight" valign="bottom"><b>size</b></td></tr>
 <tr class="separator:a439227feff9d7f55384e8780cfc2eb82"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -230,18 +233,15 @@ static <a class="el" href="struct_bullet.html">Bullet</a> *&#160;</td><td class=
 <tr class="memitem:afca61ae64d5c0754713e0d62092cd8df"><td class="memItemLeft" align="right" valign="top"><a id="afca61ae64d5c0754713e0d62092cd8df" name="afca61ae64d5c0754713e0d62092cd8df"></a>
 static SDL_bool&#160;</td><td class="memItemRight" valign="bottom"><b>program_launched</b> = SDL_TRUE</td></tr>
 <tr class="separator:afca61ae64d5c0754713e0d62092cd8df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa61009df0cfd4177ea74db85711f8a29"><td class="memItemLeft" align="right" valign="top"><a id="aa61009df0cfd4177ea74db85711f8a29" name="aa61009df0cfd4177ea74db85711f8a29"></a>
-static SDL_bool&#160;</td><td class="memItemRight" valign="bottom"><b>tabEvent</b> [12] = {SDL_FALSE}</td></tr>
-<tr class="separator:aa61009df0cfd4177ea74db85711f8a29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b57f01d3c576db5368dd0efc2f435a4"><td class="memItemLeft" align="right" valign="top"><a id="a6b57f01d3c576db5368dd0efc2f435a4" name="a6b57f01d3c576db5368dd0efc2f435a4"></a>
 static SDL_Event&#160;</td><td class="memItemRight" valign="bottom"><b>event</b></td></tr>
 <tr class="separator:a6b57f01d3c576db5368dd0efc2f435a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24e9b1ee401b0d44b75170e22c43fa17"><td class="memItemLeft" align="right" valign="top"><a id="a24e9b1ee401b0d44b75170e22c43fa17" name="a24e9b1ee401b0d44b75170e22c43fa17"></a>
-static <a class="el" href="structplayer.html">player</a>&#160;</td><td class="memItemRight" valign="bottom"><b>joueur</b></td></tr>
-<tr class="separator:a24e9b1ee401b0d44b75170e22c43fa17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d48ae43189b9843952e504854c47f06"><td class="memItemLeft" align="right" valign="top"><a id="a1d48ae43189b9843952e504854c47f06" name="a1d48ae43189b9843952e504854c47f06"></a>
-static <a class="el" href="structplayer.html">player</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>joueurs</b></td></tr>
-<tr class="separator:a1d48ae43189b9843952e504854c47f06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad92f2b056653cc55a088e47aff07f4aa"><td class="memItemLeft" align="right" valign="top"><a id="ad92f2b056653cc55a088e47aff07f4aa" name="ad92f2b056653cc55a088e47aff07f4aa"></a>
+static <a class="el" href="structplayer__t.html">player_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>joueur</b></td></tr>
+<tr class="separator:ad92f2b056653cc55a088e47aff07f4aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a551000248d53b0f87524224317c61f10"><td class="memItemLeft" align="right" valign="top"><a id="a551000248d53b0f87524224317c61f10" name="a551000248d53b0f87524224317c61f10"></a>
+static <a class="el" href="structplayer__t.html">player_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>joueurs</b></td></tr>
+<tr class="separator:a551000248d53b0f87524224317c61f10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7292f6279b611a29ec39253ac349228b"><td class="memItemLeft" align="right" valign="top"><a id="a7292f6279b611a29ec39253ac349228b" name="a7292f6279b611a29ec39253ac349228b"></a>
 static pthread_t&#160;</td><td class="memItemRight" valign="bottom"><b>reloading</b></td></tr>
 <tr class="separator:a7292f6279b611a29ec39253ac349228b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -289,7 +289,7 @@ Voici le graphe des appelants de cette fonction :</div>
 <area shape="rect" title="Délai d&#39;animation de respiration." alt="" coords="423,31,519,56"/>
 <area shape="rect" href="menus_8c.html#a0fa3f94da8421e8f4e5d11404f87856b" title="Animation de respiration." alt="" coords="259,31,375,56"/>
 <area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="120,5,195,31"/>
-<area shape="rect" href="menus_8c.html#a18f5d14ec140197dd0e7627c3c6b7a47" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="104,55,211,80"/>
+<area shape="rect" href="menus_8c.html#a8cbdceb9c205a8d9c279691a09b337a1" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="104,55,211,80"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
 </map>
 </div>
@@ -320,7 +320,7 @@ Voici le graphe des appelants de cette fonction :</div>
 <area shape="rect" title="Délai de l&#39;animation &quot;courrir en bas&quot;." alt="" coords="471,31,609,56"/>
 <area shape="rect" href="menus_8c.html#a2baaae2f0feebce6bd015a37345e2270" title="Animation &quot;courrir en bas&quot;." alt="" coords="259,31,423,56"/>
 <area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="120,5,195,31"/>
-<area shape="rect" href="menus_8c.html#a18f5d14ec140197dd0e7627c3c6b7a47" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="104,55,211,80"/>
+<area shape="rect" href="menus_8c.html#a8cbdceb9c205a8d9c279691a09b337a1" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="104,55,211,80"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
 </map>
 </div>
@@ -351,7 +351,7 @@ Voici le graphe des appelants de cette fonction :</div>
 <area shape="rect" title="Délai de l&#39;animation &quot;courrir à gauche&quot;." alt="" coords="457,31,584,56"/>
 <area shape="rect" href="menus_8c.html#a2fdf89dd6b22fb5e5d73f8370470985b" title="Animation &quot;courrir à gauche&quot;." alt="" coords="259,31,409,56"/>
 <area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="120,5,195,31"/>
-<area shape="rect" href="menus_8c.html#a18f5d14ec140197dd0e7627c3c6b7a47" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="104,55,211,80"/>
+<area shape="rect" href="menus_8c.html#a8cbdceb9c205a8d9c279691a09b337a1" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="104,55,211,80"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
 </map>
 </div>
@@ -382,7 +382,7 @@ Voici le graphe des appelants de cette fonction :</div>
 <area shape="rect" title="Délai de l&#39;animation &quot;courrir à droite&quot;." alt="" coords="465,31,600,56"/>
 <area shape="rect" href="menus_8c.html#a1fdb9aee8fd08118ac0bc4234da6a2eb" title="Animation &quot;courrir à droite&quot;." alt="" coords="259,31,417,56"/>
 <area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="120,5,195,31"/>
-<area shape="rect" href="menus_8c.html#a18f5d14ec140197dd0e7627c3c6b7a47" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="104,55,211,80"/>
+<area shape="rect" href="menus_8c.html#a8cbdceb9c205a8d9c279691a09b337a1" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="104,55,211,80"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
 </map>
 </div>
@@ -413,7 +413,7 @@ Voici le graphe des appelants de cette fonction :</div>
 <area shape="rect" title="Délai de l&#39;animation &quot;courrir en haut&quot;." alt="" coords="455,31,577,56"/>
 <area shape="rect" href="menus_8c.html#ad1aa5c5c7c6e33913f1a654a09ba6a00" title="Animation &quot;courrir àen haut&quot;." alt="" coords="259,31,407,56"/>
 <area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="120,5,195,31"/>
-<area shape="rect" href="menus_8c.html#a18f5d14ec140197dd0e7627c3c6b7a47" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="104,55,211,80"/>
+<area shape="rect" href="menus_8c.html#a8cbdceb9c205a8d9c279691a09b337a1" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="104,55,211,80"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
 </map>
 </div>
@@ -441,9 +441,10 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8h_a0f9a66b9fc132ae63360835a23fe0ab0_icgraph.png" border="0" usemap="#amain_8h_a0f9a66b9fc132ae63360835a23fe0ab0_icgraph" alt=""/></div>
 <map name="amain_8h_a0f9a66b9fc132ae63360835a23fe0ab0_icgraph" id="amain_8h_a0f9a66b9fc132ae63360835a23fe0ab0_icgraph">
-<area shape="rect" title="Délai de l&#39;animation du bouton de paramètres quand on a pas le curseur dessus." alt="" coords="481,5,655,31"/>
-<area shape="rect" href="menus_8c.html#ab6d77ef359eb1ad9820145690e17a427" title="Animation du bouton paramètres quand on a pas le curseur dessus." alt="" coords="235,5,433,31"/>
-<area shape="rect" href="menus_8c.html#ab3002fe8e0074c9e2ecb5b835e5e819f" title="Affiche le menu principal." alt="" coords="104,5,187,31"/>
+<area shape="rect" title="Délai de l&#39;animation du bouton de paramètres quand on a pas le curseur dessus." alt="" coords="611,5,784,31"/>
+<area shape="rect" href="menus_8c.html#ab6d77ef359eb1ad9820145690e17a427" title="Animation du bouton paramètres quand on a pas le curseur dessus." alt="" coords="364,5,563,31"/>
+<area shape="rect" href="menus_8c.html#ab3002fe8e0074c9e2ecb5b835e5e819f" title="Affiche le menu principal." alt="" coords="233,5,316,31"/>
+<area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,5,185,31"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
 </map>
 </div>
@@ -471,9 +472,10 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8h_a0caf52e6e1d7fb594108d8d4f4fbcd77_icgraph.png" border="0" usemap="#amain_8h_a0caf52e6e1d7fb594108d8d4f4fbcd77_icgraph" alt=""/></div>
 <map name="amain_8h_a0caf52e6e1d7fb594108d8d4f4fbcd77_icgraph" id="amain_8h_a0caf52e6e1d7fb594108d8d4f4fbcd77_icgraph">
-<area shape="rect" title="Délai de l&#39;animation du bouton de paramètres quand on a le curseur dessus." alt="" coords="457,5,607,45"/>
-<area shape="rect" href="menus_8c.html#a48c083415f7a9126fec9cc228b651991" title="Animation du bouton paramètres quand on a le curseur dessus." alt="" coords="235,5,409,45"/>
-<area shape="rect" href="menus_8c.html#ab3002fe8e0074c9e2ecb5b835e5e819f" title="Affiche le menu principal." alt="" coords="104,13,187,38"/>
+<area shape="rect" title="Délai de l&#39;animation du bouton de paramètres quand on a le curseur dessus." alt="" coords="587,5,736,45"/>
+<area shape="rect" href="menus_8c.html#a48c083415f7a9126fec9cc228b651991" title="Animation du bouton paramètres quand on a le curseur dessus." alt="" coords="364,5,539,45"/>
+<area shape="rect" href="menus_8c.html#ab3002fe8e0074c9e2ecb5b835e5e819f" title="Affiche le menu principal." alt="" coords="233,13,316,38"/>
+<area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,13,185,38"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,13,56,38"/>
 </map>
 </div>
@@ -599,8 +601,8 @@ Voici le graphe d'appel pour cette fonction :</div>
 <div class="center"><img src="main_8h_a506eeac61f56b2e172d086173bac5995_cgraph.png" border="0" usemap="#amain_8h_a506eeac61f56b2e172d086173bac5995_cgraph" alt=""/></div>
 <map name="amain_8h_a506eeac61f56b2e172d086173bac5995_cgraph" id="amain_8h_a506eeac61f56b2e172d086173bac5995_cgraph">
 <area shape="rect" title="Envoi les données du joueur actuel au serveur." alt="" coords="5,31,100,56"/>
-<area shape="rect" href="client_8c.html#a7cea858f95329a092fd2cbc746c59728" title="Récupère les données du joueur et les envois au serveur via le socket." alt="" coords="148,31,232,56"/>
-<area shape="rect" href="client_8c.html#a5e0f51fafacc388da3b4ebbf686b0eda" title="Construit une trame réseau dédiée uniquement au serveur." alt="" coords="297,5,375,31"/>
+<area shape="rect" href="client_8c.html#a6ff46bda2f9d755b3e1b4a941b10e8e1" title="Récupère les données du joueur et les envois au serveur via le socket." alt="" coords="148,31,232,56"/>
+<area shape="rect" href="client_8c.html#ad2e9b80b5c5fa53e006e439a25c692cc" title="Construit une trame réseau dédiée uniquement au serveur." alt="" coords="297,5,375,31"/>
 <area shape="rect" href="client_8c.html#a1a44fcc8a4125e81a0730b67c2603470" title="Arrête la connexion avec le serveur." alt="" coords="280,55,392,80"/>
 </map>
 </div>
@@ -612,15 +614,15 @@ Voici le graphe des appelants de cette fonction :</div>
 <area shape="rect" title="Envoi les données du joueur actuel au serveur." alt="" coords="423,29,517,55"/>
 <area shape="rect" href="menus_8c.html#a0fa3f94da8421e8f4e5d11404f87856b" title="Animation de respiration." alt="" coords="259,55,375,80"/>
 <area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="120,5,195,31"/>
-<area shape="rect" href="menus_8c.html#a18f5d14ec140197dd0e7627c3c6b7a47" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="104,55,211,80"/>
+<area shape="rect" href="menus_8c.html#a8cbdceb9c205a8d9c279691a09b337a1" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="104,55,211,80"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a734d34007877ed5938e58dccb669ba96" name="a734d34007877ed5938e58dccb669ba96"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a734d34007877ed5938e58dccb669ba96">&#9670;&#160;</a></span>synchDatas()</h2>
+<a id="a6f34c428b3f0a7afe10321406af12adb" name="a6f34c428b3f0a7afe10321406af12adb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f34c428b3f0a7afe10321406af12adb">&#9670;&#160;</a></span>synchDatas()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -628,7 +630,7 @@ Voici le graphe des appelants de cette fonction :</div>
         <tr>
           <td class="memname">void * synchDatas </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structplayer.html">player</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structplayer__t.html">player_t</a> *&#160;</td>
           <td class="paramname"><em>Joueurs</em>, </td>
         </tr>
         <tr>
@@ -656,8 +658,8 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="main_8h_a734d34007877ed5938e58dccb669ba96_icgraph.png" border="0" usemap="#amain_8h_a734d34007877ed5938e58dccb669ba96_icgraph" alt=""/></div>
-<map name="amain_8h_a734d34007877ed5938e58dccb669ba96_icgraph" id="amain_8h_a734d34007877ed5938e58dccb669ba96_icgraph">
+<div class="center"><img src="main_8h_a6f34c428b3f0a7afe10321406af12adb_icgraph.png" border="0" usemap="#amain_8h_a6f34c428b3f0a7afe10321406af12adb_icgraph" alt=""/></div>
+<map name="amain_8h_a6f34c428b3f0a7afe10321406af12adb_icgraph" id="amain_8h_a6f34c428b3f0a7afe10321406af12adb_icgraph">
 <area shape="rect" title="Récupère les données depuis le socket client." alt="" coords="827,31,917,56"/>
 <area shape="rect" href="client_8c.html#a5db5e79b1f9efa79675000da17beacfb" title="Traite les données reçus par le serveur." alt="" coords="708,31,779,56"/>
 <area shape="rect" href="socket_8c.html#a3b61093f2f5316157d1e6d3d05cf5ebc" title="Écoute un client tant que la connexion est établie." alt="" coords="535,5,660,31"/>

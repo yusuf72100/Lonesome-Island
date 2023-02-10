@@ -122,12 +122,12 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a37deea5f4750c52937a56b0e97d566b9"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client_8c.html#a37deea5f4750c52937a56b0e97d566b9">receiveFromServer</a> ()</td></tr>
 <tr class="memdesc:a37deea5f4750c52937a56b0e97d566b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Établie la connexion avec le serveur.  <br /></td></tr>
 <tr class="separator:a37deea5f4750c52937a56b0e97d566b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e0f51fafacc388da3b4ebbf686b0eda"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client_8c.html#a5e0f51fafacc388da3b4ebbf686b0eda">buildTram</a> (<a class="el" href="structplayer.html">player</a> joueur)</td></tr>
-<tr class="memdesc:a5e0f51fafacc388da3b4ebbf686b0eda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construit une trame réseau dédiée uniquement au serveur.  <br /></td></tr>
-<tr class="separator:a5e0f51fafacc388da3b4ebbf686b0eda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7cea858f95329a092fd2cbc746c59728"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client_8c.html#a7cea858f95329a092fd2cbc746c59728">sendDatas</a> (<a class="el" href="structplayer.html">player</a> joueur)</td></tr>
-<tr class="memdesc:a7cea858f95329a092fd2cbc746c59728"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère les données du joueur et les envois au serveur via le socket.  <br /></td></tr>
-<tr class="separator:a7cea858f95329a092fd2cbc746c59728"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2e9b80b5c5fa53e006e439a25c692cc"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client_8c.html#ad2e9b80b5c5fa53e006e439a25c692cc">buildTram</a> (<a class="el" href="structplayer__t.html">player_t</a> joueur)</td></tr>
+<tr class="memdesc:ad2e9b80b5c5fa53e006e439a25c692cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construit une trame réseau dédiée uniquement au serveur.  <br /></td></tr>
+<tr class="separator:ad2e9b80b5c5fa53e006e439a25c692cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ff46bda2f9d755b3e1b4a941b10e8e1"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client_8c.html#a6ff46bda2f9d755b3e1b4a941b10e8e1">sendDatas</a> (<a class="el" href="structplayer__t.html">player_t</a> joueur)</td></tr>
+<tr class="memdesc:a6ff46bda2f9d755b3e1b4a941b10e8e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère les données du joueur et les envois au serveur via le socket.  <br /></td></tr>
+<tr class="separator:a6ff46bda2f9d755b3e1b4a941b10e8e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a44fcc8a4125e81a0730b67c2603470"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client_8c.html#a1a44fcc8a4125e81a0730b67c2603470">stopConnection</a> ()</td></tr>
 <tr class="memdesc:a1a44fcc8a4125e81a0730b67c2603470"><td class="mdescLeft">&#160;</td><td class="mdescRight">Arrête la connexion avec le serveur.  <br /></td></tr>
 <tr class="separator:a1a44fcc8a4125e81a0730b67c2603470"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -148,8 +148,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>connectedError</b> = F
 <dl class="section date"><dt>Date</dt><dd>2023-01-31 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2023 </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
-<a id="a5e0f51fafacc388da3b4ebbf686b0eda" name="a5e0f51fafacc388da3b4ebbf686b0eda"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5e0f51fafacc388da3b4ebbf686b0eda">&#9670;&#160;</a></span>buildTram()</h2>
+<a id="ad2e9b80b5c5fa53e006e439a25c692cc" name="ad2e9b80b5c5fa53e006e439a25c692cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2e9b80b5c5fa53e006e439a25c692cc">&#9670;&#160;</a></span>buildTram()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -160,7 +160,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>connectedError</b> = F
         <tr>
           <td class="memname">static void buildTram </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structplayer.html">player</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="structplayer__t.html">player_t</a>&#160;</td>
           <td class="paramname"><em>joueur</em></td><td>)</td>
           <td></td>
         </tr>
@@ -182,14 +182,14 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>connectedError</b> = F
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="client_8c_a5e0f51fafacc388da3b4ebbf686b0eda_icgraph.png" border="0" usemap="#aclient_8c_a5e0f51fafacc388da3b4ebbf686b0eda_icgraph" alt=""/></div>
-<map name="aclient_8c_a5e0f51fafacc388da3b4ebbf686b0eda_icgraph" id="aclient_8c_a5e0f51fafacc388da3b4ebbf686b0eda_icgraph">
+<div class="center"><img src="client_8c_ad2e9b80b5c5fa53e006e439a25c692cc_icgraph.png" border="0" usemap="#aclient_8c_ad2e9b80b5c5fa53e006e439a25c692cc_icgraph" alt=""/></div>
+<map name="aclient_8c_ad2e9b80b5c5fa53e006e439a25c692cc_icgraph" id="aclient_8c_ad2e9b80b5c5fa53e006e439a25c692cc_icgraph">
 <area shape="rect" title="Construit une trame réseau dédiée uniquement au serveur." alt="" coords="697,29,776,55"/>
-<area shape="rect" href="client_8c.html#a7cea858f95329a092fd2cbc746c59728" title="Récupère les données du joueur et les envois au serveur via le socket." alt="" coords="565,29,649,55"/>
+<area shape="rect" href="client_8c.html#a6ff46bda2f9d755b3e1b4a941b10e8e1" title="Récupère les données du joueur et les envois au serveur via le socket." alt="" coords="565,29,649,55"/>
 <area shape="rect" href="main_8c.html#a506eeac61f56b2e172d086173bac5995" title="Envoi les données du joueur actuel au serveur." alt="" coords="423,29,517,55"/>
 <area shape="rect" href="menus_8c.html#a0fa3f94da8421e8f4e5d11404f87856b" title="Animation de respiration." alt="" coords="259,55,375,80"/>
 <area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="120,5,195,31"/>
-<area shape="rect" href="menus_8c.html#a18f5d14ec140197dd0e7627c3c6b7a47" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="104,55,211,80"/>
+<area shape="rect" href="menus_8c.html#a8cbdceb9c205a8d9c279691a09b337a1" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="104,55,211,80"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
 </map>
 </div>
@@ -222,7 +222,7 @@ Voici le graphe d'appel pour cette fonction :</div>
 <area shape="rect" title="Établie la connexion avec le serveur." alt="" coords="5,31,133,56"/>
 <area shape="rect" href="client_8c.html#a1a44fcc8a4125e81a0730b67c2603470" title="Arrête la connexion avec le serveur." alt="" coords="181,5,293,31"/>
 <area shape="rect" href="client_8c.html#a5db5e79b1f9efa79675000da17beacfb" title="Traite les données reçus par le serveur." alt="" coords="202,55,273,80"/>
-<area shape="rect" href="main_8c.html#a734d34007877ed5938e58dccb669ba96" title="Récupère les données depuis le socket client." alt="" coords="341,55,432,80"/>
+<area shape="rect" href="main_8c.html#a6f34c428b3f0a7afe10321406af12adb" title="Récupère les données depuis le socket client." alt="" coords="341,55,432,80"/>
 </map>
 </div>
 <div class="dynheader">
@@ -238,8 +238,8 @@ Voici le graphe des appelants de cette fonction :</div>
 
 </div>
 </div>
-<a id="a7cea858f95329a092fd2cbc746c59728" name="a7cea858f95329a092fd2cbc746c59728"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7cea858f95329a092fd2cbc746c59728">&#9670;&#160;</a></span>sendDatas()</h2>
+<a id="a6ff46bda2f9d755b3e1b4a941b10e8e1" name="a6ff46bda2f9d755b3e1b4a941b10e8e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ff46bda2f9d755b3e1b4a941b10e8e1">&#9670;&#160;</a></span>sendDatas()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -247,7 +247,7 @@ Voici le graphe des appelants de cette fonction :</div>
         <tr>
           <td class="memname">void * sendDatas </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structplayer.html">player</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="structplayer__t.html">player_t</a>&#160;</td>
           <td class="paramname"><em>joueur</em></td><td>)</td>
           <td></td>
         </tr>
@@ -265,23 +265,23 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dynheader">
 Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="client_8c_a7cea858f95329a092fd2cbc746c59728_cgraph.png" border="0" usemap="#aclient_8c_a7cea858f95329a092fd2cbc746c59728_cgraph" alt=""/></div>
-<map name="aclient_8c_a7cea858f95329a092fd2cbc746c59728_cgraph" id="aclient_8c_a7cea858f95329a092fd2cbc746c59728_cgraph">
+<div class="center"><img src="client_8c_a6ff46bda2f9d755b3e1b4a941b10e8e1_cgraph.png" border="0" usemap="#aclient_8c_a6ff46bda2f9d755b3e1b4a941b10e8e1_cgraph" alt=""/></div>
+<map name="aclient_8c_a6ff46bda2f9d755b3e1b4a941b10e8e1_cgraph" id="aclient_8c_a6ff46bda2f9d755b3e1b4a941b10e8e1_cgraph">
 <area shape="rect" title="Récupère les données du joueur et les envois au serveur via le socket." alt="" coords="5,31,89,56"/>
-<area shape="rect" href="client_8c.html#a5e0f51fafacc388da3b4ebbf686b0eda" title="Construit une trame réseau dédiée uniquement au serveur." alt="" coords="154,5,233,31"/>
+<area shape="rect" href="client_8c.html#ad2e9b80b5c5fa53e006e439a25c692cc" title="Construit une trame réseau dédiée uniquement au serveur." alt="" coords="154,5,233,31"/>
 <area shape="rect" href="client_8c.html#a1a44fcc8a4125e81a0730b67c2603470" title="Arrête la connexion avec le serveur." alt="" coords="137,55,249,80"/>
 </map>
 </div>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="client_8c_a7cea858f95329a092fd2cbc746c59728_icgraph.png" border="0" usemap="#aclient_8c_a7cea858f95329a092fd2cbc746c59728_icgraph" alt=""/></div>
-<map name="aclient_8c_a7cea858f95329a092fd2cbc746c59728_icgraph" id="aclient_8c_a7cea858f95329a092fd2cbc746c59728_icgraph">
+<div class="center"><img src="client_8c_a6ff46bda2f9d755b3e1b4a941b10e8e1_icgraph.png" border="0" usemap="#aclient_8c_a6ff46bda2f9d755b3e1b4a941b10e8e1_icgraph" alt=""/></div>
+<map name="aclient_8c_a6ff46bda2f9d755b3e1b4a941b10e8e1_icgraph" id="aclient_8c_a6ff46bda2f9d755b3e1b4a941b10e8e1_icgraph">
 <area shape="rect" title="Récupère les données du joueur et les envois au serveur via le socket." alt="" coords="565,29,649,55"/>
 <area shape="rect" href="main_8c.html#a506eeac61f56b2e172d086173bac5995" title="Envoi les données du joueur actuel au serveur." alt="" coords="423,29,517,55"/>
 <area shape="rect" href="menus_8c.html#a0fa3f94da8421e8f4e5d11404f87856b" title="Animation de respiration." alt="" coords="259,55,375,80"/>
 <area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="120,5,195,31"/>
-<area shape="rect" href="menus_8c.html#a18f5d14ec140197dd0e7627c3c6b7a47" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="104,55,211,80"/>
+<area shape="rect" href="menus_8c.html#a8cbdceb9c205a8d9c279691a09b337a1" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="104,55,211,80"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
 </map>
 </div>
@@ -352,12 +352,12 @@ Voici le graphe des appelants de cette fonction :</div>
 <area shape="rect" title="Arrête la connexion avec le serveur." alt="" coords="728,132,840,157"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,157,56,183"/>
 <area shape="rect" href="client_8c.html#a37deea5f4750c52937a56b0e97d566b9" title="Établie la connexion avec le serveur." alt="" coords="259,5,387,31"/>
-<area shape="rect" href="client_8c.html#a7cea858f95329a092fd2cbc746c59728" title="Récupère les données du joueur et les envois au serveur via le socket." alt="" coords="596,107,680,132"/>
+<area shape="rect" href="client_8c.html#a6ff46bda2f9d755b3e1b4a941b10e8e1" title="Récupère les données du joueur et les envois au serveur via le socket." alt="" coords="596,107,680,132"/>
 <area shape="rect" href="client_8c.html#a3622090a7ff391221a74cad6493bbca9" title="Démarre la connexion au serveur et renvoi TRUE en cas d&#39;erreur sinon renvoi FALSE." alt="" coords="435,157,548,183"/>
 <area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="120,83,195,108"/>
 <area shape="rect" href="main_8c.html#a506eeac61f56b2e172d086173bac5995" title="Envoi les données du joueur actuel au serveur." alt="" coords="444,107,539,132"/>
 <area shape="rect" href="menus_8c.html#a0fa3f94da8421e8f4e5d11404f87856b" title="Animation de respiration." alt="" coords="265,107,381,132"/>
-<area shape="rect" href="menus_8c.html#a18f5d14ec140197dd0e7627c3c6b7a47" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="104,132,211,157"/>
+<area shape="rect" href="menus_8c.html#a8cbdceb9c205a8d9c279691a09b337a1" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="104,132,211,157"/>
 </map>
 </div>
 
@@ -393,7 +393,7 @@ Voici le graphe d'appel pour cette fonction :</div>
 <div class="center"><img src="client_8c_a5db5e79b1f9efa79675000da17beacfb_cgraph.png" border="0" usemap="#aclient_8c_a5db5e79b1f9efa79675000da17beacfb_cgraph" alt=""/></div>
 <map name="aclient_8c_a5db5e79b1f9efa79675000da17beacfb_cgraph" id="aclient_8c_a5db5e79b1f9efa79675000da17beacfb_cgraph">
 <area shape="rect" title="Traite les données reçus par le serveur." alt="" coords="5,5,76,31"/>
-<area shape="rect" href="main_8c.html#a734d34007877ed5938e58dccb669ba96" title="Récupère les données depuis le socket client." alt="" coords="124,5,215,31"/>
+<area shape="rect" href="main_8c.html#a6f34c428b3f0a7afe10321406af12adb" title="Récupère les données depuis le socket client." alt="" coords="124,5,215,31"/>
 </map>
 </div>
 <div class="dynheader">
