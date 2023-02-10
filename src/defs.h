@@ -9,6 +9,8 @@
 #ifndef DEFS_H
 #define DEFS_H
 
+#include <stdio.h>
+#include <stdlib.h>
 #include <SDL.h>
 
 #define TRUE 1
@@ -39,12 +41,15 @@ typedef struct
     int damage; 
 }weapon_t;
 
+/**
+ * @brief Définition d'un food.
+ * 
+ */
 typedef struct 
 {
     int feed;
     int thirst;
 }food_t;
-
 
 /**
  * @brief Item avec ses stats.
@@ -55,6 +60,8 @@ typedef struct
     void *Item;
     char name[20];
     SDL_Texture *texture;
+    SDL_Surface *surface;
+    SDL_Rect rectangle;
     T_ITEM itemType;
 }item_t;
 
@@ -64,7 +71,7 @@ typedef struct
  */
 typedef struct
 {
-    item_t Item;
+    item_t *Item;
     int number;
 }case_inventory;
 
@@ -79,5 +86,13 @@ extern case_inventory mat_inventory[3][10];
 extern void changeMenu(T_MENU menuTarget);
 
 extern T_MENU getMenu();
+
+extern void inventoryInit();
+
+extern void defineItem();
+
+extern item_t *axe;
+
+extern item_t *apple;
 
 #endif

@@ -157,9 +157,19 @@ void drawButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface)
     if(SDL_QueryTexture(texture, NULL, NULL, &rectangle.w, &rectangle.h) != 0)
     {
         destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible d'afficher la texture du boutton jouer...");
+        SDL_ExitWithError("Impossible d'afficher la texture du boutton...");
     }
     SDL_RenderCopy(renderer, texture, NULL, &rectangle);
+}
+
+void drawItem(case_inventory item)
+{
+    if(SDL_QueryTexture(item.Item->texture, NULL, NULL, &item.Item->rectangle.w, &item.Item->rectangle.h) != 0)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible d'afficher la texture de l'item...");
+    }
+    SDL_RenderCopy(renderer,item.Item->texture, NULL, &item.Item->rectangle);
 }
 
 /**
@@ -527,6 +537,9 @@ static void surfacesInit()
     surface_joueur_up_2 = IMG_Load("resources/characters/player_up_2.png");
     surface_joueur_down_1 = IMG_Load("resources/characters/player_down_1.png");
     surface_joueur_down_2 = IMG_Load("resources/characters/player_down_2.png");
+
+    //items 
+    apple->surface = IMG_Load("resources/items/apple_food.png");
 }
 
 /**
@@ -540,7 +553,7 @@ static void windowInit()
 
     if((window = SDL_CreateWindow("Lonesome Island",  SDL_WINDOWPOS_CENTERED,  SDL_WINDOWPOS_CENTERED, 1920, 1080, SDL_WINDOW_MAXIMIZED)) == NULL)
         SDL_ExitWithError("Impossible de créer la fenêtre...");
-    
+
     if((renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED)) == NULL)
         SDL_ExitWithError("Impossible de créer le rendu...");
 
@@ -565,7 +578,7 @@ static void texturesInit()
     init_texture(&settings_inert , &texture_settings_inert);
     init_texture(&inventory_surface , &inventory_texture);
 
-    //assets
+    //game assets
     init_texture(&background , &background_texture);
     init_texture(&surface_joueur_h1 , &texture_joueur_h1);
     init_texture(&surface_joueur_h2 , &texture_joueur_h2);
@@ -577,6 +590,9 @@ static void texturesInit()
     init_texture(&surface_joueur_up_2 , &texture_joueur_up_2);
     init_texture(&surface_joueur_down_1 , &texture_joueur_down_1);
     init_texture(&surface_joueur_down_2 , &texture_joueur_down_2);
+
+    //items
+    init_texture(&((apple->surface)), &((apple->texture)));
 }
 
 static void rectanglesInit()
@@ -634,14 +650,16 @@ static void rectanglesInit()
  */
 void init_menus_vars()
 {
+    defineItem();
+    inventoryInit();
     mouse_position.x = 0, mouse_position.y = 0;
     xWindow = 0, yWindow = 0;
 
     SDL_GetWindowPosition(window, &xWindow, &yWindow);
     SDL_GetMouseState(&mouse_position.x,&mouse_position.y);
 
-    surfacesInit();
     windowInit();
+    surfacesInit();
 
     if (TTF_Init() == -1)
     {
@@ -799,7 +817,12 @@ void drawCases()
     {
         for(int j = 0; j < 10; j++)
         {
-            
+            if(mat_inventory[i][j].number > 0)
+            {
+                mat_inventory[i][j].Item->rectangle.x = inventory_rect.x + (80*(j) + 5);
+                mat_inventory[i][j].Item->rectangle.y = DM.h - (inventory_rect.h - (80*(i+1))) + 5;
+                drawItem(mat_inventory[i][j]);
+            }
         }
     }
 }
