@@ -46,6 +46,7 @@ static SDL_bool hover_hostbutton = SDL_FALSE;
 static SDL_bool hover_settingsbutton = SDL_FALSE;
 static SDL_bool fullscreen = SDL_FALSE;
 
+static int animations_thread_running = FALSE;
 static int settings_button_animation_state = 0;
 static int xWindow = 0, yWindow = 0;
 static int WindowW = 1920, WindowH = 1080;
@@ -138,68 +139,43 @@ static SDL_Texture *cursor_select_texture = NULL;
 static SDL_Surface *background = NULL;
 static SDL_Texture *background_texture = NULL;
 
-static int animations_thread_running = FALSE;
-
+//static functions
+static void surfacesInit();
 static void SDL_ExitWithError(const char *message);
-
 static void sortPlayers();
-
-void changeButtonState(char *button);
-
-void startAnimation(char *animation, player_t *joueur);
-
-int onButton(char *button);
-
-void toggleFullscreen();
-
-void drawButtons();
-
-void drawMenu();
-
-void mainMenu();
-
-void update_screen();
-
-void init_menus_vars();
-
-void drawMouse();
-
-void drawPlayer(SDL_Texture *texture_joueur, SDL_Rect playerRect);
-
-void destroyAll();
-
-void drawButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface);
-
 static void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, Bullet *b, int rotation, int vitesse);
-
-void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button);
-
-void buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button, void* (*p)(void*), void* (*p2)(void*));
-
 static void init_texture(SDL_Surface **surface, SDL_Texture **texture);
-
 static void switchAnimation(player_t Joueur);
+static void windowInit();
+static void texturesInit();
+static void rectanglesInit();
 
+//global functions
+void changeButtonState(char *button);
+void startAnimation(char *animation, player_t *joueur);
+int onButton(char *button);
+void toggleFullscreen();
+void drawButtons();
+void drawMenu();
+void mainMenu();
+void update_screen();
+void init_menus_vars();
+void drawMouse();
+void drawPlayer(SDL_Texture *texture_joueur, SDL_Rect playerRect);
+void destroyAll();
+void drawButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface);
+void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button);
+void buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button, void* (*p)(void*), void* (*p2)(void*));
 void displayError(char *s);
-
 void drawError(SDL_Rect rect, SDL_Texture *texture);
-
 void drawTitle();
-
 void *settings_button_animation_right();
-
 void *settings_button_animation_left();
-
 void *running_down_animation(void *j);
-
 void *running_up_animation(void *j);
-
 void *running_right_animation(void *j);
-
 void *running_left_animation(void *j);
-
 void *breathAnimation(void *j);
-
 void *drawPlayers(player_t *joueurs, int size);
 
 #endif
