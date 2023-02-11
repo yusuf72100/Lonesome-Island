@@ -182,6 +182,11 @@ void drawButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface)
     SDL_RenderCopy(renderer, texture, NULL, &rectangle);
 }
 
+/**
+ * @brief Affiche le nombre d'items pour chaque case de l'inventaire.
+ * 
+ * @param case_x 
+ */
 void drawCaseText(case_inventory case_x)
 {
     char buffer[2];
@@ -214,14 +219,14 @@ void drawCaseText(case_inventory case_x)
  * 
  * @param item 
  */
-void drawItem(case_inventory item)
+void drawItem(case_inventory case_x)
 {
-    if(SDL_QueryTexture(item.Item->texture, NULL, NULL, &item.Item->rectangle.w, &item.Item->rectangle.h) != 0)
+    if(SDL_QueryTexture(case_x.Item->texture, NULL, NULL, &case_x.Item->rectangle.w, &case_x.Item->rectangle.h) != 0)
     {
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible d'afficher la texture de l'item...");
     }
-    SDL_RenderCopy(renderer,item.Item->texture, NULL, &item.Item->rectangle);
+    SDL_RenderCopy(renderer,case_x.Item->texture, NULL, &case_x.Item->rectangle);
 }
 
 /**
