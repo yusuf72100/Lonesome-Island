@@ -161,10 +161,8 @@ void inventoryInit()
     }
     mat_inventory[0][0].Item = apple;
     mat_inventory[0][0].number = 1;
-    mat_inventory[0][1].Item = apple;
-    mat_inventory[0][1].number = 65;
-    mat_inventory[0][3].Item = apple;
-    mat_inventory[0][3].number = 5;
+    mat_inventory[2][5].Item = apple;
+    mat_inventory[2][5].number = 65;
 }
 
 /**
