@@ -873,7 +873,7 @@ void drawCases()
         {
             if(mat_inventory[i][j].number > 0)
             {
-                mat_inventory[i][j].Item->rectangle.x = inventory_rect.x + (80*(j) + 18);
+                mat_inventory[i][j].Item->rectangle.x = inventory_rect.x + (80*(j) + 21);
                 mat_inventory[i][j].Item->rectangle.y = DM.h - (80*((3-i))) - 10;
                 mat_inventory[i][j].Item->rectangle.h = 80;
                 mat_inventory[i][j].Item->rectangle.w = 80;
