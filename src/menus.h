@@ -66,7 +66,9 @@ static SDL_Surface *icon_surface = NULL;
     
 //texte assets
 static SDL_Color blackColor = {0, 0, 0};
+static SDL_Color whiteColor = {239, 198, 155};
 static TTF_Font *police = NULL;
+static TTF_Font *item_dafont = NULL;
 static SDL_Rect title_rect;
 
 //game assets

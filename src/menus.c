@@ -146,6 +146,28 @@ void drawMouse()
 }
 
 /**
+ * @brief Initialise les textures des cases de l'inventaire.
+ * 
+ */
+void inventoryInit()
+{
+    for(int i = 0; i < 3; i++)
+    {
+        for(int j = 0; j < 10; j++)
+        {
+            mat_inventory[i][j].Item = apple;
+            mat_inventory[i][j].number = 0;
+        }
+    }
+    mat_inventory[0][0].Item = apple;
+    mat_inventory[0][0].number = 1;
+    mat_inventory[0][1].Item = apple;
+    mat_inventory[0][1].number = 65;
+    mat_inventory[0][3].Item = apple;
+    mat_inventory[0][3].number = 5;
+}
+
+/**
  * @brief Dessine un bouton normal.
  * 
  * @param texture 
@@ -162,6 +184,38 @@ void drawButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface)
     SDL_RenderCopy(renderer, texture, NULL, &rectangle);
 }
 
+void drawCaseText(case_inventory case_x)
+{
+    char buffer[2];
+    itoa(case_x.number, buffer, 10);
+
+    case_x.text_rectangle.h = 32;
+    case_x.text_rectangle.w = 18 * strlen(buffer);
+    case_x.text_rectangle.x = case_x.Item->rectangle.x + case_x.Item->rectangle.w - 10 - (10 * (strlen(buffer)-1));
+    case_x.text_rectangle.y = case_x.Item->rectangle.y + case_x.Item->rectangle.h - 15;
+    case_x.text_surface = TTF_RenderText_Blended(item_dafont, buffer, whiteColor);
+
+    if (case_x.text_surface == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger l'image des items...");
+    }
+    case_x.text_texture = SDL_CreateTextureFromSurface(renderer, case_x.text_surface);
+    if (case_x.text_texture == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger l'image des dafonts des items...");
+    }
+    //SDL_BlitSurface(case_x.text_surface,NULL,case_x.Item->surface,&case_x.Item->rectangle);
+    SDL_RenderCopy(renderer,case_x.text_texture, NULL, &case_x.text_rectangle);
+
+}
+
+/**
+ * @brief Dessine l'item à la bonne case de l'inventaire.
+ * 
+ * @param item 
+ */
 void drawItem(case_inventory item)
 {
     if(SDL_QueryTexture(item.Item->texture, NULL, NULL, &item.Item->rectangle.w, &item.Item->rectangle.h) != 0)
@@ -645,6 +699,34 @@ static void rectanglesInit()
 }
 
 /**
+ * @brief Initialise les dafonts.
+ * 
+ */
+void ttfInit()
+{
+    if (TTF_Init() == -1)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger l'image...");
+    }
+    police = TTF_OpenFont("resources/04b30.TTF", 30);
+
+    if (police == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger la police des erreurs...");
+    }
+
+    item_dafont = TTF_OpenFont("resources/Donitha-Shiny.ttf", 50);
+
+    if (item_dafont == NULL)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de charger la police des items...");
+    }
+}
+
+/**
  * @brief Initialise toutes les variables relatives aux menus.
  * 
  */
@@ -660,19 +742,7 @@ void init_menus_vars()
 
     windowInit();
     surfacesInit();
-
-    if (TTF_Init() == -1)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger l'image...");
-    }
-    police = TTF_OpenFont("resources/04b30.TTF", 30);
-
-    if (police == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger la police...");
-    }
+    ttfInit();
     cursor_texture = SDL_CreateTextureFromSurface(renderer, cursor);
 
     if(cursor == NULL)
@@ -688,22 +758,6 @@ void init_menus_vars()
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de charger la texture de la souris...");
     }
-
-    /*texte = TTF_RenderText_Blended(police, "Lonesome Island", blackColor);
-    if (texte == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger l'image...");
-    }
-    texte_texture = SDL_CreateTextureFromSurface(renderer, texte);
-
-    if (texte_texture == NULL)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de charger l'image...");
-    }
-    SDL_BlitSurface(texte,NULL,background,&title_rect);
-    */
 
     texturesInit();
     rectanglesInit();
@@ -819,9 +873,12 @@ void drawCases()
         {
             if(mat_inventory[i][j].number > 0)
             {
-                mat_inventory[i][j].Item->rectangle.x = inventory_rect.x + (80*(j) + 5);
-                mat_inventory[i][j].Item->rectangle.y = DM.h - (inventory_rect.h - (80*(i+1))) + 5;
+                mat_inventory[i][j].Item->rectangle.x = inventory_rect.x + (80*(j) + 18);
+                mat_inventory[i][j].Item->rectangle.y = DM.h - (80*((3-i))) - 10;
+                mat_inventory[i][j].Item->rectangle.h = 80;
+                mat_inventory[i][j].Item->rectangle.w = 80;
                 drawItem(mat_inventory[i][j]);
+                drawCaseText(mat_inventory[i][j]);
             }
         }
     }

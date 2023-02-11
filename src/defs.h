@@ -73,6 +73,9 @@ typedef struct
 {
     item_t *Item;
     int number;
+    SDL_Texture *text_texture;
+    SDL_Surface *text_surface;
+    SDL_Rect text_rectangle;
 }case_inventory;
 
 extern T_MENU menu;
@@ -86,8 +89,6 @@ extern case_inventory mat_inventory[3][10];
 extern void changeMenu(T_MENU menuTarget);
 
 extern T_MENU getMenu();
-
-extern void inventoryInit();
 
 extern void defineItem();
 
