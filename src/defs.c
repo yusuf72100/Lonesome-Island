@@ -39,15 +39,6 @@ SDL_bool tabEvent[20] = {SDL_FALSE};
 case_inventory mat_inventory[3][10];
 
 /**
- * @brief Nous renvoi le menu dans lequel le client se trouve.
- * @return T_MENU
- */
-T_MENU getMenu()
-{
-    return (menu);
-}
-
-/**
  * @brief Change de menu.
  * 
  * @param menuTarget 

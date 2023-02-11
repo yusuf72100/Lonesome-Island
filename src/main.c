@@ -374,7 +374,7 @@ static void doEvents()
     if(tabEvent[0])
         {
             //touche Z
-            if (getMenu() == INGAME)
+            if (menu == INGAME)
             {
                 if (debug) printf("Touche SDLK_z pressee | %s\n", eventTime());
                 joueur.playerRect.y = joueur.playerRect.y - 3;
@@ -391,7 +391,7 @@ static void doEvents()
         if(tabEvent[1])
         {
             //touche Q
-            if(getMenu() == INGAME)
+            if(menu == INGAME)
             {
                 joueur.playerRect.x = joueur.playerRect.x - 3;
                 if (debug) printf("Touche SDLK_q pressee | %s\n", eventTime());
@@ -405,7 +405,7 @@ static void doEvents()
         if(tabEvent[2])
         {
             //touche S
-            if(getMenu() == INGAME)
+            if(menu == INGAME)
             {
                 if (debug) printf("Touche SDLK_s pressee | %s\n", eventTime());
                 joueur.playerRect.y = joueur.playerRect.y + 3;
@@ -422,7 +422,7 @@ static void doEvents()
         if(tabEvent[3])
         {
             //touche D
-            if(getMenu() == INGAME)
+            if(menu == INGAME)
             {
                 joueur.playerRect.x = joueur.playerRect.x + 3;
                 if (debug) printf("Touche SDLK_d pressee | %s\n", eventTime());
@@ -436,7 +436,7 @@ static void doEvents()
         if(tabEvent[4])
         {
             //touche LEFT
-            if(getMenu() == INGAME)
+            if(menu == INGAME)
             {
                 //if (debug) printf("Touche SDLK_LEFT pressee | %s\n", eventTime());
                 if (debug) printf("Rotation : %d\n", rotation);
@@ -447,7 +447,7 @@ static void doEvents()
         if(tabEvent[5])
         {
             //touche RIGHT
-            if(getMenu() == INGAME)
+            if(menu == INGAME)
             {
                 //if (debug) printf("Touche SDLK_RIGHT pressee | %s\n", eventTime());
                 if (debug) printf("Rotation : %d\n", rotation);
@@ -457,7 +457,7 @@ static void doEvents()
         if(tabEvent[6])
         {
             //touche ESPACE
-            if(getMenu() == INGAME)
+            if(menu == INGAME)
             {
                 if (!loading)
                 { 
@@ -476,7 +476,7 @@ static void doEvents()
             //click LEFT DOWN
             
             //Connect button
-            if(onButton("connect") && getMenu() == MAIN)
+            if(onButton("connect") && menu == MAIN)
             {
                 init_boop(&tabEvent[7]);
                 if (debug) printf("Connect button clicked\n");                                         
@@ -494,7 +494,7 @@ static void doEvents()
             }
 
             //host button
-            if(onButton("host") && getMenu() == MAIN)
+            if(onButton("host") && menu == MAIN)
             {
                 init_boop(&tabEvent[7]);
                 if (debug) printf("Host button clicked\n");
@@ -507,7 +507,7 @@ static void doEvents()
             }
 
             //play button
-            if(onButton("play") && getMenu() == MAIN)
+            if(onButton("play") && menu == MAIN)
             {
                 init_boop(&tabEvent[7]);
                 changeButtonState("play");
@@ -516,7 +516,7 @@ static void doEvents()
             }
             
             //settings button
-            if(onButton("settings") && getMenu() == MAIN)
+            if(onButton("settings") && menu == MAIN)
             {
                 init_boop(&tabEvent[7]);
                 changeButtonState("settings");
@@ -537,7 +537,7 @@ static void doEvents()
         }
         if(!tabEvent[0] && !tabEvent[1] && !tabEvent[2] && !tabEvent[3] && !tabEvent[6] && !tabEvent[7])
         {
-            if((getMenu() == INGAME || getMenu() == INVENTORY) && !SOLO)
+            if((menu == INGAME || menu == INVENTORY) && !SOLO)
             {
                 if(pthread_kill(animations_thread, 0) != 0)
                     pthread_create(&animations_thread, NULL, breathAnimation,(void *)&joueur);  
@@ -547,7 +547,7 @@ static void doEvents()
         if(tabEvent[10])
         {
             //touche ESCAPE
-            if(getMenu() == ERROR)
+            if(menu == ERROR)
             {
                 changeMenu(MAIN);
             }
@@ -561,7 +561,7 @@ static void doEvents()
         if(tabEvent[13])
         {
             //touche TAB
-            if(getMenu() == INGAME)
+            if(menu == INGAME)
             {
                 if((SDL_GetTicks() - tabTick[13]) >= 200)
                 {
@@ -580,13 +580,13 @@ static void doEvents()
         }
 
         // Multi-joueurs
-        if ((getMenu() == INGAME || getMenu() == INVENTORY) && !SOLO)
+        if ((menu == INGAME || menu == INVENTORY) && !SOLO)
         {
             if(connectedError == FALSE) drawPlayers(joueurs, size);
             else changeMenu(MAIN);
         }
         // solo
-        else if ((getMenu() == INGAME || getMenu() == INVENTORY) && SOLO)
+        else if ((menu == INGAME || menu == INVENTORY) && SOLO)
         {
             drawPlayers(joueurs, 1);
         }
