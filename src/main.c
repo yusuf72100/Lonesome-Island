@@ -547,7 +547,7 @@ static void doEvents()
         if(tabEvent[10])
         {
             //touche ESCAPE
-            if(menu == ERROR)
+            if(menu == ERR)
             {
                 changeMenu(MAIN);
             }
