@@ -1059,8 +1059,8 @@ void wearing()
 {
     if(wearingItem == SDL_TRUE)
     {
-        wearedItem->item_rectangle.x = mouse_position.x+10;
-        wearedItem->item_rectangle.y = mouse_position.y+10;
+        wearedItem->item_rectangle.x = mouse_position.x-(wearedItem->item_rectangle.w/4);
+        wearedItem->item_rectangle.y = mouse_position.y-(wearedItem->item_rectangle.h/4);
         drawItem(*wearedItem);
         drawCaseText(*wearedItem);
     }
