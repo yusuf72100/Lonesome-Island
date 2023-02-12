@@ -476,7 +476,7 @@ static void doEvents()
             //click LEFT DOWN
             
             //Connect button
-            if(onButton(CONNECT_BUTTON) && menu == MAIN_MENU)
+            if(onButton(CONNECT_BUTTON_HOVER) && menu == MAIN_MENU)
             {
                 init_boop(&tabEvent[7]);
                 if (debug) printf("Connect button clicked\n");                                         
@@ -490,11 +490,11 @@ static void doEvents()
                 {
                     changeMenu(ERR_MENU);
                 }
-                changeButtonState(CONNECT_BUTTON);
+                switchButtonState_hover(CONNECT_BUTTON_HOVER);
             }
 
             //host button
-            if(onButton(HOST_BUTTON) && menu == MAIN_MENU)
+            if(onButton(HOST_BUTTON_HOVER) && menu == MAIN_MENU)
             {
                 init_boop(&tabEvent[7]);
                 if (debug) printf("Host button clicked\n");
@@ -503,29 +503,42 @@ static void doEvents()
                 pthread_create(&sendtoserver,NULL,Send2Server,NULL);
                 pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
                 changeMenu(INGAME_MENU);
-                changeButtonState(HOST_BUTTON);
+                switchButtonState_hover(HOST_BUTTON_HOVER);
             }
 
             //play button
-            if(onButton(PLAY_BUTTON) && menu == MAIN_MENU)
+            if(onButton(PLAY_BUTTON_HOVER) && menu == MAIN_MENU)
             {
                 init_boop(&tabEvent[7]);
-                changeButtonState(PLAY_BUTTON);
+                switchButtonState_hover(PLAY_BUTTON_HOVER);
                 changeMenu(INGAME_MENU);
                 SOLO = TRUE;
             }
             
             //settings button
-            if(onButton(SETTINGS_BUTTON) && menu == MAIN_MENU)
+            if(onButton(SETTINGS_BUTTON_HOVER) && menu == MAIN_MENU)
             {
                 init_boop(&tabEvent[7]);
-                changeButtonState(SETTINGS_BUTTON);
+                switchButtonState_hover(SETTINGS_BUTTON_HOVER);
                 changeMenu(SETTINGS_MENU);
+            }
+
+            if(menu == INVENTORY_MENU)
+            {
+                if(getButtonState_clicked(INVENTORY_BUTTON_CLICKED) == FALSE)
+                {
+                    changeButtonState_clicked(INVENTORY_BUTTON_CLICKED, TRUE);
+                    tabTick[7] = SDL_GetTicks();
+                    clickItem();
+                }
             }
         }
         if(!tabEvent[7])
         {
-            //click LEFT UP
+            if(menu == INVENTORY_MENU)
+            {
+                changeButtonState_clicked(INVENTORY_BUTTON_CLICKED, FALSE);
+            }
         }
         if(tabEvent[8])
         {
@@ -569,7 +582,7 @@ static void doEvents()
                     tabTick[13] = SDL_GetTicks();
                 }
             }
-            else 
+            else if(menu != MAIN_MENU)
             {
                 if((SDL_GetTicks() - tabTick[13]) >= 200)
                 {

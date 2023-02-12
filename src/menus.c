@@ -49,31 +49,121 @@ void startAnimation(char *animation, player_t *joueur)
 }
 
 /**
- * @brief Change l'état du boutton de survol ciblé.
+ * @brief Change l'état du boutton ciblé.
  * 
  * @param button 
  */
-void changeButtonState(T_BUTTONS button)
+void switchButtonState_hover(T_BUTTONS_HOVER button)
 {
-    if(button == CONNECT_BUTTON)
+    if(button == CONNECT_BUTTON_HOVER)
     {
         if(hover_connectbutton == FALSE) hover_connectbutton = TRUE;
         else hover_connectbutton = FALSE;
     }
-    else if(button == HOST_BUTTON)
+    else if(button == HOST_BUTTON_HOVER)
     {
         if(hover_hostbutton == FALSE) hover_hostbutton = TRUE;
         else hover_hostbutton = FALSE;
     }
-    else if(button == PLAY_BUTTON)
+    else if(button == PLAY_BUTTON_HOVER)
     {
         if(hover_playbutton == FALSE) hover_playbutton = TRUE;
         else hover_playbutton = FALSE;
     }
-    else if(button == SETTINGS_BUTTON)
+    else if(button == SETTINGS_BUTTON_HOVER)
     {
         if(hover_settingsbutton == FALSE) hover_settingsbutton = TRUE;
         else hover_settingsbutton = FALSE;
+    }
+}
+
+/**
+ * @brief Change le boutton ciblé avec l'état voulut.
+ * 
+ * @param button 
+ * @param state 
+ */
+void changeButtonState_hover(T_BUTTONS_HOVER button, int state)
+{
+    if(button == CONNECT_BUTTON_HOVER)
+    {
+        hover_connectbutton = state;
+    }
+    else if(button == HOST_BUTTON_HOVER)
+    {
+        hover_hostbutton = state;
+    }
+    else if(button == PLAY_BUTTON_HOVER)
+    {
+        hover_playbutton = state;
+    }
+    else if(button == SETTINGS_BUTTON_HOVER)
+    {
+        hover_settingsbutton = state;
+    }
+    else if(button == INVENTORY_BUTTON_HOVER)
+    {
+        hover_inventoryitem = state;
+    }
+}
+
+/**
+ * @brief Change le boutton ciblé avec l'état voulut.
+ * 
+ * @param button 
+ * @param state 
+ */
+void changeButtonState_clicked(T_BUTTONS_CLICKED button, int state)
+{
+    if(button == CONNECT_BUTTON_CLICKED)
+    {
+        clicked_connectbutton = state;
+    }
+    else if(button == HOST_BUTTON_CLICKED)
+    {
+        clicked_hostbutton = state;
+    }
+    else if(button == PLAY_BUTTON_CLICKED)
+    {
+        clicked_playbutton = state;
+    }
+    else if(button == SETTINGS_BUTTON_CLICKED)
+    {
+        clicked_settingsbutton = state;
+    }
+    else if(button == INVENTORY_BUTTON_CLICKED)
+    {
+       clicked_inventoryitem = state;
+    }
+}
+
+/**
+ * @brief Renvoi l'état du boutton demandé.
+ * 
+ * @param button 
+ * @return int 
+ */
+int getButtonState_clicked(T_BUTTONS_CLICKED button)
+{
+    if(button == CONNECT_BUTTON_CLICKED)
+    {
+        return clicked_connectbutton;
+    }
+    else if(button == HOST_BUTTON_CLICKED)
+    {
+        return clicked_hostbutton;
+    }
+    else if(button == PLAY_BUTTON_CLICKED)
+    {
+        return clicked_playbutton;
+    }
+    else if(button == SETTINGS_BUTTON_CLICKED)
+    {
+        return clicked_settingsbutton;
+    }
+    else if(button == INVENTORY_BUTTON_CLICKED)
+    {
+       return clicked_inventoryitem;
     }
 }
 
@@ -83,15 +173,15 @@ void changeButtonState(T_BUTTONS button)
  * @param button 
  * @return int
  */
-int onButton(T_BUTTONS button)
+int onButton(T_BUTTONS_HOVER button)
 {
-    if(button == CONNECT_BUTTON)
+    if(button == CONNECT_BUTTON_HOVER)
         return SDL_PointInRect(&mouse_position, &connect_button_rect);
-    else if(button == HOST_BUTTON)
+    else if(button == HOST_BUTTON_HOVER)
         return SDL_PointInRect(&mouse_position, &host_button_rect);
-    else if(button == PLAY_BUTTON)
+    else if(button == PLAY_BUTTON_HOVER)
         return SDL_PointInRect(&mouse_position, &play_button_rect);
-    else if(button == SETTINGS_BUTTON)
+    else if(button == SETTINGS_BUTTON_HOVER)
         return SDL_PointInRect(&mouse_position, &settings_button_rect);
     else return FALSE;
 }
@@ -125,7 +215,7 @@ void update_screen()
  */
 void drawMouse()
 {
-    if(hover_playbutton || hover_connectbutton || hover_hostbutton || hover_settingsbutton) 
+    if(hover_playbutton || hover_connectbutton || hover_hostbutton || hover_settingsbutton || hover_inventoryitem) 
     {
         if(SDL_QueryTexture(cursor_select_texture, NULL, NULL, &mouseRect.w, &mouseRect.h) != 0)
         {
@@ -194,8 +284,8 @@ void drawCaseText(case_inventory case_x)
 
     case_x.text_rectangle.h = 32;
     case_x.text_rectangle.w = 18 * strlen(buffer);
-    case_x.text_rectangle.x = case_x.Item->rectangle.x + case_x.Item->rectangle.w - 10 - (10 * (strlen(buffer)-1));
-    case_x.text_rectangle.y = case_x.Item->rectangle.y + case_x.Item->rectangle.h - 15;
+    case_x.text_rectangle.x = case_x.item_rectangle.x + (case_x.item_rectangle.w/3);
+    case_x.text_rectangle.y = case_x.item_rectangle.y + (case_x.item_rectangle.h/3);
     case_x.text_surface = TTF_RenderText_Blended(item_dafont, buffer, whiteColor);
 
     if (case_x.text_surface == NULL)
@@ -209,7 +299,7 @@ void drawCaseText(case_inventory case_x)
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de charger l'image des dafonts des items...");
     }
-    //SDL_BlitSurface(case_x.text_surface,NULL,case_x.Item->surface,&case_x.Item->rectangle);
+    //SDL_BlitSurface(case_x.text_surface,NULL,case_x.Item->surface,&case_x.item_rectangle);
     SDL_RenderCopy(renderer,case_x.text_texture, NULL, &case_x.text_rectangle);
 
 }
@@ -221,12 +311,12 @@ void drawCaseText(case_inventory case_x)
  */
 void drawItem(case_inventory case_x)
 {
-    if(SDL_QueryTexture(case_x.Item->texture, NULL, NULL, &case_x.Item->rectangle.w, &case_x.Item->rectangle.h) != 0)
+    if(SDL_QueryTexture(case_x.Item->texture, NULL, NULL, &case_x.item_rectangle.w, &case_x.item_rectangle.h) != 0)
     {
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible d'afficher la texture de l'item...");
     }
-    SDL_RenderCopy(renderer,case_x.Item->texture, NULL, &case_x.Item->rectangle);
+    SDL_RenderCopy(renderer,case_x.Item->texture, NULL, &case_x.item_rectangle);
 }
 
 /**
@@ -652,6 +742,10 @@ static void texturesInit()
     init_texture(&((apple->surface)), &((apple->texture)));
 }
 
+/**
+ * @brief Initialise les rectangles.
+ * 
+ */
 static void rectanglesInit()
 {
     //player rectangle
@@ -743,8 +837,8 @@ void init_menus_vars()
     SDL_GetWindowPosition(window, &xWindow, &yWindow);
     SDL_GetMouseState(&mouse_position.x,&mouse_position.y);
 
-    windowInit();
     surfacesInit();
+    windowInit();
     ttfInit();
     cursor_texture = SDL_CreateTextureFromSurface(renderer, cursor);
 
@@ -783,7 +877,8 @@ static void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect
 
 /**
  * @brief Change le mode plein écran.
-*/
+ * 
+ */
 void toggleFullscreen()
 {
     if(fullscreen == SDL_FALSE)
@@ -854,6 +949,65 @@ void buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *button_t
     }
 }
 
+void clickItem()
+{
+    int i = 0, j = 0;
+    int finded = FALSE;
+
+    if(clicked_inventoryitem == TRUE)
+    {
+        for(i = 0; i < 3 && finded == FALSE; i++) 
+        {
+            for(j = 0; j < 10 && finded == FALSE; j++) 
+            {
+                if(wearingItem == SDL_FALSE)
+                {
+                    if(mat_inventory[i][j].number > 0)
+                    {
+                        if(SDL_PointInRect(&mouse_position, &mat_inventory[i][j].item_rectangle))
+                        {
+                            finded = TRUE;
+                        }
+                    }
+                }
+                else
+                {
+                    if(SDL_PointInRect(&mouse_position, &mat_inventory[i][j].item_rectangle))
+                    {
+                        finded = TRUE;
+                    }
+                }
+            }
+        }
+        i--;
+        j--;
+        if(finded == TRUE)
+        {
+            if(wearingItem == SDL_FALSE)
+            {
+                *wearedItem = mat_inventory[i][j];
+                mat_inventory[i][j].number = 0;
+                wearingItem = SDL_TRUE;
+            }
+            else
+            {
+                if(mat_inventory[i][j].number > 0)
+                {
+                    case_inventory buffer;
+                    buffer = *wearedItem;
+                    *wearedItem = mat_inventory[i][j];
+                    mat_inventory[i][j] = buffer;
+                }
+                else
+                {
+                    mat_inventory[i][j] = *wearedItem;
+                    wearingItem = SDL_FALSE;
+                }
+            }
+        }
+    }
+}
+
 /**
  * @brief Dessine l'inventaire.
  * 
@@ -868,22 +1022,47 @@ void drawInventory()
     SDL_RenderCopy(renderer, inventory_texture, NULL, &inventory_rect);
 }
 
+/**
+ * @brief Dessine les cases de l'inventaire
+ * 
+ */
 void drawCases()
 {
+    int compteur = 0;
+
     for(int i = 0; i < 3; i++)
     {
         for(int j = 0; j < 10; j++)
         {
+            mat_inventory[i][j].item_rectangle.x = inventory_rect.x + (80*(j) + 21);
+            mat_inventory[i][j].item_rectangle.y = DM.h - (80*((3-i))) - 10;
+            mat_inventory[i][j].item_rectangle.h = 80;
+            mat_inventory[i][j].item_rectangle.w = 80;
+
             if(mat_inventory[i][j].number > 0)
             {
-                mat_inventory[i][j].Item->rectangle.x = inventory_rect.x + (80*(j) + 21);
-                mat_inventory[i][j].Item->rectangle.y = DM.h - (80*((3-i))) - 10;
-                mat_inventory[i][j].Item->rectangle.h = 80;
-                mat_inventory[i][j].Item->rectangle.w = 80;
+                if(SDL_PointInRect(&mouse_position, &mat_inventory[i][j].item_rectangle))
+                {
+                    compteur++;
+                }
+
                 drawItem(mat_inventory[i][j]);
                 drawCaseText(mat_inventory[i][j]);
             }
         }
+    }
+    if(compteur > 0) hover_inventoryitem = SDL_TRUE;
+    else hover_inventoryitem = SDL_FALSE;
+}
+
+void wearing()
+{
+    if(wearingItem == SDL_TRUE)
+    {
+        wearedItem->item_rectangle.x = mouse_position.x+10;
+        wearedItem->item_rectangle.y = mouse_position.y+10;
+        drawItem(*wearedItem);
+        drawCaseText(*wearedItem);
     }
 }
 
@@ -912,8 +1091,10 @@ void mainMenu()
  */
 void IngameMenu()
 {
+    hover_inventoryitem = FALSE;
     mouseRect.x = mouse_position.x;
     mouseRect.y = mouse_position.y;
+    wearing();
     drawMouse();
 }
 
@@ -926,6 +1107,7 @@ void InventoryMenu()
     IngameMenu();
     drawInventory();
     drawCases();
+    wearing();
     drawMouse();
 }
 

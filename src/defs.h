@@ -16,7 +16,8 @@
 #define TRUE 1
 #define FALSE 0
 
-typedef enum {PLAY_BUTTON, CONNECT_BUTTON, HOST_BUTTON, SETTINGS_BUTTON} T_BUTTONS;
+typedef enum {PLAY_BUTTON_HOVER, CONNECT_BUTTON_HOVER, HOST_BUTTON_HOVER, SETTINGS_BUTTON_HOVER, INVENTORY_BUTTON_HOVER} T_BUTTONS_HOVER;
+typedef enum {PLAY_BUTTON_CLICKED, CONNECT_BUTTON_CLICKED, HOST_BUTTON_CLICKED, SETTINGS_BUTTON_CLICKED, INVENTORY_BUTTON_CLICKED} T_BUTTONS_CLICKED;
 typedef enum {MAIN_MENU, INGAME_MENU, INVENTORY_MENU, SETTINGS_MENU, ERR_MENU} T_MENU;
 typedef enum {WEAPON, FOOD, TOOL} T_ITEM;
 
@@ -62,7 +63,6 @@ typedef struct
     char name[20];
     SDL_Texture *texture;
     SDL_Surface *surface;
-    SDL_Rect rectangle;
     T_ITEM itemType;
 }item_t;
 
@@ -72,11 +72,12 @@ typedef struct
  */
 typedef struct
 {
-    item_t *Item;
     int number;
+    item_t *Item;
     SDL_Texture *text_texture;
     SDL_Surface *text_surface;
     SDL_Rect text_rectangle;
+    SDL_Rect item_rectangle;
 }case_inventory;
 
 extern T_MENU menu;
@@ -86,6 +87,8 @@ extern item_t bois;
 extern SDL_bool tabEvent[20];
 
 extern case_inventory mat_inventory[3][10];
+
+extern case_inventory *wearedItem;
 
 extern void changeMenu(T_MENU menuTarget);
 

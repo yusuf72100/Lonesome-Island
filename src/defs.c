@@ -9,13 +9,26 @@
 
 #include "defs.h"
 
-int SOLO = FALSE;
-
 item_t *axe;
 item_t *apple;
 
+int SOLO = FALSE;
+
+T_MENU menu = MAIN_MENU;
+
+SDL_bool tabEvent[20] = {SDL_FALSE};
+
+case_inventory mat_inventory[3][10];
+
+case_inventory *wearedItem;
+
+/**
+ * @brief Initialise les items globaux.
+ * 
+ */
 void defineItem()
 {
+    wearedItem = malloc(sizeof(case_inventory));
     axe = malloc(sizeof(item_t));
     apple = malloc(sizeof(item_t));
 
@@ -31,12 +44,6 @@ void defineItem()
     apple->surface = NULL;
     apple->Item = &(food_t){ .feed = 15, .thirst = 5 };
 }
-
-T_MENU menu = MAIN_MENU;
-
-SDL_bool tabEvent[20] = {SDL_FALSE};
-
-case_inventory mat_inventory[3][10];
 
 /**
  * @brief Change de menu.

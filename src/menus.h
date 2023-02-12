@@ -49,7 +49,15 @@ static SDL_bool hover_playbutton = SDL_FALSE;
 static SDL_bool hover_connectbutton = SDL_FALSE;
 static SDL_bool hover_hostbutton = SDL_FALSE;
 static SDL_bool hover_settingsbutton = SDL_FALSE;
+static SDL_bool hover_inventoryitem = SDL_FALSE;
+
+static SDL_bool clicked_playbutton = SDL_FALSE;
+static SDL_bool clicked_connectbutton = SDL_FALSE;
+static SDL_bool clicked_hostbutton = SDL_FALSE;
+static SDL_bool clicked_settingsbutton = SDL_FALSE;
+static SDL_bool clicked_inventoryitem = SDL_FALSE;
 static SDL_bool fullscreen = SDL_FALSE;
+static SDL_bool wearingItem = SDL_FALSE;
 
 //menu buttons rectangle
 static SDL_Rect mouseRect;
@@ -153,9 +161,12 @@ static void texturesInit();
 static void rectanglesInit();
 
 //global functions
-void changeButtonState(T_BUTTONS button);
+void switchButtonState_hover(T_BUTTONS_HOVER button);
+void changeButtonState_hover(T_BUTTONS_HOVER button, int state);
+void changeButtonState_clicked(T_BUTTONS_CLICKED button, int state);
+int getButtonState_clicked(T_BUTTONS_CLICKED button);
 void startAnimation(char *animation, player_t *joueur);
-int onButton(T_BUTTONS button);
+int onButton(T_BUTTONS_HOVER button);
 void toggleFullscreen();
 void drawButtons();
 void drawMenu();
@@ -179,5 +190,6 @@ void *running_right_animation(void *j);
 void *running_left_animation(void *j);
 void *breathAnimation(void *j);
 void *drawPlayers(player_t *joueurs, int size);
+void clickItem();
 
 #endif
