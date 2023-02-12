@@ -153,9 +153,9 @@ static void texturesInit();
 static void rectanglesInit();
 
 //global functions
-void changeButtonState(char *button);
+void changeButtonState(T_BUTTONS button);
 void startAnimation(char *animation, player_t *joueur);
-int onButton(char *button);
+int onButton(T_BUTTONS button);
 void toggleFullscreen();
 void drawButtons();
 void drawMenu();

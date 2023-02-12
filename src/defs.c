@@ -32,7 +32,7 @@ void defineItem()
     apple->Item = &(food_t){ .feed = 15, .thirst = 5 };
 }
 
-T_MENU menu = MAIN;
+T_MENU menu = MAIN_MENU;
 
 SDL_bool tabEvent[20] = {SDL_FALSE};
 

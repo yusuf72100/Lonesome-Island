@@ -53,24 +53,24 @@ void startAnimation(char *animation, player_t *joueur)
  * 
  * @param button 
  */
-void changeButtonState(char *button)
+void changeButtonState(T_BUTTONS button)
 {
-    if(strcmp(button, "connect") == 0)
+    if(button == CONNECT_BUTTON)
     {
         if(hover_connectbutton == FALSE) hover_connectbutton = TRUE;
         else hover_connectbutton = FALSE;
     }
-    else if(strcmp(button, "host") == 0)
+    else if(button == HOST_BUTTON)
     {
         if(hover_hostbutton == FALSE) hover_hostbutton = TRUE;
         else hover_hostbutton = FALSE;
     }
-    else if(strcmp(button, "play") == 0)
+    else if(button == PLAY_BUTTON)
     {
         if(hover_playbutton == FALSE) hover_playbutton = TRUE;
         else hover_playbutton = FALSE;
     }
-    else if(strcmp(button, "settings") == 0)
+    else if(button == SETTINGS_BUTTON)
     {
         if(hover_settingsbutton == FALSE) hover_settingsbutton = TRUE;
         else hover_settingsbutton = FALSE;
@@ -83,15 +83,15 @@ void changeButtonState(char *button)
  * @param button 
  * @return int
  */
-int onButton(char *button)
+int onButton(T_BUTTONS button)
 {
-    if(strcmp(button, "connect") == 0)
+    if(button == CONNECT_BUTTON)
         return SDL_PointInRect(&mouse_position, &connect_button_rect);
-    else if(strcmp(button, "host") == 0)
+    else if(button == HOST_BUTTON)
         return SDL_PointInRect(&mouse_position, &host_button_rect);
-    else if(strcmp(button, "play") == 0)
+    else if(button == PLAY_BUTTON)
         return SDL_PointInRect(&mouse_position, &play_button_rect);
-    else if(strcmp(button, "settings") == 0)
+    else if(button == SETTINGS_BUTTON)
         return SDL_PointInRect(&mouse_position, &settings_button_rect);
     else return FALSE;
 }
@@ -937,13 +937,13 @@ void drawMenu()
 {
     switch (menu)
     {
-    case MAIN:
+    case MAIN_MENU:
         mainMenu();
         break;
-    case INGAME:
+    case INGAME_MENU:
         IngameMenu();
         break;
-    case INVENTORY:
+    case INVENTORY_MENU:
         InventoryMenu();
         break;
     default:
