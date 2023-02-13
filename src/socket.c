@@ -217,8 +217,7 @@ void *receiveFromClient(void *arg)
             printf("Server: Client with id %d has been disconnected\n",position);
             disconnectPlayer(argClient, position);
         }
-        else
-        {
+        else{
            
             i = findPosition(argClient);
 

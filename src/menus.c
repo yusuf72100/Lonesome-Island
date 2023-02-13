@@ -60,18 +60,15 @@ void switchButtonState_hover(T_BUTTONS_HOVER button)
         if(hover_connectbutton == FALSE) hover_connectbutton = TRUE;
         else hover_connectbutton = FALSE;
     }
-    else if(button == HOST_BUTTON_HOVER)
-    {
+    else if(button == HOST_BUTTON_HOVER){
         if(hover_hostbutton == FALSE) hover_hostbutton = TRUE;
         else hover_hostbutton = FALSE;
     }
-    else if(button == PLAY_BUTTON_HOVER)
-    {
+    else if(button == PLAY_BUTTON_HOVER){
         if(hover_playbutton == FALSE) hover_playbutton = TRUE;
         else hover_playbutton = FALSE;
     }
-    else if(button == SETTINGS_BUTTON_HOVER)
-    {
+    else if(button == SETTINGS_BUTTON_HOVER){
         if(hover_settingsbutton == FALSE) hover_settingsbutton = TRUE;
         else hover_settingsbutton = FALSE;
     }
@@ -89,20 +86,16 @@ void changeButtonState_hover(T_BUTTONS_HOVER button, int state)
     {
         hover_connectbutton = state;
     }
-    else if(button == HOST_BUTTON_HOVER)
-    {
+    else if(button == HOST_BUTTON_HOVER){
         hover_hostbutton = state;
     }
-    else if(button == PLAY_BUTTON_HOVER)
-    {
+    else if(button == PLAY_BUTTON_HOVER){
         hover_playbutton = state;
     }
-    else if(button == SETTINGS_BUTTON_HOVER)
-    {
+    else if(button == SETTINGS_BUTTON_HOVER){
         hover_settingsbutton = state;
     }
-    else if(button == INVENTORY_BUTTON_HOVER)
-    {
+    else if(button == INVENTORY_BUTTON_HOVER){
         hover_inventoryitem = state;
     }
 }
@@ -119,20 +112,16 @@ void changeButtonState_clicked(T_BUTTONS_CLICKED button, int state)
     {
         clicked_connectbutton = state;
     }
-    else if(button == HOST_BUTTON_CLICKED)
-    {
+    else if(button == HOST_BUTTON_CLICKED){
         clicked_hostbutton = state;
     }
-    else if(button == PLAY_BUTTON_CLICKED)
-    {
+    else if(button == PLAY_BUTTON_CLICKED){
         clicked_playbutton = state;
     }
-    else if(button == SETTINGS_BUTTON_CLICKED)
-    {
+    else if(button == SETTINGS_BUTTON_CLICKED){
         clicked_settingsbutton = state;
     }
-    else if(button == INVENTORY_BUTTON_CLICKED)
-    {
+    else if(button == INVENTORY_BUTTON_CLICKED){
        clicked_inventoryitem = state;
     }
 }
@@ -149,20 +138,16 @@ int getButtonState_clicked(T_BUTTONS_CLICKED button)
     {
         return clicked_connectbutton;
     }
-    else if(button == HOST_BUTTON_CLICKED)
-    {
+    else if(button == HOST_BUTTON_CLICKED){
         return clicked_hostbutton;
     }
-    else if(button == PLAY_BUTTON_CLICKED)
-    {
+    else if(button == PLAY_BUTTON_CLICKED){
         return clicked_playbutton;
     }
-    else if(button == SETTINGS_BUTTON_CLICKED)
-    {
+    else if(button == SETTINGS_BUTTON_CLICKED){
         return clicked_settingsbutton;
     }
-    else if(button == INVENTORY_BUTTON_CLICKED)
-    {
+    else if(button == INVENTORY_BUTTON_CLICKED){
        return clicked_inventoryitem;
     }
 }
@@ -224,8 +209,7 @@ void drawMouse()
         }
         SDL_RenderCopy(renderer, cursor_select_texture, NULL, &mouseRect);
     }
-    else
-    {
+    else{
         if(SDL_QueryTexture(cursor_texture, NULL, NULL, &mouseRect.w, &mouseRect.h) != 0)
         {
             destroyAll(window, renderer);
@@ -917,8 +901,7 @@ void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_R
         init_hover(hover_button);
         drawButton(button_texture, *button_rect, button_surface);
     }
-    else
-    {
+    else{
         *hover_button = SDL_FALSE;
     }
 }
@@ -945,8 +928,7 @@ void buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *button_t
             pthread_create(&animations_thread, NULL, p, NULL);   
         }
     }
-    else
-    {
+    else{
         *hover_button = SDL_FALSE;            
         if(animations_thread_running == FALSE){
             animations_thread_running = TRUE;
@@ -955,6 +937,10 @@ void buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *button_t
     }
 }
 
+/**
+ * @brief Évalue sur quel item on a cliqué.
+ * 
+ */
 void clickItem()
 {
     int i = 0, j = 0;
@@ -976,8 +962,7 @@ void clickItem()
                         }
                     }
                 }
-                else
-                {
+                else{
                     if(SDL_PointInRect(&mouse_position, &mat_inventory[i][j].item_rectangle))
                     {
                         finded = TRUE;
@@ -995,8 +980,7 @@ void clickItem()
                 mat_inventory[i][j].number = 0;
                 wearingItem = SDL_TRUE;
             }
-            else
-            {
+            else{
                 if(mat_inventory[i][j].number > 0)
                 {
                     case_inventory buffer;
@@ -1004,8 +988,7 @@ void clickItem()
                     *wearedItem = mat_inventory[i][j];
                     mat_inventory[i][j] = buffer;
                 }
-                else
-                {
+                else{
                     mat_inventory[i][j] = *wearedItem;
                     wearingItem = SDL_FALSE;
                 }

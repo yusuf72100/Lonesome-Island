@@ -39,6 +39,9 @@ Syntaxe d'évaluation de condition:
 if(ma_condition)
 {
   printf(ma_condition);
+} 
+else{
+  
 }
 
 do

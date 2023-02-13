@@ -489,8 +489,7 @@ static void doEvents()
                     pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
                     changeMenu(INGAME_MENU);
                 }
-                else
-                {
+                else{
                     changeMenu(ERR_MENU);
                 }
                 switchButtonState_hover(CONNECT_BUTTON_HOVER);
@@ -585,8 +584,7 @@ static void doEvents()
                     tabTick[13] = SDL_GetTicks();
                 }
             }
-            else if(menu != MAIN_MENU)
-            {
+            else if(menu != MAIN_MENU){
                 if((SDL_GetTicks() - tabTick[13]) >= 200)
                 {
                     changeMenu(INGAME_MENU);
@@ -602,8 +600,7 @@ static void doEvents()
             else changeMenu(MAIN_MENU);
         }
         // solo
-        else if ((menu == INGAME_MENU || menu == INVENTORY_MENU) && SOLO)
-        {
+        else if ((menu == INGAME_MENU || menu == INVENTORY_MENU) && SOLO){
             drawPlayers(joueurs, 1);
         }
 }
