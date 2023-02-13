@@ -15,5 +15,6 @@ var searchData=
   ['stopserver_12',['stopServer',['../socket_8c.html#ac1e551c19cd6ce8d7da8b13d1f290863',1,'stopServer():&#160;socket.c'],['../socket_8h.html#ac1e551c19cd6ce8d7da8b13d1f290863',1,'stopServer():&#160;socket.c']]],
   ['surfacesinit_13',['surfacesInit',['../menus_8c.html#a10a988b60c7285bbf30f40e3d12b847c',1,'menus.c']]],
   ['switchanimation_14',['switchAnimation',['../menus_8c.html#a6806c9e2f2bcbf342c2bfa91336c2d27',1,'menus.c']]],
-  ['synchdatas_15',['synchDatas',['../main_8c.html#a6f34c428b3f0a7afe10321406af12adb',1,'synchDatas(player_t *Joueurs, int taille):&#160;main.c'],['../main_8h.html#a6f34c428b3f0a7afe10321406af12adb',1,'synchDatas(player_t *Joueurs, int taille):&#160;main.c']]]
+  ['switchbuttonstate_5fhover_15',['switchButtonState_hover',['../menus_8c.html#aad1bede5062a8bca30d1b8bbcafef3c8',1,'switchButtonState_hover(T_BUTTONS_HOVER button):&#160;menus.c'],['../menus_8h.html#aad1bede5062a8bca30d1b8bbcafef3c8',1,'switchButtonState_hover(T_BUTTONS_HOVER button):&#160;menus.c']]],
+  ['synchdatas_16',['synchDatas',['../main_8c.html#a6f34c428b3f0a7afe10321406af12adb',1,'synchDatas(player_t *Joueurs, int taille):&#160;main.c'],['../main_8h.html#a6f34c428b3f0a7afe10321406af12adb',1,'synchDatas(player_t *Joueurs, int taille):&#160;main.c']]]
 ];

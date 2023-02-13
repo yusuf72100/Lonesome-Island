@@ -18,8 +18,7 @@ Fichier contenant toutes les variables d\textquotesingle{}affichage.
 {\ttfamily \#include \char`\"{}liste.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}client.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$windows.\+h$>$}\newline
-Graphe des dépendances par inclusion de menus.\+h\+:
-\nopagebreak
+Graphe des dépendances par inclusion de menus.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -95,11 +94,17 @@ static void {\bfseries textures\+Init} ()
 \mbox{\Hypertarget{menus_8h_a60a9131ac6630e306e5c701923798530}\label{menus_8h_a60a9131ac6630e306e5c701923798530}} 
 static void {\bfseries rectangles\+Init} ()
 \item 
-void \mbox{\hyperlink{menus_8h_a9310b9a509b196dead801a8afe8f735a}{change\+Button\+State}} (char $\ast$button)
-\begin{DoxyCompactList}\small\item\em Change l\textquotesingle{}état du boutton de survol ciblé. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menus_8h_aad1bede5062a8bca30d1b8bbcafef3c8}{switch\+Button\+State\+\_\+hover}} (T\+\_\+\+BUTTONS\+\_\+\+HOVER button)
+\begin{DoxyCompactList}\small\item\em Change l\textquotesingle{}état du boutton ciblé. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menus_8h_a20432793012cb1509389bf14f94a8ee9}{change\+Button\+State\+\_\+hover}} (T\+\_\+\+BUTTONS\+\_\+\+HOVER button, int state)
+\begin{DoxyCompactList}\small\item\em Change le boutton ciblé avec l\textquotesingle{}état voulut. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menus_8h_ae7efaad914bff1a5511184fd96f0d9b7}{change\+Button\+State\+\_\+clicked}} (T\+\_\+\+BUTTONS\+\_\+\+CLICKED button, int state)
+\begin{DoxyCompactList}\small\item\em Change le boutton ciblé avec l\textquotesingle{}état voulut. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{menus_8h_ab283db36e8911aeb9d32d5886f156570}{get\+Button\+State\+\_\+clicked}} (T\+\_\+\+BUTTONS\+\_\+\+CLICKED button)
+\begin{DoxyCompactList}\small\item\em Renvoi l\textquotesingle{}état du boutton demandé. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{menus_8h_a8cbdceb9c205a8d9c279691a09b337a1}{start\+Animation}} (char $\ast$animation, \mbox{\hyperlink{structplayer__t}{player\+\_\+t}} $\ast$joueur)
 \begin{DoxyCompactList}\small\item\em Commence l\textquotesingle{}animation souhaitée au joueur demandé. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{menus_8h_a1bd07c916c27ca0eb4e4a8aad057fc59}{on\+Button}} (char $\ast$button)
+int \mbox{\hyperlink{menus_8h_a62b05feb314b3c7d6effb9892fa5b8ae}{on\+Button}} (T\+\_\+\+BUTTONS\+\_\+\+HOVER button)
 \begin{DoxyCompactList}\small\item\em Renvoi TRUE si le curseur est sur le boutton passé en paramètre sinon renvoi FALSE si le curseur est sur aucun boutton. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{menus_8h_aad0757276ad4bc900c8826f8ecbe6ecc}\label{menus_8h_aad0757276ad4bc900c8826f8ecbe6ecc}} 
 void {\bfseries toggle\+Fullscreen} ()
@@ -152,7 +157,10 @@ void $\ast$ \mbox{\hyperlink{menus_8h_a2fdf89dd6b22fb5e5d73f8370470985b}{running
 void $\ast$ \mbox{\hyperlink{menus_8h_a0fa3f94da8421e8f4e5d11404f87856b}{breath\+Animation}} (void $\ast$j)
 \begin{DoxyCompactList}\small\item\em Animation de respiration. \end{DoxyCompactList}\item 
 void $\ast$ \mbox{\hyperlink{menus_8h_ab804df0c510979d77fd5599feef21ae0}{draw\+Players}} (\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} $\ast$joueurs, int size)
-\begin{DoxyCompactList}\small\item\em Dessine tous les joueurs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Dessine tous les joueurs. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{menus_8h_af62b6c78dad8d3b0ae378b5174a28784}\label{menus_8h_af62b6c78dad8d3b0ae378b5174a28784}} 
+void {\bfseries click\+Item} ()
+\begin{DoxyCompactList}\small\item\em Évalue sur quel item on a cliqué. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -192,8 +200,29 @@ static SDL\+\_\+bool {\bfseries hover\+\_\+hostbutton} = SDL\+\_\+\+FALSE
 \mbox{\Hypertarget{menus_8h_a0221921ebfd919f98ce1a927443cf147}\label{menus_8h_a0221921ebfd919f98ce1a927443cf147}} 
 static SDL\+\_\+bool {\bfseries hover\+\_\+settingsbutton} = SDL\+\_\+\+FALSE
 \item 
+\mbox{\Hypertarget{menus_8h_a225f865625d7eb497b12ba90d7d89102}\label{menus_8h_a225f865625d7eb497b12ba90d7d89102}} 
+static SDL\+\_\+bool {\bfseries hover\+\_\+inventoryitem} = SDL\+\_\+\+FALSE
+\item 
+\mbox{\Hypertarget{menus_8h_ac2fc743def99ca34e48a778cca1c4e58}\label{menus_8h_ac2fc743def99ca34e48a778cca1c4e58}} 
+static SDL\+\_\+bool {\bfseries clicked\+\_\+playbutton} = SDL\+\_\+\+FALSE
+\item 
+\mbox{\Hypertarget{menus_8h_aa1474bb7c95dbbf6455e2106b57fd4de}\label{menus_8h_aa1474bb7c95dbbf6455e2106b57fd4de}} 
+static SDL\+\_\+bool {\bfseries clicked\+\_\+connectbutton} = SDL\+\_\+\+FALSE
+\item 
+\mbox{\Hypertarget{menus_8h_ae8ec423dadc4b200d44ee7232894392b}\label{menus_8h_ae8ec423dadc4b200d44ee7232894392b}} 
+static SDL\+\_\+bool {\bfseries clicked\+\_\+hostbutton} = SDL\+\_\+\+FALSE
+\item 
+\mbox{\Hypertarget{menus_8h_a93a44c3280f9837af4a90f3027ab8b68}\label{menus_8h_a93a44c3280f9837af4a90f3027ab8b68}} 
+static SDL\+\_\+bool {\bfseries clicked\+\_\+settingsbutton} = SDL\+\_\+\+FALSE
+\item 
+\mbox{\Hypertarget{menus_8h_ae65d48735f7e1d9f270a6ba107b21e9d}\label{menus_8h_ae65d48735f7e1d9f270a6ba107b21e9d}} 
+static SDL\+\_\+bool {\bfseries clicked\+\_\+inventoryitem} = SDL\+\_\+\+FALSE
+\item 
 \mbox{\Hypertarget{menus_8h_a3e839b4da416cd25fccdfcd4d05c9d4e}\label{menus_8h_a3e839b4da416cd25fccdfcd4d05c9d4e}} 
 static SDL\+\_\+bool {\bfseries fullscreen} = SDL\+\_\+\+FALSE
+\item 
+\mbox{\Hypertarget{menus_8h_a6276224295d30bc1a89158def9a19bf1}\label{menus_8h_a6276224295d30bc1a89158def9a19bf1}} 
+static SDL\+\_\+bool {\bfseries wearing\+Item} = SDL\+\_\+\+FALSE
 \item 
 \mbox{\Hypertarget{menus_8h_a2c6e6f759488638d05e613ffb54f6af2}\label{menus_8h_a2c6e6f759488638d05e613ffb54f6af2}} 
 static SDL\+\_\+\+Rect {\bfseries mouse\+Rect}
@@ -212,6 +241,9 @@ static SDL\+\_\+\+Rect {\bfseries settings\+\_\+button\+\_\+rect}
 \item 
 \mbox{\Hypertarget{menus_8h_a23c035ad72ff6b6f9996232a5c7f1aee}\label{menus_8h_a23c035ad72ff6b6f9996232a5c7f1aee}} 
 static SDL\+\_\+\+Rect {\bfseries inventory\+\_\+rect}
+\item 
+\mbox{\Hypertarget{menus_8h_a09486c65cef1be5524cec66bcf274875}\label{menus_8h_a09486c65cef1be5524cec66bcf274875}} 
+static SDL\+\_\+\+Rect {\bfseries lifebar\+\_\+rect}
 \item 
 \mbox{\Hypertarget{menus_8h_a4e152e6f15e7af4377e66feb4185cf29}\label{menus_8h_a4e152e6f15e7af4377e66feb4185cf29}} 
 static SDL\+\_\+\+Display\+Mode {\bfseries DM}
@@ -233,6 +265,9 @@ static TTF\+\_\+\+Font $\ast$ {\bfseries item\+\_\+dafont} = NULL
 \item 
 \mbox{\Hypertarget{menus_8h_a760fa082fec3251fd63c859a8246a1ff}\label{menus_8h_a760fa082fec3251fd63c859a8246a1ff}} 
 static SDL\+\_\+\+Rect {\bfseries title\+\_\+rect}
+\item 
+\mbox{\Hypertarget{menus_8h_a9497d6a56abcc3ab0e9ad932855fec57}\label{menus_8h_a9497d6a56abcc3ab0e9ad932855fec57}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries lifebar\+\_\+surface} = NULL
 \item 
 \mbox{\Hypertarget{menus_8h_a2cf9ed05269a4b9aa6938b4b04716d4f}\label{menus_8h_a2cf9ed05269a4b9aa6938b4b04716d4f}} 
 static SDL\+\_\+\+Surface $\ast$ {\bfseries inventory\+\_\+surface} = NULL
@@ -287,6 +322,9 @@ static SDL\+\_\+\+Texture $\ast$ {\bfseries apple\+\_\+food\+\_\+texture} = NULL
 \item 
 \mbox{\Hypertarget{menus_8h_a498ce69205fc738eaa8e895bcbe87d21}\label{menus_8h_a498ce69205fc738eaa8e895bcbe87d21}} 
 static SDL\+\_\+\+Rect {\bfseries apple\+\_\+food\+\_\+rect}
+\item 
+\mbox{\Hypertarget{menus_8h_af390dc8ed13290b395026403b500d61a}\label{menus_8h_af390dc8ed13290b395026403b500d61a}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries lifebar\+\_\+texture} = NULL
 \item 
 \mbox{\Hypertarget{menus_8h_a1d372d9e6b7ebcefe51a4a3ce6ba290f}\label{menus_8h_a1d372d9e6b7ebcefe51a4a3ce6ba290f}} 
 static SDL\+\_\+\+Texture $\ast$ {\bfseries inventory\+\_\+texture} = NULL
@@ -519,28 +557,48 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \includegraphics[width=350pt]{menus_8h_ad9a4714e86590146659768dcd5357272_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{menus_8h_a9310b9a509b196dead801a8afe8f735a}\label{menus_8h_a9310b9a509b196dead801a8afe8f735a}} 
-\index{menus.h@{menus.h}!changeButtonState@{changeButtonState}}
-\index{changeButtonState@{changeButtonState}!menus.h@{menus.h}}
-\doxysubsubsection{\texorpdfstring{changeButtonState()}{changeButtonState()}}
-{\footnotesize\ttfamily void change\+Button\+State (\begin{DoxyParamCaption}\item[{char $\ast$}]{button }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{menus_8h_ae7efaad914bff1a5511184fd96f0d9b7}\label{menus_8h_ae7efaad914bff1a5511184fd96f0d9b7}} 
+\index{menus.h@{menus.h}!changeButtonState\_clicked@{changeButtonState\_clicked}}
+\index{changeButtonState\_clicked@{changeButtonState\_clicked}!menus.h@{menus.h}}
+\doxysubsubsection{\texorpdfstring{changeButtonState\_clicked()}{changeButtonState\_clicked()}}
+{\footnotesize\ttfamily void change\+Button\+State\+\_\+clicked (\begin{DoxyParamCaption}\item[{T\+\_\+\+BUTTONS\+\_\+\+CLICKED}]{button,  }\item[{int}]{state }\end{DoxyParamCaption})}
 
 
 
-Change l\textquotesingle{}état du boutton de survol ciblé. 
+Change le boutton ciblé avec l\textquotesingle{}état voulut. 
 
 
 \begin{DoxyParams}{Paramètres}
 {\em button} & \\
 \hline
+{\em state} & \\
+\hline
 \end{DoxyParams}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=346pt]{menus_8h_a9310b9a509b196dead801a8afe8f735a_icgraph}
+\includegraphics[width=350pt]{menus_8h_ae7efaad914bff1a5511184fd96f0d9b7_icgraph}
 \end{center}
 \end{figure}
+\mbox{\Hypertarget{menus_8h_a20432793012cb1509389bf14f94a8ee9}\label{menus_8h_a20432793012cb1509389bf14f94a8ee9}} 
+\index{menus.h@{menus.h}!changeButtonState\_hover@{changeButtonState\_hover}}
+\index{changeButtonState\_hover@{changeButtonState\_hover}!menus.h@{menus.h}}
+\doxysubsubsection{\texorpdfstring{changeButtonState\_hover()}{changeButtonState\_hover()}}
+{\footnotesize\ttfamily void change\+Button\+State\+\_\+hover (\begin{DoxyParamCaption}\item[{T\+\_\+\+BUTTONS\+\_\+\+HOVER}]{button,  }\item[{int}]{state }\end{DoxyParamCaption})}
+
+
+
+Change le boutton ciblé avec l\textquotesingle{}état voulut. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em button} & \\
+\hline
+{\em state} & \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{menus_8h_a3ccdb6767f1237284bf7c8e0d3e3eacb}\label{menus_8h_a3ccdb6767f1237284bf7c8e0d3e3eacb}} 
 \index{menus.h@{menus.h}!destroyAll@{destroyAll}}
 \index{destroyAll@{destroyAll}!menus.h@{menus.h}}
@@ -607,7 +665,8 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \includegraphics[width=280pt]{menus_8h_ad452b0eb987136d6af7d68a474fd7bc1_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -727,6 +786,32 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \includegraphics[width=350pt]{menus_8h_a72036abbb16f3b007110ff03d748e0b1_icgraph}
 \end{center}
 \end{figure}
+\mbox{\Hypertarget{menus_8h_ab283db36e8911aeb9d32d5886f156570}\label{menus_8h_ab283db36e8911aeb9d32d5886f156570}} 
+\index{menus.h@{menus.h}!getButtonState\_clicked@{getButtonState\_clicked}}
+\index{getButtonState\_clicked@{getButtonState\_clicked}!menus.h@{menus.h}}
+\doxysubsubsection{\texorpdfstring{getButtonState\_clicked()}{getButtonState\_clicked()}}
+{\footnotesize\ttfamily int get\+Button\+State\+\_\+clicked (\begin{DoxyParamCaption}\item[{T\+\_\+\+BUTTONS\+\_\+\+CLICKED}]{button }\end{DoxyParamCaption})}
+
+
+
+Renvoi l\textquotesingle{}état du boutton demandé. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8h_ab283db36e8911aeb9d32d5886f156570_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{menus_8h_ab3002fe8e0074c9e2ecb5b835e5e819f}\label{menus_8h_ab3002fe8e0074c9e2ecb5b835e5e819f}} 
 \index{menus.h@{menus.h}!mainMenu@{mainMenu}}
 \index{mainMenu@{mainMenu}!menus.h@{menus.h}}
@@ -751,11 +836,11 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \includegraphics[width=313pt]{menus_8h_ab3002fe8e0074c9e2ecb5b835e5e819f_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{menus_8h_a1bd07c916c27ca0eb4e4a8aad057fc59}\label{menus_8h_a1bd07c916c27ca0eb4e4a8aad057fc59}} 
+\mbox{\Hypertarget{menus_8h_a62b05feb314b3c7d6effb9892fa5b8ae}\label{menus_8h_a62b05feb314b3c7d6effb9892fa5b8ae}} 
 \index{menus.h@{menus.h}!onButton@{onButton}}
 \index{onButton@{onButton}!menus.h@{menus.h}}
 \doxysubsubsection{\texorpdfstring{onButton()}{onButton()}}
-{\footnotesize\ttfamily int on\+Button (\begin{DoxyParamCaption}\item[{char $\ast$}]{button }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int on\+Button (\begin{DoxyParamCaption}\item[{T\+\_\+\+BUTTONS\+\_\+\+HOVER}]{button }\end{DoxyParamCaption})}
 
 
 
@@ -769,11 +854,12 @@ Renvoi TRUE si le curseur est sur le boutton passé en paramètre sinon renvoi F
 \begin{DoxyReturn}{Renvoie}
 int 
 \end{DoxyReturn}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=302pt]{menus_8h_a1bd07c916c27ca0eb4e4a8aad057fc59_icgraph}
+\includegraphics[width=302pt]{menus_8h_a62b05feb314b3c7d6effb9892fa5b8ae_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{menus_8h_a2baaae2f0feebce6bd015a37345e2270}\label{menus_8h_a2baaae2f0feebce6bd015a37345e2270}} 
@@ -983,5 +1069,28 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{menus_8h_a8cbdceb9c205a8d9c279691a09b337a1_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8h_aad1bede5062a8bca30d1b8bbcafef3c8}\label{menus_8h_aad1bede5062a8bca30d1b8bbcafef3c8}} 
+\index{menus.h@{menus.h}!switchButtonState\_hover@{switchButtonState\_hover}}
+\index{switchButtonState\_hover@{switchButtonState\_hover}!menus.h@{menus.h}}
+\doxysubsubsection{\texorpdfstring{switchButtonState\_hover()}{switchButtonState\_hover()}}
+{\footnotesize\ttfamily void switch\+Button\+State\+\_\+hover (\begin{DoxyParamCaption}\item[{T\+\_\+\+BUTTONS\+\_\+\+HOVER}]{button }\end{DoxyParamCaption})}
+
+
+
+Change l\textquotesingle{}état du boutton ciblé. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8h_aad1bede5062a8bca30d1b8bbcafef3c8_icgraph}
 \end{center}
 \end{figure}

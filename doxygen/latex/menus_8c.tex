@@ -7,8 +7,7 @@ Fichier qui s\textquotesingle{}occupera de l\textquotesingle{}affichage des él�
 
 {\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}menus.\+h\char`\"{}}\newline
-Graphe des dépendances par inclusion de menus.\+c\+:
-\nopagebreak
+Graphe des dépendances par inclusion de menus.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -24,9 +23,15 @@ void \mbox{\hyperlink{menus_8c_a3ccdb6767f1237284bf7c8e0d3e3eacb}{destroy\+All}}
 \begin{DoxyCompactList}\small\item\em Détruit la fenêtre et le rendu. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{menus_8c_a8cbdceb9c205a8d9c279691a09b337a1}{start\+Animation}} (char $\ast$animation, \mbox{\hyperlink{structplayer__t}{player\+\_\+t}} $\ast$joueur)
 \begin{DoxyCompactList}\small\item\em Commence l\textquotesingle{}animation souhaitée au joueur demandé. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{menus_8c_a9310b9a509b196dead801a8afe8f735a}{change\+Button\+State}} (char $\ast$button)
-\begin{DoxyCompactList}\small\item\em Change l\textquotesingle{}état du boutton de survol ciblé. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{menus_8c_a1bd07c916c27ca0eb4e4a8aad057fc59}{on\+Button}} (char $\ast$button)
+void \mbox{\hyperlink{menus_8c_aad1bede5062a8bca30d1b8bbcafef3c8}{switch\+Button\+State\+\_\+hover}} (T\+\_\+\+BUTTONS\+\_\+\+HOVER button)
+\begin{DoxyCompactList}\small\item\em Change l\textquotesingle{}état du boutton ciblé. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menus_8c_a20432793012cb1509389bf14f94a8ee9}{change\+Button\+State\+\_\+hover}} (T\+\_\+\+BUTTONS\+\_\+\+HOVER button, int state)
+\begin{DoxyCompactList}\small\item\em Change le boutton ciblé avec l\textquotesingle{}état voulut. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menus_8c_ae7efaad914bff1a5511184fd96f0d9b7}{change\+Button\+State\+\_\+clicked}} (T\+\_\+\+BUTTONS\+\_\+\+CLICKED button, int state)
+\begin{DoxyCompactList}\small\item\em Change le boutton ciblé avec l\textquotesingle{}état voulut. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{menus_8c_ab283db36e8911aeb9d32d5886f156570}{get\+Button\+State\+\_\+clicked}} (T\+\_\+\+BUTTONS\+\_\+\+CLICKED button)
+\begin{DoxyCompactList}\small\item\em Renvoi l\textquotesingle{}état du boutton demandé. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{menus_8c_a62b05feb314b3c7d6effb9892fa5b8ae}{on\+Button}} (T\+\_\+\+BUTTONS\+\_\+\+HOVER button)
 \begin{DoxyCompactList}\small\item\em Renvoi TRUE si le curseur est sur le boutton passé en paramètre sinon renvoi FALSE si le curseur est sur aucun boutton. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{menus_8c_a258a73384029adb1d7e22ca959235633}\label{menus_8c_a258a73384029adb1d7e22ca959235633}} 
 void {\bfseries draw\+Buttons} ()
@@ -42,10 +47,9 @@ void {\bfseries inventory\+Init} ()
 \begin{DoxyCompactList}\small\item\em Initialise les textures des cases de l\textquotesingle{}inventaire. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{menus_8c_ad452b0eb987136d6af7d68a474fd7bc1}{draw\+Button}} (SDL\+\_\+\+Texture $\ast$texture, SDL\+\_\+\+Rect rectangle, SDL\+\_\+\+Surface $\ast$surface)
 \begin{DoxyCompactList}\small\item\em Dessine un bouton normal. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{menus_8c_a66530cff59b9a7c9551fd82dce25fe40}\label{menus_8c_a66530cff59b9a7c9551fd82dce25fe40}} 
-void {\bfseries draw\+Case\+Text} (\mbox{\hyperlink{structcase__inventory}{case\+\_\+inventory}} case\+\_\+x)
-\item 
-void \mbox{\hyperlink{menus_8c_a9a2d050de0ca8b28f95303d35475f327}{draw\+Item}} (\mbox{\hyperlink{structcase__inventory}{case\+\_\+inventory}} item)
+void \mbox{\hyperlink{menus_8c_a66530cff59b9a7c9551fd82dce25fe40}{draw\+Case\+Text}} (\mbox{\hyperlink{structcase__inventory}{case\+\_\+inventory}} case\+\_\+x)
+\begin{DoxyCompactList}\small\item\em Affiche le nombre d\textquotesingle{}items pour chaque case de l\textquotesingle{}inventaire. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menus_8c_ab5e92db476c0b623d52a2556f346b737}{draw\+Item}} (\mbox{\hyperlink{structcase__inventory}{case\+\_\+inventory}} case\+\_\+x)
 \begin{DoxyCompactList}\small\item\em Dessine l\textquotesingle{}item à la bonne case de l\textquotesingle{}inventaire. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{menus_8c_af533a07a1593c721a25b080bf2cc10d9}{draw\+Button\+\_\+with\+Rotation}} (SDL\+\_\+\+Texture $\ast$texture, SDL\+\_\+\+Rect rectangle, SDL\+\_\+\+Surface $\ast$surface)
 \begin{DoxyCompactList}\small\item\em Dessine un boutton en fonction d\textquotesingle{}une certaine rotation. \end{DoxyCompactList}\item 
@@ -94,7 +98,7 @@ static void {\bfseries textures\+Init} ()
 \begin{DoxyCompactList}\small\item\em Initialise les textures du jeu. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{menus_8c_a60a9131ac6630e306e5c701923798530}\label{menus_8c_a60a9131ac6630e306e5c701923798530}} 
 static void {\bfseries rectangles\+Init} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Initialise les rectangles. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{menus_8c_afb13427163cac507a66d96dbc0f3c06e}\label{menus_8c_afb13427163cac507a66d96dbc0f3c06e}} 
 void {\bfseries ttf\+Init} ()
 \begin{DoxyCompactList}\small\item\em Initialise les dafonts. \end{DoxyCompactList}\item 
@@ -111,12 +115,20 @@ void \mbox{\hyperlink{menus_8c_ab5e1f7649b8b40f10bd9168c6a098883}{button\+Hover}
 \begin{DoxyCompactList}\small\item\em Affiche la texture de survol du bouton demandé en dans le menu souhaité. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{menus_8c_ad9a4714e86590146659768dcd5357272}{button\+Hover\+With\+Animation}} (SDL\+\_\+\+Surface $\ast$button\+\_\+surface, SDL\+\_\+\+Texture $\ast$button\+\_\+texture, SDL\+\_\+\+Rect $\ast$button\+\_\+rect, SDL\+\_\+bool $\ast$hover\+\_\+button, void $\ast$($\ast$p)(void $\ast$), void $\ast$($\ast$p2)(void $\ast$))
 \begin{DoxyCompactList}\small\item\em Affiche la texture de survol avec animation du bouton demandé en dans le menu souhaité. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{menus_8c_af62b6c78dad8d3b0ae378b5174a28784}\label{menus_8c_af62b6c78dad8d3b0ae378b5174a28784}} 
+void {\bfseries click\+Item} ()
+\begin{DoxyCompactList}\small\item\em Évalue sur quel item on a cliqué. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{menus_8c_aed543fd0f875dcbff172087fe7b23025}\label{menus_8c_aed543fd0f875dcbff172087fe7b23025}} 
 void {\bfseries draw\+Inventory} ()
 \begin{DoxyCompactList}\small\item\em Dessine l\textquotesingle{}inventaire. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{menus_8c_aede862d24a32e39c6e86dc94bd4cfc87}\label{menus_8c_aede862d24a32e39c6e86dc94bd4cfc87}} 
-void {\bfseries draw\+Cases} ()
-\item 
+void \mbox{\hyperlink{menus_8c_aede862d24a32e39c6e86dc94bd4cfc87}{draw\+Cases}} ()
+\begin{DoxyCompactList}\small\item\em Dessine les cases de l\textquotesingle{}inventaire. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{menus_8c_a3d227936b6a3d4d077b8e6f8326ed1bb}\label{menus_8c_a3d227936b6a3d4d077b8e6f8326ed1bb}} 
+void {\bfseries wearing} ()
+\begin{DoxyCompactList}\small\item\em Affiche l\textquotesingle{}item transporté par le curseur du joueur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{menus_8c_a8db0bbcb2b936e82aa071324eae9d71f}\label{menus_8c_a8db0bbcb2b936e82aa071324eae9d71f}} 
+void {\bfseries drawlife\+Bar} ()
+\begin{DoxyCompactList}\small\item\em Dessine la barre de vie du joueur. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{menus_8c_ab3002fe8e0074c9e2ecb5b835e5e819f}{main\+Menu}} ()
 \begin{DoxyCompactList}\small\item\em Affiche le menu principal. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{menus_8c_ac4c9f25aa12dff823919430e1f6193a2}\label{menus_8c_ac4c9f25aa12dff823919430e1f6193a2}} 
@@ -251,28 +263,48 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \includegraphics[width=350pt]{menus_8c_ad9a4714e86590146659768dcd5357272_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{menus_8c_a9310b9a509b196dead801a8afe8f735a}\label{menus_8c_a9310b9a509b196dead801a8afe8f735a}} 
-\index{menus.c@{menus.c}!changeButtonState@{changeButtonState}}
-\index{changeButtonState@{changeButtonState}!menus.c@{menus.c}}
-\doxysubsubsection{\texorpdfstring{changeButtonState()}{changeButtonState()}}
-{\footnotesize\ttfamily void change\+Button\+State (\begin{DoxyParamCaption}\item[{char $\ast$}]{button }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{menus_8c_ae7efaad914bff1a5511184fd96f0d9b7}\label{menus_8c_ae7efaad914bff1a5511184fd96f0d9b7}} 
+\index{menus.c@{menus.c}!changeButtonState\_clicked@{changeButtonState\_clicked}}
+\index{changeButtonState\_clicked@{changeButtonState\_clicked}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{changeButtonState\_clicked()}{changeButtonState\_clicked()}}
+{\footnotesize\ttfamily void change\+Button\+State\+\_\+clicked (\begin{DoxyParamCaption}\item[{T\+\_\+\+BUTTONS\+\_\+\+CLICKED}]{button,  }\item[{int}]{state }\end{DoxyParamCaption})}
 
 
 
-Change l\textquotesingle{}état du boutton de survol ciblé. 
+Change le boutton ciblé avec l\textquotesingle{}état voulut. 
 
 
 \begin{DoxyParams}{Paramètres}
 {\em button} & \\
 \hline
+{\em state} & \\
+\hline
 \end{DoxyParams}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=346pt]{menus_8c_a9310b9a509b196dead801a8afe8f735a_icgraph}
+\includegraphics[width=350pt]{menus_8c_ae7efaad914bff1a5511184fd96f0d9b7_icgraph}
 \end{center}
 \end{figure}
+\mbox{\Hypertarget{menus_8c_a20432793012cb1509389bf14f94a8ee9}\label{menus_8c_a20432793012cb1509389bf14f94a8ee9}} 
+\index{menus.c@{menus.c}!changeButtonState\_hover@{changeButtonState\_hover}}
+\index{changeButtonState\_hover@{changeButtonState\_hover}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{changeButtonState\_hover()}{changeButtonState\_hover()}}
+{\footnotesize\ttfamily void change\+Button\+State\+\_\+hover (\begin{DoxyParamCaption}\item[{T\+\_\+\+BUTTONS\+\_\+\+HOVER}]{button,  }\item[{int}]{state }\end{DoxyParamCaption})}
+
+
+
+Change le boutton ciblé avec l\textquotesingle{}état voulut. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em button} & \\
+\hline
+{\em state} & \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{menus_8c_a3ccdb6767f1237284bf7c8e0d3e3eacb}\label{menus_8c_a3ccdb6767f1237284bf7c8e0d3e3eacb}} 
 \index{menus.c@{menus.c}!destroyAll@{destroyAll}}
 \index{destroyAll@{destroyAll}!menus.c@{menus.c}}
@@ -339,7 +371,8 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \includegraphics[width=280pt]{menus_8c_ad452b0eb987136d6af7d68a474fd7bc1_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -381,6 +414,63 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \includegraphics[width=350pt]{menus_8c_af533a07a1593c721a25b080bf2cc10d9_icgraph}
 \end{center}
 \end{figure}
+\mbox{\Hypertarget{menus_8c_aede862d24a32e39c6e86dc94bd4cfc87}\label{menus_8c_aede862d24a32e39c6e86dc94bd4cfc87}} 
+\index{menus.c@{menus.c}!drawCases@{drawCases}}
+\index{drawCases@{drawCases}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{drawCases()}{drawCases()}}
+{\footnotesize\ttfamily void draw\+Cases (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Dessine les cases de l\textquotesingle{}inventaire. 
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_aede862d24a32e39c6e86dc94bd4cfc87_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_aede862d24a32e39c6e86dc94bd4cfc87_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8c_a66530cff59b9a7c9551fd82dce25fe40}\label{menus_8c_a66530cff59b9a7c9551fd82dce25fe40}} 
+\index{menus.c@{menus.c}!drawCaseText@{drawCaseText}}
+\index{drawCaseText@{drawCaseText}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{drawCaseText()}{drawCaseText()}}
+{\footnotesize\ttfamily void draw\+Case\+Text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcase__inventory}{case\+\_\+inventory}}}]{case\+\_\+x }\end{DoxyParamCaption})}
+
+
+
+Affiche le nombre d\textquotesingle{}items pour chaque case de l\textquotesingle{}inventaire. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em case\+\_\+x} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=293pt]{menus_8c_a66530cff59b9a7c9551fd82dce25fe40_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_a66530cff59b9a7c9551fd82dce25fe40_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{menus_8c_ae06068ec3d07bace5f405fbf6eeb3c20}\label{menus_8c_ae06068ec3d07bace5f405fbf6eeb3c20}} 
 \index{menus.c@{menus.c}!drawError@{drawError}}
 \index{drawError@{drawError}!menus.c@{menus.c}}
@@ -412,11 +502,11 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \includegraphics[width=242pt]{menus_8c_ae06068ec3d07bace5f405fbf6eeb3c20_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{menus_8c_a9a2d050de0ca8b28f95303d35475f327}\label{menus_8c_a9a2d050de0ca8b28f95303d35475f327}} 
+\mbox{\Hypertarget{menus_8c_ab5e92db476c0b623d52a2556f346b737}\label{menus_8c_ab5e92db476c0b623d52a2556f346b737}} 
 \index{menus.c@{menus.c}!drawItem@{drawItem}}
 \index{drawItem@{drawItem}!menus.c@{menus.c}}
 \doxysubsubsection{\texorpdfstring{drawItem()}{drawItem()}}
-{\footnotesize\ttfamily void draw\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcase__inventory}{case\+\_\+inventory}}}]{item }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void draw\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcase__inventory}{case\+\_\+inventory}}}]{case\+\_\+x }\end{DoxyParamCaption})}
 
 
 
@@ -432,7 +522,15 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=271pt]{menus_8c_a9a2d050de0ca8b28f95303d35475f327_cgraph}
+\includegraphics[width=271pt]{menus_8c_ab5e92db476c0b623d52a2556f346b737_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_ab5e92db476c0b623d52a2556f346b737_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{menus_8c_a2dfe41d8c0f122241c47441391c02de3}\label{menus_8c_a2dfe41d8c0f122241c47441391c02de3}} 
@@ -517,6 +615,32 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \includegraphics[width=350pt]{menus_8c_a72036abbb16f3b007110ff03d748e0b1_icgraph}
 \end{center}
 \end{figure}
+\mbox{\Hypertarget{menus_8c_ab283db36e8911aeb9d32d5886f156570}\label{menus_8c_ab283db36e8911aeb9d32d5886f156570}} 
+\index{menus.c@{menus.c}!getButtonState\_clicked@{getButtonState\_clicked}}
+\index{getButtonState\_clicked@{getButtonState\_clicked}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{getButtonState\_clicked()}{getButtonState\_clicked()}}
+{\footnotesize\ttfamily int get\+Button\+State\+\_\+clicked (\begin{DoxyParamCaption}\item[{T\+\_\+\+BUTTONS\+\_\+\+CLICKED}]{button }\end{DoxyParamCaption})}
+
+
+
+Renvoi l\textquotesingle{}état du boutton demandé. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_ab283db36e8911aeb9d32d5886f156570_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{menus_8c_ac96e8912bb03df1f73f5ccb6db495085}\label{menus_8c_ac96e8912bb03df1f73f5ccb6db495085}} 
 \index{menus.c@{menus.c}!init\_texture@{init\_texture}}
 \index{init\_texture@{init\_texture}!menus.c@{menus.c}}
@@ -572,11 +696,11 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \includegraphics[width=313pt]{menus_8c_ab3002fe8e0074c9e2ecb5b835e5e819f_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{menus_8c_a1bd07c916c27ca0eb4e4a8aad057fc59}\label{menus_8c_a1bd07c916c27ca0eb4e4a8aad057fc59}} 
+\mbox{\Hypertarget{menus_8c_a62b05feb314b3c7d6effb9892fa5b8ae}\label{menus_8c_a62b05feb314b3c7d6effb9892fa5b8ae}} 
 \index{menus.c@{menus.c}!onButton@{onButton}}
 \index{onButton@{onButton}!menus.c@{menus.c}}
 \doxysubsubsection{\texorpdfstring{onButton()}{onButton()}}
-{\footnotesize\ttfamily int on\+Button (\begin{DoxyParamCaption}\item[{char $\ast$}]{button }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int on\+Button (\begin{DoxyParamCaption}\item[{T\+\_\+\+BUTTONS\+\_\+\+HOVER}]{button }\end{DoxyParamCaption})}
 
 
 
@@ -590,11 +714,12 @@ Renvoi TRUE si le curseur est sur le boutton passé en paramètre sinon renvoi F
 \begin{DoxyReturn}{Renvoie}
 int 
 \end{DoxyReturn}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=302pt]{menus_8c_a1bd07c916c27ca0eb4e4a8aad057fc59_icgraph}
+\includegraphics[width=302pt]{menus_8c_a62b05feb314b3c7d6effb9892fa5b8ae_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{menus_8c_a2baaae2f0feebce6bd015a37345e2270}\label{menus_8c_a2baaae2f0feebce6bd015a37345e2270}} 
@@ -833,5 +958,28 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{menus_8c_a6806c9e2f2bcbf342c2bfa91336c2d27_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8c_aad1bede5062a8bca30d1b8bbcafef3c8}\label{menus_8c_aad1bede5062a8bca30d1b8bbcafef3c8}} 
+\index{menus.c@{menus.c}!switchButtonState\_hover@{switchButtonState\_hover}}
+\index{switchButtonState\_hover@{switchButtonState\_hover}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{switchButtonState\_hover()}{switchButtonState\_hover()}}
+{\footnotesize\ttfamily void switch\+Button\+State\+\_\+hover (\begin{DoxyParamCaption}\item[{T\+\_\+\+BUTTONS\+\_\+\+HOVER}]{button }\end{DoxyParamCaption})}
+
+
+
+Change l\textquotesingle{}état du boutton ciblé. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_aad1bede5062a8bca30d1b8bbcafef3c8_icgraph}
 \end{center}
 \end{figure}

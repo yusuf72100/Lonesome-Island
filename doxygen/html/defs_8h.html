@@ -149,13 +149,33 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Énumérations</h2></td></tr>
-<tr class="memitem:ac74f3fe130dd2907991df748d4dc4a13"><td class="memItemLeft" align="right" valign="top"><a id="ac74f3fe130dd2907991df748d4dc4a13" name="ac74f3fe130dd2907991df748d4dc4a13"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>T_MENU</b> { <br />
-&#160;&#160;<b>MAIN</b>
-, <b>INGAME</b>
-, <b>INVENTORY</b>
-, <b>SETTINGS</b>
+<tr class="memitem:a3d557a407330b62b30959d41183b05a8"><td class="memItemLeft" align="right" valign="top"><a id="a3d557a407330b62b30959d41183b05a8" name="a3d557a407330b62b30959d41183b05a8"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>T_BUTTONS_HOVER</b> { <br />
+&#160;&#160;<b>PLAY_BUTTON_HOVER</b>
+, <b>CONNECT_BUTTON_HOVER</b>
+, <b>HOST_BUTTON_HOVER</b>
+, <b>SETTINGS_BUTTON_HOVER</b>
 , <br />
-&#160;&#160;<b>ERR</b>
+&#160;&#160;<b>INVENTORY_BUTTON_HOVER</b>
+<br />
+ }</td></tr>
+<tr class="separator:a3d557a407330b62b30959d41183b05a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac77a8f425887dd84757f43f2cec98c73"><td class="memItemLeft" align="right" valign="top"><a id="ac77a8f425887dd84757f43f2cec98c73" name="ac77a8f425887dd84757f43f2cec98c73"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>T_BUTTONS_CLICKED</b> { <br />
+&#160;&#160;<b>PLAY_BUTTON_CLICKED</b>
+, <b>CONNECT_BUTTON_CLICKED</b>
+, <b>HOST_BUTTON_CLICKED</b>
+, <b>SETTINGS_BUTTON_CLICKED</b>
+, <br />
+&#160;&#160;<b>INVENTORY_BUTTON_CLICKED</b>
+<br />
+ }</td></tr>
+<tr class="separator:ac77a8f425887dd84757f43f2cec98c73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac74f3fe130dd2907991df748d4dc4a13"><td class="memItemLeft" align="right" valign="top"><a id="ac74f3fe130dd2907991df748d4dc4a13" name="ac74f3fe130dd2907991df748d4dc4a13"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>T_MENU</b> { <br />
+&#160;&#160;<b>MAIN_MENU</b>
+, <b>INGAME_MENU</b>
+, <b>INVENTORY_MENU</b>
+, <b>SETTINGS_MENU</b>
+, <br />
+&#160;&#160;<b>ERR_MENU</b>
 <br />
  }</td></tr>
 <tr class="separator:ac74f3fe130dd2907991df748d4dc4a13"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -170,11 +190,12 @@ Fonctions</h2></td></tr>
 <tr class="memitem:acbae57aa2d8c508e63c0597b44024977"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="defs_8h.html#acbae57aa2d8c508e63c0597b44024977">changeMenu</a> (T_MENU menuTarget)</td></tr>
 <tr class="memdesc:acbae57aa2d8c508e63c0597b44024977"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change de menu.  <br /></td></tr>
 <tr class="separator:acbae57aa2d8c508e63c0597b44024977"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46ada666e9f33f66113ea70f035ba7a4"><td class="memItemLeft" align="right" valign="top">T_MENU&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="defs_8h.html#a46ada666e9f33f66113ea70f035ba7a4">getMenu</a> ()</td></tr>
-<tr class="memdesc:a46ada666e9f33f66113ea70f035ba7a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nous renvoi le menu dans lequel le client se trouve.  <br /></td></tr>
+<tr class="memitem:a46ada666e9f33f66113ea70f035ba7a4"><td class="memItemLeft" align="right" valign="top"><a id="a46ada666e9f33f66113ea70f035ba7a4" name="a46ada666e9f33f66113ea70f035ba7a4"></a>
+T_MENU&#160;</td><td class="memItemRight" valign="bottom"><b>getMenu</b> ()</td></tr>
 <tr class="separator:a46ada666e9f33f66113ea70f035ba7a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6bd9bc7437d75b11d5e167fcf0114dc2"><td class="memItemLeft" align="right" valign="top"><a id="a6bd9bc7437d75b11d5e167fcf0114dc2" name="a6bd9bc7437d75b11d5e167fcf0114dc2"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>defineItem</b> ()</td></tr>
+<tr class="memdesc:a6bd9bc7437d75b11d5e167fcf0114dc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise les items globaux. <br /></td></tr>
 <tr class="separator:a6bd9bc7437d75b11d5e167fcf0114dc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
@@ -194,12 +215,21 @@ SDL_bool&#160;</td><td class="memItemRight" valign="bottom"><b>tabEvent</b> [20]
 <tr class="memitem:a2ef9fdf65d6a7d2e7bea9a793682d40f"><td class="memItemLeft" align="right" valign="top"><a id="a2ef9fdf65d6a7d2e7bea9a793682d40f" name="a2ef9fdf65d6a7d2e7bea9a793682d40f"></a>
 <a class="el" href="structcase__inventory.html">case_inventory</a>&#160;</td><td class="memItemRight" valign="bottom"><b>mat_inventory</b> [3][10]</td></tr>
 <tr class="separator:a2ef9fdf65d6a7d2e7bea9a793682d40f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03cac2c215344365da2141258626deb1"><td class="memItemLeft" align="right" valign="top"><a id="a03cac2c215344365da2141258626deb1" name="a03cac2c215344365da2141258626deb1"></a>
+<a class="el" href="structcase__inventory.html">case_inventory</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>wearedItem</b></td></tr>
+<tr class="separator:a03cac2c215344365da2141258626deb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace08537cc80178ee36159371a5d1d623"><td class="memItemLeft" align="right" valign="top"><a id="ace08537cc80178ee36159371a5d1d623" name="ace08537cc80178ee36159371a5d1d623"></a>
 <a class="el" href="structitem__t.html">item_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>axe</b></td></tr>
 <tr class="separator:ace08537cc80178ee36159371a5d1d623"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86505e2036d74eb63470ea9aa3e0eaf6"><td class="memItemLeft" align="right" valign="top"><a id="a86505e2036d74eb63470ea9aa3e0eaf6" name="a86505e2036d74eb63470ea9aa3e0eaf6"></a>
 <a class="el" href="structitem__t.html">item_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>apple</b></td></tr>
 <tr class="separator:a86505e2036d74eb63470ea9aa3e0eaf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad92f2b056653cc55a088e47aff07f4aa"><td class="memItemLeft" align="right" valign="top"><a id="ad92f2b056653cc55a088e47aff07f4aa" name="ad92f2b056653cc55a088e47aff07f4aa"></a>
+<a class="el" href="structplayer__t.html">player_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>joueur</b></td></tr>
+<tr class="separator:ad92f2b056653cc55a088e47aff07f4aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a551000248d53b0f87524224317c61f10"><td class="memItemLeft" align="right" valign="top"><a id="a551000248d53b0f87524224317c61f10" name="a551000248d53b0f87524224317c61f10"></a>
+<a class="el" href="structplayer__t.html">player_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>joueurs</b></td></tr>
+<tr class="separator:a551000248d53b0f87524224317c61f10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Fichier contenant toutes les définitions de structures et de types. </p>
@@ -237,36 +267,6 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="center"><img src="defs_8h_acbae57aa2d8c508e63c0597b44024977_icgraph.png" border="0" usemap="#adefs_8h_acbae57aa2d8c508e63c0597b44024977_icgraph" alt=""/></div>
 <map name="adefs_8h_acbae57aa2d8c508e63c0597b44024977_icgraph" id="adefs_8h_acbae57aa2d8c508e63c0597b44024977_icgraph">
 <area shape="rect" title="Change de menu." alt="" coords="227,5,323,31"/>
-<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a46ada666e9f33f66113ea70f035ba7a4" name="a46ada666e9f33f66113ea70f035ba7a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a46ada666e9f33f66113ea70f035ba7a4">&#9670;&#160;</a></span>getMenu()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">T_MENU getMenu </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Nous renvoi le menu dans lequel le client se trouve. </p>
-<dl class="section return"><dt>Renvoie</dt><dd>T_MENU </dd></dl>
-<div class="dynheader">
-Voici le graphe des appelants de cette fonction :</div>
-<div class="dyncontent">
-<div class="center"><img src="defs_8h_a46ada666e9f33f66113ea70f035ba7a4_icgraph.png" border="0" usemap="#adefs_8h_a46ada666e9f33f66113ea70f035ba7a4_icgraph" alt=""/></div>
-<map name="adefs_8h_a46ada666e9f33f66113ea70f035ba7a4_icgraph" id="adefs_8h_a46ada666e9f33f66113ea70f035ba7a4_icgraph">
-<area shape="rect" title="Nous renvoi le menu dans lequel le client se trouve." alt="" coords="227,5,299,31"/>
 <area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
 </map>

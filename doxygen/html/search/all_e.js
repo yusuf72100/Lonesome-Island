@@ -6,8 +6,8 @@ var searchData=
   ['send2server_3',['Send2Server',['../main_8c.html#a506eeac61f56b2e172d086173bac5995',1,'Send2Server():&#160;main.c'],['../main_8h.html#a506eeac61f56b2e172d086173bac5995',1,'Send2Server():&#160;main.c']]],
   ['senddatas_4',['sendDatas',['../client_8c.html#a6ff46bda2f9d755b3e1b4a941b10e8e1',1,'sendDatas(player_t joueur):&#160;client.c'],['../client_8h.html#a6ff46bda2f9d755b3e1b4a941b10e8e1',1,'sendDatas(player_t joueur):&#160;client.c']]],
   ['sendtoclient_5',['sendToClient',['../socket_8c.html#af8f7aaaf34db2175c7a9c4ab7d3306fc',1,'socket.c']]],
-  ['settings_5fbutton_5fanimation_5fleft_6',['settings_button_animation_left',['../menus_8h.html#ab6d77ef359eb1ad9820145690e17a427',1,'settings_button_animation_left():&#160;menus.c'],['../menus_8c.html#ab6d77ef359eb1ad9820145690e17a427',1,'settings_button_animation_left():&#160;menus.c']]],
-  ['settings_5fbutton_5fanimation_5fright_7',['settings_button_animation_right',['../menus_8c.html#a48c083415f7a9126fec9cc228b651991',1,'settings_button_animation_right():&#160;menus.c'],['../menus_8h.html#a48c083415f7a9126fec9cc228b651991',1,'settings_button_animation_right():&#160;menus.c']]],
+  ['settings_5fbutton_5fanimation_5fleft_6',['settings_button_animation_left',['../menus_8c.html#ab6d77ef359eb1ad9820145690e17a427',1,'settings_button_animation_left():&#160;menus.c'],['../menus_8h.html#ab6d77ef359eb1ad9820145690e17a427',1,'settings_button_animation_left():&#160;menus.c']]],
+  ['settings_5fbutton_5fanimation_5fright_7',['settings_button_animation_right',['../menus_8h.html#a48c083415f7a9126fec9cc228b651991',1,'settings_button_animation_right():&#160;menus.c'],['../menus_8c.html#a48c083415f7a9126fec9cc228b651991',1,'settings_button_animation_right():&#160;menus.c']]],
   ['socket_2ec_8',['socket.c',['../socket_8c.html',1,'']]],
   ['socket_2eh_9',['socket.h',['../socket_8h.html',1,'']]],
   ['socketdatas_10',['socketDatas',['../structsocket_datas.html',1,'']]],
@@ -21,5 +21,6 @@ var searchData=
   ['stopserver_18',['stopServer',['../socket_8c.html#ac1e551c19cd6ce8d7da8b13d1f290863',1,'stopServer():&#160;socket.c'],['../socket_8h.html#ac1e551c19cd6ce8d7da8b13d1f290863',1,'stopServer():&#160;socket.c']]],
   ['surfacesinit_19',['surfacesInit',['../menus_8c.html#a10a988b60c7285bbf30f40e3d12b847c',1,'menus.c']]],
   ['switchanimation_20',['switchAnimation',['../menus_8c.html#a6806c9e2f2bcbf342c2bfa91336c2d27',1,'menus.c']]],
-  ['synchdatas_21',['synchDatas',['../main_8c.html#a6f34c428b3f0a7afe10321406af12adb',1,'synchDatas(player_t *Joueurs, int taille):&#160;main.c'],['../main_8h.html#a6f34c428b3f0a7afe10321406af12adb',1,'synchDatas(player_t *Joueurs, int taille):&#160;main.c']]]
+  ['switchbuttonstate_5fhover_21',['switchButtonState_hover',['../menus_8c.html#aad1bede5062a8bca30d1b8bbcafef3c8',1,'switchButtonState_hover(T_BUTTONS_HOVER button):&#160;menus.c'],['../menus_8h.html#aad1bede5062a8bca30d1b8bbcafef3c8',1,'switchButtonState_hover(T_BUTTONS_HOVER button):&#160;menus.c']]],
+  ['synchdatas_22',['synchDatas',['../main_8c.html#a6f34c428b3f0a7afe10321406af12adb',1,'synchDatas(player_t *Joueurs, int taille):&#160;main.c'],['../main_8h.html#a6f34c428b3f0a7afe10321406af12adb',1,'synchDatas(player_t *Joueurs, int taille):&#160;main.c']]]
 ];

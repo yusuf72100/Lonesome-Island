@@ -38,49 +38,46 @@
 \DoxyCodeLine{00042\ \textcolor{keyword}{static}\ SDL\_bool\ program\_launched\ =\ SDL\_TRUE;}
 \DoxyCodeLine{00043\ \textcolor{keyword}{static}\ SDL\_Event\ event;\ }
 \DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structplayer__t}{player\_t}}\ joueur;}
-\DoxyCodeLine{00046\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structplayer__t}{player\_t}}\ *\ joueurs;}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \textcolor{keyword}{static}\ pthread\_t\ reloading;}
-\DoxyCodeLine{00049\ \textcolor{keyword}{static}\ pthread\_t\ server;}
-\DoxyCodeLine{00050\ \textcolor{keyword}{static}\ pthread\_t\ sendtoserver;}
-\DoxyCodeLine{00051\ \textcolor{keyword}{static}\ pthread\_t\ receivefromserver;}
-\DoxyCodeLine{00052\ \textcolor{keyword}{static}\ pthread\_t\ animations\_thread;}
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ checkEvents();}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ doEvents();}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{main_8h_a506eeac61f56b2e172d086173bac5995}{Send2Server}}();}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \mbox{\hyperlink{struct_vecteur}{Vecteur}}\ \mbox{\hyperlink{main_8h_a5eaa5bf14462c0770a8514451b64df3c}{InitVecteur}}(\textcolor{keywordtype}{int}\ angle,\ \textcolor{keywordtype}{int}\ vitesse);}
-\DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8h_a0caf52e6e1d7fb594108d8d4f4fbcd77}{delay\_settings\_button\_right}}();}
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00064\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8h_a0f9a66b9fc132ae63360835a23fe0ab0}{delay\_settings\_button\_left}}();}
-\DoxyCodeLine{00065\ }
-\DoxyCodeLine{00066\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8h_a400d947e8338483aca91275e6b09c08e}{delay\_running\_down}}();}
-\DoxyCodeLine{00067\ }
-\DoxyCodeLine{00068\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8h_a5c3f10f59573b2b0ee8a757d4aa2d589}{delay\_running\_up}}();}
-\DoxyCodeLine{00069\ }
-\DoxyCodeLine{00070\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8h_a22982612c2117162b7a74c76eb20028a}{delay\_running\_right}}();}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00072\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8h_a87f15eea45228c1b2d66df42116d7599}{delay\_running\_left}}();}
-\DoxyCodeLine{00073\ }
-\DoxyCodeLine{00074\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8h_a4f3c96146210adc4a3276d1e8bb2453c}{delay\_breath}}();}
-\DoxyCodeLine{00075\ }
-\DoxyCodeLine{00076\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ *rechargement();}
-\DoxyCodeLine{00077\ }
-\DoxyCodeLine{00078\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{main_8h_a6f34c428b3f0a7afe10321406af12adb}{synchDatas}}(\mbox{\hyperlink{structplayer__t}{player\_t}}\ *\ Joueurs,\ \textcolor{keywordtype}{int}\ taille);}
-\DoxyCodeLine{00079\ }
-\DoxyCodeLine{00080\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ UpdateBullet(\mbox{\hyperlink{struct_bullet}{Bullet}}\ *\ b);}
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00082\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ UpdateBulletAll();}
-\DoxyCodeLine{00083\ }
-\DoxyCodeLine{00084\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{main_8h_ac1c725f21345e0148e7ca2fdc7fe77f9}{newLogName}}();}
-\DoxyCodeLine{00085\ }
-\DoxyCodeLine{00086\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{main_8h_ab5a2d27713f1814d93ff81281e653e22}{eventTime}}();}
-\DoxyCodeLine{00087\ }
-\DoxyCodeLine{00088\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ initBullet(\mbox{\hyperlink{struct_bullet}{Bullet}}\ *\ b,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ rotation);}
+\DoxyCodeLine{00045\ \textcolor{keyword}{static}\ pthread\_t\ reloading;}
+\DoxyCodeLine{00046\ \textcolor{keyword}{static}\ pthread\_t\ server;}
+\DoxyCodeLine{00047\ \textcolor{keyword}{static}\ pthread\_t\ sendtoserver;}
+\DoxyCodeLine{00048\ \textcolor{keyword}{static}\ pthread\_t\ receivefromserver;}
+\DoxyCodeLine{00049\ \textcolor{keyword}{static}\ pthread\_t\ animations\_thread;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ checkEvents();}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ doEvents();}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{main_8h_a506eeac61f56b2e172d086173bac5995}{Send2Server}}();}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \mbox{\hyperlink{struct_vecteur}{Vecteur}}\ \mbox{\hyperlink{main_8h_a5eaa5bf14462c0770a8514451b64df3c}{InitVecteur}}(\textcolor{keywordtype}{int}\ angle,\ \textcolor{keywordtype}{int}\ vitesse);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8h_a0caf52e6e1d7fb594108d8d4f4fbcd77}{delay\_settings\_button\_right}}();}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8h_a0f9a66b9fc132ae63360835a23fe0ab0}{delay\_settings\_button\_left}}();}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8h_a400d947e8338483aca91275e6b09c08e}{delay\_running\_down}}();}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8h_a5c3f10f59573b2b0ee8a757d4aa2d589}{delay\_running\_up}}();}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8h_a22982612c2117162b7a74c76eb20028a}{delay\_running\_right}}();}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8h_a87f15eea45228c1b2d66df42116d7599}{delay\_running\_left}}();}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8h_a4f3c96146210adc4a3276d1e8bb2453c}{delay\_breath}}();}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ *rechargement();}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{main_8h_a6f34c428b3f0a7afe10321406af12adb}{synchDatas}}(\mbox{\hyperlink{structplayer__t}{player\_t}}\ *\ Joueurs,\ \textcolor{keywordtype}{int}\ taille);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ UpdateBullet(\mbox{\hyperlink{struct_bullet}{Bullet}}\ *\ b);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ UpdateBulletAll();}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{main_8h_ac1c725f21345e0148e7ca2fdc7fe77f9}{newLogName}}();}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{main_8h_ab5a2d27713f1814d93ff81281e653e22}{eventTime}}();}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ initBullet(\mbox{\hyperlink{struct_bullet}{Bullet}}\ *\ b,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ rotation);}
 
 \end{DoxyCode}

@@ -125,12 +125,21 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a8cbdceb9c205a8d9c279691a09b337a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menus_8c.html#a8cbdceb9c205a8d9c279691a09b337a1">startAnimation</a> (char *animation, <a class="el" href="structplayer__t.html">player_t</a> *joueur)</td></tr>
 <tr class="memdesc:a8cbdceb9c205a8d9c279691a09b337a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Commence l'animation souhaitée au joueur demandé.  <br /></td></tr>
 <tr class="separator:a8cbdceb9c205a8d9c279691a09b337a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9310b9a509b196dead801a8afe8f735a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menus_8c.html#a9310b9a509b196dead801a8afe8f735a">changeButtonState</a> (char *button)</td></tr>
-<tr class="memdesc:a9310b9a509b196dead801a8afe8f735a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change l'état du boutton de survol ciblé.  <br /></td></tr>
-<tr class="separator:a9310b9a509b196dead801a8afe8f735a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1bd07c916c27ca0eb4e4a8aad057fc59"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menus_8c.html#a1bd07c916c27ca0eb4e4a8aad057fc59">onButton</a> (char *button)</td></tr>
-<tr class="memdesc:a1bd07c916c27ca0eb4e4a8aad057fc59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoi TRUE si le curseur est sur le boutton passé en paramètre sinon renvoi FALSE si le curseur est sur aucun boutton.  <br /></td></tr>
-<tr class="separator:a1bd07c916c27ca0eb4e4a8aad057fc59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad1bede5062a8bca30d1b8bbcafef3c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menus_8c.html#aad1bede5062a8bca30d1b8bbcafef3c8">switchButtonState_hover</a> (T_BUTTONS_HOVER button)</td></tr>
+<tr class="memdesc:aad1bede5062a8bca30d1b8bbcafef3c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change l'état du boutton ciblé.  <br /></td></tr>
+<tr class="separator:aad1bede5062a8bca30d1b8bbcafef3c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20432793012cb1509389bf14f94a8ee9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menus_8c.html#a20432793012cb1509389bf14f94a8ee9">changeButtonState_hover</a> (T_BUTTONS_HOVER button, int state)</td></tr>
+<tr class="memdesc:a20432793012cb1509389bf14f94a8ee9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change le boutton ciblé avec l'état voulut.  <br /></td></tr>
+<tr class="separator:a20432793012cb1509389bf14f94a8ee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7efaad914bff1a5511184fd96f0d9b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menus_8c.html#ae7efaad914bff1a5511184fd96f0d9b7">changeButtonState_clicked</a> (T_BUTTONS_CLICKED button, int state)</td></tr>
+<tr class="memdesc:ae7efaad914bff1a5511184fd96f0d9b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change le boutton ciblé avec l'état voulut.  <br /></td></tr>
+<tr class="separator:ae7efaad914bff1a5511184fd96f0d9b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab283db36e8911aeb9d32d5886f156570"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menus_8c.html#ab283db36e8911aeb9d32d5886f156570">getButtonState_clicked</a> (T_BUTTONS_CLICKED button)</td></tr>
+<tr class="memdesc:ab283db36e8911aeb9d32d5886f156570"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoi l'état du boutton demandé.  <br /></td></tr>
+<tr class="separator:ab283db36e8911aeb9d32d5886f156570"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62b05feb314b3c7d6effb9892fa5b8ae"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menus_8c.html#a62b05feb314b3c7d6effb9892fa5b8ae">onButton</a> (T_BUTTONS_HOVER button)</td></tr>
+<tr class="memdesc:a62b05feb314b3c7d6effb9892fa5b8ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoi TRUE si le curseur est sur le boutton passé en paramètre sinon renvoi FALSE si le curseur est sur aucun boutton.  <br /></td></tr>
+<tr class="separator:a62b05feb314b3c7d6effb9892fa5b8ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a258a73384029adb1d7e22ca959235633"><td class="memItemLeft" align="right" valign="top"><a id="a258a73384029adb1d7e22ca959235633" name="a258a73384029adb1d7e22ca959235633"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>drawButtons</b> ()</td></tr>
 <tr class="memdesc:a258a73384029adb1d7e22ca959235633"><td class="mdescLeft">&#160;</td><td class="mdescRight">Essaye de dessiner tous les bouttons. <br /></td></tr>
@@ -150,12 +159,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>inventoryInit</b> ()<
 <tr class="memitem:ad452b0eb987136d6af7d68a474fd7bc1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menus_8c.html#ad452b0eb987136d6af7d68a474fd7bc1">drawButton</a> (SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface)</td></tr>
 <tr class="memdesc:ad452b0eb987136d6af7d68a474fd7bc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine un bouton normal.  <br /></td></tr>
 <tr class="separator:ad452b0eb987136d6af7d68a474fd7bc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66530cff59b9a7c9551fd82dce25fe40"><td class="memItemLeft" align="right" valign="top"><a id="a66530cff59b9a7c9551fd82dce25fe40" name="a66530cff59b9a7c9551fd82dce25fe40"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>drawCaseText</b> (<a class="el" href="structcase__inventory.html">case_inventory</a> case_x)</td></tr>
+<tr class="memitem:a66530cff59b9a7c9551fd82dce25fe40"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menus_8c.html#a66530cff59b9a7c9551fd82dce25fe40">drawCaseText</a> (<a class="el" href="structcase__inventory.html">case_inventory</a> case_x)</td></tr>
+<tr class="memdesc:a66530cff59b9a7c9551fd82dce25fe40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche le nombre d'items pour chaque case de l'inventaire.  <br /></td></tr>
 <tr class="separator:a66530cff59b9a7c9551fd82dce25fe40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a2d050de0ca8b28f95303d35475f327"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menus_8c.html#a9a2d050de0ca8b28f95303d35475f327">drawItem</a> (<a class="el" href="structcase__inventory.html">case_inventory</a> item)</td></tr>
-<tr class="memdesc:a9a2d050de0ca8b28f95303d35475f327"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine l'item à la bonne case de l'inventaire.  <br /></td></tr>
-<tr class="separator:a9a2d050de0ca8b28f95303d35475f327"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5e92db476c0b623d52a2556f346b737"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menus_8c.html#ab5e92db476c0b623d52a2556f346b737">drawItem</a> (<a class="el" href="structcase__inventory.html">case_inventory</a> case_x)</td></tr>
+<tr class="memdesc:ab5e92db476c0b623d52a2556f346b737"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine l'item à la bonne case de l'inventaire.  <br /></td></tr>
+<tr class="separator:ab5e92db476c0b623d52a2556f346b737"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af533a07a1593c721a25b080bf2cc10d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menus_8c.html#af533a07a1593c721a25b080bf2cc10d9">drawButton_withRotation</a> (SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface)</td></tr>
 <tr class="memdesc:af533a07a1593c721a25b080bf2cc10d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine un boutton en fonction d'une certaine rotation.  <br /></td></tr>
 <tr class="separator:af533a07a1593c721a25b080bf2cc10d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -222,6 +231,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>texturesInit</
 <tr class="separator:a1d535222d73c1839cb6c5ef121b00baf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60a9131ac6630e306e5c701923798530"><td class="memItemLeft" align="right" valign="top"><a id="a60a9131ac6630e306e5c701923798530" name="a60a9131ac6630e306e5c701923798530"></a>
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>rectanglesInit</b> ()</td></tr>
+<tr class="memdesc:a60a9131ac6630e306e5c701923798530"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise les rectangles. <br /></td></tr>
 <tr class="separator:a60a9131ac6630e306e5c701923798530"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb13427163cac507a66d96dbc0f3c06e"><td class="memItemLeft" align="right" valign="top"><a id="afb13427163cac507a66d96dbc0f3c06e" name="afb13427163cac507a66d96dbc0f3c06e"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ttfInit</b> ()</td></tr>
@@ -244,13 +254,25 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>toggleFullscreen</b> 
 <tr class="memitem:ad9a4714e86590146659768dcd5357272"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menus_8c.html#ad9a4714e86590146659768dcd5357272">buttonHoverWithAnimation</a> (SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button, void *(*p)(void *), void *(*p2)(void *))</td></tr>
 <tr class="memdesc:ad9a4714e86590146659768dcd5357272"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche la texture de survol avec animation du bouton demandé en dans le menu souhaité.  <br /></td></tr>
 <tr class="separator:ad9a4714e86590146659768dcd5357272"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af62b6c78dad8d3b0ae378b5174a28784"><td class="memItemLeft" align="right" valign="top"><a id="af62b6c78dad8d3b0ae378b5174a28784" name="af62b6c78dad8d3b0ae378b5174a28784"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>clickItem</b> ()</td></tr>
+<tr class="memdesc:af62b6c78dad8d3b0ae378b5174a28784"><td class="mdescLeft">&#160;</td><td class="mdescRight">Évalue sur quel item on a cliqué. <br /></td></tr>
+<tr class="separator:af62b6c78dad8d3b0ae378b5174a28784"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed543fd0f875dcbff172087fe7b23025"><td class="memItemLeft" align="right" valign="top"><a id="aed543fd0f875dcbff172087fe7b23025" name="aed543fd0f875dcbff172087fe7b23025"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>drawInventory</b> ()</td></tr>
 <tr class="memdesc:aed543fd0f875dcbff172087fe7b23025"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine l'inventaire. <br /></td></tr>
 <tr class="separator:aed543fd0f875dcbff172087fe7b23025"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aede862d24a32e39c6e86dc94bd4cfc87"><td class="memItemLeft" align="right" valign="top"><a id="aede862d24a32e39c6e86dc94bd4cfc87" name="aede862d24a32e39c6e86dc94bd4cfc87"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>drawCases</b> ()</td></tr>
+<tr class="memitem:aede862d24a32e39c6e86dc94bd4cfc87"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menus_8c.html#aede862d24a32e39c6e86dc94bd4cfc87">drawCases</a> ()</td></tr>
+<tr class="memdesc:aede862d24a32e39c6e86dc94bd4cfc87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine les cases de l'inventaire.  <br /></td></tr>
 <tr class="separator:aede862d24a32e39c6e86dc94bd4cfc87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d227936b6a3d4d077b8e6f8326ed1bb"><td class="memItemLeft" align="right" valign="top"><a id="a3d227936b6a3d4d077b8e6f8326ed1bb" name="a3d227936b6a3d4d077b8e6f8326ed1bb"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>wearing</b> ()</td></tr>
+<tr class="memdesc:a3d227936b6a3d4d077b8e6f8326ed1bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche l'item transporté par le curseur du joueur. <br /></td></tr>
+<tr class="separator:a3d227936b6a3d4d077b8e6f8326ed1bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8db0bbcb2b936e82aa071324eae9d71f"><td class="memItemLeft" align="right" valign="top"><a id="a8db0bbcb2b936e82aa071324eae9d71f" name="a8db0bbcb2b936e82aa071324eae9d71f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>drawlifeBar</b> ()</td></tr>
+<tr class="memdesc:a8db0bbcb2b936e82aa071324eae9d71f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine la barre de vie du joueur. <br /></td></tr>
+<tr class="separator:a8db0bbcb2b936e82aa071324eae9d71f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3002fe8e0074c9e2ecb5b835e5e819f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menus_8c.html#ab3002fe8e0074c9e2ecb5b835e5e819f">mainMenu</a> ()</td></tr>
 <tr class="memdesc:ab3002fe8e0074c9e2ecb5b835e5e819f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche le menu principal.  <br /></td></tr>
 <tr class="separator:ab3002fe8e0074c9e2ecb5b835e5e819f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -481,39 +503,87 @@ Voici le graphe des appelants de cette fonction :</div>
 
 </div>
 </div>
-<a id="a9310b9a509b196dead801a8afe8f735a" name="a9310b9a509b196dead801a8afe8f735a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9310b9a509b196dead801a8afe8f735a">&#9670;&#160;</a></span>changeButtonState()</h2>
+<a id="ae7efaad914bff1a5511184fd96f0d9b7" name="ae7efaad914bff1a5511184fd96f0d9b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7efaad914bff1a5511184fd96f0d9b7">&#9670;&#160;</a></span>changeButtonState_clicked()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void changeButtonState </td>
+          <td class="memname">void changeButtonState_clicked </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>button</em></td><td>)</td>
+          <td class="paramtype">T_BUTTONS_CLICKED&#160;</td>
+          <td class="paramname"><em>button</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>state</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Change l'état du boutton de survol ciblé. </p>
+<p>Change le boutton ciblé avec l'état voulut. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">button</td><td></td></tr>
+    <tr><td class="paramname">state</td><td></td></tr>
   </table>
   </dd>
 </dl>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="menus_8c_a9310b9a509b196dead801a8afe8f735a_icgraph.png" border="0" usemap="#amenus_8c_a9310b9a509b196dead801a8afe8f735a_icgraph" alt=""/></div>
-<map name="amenus_8c_a9310b9a509b196dead801a8afe8f735a_icgraph" id="amenus_8c_a9310b9a509b196dead801a8afe8f735a_icgraph">
-<area shape="rect" title="Change l&#39;état du boutton de survol ciblé." alt="" coords="227,5,360,31"/>
+<div class="center"><img src="menus_8c_ae7efaad914bff1a5511184fd96f0d9b7_icgraph.png" border="0" usemap="#amenus_8c_ae7efaad914bff1a5511184fd96f0d9b7_icgraph" alt=""/></div>
+<map name="amenus_8c_ae7efaad914bff1a5511184fd96f0d9b7_icgraph" id="amenus_8c_ae7efaad914bff1a5511184fd96f0d9b7_icgraph">
+<area shape="rect" title="Change le boutton ciblé avec l&#39;état voulut." alt="" coords="227,5,408,31"/>
 <area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="a20432793012cb1509389bf14f94a8ee9" name="a20432793012cb1509389bf14f94a8ee9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20432793012cb1509389bf14f94a8ee9">&#9670;&#160;</a></span>changeButtonState_hover()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void changeButtonState_hover </td>
+          <td>(</td>
+          <td class="paramtype">T_BUTTONS_HOVER&#160;</td>
+          <td class="paramname"><em>button</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>state</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Change le boutton ciblé avec l'état voulut. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">button</td><td></td></tr>
+    <tr><td class="paramname">state</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -539,31 +609,35 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="menus_8c_a3ccdb6767f1237284bf7c8e0d3e3eacb_icgraph.png" border="0" usemap="#amenus_8c_a3ccdb6767f1237284bf7c8e0d3e3eacb_icgraph" alt=""/></div>
 <map name="amenus_8c_a3ccdb6767f1237284bf7c8e0d3e3eacb_icgraph" id="amenus_8c_a3ccdb6767f1237284bf7c8e0d3e3eacb_icgraph">
-<area shape="rect" title="Détruit la fenêtre et le rendu." alt="" coords="757,419,837,445"/>
-<area shape="rect" href="menus_8c.html#ad452b0eb987136d6af7d68a474fd7bc1" title="Dessine un bouton normal." alt="" coords="616,191,703,217"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,355,56,381"/>
-<area shape="rect" href="menus_8c.html#af533a07a1593c721a25b080bf2cc10d9" title="Dessine un boutton en fonction d&#39;une certaine rotation." alt="" coords="396,43,561,69"/>
-<area shape="rect" href="menus_8c.html#ae06068ec3d07bace5f405fbf6eeb3c20" title="Affiche l&#39;erreur à l&#39;écran." alt="" coords="621,646,698,671"/>
-<area shape="rect" href="menus_8c.html#aed543fd0f875dcbff172087fe7b23025" title="Dessine l&#39;inventaire." alt="" coords="609,394,709,419"/>
-<area shape="rect" href="menus_8c.html#a9a2d050de0ca8b28f95303d35475f327" title="Dessine l&#39;item à la bonne case de l&#39;inventaire." alt="" coords="622,695,697,721"/>
-<area shape="rect" href="menus_8c.html#aab7430a217db9969c46ead48adffbd05" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="615,318,703,343"/>
-<area shape="rect" href="menus_8c.html#a2dfe41d8c0f122241c47441391c02de3" title="Dessine un joueur en fonction de ses coordonnées et de sa texture." alt="" coords="616,445,703,470"/>
-<area shape="rect" href="menus_8c.html#a72036abbb16f3b007110ff03d748e0b1" title="Dessine le titre dans le menu principal." alt="" coords="442,93,515,118"/>
-<area shape="rect" href="menus_8c.html#a48e3fe80d276c94e23eed3c1017a05ee" title="Initialise toutes les variables relatives aux menus." alt="" coords="233,519,348,545"/>
-<area shape="rect" href="menus_8c.html#ac96e8912bb03df1f73f5ccb6db495085" title="Initialise l&#39;asset demandé." alt="" coords="616,494,703,519"/>
-<area shape="rect" href="menus_8c.html#afb13427163cac507a66d96dbc0f3c06e" title="Initialise les dafonts." alt="" coords="634,543,685,569"/>
-<area shape="rect" href="menus_8c.html#ab5e1f7649b8b40f10bd9168c6a098883" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="433,191,524,217"/>
-<area shape="rect" href="menus_8c.html#a258a73384029adb1d7e22ca959235633" title="Essaye de dessiner tous les bouttons." alt="" coords="431,142,526,167"/>
-<area shape="rect" href="menus_8c.html#ab3002fe8e0074c9e2ecb5b835e5e819f" title="Affiche le menu principal." alt="" coords="249,167,332,193"/>
-<area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,318,185,343"/>
-<area shape="rect" href="menus_8c.html#a9cde538499636a6a74cb0f3e206d4a73" title="Dessine l&#39;erreur avec TTF." alt="" coords="433,646,524,671"/>
-<area shape="rect" href="menus_8c.html#ad91f44597d803d249e1b96e7569f8199" title="Dessin le menu de l&#39;inventaire." alt="" coords="238,343,343,369"/>
-<area shape="rect" href="menus_8c.html#ac4c9f25aa12dff823919430e1f6193a2" title="Dessine le menu en jeu." alt="" coords="431,293,527,318"/>
-<area shape="rect" href="menus_8c.html#a6806c9e2f2bcbf342c2bfa91336c2d27" title="Applique la bonne texture au joueur en fonction de son animation." alt="" coords="420,445,537,470"/>
-<area shape="rect" href="menus_8c.html#ab804df0c510979d77fd5599feef21ae0" title="Dessine tous les joueurs." alt="" coords="244,418,337,443"/>
-<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="107,379,182,405"/>
-<area shape="rect" href="main_8c.html#a270d20bdcadebb9a08a01a55c37858a9" title="Initialise toutes les variables relatives aux menus." alt="" coords="110,467,179,493"/>
-<area shape="rect" href="menus_8c.html#a1d535222d73c1839cb6c5ef121b00baf" title="Initialise les textures du jeu." alt="" coords="435,494,522,519"/>
+<area shape="rect" title="Détruit la fenêtre et le rendu." alt="" coords="928,392,1008,417"/>
+<area shape="rect" href="menus_8c.html#ad452b0eb987136d6af7d68a474fd7bc1" title="Dessine un bouton normal." alt="" coords="754,217,841,243"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,364,56,389"/>
+<area shape="rect" href="menus_8c.html#af533a07a1593c721a25b080bf2cc10d9" title="Dessine un boutton en fonction d&#39;une certaine rotation." alt="" coords="715,149,880,175"/>
+<area shape="rect" href="menus_8c.html#a66530cff59b9a7c9551fd82dce25fe40" title="Affiche le nombre d&#39;items pour chaque case de l&#39;inventaire." alt="" coords="745,392,849,417"/>
+<area shape="rect" href="menus_8c.html#ae06068ec3d07bace5f405fbf6eeb3c20" title="Affiche l&#39;erreur à l&#39;écran." alt="" coords="759,343,836,368"/>
+<area shape="rect" href="menus_8c.html#aed543fd0f875dcbff172087fe7b23025" title="Dessine l&#39;inventaire." alt="" coords="394,492,494,517"/>
+<area shape="rect" href="menus_8c.html#ab5e92db476c0b623d52a2556f346b737" title="Dessine l&#39;item à la bonne case de l&#39;inventaire." alt="" coords="760,441,835,467"/>
+<area shape="rect" href="menus_8c.html#aab7430a217db9969c46ead48adffbd05" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="564,293,652,319"/>
+<area shape="rect" href="menus_8c.html#a2dfe41d8c0f122241c47441391c02de3" title="Dessine un joueur en fonction de ses coordonnées et de sa texture." alt="" coords="754,543,841,568"/>
+<area shape="rect" href="menus_8c.html#a72036abbb16f3b007110ff03d748e0b1" title="Dessine le titre dans le menu principal." alt="" coords="571,44,645,69"/>
+<area shape="rect" href="menus_8c.html#a48e3fe80d276c94e23eed3c1017a05ee" title="Initialise toutes les variables relatives aux menus." alt="" coords="387,619,501,644"/>
+<area shape="rect" href="menus_8c.html#ac96e8912bb03df1f73f5ccb6db495085" title="Initialise l&#39;asset demandé." alt="" coords="754,644,841,669"/>
+<area shape="rect" href="menus_8c.html#afb13427163cac507a66d96dbc0f3c06e" title="Initialise les dafonts." alt="" coords="772,693,823,719"/>
+<area shape="rect" href="menus_8c.html#ab5e1f7649b8b40f10bd9168c6a098883" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="563,145,653,171"/>
+<area shape="rect" href="menus_8c.html#a258a73384029adb1d7e22ca959235633" title="Essaye de dessiner tous les bouttons." alt="" coords="561,195,655,220"/>
+<area shape="rect" href="menus_8c.html#a8db0bbcb2b936e82aa071324eae9d71f" title="Dessine la barre de vie du joueur." alt="" coords="565,244,651,269"/>
+<area shape="rect" href="menus_8c.html#ab3002fe8e0074c9e2ecb5b835e5e819f" title="Affiche le menu principal." alt="" coords="403,169,485,195"/>
+<area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,332,185,357"/>
+<area shape="rect" href="menus_8c.html#ac4c9f25aa12dff823919430e1f6193a2" title="Dessine le menu en jeu." alt="" coords="396,289,492,315"/>
+<area shape="rect" href="menus_8c.html#ad91f44597d803d249e1b96e7569f8199" title="Dessin le menu de l&#39;inventaire." alt="" coords="233,359,339,384"/>
+<area shape="rect" href="menus_8c.html#aede862d24a32e39c6e86dc94bd4cfc87" title="Dessine les cases de l&#39;inventaire." alt="" coords="565,441,651,467"/>
+<area shape="rect" href="menus_8c.html#a3d227936b6a3d4d077b8e6f8326ed1bb" title="Affiche l&#39;item transporté par le curseur du joueur." alt="" coords="575,392,641,417"/>
+<area shape="rect" href="menus_8c.html#a9cde538499636a6a74cb0f3e206d4a73" title="Dessine l&#39;erreur avec TTF." alt="" coords="563,343,653,368"/>
+<area shape="rect" href="menus_8c.html#a6806c9e2f2bcbf342c2bfa91336c2d27" title="Applique la bonne texture au joueur en fonction de son animation." alt="" coords="549,543,667,568"/>
+<area shape="rect" href="menus_8c.html#ab804df0c510979d77fd5599feef21ae0" title="Dessine tous les joueurs." alt="" coords="397,543,491,568"/>
+<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="249,447,323,472"/>
+<area shape="rect" href="main_8c.html#a270d20bdcadebb9a08a01a55c37858a9" title="Initialise toutes les variables relatives aux menus." alt="" coords="110,452,179,477"/>
+<area shape="rect" href="menus_8c.html#a1d535222d73c1839cb6c5ef121b00baf" title="Initialise les textures du jeu." alt="" coords="565,644,651,669"/>
 </map>
 </div>
 
@@ -662,12 +736,15 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="menus_8c_ad452b0eb987136d6af7d68a474fd7bc1_icgraph.png" border="0" usemap="#amenus_8c_ad452b0eb987136d6af7d68a474fd7bc1_icgraph" alt=""/></div>
 <map name="amenus_8c_ad452b0eb987136d6af7d68a474fd7bc1_icgraph" id="amenus_8c_ad452b0eb987136d6af7d68a474fd7bc1_icgraph">
-<area shape="rect" title="Dessine un bouton normal." alt="" coords="507,31,593,56"/>
-<area shape="rect" href="menus_8c.html#ab5e1f7649b8b40f10bd9168c6a098883" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="366,5,457,31"/>
-<area shape="rect" href="menus_8c.html#a258a73384029adb1d7e22ca959235633" title="Essaye de dessiner tous les bouttons." alt="" coords="364,55,459,80"/>
-<area shape="rect" href="menus_8c.html#ab3002fe8e0074c9e2ecb5b835e5e819f" title="Affiche le menu principal." alt="" coords="233,31,316,56"/>
-<area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,31,185,56"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,31,56,56"/>
+<area shape="rect" title="Dessine un bouton normal." alt="" coords="673,55,760,80"/>
+<area shape="rect" href="menus_8c.html#ab5e1f7649b8b40f10bd9168c6a098883" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="533,5,623,31"/>
+<area shape="rect" href="menus_8c.html#a258a73384029adb1d7e22ca959235633" title="Essaye de dessiner tous les bouttons." alt="" coords="531,55,625,80"/>
+<area shape="rect" href="menus_8c.html#a8db0bbcb2b936e82aa071324eae9d71f" title="Dessine la barre de vie du joueur." alt="" coords="535,104,621,129"/>
+<area shape="rect" href="menus_8c.html#ab3002fe8e0074c9e2ecb5b835e5e819f" title="Affiche le menu principal." alt="" coords="393,29,476,55"/>
+<area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,80,185,105"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,80,56,105"/>
+<area shape="rect" href="menus_8c.html#ac4c9f25aa12dff823919430e1f6193a2" title="Dessine le menu en jeu." alt="" coords="387,104,483,129"/>
+<area shape="rect" href="menus_8c.html#ad91f44597d803d249e1b96e7569f8199" title="Dessin le menu de l&#39;inventaire." alt="" coords="233,131,339,156"/>
 </map>
 </div>
 
@@ -739,6 +816,98 @@ Voici le graphe des appelants de cette fonction :</div>
 
 </div>
 </div>
+<a id="aede862d24a32e39c6e86dc94bd4cfc87" name="aede862d24a32e39c6e86dc94bd4cfc87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aede862d24a32e39c6e86dc94bd4cfc87">&#9670;&#160;</a></span>drawCases()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void drawCases </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dessine les cases de l'inventaire. </p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="menus_8c_aede862d24a32e39c6e86dc94bd4cfc87_cgraph.png" border="0" usemap="#amenus_8c_aede862d24a32e39c6e86dc94bd4cfc87_cgraph" alt=""/></div>
+<map name="amenus_8c_aede862d24a32e39c6e86dc94bd4cfc87_cgraph" id="amenus_8c_aede862d24a32e39c6e86dc94bd4cfc87_cgraph">
+<area shape="rect" title="Dessine les cases de l&#39;inventaire." alt="" coords="5,31,92,56"/>
+<area shape="rect" href="menus_8c.html#a66530cff59b9a7c9551fd82dce25fe40" title="Affiche le nombre d&#39;items pour chaque case de l&#39;inventaire." alt="" coords="140,5,244,31"/>
+<area shape="rect" href="menus_8c.html#ab5e92db476c0b623d52a2556f346b737" title="Dessine l&#39;item à la bonne case de l&#39;inventaire." alt="" coords="155,55,229,80"/>
+<area shape="rect" href="menus_8c.html#a3ccdb6767f1237284bf7c8e0d3e3eacb" title="Détruit la fenêtre et le rendu." alt="" coords="318,5,398,31"/>
+<area shape="rect" href="menus_8c.html#acd3f39401c59bbd01c9663c5348c63c1" title="Nous renvoi une erreur SDL." alt="" coords="292,55,424,80"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="menus_8c_aede862d24a32e39c6e86dc94bd4cfc87_icgraph.png" border="0" usemap="#amenus_8c_aede862d24a32e39c6e86dc94bd4cfc87_icgraph" alt=""/></div>
+<map name="amenus_8c_aede862d24a32e39c6e86dc94bd4cfc87_icgraph" id="amenus_8c_aede862d24a32e39c6e86dc94bd4cfc87_icgraph">
+<area shape="rect" title="Dessine les cases de l&#39;inventaire." alt="" coords="387,5,473,31"/>
+<area shape="rect" href="menus_8c.html#ad91f44597d803d249e1b96e7569f8199" title="Dessin le menu de l&#39;inventaire." alt="" coords="233,5,339,31"/>
+<area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,5,185,31"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a66530cff59b9a7c9551fd82dce25fe40" name="a66530cff59b9a7c9551fd82dce25fe40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66530cff59b9a7c9551fd82dce25fe40">&#9670;&#160;</a></span>drawCaseText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void drawCaseText </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structcase__inventory.html">case_inventory</a>&#160;</td>
+          <td class="paramname"><em>case_x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affiche le nombre d'items pour chaque case de l'inventaire. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">case_x</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="menus_8c_a66530cff59b9a7c9551fd82dce25fe40_cgraph.png" border="0" usemap="#amenus_8c_a66530cff59b9a7c9551fd82dce25fe40_cgraph" alt=""/></div>
+<map name="amenus_8c_a66530cff59b9a7c9551fd82dce25fe40_cgraph" id="amenus_8c_a66530cff59b9a7c9551fd82dce25fe40_cgraph">
+<area shape="rect" title="Affiche le nombre d&#39;items pour chaque case de l&#39;inventaire." alt="" coords="5,31,109,56"/>
+<area shape="rect" href="menus_8c.html#a3ccdb6767f1237284bf7c8e0d3e3eacb" title="Détruit la fenêtre et le rendu." alt="" coords="183,5,263,31"/>
+<area shape="rect" href="menus_8c.html#acd3f39401c59bbd01c9663c5348c63c1" title="Nous renvoi une erreur SDL." alt="" coords="157,55,289,80"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="menus_8c_a66530cff59b9a7c9551fd82dce25fe40_icgraph.png" border="0" usemap="#amenus_8c_a66530cff59b9a7c9551fd82dce25fe40_icgraph" alt=""/></div>
+<map name="amenus_8c_a66530cff59b9a7c9551fd82dce25fe40_icgraph" id="amenus_8c_a66530cff59b9a7c9551fd82dce25fe40_icgraph">
+<area shape="rect" title="Affiche le nombre d&#39;items pour chaque case de l&#39;inventaire." alt="" coords="645,31,749,56"/>
+<area shape="rect" href="menus_8c.html#aede862d24a32e39c6e86dc94bd4cfc87" title="Dessine les cases de l&#39;inventaire." alt="" coords="391,5,478,31"/>
+<area shape="rect" href="menus_8c.html#a3d227936b6a3d4d077b8e6f8326ed1bb" title="Affiche l&#39;item transporté par le curseur du joueur." alt="" coords="531,56,597,81"/>
+<area shape="rect" href="menus_8c.html#ad91f44597d803d249e1b96e7569f8199" title="Dessin le menu de l&#39;inventaire." alt="" coords="233,56,339,81"/>
+<area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,81,185,107"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,81,56,107"/>
+<area shape="rect" href="menus_8c.html#ac4c9f25aa12dff823919430e1f6193a2" title="Dessine le menu en jeu." alt="" coords="387,107,483,132"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="ae06068ec3d07bace5f405fbf6eeb3c20" name="ae06068ec3d07bace5f405fbf6eeb3c20"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae06068ec3d07bace5f405fbf6eeb3c20">&#9670;&#160;</a></span>drawError()</h2>
 
@@ -795,8 +964,8 @@ Voici le graphe des appelants de cette fonction :</div>
 
 </div>
 </div>
-<a id="a9a2d050de0ca8b28f95303d35475f327" name="a9a2d050de0ca8b28f95303d35475f327"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a2d050de0ca8b28f95303d35475f327">&#9670;&#160;</a></span>drawItem()</h2>
+<a id="ab5e92db476c0b623d52a2556f346b737" name="ab5e92db476c0b623d52a2556f346b737"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5e92db476c0b623d52a2556f346b737">&#9670;&#160;</a></span>drawItem()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -805,7 +974,7 @@ Voici le graphe des appelants de cette fonction :</div>
           <td class="memname">void drawItem </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structcase__inventory.html">case_inventory</a>&#160;</td>
-          <td class="paramname"><em>item</em></td><td>)</td>
+          <td class="paramname"><em>case_x</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -821,11 +990,25 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dynheader">
 Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="menus_8c_a9a2d050de0ca8b28f95303d35475f327_cgraph.png" border="0" usemap="#amenus_8c_a9a2d050de0ca8b28f95303d35475f327_cgraph" alt=""/></div>
-<map name="amenus_8c_a9a2d050de0ca8b28f95303d35475f327_cgraph" id="amenus_8c_a9a2d050de0ca8b28f95303d35475f327_cgraph">
+<div class="center"><img src="menus_8c_ab5e92db476c0b623d52a2556f346b737_cgraph.png" border="0" usemap="#amenus_8c_ab5e92db476c0b623d52a2556f346b737_cgraph" alt=""/></div>
+<map name="amenus_8c_ab5e92db476c0b623d52a2556f346b737_cgraph" id="amenus_8c_ab5e92db476c0b623d52a2556f346b737_cgraph">
 <area shape="rect" title="Dessine l&#39;item à la bonne case de l&#39;inventaire." alt="" coords="5,31,80,56"/>
 <area shape="rect" href="menus_8c.html#a3ccdb6767f1237284bf7c8e0d3e3eacb" title="Détruit la fenêtre et le rendu." alt="" coords="154,5,234,31"/>
 <area shape="rect" href="menus_8c.html#acd3f39401c59bbd01c9663c5348c63c1" title="Nous renvoi une erreur SDL." alt="" coords="128,55,260,80"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="menus_8c_ab5e92db476c0b623d52a2556f346b737_icgraph.png" border="0" usemap="#amenus_8c_ab5e92db476c0b623d52a2556f346b737_icgraph" alt=""/></div>
+<map name="amenus_8c_ab5e92db476c0b623d52a2556f346b737_icgraph" id="amenus_8c_ab5e92db476c0b623d52a2556f346b737_icgraph">
+<area shape="rect" title="Dessine l&#39;item à la bonne case de l&#39;inventaire." alt="" coords="645,31,720,56"/>
+<area shape="rect" href="menus_8c.html#aede862d24a32e39c6e86dc94bd4cfc87" title="Dessine les cases de l&#39;inventaire." alt="" coords="391,5,478,31"/>
+<area shape="rect" href="menus_8c.html#a3d227936b6a3d4d077b8e6f8326ed1bb" title="Affiche l&#39;item transporté par le curseur du joueur." alt="" coords="531,56,597,81"/>
+<area shape="rect" href="menus_8c.html#ad91f44597d803d249e1b96e7569f8199" title="Dessin le menu de l&#39;inventaire." alt="" coords="233,56,339,81"/>
+<area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,81,185,107"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,81,56,107"/>
+<area shape="rect" href="menus_8c.html#ac4c9f25aa12dff823919430e1f6193a2" title="Dessine le menu en jeu." alt="" coords="387,107,483,132"/>
 </map>
 </div>
 
@@ -983,6 +1166,43 @@ Voici le graphe des appelants de cette fonction :</div>
 
 </div>
 </div>
+<a id="ab283db36e8911aeb9d32d5886f156570" name="ab283db36e8911aeb9d32d5886f156570"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab283db36e8911aeb9d32d5886f156570">&#9670;&#160;</a></span>getButtonState_clicked()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getButtonState_clicked </td>
+          <td>(</td>
+          <td class="paramtype">T_BUTTONS_CLICKED&#160;</td>
+          <td class="paramname"><em>button</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Renvoi l'état du boutton demandé. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">button</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int </dd></dl>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="menus_8c_ab283db36e8911aeb9d32d5886f156570_icgraph.png" border="0" usemap="#amenus_8c_ab283db36e8911aeb9d32d5886f156570_icgraph" alt=""/></div>
+<map name="amenus_8c_ab283db36e8911aeb9d32d5886f156570_icgraph" id="amenus_8c_ab283db36e8911aeb9d32d5886f156570_icgraph">
+<area shape="rect" title="Renvoi l&#39;état du boutton demandé." alt="" coords="227,5,384,31"/>
+<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="ac96e8912bb03df1f73f5ccb6db495085" name="ac96e8912bb03df1f73f5ccb6db495085"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac96e8912bb03df1f73f5ccb6db495085">&#9670;&#160;</a></span>init_texture()</h2>
 
@@ -1102,8 +1322,8 @@ Voici le graphe des appelants de cette fonction :</div>
 
 </div>
 </div>
-<a id="a1bd07c916c27ca0eb4e4a8aad057fc59" name="a1bd07c916c27ca0eb4e4a8aad057fc59"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1bd07c916c27ca0eb4e4a8aad057fc59">&#9670;&#160;</a></span>onButton()</h2>
+<a id="a62b05feb314b3c7d6effb9892fa5b8ae" name="a62b05feb314b3c7d6effb9892fa5b8ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62b05feb314b3c7d6effb9892fa5b8ae">&#9670;&#160;</a></span>onButton()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1111,7 +1331,7 @@ Voici le graphe des appelants de cette fonction :</div>
         <tr>
           <td class="memname">int onButton </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype">T_BUTTONS_HOVER&#160;</td>
           <td class="paramname"><em>button</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1129,8 +1349,8 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="menus_8c_a1bd07c916c27ca0eb4e4a8aad057fc59_icgraph.png" border="0" usemap="#amenus_8c_a1bd07c916c27ca0eb4e4a8aad057fc59_icgraph" alt=""/></div>
-<map name="amenus_8c_a1bd07c916c27ca0eb4e4a8aad057fc59_icgraph" id="amenus_8c_a1bd07c916c27ca0eb4e4a8aad057fc59_icgraph">
+<div class="center"><img src="menus_8c_a62b05feb314b3c7d6effb9892fa5b8ae_icgraph.png" border="0" usemap="#amenus_8c_a62b05feb314b3c7d6effb9892fa5b8ae_icgraph" alt=""/></div>
+<map name="amenus_8c_a62b05feb314b3c7d6effb9892fa5b8ae_icgraph" id="amenus_8c_a62b05feb314b3c7d6effb9892fa5b8ae_icgraph">
 <area shape="rect" title="Renvoi TRUE si le curseur est sur le boutton passé en paramètre sinon renvoi FALSE si le curseur est ..." alt="" coords="227,5,301,31"/>
 <area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
@@ -1331,32 +1551,36 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="menus_8c_acd3f39401c59bbd01c9663c5348c63c1_icgraph.png" border="0" usemap="#amenus_8c_acd3f39401c59bbd01c9663c5348c63c1_icgraph" alt=""/></div>
 <map name="amenus_8c_acd3f39401c59bbd01c9663c5348c63c1_icgraph" id="amenus_8c_acd3f39401c59bbd01c9663c5348c63c1_icgraph">
-<area shape="rect" title="Nous renvoi une erreur SDL." alt="" coords="745,381,877,407"/>
-<area shape="rect" href="menus_8c.html#ad452b0eb987136d6af7d68a474fd7bc1" title="Dessine un bouton normal." alt="" coords="610,256,697,281"/>
-<area shape="rect" href="menus_8c.html#af533a07a1593c721a25b080bf2cc10d9" title="Dessine un boutton en fonction d&#39;une certaine rotation." alt="" coords="396,356,561,381"/>
-<area shape="rect" href="menus_8c.html#ae06068ec3d07bace5f405fbf6eeb3c20" title="Affiche l&#39;erreur à l&#39;écran." alt="" coords="615,207,692,232"/>
-<area shape="rect" href="menus_8c.html#aed543fd0f875dcbff172087fe7b23025" title="Dessine l&#39;inventaire." alt="" coords="429,5,529,31"/>
-<area shape="rect" href="menus_8c.html#a9a2d050de0ca8b28f95303d35475f327" title="Dessine l&#39;item à la bonne case de l&#39;inventaire." alt="" coords="616,305,691,331"/>
-<area shape="rect" href="menus_8c.html#aab7430a217db9969c46ead48adffbd05" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="609,132,697,157"/>
-<area shape="rect" href="menus_8c.html#a2dfe41d8c0f122241c47441391c02de3" title="Dessine un joueur en fonction de ses coordonnées et de sa texture." alt="" coords="610,457,697,483"/>
-<area shape="rect" href="menus_8c.html#a72036abbb16f3b007110ff03d748e0b1" title="Dessine le titre dans le menu principal." alt="" coords="442,405,515,431"/>
-<area shape="rect" href="menus_8c.html#a48e3fe80d276c94e23eed3c1017a05ee" title="Initialise toutes les variables relatives aux menus." alt="" coords="233,556,348,581"/>
-<area shape="rect" href="menus_8c.html#ac96e8912bb03df1f73f5ccb6db495085" title="Initialise l&#39;asset demandé." alt="" coords="610,657,697,683"/>
-<area shape="rect" href="menus_8c.html#afb13427163cac507a66d96dbc0f3c06e" title="Initialise les dafonts." alt="" coords="628,507,679,532"/>
-<area shape="rect" href="menus_8c.html#ad75b46f2728cbcc3d36ee29e368ef68f" title="Initialise les éléments de la fenêtre." alt="" coords="613,556,694,581"/>
-<area shape="rect" href="menus_8c.html#ab5e1f7649b8b40f10bd9168c6a098883" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="433,257,524,283"/>
-<area shape="rect" href="menus_8c.html#a258a73384029adb1d7e22ca959235633" title="Essaye de dessiner tous les bouttons." alt="" coords="431,307,526,332"/>
-<area shape="rect" href="menus_8c.html#ab3002fe8e0074c9e2ecb5b835e5e819f" title="Affiche le menu principal." alt="" coords="249,283,332,308"/>
-<area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,208,185,233"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,455,56,480"/>
-<area shape="rect" href="menus_8c.html#a9cde538499636a6a74cb0f3e206d4a73" title="Dessine l&#39;erreur avec TTF." alt="" coords="433,208,524,233"/>
-<area shape="rect" href="menus_8c.html#ad91f44597d803d249e1b96e7569f8199" title="Dessin le menu de l&#39;inventaire." alt="" coords="238,81,343,107"/>
-<area shape="rect" href="menus_8c.html#ac4c9f25aa12dff823919430e1f6193a2" title="Dessine le menu en jeu." alt="" coords="431,107,527,132"/>
-<area shape="rect" href="menus_8c.html#a6806c9e2f2bcbf342c2bfa91336c2d27" title="Applique la bonne texture au joueur en fonction de son animation." alt="" coords="420,455,537,480"/>
-<area shape="rect" href="menus_8c.html#ab804df0c510979d77fd5599feef21ae0" title="Dessine tous les joueurs." alt="" coords="244,455,337,480"/>
-<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="107,455,182,480"/>
-<area shape="rect" href="main_8c.html#a270d20bdcadebb9a08a01a55c37858a9" title="Initialise toutes les variables relatives aux menus." alt="" coords="110,529,179,555"/>
-<area shape="rect" href="menus_8c.html#a1d535222d73c1839cb6c5ef121b00baf" title="Initialise les textures du jeu." alt="" coords="435,657,522,683"/>
+<area shape="rect" title="Nous renvoi une erreur SDL." alt="" coords="928,404,1060,429"/>
+<area shape="rect" href="menus_8c.html#ad452b0eb987136d6af7d68a474fd7bc1" title="Dessine un bouton normal." alt="" coords="754,61,841,87"/>
+<area shape="rect" href="menus_8c.html#af533a07a1593c721a25b080bf2cc10d9" title="Dessine un boutton en fonction d&#39;une certaine rotation." alt="" coords="715,180,880,205"/>
+<area shape="rect" href="menus_8c.html#a66530cff59b9a7c9551fd82dce25fe40" title="Affiche le nombre d&#39;items pour chaque case de l&#39;inventaire." alt="" coords="745,353,849,379"/>
+<area shape="rect" href="menus_8c.html#ae06068ec3d07bace5f405fbf6eeb3c20" title="Affiche l&#39;erreur à l&#39;écran." alt="" coords="759,707,836,732"/>
+<area shape="rect" href="menus_8c.html#aed543fd0f875dcbff172087fe7b23025" title="Dessine l&#39;inventaire." alt="" coords="394,407,494,432"/>
+<area shape="rect" href="menus_8c.html#ab5e92db476c0b623d52a2556f346b737" title="Dessine l&#39;item à la bonne case de l&#39;inventaire." alt="" coords="760,304,835,329"/>
+<area shape="rect" href="menus_8c.html#aab7430a217db9969c46ead48adffbd05" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="564,255,652,280"/>
+<area shape="rect" href="menus_8c.html#a2dfe41d8c0f122241c47441391c02de3" title="Dessine un joueur en fonction de ses coordonnées et de sa texture." alt="" coords="754,455,841,480"/>
+<area shape="rect" href="menus_8c.html#a72036abbb16f3b007110ff03d748e0b1" title="Dessine le titre dans le menu principal." alt="" coords="571,104,645,129"/>
+<area shape="rect" href="menus_8c.html#a48e3fe80d276c94e23eed3c1017a05ee" title="Initialise toutes les variables relatives aux menus." alt="" coords="387,556,501,581"/>
+<area shape="rect" href="menus_8c.html#ac96e8912bb03df1f73f5ccb6db495085" title="Initialise l&#39;asset demandé." alt="" coords="754,657,841,683"/>
+<area shape="rect" href="menus_8c.html#afb13427163cac507a66d96dbc0f3c06e" title="Initialise les dafonts." alt="" coords="772,504,823,529"/>
+<area shape="rect" href="menus_8c.html#ad75b46f2728cbcc3d36ee29e368ef68f" title="Initialise les éléments de la fenêtre." alt="" coords="757,555,838,580"/>
+<area shape="rect" href="menus_8c.html#ab5e1f7649b8b40f10bd9168c6a098883" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="563,55,653,80"/>
+<area shape="rect" href="menus_8c.html#a258a73384029adb1d7e22ca959235633" title="Essaye de dessiner tous les bouttons." alt="" coords="561,5,655,31"/>
+<area shape="rect" href="menus_8c.html#a8db0bbcb2b936e82aa071324eae9d71f" title="Dessine la barre de vie du joueur." alt="" coords="565,205,651,231"/>
+<area shape="rect" href="menus_8c.html#ab3002fe8e0074c9e2ecb5b835e5e819f" title="Affiche le menu principal." alt="" coords="403,129,485,155"/>
+<area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,267,185,292"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,456,56,481"/>
+<area shape="rect" href="menus_8c.html#ac4c9f25aa12dff823919430e1f6193a2" title="Dessine le menu en jeu." alt="" coords="396,204,492,229"/>
+<area shape="rect" href="menus_8c.html#ad91f44597d803d249e1b96e7569f8199" title="Dessin le menu de l&#39;inventaire." alt="" coords="233,292,339,317"/>
+<area shape="rect" href="menus_8c.html#aede862d24a32e39c6e86dc94bd4cfc87" title="Dessine les cases de l&#39;inventaire." alt="" coords="565,353,651,379"/>
+<area shape="rect" href="menus_8c.html#a3d227936b6a3d4d077b8e6f8326ed1bb" title="Affiche l&#39;item transporté par le curseur du joueur." alt="" coords="575,304,641,329"/>
+<area shape="rect" href="menus_8c.html#a9cde538499636a6a74cb0f3e206d4a73" title="Dessine l&#39;erreur avec TTF." alt="" coords="563,707,653,732"/>
+<area shape="rect" href="menus_8c.html#a6806c9e2f2bcbf342c2bfa91336c2d27" title="Applique la bonne texture au joueur en fonction de son animation." alt="" coords="549,455,667,480"/>
+<area shape="rect" href="menus_8c.html#ab804df0c510979d77fd5599feef21ae0" title="Dessine tous les joueurs." alt="" coords="397,456,491,481"/>
+<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="249,456,323,481"/>
+<area shape="rect" href="main_8c.html#a270d20bdcadebb9a08a01a55c37858a9" title="Initialise toutes les variables relatives aux menus." alt="" coords="110,519,179,544"/>
+<area shape="rect" href="menus_8c.html#a1d535222d73c1839cb6c5ef121b00baf" title="Initialise les textures du jeu." alt="" coords="565,657,651,683"/>
 </map>
 </div>
 
@@ -1550,6 +1774,42 @@ Voici le graphe des appelants de cette fonction :</div>
 <map name="amenus_8c_a6806c9e2f2bcbf342c2bfa91336c2d27_icgraph" id="amenus_8c_a6806c9e2f2bcbf342c2bfa91336c2d27_icgraph">
 <area shape="rect" title="Applique la bonne texture au joueur en fonction de son animation." alt="" coords="368,5,485,31"/>
 <area shape="rect" href="menus_8c.html#ab804df0c510979d77fd5599feef21ae0" title="Dessine tous les joueurs." alt="" coords="227,5,320,31"/>
+<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aad1bede5062a8bca30d1b8bbcafef3c8" name="aad1bede5062a8bca30d1b8bbcafef3c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad1bede5062a8bca30d1b8bbcafef3c8">&#9670;&#160;</a></span>switchButtonState_hover()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void switchButtonState_hover </td>
+          <td>(</td>
+          <td class="paramtype">T_BUTTONS_HOVER&#160;</td>
+          <td class="paramname"><em>button</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Change l'état du boutton ciblé. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">button</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="menus_8c_aad1bede5062a8bca30d1b8bbcafef3c8_icgraph.png" border="0" usemap="#amenus_8c_aad1bede5062a8bca30d1b8bbcafef3c8_icgraph" alt=""/></div>
+<map name="amenus_8c_aad1bede5062a8bca30d1b8bbcafef3c8_icgraph" id="amenus_8c_aad1bede5062a8bca30d1b8bbcafef3c8_icgraph">
+<area shape="rect" title="Change l&#39;état du boutton ciblé." alt="" coords="227,5,392,31"/>
 <area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
 </map>
