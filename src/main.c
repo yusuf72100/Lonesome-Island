@@ -491,6 +491,7 @@ static void doEvents()
                 }
                 else{
                     changeMenu(ERR_MENU);
+                    connectedError = TRUE;
                 }
                 switchButtonState_hover(CONNECT_BUTTON_HOVER);
             }
@@ -562,7 +563,7 @@ static void doEvents()
         if(tabEvent[10])
         {
             //touche ESCAPE
-            if(menu == ERR_MENU)
+            if(menu == ERR_MENU || menu == SETTINGS_MENU)
             {
                 changeMenu(MAIN_MENU);
             }
@@ -591,6 +592,13 @@ static void doEvents()
                     tabTick[13] = SDL_GetTicks();
                 }
             }
+        }
+
+        //erreur menu
+        if(menu == ERR_MENU)
+        {
+            if(connectedError == TRUE)
+            displayError("Error: Server looking offline :/");
         }
 
         // Multi-joueurs
