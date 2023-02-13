@@ -371,7 +371,9 @@ void delay_settings_button_right()
  */
 static void doEvents()
 {
-    if(tabEvent[0])
+    if(!joueur.stuck)
+    {
+        if(tabEvent[0])
         {
             //touche Z
             if (menu == INGAME_MENU)
@@ -470,6 +472,7 @@ static void doEvents()
                 }
             }
         }
+    }
         //mouse events
         if(tabEvent[7])
         {

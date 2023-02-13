@@ -66,6 +66,7 @@ static SDL_Rect connect_button_rect;
 static SDL_Rect host_button_rect;
 static SDL_Rect settings_button_rect;
 static SDL_Rect inventory_rect;
+static SDL_Rect lifebar_rect;
 
 static SDL_DisplayMode DM;
 
@@ -80,6 +81,7 @@ static TTF_Font *item_dafont = NULL;
 static SDL_Rect title_rect;
 
 //game assets
+static SDL_Surface *lifebar_surface = NULL;
 static SDL_Surface *inventory_surface = NULL;
 static SDL_Surface *imagebullet = NULL;
 static SDL_Surface *texte = NULL;
@@ -105,6 +107,7 @@ static SDL_Texture *apple_food_texture = NULL;
 //items rectangles
 static SDL_Rect apple_food_rect;
 
+static SDL_Texture *lifebar_texture = NULL;
 static SDL_Texture *inventory_texture = NULL;
 static SDL_Texture *texturebullet = NULL;	
 static SDL_Texture *title_texture = NULL;

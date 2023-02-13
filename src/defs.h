@@ -32,6 +32,9 @@ typedef struct
     SDL_Rect playerRect;
     int animation_state;
     int connected;
+    int health;
+    int thirst;
+    int stuck;
 }player_t;
 
 /**
@@ -81,23 +84,16 @@ typedef struct
 }case_inventory;
 
 extern T_MENU menu;
-
 extern item_t bois;
-
 extern SDL_bool tabEvent[20];
-
 extern case_inventory mat_inventory[3][10];
-
 extern case_inventory *wearedItem;
-
 extern void changeMenu(T_MENU menuTarget);
-
 extern T_MENU getMenu();
-
 extern void defineItem();
-
 extern item_t *axe;
-
 extern item_t *apple;
+extern player_t joueur;
+extern player_t * joueurs;
 
 #endif

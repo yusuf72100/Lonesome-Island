@@ -9,17 +9,15 @@
 
 #include "defs.h"
 
-item_t *axe;
-item_t *apple;
-
 int SOLO = FALSE;
 
+item_t *axe;
+item_t *apple;
+player_t joueur;
+player_t * joueurs;
 T_MENU menu = MAIN_MENU;
-
 SDL_bool tabEvent[20] = {SDL_FALSE};
-
 case_inventory mat_inventory[3][10];
-
 case_inventory *wearedItem;
 
 /**
@@ -28,6 +26,10 @@ case_inventory *wearedItem;
  */
 void defineItem()
 {
+    joueurs = malloc(sizeof(player_t) * 10);
+    joueurs->health = 100;
+    joueurs->stuck = FALSE;
+    joueur.health = 100;
     wearedItem = malloc(sizeof(case_inventory));
     axe = malloc(sizeof(item_t));
     apple = malloc(sizeof(item_t));

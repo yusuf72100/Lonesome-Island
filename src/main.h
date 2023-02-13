@@ -42,9 +42,6 @@ static Bullet *bullet = NULL;
 static SDL_bool program_launched = SDL_TRUE;
 static SDL_Event event; 
 
-static player_t joueur;
-static player_t * joueurs;
-
 static pthread_t reloading;
 static pthread_t server;
 static pthread_t sendtoserver;

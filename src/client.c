@@ -24,7 +24,6 @@ static void traitData()
 
     for(j = 0; tramClient_receive[j]!='\0'; j++){
         k = 0;
-
         if(tramClient_receive[j] == 'i')
         {
             j++;
@@ -195,7 +194,6 @@ void stopConnection()
  */
 int startConnection()
 {   
-    joueurs = malloc(sizeof(player_t) * 10);
     socket_Server = malloc(sizeof(SOCKET));
     WSADATA WSAData;
     WSAStartup(MAKEWORD(2,0), &WSAData);

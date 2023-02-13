@@ -624,7 +624,6 @@ void displayError(char *s)
     
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     SDL_RenderDrawRect(renderer, &rect);
-
     SDL_RenderFillRect(renderer, &rect);
 
     texte = TTF_RenderText_Blended(police, s, blackColor);
@@ -658,7 +657,8 @@ static void init_texture(SDL_Surface **surface, SDL_Texture **texture)
 static void surfacesInit()
 {
     //assets init
-    inventory_surface = IMG_Load("resources/inventory.png");;
+    lifebar_surface = IMG_Load("resources/life_bar.png");
+    inventory_surface = IMG_Load("resources/inventory.png");
     icon_surface = IMG_Load("resources/icon.png");
     imagebullet = IMG_Load("resources/bullet.png");
     cursor = IMG_Load("resources/cursor/cursor.png");
@@ -737,6 +737,7 @@ static void texturesInit()
     init_texture(&surface_joueur_up_2 , &texture_joueur_up_2);
     init_texture(&surface_joueur_down_1 , &texture_joueur_down_1);
     init_texture(&surface_joueur_down_2 , &texture_joueur_down_2);
+    init_texture(&lifebar_surface , &lifebar_texture);
 
     //items
     init_texture(&((apple->surface)), &((apple->texture)));
@@ -793,6 +794,11 @@ static void rectanglesInit()
     inventory_rect.h = 350;
     inventory_rect.x = (DM.w / 2) - (inventory_rect.w / 2);
     inventory_rect.y = DM.h - inventory_rect.h - 20;
+
+    lifebar_rect.w = 300;
+    lifebar_rect.h = 75;
+    lifebar_rect.x = 0;
+    lifebar_rect.y = DM.h - (lifebar_rect.h*2);
 }
 
 /**
@@ -1055,15 +1061,41 @@ void drawCases()
     else hover_inventoryitem = SDL_FALSE;
 }
 
+/**
+ * @brief Affiche l'item transporté par le curseur du joueur.
+ * 
+ */
 void wearing()
 {
     if(wearingItem == SDL_TRUE)
     {
+        joueur.stuck = TRUE;
         wearedItem->item_rectangle.x = mouse_position.x-(wearedItem->item_rectangle.w/4);
         wearedItem->item_rectangle.y = mouse_position.y-(wearedItem->item_rectangle.h/4);
         drawItem(*wearedItem);
         drawCaseText(*wearedItem);
     }
+    else{
+        joueur.stuck = FALSE;
+    }
+}
+
+/**
+ * @brief Dessine la barre de vie du joueur.
+ * 
+ */
+void drawlifeBar()
+{
+    SDL_Rect rect;
+    rect.x = lifebar_rect.x+78;
+    rect.y = lifebar_rect.y;
+    rect.w = lifebar_rect.w-79 * (joueur.health/100);
+    rect.h = lifebar_rect.h-2;
+    SDL_SetRenderDrawColor(renderer, 134, 0, 33, 255);
+    SDL_RenderDrawRect(renderer, &rect);
+    SDL_RenderFillRect(renderer, &rect);
+
+    drawButton(lifebar_texture, lifebar_rect, lifebar_surface);
 }
 
 /**
@@ -1095,6 +1127,7 @@ void IngameMenu()
     mouseRect.x = mouse_position.x;
     mouseRect.y = mouse_position.y;
     wearing();
+    drawlifeBar();
     drawMouse();
 }
 
