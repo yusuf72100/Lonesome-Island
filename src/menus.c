@@ -200,7 +200,7 @@ void update_screen()
  */
 void drawMouse()
 {
-    if(hover_playbutton || hover_connectbutton || hover_hostbutton || hover_settingsbutton || hover_inventoryitem) 
+    if(hover_playbutton || hover_connectbutton || hover_hostbutton || hover_settingsbutton || hover_inventoryitem || wearingItem) 
     {
         if(SDL_QueryTexture(cursor_select_texture, NULL, NULL, &mouseRect.w, &mouseRect.h) != 0)
         {
