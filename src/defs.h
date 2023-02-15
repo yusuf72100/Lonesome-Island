@@ -19,7 +19,8 @@
 typedef enum {PLAY_BUTTON_HOVER, CONNECT_BUTTON_HOVER, HOST_BUTTON_HOVER, SETTINGS_BUTTON_HOVER, INVENTORY_BUTTON_HOVER} T_BUTTONS_HOVER;
 typedef enum {PLAY_BUTTON_CLICKED, CONNECT_BUTTON_CLICKED, HOST_BUTTON_CLICKED, SETTINGS_BUTTON_CLICKED, INVENTORY_BUTTON_CLICKED} T_BUTTONS_CLICKED;
 typedef enum {MAIN_MENU, INGAME_MENU, INVENTORY_MENU, SETTINGS_MENU, ERR_MENU} T_MENU;
-typedef enum {WEAPON, FOOD, TOOL} T_ITEM;
+typedef enum {WEAPON, FOOD, TOOL, BLOCK_ITEM} T_ITEM;
+typedef enum {CHEST, RESOURCE, BLOCK} T_BLOCK;
 
 extern int SOLO;
 
@@ -83,16 +84,40 @@ typedef struct
     SDL_Rect item_rectangle;
 }case_inventory;
 
+/**
+ * @brief Définition d'un chest.
+ * 
+ */
+typedef struct 
+{
+    case_inventory chest_inventory[3][10];
+}chest_t;
+
+/**
+ * @brief Définition d'un block.
+ * 
+ */
+typedef struct 
+{
+    void *Block;
+    char name[20];
+    SDL_Texture *texture;
+    SDL_Surface *surface;   
+    SDL_Rect rect;
+    T_BLOCK blockType;
+}block_t;
+
 extern T_MENU menu;
 extern item_t bois;
 extern SDL_bool tabEvent[20];
 extern case_inventory mat_inventory[3][10];
 extern case_inventory *wearedItem;
 extern void changeMenu(T_MENU menuTarget);
-extern T_MENU getMenu();
 extern void defineItem();
 extern item_t *axe;
 extern item_t *apple;
+extern item_t *chest_item;
+extern block_t *chest_block;
 extern player_t joueur;
 extern player_t * joueurs;
 

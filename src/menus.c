@@ -223,20 +223,22 @@ void drawMouse()
  * @brief Initialise les textures des cases de l'inventaire.
  * 
  */
-void inventoryInit()
+void inventoryInit(case_inventory mat[3][10])
 {
     for(int i = 0; i < 3; i++)
     {
         for(int j = 0; j < 10; j++)
         {
-            mat_inventory[i][j].Item = apple;
-            mat_inventory[i][j].number = 0;
+            mat[i][j].Item = apple;
+            mat[i][j].number = 0;
         }
     }
-    mat_inventory[0][0].Item = apple;
-    mat_inventory[0][0].number = 1;
-    mat_inventory[2][5].Item = apple;
-    mat_inventory[2][5].number = 65;
+    mat[0][0].Item = apple;
+    mat[0][0].number = 1;
+    mat[2][5].Item = apple;
+    mat[2][5].number = 64;
+    mat[1][5].Item = chest_item;
+    mat[1][5].number = 1;
 }
 
 /**
@@ -671,6 +673,7 @@ static void surfacesInit()
 
     //items 
     apple->surface = IMG_Load("resources/items/apple_food.png");
+    chest_item->surface = IMG_Load("resources/items/chest_block.png");
 }
 
 /**
@@ -725,6 +728,7 @@ static void texturesInit()
 
     //items
     init_texture(&((apple->surface)), &((apple->texture)));
+    init_texture(&((chest_item->surface)), &((chest_item->texture)));
 }
 
 /**
@@ -820,7 +824,7 @@ void ttfInit()
 void init_menus_vars()
 {
     defineItem();
-    inventoryInit();
+    inventoryInit(mat_inventory);
     mouse_position.x = 0, mouse_position.y = 0;
     xWindow = 0, yWindow = 0;
 

@@ -13,6 +13,8 @@ int SOLO = FALSE;
 
 item_t *axe;
 item_t *apple;
+item_t *chest_item;
+block_t *chest_block;
 player_t joueur;
 player_t * joueurs;
 T_MENU menu = MAIN_MENU;
@@ -33,6 +35,14 @@ void defineItem()
     wearedItem = malloc(sizeof(case_inventory));
     axe = malloc(sizeof(item_t));
     apple = malloc(sizeof(item_t));
+    chest_item = malloc(sizeof(item_t));
+    chest_block = malloc(sizeof(block_t));
+
+    chest_block->blockType = CHEST;
+    strcpy(chest_block->name, "Coffre");
+    chest_block->texture = NULL;
+    chest_block->surface = NULL;
+    chest_block->Block = &(chest_t){};
 
     axe->itemType = WEAPON;
     strcpy(axe->name, "Hache");
@@ -45,6 +55,12 @@ void defineItem()
     apple->texture = NULL;
     apple->surface = NULL;
     apple->Item = &(food_t){ .feed = 15, .thirst = 5 };
+
+    chest_item->itemType = BLOCK_ITEM;
+    strcpy(chest_item->name, "Coffre");
+    chest_item->texture = NULL;
+    chest_item->surface = NULL;
+    chest_item->Item = &(block_t){ .Block = chest_block };
 }
 
 /**
