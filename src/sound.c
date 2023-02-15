@@ -37,6 +37,19 @@ void creation_canaux_musique()
      */
     boop = Mix_LoadWAV("resources/sounds/boop.wav");
     hover = Mix_LoadWAV("resources/sounds/hover.wav");
+    inventory_click = Mix_LoadWAV("resources/sounds/inventory_click.wav");
+}
+
+/**
+ * @brief Son de survol de bouton. (se lance dans un thread)
+ * 
+ * @param key 
+ * @return void* 
+ */
+void *play_inventory_click()
+{
+    Mix_PlayChannel(1, inventory_click, 0);
+    pthread_exit(NULL);
 }
 
 /**
@@ -63,6 +76,18 @@ void init_hover(SDL_bool *key)
     if(pthread_kill(hover_Thread,0) != 0)
     {
         pthread_create(&hover_Thread,NULL,play_hover_audio,key);
+    }
+}
+
+/**
+ * @brief Fonction qui lance le son de clique de l'item dans un thread dédié.
+ * 
+ */
+void init_inventory_click()
+{
+    if(pthread_kill(inventory_click_Thread,0) != 0)
+    {
+        pthread_create(&inventory_click_Thread,NULL,play_inventory_click,NULL);
     }
 }
 

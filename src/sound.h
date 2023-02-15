@@ -19,9 +19,11 @@
 
 static Mix_Chunk* boop = NULL;
 static Mix_Chunk* hover = NULL;
+static Mix_Chunk* inventory_click = NULL;
 
 static pthread_t hover_Thread;
 static pthread_t boop_Thread;
+static pthread_t inventory_click_Thread;
 
 void initAudio();
 
@@ -31,8 +33,12 @@ void *play_hover_audio(void *key);
 
 void *play_boop(void *key);
 
+void *play_inventory_click();
+
 void init_boop(SDL_bool *key);
 
 void init_hover(SDL_bool *key);
+
+void init_inventory_click();
 
 void detruire_musique(Mix_Chunk* chunk);

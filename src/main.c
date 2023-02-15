@@ -514,6 +514,10 @@ static void doEvents()
             {
                 init_boop(&tabEvent[7]);
                 switchButtonState_hover(PLAY_BUTTON_HOVER);
+                pthread_create(&server,NULL,startServer,NULL);              //on héberge le serveur 
+                startConnection();                                          //on créer un client qui se connecte au serveur
+                pthread_create(&sendtoserver,NULL,Send2Server,NULL);
+                pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
                 changeMenu(INGAME_MENU);
                 SOLO = TRUE;
             }
@@ -526,6 +530,7 @@ static void doEvents()
                 changeMenu(SETTINGS_MENU);
             }
 
+            //inventory item click
             if(menu == INVENTORY_MENU)
             {
                 if(getButtonState_clicked(INVENTORY_BUTTON_CLICKED) == FALSE)
@@ -533,6 +538,7 @@ static void doEvents()
                     changeButtonState_clicked(INVENTORY_BUTTON_CLICKED, TRUE);
                     tabTick[7] = SDL_GetTicks();
                     clickItem();
+                    init_inventory_click();
                 }
             }
         }
