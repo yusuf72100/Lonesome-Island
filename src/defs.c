@@ -70,5 +70,6 @@ void defineItem()
  */
 void changeMenu(T_MENU menuTarget)
 {
+    if(menuTarget == MAIN_MENU) SOLO = FALSE;
     menu = menuTarget;
 }

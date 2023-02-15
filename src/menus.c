@@ -447,13 +447,13 @@ void *breathAnimation(void *j)
 {    
     player_t *joueur = j;
     joueur->animation_state = BREATH_START;
-    if(!SOLO) Send2Server();
+    Send2Server();
     delay_breath();
     joueur->animation_state++;
-    if(!SOLO) Send2Server();
+    Send2Server();
     delay_breath();
     joueur->animation_state--;
-    if(!SOLO) Send2Server();
+    Send2Server();
     animations_thread_running = FALSE;
 }
 

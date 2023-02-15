@@ -478,6 +478,20 @@ static void doEvents()
         {
             //click LEFT DOWN
             
+            //play button
+            if(onButton(PLAY_BUTTON_HOVER) && menu == MAIN_MENU)
+            {
+                SOLO = TRUE;
+                init_boop(&tabEvent[7]);
+                if (debug) printf("Host button clicked\n");
+                pthread_create(&server,NULL,startServer,NULL);              //on héberge le serveur 
+                startConnection();                                          //on créer un client qui se connecte au serveur
+                pthread_create(&sendtoserver,NULL,Send2Server,NULL);
+                pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
+                changeMenu(INGAME_MENU);
+                switchButtonState_hover(CONNECT_BUTTON_HOVER);
+            }
+
             //Connect button
             if(onButton(CONNECT_BUTTON_HOVER) && menu == MAIN_MENU)
             {
@@ -507,19 +521,6 @@ static void doEvents()
                 pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
                 changeMenu(INGAME_MENU);
                 switchButtonState_hover(HOST_BUTTON_HOVER);
-            }
-
-            //play button
-            if(onButton(PLAY_BUTTON_HOVER) && menu == MAIN_MENU)
-            {
-                init_boop(&tabEvent[7]);
-                switchButtonState_hover(PLAY_BUTTON_HOVER);
-                pthread_create(&server,NULL,startServer,NULL);              //on héberge le serveur 
-                startConnection();                                          //on créer un client qui se connecte au serveur
-                pthread_create(&sendtoserver,NULL,Send2Server,NULL);
-                pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
-                changeMenu(INGAME_MENU);
-                SOLO = TRUE;
             }
             
             //settings button
@@ -559,7 +560,7 @@ static void doEvents()
         }
         if(!tabEvent[0] && !tabEvent[1] && !tabEvent[2] && !tabEvent[3] && !tabEvent[6] && !tabEvent[7])
         {
-            if((menu == INGAME_MENU || menu == INVENTORY_MENU) && !SOLO)
+            if((menu == INGAME_MENU || menu == INVENTORY_MENU))
             {
                 if(pthread_kill(animations_thread, 0) != 0)
                     pthread_create(&animations_thread, NULL, breathAnimation,(void *)&joueur);  
@@ -608,7 +609,7 @@ static void doEvents()
         }
 
         // Multi-joueurs
-        if ((menu == INGAME_MENU || menu == INVENTORY_MENU) && !SOLO)
+        if ((menu == INGAME_MENU || menu == INVENTORY_MENU))
         {
             if(connectedError == FALSE) 
             {
@@ -617,10 +618,6 @@ static void doEvents()
             else{
                 changeMenu(ERR_MENU);
             }
-        }
-        // solo
-        else if ((menu == INGAME_MENU || menu == INVENTORY_MENU) && SOLO){
-            drawPlayers(joueurs, 1);
         }
 }
 

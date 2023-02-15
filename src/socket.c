@@ -156,7 +156,7 @@ void disconnectPlayer(send2Client *argClient, int position)
     sendToClient(argClient, position);
     pthread_exit(&receive_from_client[position]);
 
-    close(argt->sd[position].clientSocket);
+    closesocket(argt->sd[position].clientSocket);
 }
 
 /**
@@ -250,40 +250,17 @@ void *searchClients(void *arg)
     argClient = malloc(sizeof(send2Client)*max_player+1);
 
     printf("Server running\n");
-    
-    if(SOLO == TRUE)
+
+    while(argt2->running)
     {
+        //on place le client dans une file d'attente
         socketClient = accept(argt2->sd->socketServer, (struct sockaddr *)&argt2->sd[max_player+1].addrClient, &csize);
         
-        if(argt2->size < max_player+1)  
-        {
-            //on cherche une place pour le client
-            place=1;
-            while(argt2->sd[place].joueur.connected == TRUE || place < argt2->size) place++;
-            argt2->sd[place] = argt2->sd[max_player+1];
-            
-            struct sockaddr_in* pV4Addr = (struct sockaddr_in*)&argt2->sd[place].addrClient;
-            struct in_addr ipAddr = pV4Addr->sin_addr;
-            argt2->sd[place].socketServer = socketServer;
-            argt2->sd[place].clientSocket = socketClient;
-            printf("1 new client connected with ip %s and port %d and id %d\n",inet_ntoa(argt2->sd[place].addrClient.sin_addr), (int)ntohs(argt2->sd[place].addrClient.sin_port), place);
-            printf("Connected clients : %d\n",argt2->size);
-            argt2->size++;
-            argClient[place].socket = socketClient;
-            argClient[place].port = (int)ntohs(argt2->sd[place].addrClient.sin_port);
-            argClient[place].argt = argt2;
-            argt->sd[place].joueur.connected = TRUE;
-            pthread_create(&receive_from_client[place],NULL,receiveFromClient,(void *)&argClient[place]);
+        if(SOLO == TRUE && argt2->size == 2) {
+            closesocket(socketClient);
+            WSACleanup();
         }
-    }
-
-    else{
-
-        while(argt2->running)
-        {
-            //on place le client dans une file d'attente
-            socketClient = accept(argt2->sd->socketServer, (struct sockaddr *)&argt2->sd[max_player+1].addrClient, &csize);
-            
+        else{
             if(argt2->size < max_player+1)  
             {
                 //on cherche une place pour le client
@@ -307,7 +284,7 @@ void *searchClients(void *arg)
         }
     }
 
-    close(argt2->sd->socketServer);
+    closesocket(argt2->sd->socketServer);
     WSACleanup();
 }
 
