@@ -604,14 +604,19 @@ static void doEvents()
         if(menu == ERR_MENU)
         {
             if(connectedError == TRUE)
-            displayError("Error: Server looking offline :/");
+                displayError("Error: Server looking offline :/");
         }
 
         // Multi-joueurs
         if ((menu == INGAME_MENU || menu == INVENTORY_MENU) && !SOLO)
         {
-            if(connectedError == FALSE) drawPlayers(joueurs, size);
-            else changeMenu(MAIN_MENU);
+            if(connectedError == FALSE) 
+            {
+                drawPlayers(joueurs, size);
+            }
+            else{
+                changeMenu(ERR_MENU);
+            }
         }
         // solo
         else if ((menu == INGAME_MENU || menu == INVENTORY_MENU) && SOLO){
