@@ -489,7 +489,7 @@ static void doEvents()
                 pthread_create(&sendtoserver,NULL,Send2Server,NULL);
                 pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
                 changeMenu(INGAME_MENU);
-                switchButtonState_hover(CONNECT_BUTTON_HOVER);
+                switchButtonState_hover(PLAY_BUTTON_HOVER);
             }
 
             //Connect button
