@@ -473,154 +473,152 @@ static void doEvents()
             }
         }
     }
-        //mouse events
-        if(tabEvent[7])
+    //mouse events
+    if(tabEvent[7])
+    {
+        //click LEFT DOWN
+        
+        //play button
+        if(onButton(PLAY_BUTTON_HOVER) && menu == MAIN_MENU)
         {
-            //click LEFT DOWN
-            
-            //play button
-            if(onButton(PLAY_BUTTON_HOVER) && menu == MAIN_MENU)
+            SOLO = TRUE;
+            init_boop(&tabEvent[7]);
+            if (debug) printf("Host button clicked\n");
+            pthread_create(&server,NULL,startServer,NULL);              //on héberge le serveur 
+            startConnection();                                          //on créer un client qui se connecte au serveur
+            pthread_create(&sendtoserver,NULL,Send2Server,NULL);
+            pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
+            changeMenu(INGAME_MENU);
+            switchButtonState_hover(PLAY_BUTTON_HOVER);
+        }
+
+        //Connect button
+        if(onButton(CONNECT_BUTTON_HOVER) && menu == MAIN_MENU)
+        {
+            init_boop(&tabEvent[7]);
+            if (debug) printf("Connect button clicked\n");                                         
+            if(startConnection() == 0)                                     //on créer un client qui se connecte au serveur 
             {
-                SOLO = TRUE;
-                init_boop(&tabEvent[7]);
-                if (debug) printf("Host button clicked\n");
-                pthread_create(&server,NULL,startServer,NULL);              //on héberge le serveur 
-                startConnection();                                          //on créer un client qui se connecte au serveur
-                pthread_create(&sendtoserver,NULL,Send2Server,NULL);
+                Sleep(1000);
                 pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
                 changeMenu(INGAME_MENU);
-                switchButtonState_hover(PLAY_BUTTON_HOVER);
-            }
-
-            //Connect button
-            if(onButton(CONNECT_BUTTON_HOVER) && menu == MAIN_MENU)
-            {
-                init_boop(&tabEvent[7]);
-                if (debug) printf("Connect button clicked\n");                                         
-                if(startConnection() == 0)                                     //on créer un client qui se connecte au serveur 
-                {
-                    Sleep(1000);
-                    pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
-                    changeMenu(INGAME_MENU);
-                }
-                else{
-                    changeMenu(ERR_MENU);
-                    connectedError = TRUE;
-                }
-                switchButtonState_hover(CONNECT_BUTTON_HOVER);
-            }
-
-            //host button
-            if(onButton(HOST_BUTTON_HOVER) && menu == MAIN_MENU)
-            {
-                init_boop(&tabEvent[7]);
-                if (debug) printf("Host button clicked\n");
-                pthread_create(&server,NULL,startServer,NULL);              //on héberge le serveur 
-                startConnection();                                          //on créer un client qui se connecte au serveur
-                pthread_create(&sendtoserver,NULL,Send2Server,NULL);
-                pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
-                changeMenu(INGAME_MENU);
-                switchButtonState_hover(HOST_BUTTON_HOVER);
-            }
-            
-            //settings button
-            if(onButton(SETTINGS_BUTTON_HOVER) && menu == MAIN_MENU)
-            {
-                init_boop(&tabEvent[7]);
-                switchButtonState_hover(SETTINGS_BUTTON_HOVER);
-                changeMenu(SETTINGS_MENU);
-            }
-
-            //inventory item click
-            if(menu == INVENTORY_MENU)
-            {
-                if(getButtonState_clicked(INVENTORY_BUTTON_CLICKED) == FALSE)
-                {
-                    changeButtonState_clicked(INVENTORY_BUTTON_CLICKED, TRUE);
-                    tabTick[7] = SDL_GetTicks();
-                    clickItem();
-                    init_inventory_click();
-                }
-            }
-        }
-        if(!tabEvent[7])
-        {
-            if(menu == INVENTORY_MENU)
-            {
-                changeButtonState_clicked(INVENTORY_BUTTON_CLICKED, FALSE);
-            }
-        }
-        if(tabEvent[8])
-        {
-            //click RIGHT
-        }
-        if(tabEvent[9])
-        {
-            //click MIDDLE
-        }
-        if(!tabEvent[0] && !tabEvent[1] && !tabEvent[2] && !tabEvent[3] && !tabEvent[6] && !tabEvent[7])
-        {
-            if((menu == INGAME_MENU || menu == INVENTORY_MENU))
-            {
-                if(pthread_kill(animations_thread, 0) != 0)
-                    pthread_create(&animations_thread, NULL, breathAnimation,(void *)&joueur);  
-            }
-        }
-
-        if(tabEvent[10])
-        {
-            //touche ESCAPE
-            if(menu == ERR_MENU || menu == SETTINGS_MENU)
-            {
-                changeMenu(MAIN_MENU);
-            }
-        }
-
-        if(tabEvent[11] && tabEvent[12])
-        {
-            toggleFullscreen();
-        }
-
-        if(tabEvent[13])
-        {
-            //touche TAB
-            if(menu == INGAME_MENU)
-            {
-                if((SDL_GetTicks() - tabTick[13]) >= 200)
-                {
-                    changeMenu(INVENTORY_MENU);
-                    tabTick[13] = SDL_GetTicks();
-                }
-            }
-            else if(menu != MAIN_MENU){
-                if((SDL_GetTicks() - tabTick[13]) >= 200)
-                {
-                    changeMenu(INGAME_MENU);
-                    tabTick[13] = SDL_GetTicks();
-                }
-            }
-        }
-
-        //erreur menu
-        if(menu == ERR_MENU)
-        {
-            if(connectedError == TRUE)
-                displayError("Error: Server looking offline :/");
-        }
-
-        // Multi-joueurs
-        if ((menu == INGAME_MENU || menu == INVENTORY_MENU))
-        {
-            if(connectedError == FALSE) 
-            {
-                drawPlayers(joueurs, size);
             }
             else{
                 changeMenu(ERR_MENU);
+                connectedError = TRUE;
+            }
+            switchButtonState_hover(CONNECT_BUTTON_HOVER);
+        }
+
+        //host button
+        if(onButton(HOST_BUTTON_HOVER) && menu == MAIN_MENU)
+        {
+            init_boop(&tabEvent[7]);
+            if (debug) printf("Host button clicked\n");
+            pthread_create(&server,NULL,startServer,NULL);              //on héberge le serveur 
+            startConnection();                                          //on créer un client qui se connecte au serveur
+            pthread_create(&sendtoserver,NULL,Send2Server,NULL);
+            pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
+            changeMenu(INGAME_MENU);
+            switchButtonState_hover(HOST_BUTTON_HOVER);
+        }
+        
+        //settings button
+        if(onButton(SETTINGS_BUTTON_HOVER) && menu == MAIN_MENU)
+        {
+            init_boop(&tabEvent[7]);
+            switchButtonState_hover(SETTINGS_BUTTON_HOVER);
+            changeMenu(SETTINGS_MENU);
+        }
+
+        //inventory item click
+        if(menu == INVENTORY_MENU)
+        {
+            if(getButtonState_clicked(INVENTORY_BUTTON_CLICKED) == FALSE)
+            {
+                changeButtonState_clicked(INVENTORY_BUTTON_CLICKED, TRUE);
+                tabTick[7] = SDL_GetTicks();
+                clickItem();
+                init_inventory_click();
             }
         }
-}
+    }
+    if(!tabEvent[7])
+    {
+        if(menu == INVENTORY_MENU)
+        {
+            changeButtonState_clicked(INVENTORY_BUTTON_CLICKED, FALSE);
+        }
+    }
+    if(tabEvent[8])
+    {
+        //click RIGHT
+    }
+    if(tabEvent[9])
+    {
+        //click MIDDLE
+    }
+    if(!tabEvent[0] && !tabEvent[1] && !tabEvent[2] && !tabEvent[3] && !tabEvent[6] && !tabEvent[7])
+    {
+        if((menu == INGAME_MENU || menu == INVENTORY_MENU))
+        {
+            if(pthread_kill(animations_thread, 0) != 0)
+                pthread_create(&animations_thread, NULL, breathAnimation,(void *)&joueur);  
+        }
+    }
 
+    if(tabEvent[10])
+    {
+        //touche ESCAPE
+        if(menu == ERR_MENU || menu == SETTINGS_MENU)
+        {
+            changeMenu(MAIN_MENU);
+        }
+    }
+
+    if(tabEvent[11] && tabEvent[12])
+    {
+        toggleFullscreen();
+    }
+
+    if(tabEvent[13])
+    {
+        //touche TAB
+        if(menu == INGAME_MENU)
+        {
+            if((SDL_GetTicks() - tabTick[13]) >= 200)
+            {
+                changeMenu(INVENTORY_MENU);
+                tabTick[13] = SDL_GetTicks();
+            }
+        }
+        else if(menu != MAIN_MENU){
+            if((SDL_GetTicks() - tabTick[13]) >= 200)
+            {
+                changeMenu(INGAME_MENU);
+                tabTick[13] = SDL_GetTicks();
+            }
+        }
+    }
+
+    //erreur menu
+    if(menu == ERR_MENU)
+    {
+        if(connectedError == TRUE)
+            displayError("Error: Server looking offline :/");
+    }
+
+    if ((menu == INGAME_MENU || menu == INVENTORY_MENU))
+    {
+        if(connectedError == FALSE) 
+        {
+            drawPlayers(joueurs, size);
+        }
+        else{
+            changeMenu(ERR_MENU);
+        }
+    }
+}
 
 /**
  * @brief Initialise toutes les variables relatives aux menus.
@@ -632,7 +630,6 @@ static void init_vars()
     l = creerListe();
     //freopen(newLogName(), "a+", stdout); 
     rotation = 0;
-    //tab d'event
     memset(tabEvent, 0, 7*sizeof(SDL_bool));
     init_menus_vars();
 }
@@ -681,7 +678,6 @@ int main(int argc, char *argv[])
             checkEvents();
         }
 
-        //execution des events
         doEvents();
         drawMenu();
 

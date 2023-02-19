@@ -218,9 +218,7 @@ void *receiveFromClient(void *arg)
             disconnectPlayer(argClient, position);
         }
         else{
-           
             i = findPosition(argClient);
-
             traitData(argClient, i);
             argClient->argt->sd[i].joueur.connected = TRUE;
             argClient->argt->sd[i].joueur.playerRect.w = 50;
@@ -229,7 +227,6 @@ void *receiveFromClient(void *arg)
             position = i;
             i=0;
         }
-
     }
     pthread_exit(&receive_from_client[i]);
 }
@@ -283,7 +280,6 @@ void *searchClients(void *arg)
             }
         }
     }
-
     closesocket(argt2->sd->socketServer);
     WSACleanup();
 }

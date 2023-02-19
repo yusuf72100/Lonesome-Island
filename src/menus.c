@@ -433,11 +433,6 @@ void *drawPlayers(player_t *joueurs, int size)
     }
 }
 
-void *drawSoloPlayer(player_t joueur)
-{
-
-}
-
 /**
  * @brief Animation de respiration
  * 

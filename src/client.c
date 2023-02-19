@@ -169,8 +169,8 @@ void *sendDatas(player_t joueur)
     buildTram(joueur);
     if(send(*socket_Server,tramClient_send,(sizeof(char)*30),0) == SOCKET_ERROR)
     {
-        stopConnection();
         connectedError = TRUE;
+        stopConnection();
     }
 }
 
@@ -181,10 +181,9 @@ void *sendDatas(player_t joueur)
  */
 void stopConnection()
 {
+    printf("Connection closed\n");
     closesocket(*socket_Server);
     WSACleanup();
-
-    printf("Connection closed\n");
 }
 
 /**
