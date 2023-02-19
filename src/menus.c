@@ -979,7 +979,7 @@ void clickItem()
             else{
                 if(mat_inventory[i][j].number > 0)
                 {
-                    if((mat_inventory[i][j].Item->itemType == wearedItem->Item->itemType) && mat_inventory[i][j].number > 0 && mat_inventory[i][j].number < 64)
+                    if((mat_inventory[i][j].Item->itemType == wearedItem->Item->itemType) && mat_inventory[i][j].number > 0 && mat_inventory[i][j].number < 64 && wearedItem->number > 0 && wearedItem->number < 64)
                     {
                         if(mat_inventory[i][j].number + wearedItem->number <= 64) 
                         {
