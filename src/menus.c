@@ -234,9 +234,9 @@ void inventoryInit(case_inventory mat[3][10])
         }
     }
     mat[0][0].Item = apple;
-    mat[0][0].number = 1;
+    mat[0][0].number = 5;
     mat[2][5].Item = apple;
-    mat[2][5].number = 64;
+    mat[2][5].number = 63;
     mat[1][5].Item = chest_item;
     mat[1][5].number = 1;
 }
@@ -610,7 +610,6 @@ void displayError(char *s)
     texte = TTF_RenderText_Blended(police, s, blackColor);
     texte_texture = SDL_CreateTextureFromSurface(renderer, texte);
     SDL_BlitSurface(texte,NULL,background,&error);
-
     drawError(error, texte_texture);
 }
 
@@ -893,7 +892,6 @@ void toggleFullscreen()
  */
 void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button)
 {
-
     if(SDL_PointInRect(&mouse_position, button_rect))
     {
         *hover_button = SDL_TRUE;
@@ -917,7 +915,6 @@ void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_R
  */
 void buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button, void* (*p)(void*), void* (*p2)(void*))
 {
-
     if(SDL_PointInRect(&mouse_position, button_rect))
     {
         *hover_button = SDL_TRUE;
@@ -982,10 +979,25 @@ void clickItem()
             else{
                 if(mat_inventory[i][j].number > 0)
                 {
-                    case_inventory buffer;
-                    buffer = *wearedItem;
-                    *wearedItem = mat_inventory[i][j];
-                    mat_inventory[i][j] = buffer;
+                    if((mat_inventory[i][j].Item->itemType == wearedItem->Item->itemType) && mat_inventory[i][j].number > 0 && mat_inventory[i][j].number < 64)
+                    {
+                        if(mat_inventory[i][j].number + wearedItem->number <= 64) 
+                        {
+                            mat_inventory[i][j].number += wearedItem->number;
+                            wearedItem->number = 0;
+                            wearingItem = FALSE;
+                        }
+                        else{
+                            wearedItem->number = (mat_inventory[i][j].number + wearedItem->number) - 64;
+                            mat_inventory[i][j].number = 64;
+                        }
+                    }
+                    else{
+                        case_inventory buffer;
+                        buffer = *wearedItem;
+                        *wearedItem = mat_inventory[i][j];
+                        mat_inventory[i][j] = buffer;
+                    }
                 }
                 else{
                     mat_inventory[i][j] = *wearedItem;
