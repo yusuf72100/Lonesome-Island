@@ -691,8 +691,8 @@ int main(int argc, char *argv[])
     stopConnection();
     TTF_CloseFont(police);
     TTF_Quit();
-    SDL_Quit();
     Mix_CloseAudio();
+    SDL_Quit();
     destroyAll(window, renderer);
 
     return EXIT_SUCCESS;
