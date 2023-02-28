@@ -7,6 +7,9 @@
  * @copyright Copyright (c) 2023
  */
 
+#ifndef MAIN_H
+#define MAIN_H
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
@@ -83,3 +86,5 @@ char* newLogName();
 char* eventTime();
 
 static void initBullet(Bullet * b, int x, int y, int rotation);
+
+#endif

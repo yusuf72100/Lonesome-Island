@@ -1103,7 +1103,7 @@ void drawlifeBar()
  * @brief Affiche le menu principal
  * 
  */
-void MainMenu()
+static void MainMenu()
 {
     mouseRect.x = mouse_position.x;
     mouseRect.y = mouse_position.y;
@@ -1119,10 +1119,10 @@ void MainMenu()
 }
 
 /**
- * @brief Affiche le menu des paramètres
+ * @brief Affiche le menu des paramètres dans le menu principal
  * 
  */
-void SettingsMenu()
+static void SettingsMainMenu()
 {
     settings_button_animation_state = 0;
     mouseRect.x = mouse_position.x;
@@ -1136,7 +1136,7 @@ void SettingsMenu()
  * @brief Dessine le menu en jeu.
  * 
  */
-void IngameMenu()
+static void IngameMenu()
 {
     settings_button_animation_state = 0;
     hover_inventoryitem = FALSE;
@@ -1151,13 +1151,28 @@ void IngameMenu()
  * @brief Dessin le menu de l'inventaire.
  * 
  */
-void InventoryMenu()
+static void InventoryMenu()
 {
     settings_button_animation_state = 0;
     IngameMenu();
     drawInventory();
     drawCases();
     wearing();
+    drawMouse();
+}
+
+/**
+ * @brief Affiche le menu des paramètres dans en jeu
+ * 
+ */
+static void SettingsInGameMenu()
+{
+    settings_button_animation_state = 0;
+    mouseRect.x = mouse_position.x;
+    mouseRect.y = mouse_position.y;
+
+    IngameMenu();
+    drawImage(texture_settings_bg, settings_menu_bg_rect);
     drawMouse();
 }
 
@@ -1178,8 +1193,11 @@ void drawMenu()
     case INVENTORY_MENU:
         InventoryMenu();
         break;
-    case SETTINGS_MENU:
-        SettingsMenu();
+    case SETTINGS_MAIN_MENU:
+        SettingsMainMenu();
+        break;
+    case SETTINGS_INGAME_MENU:
+        SettingsInGameMenu();
         break;
     default:
         break;

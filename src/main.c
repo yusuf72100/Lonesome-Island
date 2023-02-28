@@ -277,12 +277,6 @@ static void checkEvents()
             }
 }
 
-void delay_key(int temps)
-{
-    clock_t start_time = clock();
-    while (clock() < start_time + temps);
-}
-
 /**
  * @brief Délai d'animation de respiration 
  * 
@@ -523,7 +517,7 @@ static void doEvents()
         {
             init_boop(&tabEvent[7]);
             switchButtonState_hover(SETTINGS_BUTTON_HOVER);
-            changeMenu(SETTINGS_MENU);
+            changeMenu(SETTINGS_MAIN_MENU);
         }
 
         //inventory item click
@@ -565,9 +559,27 @@ static void doEvents()
     if(tabEvent[10])
     {
         //touche ESCAPE
-        if(menu == ERR_MENU || menu == SETTINGS_MENU)
+        if(menu == ERR_MENU || menu == SETTINGS_MAIN_MENU)
         {
-            changeMenu(MAIN_MENU);
+            if((SDL_GetTicks() - tabTick[10]) >= 200)
+            {
+                changeMenu(MAIN_MENU);
+                tabTick[10] = SDL_GetTicks();
+            }
+        }
+        else if(menu == INGAME_MENU){
+            if((SDL_GetTicks() - tabTick[10]) >= 200)
+            {
+                changeMenu(SETTINGS_INGAME_MENU);
+                tabTick[10] = SDL_GetTicks();
+            }
+        }
+        else if(menu == SETTINGS_INGAME_MENU){
+            if((SDL_GetTicks() - tabTick[10]) >= 200)
+            {
+                changeMenu(INGAME_MENU);
+                tabTick[10] = SDL_GetTicks();
+            }
         }
     }
 
@@ -603,7 +615,7 @@ static void doEvents()
             displayError("Error: Server looking offline :/");
     }
 
-    if ((menu == INGAME_MENU || menu == INVENTORY_MENU))
+    if ((menu == INGAME_MENU || menu == INVENTORY_MENU || menu == SETTINGS_INGAME_MENU))
     {
         if(connectedError == FALSE) 
         {
