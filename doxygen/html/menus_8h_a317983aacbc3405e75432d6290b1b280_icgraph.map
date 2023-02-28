@@ -1,0 +1,7 @@
+<map id="drawImage" name="drawImage">
+<area shape="rect" id="node1" title="Dessine l&#39;image souhaitée." alt="" coords="384,31,468,56"/>
+<area shape="rect" id="node2" href="$menus_8c.html#ab98dbf196398d8aeaa4ac97f87ae54a1" title="Affiche le menu principal." alt="" coords="243,5,326,31"/>
+<area shape="rect" id="node5" href="$menus_8c.html#aa51a01a4976b233b54a81b33b82caef5" title="Affiche le menu des paramètres." alt="" coords="233,55,336,80"/>
+<area shape="rect" id="node3" href="$menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,31,185,56"/>
+<area shape="rect" id="node4" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,31,56,56"/>
+</map>

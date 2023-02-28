@@ -21,12 +21,12 @@ var searchData=
   ['drawcases_18',['drawCases',['../menus_8c.html#aede862d24a32e39c6e86dc94bd4cfc87',1,'menus.c']]],
   ['drawcasetext_19',['drawCaseText',['../menus_8c.html#a66530cff59b9a7c9551fd82dce25fe40',1,'menus.c']]],
   ['drawerror_20',['drawError',['../menus_8c.html#ae06068ec3d07bace5f405fbf6eeb3c20',1,'drawError(SDL_Rect rect, SDL_Texture *texture):&#160;menus.c'],['../menus_8h.html#ae06068ec3d07bace5f405fbf6eeb3c20',1,'drawError(SDL_Rect rect, SDL_Texture *texture):&#160;menus.c']]],
-  ['drawinventory_21',['drawInventory',['../menus_8c.html#aed543fd0f875dcbff172087fe7b23025',1,'menus.c']]],
-  ['drawitem_22',['drawItem',['../menus_8c.html#ab5e92db476c0b623d52a2556f346b737',1,'menus.c']]],
-  ['drawlifebar_23',['drawlifeBar',['../menus_8c.html#a8db0bbcb2b936e82aa071324eae9d71f',1,'menus.c']]],
-  ['drawmenu_24',['drawMenu',['../menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a',1,'drawMenu():&#160;menus.c'],['../menus_8h.html#aa13653318c21b0e6b86838e6091bfc9a',1,'drawMenu():&#160;menus.c']]],
-  ['drawmouse_25',['drawMouse',['../menus_8c.html#aab7430a217db9969c46ead48adffbd05',1,'drawMouse():&#160;menus.c'],['../menus_8h.html#aab7430a217db9969c46ead48adffbd05',1,'drawMouse():&#160;menus.c']]],
-  ['drawplayer_26',['drawPlayer',['../menus_8c.html#a2dfe41d8c0f122241c47441391c02de3',1,'drawPlayer(SDL_Texture *texture_joueur, SDL_Rect playerRect):&#160;menus.c'],['../menus_8h.html#a2dfe41d8c0f122241c47441391c02de3',1,'drawPlayer(SDL_Texture *texture_joueur, SDL_Rect playerRect):&#160;menus.c']]],
-  ['drawplayers_27',['drawPlayers',['../menus_8c.html#ab804df0c510979d77fd5599feef21ae0',1,'drawPlayers(player_t *joueurs, int size):&#160;menus.c'],['../menus_8h.html#ab804df0c510979d77fd5599feef21ae0',1,'drawPlayers(player_t *joueurs, int size):&#160;menus.c']]],
-  ['drawtitle_28',['drawTitle',['../menus_8c.html#a72036abbb16f3b007110ff03d748e0b1',1,'drawTitle():&#160;menus.c'],['../menus_8h.html#a72036abbb16f3b007110ff03d748e0b1',1,'drawTitle():&#160;menus.c']]]
+  ['drawimage_21',['drawImage',['../menus_8c.html#a317983aacbc3405e75432d6290b1b280',1,'drawImage(SDL_Texture *texture, SDL_Rect rect):&#160;menus.c'],['../menus_8h.html#a317983aacbc3405e75432d6290b1b280',1,'drawImage(SDL_Texture *texture, SDL_Rect rect):&#160;menus.c']]],
+  ['drawinventory_22',['drawInventory',['../menus_8c.html#aed543fd0f875dcbff172087fe7b23025',1,'menus.c']]],
+  ['drawitem_23',['drawItem',['../menus_8c.html#ab5e92db476c0b623d52a2556f346b737',1,'menus.c']]],
+  ['drawlifebar_24',['drawlifeBar',['../menus_8c.html#a8db0bbcb2b936e82aa071324eae9d71f',1,'menus.c']]],
+  ['drawmenu_25',['drawMenu',['../menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a',1,'drawMenu():&#160;menus.c'],['../menus_8h.html#aa13653318c21b0e6b86838e6091bfc9a',1,'drawMenu():&#160;menus.c']]],
+  ['drawmouse_26',['drawMouse',['../menus_8c.html#aab7430a217db9969c46ead48adffbd05',1,'drawMouse():&#160;menus.c'],['../menus_8h.html#aab7430a217db9969c46ead48adffbd05',1,'drawMouse():&#160;menus.c']]],
+  ['drawplayer_27',['drawPlayer',['../menus_8c.html#a2dfe41d8c0f122241c47441391c02de3',1,'drawPlayer(SDL_Texture *texture_joueur, SDL_Rect playerRect):&#160;menus.c'],['../menus_8h.html#a2dfe41d8c0f122241c47441391c02de3',1,'drawPlayer(SDL_Texture *texture_joueur, SDL_Rect playerRect):&#160;menus.c']]],
+  ['drawplayers_28',['drawPlayers',['../menus_8c.html#ab804df0c510979d77fd5599feef21ae0',1,'drawPlayers(player_t *joueurs, int size):&#160;menus.c'],['../menus_8h.html#ab804df0c510979d77fd5599feef21ae0',1,'drawPlayers(player_t *joueurs, int size):&#160;menus.c']]]
 ];

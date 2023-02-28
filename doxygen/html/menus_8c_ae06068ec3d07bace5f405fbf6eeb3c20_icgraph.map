@@ -1,4 +1,6 @@
 <map id="drawError" name="drawError">
-<area shape="rect" id="node1" title="Affiche l&#39;erreur à l&#39;écran." alt="" coords="144,5,221,31"/>
-<area shape="rect" id="node2" href="$menus_8c.html#a9cde538499636a6a74cb0f3e206d4a73" title="Dessine l&#39;erreur avec TTF." alt="" coords="5,5,96,31"/>
+<area shape="rect" id="node1" title="Affiche l&#39;erreur à l&#39;écran." alt="" coords="365,5,443,31"/>
+<area shape="rect" id="node2" href="$menus_8c.html#a9cde538499636a6a74cb0f3e206d4a73" title="Dessine l&#39;erreur avec TTF." alt="" coords="227,5,317,31"/>
+<area shape="rect" id="node3" href="$main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
+<area shape="rect" id="node4" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
 </map>

@@ -115,8 +115,9 @@ void {\bfseries draw\+Buttons} ()
 \mbox{\Hypertarget{menus_8h_aa13653318c21b0e6b86838e6091bfc9a}\label{menus_8h_aa13653318c21b0e6b86838e6091bfc9a}} 
 void {\bfseries draw\+Menu} ()
 \begin{DoxyCompactList}\small\item\em Dessine le bon menu. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{menus_8h_ab3002fe8e0074c9e2ecb5b835e5e819f}{main\+Menu}} ()
-\begin{DoxyCompactList}\small\item\em Affiche le menu principal. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{menus_8h_ab3002fe8e0074c9e2ecb5b835e5e819f}\label{menus_8h_ab3002fe8e0074c9e2ecb5b835e5e819f}} 
+void {\bfseries main\+Menu} ()
+\item 
 \mbox{\Hypertarget{menus_8h_a10da25e92e69613be93d099bb029feb2}\label{menus_8h_a10da25e92e69613be93d099bb029feb2}} 
 void {\bfseries update\+\_\+screen} ()
 \begin{DoxyCompactList}\small\item\em Met à jour les valeurs de l\textquotesingle{}écran. \end{DoxyCompactList}\item 
@@ -140,8 +141,8 @@ void \mbox{\hyperlink{menus_8h_a9cde538499636a6a74cb0f3e206d4a73}{display\+Error
 \begin{DoxyCompactList}\small\item\em Dessine l\textquotesingle{}erreur avec TTF. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{menus_8h_ae06068ec3d07bace5f405fbf6eeb3c20}{draw\+Error}} (SDL\+\_\+\+Rect rect, SDL\+\_\+\+Texture $\ast$texture)
 \begin{DoxyCompactList}\small\item\em Affiche l\textquotesingle{}erreur à l\textquotesingle{}écran. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{menus_8h_a72036abbb16f3b007110ff03d748e0b1}{draw\+Title}} ()
-\begin{DoxyCompactList}\small\item\em Dessine le titre dans le menu principal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menus_8h_a317983aacbc3405e75432d6290b1b280}{draw\+Image}} (SDL\+\_\+\+Texture $\ast$texture, SDL\+\_\+\+Rect rect)
+\begin{DoxyCompactList}\small\item\em Dessine l\textquotesingle{}image souhaitée. \end{DoxyCompactList}\item 
 void $\ast$ \mbox{\hyperlink{menus_8h_a48c083415f7a9126fec9cc228b651991}{settings\+\_\+button\+\_\+animation\+\_\+right}} ()
 \begin{DoxyCompactList}\small\item\em Animation du bouton paramètres quand on a le curseur dessus. \end{DoxyCompactList}\item 
 void $\ast$ \mbox{\hyperlink{menus_8h_ab6d77ef359eb1ad9820145690e17a427}{settings\+\_\+button\+\_\+animation\+\_\+left}} ()
@@ -245,6 +246,12 @@ static SDL\+\_\+\+Rect {\bfseries inventory\+\_\+rect}
 \mbox{\Hypertarget{menus_8h_a09486c65cef1be5524cec66bcf274875}\label{menus_8h_a09486c65cef1be5524cec66bcf274875}} 
 static SDL\+\_\+\+Rect {\bfseries lifebar\+\_\+rect}
 \item 
+\mbox{\Hypertarget{menus_8h_a760fa082fec3251fd63c859a8246a1ff}\label{menus_8h_a760fa082fec3251fd63c859a8246a1ff}} 
+static SDL\+\_\+\+Rect {\bfseries title\+\_\+rect}
+\item 
+\mbox{\Hypertarget{menus_8h_aa4e46fbd0f91b377892efdce0e824cd5}\label{menus_8h_aa4e46fbd0f91b377892efdce0e824cd5}} 
+static SDL\+\_\+\+Rect {\bfseries settings\+\_\+menu\+\_\+bg\+\_\+rect}
+\item 
 \mbox{\Hypertarget{menus_8h_a4e152e6f15e7af4377e66feb4185cf29}\label{menus_8h_a4e152e6f15e7af4377e66feb4185cf29}} 
 static SDL\+\_\+\+Display\+Mode {\bfseries DM}
 \item 
@@ -262,9 +269,6 @@ static TTF\+\_\+\+Font $\ast$ {\bfseries police} = NULL
 \item 
 \mbox{\Hypertarget{menus_8h_a228d0c247e590f30ee8ec1198b26aece}\label{menus_8h_a228d0c247e590f30ee8ec1198b26aece}} 
 static TTF\+\_\+\+Font $\ast$ {\bfseries item\+\_\+dafont} = NULL
-\item 
-\mbox{\Hypertarget{menus_8h_a760fa082fec3251fd63c859a8246a1ff}\label{menus_8h_a760fa082fec3251fd63c859a8246a1ff}} 
-static SDL\+\_\+\+Rect {\bfseries title\+\_\+rect}
 \item 
 \mbox{\Hypertarget{menus_8h_a9497d6a56abcc3ab0e9ad932855fec57}\label{menus_8h_a9497d6a56abcc3ab0e9ad932855fec57}} 
 static SDL\+\_\+\+Surface $\ast$ {\bfseries lifebar\+\_\+surface} = NULL
@@ -313,6 +317,9 @@ static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+joueur\+\_\+down\+\_\+1
 \item 
 \mbox{\Hypertarget{menus_8h_a6c7b30f7a4e8cb2c08200c50df19c88e}\label{menus_8h_a6c7b30f7a4e8cb2c08200c50df19c88e}} 
 static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+joueur\+\_\+down\+\_\+2} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_afc837f4e409676d88d2928e8a42b98cd}\label{menus_8h_afc837f4e409676d88d2928e8a42b98cd}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+settings\+\_\+bg} = NULL
 \item 
 \mbox{\Hypertarget{menus_8h_ac9d55a4aa9888c37e7482d771f5294b2}\label{menus_8h_ac9d55a4aa9888c37e7482d771f5294b2}} 
 static SDL\+\_\+\+Surface $\ast$ {\bfseries apple\+\_\+food\+\_\+surface} = NULL
@@ -364,6 +371,9 @@ static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+joueur\+\_\+down\+\_\+1
 \item 
 \mbox{\Hypertarget{menus_8h_af359d76528f4d8679b21058907141662}\label{menus_8h_af359d76528f4d8679b21058907141662}} 
 static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+joueur\+\_\+down\+\_\+2} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_ac11e7cd9a7b4b5f2619e02d5c95e721f}\label{menus_8h_ac11e7cd9a7b4b5f2619e02d5c95e721f}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+settings\+\_\+bg} = NULL
 \item 
 \mbox{\Hypertarget{menus_8h_ac6af59c429e1c59de9f7c434890cad0b}\label{menus_8h_ac6af59c429e1c59de9f7c434890cad0b}} 
 static SDL\+\_\+\+Surface $\ast$ {\bfseries play\+\_\+inert} = NULL
@@ -511,7 +521,8 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \includegraphics[width=350pt]{menus_8h_ab5e1f7649b8b40f10bd9168c6a098883_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -550,7 +561,8 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \includegraphics[width=350pt]{menus_8h_ad9a4714e86590146659768dcd5357272_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -574,8 +586,7 @@ Change le boutton ciblé avec l\textquotesingle{}état voulut.
 {\em state} & \\
 \hline
 \end{DoxyParams}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -639,6 +650,14 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \includegraphics[width=350pt]{menus_8h_a9cde538499636a6a74cb0f3e206d4a73_cgraph}
 \end{center}
 \end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{menus_8h_a9cde538499636a6a74cb0f3e206d4a73_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{menus_8h_ad452b0eb987136d6af7d68a474fd7bc1}\label{menus_8h_ad452b0eb987136d6af7d68a474fd7bc1}} 
 \index{menus.h@{menus.h}!drawButton@{drawButton}}
 \index{drawButton@{drawButton}!menus.h@{menus.h}}
@@ -697,11 +716,38 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \includegraphics[width=273pt]{menus_8h_ae06068ec3d07bace5f405fbf6eeb3c20_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=242pt]{menus_8h_ae06068ec3d07bace5f405fbf6eeb3c20_icgraph}
+\includegraphics[width=350pt]{menus_8h_ae06068ec3d07bace5f405fbf6eeb3c20_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8h_a317983aacbc3405e75432d6290b1b280}\label{menus_8h_a317983aacbc3405e75432d6290b1b280}} 
+\index{menus.h@{menus.h}!drawImage@{drawImage}}
+\index{drawImage@{drawImage}!menus.h@{menus.h}}
+\doxysubsubsection{\texorpdfstring{drawImage()}{drawImage()}}
+{\footnotesize\ttfamily void draw\+Image (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Texture $\ast$}]{texture,  }\item[{SDL\+\_\+\+Rect}]{rect }\end{DoxyParamCaption})}
+
+
+
+Dessine l\textquotesingle{}image souhaitée. 
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{menus_8h_a317983aacbc3405e75432d6290b1b280_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8h_a317983aacbc3405e75432d6290b1b280_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{menus_8h_a2dfe41d8c0f122241c47441391c02de3}\label{menus_8h_a2dfe41d8c0f122241c47441391c02de3}} 
@@ -762,30 +808,6 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \includegraphics[width=316pt]{menus_8h_ab804df0c510979d77fd5599feef21ae0_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{menus_8h_a72036abbb16f3b007110ff03d748e0b1}\label{menus_8h_a72036abbb16f3b007110ff03d748e0b1}} 
-\index{menus.h@{menus.h}!drawTitle@{drawTitle}}
-\index{drawTitle@{drawTitle}!menus.h@{menus.h}}
-\doxysubsubsection{\texorpdfstring{drawTitle()}{drawTitle()}}
-{\footnotesize\ttfamily void draw\+Title (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Dessine le titre dans le menu principal. 
-
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=270pt]{menus_8h_a72036abbb16f3b007110ff03d748e0b1_cgraph}
-\end{center}
-\end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{menus_8h_a72036abbb16f3b007110ff03d748e0b1_icgraph}
-\end{center}
-\end{figure}
 \mbox{\Hypertarget{menus_8h_ab283db36e8911aeb9d32d5886f156570}\label{menus_8h_ab283db36e8911aeb9d32d5886f156570}} 
 \index{menus.h@{menus.h}!getButtonState\_clicked@{getButtonState\_clicked}}
 \index{getButtonState\_clicked@{getButtonState\_clicked}!menus.h@{menus.h}}
@@ -804,36 +826,11 @@ Renvoi l\textquotesingle{}état du boutton demandé.
 \begin{DoxyReturn}{Renvoie}
 int 
 \end{DoxyReturn}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{menus_8h_ab283db36e8911aeb9d32d5886f156570_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{menus_8h_ab3002fe8e0074c9e2ecb5b835e5e819f}\label{menus_8h_ab3002fe8e0074c9e2ecb5b835e5e819f}} 
-\index{menus.h@{menus.h}!mainMenu@{mainMenu}}
-\index{mainMenu@{mainMenu}!menus.h@{menus.h}}
-\doxysubsubsection{\texorpdfstring{mainMenu()}{mainMenu()}}
-{\footnotesize\ttfamily void main\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Affiche le menu principal. 
-
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{menus_8h_ab3002fe8e0074c9e2ecb5b835e5e819f_cgraph}
-\end{center}
-\end{figure}
 Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=313pt]{menus_8h_ab3002fe8e0074c9e2ecb5b835e5e819f_icgraph}
+\includegraphics[width=350pt]{menus_8h_ab283db36e8911aeb9d32d5886f156570_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{menus_8h_a62b05feb314b3c7d6effb9892fa5b8ae}\label{menus_8h_a62b05feb314b3c7d6effb9892fa5b8ae}} 
@@ -854,8 +851,7 @@ Renvoi TRUE si le curseur est sur le boutton passé en paramètre sinon renvoi F
 \begin{DoxyReturn}{Renvoie}
 int 
 \end{DoxyReturn}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -1013,7 +1009,8 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \includegraphics[width=350pt]{menus_8h_ab6d77ef359eb1ad9820145690e17a427_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -1040,7 +1037,8 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \includegraphics[width=350pt]{menus_8h_a48c083415f7a9126fec9cc228b651991_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -1086,8 +1084,7 @@ Change l\textquotesingle{}état du boutton ciblé.
 {\em button} & \\
 \hline
 \end{DoxyParams}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

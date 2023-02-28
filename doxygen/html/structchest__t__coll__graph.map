@@ -1,0 +1,5 @@
+<map id="chest_t" name="chest_t">
+<area shape="rect" id="node1" title="Définition d&#39;un chest." alt="" coords="32,403,97,480"/>
+<area shape="rect" id="node2" href="$structcase__inventory.html" title="Stockera les informations de chaque case de l&#39;inventaire du joueur." alt="" coords="5,204,124,340"/>
+<area shape="rect" id="node3" href="$structitem__t.html" title="Item avec ses stats." alt="" coords="21,5,108,141"/>
+</map>

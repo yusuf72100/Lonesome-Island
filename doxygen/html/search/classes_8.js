@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['vecteur_0',['Vecteur',['../struct_vecteur.html',1,'']]]
+  ['send2client_0',['send2Client',['../structsend2_client.html',1,'']]],
+  ['socketdatas_1',['socketDatas',['../structsocket_datas.html',1,'']]]
 ];

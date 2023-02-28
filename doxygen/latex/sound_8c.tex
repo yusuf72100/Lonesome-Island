@@ -22,10 +22,15 @@ void {\bfseries init\+Audio} ()
 \mbox{\Hypertarget{sound_8c_acb373f7276274a75af2fc3ec23a8e266}\label{sound_8c_acb373f7276274a75af2fc3ec23a8e266}} 
 void {\bfseries creation\+\_\+canaux\+\_\+musique} ()
 \begin{DoxyCompactList}\small\item\em Initialise les cannaux audio et les sons. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{sound_8c_ac63274793b27db89701dc520460090e3}{play\+\_\+inventory\+\_\+click}} ()
+\begin{DoxyCompactList}\small\item\em Son de survol de bouton. \end{DoxyCompactList}\item 
 void $\ast$ \mbox{\hyperlink{sound_8c_a57d534ee1e2bc6ccbd6b927c1a45c388}{play\+\_\+hover\+\_\+audio}} (void $\ast$key)
 \begin{DoxyCompactList}\small\item\em Son de survol de bouton. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{sound_8c_a57b4724b83449e52bba882dfcf33adbd}{init\+\_\+hover}} (SDL\+\_\+bool $\ast$key)
 \begin{DoxyCompactList}\small\item\em Fonction qui lance le son de survol de bouton dans un thread dédié. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{sound_8c_a6e20a9752027528e301698e22522d0da}\label{sound_8c_a6e20a9752027528e301698e22522d0da}} 
+void {\bfseries init\+\_\+inventory\+\_\+click} ()
+\begin{DoxyCompactList}\small\item\em Fonction qui lance le son de clique de l\textquotesingle{}item dans un thread dédié. \end{DoxyCompactList}\item 
 void $\ast$ \mbox{\hyperlink{sound_8c_a821870717dad737e58c42019d5502d4b}{play\+\_\+boop}} (void $\ast$key)
 \begin{DoxyCompactList}\small\item\em Joue le son de clique sur un bouton. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{sound_8c_a255dd9ed014ef2eaf3f9e53005134ec4}{init\+\_\+boop}} (SDL\+\_\+bool $\ast$key)
@@ -118,7 +123,8 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \includegraphics[width=264pt]{sound_8c_a57b4724b83449e52bba882dfcf33adbd_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -170,10 +176,39 @@ Son de survol de bouton.
 \begin{DoxyReturn}{Renvoie}
 void$\ast$ 
 \end{DoxyReturn}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{sound_8c_a57d534ee1e2bc6ccbd6b927c1a45c388_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{sound_8c_ac63274793b27db89701dc520460090e3}\label{sound_8c_ac63274793b27db89701dc520460090e3}} 
+\index{sound.c@{sound.c}!play\_inventory\_click@{play\_inventory\_click}}
+\index{play\_inventory\_click@{play\_inventory\_click}!sound.c@{sound.c}}
+\doxysubsubsection{\texorpdfstring{play\_inventory\_click()}{play\_inventory\_click()}}
+{\footnotesize\ttfamily void $\ast$ play\+\_\+inventory\+\_\+click (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Son de survol de bouton. 
+
+(se lance dans un thread)
+
+
+\begin{DoxyParams}{Paramètres}
+{\em key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void$\ast$ 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sound_8c_ac63274793b27db89701dc520460090e3_icgraph}
 \end{center}
 \end{figure}

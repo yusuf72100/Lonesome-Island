@@ -1,0 +1,5 @@
+<map id="MainMenu" name="MainMenu">
+<area shape="rect" id="node1" title="Affiche le menu principal." alt="" coords="233,5,316,31"/>
+<area shape="rect" id="node2" href="$menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,5,185,31"/>
+<area shape="rect" id="node3" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>

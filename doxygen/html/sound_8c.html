@@ -111,12 +111,19 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>initAudio</b> ()</td>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>creation_canaux_musique</b> ()</td></tr>
 <tr class="memdesc:acb373f7276274a75af2fc3ec23a8e266"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise les cannaux audio et les sons. <br /></td></tr>
 <tr class="separator:acb373f7276274a75af2fc3ec23a8e266"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac63274793b27db89701dc520460090e3"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sound_8c.html#ac63274793b27db89701dc520460090e3">play_inventory_click</a> ()</td></tr>
+<tr class="memdesc:ac63274793b27db89701dc520460090e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Son de survol de bouton.  <br /></td></tr>
+<tr class="separator:ac63274793b27db89701dc520460090e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57d534ee1e2bc6ccbd6b927c1a45c388"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sound_8c.html#a57d534ee1e2bc6ccbd6b927c1a45c388">play_hover_audio</a> (void *key)</td></tr>
 <tr class="memdesc:a57d534ee1e2bc6ccbd6b927c1a45c388"><td class="mdescLeft">&#160;</td><td class="mdescRight">Son de survol de bouton.  <br /></td></tr>
 <tr class="separator:a57d534ee1e2bc6ccbd6b927c1a45c388"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57b4724b83449e52bba882dfcf33adbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sound_8c.html#a57b4724b83449e52bba882dfcf33adbd">init_hover</a> (SDL_bool *key)</td></tr>
 <tr class="memdesc:a57b4724b83449e52bba882dfcf33adbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui lance le son de survol de bouton dans un thread dédié.  <br /></td></tr>
 <tr class="separator:a57b4724b83449e52bba882dfcf33adbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e20a9752027528e301698e22522d0da"><td class="memItemLeft" align="right" valign="top"><a id="a6e20a9752027528e301698e22522d0da" name="a6e20a9752027528e301698e22522d0da"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>init_inventory_click</b> ()</td></tr>
+<tr class="memdesc:a6e20a9752027528e301698e22522d0da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui lance le son de clique de l'item dans un thread dédié. <br /></td></tr>
+<tr class="separator:a6e20a9752027528e301698e22522d0da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a821870717dad737e58c42019d5502d4b"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sound_8c.html#a821870717dad737e58c42019d5502d4b">play_boop</a> (void *key)</td></tr>
 <tr class="memdesc:a821870717dad737e58c42019d5502d4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Joue le son de clique sur un bouton.  <br /></td></tr>
 <tr class="separator:a821870717dad737e58c42019d5502d4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -245,7 +252,7 @@ Voici le graphe des appelants de cette fonction :</div>
 <area shape="rect" title="Fonction qui lance le son de survol de bouton dans un thread dédié." alt="" coords="587,31,663,56"/>
 <area shape="rect" href="menus_8c.html#ab5e1f7649b8b40f10bd9168c6a098883" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="406,5,497,31"/>
 <area shape="rect" href="menus_8c.html#ad9a4714e86590146659768dcd5357272" title="Affiche la texture de survol avec animation du bouton demandé en dans le menu souhaité." alt="" coords="364,55,539,80"/>
-<area shape="rect" href="menus_8c.html#ab3002fe8e0074c9e2ecb5b835e5e819f" title="Affiche le menu principal." alt="" coords="233,31,316,56"/>
+<area shape="rect" href="menus_8c.html#ab98dbf196398d8aeaa4ac97f87ae54a1" title="Affiche le menu principal." alt="" coords="233,31,316,56"/>
 <area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,31,185,56"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,31,56,56"/>
 </map>
@@ -325,9 +332,47 @@ Voici le graphe des appelants de cette fonction :</div>
 <area shape="rect" href="sound_8c.html#a57b4724b83449e52bba882dfcf33adbd" title="Fonction qui lance le son de survol de bouton dans un thread dédié." alt="" coords="587,31,663,56"/>
 <area shape="rect" href="menus_8c.html#ab5e1f7649b8b40f10bd9168c6a098883" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="406,5,497,31"/>
 <area shape="rect" href="menus_8c.html#ad9a4714e86590146659768dcd5357272" title="Affiche la texture de survol avec animation du bouton demandé en dans le menu souhaité." alt="" coords="364,55,539,80"/>
-<area shape="rect" href="menus_8c.html#ab3002fe8e0074c9e2ecb5b835e5e819f" title="Affiche le menu principal." alt="" coords="233,31,316,56"/>
+<area shape="rect" href="menus_8c.html#ab98dbf196398d8aeaa4ac97f87ae54a1" title="Affiche le menu principal." alt="" coords="233,31,316,56"/>
 <area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,31,185,56"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,31,56,56"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac63274793b27db89701dc520460090e3" name="ac63274793b27db89701dc520460090e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac63274793b27db89701dc520460090e3">&#9670;&#160;</a></span>play_inventory_click()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * play_inventory_click </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Son de survol de bouton. </p>
+<p>(se lance dans un thread)</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>void* </dd></dl>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="sound_8c_ac63274793b27db89701dc520460090e3_icgraph.png" border="0" usemap="#asound_8c_ac63274793b27db89701dc520460090e3_icgraph" alt=""/></div>
+<map name="asound_8c_ac63274793b27db89701dc520460090e3_icgraph" id="asound_8c_ac63274793b27db89701dc520460090e3_icgraph">
+<area shape="rect" title="Son de survol de bouton." alt="" coords="405,5,544,31"/>
+<area shape="rect" href="sound_8c.html#a6e20a9752027528e301698e22522d0da" title="Fonction qui lance le son de clique de l&#39;item dans un thread dédié." alt="" coords="227,5,357,31"/>
+<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
 </map>
 </div>
 

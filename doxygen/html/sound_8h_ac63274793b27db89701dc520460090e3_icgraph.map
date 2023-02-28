@@ -1,0 +1,6 @@
+<map id="play_inventory_click" name="play_inventory_click">
+<area shape="rect" id="node1" title="Son de survol de bouton." alt="" coords="405,5,544,31"/>
+<area shape="rect" id="node2" href="$sound_8c.html#a6e20a9752027528e301698e22522d0da" title="Fonction qui lance le son de clique de l&#39;item dans un thread dédié." alt="" coords="227,5,357,31"/>
+<area shape="rect" id="node3" href="$main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
+<area shape="rect" id="node4" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>

@@ -1,0 +1,164 @@
+\hypertarget{mjson_8h_source}{}\doxysection{mjson.\+h}
+\label{mjson_8h_source}\index{C:/Users/Yusuf/Lonesome-\/Island/src/mjson.h@{C:/Users/Yusuf/Lonesome-\/Island/src/mjson.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*\ Structures\ for\ JSON\ parsing\ using\ only\ fixed-\/extent\ memory}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ This\ file\ is\ Copyright\ (c)\ 2010\ by\ the\ GPSD\ project}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ SPDX-\/License-\/Identifier:\ BSD-\/2-\/clause}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <ctype.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifdef\ TIME\_ENABLE}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <time.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ TIME\_ENABLE\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{t\_integer,\ t\_uinteger,\ t\_real,}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ t\_string,\ t\_boolean,\ t\_character,}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ t\_time,}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ t\_object,\ t\_structobject,\ t\_array,}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ t\_check,\ t\_ignore,}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ t\_short,\ t\_ushort\}}
+\DoxyCodeLine{00020\ \ \ \ \ json\_type;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structjson__enum__t}{json\_enum\_t}}\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ *name;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ value;}
+\DoxyCodeLine{00025\ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structjson__array__t}{json\_array\_t}}\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ json\_type\ element\_type;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{union\ }\{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structjson__attr__t}{json\_attr\_t}}\ *subtype;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *base;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ stride;}
+\DoxyCodeLine{00034\ \ \ \ \ \}\ objects;}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ **ptrs;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *store;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ storelen;}
+\DoxyCodeLine{00039\ \ \ \ \ \}\ strings;}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ *store;}
+\DoxyCodeLine{00042\ \ \ \ \ \}\ integers;}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ *store;}
+\DoxyCodeLine{00045\ \ \ \ \ \}\ uintegers;}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{short}\ *store;}
+\DoxyCodeLine{00048\ \ \ \ \ \}\ shorts;}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ *store;}
+\DoxyCodeLine{00051\ \ \ \ \ \}\ ushorts;}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ *store;}
+\DoxyCodeLine{00054\ \ \ \ \ \}\ reals;}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ *store;}
+\DoxyCodeLine{00057\ \ \ \ \ \}\ booleans;}
+\DoxyCodeLine{00058\ \ \ \ \ \}\ arr;}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{int}\ *count,\ maxlen;}
+\DoxyCodeLine{00060\ \};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structjson__attr__t}{json\_attr\_t}}\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{char}\ *attribute;}
+\DoxyCodeLine{00064\ \ \ \ \ json\_type\ type;}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{union\ }\{}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{int}\ *integer;}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ *uinteger;}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{short}\ *shortint;}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ *ushortint;}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{double}\ *real;}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{char}\ *string;}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{bool}\ *boolean;}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{char}\ *character;}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structjson__attr__t}{json\_attr\_t}}\ *attrs;}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structjson__array__t}{json\_array\_t}}\ array;}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ offset;}
+\DoxyCodeLine{00077\ \ \ \ \ \}\ addr;}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{union\ }\{}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{int}\ integer;}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ uinteger;}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{short}\ shortint;}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ ushortint;}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{double}\ real;}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{bool}\ boolean;}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{char}\ character;}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{char}\ *check;}
+\DoxyCodeLine{00087\ \ \ \ \ \}\ dflt;}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ len;}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structjson__enum__t}{json\_enum\_t}}\ *map;}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{bool}\ nodefault;}
+\DoxyCodeLine{00091\ \};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#define\ JSON\_ATTR\_MAX\ \ \ 31\ \ }\textcolor{comment}{/*\ max\ chars\ in\ JSON\ attribute\ name\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#define\ JSON\_VAL\_MAX\ \ \ \ 512\ }\textcolor{comment}{/*\ max\ chars\ in\ JSON\ value\ part\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00097\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00099\ \textcolor{keywordtype}{int}\ json\_read\_object(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *,\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structjson__attr__t}{json\_attr\_t}}\ *,}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ **);}
+\DoxyCodeLine{00101\ \textcolor{keywordtype}{int}\ json\_read\_array(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *,\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structjson__array__t}{json\_array\_t}}\ *,}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ **);}
+\DoxyCodeLine{00103\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *json\_error\_string(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#ifdef\ TIME\_ENABLE}}
+\DoxyCodeLine{00106\ \textcolor{keyword}{extern}\ time\_t\ timegm(\textcolor{keyword}{struct}\ tm\ *tm);}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ TIME\_ENABLE\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00108\ \ \ \ \ }
+\DoxyCodeLine{00109\ \textcolor{keywordtype}{void}\ json\_enable\_debug(\textcolor{keywordtype}{int},\ FILE\ *);}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00111\ \}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#define\ JSON\_ERR\_OBSTART\ \ \ \ 1\ \ \ }\textcolor{comment}{/*\ non-\/WS\ when\ expecting\ object\ start\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#define\ JSON\_ERR\_ATTRSTART\ \ 2\ \ \ }\textcolor{comment}{/*\ non-\/WS\ when\ expecting\ attrib\ start\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#define\ JSON\_ERR\_BADATTR\ \ \ \ 3\ \ \ }\textcolor{comment}{/*\ unknown\ attribute\ name\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#define\ JSON\_ERR\_ATTRLEN\ \ \ \ 4\ \ \ }\textcolor{comment}{/*\ attribute\ name\ too\ long\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#define\ JSON\_ERR\_NOARRAY\ \ \ \ 5\ \ \ }\textcolor{comment}{/*\ saw\ [\ when\ not\ expecting\ array\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#define\ JSON\_ERR\_NOBRAK\ \ \ \ \ 6\ \ \ }\textcolor{comment}{/*\ array\ element\ specified,\ but\ no\ [\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#define\ JSON\_ERR\_STRLONG\ \ \ \ 7\ \ \ }\textcolor{comment}{/*\ string\ value\ too\ long\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#define\ JSON\_ERR\_TOKLONG\ \ \ \ 8\ \ \ }\textcolor{comment}{/*\ token\ value\ too\ long\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#define\ JSON\_ERR\_BADTRAIL\ \ \ 9\ \ \ }\textcolor{comment}{/*\ garbage\ while\ expecting\ comma\ or\ \}\ or\ ]\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#define\ JSON\_ERR\_ARRAYSTART\ 10\ \ }\textcolor{comment}{/*\ didn't\ find\ expected\ array\ start\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#define\ JSON\_ERR\_OBJARR\ \ \ \ \ 11\ \ }\textcolor{comment}{/*\ error\ while\ parsing\ object\ array\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#define\ JSON\_ERR\_SUBTOOLONG\ 12\ \ }\textcolor{comment}{/*\ too\ many\ array\ elements\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#define\ JSON\_ERR\_BADSUBTRAIL\ \ \ \ 13\ \ }\textcolor{comment}{/*\ garbage\ while\ expecting\ array\ comma\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#define\ JSON\_ERR\_SUBTYPE\ \ \ \ 14\ \ }\textcolor{comment}{/*\ unsupported\ array\ element\ type\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\#define\ JSON\_ERR\_BADSTRING\ \ 15\ \ }\textcolor{comment}{/*\ error\ while\ string\ parsing\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\#define\ JSON\_ERR\_CHECKFAIL\ \ 16\ \ }\textcolor{comment}{/*\ check\ attribute\ not\ matched\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00130\ \textcolor{preprocessor}{\#define\ JSON\_ERR\_NOPARSTR\ \ \ 17\ \ }\textcolor{comment}{/*\ can't\ support\ strings\ in\ parallel\ arrays\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00131\ \textcolor{preprocessor}{\#define\ JSON\_ERR\_BADENUM\ \ \ \ 18\ \ }\textcolor{comment}{/*\ invalid\ enumerated\ value\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#define\ JSON\_ERR\_QNONSTRING\ 19\ \ }\textcolor{comment}{/*\ saw\ quoted\ value\ when\ expecting\ nonstring\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00133\ \textcolor{preprocessor}{\#define\ JSON\_ERR\_NONQSTRING\ 19\ \ }\textcolor{comment}{/*\ didn't\ see\ quoted\ value\ when\ expecting\ string\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#define\ JSON\_ERR\_MISC\ \ \ \ \ \ \ 20\ \ }\textcolor{comment}{/*\ other\ data\ conversion\ error\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\#define\ JSON\_ERR\_BADNUM\ \ \ \ \ 21\ \ }\textcolor{comment}{/*\ error\ while\ parsing\ a\ numerical\ argument\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#define\ JSON\_ERR\_NULLPTR\ \ \ \ 22\ \ }\textcolor{comment}{/*\ unexpected\ null\ value\ or\ attribute\ pointer\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#define\ JSON\_ERR\_NOCURLY\ \ \ \ 23\ \ }\textcolor{comment}{/*\ object\ element\ specified,\ but\ no\ \{\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00140\ \textcolor{comment}{\ *\ Use\ the\ following\ macros\ to\ declare\ template\ initializers\ for\ structobject}}
+\DoxyCodeLine{00141\ \textcolor{comment}{\ *\ arrays.\ \ Writing\ the\ equivalents\ out\ by\ hand\ is\ error-\/prone.}}
+\DoxyCodeLine{00142\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00143\ \textcolor{comment}{\ *\ STRUCTOBJECT\ takes\ a\ structure\ name\ s,\ and\ a\ fieldname\ f\ in\ s.}}
+\DoxyCodeLine{00144\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00145\ \textcolor{comment}{\ *\ STRUCTARRAY\ takes\ the\ name\ of\ a\ structure\ array,\ a\ pointer\ to\ a\ an}}
+\DoxyCodeLine{00146\ \textcolor{comment}{\ *\ initializer\ defining\ the\ subobject\ type,\ and\ the\ address\ of\ an\ integer\ to}}
+\DoxyCodeLine{00147\ \textcolor{comment}{\ *\ store\ the\ length\ in.}}
+\DoxyCodeLine{00148\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\#define\ STRUCTOBJECT(s,\ f)\ \ .addr.offset\ =\ offsetof(s,\ f)}}
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\#define\ STRUCTARRAY(a,\ e,\ n)\ \(\backslash\)}}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\ \ \ \ .addr.array.element\_type\ =\ t\_structobject,\ \(\backslash\)}}
+\DoxyCodeLine{00152\ \textcolor{preprocessor}{\ \ \ \ .addr.array.arr.objects.subtype\ =\ e,\ \(\backslash\)}}
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\ \ \ \ .addr.array.arr.objects.base\ =\ (char*)a,\ \(\backslash\)}}
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\ \ \ \ .addr.array.arr.objects.stride\ =\ sizeof(a[0]),\ \(\backslash\)}}
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\ \ \ \ .addr.array.count\ =\ n,\ \(\backslash\)}}
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\ \ \ \ .addr.array.maxlen\ =\ (int)(sizeof(a)/sizeof(a[0]))}}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \textcolor{comment}{/*\ json.h\ ends\ here\ */}}
+
+\end{DoxyCode}

@@ -1,6 +1,6 @@
 <map id="settings_button_animation_right" name="settings_button_animation_right">
 <area shape="rect" id="node1" title="Animation du bouton paramètres quand on a le curseur dessus." alt="" coords="364,5,539,45"/>
-<area shape="rect" id="node2" href="$menus_8c.html#ab3002fe8e0074c9e2ecb5b835e5e819f" title="Affiche le menu principal." alt="" coords="233,13,316,38"/>
+<area shape="rect" id="node2" href="$menus_8c.html#ab98dbf196398d8aeaa4ac97f87ae54a1" title="Affiche le menu principal." alt="" coords="233,13,316,38"/>
 <area shape="rect" id="node3" href="$menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,13,185,38"/>
 <area shape="rect" id="node4" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,13,56,38"/>
 </map>

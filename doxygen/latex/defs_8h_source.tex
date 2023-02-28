@@ -16,63 +16,80 @@
 \DoxyCodeLine{00019\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{PLAY\_BUTTON\_HOVER,\ CONNECT\_BUTTON\_HOVER,\ HOST\_BUTTON\_HOVER,\ SETTINGS\_BUTTON\_HOVER,\ INVENTORY\_BUTTON\_HOVER\}\ T\_BUTTONS\_HOVER;}
 \DoxyCodeLine{00020\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{PLAY\_BUTTON\_CLICKED,\ CONNECT\_BUTTON\_CLICKED,\ HOST\_BUTTON\_CLICKED,\ SETTINGS\_BUTTON\_CLICKED,\ INVENTORY\_BUTTON\_CLICKED\}\ T\_BUTTONS\_CLICKED;}
 \DoxyCodeLine{00021\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{MAIN\_MENU,\ INGAME\_MENU,\ INVENTORY\_MENU,\ SETTINGS\_MENU,\ ERR\_MENU\}\ T\_MENU;}
-\DoxyCodeLine{00022\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{WEAPON,\ FOOD,\ TOOL\}\ T\_ITEM;}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ SOLO;}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00030\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
-\DoxyCodeLine{00031\ \{}
-\DoxyCodeLine{00032\ \ \ \ \ SDL\_Rect\ playerRect;}
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{int}\ animation\_state;}
-\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ connected;}
-\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{int}\ health;}
-\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{int}\ thirst;}
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{int}\ stuck;}
-\DoxyCodeLine{00038\ \}\mbox{\hyperlink{structplayer__t}{player\_t}};}
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00044\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
-\DoxyCodeLine{00045\ \{}
-\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{int}\ damage;\ }
-\DoxyCodeLine{00047\ \}\mbox{\hyperlink{structweapon__t}{weapon\_t}};}
-\DoxyCodeLine{00048\ }
-\DoxyCodeLine{00053\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }}
-\DoxyCodeLine{00054\ \{}
-\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{int}\ feed;}
-\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{int}\ thirst;}
-\DoxyCodeLine{00057\ \}\mbox{\hyperlink{structfood__t}{food\_t}};}
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00063\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }}
-\DoxyCodeLine{00064\ \{}
-\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ *Item;}
-\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{char}\ name[20];}
-\DoxyCodeLine{00067\ \ \ \ \ SDL\_Texture\ *texture;}
-\DoxyCodeLine{00068\ \ \ \ \ SDL\_Surface\ *surface;}
-\DoxyCodeLine{00069\ \ \ \ \ T\_ITEM\ itemType;}
-\DoxyCodeLine{00070\ \}\mbox{\hyperlink{structitem__t}{item\_t}};}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00076\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
-\DoxyCodeLine{00077\ \{}
-\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{int}\ number;}
-\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{structitem__t}{item\_t}}\ *Item;}
-\DoxyCodeLine{00080\ \ \ \ \ SDL\_Texture\ *text\_texture;}
-\DoxyCodeLine{00081\ \ \ \ \ SDL\_Surface\ *text\_surface;}
-\DoxyCodeLine{00082\ \ \ \ \ SDL\_Rect\ text\_rectangle;}
-\DoxyCodeLine{00083\ \ \ \ \ SDL\_Rect\ item\_rectangle;}
-\DoxyCodeLine{00084\ \}\mbox{\hyperlink{structcase__inventory}{case\_inventory}};}
-\DoxyCodeLine{00085\ }
-\DoxyCodeLine{00086\ \textcolor{keyword}{extern}\ T\_MENU\ menu;}
-\DoxyCodeLine{00087\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structitem__t}{item\_t}}\ bois;}
-\DoxyCodeLine{00088\ \textcolor{keyword}{extern}\ SDL\_bool\ tabEvent[20];}
-\DoxyCodeLine{00089\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structcase__inventory}{case\_inventory}}\ mat\_inventory[3][10];}
-\DoxyCodeLine{00090\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structcase__inventory}{case\_inventory}}\ *wearedItem;}
-\DoxyCodeLine{00091\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{defs_8h_acbae57aa2d8c508e63c0597b44024977}{changeMenu}}(T\_MENU\ menuTarget);}
-\DoxyCodeLine{00092\ \textcolor{keyword}{extern}\ T\_MENU\ getMenu();}
-\DoxyCodeLine{00093\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{defs_8h_a6bd9bc7437d75b11d5e167fcf0114dc2}{defineItem}}();}
-\DoxyCodeLine{00094\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structitem__t}{item\_t}}\ *axe;}
-\DoxyCodeLine{00095\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structitem__t}{item\_t}}\ *apple;}
-\DoxyCodeLine{00096\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structplayer__t}{player\_t}}\ joueur;}
-\DoxyCodeLine{00097\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structplayer__t}{player\_t}}\ *\ joueurs;}
-\DoxyCodeLine{00098\ }
-\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00022\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{WEAPON,\ FOOD,\ TOOL,\ BLOCK\_ITEM\}\ T\_ITEM;}
+\DoxyCodeLine{00023\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{CHEST,\ RESOURCE,\ BLOCK\}\ T\_BLOCK;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ SOLO;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00032\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ SDL\_Rect\ playerRect;}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ animation\_state;}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{int}\ connected;}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{int}\ health;}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{int}\ thirst;}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{int}\ stuck;}
+\DoxyCodeLine{00039\ \}\mbox{\hyperlink{structplayer__t}{player\_t}};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00046\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{int}\ damage;\ }
+\DoxyCodeLine{00048\ \}\mbox{\hyperlink{structweapon__t}{weapon\_t}};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }}
+\DoxyCodeLine{00055\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{int}\ feed;}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{int}\ thirst;}
+\DoxyCodeLine{00058\ \}\mbox{\hyperlink{structfood__t}{food\_t}};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00064\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }}
+\DoxyCodeLine{00065\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ *Item;}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{char}\ name[20];}
+\DoxyCodeLine{00068\ \ \ \ \ SDL\_Texture\ *texture;}
+\DoxyCodeLine{00069\ \ \ \ \ SDL\_Surface\ *surface;}
+\DoxyCodeLine{00070\ \ \ \ \ T\_ITEM\ itemType;}
+\DoxyCodeLine{00071\ \}\mbox{\hyperlink{structitem__t}{item\_t}};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00077\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00078\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{int}\ number;}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{structitem__t}{item\_t}}\ *Item;}
+\DoxyCodeLine{00081\ \ \ \ \ SDL\_Texture\ *text\_texture;}
+\DoxyCodeLine{00082\ \ \ \ \ SDL\_Surface\ *text\_surface;}
+\DoxyCodeLine{00083\ \ \ \ \ SDL\_Rect\ text\_rectangle;}
+\DoxyCodeLine{00084\ \ \ \ \ SDL\_Rect\ item\_rectangle;}
+\DoxyCodeLine{00085\ \}\mbox{\hyperlink{structcase__inventory}{case\_inventory}};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00091\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }}
+\DoxyCodeLine{00092\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{structcase__inventory}{case\_inventory}}\ chest\_inventory[3][10];}
+\DoxyCodeLine{00094\ \}\mbox{\hyperlink{structchest__t}{chest\_t}};}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00100\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }}
+\DoxyCodeLine{00101\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{void}\ *Block;}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{char}\ name[20];}
+\DoxyCodeLine{00104\ \ \ \ \ SDL\_Texture\ *texture;}
+\DoxyCodeLine{00105\ \ \ \ \ SDL\_Surface\ *surface;\ \ \ }
+\DoxyCodeLine{00106\ \ \ \ \ SDL\_Rect\ rect;}
+\DoxyCodeLine{00107\ \ \ \ \ T\_BLOCK\ blockType;}
+\DoxyCodeLine{00108\ \}\mbox{\hyperlink{structblock__t}{block\_t}};}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{keyword}{extern}\ T\_MENU\ menu;}
+\DoxyCodeLine{00111\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structitem__t}{item\_t}}\ bois;}
+\DoxyCodeLine{00112\ \textcolor{keyword}{extern}\ SDL\_bool\ tabEvent[20];}
+\DoxyCodeLine{00113\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structcase__inventory}{case\_inventory}}\ mat\_inventory[3][10];}
+\DoxyCodeLine{00114\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structcase__inventory}{case\_inventory}}\ *wearedItem;}
+\DoxyCodeLine{00115\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{defs_8h_acbae57aa2d8c508e63c0597b44024977}{changeMenu}}(T\_MENU\ menuTarget);}
+\DoxyCodeLine{00116\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{defs_8h_a6bd9bc7437d75b11d5e167fcf0114dc2}{defineItem}}();}
+\DoxyCodeLine{00117\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structitem__t}{item\_t}}\ *axe;}
+\DoxyCodeLine{00118\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structitem__t}{item\_t}}\ *apple;}
+\DoxyCodeLine{00119\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structitem__t}{item\_t}}\ *chest\_item;}
+\DoxyCodeLine{00120\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structblock__t}{block\_t}}\ *chest\_block;}
+\DoxyCodeLine{00121\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structplayer__t}{player\_t}}\ joueur;}
+\DoxyCodeLine{00122\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structplayer__t}{player\_t}}\ *\ joueurs;}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

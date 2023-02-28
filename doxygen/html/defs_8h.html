@@ -137,6 +137,12 @@ Structures de données</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcase__inventory.html">case_inventory</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stockera les informations de chaque case de l'inventaire du joueur.  <a href="structcase__inventory.html#details">Plus de détails...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchest__t.html">chest_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Définition d'un chest.  <a href="structchest__t.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structblock__t.html">block_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Définition d'un block.  <a href="structblock__t.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
@@ -182,17 +188,20 @@ Macros</h2></td></tr>
 <tr class="memitem:a1e4d49e165def01fa142ef71ed172564"><td class="memItemLeft" align="right" valign="top"><a id="a1e4d49e165def01fa142ef71ed172564" name="a1e4d49e165def01fa142ef71ed172564"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>T_ITEM</b> { <b>WEAPON</b>
 , <b>FOOD</b>
 , <b>TOOL</b>
+, <b>BLOCK_ITEM</b>
  }</td></tr>
 <tr class="separator:a1e4d49e165def01fa142ef71ed172564"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76ea9a279bc30eca58a6dedc8f0dc836"><td class="memItemLeft" align="right" valign="top"><a id="a76ea9a279bc30eca58a6dedc8f0dc836" name="a76ea9a279bc30eca58a6dedc8f0dc836"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>T_BLOCK</b> { <b>CHEST</b>
+, <b>RESOURCE</b>
+, <b>BLOCK</b>
+ }</td></tr>
+<tr class="separator:a76ea9a279bc30eca58a6dedc8f0dc836"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:acbae57aa2d8c508e63c0597b44024977"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="defs_8h.html#acbae57aa2d8c508e63c0597b44024977">changeMenu</a> (T_MENU menuTarget)</td></tr>
 <tr class="memdesc:acbae57aa2d8c508e63c0597b44024977"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change de menu.  <br /></td></tr>
 <tr class="separator:acbae57aa2d8c508e63c0597b44024977"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46ada666e9f33f66113ea70f035ba7a4"><td class="memItemLeft" align="right" valign="top"><a id="a46ada666e9f33f66113ea70f035ba7a4" name="a46ada666e9f33f66113ea70f035ba7a4"></a>
-T_MENU&#160;</td><td class="memItemRight" valign="bottom"><b>getMenu</b> ()</td></tr>
-<tr class="separator:a46ada666e9f33f66113ea70f035ba7a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6bd9bc7437d75b11d5e167fcf0114dc2"><td class="memItemLeft" align="right" valign="top"><a id="a6bd9bc7437d75b11d5e167fcf0114dc2" name="a6bd9bc7437d75b11d5e167fcf0114dc2"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>defineItem</b> ()</td></tr>
 <tr class="memdesc:a6bd9bc7437d75b11d5e167fcf0114dc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise les items globaux. <br /></td></tr>
@@ -224,6 +233,12 @@ SDL_bool&#160;</td><td class="memItemRight" valign="bottom"><b>tabEvent</b> [20]
 <tr class="memitem:a86505e2036d74eb63470ea9aa3e0eaf6"><td class="memItemLeft" align="right" valign="top"><a id="a86505e2036d74eb63470ea9aa3e0eaf6" name="a86505e2036d74eb63470ea9aa3e0eaf6"></a>
 <a class="el" href="structitem__t.html">item_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>apple</b></td></tr>
 <tr class="separator:a86505e2036d74eb63470ea9aa3e0eaf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab03edfd51d4b01139d9caab0d6483010"><td class="memItemLeft" align="right" valign="top"><a id="ab03edfd51d4b01139d9caab0d6483010" name="ab03edfd51d4b01139d9caab0d6483010"></a>
+<a class="el" href="structitem__t.html">item_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>chest_item</b></td></tr>
+<tr class="separator:ab03edfd51d4b01139d9caab0d6483010"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04cf3527550be0bb37507333d391f7dd"><td class="memItemLeft" align="right" valign="top"><a id="a04cf3527550be0bb37507333d391f7dd" name="a04cf3527550be0bb37507333d391f7dd"></a>
+<a class="el" href="structblock__t.html">block_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>chest_block</b></td></tr>
+<tr class="separator:a04cf3527550be0bb37507333d391f7dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad92f2b056653cc55a088e47aff07f4aa"><td class="memItemLeft" align="right" valign="top"><a id="ad92f2b056653cc55a088e47aff07f4aa" name="ad92f2b056653cc55a088e47aff07f4aa"></a>
 <a class="el" href="structplayer__t.html">player_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>joueur</b></td></tr>
 <tr class="separator:ad92f2b056653cc55a088e47aff07f4aa"><td class="memSeparator" colspan="2">&#160;</td></tr>

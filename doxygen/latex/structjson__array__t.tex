@@ -1,0 +1,64 @@
+\hypertarget{structjson__array__t}{}\doxysection{Référence de la structure json\+\_\+array\+\_\+t}
+\label{structjson__array__t}\index{json\_array\_t@{json\_array\_t}}
+
+
+Graphe de collaboration de json\+\_\+array\+\_\+t\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=267pt]{structjson__array__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Champs de données}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structjson__array__t_a0cd8c70bd8b923c9aa0b12e361d56a50}\label{structjson__array__t_a0cd8c70bd8b923c9aa0b12e361d56a50}} 
+json\+\_\+type {\bfseries element\+\_\+type}
+\item 
+\mbox{\Hypertarget{structjson__array__t_a9fbcc058686e66571f5732bd5161c335}\label{structjson__array__t_a9fbcc058686e66571f5732bd5161c335}} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>struct \{\\
+\>\>const struct \mbox{\hyperlink{structjson__attr__t}{json\+\_\+attr\+\_\+t}} $\ast$ {\bfseries subtype}\\
+\>\>char $\ast$ {\bfseries base}\\
+\>\>size\_t {\bfseries stride}\\
+\>\} {\bfseries objects}\\
+\>struct \{\\
+\>\>char $\ast$$\ast$ {\bfseries ptrs}\\
+\>\>char $\ast$ {\bfseries store}\\
+\>\>int {\bfseries storelen}\\
+\>\} {\bfseries strings}\\
+\>struct \{\\
+\>\>int $\ast$ {\bfseries store}\\
+\>\} {\bfseries integers}\\
+\>struct \{\\
+\>\>unsigned int $\ast$ {\bfseries store}\\
+\>\} {\bfseries uintegers}\\
+\>struct \{\\
+\>\>short $\ast$ {\bfseries store}\\
+\>\} {\bfseries shorts}\\
+\>struct \{\\
+\>\>unsigned short $\ast$ {\bfseries store}\\
+\>\} {\bfseries ushorts}\\
+\>struct \{\\
+\>\>double $\ast$ {\bfseries store}\\
+\>\} {\bfseries reals}\\
+\>struct \{\\
+\>\>bool $\ast$ {\bfseries store}\\
+\>\} {\bfseries booleans}\\
+\} {\bfseries arr}\\
+
+\end{tabbing}\item 
+\mbox{\Hypertarget{structjson__array__t_afd9db40e3361ae09188795e8cbe19752}\label{structjson__array__t_afd9db40e3361ae09188795e8cbe19752}} 
+int $\ast$ {\bfseries count}
+\item 
+\mbox{\Hypertarget{structjson__array__t_a245b5bee0d02a20222d815dbeaaac0fb}\label{structjson__array__t_a245b5bee0d02a20222d815dbeaaac0fb}} 
+int {\bfseries maxlen}
+\end{DoxyCompactItemize}
+
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Yusuf/\+Lonesome-\/\+Island/src/mjson.\+h\end{DoxyCompactItemize}

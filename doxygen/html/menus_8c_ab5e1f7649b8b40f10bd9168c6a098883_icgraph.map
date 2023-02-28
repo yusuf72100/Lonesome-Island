@@ -1,6 +1,6 @@
 <map id="buttonHover" name="buttonHover">
 <area shape="rect" id="node1" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="364,5,455,31"/>
-<area shape="rect" id="node2" href="$menus_8c.html#ab3002fe8e0074c9e2ecb5b835e5e819f" title="Affiche le menu principal." alt="" coords="233,5,316,31"/>
+<area shape="rect" id="node2" href="$menus_8c.html#ab98dbf196398d8aeaa4ac97f87ae54a1" title="Affiche le menu principal." alt="" coords="233,5,316,31"/>
 <area shape="rect" id="node3" href="$menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,5,185,31"/>
 <area shape="rect" id="node4" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
 </map>

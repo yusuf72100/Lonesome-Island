@@ -1,0 +1,7 @@
+<map id="SettingsMenu" name="SettingsMenu">
+<area shape="rect" id="node1" title="Affiche le menu des paramètres." alt="" coords="5,31,108,56"/>
+<area shape="rect" id="node2" href="$menus_8c.html#a317983aacbc3405e75432d6290b1b280" title="Dessine l&#39;image souhaitée." alt="" coords="158,5,242,31"/>
+<area shape="rect" id="node5" href="$menus_8c.html#aab7430a217db9969c46ead48adffbd05" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="156,55,244,80"/>
+<area shape="rect" id="node3" href="$menus_8c.html#a3ccdb6767f1237284bf7c8e0d3e3eacb" title="Détruit la fenêtre et le rendu." alt="" coords="318,5,398,31"/>
+<area shape="rect" id="node4" href="$menus_8c.html#acd3f39401c59bbd01c9663c5348c63c1" title="Nous renvoi une erreur SDL." alt="" coords="292,55,424,80"/>
+</map>
