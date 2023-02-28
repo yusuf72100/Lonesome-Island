@@ -592,7 +592,7 @@ static void doEvents()
                 tabTick[13] = SDL_GetTicks();
             }
         }
-        else if(menu != MAIN_MENU){
+        else if(menu == INVENTORY_MENU){
             if((SDL_GetTicks() - tabTick[13]) >= 200)
             {
                 changeMenu(INGAME_MENU);

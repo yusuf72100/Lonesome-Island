@@ -12,7 +12,7 @@ main:	$(objets)
 	GCC $(SRCDIR)/main.c -o prog $(LIBDIR)/liste.o  $(LIBDIR)/socket.o $(LIBDIR)/client.o $(LIBDIR)/menus.o $(LIBDIR)/sound.o $(LIBDIR)/defs.o $(LDFLAGS)
 	@echo "Main compilation success!"
 	make success
- 
+
 client.o:	$(SRCDIR)/client.c
 	GCC -o $(LIBDIR)/client.o -c $(SRCDIR)/client.c $(LDFLAGS)
 	@echo "Client compilation success!"

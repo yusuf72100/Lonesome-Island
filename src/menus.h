@@ -67,6 +67,8 @@ static SDL_Rect host_button_rect;
 static SDL_Rect settings_button_rect;
 static SDL_Rect inventory_rect;
 static SDL_Rect lifebar_rect;
+static SDL_Rect title_rect;
+static SDL_Rect settings_menu_bg_rect;
 
 static SDL_DisplayMode DM;
 
@@ -78,7 +80,6 @@ static SDL_Color blackColor = {0, 0, 0};
 static SDL_Color whiteColor = {239, 198, 155};
 static TTF_Font *police = NULL;
 static TTF_Font *item_dafont = NULL;
-static SDL_Rect title_rect;
 
 //game assets
 static SDL_Surface *lifebar_surface = NULL;
@@ -97,6 +98,7 @@ static SDL_Surface *surface_joueur_up_1 = NULL;
 static SDL_Surface *surface_joueur_up_2 = NULL;
 static SDL_Surface *surface_joueur_down_1 = NULL;
 static SDL_Surface *surface_joueur_down_2 = NULL;
+static SDL_Surface *surface_settings_bg = NULL;
 
 //items surfaces
 static SDL_Surface *apple_food_surface = NULL;
@@ -121,6 +123,7 @@ static SDL_Texture *texture_joueur_up_1 = NULL;
 static SDL_Texture *texture_joueur_up_2 = NULL;
 static SDL_Texture *texture_joueur_down_1 = NULL;
 static SDL_Texture *texture_joueur_down_2 = NULL;
+static SDL_Texture *texture_settings_bg = NULL;
 
 //menu assets
 static SDL_Surface *play_inert = NULL;
@@ -184,7 +187,7 @@ void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_R
 void buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button, void* (*p)(void*), void* (*p2)(void*));
 void displayError(char *s);
 void drawError(SDL_Rect rect, SDL_Texture *texture);
-void drawTitle();
+void drawImage(SDL_Texture *texture, SDL_Rect rect);
 void *settings_button_animation_right();
 void *settings_button_animation_left();
 void *running_down_animation(void *j);

@@ -555,17 +555,17 @@ void *settings_button_animation_right()
 }
 
 /**
- * @brief Dessine le titre dans le menu principal
+ * @brief Dessine l'image souhaitée
  * 
  */
-void drawTitle()
+void drawImage(SDL_Texture *texture, SDL_Rect rect)
 {
-    if(SDL_QueryTexture(title_texture, NULL, NULL, &title_rect.w,&title_rect.h) != 0)
+    if(SDL_QueryTexture(texture, NULL, NULL, &rect.w,&rect.h) != 0)
     {
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible d'afficher la texture du joueur...");
     }
-    SDL_RenderCopy(renderer, title_texture, NULL, &title_rect);
+    SDL_RenderCopy(renderer, texture, NULL, &rect);
 }
 
 /**
@@ -652,6 +652,7 @@ static void surfacesInit()
     host_hover = IMG_Load("resources/host_hover.png");
     title_surface = IMG_Load("resources/title.png");
     settings_inert = IMG_Load("resources/settings_inert.png");
+    surface_settings_bg = IMG_Load("resources/settings_menu_bg.png");
 
     //player    
     surface_joueur_h1 = IMG_Load("resources/characters/player_h1.png");
@@ -705,6 +706,7 @@ static void texturesInit()
     init_texture(&host_hover , &texture_host_hover);
     init_texture(&settings_inert , &texture_settings_inert);
     init_texture(&inventory_surface , &inventory_texture);
+    init_texture(&surface_settings_bg, &texture_settings_bg);
 
     //game assets
     init_texture(&background , &background_texture);
@@ -770,6 +772,12 @@ static void rectanglesInit()
     settings_button_rect.h = 150;
     settings_button_rect.x = 30;
     settings_button_rect.y = DM.h - settings_button_rect.h - ((DM.h * 3) / 100);
+
+    //settings menu
+    settings_menu_bg_rect.w = 800;
+    settings_menu_bg_rect.h = 800;
+    settings_menu_bg_rect.x = (DM.w / 2) - (settings_menu_bg_rect.w / 2);
+    settings_menu_bg_rect.y = (DM.h / 2) - (settings_menu_bg_rect.h / 2);;
 
     //inventory 
     inventory_rect.w = 800;
@@ -1029,7 +1037,6 @@ void drawInventory()
 void drawCases()
 {
     int compteur = 0;
-
     for(int i = 0; i < 3; i++)
     {
         for(int j = 0; j < 10; j++)
@@ -1096,18 +1103,32 @@ void drawlifeBar()
  * @brief Affiche le menu principal
  * 
  */
-void mainMenu()
+void MainMenu()
 {
     mouseRect.x = mouse_position.x;
     mouseRect.y = mouse_position.y;
-
+        
     drawButtons();
     buttonHover(play_hover, texture_play_hover, &play_button_rect, &hover_playbutton);
     buttonHover(connect_hover, texture_connect_hover, &connect_button_rect, &hover_connectbutton);
     buttonHover(host_hover, texture_host_hover, &host_button_rect, &hover_hostbutton);
     buttonHoverWithAnimation(settings_inert, texture_settings_inert, &settings_button_rect, &hover_settingsbutton, settings_button_animation_right, settings_button_animation_left);
     drawButton_withRotation(texture_settings_inert, settings_button_rect, settings_inert);
-    drawTitle();
+    drawImage(title_texture, title_rect);
+    drawMouse();
+}
+
+/**
+ * @brief Affiche le menu des paramètres
+ * 
+ */
+void SettingsMenu()
+{
+    settings_button_animation_state = 0;
+    mouseRect.x = mouse_position.x;
+    mouseRect.y = mouse_position.y;
+
+    drawImage(texture_settings_bg, settings_menu_bg_rect);
     drawMouse();
 }
 
@@ -1117,6 +1138,7 @@ void mainMenu()
  */
 void IngameMenu()
 {
+    settings_button_animation_state = 0;
     hover_inventoryitem = FALSE;
     mouseRect.x = mouse_position.x;
     mouseRect.y = mouse_position.y;
@@ -1131,6 +1153,7 @@ void IngameMenu()
  */
 void InventoryMenu()
 {
+    settings_button_animation_state = 0;
     IngameMenu();
     drawInventory();
     drawCases();
@@ -1147,7 +1170,7 @@ void drawMenu()
     switch (menu)
     {
     case MAIN_MENU:
-        mainMenu();
+        MainMenu();
         break;
     case INGAME_MENU:
         IngameMenu();
@@ -1155,10 +1178,12 @@ void drawMenu()
     case INVENTORY_MENU:
         InventoryMenu();
         break;
+    case SETTINGS_MENU:
+        SettingsMenu();
+        break;
     default:
         break;
     }
-
     SDL_RenderPresent(renderer);
 }
 
