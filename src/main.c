@@ -184,7 +184,6 @@ static void checkEvents()
                         tabEvent[13] = SDL_TRUE;
                         break;
                 }
-
             break;
 
             case SDL_KEYUP:
@@ -235,7 +234,6 @@ static void checkEvents()
                         tabEvent[13] = SDL_FALSE;
                         break;
                 }
-
             break;
 
             //mouse buttons
@@ -254,7 +252,6 @@ static void checkEvents()
                     tabEvent[9] = SDL_TRUE;
                     break;
                 }
-
             break;
 
             case SDL_MOUSEBUTTONUP:
@@ -272,13 +269,11 @@ static void checkEvents()
                     tabEvent[9] = SDL_FALSE;
                     break;
                 }
-
             break;
 
             case SDL_QUIT:
                 program_launched = SDL_FALSE;
                 break;
-
             }
 }
 
