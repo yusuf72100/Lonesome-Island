@@ -50,7 +50,6 @@ static SDL_bool hover_connectbutton = SDL_FALSE;
 static SDL_bool hover_hostbutton = SDL_FALSE;
 static SDL_bool hover_settingsbutton = SDL_FALSE;
 static SDL_bool hover_inventoryitem = SDL_FALSE;
-
 static SDL_bool clicked_playbutton = SDL_FALSE;
 static SDL_bool clicked_connectbutton = SDL_FALSE;
 static SDL_bool clicked_hostbutton = SDL_FALSE;
@@ -69,6 +68,7 @@ static SDL_Rect inventory_rect;
 static SDL_Rect lifebar_rect;
 static SDL_Rect title_rect;
 static SDL_Rect settings_menu_bg_rect;
+static SDL_Rect settings_menu_keybinds_button_rect;
 
 static SDL_DisplayMode DM;
 
@@ -98,7 +98,6 @@ static SDL_Surface *surface_joueur_up_1 = NULL;
 static SDL_Surface *surface_joueur_up_2 = NULL;
 static SDL_Surface *surface_joueur_down_1 = NULL;
 static SDL_Surface *surface_joueur_down_2 = NULL;
-static SDL_Surface *surface_settings_bg = NULL;
 
 //items surfaces
 static SDL_Surface *apple_food_surface = NULL;
@@ -123,16 +122,17 @@ static SDL_Texture *texture_joueur_up_1 = NULL;
 static SDL_Texture *texture_joueur_up_2 = NULL;
 static SDL_Texture *texture_joueur_down_1 = NULL;
 static SDL_Texture *texture_joueur_down_2 = NULL;
-static SDL_Texture *texture_settings_bg = NULL;
 
 //menu assets
-static SDL_Surface *play_inert = NULL;
-static SDL_Surface *play_hover = NULL;
-static SDL_Surface *connect_inert = NULL;
-static SDL_Surface *connect_hover = NULL;
-static SDL_Surface *host_inert = NULL;
-static SDL_Surface *host_hover = NULL;
-static SDL_Surface *settings_inert = NULL;
+static SDL_Surface *surface_play_inert = NULL;
+static SDL_Surface *surface_play_hover = NULL;
+static SDL_Surface *surface_connect_inert = NULL;
+static SDL_Surface *surface_connect_hover = NULL;
+static SDL_Surface *surface_host_inert = NULL;
+static SDL_Surface *surface_host_hover = NULL;
+static SDL_Surface *surface_settings_inert = NULL;
+static SDL_Surface *surface_settings_bg = NULL;
+static SDL_Surface *surface_settings_menu_keybinds_button = NULL;
 
 static SDL_Texture *texture_play_inert = NULL;
 static SDL_Texture *texture_play_hover = NULL;	
@@ -141,6 +141,8 @@ static SDL_Texture *texture_connect_hover = NULL;
 static SDL_Texture *texture_host_inert = NULL;
 static SDL_Texture *texture_host_hover = NULL;	
 static SDL_Texture *texture_settings_inert = NULL;
+static SDL_Texture *texture_settings_bg = NULL;
+static SDL_Texture *texture_settings_menu_keybinds_button = NULL;
 
 //window init
 static SDL_Window *window = NULL;

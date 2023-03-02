@@ -177,9 +177,9 @@ int onButton(T_BUTTONS_HOVER button)
  */
 void drawButtons()
 {
-    drawButton(texture_play_inert, play_button_rect, play_inert);
-    drawButton(texture_connect_inert, connect_button_rect, connect_inert);
-    drawButton(texture_host_inert, host_button_rect, host_inert);
+    drawButton(texture_play_inert, play_button_rect, surface_play_inert);
+    drawButton(texture_connect_inert, connect_button_rect, surface_connect_inert);
+    drawButton(texture_host_inert, host_button_rect, surface_host_inert);
 }
 
 /**
@@ -644,15 +644,16 @@ static void surfacesInit()
     cursor = IMG_Load("resources/cursor/cursor.png");
     cursor_select = IMG_Load("resources/cursor/cursor_select.png");
     background = IMG_Load("resources/bg.png");
-    play_inert = IMG_Load("resources/play_inert.png");
-    play_hover = IMG_Load("resources/play_hover.png");
-    connect_inert = IMG_Load("resources/connect_inert.png");
-    connect_hover = IMG_Load("resources/connect_hover.png");
-    host_inert = IMG_Load("resources/host_inert.png");
-    host_hover = IMG_Load("resources/host_hover.png");
+    surface_play_inert = IMG_Load("resources/play_inert.png");
+    surface_play_hover = IMG_Load("resources/play_hover.png");
+    surface_connect_inert = IMG_Load("resources/connect_inert.png");
+    surface_connect_hover = IMG_Load("resources/connect_hover.png");
+    surface_host_inert = IMG_Load("resources/host_inert.png");
+    surface_host_hover = IMG_Load("resources/host_hover.png");
     title_surface = IMG_Load("resources/title.png");
-    settings_inert = IMG_Load("resources/settings_inert.png");
+    surface_settings_inert = IMG_Load("resources/settings_inert.png");
     surface_settings_bg = IMG_Load("resources/settings_menu_bg.png");
+    surface_settings_menu_keybinds_button = IMG_Load("resources/settings_keybind_button.png");
 
     //player    
     surface_joueur_h1 = IMG_Load("resources/characters/player_h1.png");
@@ -698,15 +699,16 @@ static void texturesInit()
 {
     //buttons
     init_texture(&title_surface , &title_texture);
-    init_texture(&play_inert , &texture_play_inert);
-    init_texture(&play_hover , &texture_play_hover);
-    init_texture(&connect_inert , &texture_connect_inert);
-    init_texture(&connect_hover , &texture_connect_hover);
-    init_texture(&host_inert , &texture_host_inert);
-    init_texture(&host_hover , &texture_host_hover);
-    init_texture(&settings_inert , &texture_settings_inert);
+    init_texture(&surface_play_inert , &texture_play_inert);
+    init_texture(&surface_play_hover , &texture_play_hover);
+    init_texture(&surface_connect_inert , &texture_connect_inert);
+    init_texture(&surface_connect_hover , &texture_connect_hover);
+    init_texture(&surface_host_inert , &texture_host_inert);
+    init_texture(&surface_host_hover , &texture_host_hover);
+    init_texture(&surface_settings_inert , &texture_settings_inert);
     init_texture(&inventory_surface , &inventory_texture);
     init_texture(&surface_settings_bg, &texture_settings_bg);
+    init_texture(&surface_settings_menu_keybinds_button, &texture_settings_menu_keybinds_button);
 
     //game assets
     init_texture(&background , &background_texture);
@@ -777,7 +779,12 @@ static void rectanglesInit()
     settings_menu_bg_rect.w = 800;
     settings_menu_bg_rect.h = 800;
     settings_menu_bg_rect.x = (DM.w / 2) - (settings_menu_bg_rect.w / 2);
-    settings_menu_bg_rect.y = (DM.h / 2) - (settings_menu_bg_rect.h / 2);;
+    settings_menu_bg_rect.y = (DM.h / 2) - (settings_menu_bg_rect.h / 2);
+
+    settings_menu_keybinds_button_rect.w = 400;
+    settings_menu_keybinds_button_rect.h = 125;
+    settings_menu_keybinds_button_rect.x = settings_menu_bg_rect.x + ((settings_menu_bg_rect.w*5)-100);
+    settings_menu_keybinds_button_rect.y = settings_menu_bg_rect.y + ((settings_menu_bg_rect.h*5)-100);
 
     //inventory 
     inventory_rect.w = 800;
@@ -785,10 +792,12 @@ static void rectanglesInit()
     inventory_rect.x = (DM.w / 2) - (inventory_rect.w / 2);
     inventory_rect.y = DM.h - inventory_rect.h - 20;
 
+    //lifebar
     lifebar_rect.w = 300;
     lifebar_rect.h = 75;
     lifebar_rect.x = 0;
     lifebar_rect.y = DM.h - (lifebar_rect.h*2);
+    
 }
 
 /**
@@ -1109,11 +1118,11 @@ static void MainMenu()
     mouseRect.y = mouse_position.y;
         
     drawButtons();
-    buttonHover(play_hover, texture_play_hover, &play_button_rect, &hover_playbutton);
-    buttonHover(connect_hover, texture_connect_hover, &connect_button_rect, &hover_connectbutton);
-    buttonHover(host_hover, texture_host_hover, &host_button_rect, &hover_hostbutton);
-    buttonHoverWithAnimation(settings_inert, texture_settings_inert, &settings_button_rect, &hover_settingsbutton, settings_button_animation_right, settings_button_animation_left);
-    drawButton_withRotation(texture_settings_inert, settings_button_rect, settings_inert);
+    buttonHover(surface_play_hover, texture_play_hover, &play_button_rect, &hover_playbutton);
+    buttonHover(surface_connect_hover, texture_connect_hover, &connect_button_rect, &hover_connectbutton);
+    buttonHover(surface_host_hover, texture_host_hover, &host_button_rect, &hover_hostbutton);
+    buttonHoverWithAnimation(surface_settings_inert, texture_settings_inert, &settings_button_rect, &hover_settingsbutton, settings_button_animation_right, settings_button_animation_left);
+    drawButton_withRotation(texture_settings_inert, settings_button_rect, surface_settings_inert);
     drawImage(title_texture, title_rect);
     drawMouse();
 }
