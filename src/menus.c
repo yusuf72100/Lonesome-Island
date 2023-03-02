@@ -72,6 +72,10 @@ void switchButtonState_hover(T_BUTTONS_HOVER button)
         if(hover_settingsbutton == FALSE) hover_settingsbutton = TRUE;
         else hover_settingsbutton = FALSE;
     }
+    else if(button == SETTINGS_KEYBIND_HOVER){
+        if(hover_settings_keybindsbutton == FALSE) hover_settings_keybindsbutton = TRUE;
+        else hover_settings_keybindsbutton = FALSE;
+    }
 }
 
 /**
@@ -108,21 +112,28 @@ void changeButtonState_hover(T_BUTTONS_HOVER button, int state)
  */
 void changeButtonState_clicked(T_BUTTONS_CLICKED button, int state)
 {
-    if(button == CONNECT_BUTTON_CLICKED)
+    switch (button)
     {
+    case CONNECT_BUTTON_CLICKED:
         clicked_connectbutton = state;
-    }
-    else if(button == HOST_BUTTON_CLICKED){
+        break;
+    case HOST_BUTTON_CLICKED:
         clicked_hostbutton = state;
-    }
-    else if(button == PLAY_BUTTON_CLICKED){
+        break;
+    case PLAY_BUTTON_CLICKED:
         clicked_playbutton = state;
-    }
-    else if(button == SETTINGS_BUTTON_CLICKED){
+        break;
+    case SETTINGS_BUTTON_CLICKED:
         clicked_settingsbutton = state;
-    }
-    else if(button == INVENTORY_BUTTON_CLICKED){
-       clicked_inventoryitem = state;
+        break;
+    case SETTINGS_KEYBIND_CLICKED:
+        clicked_settings_keybindsbutton = state;
+        break;
+    case INVENTORY_BUTTON_CLICKED:
+        clicked_inventoryitem = state;
+        break;
+    default:
+        break;
     }
 }
 
@@ -134,22 +145,22 @@ void changeButtonState_clicked(T_BUTTONS_CLICKED button, int state)
  */
 int getButtonState_clicked(T_BUTTONS_CLICKED button)
 {
-    if(button == CONNECT_BUTTON_CLICKED)
+    switch (button)
     {
+    case CONNECT_BUTTON_CLICKED:
         return clicked_connectbutton;
-    }
-    else if(button == HOST_BUTTON_CLICKED){
+    case HOST_BUTTON_CLICKED:
         return clicked_hostbutton;
-    }
-    else if(button == PLAY_BUTTON_CLICKED){
+    case PLAY_BUTTON_CLICKED:
         return clicked_playbutton;
-    }
-    else if(button == SETTINGS_BUTTON_CLICKED){
+    case SETTINGS_BUTTON_CLICKED:
         return clicked_settingsbutton;
+    case INVENTORY_BUTTON_CLICKED:
+        return clicked_inventoryitem;
+    default:
+        return FALSE;
     }
-    else if(button == INVENTORY_BUTTON_CLICKED){
-       return clicked_inventoryitem;
-    }
+
 }
 
 /**
@@ -160,15 +171,22 @@ int getButtonState_clicked(T_BUTTONS_CLICKED button)
  */
 int onButton(T_BUTTONS_HOVER button)
 {
-    if(button == CONNECT_BUTTON_HOVER)
+    switch (button)
+    {
+    case CONNECT_BUTTON_HOVER:
         return SDL_PointInRect(&mouse_position, &connect_button_rect);
-    else if(button == HOST_BUTTON_HOVER)
+    case HOST_BUTTON_HOVER:
         return SDL_PointInRect(&mouse_position, &host_button_rect);
-    else if(button == PLAY_BUTTON_HOVER)
+    case PLAY_BUTTON_HOVER:
         return SDL_PointInRect(&mouse_position, &play_button_rect);
-    else if(button == SETTINGS_BUTTON_HOVER)
+    case SETTINGS_BUTTON_HOVER:
         return SDL_PointInRect(&mouse_position, &settings_button_rect);
-    else return FALSE;
+    case SETTINGS_KEYBIND_HOVER:
+        return SDL_PointInRect(&mouse_position, &settings_menu_keybinds_button_rect);
+    default:
+        return FALSE;
+    }
+
 }
 
 /**
@@ -177,9 +195,23 @@ int onButton(T_BUTTONS_HOVER button)
  */
 void drawButtons()
 {
-    drawButton(texture_play_inert, play_button_rect, surface_play_inert);
-    drawButton(texture_connect_inert, connect_button_rect, surface_connect_inert);
-    drawButton(texture_host_inert, host_button_rect, surface_host_inert);
+    switch (menu)
+    {
+    case MAIN_MENU:
+        drawButton(texture_play_inert, play_button_rect, surface_play_inert);
+        drawButton(texture_connect_inert, connect_button_rect, surface_connect_inert);
+        drawButton(texture_host_inert, host_button_rect, surface_host_inert);
+        break;
+
+    case SETTINGS_MAIN_MENU:
+        drawButton(texture_settings_menu_keybinds_button, settings_menu_keybinds_button_rect, surface_settings_menu_keybinds_button);
+        break;
+    case SETTINGS_MAIN_KEYBIND_MENU:
+        drawButton(texture_settings_menu_keybinds_button_hover, settings_menu_keybinds_button_rect, surface_settings_menu_keybinds_button);
+        break;
+    default:
+        break;
+    }
 }
 
 /**
@@ -200,7 +232,7 @@ void update_screen()
  */
 void drawMouse()
 {
-    if(hover_playbutton || hover_connectbutton || hover_hostbutton || hover_settingsbutton || hover_inventoryitem || wearingItem) 
+    if(hover_playbutton || hover_connectbutton || hover_hostbutton || hover_settingsbutton || hover_inventoryitem || hover_settings_keybindsbutton|| wearingItem) 
     {
         if(SDL_QueryTexture(cursor_select_texture, NULL, NULL, &mouseRect.w, &mouseRect.h) != 0)
         {
@@ -654,6 +686,7 @@ static void surfacesInit()
     surface_settings_inert = IMG_Load("resources/settings_inert.png");
     surface_settings_bg = IMG_Load("resources/settings_menu_bg.png");
     surface_settings_menu_keybinds_button = IMG_Load("resources/settings_keybind_button.png");
+    surface_settings_menu_keybinds_button_hover = IMG_Load("resources/settings_keybind_button_hover.png");
 
     //player    
     surface_joueur_h1 = IMG_Load("resources/characters/player_h1.png");
@@ -709,6 +742,7 @@ static void texturesInit()
     init_texture(&inventory_surface , &inventory_texture);
     init_texture(&surface_settings_bg, &texture_settings_bg);
     init_texture(&surface_settings_menu_keybinds_button, &texture_settings_menu_keybinds_button);
+    init_texture(&surface_settings_menu_keybinds_button_hover, &texture_settings_menu_keybinds_button_hover);
 
     //game assets
     init_texture(&background , &background_texture);
@@ -781,10 +815,10 @@ static void rectanglesInit()
     settings_menu_bg_rect.x = (DM.w / 2) - (settings_menu_bg_rect.w / 2);
     settings_menu_bg_rect.y = (DM.h / 2) - (settings_menu_bg_rect.h / 2);
 
-    settings_menu_keybinds_button_rect.w = 400;
-    settings_menu_keybinds_button_rect.h = 125;
-    settings_menu_keybinds_button_rect.x = settings_menu_bg_rect.x + ((settings_menu_bg_rect.w*5)-100);
-    settings_menu_keybinds_button_rect.y = settings_menu_bg_rect.y + ((settings_menu_bg_rect.h*5)-100);
+    settings_menu_keybinds_button_rect.w = 332;
+    settings_menu_keybinds_button_rect.h = 98;
+    settings_menu_keybinds_button_rect.x = settings_menu_bg_rect.x + ((settings_menu_bg_rect.w*6)/100);
+    settings_menu_keybinds_button_rect.y = settings_menu_bg_rect.y + ((settings_menu_bg_rect.h*20)/100);
 
     //inventory 
     inventory_rect.w = 800;
@@ -1105,7 +1139,7 @@ void drawlifeBar()
     SDL_RenderDrawRect(renderer, &rect);
     SDL_RenderFillRect(renderer, &rect);
 
-    drawButton(lifebar_texture, lifebar_rect, lifebar_surface);
+    drawImage(lifebar_texture, lifebar_rect);
 }
 
 /**
@@ -1136,8 +1170,26 @@ static void SettingsMainMenu()
     settings_button_animation_state = 0;
     mouseRect.x = mouse_position.x;
     mouseRect.y = mouse_position.y;
-
     drawImage(texture_settings_bg, settings_menu_bg_rect);
+    
+    buttonHover(surface_settings_menu_keybinds_button, texture_settings_menu_keybinds_button, &settings_menu_keybinds_button_rect, &hover_settings_keybindsbutton);
+    drawButtons();
+    drawMouse();
+}
+
+/**
+ * @brief Affiche le menu des paramètres des keybinds dans le menu principal 
+ * 
+ */
+static void SettingsMainKeybindMenu()
+{
+    settings_button_animation_state = 0;
+    mouseRect.x = mouse_position.x;
+    mouseRect.y = mouse_position.y;
+    drawImage(texture_settings_bg, settings_menu_bg_rect);
+    
+    buttonHover(surface_settings_menu_keybinds_button_hover, texture_settings_menu_keybinds_button_hover, &settings_menu_keybinds_button_rect, &hover_settings_keybindsbutton);
+    drawButtons();
     drawMouse();
 }
 
@@ -1207,6 +1259,9 @@ void drawMenu()
         break;
     case SETTINGS_INGAME_MENU:
         SettingsInGameMenu();
+        break;
+    case SETTINGS_MAIN_KEYBIND_MENU:
+        SettingsMainKeybindMenu();
         break;
     default:
         break;
