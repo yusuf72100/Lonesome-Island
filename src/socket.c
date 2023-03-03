@@ -31,9 +31,8 @@ char *getLocalIp()
         printf("gethostbyname failed.\n");
     }
     memcpy(&addr, host->h_addr_list[0], sizeof(struct in_addr));
-    return (inet_ntoa(addr));
-
     WSACleanup();
+    return (inet_ntoa(addr));
 }
 
 /**
@@ -385,7 +384,6 @@ void *startServer()
     argt->sd->joueur.playerRect.h = 81;
 
     //on lance et attend l'arrêt du serveur
-    HOST = TRUE;
     searchClients((void*)argt);
     printf("Fin du serveur\n");
 }
