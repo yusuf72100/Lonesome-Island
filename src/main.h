@@ -23,6 +23,7 @@
 #include "liste.h"
 #include "client.h"
 #include "sound.h"
+#include "settings.h"
 #include <windows.h>
 
 static Liste *l;

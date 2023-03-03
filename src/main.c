@@ -138,137 +138,69 @@ static void checkEvents()
             {
             case SDL_KEYDOWN:
 
-                switch(event.key.keysym.sym)
-                {
-                    case SDLK_z:
-                        tabEvent[0] = SDL_TRUE;
-                        break;
+                if (event.key.keysym.sym == globalKeyTab[0]) tabEvent[0] = SDL_TRUE;
 
-                    case SDLK_q:
-                        tabEvent[1] = SDL_TRUE;
-                        break;
+                if (event.key.keysym.sym == globalKeyTab[1]) tabEvent[1] = SDL_TRUE;
 
-                    case SDLK_s:
-                        tabEvent[2] = SDL_TRUE;
-                        break;
+                if (event.key.keysym.sym == globalKeyTab[2]) tabEvent[2] = SDL_TRUE;
 
-                    case SDLK_d:
-                        tabEvent[3] = SDL_TRUE;
-                        break;
+                if (event.key.keysym.sym == globalKeyTab[3]) tabEvent[3] = SDL_TRUE;
 
-                    case SDLK_LEFT:
-                        tabEvent[4] = SDL_TRUE;
-                        break;
+                if (event.key.keysym.sym == globalKeyTab[4]) tabEvent[4] = SDL_TRUE;
 
-                    case SDLK_RIGHT:
-                        tabEvent[5] = SDL_TRUE;
-                        break;
+                if (event.key.keysym.sym == globalKeyTab[5]) tabEvent[5] = SDL_TRUE;
 
-                    case SDLK_SPACE:
-                        tabEvent[6] = SDL_TRUE;
-                        break;
-                    
-                    case SDLK_ESCAPE:
-                        tabEvent[10] = SDL_TRUE;
-                        break;
+                if (event.key.keysym.sym == globalKeyTab[6]) tabEvent[6] = SDL_TRUE;
 
-                    case SDLK_LALT:
-                        tabEvent[11] = SDL_TRUE;
-                        break;
+                if (event.key.keysym.sym == globalKeyTab[10]) tabEvent[10] = SDL_TRUE;
 
-                    case SDLK_RETURN:
-                        tabEvent[12] = SDL_TRUE;
-                        break;
+                if (event.key.keysym.sym == globalKeyTab[11]) tabEvent[11] = SDL_TRUE;
 
-                    case SDLK_TAB:
-                        tabEvent[13] = SDL_TRUE;
-                        break;
-                }
+                if (event.key.keysym.sym == globalKeyTab[12]) tabEvent[12] = SDL_TRUE;
+
+                if (event.key.keysym.sym == globalKeyTab[13]) tabEvent[13] = SDL_TRUE;
             break;
 
             case SDL_KEYUP:
 
-                switch(event.key.keysym.sym)
-                {
-                    case SDLK_z:
-                        tabEvent[0] = SDL_FALSE;
-                        break;
+                if (event.key.keysym.sym == globalKeyTab[0]) tabEvent[0] = SDL_FALSE;
 
-                    case SDLK_q:
-                        tabEvent[1] = SDL_FALSE;
-                        break;
+                if (event.key.keysym.sym == globalKeyTab[1]) tabEvent[1] = SDL_FALSE;
 
-                    case SDLK_s:
-                        tabEvent[2] = SDL_FALSE;
-                        break;
+                if (event.key.keysym.sym == globalKeyTab[2]) tabEvent[2] = SDL_FALSE;
 
-                    case SDLK_d:
-                        tabEvent[3] = SDL_FALSE;
-                        break;
+                if (event.key.keysym.sym == globalKeyTab[3]) tabEvent[3] = SDL_FALSE;
 
-                    case SDLK_LEFT:
-                        tabEvent[4] = SDL_FALSE;
-                        break;
+                if (event.key.keysym.sym == globalKeyTab[4]) tabEvent[4] = SDL_FALSE;
 
-                    case SDLK_RIGHT:
-                        tabEvent[5] = SDL_FALSE;
-                        break;
+                if (event.key.keysym.sym == globalKeyTab[5]) tabEvent[5] = SDL_FALSE;
 
-                    case SDLK_SPACE:
-                        tabEvent[6] = SDL_FALSE;
-                        break;
+                if (event.key.keysym.sym == globalKeyTab[6]) tabEvent[6] = SDL_FALSE;
 
-                    case SDLK_ESCAPE:
-                        tabEvent[10] = SDL_FALSE;
-                        break;
+                if (event.key.keysym.sym == globalKeyTab[10]) tabEvent[10] = SDL_FALSE;
 
-                    case SDLK_LALT:
-                        tabEvent[11] = SDL_FALSE;
-                        break;
+                if (event.key.keysym.sym == globalKeyTab[11]) tabEvent[11] = SDL_FALSE;
 
-                    case SDLK_RETURN:
-                        tabEvent[12] = SDL_FALSE;
-                        break;
+                if (event.key.keysym.sym == globalKeyTab[12]) tabEvent[12] = SDL_FALSE;
 
-                    case SDLK_TAB:
-                        tabEvent[13] = SDL_FALSE;
-                        break;
-                }
+                if (event.key.keysym.sym == globalKeyTab[13]) tabEvent[13] = SDL_FALSE;
             break;
 
             //mouse buttons
             case SDL_MOUSEBUTTONDOWN:
-                switch (event.button.button)
-                {
-                case SDL_BUTTON_LEFT:
-                    tabEvent[7] = SDL_TRUE;
-                    break;
+                if (event.button.button == globalKeyTab[7]) tabEvent[7] = SDL_TRUE;
 
-                case SDL_BUTTON_RIGHT:
-                    tabEvent[8] = SDL_TRUE;
-                    break;
+                if (event.button.button == globalKeyTab[8]) tabEvent[8] = SDL_TRUE;
 
-                case SDL_BUTTON_MIDDLE:
-                    tabEvent[9] = SDL_TRUE;
-                    break;
-                }
+                if (event.button.button == globalKeyTab[9]) tabEvent[9] = SDL_TRUE;
             break;
 
             case SDL_MOUSEBUTTONUP:
-                switch (event.button.button)
-                {
-                case SDL_BUTTON_LEFT:
-                    tabEvent[7] = SDL_FALSE;
-                    break;
+                if (event.button.button == globalKeyTab[7]) tabEvent[7] = SDL_FALSE;
 
-                case SDL_BUTTON_RIGHT:
-                    tabEvent[8] = SDL_FALSE;
-                    break;
+                if (event.button.button == globalKeyTab[8]) tabEvent[8] = SDL_FALSE;
 
-                case SDL_BUTTON_MIDDLE:
-                    tabEvent[9] = SDL_FALSE;
-                    break;
-                }
+                if (event.button.button == globalKeyTab[9]) tabEvent[9] = SDL_FALSE;
             break;
 
             case SDL_QUIT:
@@ -596,6 +528,7 @@ static void doEvents()
             if((SDL_GetTicks() - tabTick[10]) >= 200)
             {
                 changeMenu(MAIN_MENU);
+                switchButtonState_hover(SETTINGS_KEYBIND_HOVER);
                 tabTick[10] = SDL_GetTicks();
             }
         }
@@ -706,6 +639,7 @@ int main(int argc, char *argv[])
     init_vars();
     initAudio();
     creation_canaux_musique();
+    loadSettings();
     int timer = 0;
 
     while(program_launched)

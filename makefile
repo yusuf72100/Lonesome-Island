@@ -6,12 +6,16 @@ LIBDIR=lib
 CFLAGS= -W -Wall $(shell sdl2-config --cflags)
 LDFLAGS=-I include -L lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer -lpthread -lwsock32
 
-objets= liste.o socket.o client.o sound.o menus.o defs.o
+objets= liste.o socket.o client.o sound.o menus.o defs.o settings.o
  
 main:	$(objets)
-	GCC $(SRCDIR)/main.c -o prog $(LIBDIR)/liste.o  $(LIBDIR)/socket.o $(LIBDIR)/client.o $(LIBDIR)/menus.o $(LIBDIR)/sound.o $(LIBDIR)/defs.o $(LDFLAGS)
+	GCC $(SRCDIR)/main.c -o prog $(LIBDIR)/liste.o  $(LIBDIR)/socket.o $(LIBDIR)/client.o $(LIBDIR)/menus.o $(LIBDIR)/sound.o $(LIBDIR)/defs.o $(LIBDIR)/settings.o $(LDFLAGS)
 	@echo "Main compilation success!"
 	make success
+
+settings.o:	$(SRCDIR)/settings.c
+	GCC -o $(LIBDIR)/settings.o -c $(SRCDIR)/settings.c $(LDFLAGS)
+	@echo "Settings compilation success!"
 
 client.o:	$(SRCDIR)/client.c
 	GCC -o $(LIBDIR)/client.o -c $(SRCDIR)/client.c $(LDFLAGS)

@@ -7,6 +7,9 @@
  * @copyright Copyright (c) 2023
  */
 
+#ifndef SETTINGS_H
+#define SETTINGS_H
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
@@ -15,5 +18,10 @@
 #include <pthread.h>
 #include <windows.h>
 #include <SDL.h>  
+#include "defs.h"
 
-SDL_KeyCode keyTab[5];
+static SDL_KeyCode localKeyTab[14];
+
+extern void loadSettings();
+
+#endif

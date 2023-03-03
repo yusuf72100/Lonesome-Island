@@ -110,6 +110,7 @@ typedef struct
 extern T_MENU menu;
 extern item_t bois;
 extern SDL_bool tabEvent[20];
+extern SDL_KeyCode globalKeyTab[20];
 extern case_inventory mat_inventory[3][10];
 extern case_inventory *wearedItem;
 extern void changeMenu(T_MENU menuTarget);

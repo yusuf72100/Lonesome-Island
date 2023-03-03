@@ -16,7 +16,8 @@
         "socket.h": "c",
         "sdl_mixer.h": "c",
         "windows.h": "c",
-        "menus.h": "c"
+        "menus.h": "c",
+        "time.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

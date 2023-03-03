@@ -19,6 +19,7 @@ player_t joueur;
 player_t * joueurs;
 T_MENU menu = MAIN_MENU;
 SDL_bool tabEvent[20] = {SDL_FALSE};
+SDL_KeyCode globalKeyTab[20];
 case_inventory mat_inventory[3][10];
 case_inventory *wearedItem;
 
