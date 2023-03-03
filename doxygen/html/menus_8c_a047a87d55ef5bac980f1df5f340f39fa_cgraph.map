@@ -1,0 +1,12 @@
+<map id="SettingsInGameMenu" name="SettingsInGameMenu">
+<area shape="rect" id="node1" title="Affiche le menu des paramètres dans en jeu." alt="" coords="5,80,152,105"/>
+<area shape="rect" id="node2" href="$menus_8c.html#a317983aacbc3405e75432d6290b1b280" title="Dessine l&#39;image souhaitée." alt="" coords="490,5,574,31"/>
+<area shape="rect" id="node5" href="$menus_8c.html#aab7430a217db9969c46ead48adffbd05" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="344,131,432,156"/>
+<area shape="rect" id="node6" href="$menus_8c.html#a3c98ffe9a3fcb71780598d084e08450b" title="Dessine le menu en jeu." alt="" coords="200,80,296,105"/>
+<area shape="rect" id="node3" href="$menus_8c.html#a3ccdb6767f1237284bf7c8e0d3e3eacb" title="Détruit la fenêtre et le rendu." alt="" coords="658,129,738,155"/>
+<area shape="rect" id="node4" href="$menus_8c.html#acd3f39401c59bbd01c9663c5348c63c1" title="Nous renvoi une erreur SDL." alt="" coords="632,80,764,105"/>
+<area shape="rect" id="node7" href="$menus_8c.html#a8db0bbcb2b936e82aa071324eae9d71f" title="Dessine la barre de vie du joueur." alt="" coords="345,32,431,57"/>
+<area shape="rect" id="node8" href="$menus_8c.html#a3d227936b6a3d4d077b8e6f8326ed1bb" title="Affiche l&#39;item transporté par le curseur du joueur." alt="" coords="355,81,421,107"/>
+<area shape="rect" id="node9" href="$menus_8c.html#a66530cff59b9a7c9551fd82dce25fe40" title="Affiche le nombre d&#39;items pour chaque case de l&#39;inventaire." alt="" coords="480,55,584,80"/>
+<area shape="rect" id="node10" href="$menus_8c.html#ab5e92db476c0b623d52a2556f346b737" title="Dessine l&#39;item à la bonne case de l&#39;inventaire." alt="" coords="495,156,569,181"/>
+</map>

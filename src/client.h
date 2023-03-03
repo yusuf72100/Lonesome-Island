@@ -27,7 +27,6 @@
  
 #define dataLen 5
 #define THREAD_NULL 0
-#define IP_PUBLIC "90.12.114.239"
 
 typedef uint32_t socklen_t;
 

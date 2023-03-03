@@ -15,7 +15,8 @@ Graphe des dépendances par inclusion de defs.\+h\+:\nopagebreak
 \includegraphics[width=254pt]{defs_8h__incl}
 \end{center}
 \end{figure}
-Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:\nopagebreak
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -58,7 +59,8 @@ enum {\bfseries T\+\_\+\+BUTTONS\+\_\+\+HOVER} \{ \newline
 , {\bfseries HOST\+\_\+\+BUTTON\+\_\+\+HOVER}
 , {\bfseries SETTINGS\+\_\+\+BUTTON\+\_\+\+HOVER}
 , \newline
-{\bfseries INVENTORY\+\_\+\+BUTTON\+\_\+\+HOVER}
+{\bfseries SETTINGS\+\_\+\+KEYBIND\+\_\+\+HOVER}
+, {\bfseries INVENTORY\+\_\+\+BUTTON\+\_\+\+HOVER}
  \}
 \item 
 \mbox{\Hypertarget{defs_8h_ac77a8f425887dd84757f43f2cec98c73}\label{defs_8h_ac77a8f425887dd84757f43f2cec98c73}} 
@@ -68,7 +70,8 @@ enum {\bfseries T\+\_\+\+BUTTONS\+\_\+\+CLICKED} \{ \newline
 , {\bfseries HOST\+\_\+\+BUTTON\+\_\+\+CLICKED}
 , {\bfseries SETTINGS\+\_\+\+BUTTON\+\_\+\+CLICKED}
 , \newline
-{\bfseries INVENTORY\+\_\+\+BUTTON\+\_\+\+CLICKED}
+{\bfseries SETTINGS\+\_\+\+KEYBIND\+\_\+\+CLICKED}
+, {\bfseries INVENTORY\+\_\+\+BUTTON\+\_\+\+CLICKED}
  \}
 \item 
 \mbox{\Hypertarget{defs_8h_ac74f3fe130dd2907991df748d4dc4a13}\label{defs_8h_ac74f3fe130dd2907991df748d4dc4a13}} 
@@ -76,9 +79,11 @@ enum {\bfseries T\+\_\+\+MENU} \{ \newline
 {\bfseries MAIN\+\_\+\+MENU}
 , {\bfseries INGAME\+\_\+\+MENU}
 , {\bfseries INVENTORY\+\_\+\+MENU}
-, {\bfseries SETTINGS\+\_\+\+MENU}
+, {\bfseries SETTINGS\+\_\+\+MAIN\+\_\+\+MENU}
 , \newline
-{\bfseries ERR\+\_\+\+MENU}
+{\bfseries SETTINGS\+\_\+\+MAIN\+\_\+\+KEYBIND\+\_\+\+MENU}
+, {\bfseries SETTINGS\+\_\+\+INGAME\+\_\+\+MENU}
+, {\bfseries ERR\+\_\+\+MENU}
  \}
 \item 
 \mbox{\Hypertarget{defs_8h_a1e4d49e165def01fa142ef71ed172564}\label{defs_8h_a1e4d49e165def01fa142ef71ed172564}} 
@@ -108,6 +113,12 @@ void {\bfseries define\+Item} ()
 \mbox{\Hypertarget{defs_8h_aef93a21306f15a44929d28318aab5ffb}\label{defs_8h_aef93a21306f15a44929d28318aab5ffb}} 
 int {\bfseries SOLO}
 \item 
+\mbox{\Hypertarget{defs_8h_ade7358028ced54508b163d7e93630830}\label{defs_8h_ade7358028ced54508b163d7e93630830}} 
+int {\bfseries HOST}
+\item 
+\mbox{\Hypertarget{defs_8h_ace11e48823811038e01fa56a3fb77381}\label{defs_8h_ace11e48823811038e01fa56a3fb77381}} 
+char {\bfseries IP\+\_\+\+PUBLIC} \mbox{[}256\mbox{]}
+\item 
 \mbox{\Hypertarget{defs_8h_a70ae92227e50fde6d6e4568d3ce849d9}\label{defs_8h_a70ae92227e50fde6d6e4568d3ce849d9}} 
 T\+\_\+\+MENU {\bfseries menu}
 \item 
@@ -116,6 +127,9 @@ T\+\_\+\+MENU {\bfseries menu}
 \item 
 \mbox{\Hypertarget{defs_8h_a59600277ef5467e1f4aa8f46789d6d12}\label{defs_8h_a59600277ef5467e1f4aa8f46789d6d12}} 
 SDL\+\_\+bool {\bfseries tab\+Event} \mbox{[}20\mbox{]}
+\item 
+\mbox{\Hypertarget{defs_8h_a214c7e79ace1aa0227c0c9ec3ba792eb}\label{defs_8h_a214c7e79ace1aa0227c0c9ec3ba792eb}} 
+SDL\+\_\+\+Key\+Code {\bfseries global\+Key\+Tab} \mbox{[}20\mbox{]}
 \item 
 \mbox{\Hypertarget{defs_8h_a2ef9fdf65d6a7d2e7bea9a793682d40f}\label{defs_8h_a2ef9fdf65d6a7d2e7bea9a793682d40f}} 
 \mbox{\hyperlink{structcase__inventory}{case\+\_\+inventory}} {\bfseries mat\+\_\+inventory} \mbox{[}3\mbox{]}\mbox{[}10\mbox{]}

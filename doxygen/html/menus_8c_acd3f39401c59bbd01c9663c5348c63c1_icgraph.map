@@ -1,33 +1,35 @@
 <map id="SDL_ExitWithError" name="SDL_ExitWithError">
-<area shape="rect" id="node1" title="Nous renvoi une erreur SDL." alt="" coords="928,405,1060,431"/>
-<area shape="rect" id="node2" href="$menus_8c.html#ad452b0eb987136d6af7d68a474fd7bc1" title="Dessine un bouton normal." alt="" coords="754,349,841,375"/>
-<area shape="rect" id="node11" href="$menus_8c.html#af533a07a1593c721a25b080bf2cc10d9" title="Dessine un boutton en fonction d&#39;une certaine rotation." alt="" coords="715,405,880,431"/>
-<area shape="rect" id="node12" href="$menus_8c.html#a66530cff59b9a7c9551fd82dce25fe40" title="Affiche le nombre d&#39;items pour chaque case de l&#39;inventaire." alt="" coords="745,103,849,128"/>
-<area shape="rect" id="node15" href="$menus_8c.html#ae06068ec3d07bace5f405fbf6eeb3c20" title="Affiche l&#39;erreur à l&#39;écran." alt="" coords="759,507,836,532"/>
-<area shape="rect" id="node18" href="$menus_8c.html#a317983aacbc3405e75432d6290b1b280" title="Dessine l&#39;image souhaitée." alt="" coords="566,256,650,281"/>
-<area shape="rect" id="node20" href="$menus_8c.html#aed543fd0f875dcbff172087fe7b23025" title="Dessine l&#39;inventaire." alt="" coords="394,5,494,31"/>
-<area shape="rect" id="node21" href="$menus_8c.html#ab5e92db476c0b623d52a2556f346b737" title="Dessine l&#39;item à la bonne case de l&#39;inventaire." alt="" coords="760,152,835,177"/>
-<area shape="rect" id="node22" href="$menus_8c.html#aab7430a217db9969c46ead48adffbd05" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="564,207,652,232"/>
-<area shape="rect" id="node23" href="$menus_8c.html#a2dfe41d8c0f122241c47441391c02de3" title="Dessine un joueur en fonction de ses coordonnées et de sa texture." alt="" coords="754,456,841,481"/>
-<area shape="rect" id="node26" href="$menus_8c.html#a48e3fe80d276c94e23eed3c1017a05ee" title="Initialise toutes les variables relatives aux menus." alt="" coords="387,608,501,633"/>
-<area shape="rect" id="node28" href="$menus_8c.html#ac96e8912bb03df1f73f5ccb6db495085" title="Initialise l&#39;asset demandé." alt="" coords="754,556,841,581"/>
-<area shape="rect" id="node30" href="$menus_8c.html#afb13427163cac507a66d96dbc0f3c06e" title="Initialise les dafonts." alt="" coords="772,607,823,632"/>
-<area shape="rect" id="node31" href="$menus_8c.html#ad75b46f2728cbcc3d36ee29e368ef68f" title="Initialise les éléments de la fenêtre." alt="" coords="757,657,838,683"/>
-<area shape="rect" id="node3" href="$menus_8c.html#ab5e1f7649b8b40f10bd9168c6a098883" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="563,305,653,331"/>
-<area shape="rect" id="node7" href="$menus_8c.html#a258a73384029adb1d7e22ca959235633" title="Essaye de dessiner tous les bouttons." alt="" coords="561,355,655,380"/>
-<area shape="rect" id="node8" href="$menus_8c.html#a8db0bbcb2b936e82aa071324eae9d71f" title="Dessine la barre de vie du joueur." alt="" coords="565,157,651,183"/>
-<area shape="rect" id="node4" href="$menus_8c.html#ab98dbf196398d8aeaa4ac97f87ae54a1" title="Affiche le menu principal." alt="" coords="403,308,485,333"/>
-<area shape="rect" id="node5" href="$menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,257,185,283"/>
-<area shape="rect" id="node6" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,468,56,493"/>
-<area shape="rect" id="node9" href="$menus_8c.html#ac4c9f25aa12dff823919430e1f6193a2" title="Dessine le menu en jeu." alt="" coords="396,157,492,183"/>
-<area shape="rect" id="node10" href="$menus_8c.html#ad91f44597d803d249e1b96e7569f8199" title="Dessin le menu de l&#39;inventaire." alt="" coords="233,120,339,145"/>
-<area shape="rect" id="node13" href="$menus_8c.html#aede862d24a32e39c6e86dc94bd4cfc87" title="Dessine les cases de l&#39;inventaire." alt="" coords="565,59,651,84"/>
-<area shape="rect" id="node14" href="$menus_8c.html#a3d227936b6a3d4d077b8e6f8326ed1bb" title="Affiche l&#39;item transporté par le curseur du joueur." alt="" coords="575,108,641,133"/>
-<area shape="rect" id="node16" href="$menus_8c.html#a9cde538499636a6a74cb0f3e206d4a73" title="Dessine l&#39;erreur avec TTF." alt="" coords="399,505,489,531"/>
-<area shape="rect" id="node17" href="$main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="249,468,323,493"/>
-<area shape="rect" id="node19" href="$menus_8c.html#aa51a01a4976b233b54a81b33b82caef5" title="Affiche le menu des paramètres." alt="" coords="393,259,495,284"/>
-<area shape="rect" id="node24" href="$menus_8c.html#a6806c9e2f2bcbf342c2bfa91336c2d27" title="Applique la bonne texture au joueur en fonction de son animation." alt="" coords="549,456,667,481"/>
-<area shape="rect" id="node25" href="$menus_8c.html#ab804df0c510979d77fd5599feef21ae0" title="Dessine tous les joueurs." alt="" coords="397,456,491,481"/>
-<area shape="rect" id="node27" href="$main_8c.html#a270d20bdcadebb9a08a01a55c37858a9" title="Initialise toutes les variables relatives aux menus." alt="" coords="110,544,179,569"/>
-<area shape="rect" id="node29" href="$menus_8c.html#a1d535222d73c1839cb6c5ef121b00baf" title="Initialise les textures du jeu." alt="" coords="565,557,651,583"/>
+<area shape="rect" id="node1" title="Nous renvoi une erreur SDL." alt="" coords="1032,524,1164,549"/>
+<area shape="rect" id="node2" href="$menus_8c.html#ad452b0eb987136d6af7d68a474fd7bc1" title="Dessine un bouton normal." alt="" coords="858,120,945,145"/>
+<area shape="rect" id="node10" href="$menus_8c.html#af533a07a1593c721a25b080bf2cc10d9" title="Dessine un boutton en fonction d&#39;une certaine rotation." alt="" coords="819,20,984,45"/>
+<area shape="rect" id="node11" href="$menus_8c.html#a66530cff59b9a7c9551fd82dce25fe40" title="Affiche le nombre d&#39;items pour chaque case de l&#39;inventaire." alt="" coords="849,424,953,449"/>
+<area shape="rect" id="node17" href="$menus_8c.html#ae06068ec3d07bace5f405fbf6eeb3c20" title="Affiche l&#39;erreur à l&#39;écran." alt="" coords="863,574,940,600"/>
+<area shape="rect" id="node20" href="$menus_8c.html#a317983aacbc3405e75432d6290b1b280" title="Dessine l&#39;image souhaitée." alt="" coords="859,297,943,322"/>
+<area shape="rect" id="node22" href="$menus_8c.html#aed543fd0f875dcbff172087fe7b23025" title="Dessine l&#39;inventaire." alt="" coords="467,525,567,550"/>
+<area shape="rect" id="node23" href="$menus_8c.html#ab5e92db476c0b623d52a2556f346b737" title="Dessine l&#39;item à la bonne case de l&#39;inventaire." alt="" coords="864,473,939,498"/>
+<area shape="rect" id="node24" href="$menus_8c.html#aab7430a217db9969c46ead48adffbd05" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="668,221,756,246"/>
+<area shape="rect" id="node25" href="$menus_8c.html#a2dfe41d8c0f122241c47441391c02de3" title="Dessine un joueur en fonction de ses coordonnées et de sa texture." alt="" coords="858,624,945,649"/>
+<area shape="rect" id="node28" href="$menus_8c.html#a48e3fe80d276c94e23eed3c1017a05ee" title="Initialise toutes les variables relatives aux menus." alt="" coords="459,726,574,752"/>
+<area shape="rect" id="node30" href="$menus_8c.html#ac96e8912bb03df1f73f5ccb6db495085" title="Initialise l&#39;asset demandé." alt="" coords="858,726,945,752"/>
+<area shape="rect" id="node32" href="$menus_8c.html#afb13427163cac507a66d96dbc0f3c06e" title="Initialise les dafonts." alt="" coords="876,776,927,801"/>
+<area shape="rect" id="node33" href="$menus_8c.html#ad75b46f2728cbcc3d36ee29e368ef68f" title="Initialise les éléments de la fenêtre." alt="" coords="671,828,753,853"/>
+<area shape="rect" id="node3" href="$menus_8c.html#ab5e1f7649b8b40f10bd9168c6a098883" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="667,70,757,96"/>
+<area shape="rect" id="node9" href="$menus_8c.html#a258a73384029adb1d7e22ca959235633" title="Essaye de dessiner tous les bouttons." alt="" coords="665,120,759,145"/>
+<area shape="rect" id="node4" href="$menus_8c.html#ad4082538ea22b0a347c09456b67ba4bd" title="Affiche le menu principal." alt="" coords="475,72,558,97"/>
+<area shape="rect" id="node7" href="$menus_8c.html#a706ecee7dd0dc5e17064da807e4d0f7f" title="Affiche le menu des paramètres des keybinds dans le menu principal." alt="" coords="428,121,605,146"/>
+<area shape="rect" id="node8" href="$menus_8c.html#a081a8f6ffea1d158f2a87e4258f6329a" title="Affiche le menu des paramètres dans le menu principal." alt="" coords="451,170,582,196"/>
+<area shape="rect" id="node5" href="$menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,272,185,297"/>
+<area shape="rect" id="node6" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,586,56,612"/>
+<area shape="rect" id="node12" href="$menus_8c.html#aede862d24a32e39c6e86dc94bd4cfc87" title="Dessine les cases de l&#39;inventaire." alt="" coords="669,473,755,498"/>
+<area shape="rect" id="node14" href="$menus_8c.html#a3d227936b6a3d4d077b8e6f8326ed1bb" title="Affiche l&#39;item transporté par le curseur du joueur." alt="" coords="679,424,745,449"/>
+<area shape="rect" id="node13" href="$menus_8c.html#a588196acaedd8824af54e4bac318358d" title="Dessin le menu de l&#39;inventaire." alt="" coords="254,397,359,422"/>
+<area shape="rect" id="node15" href="$menus_8c.html#a3c98ffe9a3fcb71780598d084e08450b" title="Dessine le menu en jeu." alt="" coords="469,322,565,348"/>
+<area shape="rect" id="node16" href="$menus_8c.html#a047a87d55ef5bac980f1df5f340f39fa" title="Affiche le menu des paramètres dans en jeu." alt="" coords="233,322,380,348"/>
+<area shape="rect" id="node18" href="$menus_8c.html#a9cde538499636a6a74cb0f3e206d4a73" title="Dessine l&#39;erreur avec TTF." alt="" coords="471,574,562,600"/>
+<area shape="rect" id="node19" href="$main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="269,586,344,612"/>
+<area shape="rect" id="node21" href="$menus_8c.html#a8db0bbcb2b936e82aa071324eae9d71f" title="Dessine la barre de vie du joueur." alt="" coords="669,322,755,348"/>
+<area shape="rect" id="node26" href="$menus_8c.html#a6806c9e2f2bcbf342c2bfa91336c2d27" title="Applique la bonne texture au joueur en fonction de son animation." alt="" coords="653,625,771,650"/>
+<area shape="rect" id="node27" href="$menus_8c.html#ab804df0c510979d77fd5599feef21ae0" title="Dessine tous les joueurs." alt="" coords="470,625,563,650"/>
+<area shape="rect" id="node29" href="$main_8c.html#a270d20bdcadebb9a08a01a55c37858a9" title="Initialise toutes les variables relatives aux menus." alt="" coords="110,662,179,688"/>
+<area shape="rect" id="node31" href="$menus_8c.html#a1d535222d73c1839cb6c5ef121b00baf" title="Initialise les textures du jeu." alt="" coords="669,726,755,752"/>
 </map>

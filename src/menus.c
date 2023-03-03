@@ -109,7 +109,6 @@ void changeButtonState_hover(T_BUTTONS_HOVER button, int state)
     default:
         break;
     }
-
 }
 
 /**
@@ -168,7 +167,6 @@ int getButtonState_clicked(T_BUTTONS_CLICKED button)
     default:
         return FALSE;
     }
-
 }
 
 /**
@@ -194,7 +192,6 @@ int onButton(T_BUTTONS_HOVER button)
     default:
         return FALSE;
     }
-
 }
 
 /**
@@ -326,7 +323,6 @@ void drawCaseText(case_inventory case_x)
     }
     //SDL_BlitSurface(case_x.text_surface,NULL,case_x.Item->surface,&case_x.item_rectangle);
     SDL_RenderCopy(renderer,case_x.text_texture, NULL, &case_x.text_rectangle);
-
 }
 
 /**

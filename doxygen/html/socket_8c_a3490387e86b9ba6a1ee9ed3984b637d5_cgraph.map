@@ -1,11 +1,12 @@
 <map id="startServer" name="startServer">
-<area shape="rect" id="node1" title="Démarre le serveur et initie la table de clients." alt="" coords="5,81,89,107"/>
-<area shape="rect" id="node2" href="$socket_8c.html#a68b45930fad2153f053144a8678afa1c" title="Gère la place des clients dans la table de client et reçoit les nouveaux clients." alt="" coords="137,81,239,107"/>
-<area shape="rect" id="node3" href="$socket_8c.html#a3b61093f2f5316157d1e6d3d05cf5ebc" title="Écoute un client tant que la connexion est établie." alt="" coords="287,81,412,107"/>
-<area shape="rect" id="node4" href="$socket_8c.html#af93eb740b3e202bdcb05795a2da4ef8c" title="Déconnecte le client en fonction de sa position dans le tableau." alt="" coords="460,5,583,31"/>
-<area shape="rect" id="node5" href="$socket_8c.html#af8f7aaaf34db2175c7a9c4ab7d3306fc" title="Envoie la donnée d&#39;un client à tous les autres y compris au client lui&#45;même." alt="" coords="631,31,728,56"/>
-<area shape="rect" id="node7" href="$socket_8c.html#a88d900ece06509fc9c398d81b5200e71" title="Cherche la position du client dans le tableau des clients." alt="" coords="477,107,566,132"/>
-<area shape="rect" id="node8" href="$client_8c.html#a5db5e79b1f9efa79675000da17beacfb" title="Traite les données reçus par le serveur." alt="" coords="486,156,557,181"/>
-<area shape="rect" id="node6" href="$socket_8c.html#ac422f6ffe2be4ee3387e8b98b6393193" title="Construit une trame dédiée uniquement au client i." alt="" coords="776,31,919,56"/>
-<area shape="rect" id="node9" href="$main_8c.html#a6f34c428b3f0a7afe10321406af12adb" title="Récupère les données depuis le socket client." alt="" coords="634,156,725,181"/>
+<area shape="rect" id="node1" title="Démarre le serveur et initie la table de clients." alt="" coords="5,57,89,83"/>
+<area shape="rect" id="node2" href="$socket_8c.html#acc971d38ba2d98589d00bde6652a6e39" title="Renvoi l&#39;ip local du client." alt="" coords="147,32,229,57"/>
+<area shape="rect" id="node3" href="$socket_8c.html#a68b45930fad2153f053144a8678afa1c" title="Gère la place des clients dans la table de client et reçoit les nouveaux clients." alt="" coords="137,81,239,107"/>
+<area shape="rect" id="node4" href="$socket_8c.html#a3b61093f2f5316157d1e6d3d05cf5ebc" title="Écoute un client tant que la connexion est établie." alt="" coords="287,81,412,107"/>
+<area shape="rect" id="node5" href="$socket_8c.html#af93eb740b3e202bdcb05795a2da4ef8c" title="Déconnecte le client en fonction de sa position dans le tableau." alt="" coords="460,5,583,31"/>
+<area shape="rect" id="node6" href="$socket_8c.html#af8f7aaaf34db2175c7a9c4ab7d3306fc" title="Envoie la donnée d&#39;un client à tous les autres y compris au client lui&#45;même." alt="" coords="631,31,728,56"/>
+<area shape="rect" id="node8" href="$socket_8c.html#a88d900ece06509fc9c398d81b5200e71" title="Cherche la position du client dans le tableau des clients." alt="" coords="477,107,566,132"/>
+<area shape="rect" id="node9" href="$client_8c.html#a5db5e79b1f9efa79675000da17beacfb" title="Traite les données reçus par le serveur." alt="" coords="486,156,557,181"/>
+<area shape="rect" id="node7" href="$socket_8c.html#ac422f6ffe2be4ee3387e8b98b6393193" title="Construit une trame dédiée uniquement au client i." alt="" coords="776,31,919,56"/>
+<area shape="rect" id="node10" href="$main_8c.html#a6f34c428b3f0a7afe10321406af12adb" title="Récupère les données depuis le socket client." alt="" coords="634,156,725,181"/>
 </map>

@@ -7,7 +7,8 @@ Fichier qui s\textquotesingle{}occupera de l\textquotesingle{}affichage des él�
 
 {\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}menus.\+h\char`\"{}}\newline
-Graphe des dépendances par inclusion de menus.\+c\+:\nopagebreak
+Graphe des dépendances par inclusion de menus.\+c\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -126,16 +127,20 @@ void {\bfseries wearing} ()
 \mbox{\Hypertarget{menus_8c_a8db0bbcb2b936e82aa071324eae9d71f}\label{menus_8c_a8db0bbcb2b936e82aa071324eae9d71f}} 
 void {\bfseries drawlife\+Bar} ()
 \begin{DoxyCompactList}\small\item\em Dessine la barre de vie du joueur. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{menus_8c_ab98dbf196398d8aeaa4ac97f87ae54a1}{Main\+Menu}} ()
+static void \mbox{\hyperlink{menus_8c_ad4082538ea22b0a347c09456b67ba4bd}{Main\+Menu}} ()
 \begin{DoxyCompactList}\small\item\em Affiche le menu principal. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{menus_8c_aa51a01a4976b233b54a81b33b82caef5}{Settings\+Menu}} ()
-\begin{DoxyCompactList}\small\item\em Affiche le menu des paramètres. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{menus_8c_ac4c9f25aa12dff823919430e1f6193a2}\label{menus_8c_ac4c9f25aa12dff823919430e1f6193a2}} 
-void {\bfseries Ingame\+Menu} ()
+static void \mbox{\hyperlink{menus_8c_a081a8f6ffea1d158f2a87e4258f6329a}{Settings\+Main\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Affiche le menu des paramètres dans le menu principal. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{menus_8c_a706ecee7dd0dc5e17064da807e4d0f7f}{Settings\+Main\+Keybind\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Affiche le menu des paramètres des keybinds dans le menu principal. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{menus_8c_a3c98ffe9a3fcb71780598d084e08450b}\label{menus_8c_a3c98ffe9a3fcb71780598d084e08450b}} 
+static void {\bfseries Ingame\+Menu} ()
 \begin{DoxyCompactList}\small\item\em Dessine le menu en jeu. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{menus_8c_ad91f44597d803d249e1b96e7569f8199}\label{menus_8c_ad91f44597d803d249e1b96e7569f8199}} 
-void {\bfseries Inventory\+Menu} ()
+\mbox{\Hypertarget{menus_8c_a588196acaedd8824af54e4bac318358d}\label{menus_8c_a588196acaedd8824af54e4bac318358d}} 
+static void {\bfseries Inventory\+Menu} ()
 \begin{DoxyCompactList}\small\item\em Dessin le menu de l\textquotesingle{}inventaire. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{menus_8c_a047a87d55ef5bac980f1df5f340f39fa}{Settings\+In\+Game\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Affiche le menu des paramètres dans en jeu. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{menus_8c_aa13653318c21b0e6b86838e6091bfc9a}\label{menus_8c_aa13653318c21b0e6b86838e6091bfc9a}} 
 void {\bfseries draw\+Menu} ()
 \begin{DoxyCompactList}\small\item\em Dessine le bon menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -305,6 +310,14 @@ Change le boutton ciblé avec l\textquotesingle{}état voulut.
 {\em state} & \\
 \hline
 \end{DoxyParams}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_a20432793012cb1509389bf14f94a8ee9_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{menus_8c_a3ccdb6767f1237284bf7c8e0d3e3eacb}\label{menus_8c_a3ccdb6767f1237284bf7c8e0d3e3eacb}} 
 \index{menus.c@{menus.c}!destroyAll@{destroyAll}}
 \index{destroyAll@{destroyAll}!menus.c@{menus.c}}
@@ -345,8 +358,7 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \includegraphics[width=350pt]{menus_8c_a9cde538499636a6a74cb0f3e206d4a73_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -440,7 +452,8 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \includegraphics[width=350pt]{menus_8c_aede862d24a32e39c6e86dc94bd4cfc87_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -469,7 +482,8 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \includegraphics[width=293pt]{menus_8c_a66530cff59b9a7c9551fd82dce25fe40_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -500,8 +514,7 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \includegraphics[width=273pt]{menus_8c_ae06068ec3d07bace5f405fbf6eeb3c20_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -518,8 +531,7 @@ Voici le graphe des appelants de cette fonction \+:
 
 Dessine l\textquotesingle{}image souhaitée. 
 
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
-\nopagebreak
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -556,7 +568,8 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \includegraphics[width=271pt]{menus_8c_ab5e92db476c0b623d52a2556f346b737_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -677,11 +690,11 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \includegraphics[width=350pt]{menus_8c_ac96e8912bb03df1f73f5ccb6db495085_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{menus_8c_ab98dbf196398d8aeaa4ac97f87ae54a1}\label{menus_8c_ab98dbf196398d8aeaa4ac97f87ae54a1}} 
+\mbox{\Hypertarget{menus_8c_ad4082538ea22b0a347c09456b67ba4bd}\label{menus_8c_ad4082538ea22b0a347c09456b67ba4bd}} 
 \index{menus.c@{menus.c}!MainMenu@{MainMenu}}
 \index{MainMenu@{MainMenu}!menus.c@{menus.c}}
 \doxysubsubsection{\texorpdfstring{MainMenu()}{MainMenu()}}
-{\footnotesize\ttfamily void Main\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily static void Main\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -692,7 +705,7 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{menus_8c_ab98dbf196398d8aeaa4ac97f87ae54a1_cgraph}
+\includegraphics[width=350pt]{menus_8c_ad4082538ea22b0a347c09456b67ba4bd_cgraph}
 \end{center}
 \end{figure}
 Voici le graphe des appelants de cette fonction \+:
@@ -700,7 +713,7 @@ Voici le graphe des appelants de cette fonction \+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=313pt]{menus_8c_ab98dbf196398d8aeaa4ac97f87ae54a1_icgraph}
+\includegraphics[width=313pt]{menus_8c_ad4082538ea22b0a347c09456b67ba4bd_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{menus_8c_a62b05feb314b3c7d6effb9892fa5b8ae}\label{menus_8c_a62b05feb314b3c7d6effb9892fa5b8ae}} 
@@ -915,22 +928,22 @@ Voici le graphe des appelants de cette fonction \+:
 \includegraphics[width=350pt]{menus_8c_a48c083415f7a9126fec9cc228b651991_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{menus_8c_aa51a01a4976b233b54a81b33b82caef5}\label{menus_8c_aa51a01a4976b233b54a81b33b82caef5}} 
-\index{menus.c@{menus.c}!SettingsMenu@{SettingsMenu}}
-\index{SettingsMenu@{SettingsMenu}!menus.c@{menus.c}}
-\doxysubsubsection{\texorpdfstring{SettingsMenu()}{SettingsMenu()}}
-{\footnotesize\ttfamily void Settings\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{menus_8c_a047a87d55ef5bac980f1df5f340f39fa}\label{menus_8c_a047a87d55ef5bac980f1df5f340f39fa}} 
+\index{menus.c@{menus.c}!SettingsInGameMenu@{SettingsInGameMenu}}
+\index{SettingsInGameMenu@{SettingsInGameMenu}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{SettingsInGameMenu()}{SettingsInGameMenu()}}
+{\footnotesize\ttfamily static void Settings\+In\+Game\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
-Affiche le menu des paramètres. 
+Affiche le menu des paramètres dans en jeu. 
 
 Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{menus_8c_aa51a01a4976b233b54a81b33b82caef5_cgraph}
+\includegraphics[width=350pt]{menus_8c_a047a87d55ef5bac980f1df5f340f39fa_cgraph}
 \end{center}
 \end{figure}
 Voici le graphe des appelants de cette fonction \+:
@@ -938,7 +951,59 @@ Voici le graphe des appelants de cette fonction \+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=328pt]{menus_8c_aa51a01a4976b233b54a81b33b82caef5_icgraph}
+\includegraphics[width=350pt]{menus_8c_a047a87d55ef5bac980f1df5f340f39fa_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8c_a706ecee7dd0dc5e17064da807e4d0f7f}\label{menus_8c_a706ecee7dd0dc5e17064da807e4d0f7f}} 
+\index{menus.c@{menus.c}!SettingsMainKeybindMenu@{SettingsMainKeybindMenu}}
+\index{SettingsMainKeybindMenu@{SettingsMainKeybindMenu}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{SettingsMainKeybindMenu()}{SettingsMainKeybindMenu()}}
+{\footnotesize\ttfamily static void Settings\+Main\+Keybind\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Affiche le menu des paramètres des keybinds dans le menu principal. 
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_a706ecee7dd0dc5e17064da807e4d0f7f_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_a706ecee7dd0dc5e17064da807e4d0f7f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8c_a081a8f6ffea1d158f2a87e4258f6329a}\label{menus_8c_a081a8f6ffea1d158f2a87e4258f6329a}} 
+\index{menus.c@{menus.c}!SettingsMainMenu@{SettingsMainMenu}}
+\index{SettingsMainMenu@{SettingsMainMenu}!menus.c@{menus.c}}
+\doxysubsubsection{\texorpdfstring{SettingsMainMenu()}{SettingsMainMenu()}}
+{\footnotesize\ttfamily static void Settings\+Main\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Affiche le menu des paramètres dans le menu principal. 
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8c_a081a8f6ffea1d158f2a87e4258f6329a_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{menus_8c_a081a8f6ffea1d158f2a87e4258f6329a_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{menus_8c_a8cbdceb9c205a8d9c279691a09b337a1}\label{menus_8c_a8cbdceb9c205a8d9c279691a09b337a1}} 

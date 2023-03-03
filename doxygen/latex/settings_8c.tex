@@ -14,6 +14,20 @@ Graphe des dépendances par inclusion de settings.\+c\+:
 \includegraphics[width=350pt]{settings_8c__incl}
 \end{center}
 \end{figure}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{settings_8c_ade55ed097a2eb2e0e02023ad1c364bc0}\label{settings_8c_ade55ed097a2eb2e0e02023ad1c364bc0}} 
+static void {\bfseries create\+Configs} ()
+\begin{DoxyCompactList}\small\item\em Créer le fichier de config et charge les paramètres par défaut. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{settings_8c_a0fa304d3fe58272c8deac3b29c3e036e}\label{settings_8c_a0fa304d3fe58272c8deac3b29c3e036e}} 
+static void {\bfseries load\+Keybinds} ()
+\begin{DoxyCompactList}\small\item\em Fonction qui charge les keybinds dans le tableau global. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{settings_8c_abfef91263b80140b08929f805d83306d}{to\+Key\+Code}} (int key, int scancode)
+\begin{DoxyCompactList}\small\item\em Convertis un entier en sdl keycode et le met dans le tableau des keycode local. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{settings_8c_a1165e1d4439a045e94970c9fbc73bb3c}\label{settings_8c_a1165e1d4439a045e94970c9fbc73bb3c}} 
+void {\bfseries load\+Settings} ()
+\begin{DoxyCompactList}\small\item\em Fonction qui s\textquotesingle{}occupe de charger les paramètres du joueur depuis un fichier. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
@@ -32,3 +46,31 @@ Yusuf Ulas ~\newline
 \begin{DoxyCopyright}{Copyright}
 Copyright (c) 2023 
 \end{DoxyCopyright}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{settings_8c_abfef91263b80140b08929f805d83306d}\label{settings_8c_abfef91263b80140b08929f805d83306d}} 
+\index{settings.c@{settings.c}!toKeyCode@{toKeyCode}}
+\index{toKeyCode@{toKeyCode}!settings.c@{settings.c}}
+\doxysubsubsection{\texorpdfstring{toKeyCode()}{toKeyCode()}}
+{\footnotesize\ttfamily static void to\+Key\+Code (\begin{DoxyParamCaption}\item[{int}]{key,  }\item[{int}]{scancode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Convertis un entier en sdl keycode et le met dans le tableau des keycode local. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em key} & \\
+\hline
+{\em scancode} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=326pt]{settings_8c_abfef91263b80140b08929f805d83306d_icgraph}
+\end{center}
+\end{figure}

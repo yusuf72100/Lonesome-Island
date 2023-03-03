@@ -334,6 +334,9 @@ static SDL_bool&#160;</td><td class="memItemRight" valign="bottom"><b>hover_host
 <tr class="memitem:a0221921ebfd919f98ce1a927443cf147"><td class="memItemLeft" align="right" valign="top"><a id="a0221921ebfd919f98ce1a927443cf147" name="a0221921ebfd919f98ce1a927443cf147"></a>
 static SDL_bool&#160;</td><td class="memItemRight" valign="bottom"><b>hover_settingsbutton</b> = SDL_FALSE</td></tr>
 <tr class="separator:a0221921ebfd919f98ce1a927443cf147"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad649dcd485d6496b49fea4bf709aa270"><td class="memItemLeft" align="right" valign="top"><a id="ad649dcd485d6496b49fea4bf709aa270" name="ad649dcd485d6496b49fea4bf709aa270"></a>
+static SDL_bool&#160;</td><td class="memItemRight" valign="bottom"><b>hover_settings_keybindsbutton</b> = SDL_FALSE</td></tr>
+<tr class="separator:ad649dcd485d6496b49fea4bf709aa270"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a225f865625d7eb497b12ba90d7d89102"><td class="memItemLeft" align="right" valign="top"><a id="a225f865625d7eb497b12ba90d7d89102" name="a225f865625d7eb497b12ba90d7d89102"></a>
 static SDL_bool&#160;</td><td class="memItemRight" valign="bottom"><b>hover_inventoryitem</b> = SDL_FALSE</td></tr>
 <tr class="separator:a225f865625d7eb497b12ba90d7d89102"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -349,6 +352,9 @@ static SDL_bool&#160;</td><td class="memItemRight" valign="bottom"><b>clicked_ho
 <tr class="memitem:a93a44c3280f9837af4a90f3027ab8b68"><td class="memItemLeft" align="right" valign="top"><a id="a93a44c3280f9837af4a90f3027ab8b68" name="a93a44c3280f9837af4a90f3027ab8b68"></a>
 static SDL_bool&#160;</td><td class="memItemRight" valign="bottom"><b>clicked_settingsbutton</b> = SDL_FALSE</td></tr>
 <tr class="separator:a93a44c3280f9837af4a90f3027ab8b68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27b8af4405d522e651fe684989ea6278"><td class="memItemLeft" align="right" valign="top"><a id="a27b8af4405d522e651fe684989ea6278" name="a27b8af4405d522e651fe684989ea6278"></a>
+static SDL_bool&#160;</td><td class="memItemRight" valign="bottom"><b>clicked_settings_keybindsbutton</b> = SDL_FALSE</td></tr>
+<tr class="separator:a27b8af4405d522e651fe684989ea6278"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae65d48735f7e1d9f270a6ba107b21e9d"><td class="memItemLeft" align="right" valign="top"><a id="ae65d48735f7e1d9f270a6ba107b21e9d" name="ae65d48735f7e1d9f270a6ba107b21e9d"></a>
 static SDL_bool&#160;</td><td class="memItemRight" valign="bottom"><b>clicked_inventoryitem</b> = SDL_FALSE</td></tr>
 <tr class="separator:ae65d48735f7e1d9f270a6ba107b21e9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -385,6 +391,12 @@ static SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><b>title_rect
 <tr class="memitem:aa4e46fbd0f91b377892efdce0e824cd5"><td class="memItemLeft" align="right" valign="top"><a id="aa4e46fbd0f91b377892efdce0e824cd5" name="aa4e46fbd0f91b377892efdce0e824cd5"></a>
 static SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><b>settings_menu_bg_rect</b></td></tr>
 <tr class="separator:aa4e46fbd0f91b377892efdce0e824cd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af46a7f78b1c39a1279994c297a074b11"><td class="memItemLeft" align="right" valign="top"><a id="af46a7f78b1c39a1279994c297a074b11" name="af46a7f78b1c39a1279994c297a074b11"></a>
+static SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><b>settings_menu_keybinds_button_rect</b></td></tr>
+<tr class="separator:af46a7f78b1c39a1279994c297a074b11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a045a4e38a945b8a5a5b667d5e58ee6a8"><td class="memItemLeft" align="right" valign="top"><a id="a045a4e38a945b8a5a5b667d5e58ee6a8" name="a045a4e38a945b8a5a5b667d5e58ee6a8"></a>
+static SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><b>settings_menu_keys_buttons_rect</b> [5]</td></tr>
+<tr class="separator:a045a4e38a945b8a5a5b667d5e58ee6a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e152e6f15e7af4377e66feb4185cf29"><td class="memItemLeft" align="right" valign="top"><a id="a4e152e6f15e7af4377e66feb4185cf29" name="a4e152e6f15e7af4377e66feb4185cf29"></a>
 static SDL_DisplayMode&#160;</td><td class="memItemRight" valign="bottom"><b>DM</b></td></tr>
 <tr class="separator:a4e152e6f15e7af4377e66feb4185cf29"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -451,9 +463,6 @@ static SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><b>surfa
 <tr class="memitem:a6c7b30f7a4e8cb2c08200c50df19c88e"><td class="memItemLeft" align="right" valign="top"><a id="a6c7b30f7a4e8cb2c08200c50df19c88e" name="a6c7b30f7a4e8cb2c08200c50df19c88e"></a>
 static SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><b>surface_joueur_down_2</b> = NULL</td></tr>
 <tr class="separator:a6c7b30f7a4e8cb2c08200c50df19c88e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc837f4e409676d88d2928e8a42b98cd"><td class="memItemLeft" align="right" valign="top"><a id="afc837f4e409676d88d2928e8a42b98cd" name="afc837f4e409676d88d2928e8a42b98cd"></a>
-static SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><b>surface_settings_bg</b> = NULL</td></tr>
-<tr class="separator:afc837f4e409676d88d2928e8a42b98cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9d55a4aa9888c37e7482d771f5294b2"><td class="memItemLeft" align="right" valign="top"><a id="ac9d55a4aa9888c37e7482d771f5294b2" name="ac9d55a4aa9888c37e7482d771f5294b2"></a>
 static SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><b>apple_food_surface</b> = NULL</td></tr>
 <tr class="separator:ac9d55a4aa9888c37e7482d771f5294b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -505,30 +514,36 @@ static SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><b>textu
 <tr class="memitem:af359d76528f4d8679b21058907141662"><td class="memItemLeft" align="right" valign="top"><a id="af359d76528f4d8679b21058907141662" name="af359d76528f4d8679b21058907141662"></a>
 static SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><b>texture_joueur_down_2</b> = NULL</td></tr>
 <tr class="separator:af359d76528f4d8679b21058907141662"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac11e7cd9a7b4b5f2619e02d5c95e721f"><td class="memItemLeft" align="right" valign="top"><a id="ac11e7cd9a7b4b5f2619e02d5c95e721f" name="ac11e7cd9a7b4b5f2619e02d5c95e721f"></a>
-static SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><b>texture_settings_bg</b> = NULL</td></tr>
-<tr class="separator:ac11e7cd9a7b4b5f2619e02d5c95e721f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6af59c429e1c59de9f7c434890cad0b"><td class="memItemLeft" align="right" valign="top"><a id="ac6af59c429e1c59de9f7c434890cad0b" name="ac6af59c429e1c59de9f7c434890cad0b"></a>
-static SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><b>play_inert</b> = NULL</td></tr>
-<tr class="separator:ac6af59c429e1c59de9f7c434890cad0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ed491ecf2ea7d0aa391911486947514"><td class="memItemLeft" align="right" valign="top"><a id="a0ed491ecf2ea7d0aa391911486947514" name="a0ed491ecf2ea7d0aa391911486947514"></a>
-static SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><b>play_hover</b> = NULL</td></tr>
-<tr class="separator:a0ed491ecf2ea7d0aa391911486947514"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3eac20d8070ad3dac35be53e7b812de"><td class="memItemLeft" align="right" valign="top"><a id="ae3eac20d8070ad3dac35be53e7b812de" name="ae3eac20d8070ad3dac35be53e7b812de"></a>
-static SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><b>connect_inert</b> = NULL</td></tr>
-<tr class="separator:ae3eac20d8070ad3dac35be53e7b812de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f6c62ee69334f38ab091cbac17150e6"><td class="memItemLeft" align="right" valign="top"><a id="a0f6c62ee69334f38ab091cbac17150e6" name="a0f6c62ee69334f38ab091cbac17150e6"></a>
-static SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><b>connect_hover</b> = NULL</td></tr>
-<tr class="separator:a0f6c62ee69334f38ab091cbac17150e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44a8146a34246f91daffafbd4c499560"><td class="memItemLeft" align="right" valign="top"><a id="a44a8146a34246f91daffafbd4c499560" name="a44a8146a34246f91daffafbd4c499560"></a>
-static SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><b>host_inert</b> = NULL</td></tr>
-<tr class="separator:a44a8146a34246f91daffafbd4c499560"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74add41d0f2821afa696b6c6d5ed72f9"><td class="memItemLeft" align="right" valign="top"><a id="a74add41d0f2821afa696b6c6d5ed72f9" name="a74add41d0f2821afa696b6c6d5ed72f9"></a>
-static SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><b>host_hover</b> = NULL</td></tr>
-<tr class="separator:a74add41d0f2821afa696b6c6d5ed72f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79f6dc4c8cd32ee2f7493b6b2ede6f14"><td class="memItemLeft" align="right" valign="top"><a id="a79f6dc4c8cd32ee2f7493b6b2ede6f14" name="a79f6dc4c8cd32ee2f7493b6b2ede6f14"></a>
-static SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><b>settings_inert</b> = NULL</td></tr>
-<tr class="separator:a79f6dc4c8cd32ee2f7493b6b2ede6f14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0129d12fc281240aa131e0ee241a2398"><td class="memItemLeft" align="right" valign="top"><a id="a0129d12fc281240aa131e0ee241a2398" name="a0129d12fc281240aa131e0ee241a2398"></a>
+static SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><b>surface_play_inert</b> = NULL</td></tr>
+<tr class="separator:a0129d12fc281240aa131e0ee241a2398"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc6a6562b130bda40df6dddaa9999eea"><td class="memItemLeft" align="right" valign="top"><a id="acc6a6562b130bda40df6dddaa9999eea" name="acc6a6562b130bda40df6dddaa9999eea"></a>
+static SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><b>surface_play_hover</b> = NULL</td></tr>
+<tr class="separator:acc6a6562b130bda40df6dddaa9999eea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa50cc24e79321384146b8f337ce6c4fa"><td class="memItemLeft" align="right" valign="top"><a id="aa50cc24e79321384146b8f337ce6c4fa" name="aa50cc24e79321384146b8f337ce6c4fa"></a>
+static SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><b>surface_connect_inert</b> = NULL</td></tr>
+<tr class="separator:aa50cc24e79321384146b8f337ce6c4fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad24301bd2a88866db722c786171de6cd"><td class="memItemLeft" align="right" valign="top"><a id="ad24301bd2a88866db722c786171de6cd" name="ad24301bd2a88866db722c786171de6cd"></a>
+static SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><b>surface_connect_hover</b> = NULL</td></tr>
+<tr class="separator:ad24301bd2a88866db722c786171de6cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a756f2e97588c90d9816f5a0d62db53be"><td class="memItemLeft" align="right" valign="top"><a id="a756f2e97588c90d9816f5a0d62db53be" name="a756f2e97588c90d9816f5a0d62db53be"></a>
+static SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><b>surface_host_inert</b> = NULL</td></tr>
+<tr class="separator:a756f2e97588c90d9816f5a0d62db53be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34df3d9e22541d8f5d4bce69906ff957"><td class="memItemLeft" align="right" valign="top"><a id="a34df3d9e22541d8f5d4bce69906ff957" name="a34df3d9e22541d8f5d4bce69906ff957"></a>
+static SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><b>surface_host_hover</b> = NULL</td></tr>
+<tr class="separator:a34df3d9e22541d8f5d4bce69906ff957"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6a701bbba0784265d4313cfd333f199"><td class="memItemLeft" align="right" valign="top"><a id="ae6a701bbba0784265d4313cfd333f199" name="ae6a701bbba0784265d4313cfd333f199"></a>
+static SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><b>surface_settings_inert</b> = NULL</td></tr>
+<tr class="separator:ae6a701bbba0784265d4313cfd333f199"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc837f4e409676d88d2928e8a42b98cd"><td class="memItemLeft" align="right" valign="top"><a id="afc837f4e409676d88d2928e8a42b98cd" name="afc837f4e409676d88d2928e8a42b98cd"></a>
+static SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><b>surface_settings_bg</b> = NULL</td></tr>
+<tr class="separator:afc837f4e409676d88d2928e8a42b98cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8137000b6a66198c37e19379af67fac"><td class="memItemLeft" align="right" valign="top"><a id="ae8137000b6a66198c37e19379af67fac" name="ae8137000b6a66198c37e19379af67fac"></a>
+static SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><b>surface_settings_menu_keybinds_button</b> = NULL</td></tr>
+<tr class="separator:ae8137000b6a66198c37e19379af67fac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab432b53649cb42f1487d587351a8e2a"><td class="memItemLeft" align="right" valign="top"><a id="aab432b53649cb42f1487d587351a8e2a" name="aab432b53649cb42f1487d587351a8e2a"></a>
+static SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><b>surface_settings_menu_keybinds_button_hover</b> = NULL</td></tr>
+<tr class="separator:aab432b53649cb42f1487d587351a8e2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf6f7f1c89cf4f9d653a1bef253bbeaf"><td class="memItemLeft" align="right" valign="top"><a id="aaf6f7f1c89cf4f9d653a1bef253bbeaf" name="aaf6f7f1c89cf4f9d653a1bef253bbeaf"></a>
 static SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><b>texture_play_inert</b> = NULL</td></tr>
 <tr class="separator:aaf6f7f1c89cf4f9d653a1bef253bbeaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -550,6 +565,15 @@ static SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><b>textu
 <tr class="memitem:af35106b92a56d57f25448cf884d3faa3"><td class="memItemLeft" align="right" valign="top"><a id="af35106b92a56d57f25448cf884d3faa3" name="af35106b92a56d57f25448cf884d3faa3"></a>
 static SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><b>texture_settings_inert</b> = NULL</td></tr>
 <tr class="separator:af35106b92a56d57f25448cf884d3faa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac11e7cd9a7b4b5f2619e02d5c95e721f"><td class="memItemLeft" align="right" valign="top"><a id="ac11e7cd9a7b4b5f2619e02d5c95e721f" name="ac11e7cd9a7b4b5f2619e02d5c95e721f"></a>
+static SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><b>texture_settings_bg</b> = NULL</td></tr>
+<tr class="separator:ac11e7cd9a7b4b5f2619e02d5c95e721f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a850f6cd6a7e73bd244f88792daabf551"><td class="memItemLeft" align="right" valign="top"><a id="a850f6cd6a7e73bd244f88792daabf551" name="a850f6cd6a7e73bd244f88792daabf551"></a>
+static SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><b>texture_settings_menu_keybinds_button</b> = NULL</td></tr>
+<tr class="separator:a850f6cd6a7e73bd244f88792daabf551"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c7a5986185b1ecc3541ba39a81cd397"><td class="memItemLeft" align="right" valign="top"><a id="a9c7a5986185b1ecc3541ba39a81cd397" name="a9c7a5986185b1ecc3541ba39a81cd397"></a>
+static SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><b>texture_settings_menu_keybinds_button_hover</b> = NULL</td></tr>
+<tr class="separator:a9c7a5986185b1ecc3541ba39a81cd397"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa8e409e04dcf575ef63fd5fb3db06f9"><td class="memItemLeft" align="right" valign="top"><a id="aaa8e409e04dcf575ef63fd5fb3db06f9" name="aaa8e409e04dcf575ef63fd5fb3db06f9"></a>
 static SDL_Window *&#160;</td><td class="memItemRight" valign="bottom"><b>window</b> = NULL</td></tr>
 <tr class="separator:aaa8e409e04dcf575ef63fd5fb3db06f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -697,10 +721,12 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="menus_8h_ab5e1f7649b8b40f10bd9168c6a098883_icgraph.png" border="0" usemap="#amenus_8h_ab5e1f7649b8b40f10bd9168c6a098883_icgraph" alt=""/></div>
 <map name="amenus_8h_ab5e1f7649b8b40f10bd9168c6a098883_icgraph" id="amenus_8h_ab5e1f7649b8b40f10bd9168c6a098883_icgraph">
-<area shape="rect" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="364,5,455,31"/>
-<area shape="rect" href="menus_8c.html#ab98dbf196398d8aeaa4ac97f87ae54a1" title="Affiche le menu principal." alt="" coords="233,5,316,31"/>
-<area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,5,185,31"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+<area shape="rect" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="459,55,549,80"/>
+<area shape="rect" href="menus_8c.html#ad4082538ea22b0a347c09456b67ba4bd" title="Affiche le menu principal." alt="" coords="281,5,363,31"/>
+<area shape="rect" href="menus_8c.html#a706ecee7dd0dc5e17064da807e4d0f7f" title="Affiche le menu des paramètres des keybinds dans le menu principal." alt="" coords="233,55,411,80"/>
+<area shape="rect" href="menus_8c.html#a081a8f6ffea1d158f2a87e4258f6329a" title="Affiche le menu des paramètres dans le menu principal." alt="" coords="257,104,387,129"/>
+<area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,55,185,80"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,55,56,80"/>
 </map>
 </div>
 
@@ -784,7 +810,7 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="center"><img src="menus_8h_ad9a4714e86590146659768dcd5357272_icgraph.png" border="0" usemap="#amenus_8h_ad9a4714e86590146659768dcd5357272_icgraph" alt=""/></div>
 <map name="amenus_8h_ad9a4714e86590146659768dcd5357272_icgraph" id="amenus_8h_ad9a4714e86590146659768dcd5357272_icgraph">
 <area shape="rect" title="Affiche la texture de survol avec animation du bouton demandé en dans le menu souhaité." alt="" coords="364,5,539,31"/>
-<area shape="rect" href="menus_8c.html#ab98dbf196398d8aeaa4ac97f87ae54a1" title="Affiche le menu principal." alt="" coords="233,5,316,31"/>
+<area shape="rect" href="menus_8c.html#ad4082538ea22b0a347c09456b67ba4bd" title="Affiche le menu principal." alt="" coords="233,5,316,31"/>
 <area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,5,185,31"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
 </map>
@@ -873,6 +899,16 @@ Voici le graphe des appelants de cette fonction :</div>
   </table>
   </dd>
 </dl>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="menus_8h_a20432793012cb1509389bf14f94a8ee9_icgraph.png" border="0" usemap="#amenus_8h_a20432793012cb1509389bf14f94a8ee9_icgraph" alt=""/></div>
+<map name="amenus_8h_a20432793012cb1509389bf14f94a8ee9_icgraph" id="amenus_8h_a20432793012cb1509389bf14f94a8ee9_icgraph">
+<area shape="rect" title="Change le boutton ciblé avec l&#39;état voulut." alt="" coords="227,5,397,31"/>
+<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -898,36 +934,38 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="menus_8h_a3ccdb6767f1237284bf7c8e0d3e3eacb_icgraph.png" border="0" usemap="#amenus_8h_a3ccdb6767f1237284bf7c8e0d3e3eacb_icgraph" alt=""/></div>
 <map name="amenus_8h_a3ccdb6767f1237284bf7c8e0d3e3eacb_icgraph" id="amenus_8h_a3ccdb6767f1237284bf7c8e0d3e3eacb_icgraph">
-<area shape="rect" title="Détruit la fenêtre et le rendu." alt="" coords="928,351,1008,377"/>
-<area shape="rect" href="menus_8c.html#ad452b0eb987136d6af7d68a474fd7bc1" title="Dessine un bouton normal." alt="" coords="754,351,841,377"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,363,56,389"/>
-<area shape="rect" href="menus_8c.html#af533a07a1593c721a25b080bf2cc10d9" title="Dessine un boutton en fonction d&#39;une certaine rotation." alt="" coords="715,407,880,433"/>
-<area shape="rect" href="menus_8c.html#a66530cff59b9a7c9551fd82dce25fe40" title="Affiche le nombre d&#39;items pour chaque case de l&#39;inventaire." alt="" coords="745,175,849,201"/>
-<area shape="rect" href="menus_8c.html#ae06068ec3d07bace5f405fbf6eeb3c20" title="Affiche l&#39;erreur à l&#39;écran." alt="" coords="759,469,836,494"/>
-<area shape="rect" href="menus_8c.html#a317983aacbc3405e75432d6290b1b280" title="Dessine l&#39;image souhaitée." alt="" coords="566,299,650,325"/>
-<area shape="rect" href="menus_8c.html#aed543fd0f875dcbff172087fe7b23025" title="Dessine l&#39;inventaire." alt="" coords="394,50,494,75"/>
-<area shape="rect" href="menus_8c.html#ab5e92db476c0b623d52a2556f346b737" title="Dessine l&#39;item à la bonne case de l&#39;inventaire." alt="" coords="760,126,835,151"/>
-<area shape="rect" href="menus_8c.html#aab7430a217db9969c46ead48adffbd05" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="564,250,652,275"/>
-<area shape="rect" href="menus_8c.html#a2dfe41d8c0f122241c47441391c02de3" title="Dessine un joueur en fonction de ses coordonnées et de sa texture." alt="" coords="754,543,841,569"/>
-<area shape="rect" href="menus_8c.html#a48e3fe80d276c94e23eed3c1017a05ee" title="Initialise toutes les variables relatives aux menus." alt="" coords="387,626,501,651"/>
-<area shape="rect" href="menus_8c.html#ac96e8912bb03df1f73f5ccb6db495085" title="Initialise l&#39;asset demandé." alt="" coords="754,651,841,677"/>
-<area shape="rect" href="menus_8c.html#afb13427163cac507a66d96dbc0f3c06e" title="Initialise les dafonts." alt="" coords="772,701,823,726"/>
-<area shape="rect" href="menus_8c.html#ab5e1f7649b8b40f10bd9168c6a098883" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="563,398,653,423"/>
-<area shape="rect" href="menus_8c.html#a258a73384029adb1d7e22ca959235633" title="Essaye de dessiner tous les bouttons." alt="" coords="561,349,655,374"/>
-<area shape="rect" href="menus_8c.html#a8db0bbcb2b936e82aa071324eae9d71f" title="Dessine la barre de vie du joueur." alt="" coords="565,201,651,226"/>
-<area shape="rect" href="menus_8c.html#ab98dbf196398d8aeaa4ac97f87ae54a1" title="Affiche le menu principal." alt="" coords="403,353,485,378"/>
-<area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,302,185,327"/>
-<area shape="rect" href="menus_8c.html#ac4c9f25aa12dff823919430e1f6193a2" title="Dessine le menu en jeu." alt="" coords="396,202,492,227"/>
-<area shape="rect" href="menus_8c.html#ad91f44597d803d249e1b96e7569f8199" title="Dessin le menu de l&#39;inventaire." alt="" coords="233,175,339,201"/>
-<area shape="rect" href="menus_8c.html#aede862d24a32e39c6e86dc94bd4cfc87" title="Dessine les cases de l&#39;inventaire." alt="" coords="565,102,651,127"/>
-<area shape="rect" href="menus_8c.html#a3d227936b6a3d4d077b8e6f8326ed1bb" title="Affiche l&#39;item transporté par le curseur du joueur." alt="" coords="575,151,641,177"/>
-<area shape="rect" href="menus_8c.html#a9cde538499636a6a74cb0f3e206d4a73" title="Dessine l&#39;erreur avec TTF." alt="" coords="399,499,489,525"/>
-<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="249,499,323,525"/>
-<area shape="rect" href="menus_8c.html#aa51a01a4976b233b54a81b33b82caef5" title="Affiche le menu des paramètres." alt="" coords="393,303,495,329"/>
-<area shape="rect" href="menus_8c.html#a6806c9e2f2bcbf342c2bfa91336c2d27" title="Applique la bonne texture au joueur en fonction de son animation." alt="" coords="549,550,667,575"/>
-<area shape="rect" href="menus_8c.html#ab804df0c510979d77fd5599feef21ae0" title="Dessine tous les joueurs." alt="" coords="397,549,491,574"/>
-<area shape="rect" href="main_8c.html#a270d20bdcadebb9a08a01a55c37858a9" title="Initialise toutes les variables relatives aux menus." alt="" coords="110,513,179,538"/>
-<area shape="rect" href="menus_8c.html#a1d535222d73c1839cb6c5ef121b00baf" title="Initialise les textures du jeu." alt="" coords="565,651,651,677"/>
+<area shape="rect" title="Détruit la fenêtre et le rendu." alt="" coords="1032,546,1112,571"/>
+<area shape="rect" href="menus_8c.html#ad452b0eb987136d6af7d68a474fd7bc1" title="Dessine un bouton normal." alt="" coords="858,195,945,220"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,434,56,459"/>
+<area shape="rect" href="menus_8c.html#af533a07a1593c721a25b080bf2cc10d9" title="Dessine un boutton en fonction d&#39;une certaine rotation." alt="" coords="819,95,984,120"/>
+<area shape="rect" href="menus_8c.html#a66530cff59b9a7c9551fd82dce25fe40" title="Affiche le nombre d&#39;items pour chaque case de l&#39;inventaire." alt="" coords="849,546,953,571"/>
+<area shape="rect" href="menus_8c.html#ae06068ec3d07bace5f405fbf6eeb3c20" title="Affiche l&#39;erreur à l&#39;écran." alt="" coords="863,647,940,672"/>
+<area shape="rect" href="menus_8c.html#a317983aacbc3405e75432d6290b1b280" title="Dessine l&#39;image souhaitée." alt="" coords="859,322,943,347"/>
+<area shape="rect" href="menus_8c.html#aed543fd0f875dcbff172087fe7b23025" title="Dessine l&#39;inventaire." alt="" coords="467,599,567,624"/>
+<area shape="rect" href="menus_8c.html#ab5e92db476c0b623d52a2556f346b737" title="Dessine l&#39;item à la bonne case de l&#39;inventaire." alt="" coords="864,496,939,522"/>
+<area shape="rect" href="menus_8c.html#aab7430a217db9969c46ead48adffbd05" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="668,398,756,423"/>
+<area shape="rect" href="menus_8c.html#a2dfe41d8c0f122241c47441391c02de3" title="Dessine un joueur en fonction de ses coordonnées et de sa texture." alt="" coords="858,696,945,722"/>
+<area shape="rect" href="menus_8c.html#a48e3fe80d276c94e23eed3c1017a05ee" title="Initialise toutes les variables relatives aux menus." alt="" coords="459,774,574,799"/>
+<area shape="rect" href="menus_8c.html#ac96e8912bb03df1f73f5ccb6db495085" title="Initialise l&#39;asset demandé." alt="" coords="858,799,945,824"/>
+<area shape="rect" href="menus_8c.html#afb13427163cac507a66d96dbc0f3c06e" title="Initialise les dafonts." alt="" coords="876,848,927,874"/>
+<area shape="rect" href="menus_8c.html#ab5e1f7649b8b40f10bd9168c6a098883" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="667,195,757,220"/>
+<area shape="rect" href="menus_8c.html#a258a73384029adb1d7e22ca959235633" title="Essaye de dessiner tous les bouttons." alt="" coords="665,146,759,171"/>
+<area shape="rect" href="menus_8c.html#ad4082538ea22b0a347c09456b67ba4bd" title="Affiche le menu principal." alt="" coords="475,146,558,171"/>
+<area shape="rect" href="menus_8c.html#a706ecee7dd0dc5e17064da807e4d0f7f" title="Affiche le menu des paramètres des keybinds dans le menu principal." alt="" coords="428,244,605,270"/>
+<area shape="rect" href="menus_8c.html#a081a8f6ffea1d158f2a87e4258f6329a" title="Affiche le menu des paramètres dans le menu principal." alt="" coords="451,195,582,220"/>
+<area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,346,185,371"/>
+<area shape="rect" href="menus_8c.html#aede862d24a32e39c6e86dc94bd4cfc87" title="Dessine les cases de l&#39;inventaire." alt="" coords="669,546,755,571"/>
+<area shape="rect" href="menus_8c.html#a3d227936b6a3d4d077b8e6f8326ed1bb" title="Affiche l&#39;item transporté par le curseur du joueur." alt="" coords="679,496,745,522"/>
+<area shape="rect" href="menus_8c.html#a588196acaedd8824af54e4bac318358d" title="Dessin le menu de l&#39;inventaire." alt="" coords="254,486,359,511"/>
+<area shape="rect" href="menus_8c.html#a3c98ffe9a3fcb71780598d084e08450b" title="Dessine le menu en jeu." alt="" coords="469,447,565,472"/>
+<area shape="rect" href="menus_8c.html#a047a87d55ef5bac980f1df5f340f39fa" title="Affiche le menu des paramètres dans en jeu." alt="" coords="233,346,380,371"/>
+<area shape="rect" href="menus_8c.html#a9cde538499636a6a74cb0f3e206d4a73" title="Dessine l&#39;erreur avec TTF." alt="" coords="471,648,562,674"/>
+<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="269,648,344,674"/>
+<area shape="rect" href="menus_8c.html#a8db0bbcb2b936e82aa071324eae9d71f" title="Dessine la barre de vie du joueur." alt="" coords="669,447,755,472"/>
+<area shape="rect" href="menus_8c.html#a6806c9e2f2bcbf342c2bfa91336c2d27" title="Applique la bonne texture au joueur en fonction de son animation." alt="" coords="653,698,771,723"/>
+<area shape="rect" href="menus_8c.html#ab804df0c510979d77fd5599feef21ae0" title="Dessine tous les joueurs." alt="" coords="470,698,563,723"/>
+<area shape="rect" href="main_8c.html#a270d20bdcadebb9a08a01a55c37858a9" title="Initialise toutes les variables relatives aux menus." alt="" coords="110,635,179,660"/>
+<area shape="rect" href="menus_8c.html#a1d535222d73c1839cb6c5ef121b00baf" title="Initialise les textures du jeu." alt="" coords="669,799,755,824"/>
 </map>
 </div>
 
@@ -1036,15 +1074,14 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="menus_8h_ad452b0eb987136d6af7d68a474fd7bc1_icgraph.png" border="0" usemap="#amenus_8h_ad452b0eb987136d6af7d68a474fd7bc1_icgraph" alt=""/></div>
 <map name="amenus_8h_ad452b0eb987136d6af7d68a474fd7bc1_icgraph" id="amenus_8h_ad452b0eb987136d6af7d68a474fd7bc1_icgraph">
-<area shape="rect" title="Dessine un bouton normal." alt="" coords="673,55,760,80"/>
-<area shape="rect" href="menus_8c.html#ab5e1f7649b8b40f10bd9168c6a098883" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="533,5,623,31"/>
-<area shape="rect" href="menus_8c.html#a258a73384029adb1d7e22ca959235633" title="Essaye de dessiner tous les bouttons." alt="" coords="531,55,625,80"/>
-<area shape="rect" href="menus_8c.html#a8db0bbcb2b936e82aa071324eae9d71f" title="Dessine la barre de vie du joueur." alt="" coords="535,104,621,129"/>
-<area shape="rect" href="menus_8c.html#ab98dbf196398d8aeaa4ac97f87ae54a1" title="Affiche le menu principal." alt="" coords="393,29,476,55"/>
-<area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,80,185,105"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,80,56,105"/>
-<area shape="rect" href="menus_8c.html#ac4c9f25aa12dff823919430e1f6193a2" title="Dessine le menu en jeu." alt="" coords="387,104,483,129"/>
-<area shape="rect" href="menus_8c.html#ad91f44597d803d249e1b96e7569f8199" title="Dessin le menu de l&#39;inventaire." alt="" coords="233,131,339,156"/>
+<area shape="rect" title="Dessine un bouton normal." alt="" coords="601,56,688,81"/>
+<area shape="rect" href="menus_8c.html#ab5e1f7649b8b40f10bd9168c6a098883" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="461,31,551,56"/>
+<area shape="rect" href="menus_8c.html#a258a73384029adb1d7e22ca959235633" title="Essaye de dessiner tous les bouttons." alt="" coords="459,80,553,105"/>
+<area shape="rect" href="menus_8c.html#ad4082538ea22b0a347c09456b67ba4bd" title="Affiche le menu principal." alt="" coords="281,5,363,31"/>
+<area shape="rect" href="menus_8c.html#a706ecee7dd0dc5e17064da807e4d0f7f" title="Affiche le menu des paramètres des keybinds dans le menu principal." alt="" coords="233,55,411,80"/>
+<area shape="rect" href="menus_8c.html#a081a8f6ffea1d158f2a87e4258f6329a" title="Affiche le menu des paramètres dans le menu principal." alt="" coords="257,104,387,129"/>
+<area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,55,185,80"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,55,56,80"/>
 </map>
 </div>
 
@@ -1150,11 +1187,16 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="menus_8h_a317983aacbc3405e75432d6290b1b280_icgraph.png" border="0" usemap="#amenus_8h_a317983aacbc3405e75432d6290b1b280_icgraph" alt=""/></div>
 <map name="amenus_8h_a317983aacbc3405e75432d6290b1b280_icgraph" id="amenus_8h_a317983aacbc3405e75432d6290b1b280_icgraph">
-<area shape="rect" title="Dessine l&#39;image souhaitée." alt="" coords="384,31,468,56"/>
-<area shape="rect" href="menus_8c.html#ab98dbf196398d8aeaa4ac97f87ae54a1" title="Affiche le menu principal." alt="" coords="243,5,326,31"/>
-<area shape="rect" href="menus_8c.html#aa51a01a4976b233b54a81b33b82caef5" title="Affiche le menu des paramètres." alt="" coords="233,55,336,80"/>
-<area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,31,185,56"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,31,56,56"/>
+<area shape="rect" title="Dessine l&#39;image souhaitée." alt="" coords="832,137,916,162"/>
+<area shape="rect" href="menus_8c.html#a8db0bbcb2b936e82aa071324eae9d71f" title="Dessine la barre de vie du joueur." alt="" coords="676,35,761,61"/>
+<area shape="rect" href="menus_8c.html#a047a87d55ef5bac980f1df5f340f39fa" title="Affiche le menu des paramètres dans en jeu." alt="" coords="233,86,380,111"/>
+<area shape="rect" href="menus_8c.html#ad4082538ea22b0a347c09456b67ba4bd" title="Affiche le menu principal." alt="" coords="475,137,558,162"/>
+<area shape="rect" href="menus_8c.html#a706ecee7dd0dc5e17064da807e4d0f7f" title="Affiche le menu des paramètres des keybinds dans le menu principal." alt="" coords="428,187,605,213"/>
+<area shape="rect" href="menus_8c.html#a081a8f6ffea1d158f2a87e4258f6329a" title="Affiche le menu des paramètres dans le menu principal." alt="" coords="653,238,784,263"/>
+<area shape="rect" href="menus_8c.html#a3c98ffe9a3fcb71780598d084e08450b" title="Dessine le menu en jeu." alt="" coords="469,35,565,61"/>
+<area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,111,185,137"/>
+<area shape="rect" href="menus_8c.html#a588196acaedd8824af54e4bac318358d" title="Dessin le menu de l&#39;inventaire." alt="" coords="254,37,359,62"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,111,56,137"/>
 </map>
 </div>
 
@@ -1546,37 +1588,39 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="menus_8h_acd3f39401c59bbd01c9663c5348c63c1_icgraph.png" border="0" usemap="#amenus_8h_acd3f39401c59bbd01c9663c5348c63c1_icgraph" alt=""/></div>
 <map name="amenus_8h_acd3f39401c59bbd01c9663c5348c63c1_icgraph" id="amenus_8h_acd3f39401c59bbd01c9663c5348c63c1_icgraph">
-<area shape="rect" title="Nous renvoi une erreur SDL." alt="" coords="928,405,1060,431"/>
-<area shape="rect" href="menus_8c.html#ad452b0eb987136d6af7d68a474fd7bc1" title="Dessine un bouton normal." alt="" coords="754,349,841,375"/>
-<area shape="rect" href="menus_8c.html#af533a07a1593c721a25b080bf2cc10d9" title="Dessine un boutton en fonction d&#39;une certaine rotation." alt="" coords="715,405,880,431"/>
-<area shape="rect" href="menus_8c.html#a66530cff59b9a7c9551fd82dce25fe40" title="Affiche le nombre d&#39;items pour chaque case de l&#39;inventaire." alt="" coords="745,103,849,128"/>
-<area shape="rect" href="menus_8c.html#ae06068ec3d07bace5f405fbf6eeb3c20" title="Affiche l&#39;erreur à l&#39;écran." alt="" coords="759,507,836,532"/>
-<area shape="rect" href="menus_8c.html#a317983aacbc3405e75432d6290b1b280" title="Dessine l&#39;image souhaitée." alt="" coords="566,256,650,281"/>
-<area shape="rect" href="menus_8c.html#aed543fd0f875dcbff172087fe7b23025" title="Dessine l&#39;inventaire." alt="" coords="394,5,494,31"/>
-<area shape="rect" href="menus_8c.html#ab5e92db476c0b623d52a2556f346b737" title="Dessine l&#39;item à la bonne case de l&#39;inventaire." alt="" coords="760,152,835,177"/>
-<area shape="rect" href="menus_8c.html#aab7430a217db9969c46ead48adffbd05" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="564,207,652,232"/>
-<area shape="rect" href="menus_8c.html#a2dfe41d8c0f122241c47441391c02de3" title="Dessine un joueur en fonction de ses coordonnées et de sa texture." alt="" coords="754,456,841,481"/>
-<area shape="rect" href="menus_8c.html#a48e3fe80d276c94e23eed3c1017a05ee" title="Initialise toutes les variables relatives aux menus." alt="" coords="387,608,501,633"/>
-<area shape="rect" href="menus_8c.html#ac96e8912bb03df1f73f5ccb6db495085" title="Initialise l&#39;asset demandé." alt="" coords="754,556,841,581"/>
-<area shape="rect" href="menus_8c.html#afb13427163cac507a66d96dbc0f3c06e" title="Initialise les dafonts." alt="" coords="772,607,823,632"/>
-<area shape="rect" href="menus_8c.html#ad75b46f2728cbcc3d36ee29e368ef68f" title="Initialise les éléments de la fenêtre." alt="" coords="757,657,838,683"/>
-<area shape="rect" href="menus_8c.html#ab5e1f7649b8b40f10bd9168c6a098883" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="563,305,653,331"/>
-<area shape="rect" href="menus_8c.html#a258a73384029adb1d7e22ca959235633" title="Essaye de dessiner tous les bouttons." alt="" coords="561,355,655,380"/>
-<area shape="rect" href="menus_8c.html#a8db0bbcb2b936e82aa071324eae9d71f" title="Dessine la barre de vie du joueur." alt="" coords="565,157,651,183"/>
-<area shape="rect" href="menus_8c.html#ab98dbf196398d8aeaa4ac97f87ae54a1" title="Affiche le menu principal." alt="" coords="403,308,485,333"/>
-<area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,257,185,283"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,468,56,493"/>
-<area shape="rect" href="menus_8c.html#ac4c9f25aa12dff823919430e1f6193a2" title="Dessine le menu en jeu." alt="" coords="396,157,492,183"/>
-<area shape="rect" href="menus_8c.html#ad91f44597d803d249e1b96e7569f8199" title="Dessin le menu de l&#39;inventaire." alt="" coords="233,120,339,145"/>
-<area shape="rect" href="menus_8c.html#aede862d24a32e39c6e86dc94bd4cfc87" title="Dessine les cases de l&#39;inventaire." alt="" coords="565,59,651,84"/>
-<area shape="rect" href="menus_8c.html#a3d227936b6a3d4d077b8e6f8326ed1bb" title="Affiche l&#39;item transporté par le curseur du joueur." alt="" coords="575,108,641,133"/>
-<area shape="rect" href="menus_8c.html#a9cde538499636a6a74cb0f3e206d4a73" title="Dessine l&#39;erreur avec TTF." alt="" coords="399,505,489,531"/>
-<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="249,468,323,493"/>
-<area shape="rect" href="menus_8c.html#aa51a01a4976b233b54a81b33b82caef5" title="Affiche le menu des paramètres." alt="" coords="393,259,495,284"/>
-<area shape="rect" href="menus_8c.html#a6806c9e2f2bcbf342c2bfa91336c2d27" title="Applique la bonne texture au joueur en fonction de son animation." alt="" coords="549,456,667,481"/>
-<area shape="rect" href="menus_8c.html#ab804df0c510979d77fd5599feef21ae0" title="Dessine tous les joueurs." alt="" coords="397,456,491,481"/>
-<area shape="rect" href="main_8c.html#a270d20bdcadebb9a08a01a55c37858a9" title="Initialise toutes les variables relatives aux menus." alt="" coords="110,544,179,569"/>
-<area shape="rect" href="menus_8c.html#a1d535222d73c1839cb6c5ef121b00baf" title="Initialise les textures du jeu." alt="" coords="565,557,651,583"/>
+<area shape="rect" title="Nous renvoi une erreur SDL." alt="" coords="1032,524,1164,549"/>
+<area shape="rect" href="menus_8c.html#ad452b0eb987136d6af7d68a474fd7bc1" title="Dessine un bouton normal." alt="" coords="858,120,945,145"/>
+<area shape="rect" href="menus_8c.html#af533a07a1593c721a25b080bf2cc10d9" title="Dessine un boutton en fonction d&#39;une certaine rotation." alt="" coords="819,20,984,45"/>
+<area shape="rect" href="menus_8c.html#a66530cff59b9a7c9551fd82dce25fe40" title="Affiche le nombre d&#39;items pour chaque case de l&#39;inventaire." alt="" coords="849,424,953,449"/>
+<area shape="rect" href="menus_8c.html#ae06068ec3d07bace5f405fbf6eeb3c20" title="Affiche l&#39;erreur à l&#39;écran." alt="" coords="863,574,940,600"/>
+<area shape="rect" href="menus_8c.html#a317983aacbc3405e75432d6290b1b280" title="Dessine l&#39;image souhaitée." alt="" coords="859,297,943,322"/>
+<area shape="rect" href="menus_8c.html#aed543fd0f875dcbff172087fe7b23025" title="Dessine l&#39;inventaire." alt="" coords="467,525,567,550"/>
+<area shape="rect" href="menus_8c.html#ab5e92db476c0b623d52a2556f346b737" title="Dessine l&#39;item à la bonne case de l&#39;inventaire." alt="" coords="864,473,939,498"/>
+<area shape="rect" href="menus_8c.html#aab7430a217db9969c46ead48adffbd05" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="668,221,756,246"/>
+<area shape="rect" href="menus_8c.html#a2dfe41d8c0f122241c47441391c02de3" title="Dessine un joueur en fonction de ses coordonnées et de sa texture." alt="" coords="858,624,945,649"/>
+<area shape="rect" href="menus_8c.html#a48e3fe80d276c94e23eed3c1017a05ee" title="Initialise toutes les variables relatives aux menus." alt="" coords="459,726,574,752"/>
+<area shape="rect" href="menus_8c.html#ac96e8912bb03df1f73f5ccb6db495085" title="Initialise l&#39;asset demandé." alt="" coords="858,726,945,752"/>
+<area shape="rect" href="menus_8c.html#afb13427163cac507a66d96dbc0f3c06e" title="Initialise les dafonts." alt="" coords="876,776,927,801"/>
+<area shape="rect" href="menus_8c.html#ad75b46f2728cbcc3d36ee29e368ef68f" title="Initialise les éléments de la fenêtre." alt="" coords="671,828,753,853"/>
+<area shape="rect" href="menus_8c.html#ab5e1f7649b8b40f10bd9168c6a098883" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="667,70,757,96"/>
+<area shape="rect" href="menus_8c.html#a258a73384029adb1d7e22ca959235633" title="Essaye de dessiner tous les bouttons." alt="" coords="665,120,759,145"/>
+<area shape="rect" href="menus_8c.html#ad4082538ea22b0a347c09456b67ba4bd" title="Affiche le menu principal." alt="" coords="475,72,558,97"/>
+<area shape="rect" href="menus_8c.html#a706ecee7dd0dc5e17064da807e4d0f7f" title="Affiche le menu des paramètres des keybinds dans le menu principal." alt="" coords="428,121,605,146"/>
+<area shape="rect" href="menus_8c.html#a081a8f6ffea1d158f2a87e4258f6329a" title="Affiche le menu des paramètres dans le menu principal." alt="" coords="451,170,582,196"/>
+<area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,272,185,297"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,586,56,612"/>
+<area shape="rect" href="menus_8c.html#aede862d24a32e39c6e86dc94bd4cfc87" title="Dessine les cases de l&#39;inventaire." alt="" coords="669,473,755,498"/>
+<area shape="rect" href="menus_8c.html#a3d227936b6a3d4d077b8e6f8326ed1bb" title="Affiche l&#39;item transporté par le curseur du joueur." alt="" coords="679,424,745,449"/>
+<area shape="rect" href="menus_8c.html#a588196acaedd8824af54e4bac318358d" title="Dessin le menu de l&#39;inventaire." alt="" coords="254,397,359,422"/>
+<area shape="rect" href="menus_8c.html#a3c98ffe9a3fcb71780598d084e08450b" title="Dessine le menu en jeu." alt="" coords="469,322,565,348"/>
+<area shape="rect" href="menus_8c.html#a047a87d55ef5bac980f1df5f340f39fa" title="Affiche le menu des paramètres dans en jeu." alt="" coords="233,322,380,348"/>
+<area shape="rect" href="menus_8c.html#a9cde538499636a6a74cb0f3e206d4a73" title="Dessine l&#39;erreur avec TTF." alt="" coords="471,574,562,600"/>
+<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="269,586,344,612"/>
+<area shape="rect" href="menus_8c.html#a8db0bbcb2b936e82aa071324eae9d71f" title="Dessine la barre de vie du joueur." alt="" coords="669,322,755,348"/>
+<area shape="rect" href="menus_8c.html#a6806c9e2f2bcbf342c2bfa91336c2d27" title="Applique la bonne texture au joueur en fonction de son animation." alt="" coords="653,625,771,650"/>
+<area shape="rect" href="menus_8c.html#ab804df0c510979d77fd5599feef21ae0" title="Dessine tous les joueurs." alt="" coords="470,625,563,650"/>
+<area shape="rect" href="main_8c.html#a270d20bdcadebb9a08a01a55c37858a9" title="Initialise toutes les variables relatives aux menus." alt="" coords="110,662,179,688"/>
+<area shape="rect" href="menus_8c.html#a1d535222d73c1839cb6c5ef121b00baf" title="Initialise les textures du jeu." alt="" coords="669,726,755,752"/>
 </map>
 </div>
 
@@ -1614,7 +1658,7 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="center"><img src="menus_8h_ab6d77ef359eb1ad9820145690e17a427_icgraph.png" border="0" usemap="#amenus_8h_ab6d77ef359eb1ad9820145690e17a427_icgraph" alt=""/></div>
 <map name="amenus_8h_ab6d77ef359eb1ad9820145690e17a427_icgraph" id="amenus_8h_ab6d77ef359eb1ad9820145690e17a427_icgraph">
 <area shape="rect" title="Animation du bouton paramètres quand on a pas le curseur dessus." alt="" coords="364,5,563,31"/>
-<area shape="rect" href="menus_8c.html#ab98dbf196398d8aeaa4ac97f87ae54a1" title="Affiche le menu principal." alt="" coords="233,5,316,31"/>
+<area shape="rect" href="menus_8c.html#ad4082538ea22b0a347c09456b67ba4bd" title="Affiche le menu principal." alt="" coords="233,5,316,31"/>
 <area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,5,185,31"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
 </map>
@@ -1654,7 +1698,7 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="center"><img src="menus_8h_a48c083415f7a9126fec9cc228b651991_icgraph.png" border="0" usemap="#amenus_8h_a48c083415f7a9126fec9cc228b651991_icgraph" alt=""/></div>
 <map name="amenus_8h_a48c083415f7a9126fec9cc228b651991_icgraph" id="amenus_8h_a48c083415f7a9126fec9cc228b651991_icgraph">
 <area shape="rect" title="Animation du bouton paramètres quand on a le curseur dessus." alt="" coords="364,5,539,45"/>
-<area shape="rect" href="menus_8c.html#ab98dbf196398d8aeaa4ac97f87ae54a1" title="Affiche le menu principal." alt="" coords="233,13,316,38"/>
+<area shape="rect" href="menus_8c.html#ad4082538ea22b0a347c09456b67ba4bd" title="Affiche le menu principal." alt="" coords="233,13,316,38"/>
 <area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,13,185,38"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,13,56,38"/>
 </map>

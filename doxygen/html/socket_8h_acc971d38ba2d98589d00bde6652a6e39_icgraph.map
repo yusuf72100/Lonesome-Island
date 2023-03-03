@@ -1,0 +1,7 @@
+<map id="getLocalIp" name="getLocalIp">
+<area shape="rect" id="node1" title="Renvoi l&#39;ip local du client." alt="" coords="388,31,469,56"/>
+<area shape="rect" id="node2" href="$client_8c.html#a3622090a7ff391221a74cad6493bbca9" title="Démarre la connexion au serveur et renvoi TRUE en cas d&#39;erreur sinon renvoi FALSE." alt="" coords="227,5,340,31"/>
+<area shape="rect" id="node5" href="$socket_8c.html#a3490387e86b9ba6a1ee9ed3984b637d5" title="Démarre le serveur et initie la table de clients." alt="" coords="241,55,325,80"/>
+<area shape="rect" id="node3" href="$main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,31,179,56"/>
+<area shape="rect" id="node4" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,31,56,56"/>
+</map>

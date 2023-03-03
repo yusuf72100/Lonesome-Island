@@ -3,15 +3,23 @@
 \mbox{\hyperlink{settings_8h}{Aller à la documentation de ce fichier.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
-\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <time.h>}}
-\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <string.h>}}
-\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <math.h>}}
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <pthread.h>}}
-\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <windows.h>}}
-\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <SDL.h>}\ \ }
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ SDL\_KeyCode\ keyTab[5];}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ SETTINGS\_H}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ SETTINGS\_H}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <time.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <pthread.h>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <windows.h>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <SDL.h>}\ \ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{defs_8h}{defs.h}}"{}}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{static}\ SDL\_KeyCode\ localKeyTab[14];}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{settings_8h_a1165e1d4439a045e94970c9fbc73bb3c}{loadSettings}}();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

@@ -201,6 +201,9 @@ static SDL\+\_\+bool {\bfseries hover\+\_\+hostbutton} = SDL\+\_\+\+FALSE
 \mbox{\Hypertarget{menus_8h_a0221921ebfd919f98ce1a927443cf147}\label{menus_8h_a0221921ebfd919f98ce1a927443cf147}} 
 static SDL\+\_\+bool {\bfseries hover\+\_\+settingsbutton} = SDL\+\_\+\+FALSE
 \item 
+\mbox{\Hypertarget{menus_8h_ad649dcd485d6496b49fea4bf709aa270}\label{menus_8h_ad649dcd485d6496b49fea4bf709aa270}} 
+static SDL\+\_\+bool {\bfseries hover\+\_\+settings\+\_\+keybindsbutton} = SDL\+\_\+\+FALSE
+\item 
 \mbox{\Hypertarget{menus_8h_a225f865625d7eb497b12ba90d7d89102}\label{menus_8h_a225f865625d7eb497b12ba90d7d89102}} 
 static SDL\+\_\+bool {\bfseries hover\+\_\+inventoryitem} = SDL\+\_\+\+FALSE
 \item 
@@ -215,6 +218,9 @@ static SDL\+\_\+bool {\bfseries clicked\+\_\+hostbutton} = SDL\+\_\+\+FALSE
 \item 
 \mbox{\Hypertarget{menus_8h_a93a44c3280f9837af4a90f3027ab8b68}\label{menus_8h_a93a44c3280f9837af4a90f3027ab8b68}} 
 static SDL\+\_\+bool {\bfseries clicked\+\_\+settingsbutton} = SDL\+\_\+\+FALSE
+\item 
+\mbox{\Hypertarget{menus_8h_a27b8af4405d522e651fe684989ea6278}\label{menus_8h_a27b8af4405d522e651fe684989ea6278}} 
+static SDL\+\_\+bool {\bfseries clicked\+\_\+settings\+\_\+keybindsbutton} = SDL\+\_\+\+FALSE
 \item 
 \mbox{\Hypertarget{menus_8h_ae65d48735f7e1d9f270a6ba107b21e9d}\label{menus_8h_ae65d48735f7e1d9f270a6ba107b21e9d}} 
 static SDL\+\_\+bool {\bfseries clicked\+\_\+inventoryitem} = SDL\+\_\+\+FALSE
@@ -251,6 +257,12 @@ static SDL\+\_\+\+Rect {\bfseries title\+\_\+rect}
 \item 
 \mbox{\Hypertarget{menus_8h_aa4e46fbd0f91b377892efdce0e824cd5}\label{menus_8h_aa4e46fbd0f91b377892efdce0e824cd5}} 
 static SDL\+\_\+\+Rect {\bfseries settings\+\_\+menu\+\_\+bg\+\_\+rect}
+\item 
+\mbox{\Hypertarget{menus_8h_af46a7f78b1c39a1279994c297a074b11}\label{menus_8h_af46a7f78b1c39a1279994c297a074b11}} 
+static SDL\+\_\+\+Rect {\bfseries settings\+\_\+menu\+\_\+keybinds\+\_\+button\+\_\+rect}
+\item 
+\mbox{\Hypertarget{menus_8h_a045a4e38a945b8a5a5b667d5e58ee6a8}\label{menus_8h_a045a4e38a945b8a5a5b667d5e58ee6a8}} 
+static SDL\+\_\+\+Rect {\bfseries settings\+\_\+menu\+\_\+keys\+\_\+buttons\+\_\+rect} \mbox{[}5\mbox{]}
 \item 
 \mbox{\Hypertarget{menus_8h_a4e152e6f15e7af4377e66feb4185cf29}\label{menus_8h_a4e152e6f15e7af4377e66feb4185cf29}} 
 static SDL\+\_\+\+Display\+Mode {\bfseries DM}
@@ -318,9 +330,6 @@ static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+joueur\+\_\+down\+\_\+1
 \mbox{\Hypertarget{menus_8h_a6c7b30f7a4e8cb2c08200c50df19c88e}\label{menus_8h_a6c7b30f7a4e8cb2c08200c50df19c88e}} 
 static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+joueur\+\_\+down\+\_\+2} = NULL
 \item 
-\mbox{\Hypertarget{menus_8h_afc837f4e409676d88d2928e8a42b98cd}\label{menus_8h_afc837f4e409676d88d2928e8a42b98cd}} 
-static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+settings\+\_\+bg} = NULL
-\item 
 \mbox{\Hypertarget{menus_8h_ac9d55a4aa9888c37e7482d771f5294b2}\label{menus_8h_ac9d55a4aa9888c37e7482d771f5294b2}} 
 static SDL\+\_\+\+Surface $\ast$ {\bfseries apple\+\_\+food\+\_\+surface} = NULL
 \item 
@@ -372,29 +381,35 @@ static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+joueur\+\_\+down\+\_\+1
 \mbox{\Hypertarget{menus_8h_af359d76528f4d8679b21058907141662}\label{menus_8h_af359d76528f4d8679b21058907141662}} 
 static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+joueur\+\_\+down\+\_\+2} = NULL
 \item 
-\mbox{\Hypertarget{menus_8h_ac11e7cd9a7b4b5f2619e02d5c95e721f}\label{menus_8h_ac11e7cd9a7b4b5f2619e02d5c95e721f}} 
-static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+settings\+\_\+bg} = NULL
+\mbox{\Hypertarget{menus_8h_a0129d12fc281240aa131e0ee241a2398}\label{menus_8h_a0129d12fc281240aa131e0ee241a2398}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+play\+\_\+inert} = NULL
 \item 
-\mbox{\Hypertarget{menus_8h_ac6af59c429e1c59de9f7c434890cad0b}\label{menus_8h_ac6af59c429e1c59de9f7c434890cad0b}} 
-static SDL\+\_\+\+Surface $\ast$ {\bfseries play\+\_\+inert} = NULL
+\mbox{\Hypertarget{menus_8h_acc6a6562b130bda40df6dddaa9999eea}\label{menus_8h_acc6a6562b130bda40df6dddaa9999eea}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+play\+\_\+hover} = NULL
 \item 
-\mbox{\Hypertarget{menus_8h_a0ed491ecf2ea7d0aa391911486947514}\label{menus_8h_a0ed491ecf2ea7d0aa391911486947514}} 
-static SDL\+\_\+\+Surface $\ast$ {\bfseries play\+\_\+hover} = NULL
+\mbox{\Hypertarget{menus_8h_aa50cc24e79321384146b8f337ce6c4fa}\label{menus_8h_aa50cc24e79321384146b8f337ce6c4fa}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+connect\+\_\+inert} = NULL
 \item 
-\mbox{\Hypertarget{menus_8h_ae3eac20d8070ad3dac35be53e7b812de}\label{menus_8h_ae3eac20d8070ad3dac35be53e7b812de}} 
-static SDL\+\_\+\+Surface $\ast$ {\bfseries connect\+\_\+inert} = NULL
+\mbox{\Hypertarget{menus_8h_ad24301bd2a88866db722c786171de6cd}\label{menus_8h_ad24301bd2a88866db722c786171de6cd}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+connect\+\_\+hover} = NULL
 \item 
-\mbox{\Hypertarget{menus_8h_a0f6c62ee69334f38ab091cbac17150e6}\label{menus_8h_a0f6c62ee69334f38ab091cbac17150e6}} 
-static SDL\+\_\+\+Surface $\ast$ {\bfseries connect\+\_\+hover} = NULL
+\mbox{\Hypertarget{menus_8h_a756f2e97588c90d9816f5a0d62db53be}\label{menus_8h_a756f2e97588c90d9816f5a0d62db53be}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+host\+\_\+inert} = NULL
 \item 
-\mbox{\Hypertarget{menus_8h_a44a8146a34246f91daffafbd4c499560}\label{menus_8h_a44a8146a34246f91daffafbd4c499560}} 
-static SDL\+\_\+\+Surface $\ast$ {\bfseries host\+\_\+inert} = NULL
+\mbox{\Hypertarget{menus_8h_a34df3d9e22541d8f5d4bce69906ff957}\label{menus_8h_a34df3d9e22541d8f5d4bce69906ff957}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+host\+\_\+hover} = NULL
 \item 
-\mbox{\Hypertarget{menus_8h_a74add41d0f2821afa696b6c6d5ed72f9}\label{menus_8h_a74add41d0f2821afa696b6c6d5ed72f9}} 
-static SDL\+\_\+\+Surface $\ast$ {\bfseries host\+\_\+hover} = NULL
+\mbox{\Hypertarget{menus_8h_ae6a701bbba0784265d4313cfd333f199}\label{menus_8h_ae6a701bbba0784265d4313cfd333f199}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+settings\+\_\+inert} = NULL
 \item 
-\mbox{\Hypertarget{menus_8h_a79f6dc4c8cd32ee2f7493b6b2ede6f14}\label{menus_8h_a79f6dc4c8cd32ee2f7493b6b2ede6f14}} 
-static SDL\+\_\+\+Surface $\ast$ {\bfseries settings\+\_\+inert} = NULL
+\mbox{\Hypertarget{menus_8h_afc837f4e409676d88d2928e8a42b98cd}\label{menus_8h_afc837f4e409676d88d2928e8a42b98cd}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+settings\+\_\+bg} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_ae8137000b6a66198c37e19379af67fac}\label{menus_8h_ae8137000b6a66198c37e19379af67fac}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+settings\+\_\+menu\+\_\+keybinds\+\_\+button} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_aab432b53649cb42f1487d587351a8e2a}\label{menus_8h_aab432b53649cb42f1487d587351a8e2a}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+settings\+\_\+menu\+\_\+keybinds\+\_\+button\+\_\+hover} = NULL
 \item 
 \mbox{\Hypertarget{menus_8h_aaf6f7f1c89cf4f9d653a1bef253bbeaf}\label{menus_8h_aaf6f7f1c89cf4f9d653a1bef253bbeaf}} 
 static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+play\+\_\+inert} = NULL
@@ -416,6 +431,15 @@ static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+host\+\_\+hover} = NULL
 \item 
 \mbox{\Hypertarget{menus_8h_af35106b92a56d57f25448cf884d3faa3}\label{menus_8h_af35106b92a56d57f25448cf884d3faa3}} 
 static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+settings\+\_\+inert} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_ac11e7cd9a7b4b5f2619e02d5c95e721f}\label{menus_8h_ac11e7cd9a7b4b5f2619e02d5c95e721f}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+settings\+\_\+bg} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a850f6cd6a7e73bd244f88792daabf551}\label{menus_8h_a850f6cd6a7e73bd244f88792daabf551}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+settings\+\_\+menu\+\_\+keybinds\+\_\+button} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a9c7a5986185b1ecc3541ba39a81cd397}\label{menus_8h_a9c7a5986185b1ecc3541ba39a81cd397}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+settings\+\_\+menu\+\_\+keybinds\+\_\+button\+\_\+hover} = NULL
 \item 
 \mbox{\Hypertarget{menus_8h_aaa8e409e04dcf575ef63fd5fb3db06f9}\label{menus_8h_aaa8e409e04dcf575ef63fd5fb3db06f9}} 
 static SDL\+\_\+\+Window $\ast$ {\bfseries window} = NULL
@@ -610,6 +634,14 @@ Change le boutton ciblé avec l\textquotesingle{}état voulut.
 {\em state} & \\
 \hline
 \end{DoxyParams}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menus_8h_a20432793012cb1509389bf14f94a8ee9_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{menus_8h_a3ccdb6767f1237284bf7c8e0d3e3eacb}\label{menus_8h_a3ccdb6767f1237284bf7c8e0d3e3eacb}} 
 \index{menus.h@{menus.h}!destroyAll@{destroyAll}}
 \index{destroyAll@{destroyAll}!menus.h@{menus.h}}
@@ -650,8 +682,7 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \includegraphics[width=350pt]{menus_8h_a9cde538499636a6a74cb0f3e206d4a73_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -716,8 +747,7 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \includegraphics[width=273pt]{menus_8h_ae06068ec3d07bace5f405fbf6eeb3c20_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -734,8 +764,7 @@ Voici le graphe des appelants de cette fonction \+:
 
 Dessine l\textquotesingle{}image souhaitée. 
 
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
-\nopagebreak
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

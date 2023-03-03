@@ -1,0 +1,18 @@
+<map id="MainMenu" name="MainMenu">
+<area shape="rect" id="node1" title="Affiche le menu principal." alt="" coords="5,180,88,205"/>
+<area shape="rect" id="node2" href="$menus_8c.html#ab5e1f7649b8b40f10bd9168c6a098883" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="190,204,281,229"/>
+<area shape="rect" id="node8" href="$menus_8c.html#ad9a4714e86590146659768dcd5357272" title="Affiche la texture de survol avec animation du bouton demandé en dans le menu souhaité." alt="" coords="148,253,323,279"/>
+<area shape="rect" id="node9" href="$menus_8c.html#af533a07a1593c721a25b080bf2cc10d9" title="Dessine un boutton en fonction d&#39;une certaine rotation." alt="" coords="387,55,552,80"/>
+<area shape="rect" id="node10" href="$menus_8c.html#a258a73384029adb1d7e22ca959235633" title="Essaye de dessiner tous les bouttons." alt="" coords="188,155,283,180"/>
+<area shape="rect" id="node11" href="$menus_8c.html#a317983aacbc3405e75432d6290b1b280" title="Dessine l&#39;image souhaitée." alt="" coords="427,104,511,129"/>
+<area shape="rect" id="node12" href="$menus_8c.html#aab7430a217db9969c46ead48adffbd05" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="425,5,513,31"/>
+<area shape="rect" id="node13" href="$menus_8c.html#ab6d77ef359eb1ad9820145690e17a427" title="Animation du bouton paramètres quand on a pas le curseur dessus." alt="" coords="136,303,335,328"/>
+<area shape="rect" id="node15" href="$menus_8c.html#a48c083415f7a9126fec9cc228b651991" title="Animation du bouton paramètres quand on a le curseur dessus." alt="" coords="148,353,323,393"/>
+<area shape="rect" id="node3" href="$menus_8c.html#ad452b0eb987136d6af7d68a474fd7bc1" title="Dessine un bouton normal." alt="" coords="426,155,513,180"/>
+<area shape="rect" id="node6" href="$sound_8c.html#a57b4724b83449e52bba882dfcf33adbd" title="Fonction qui lance le son de survol de bouton dans un thread dédié." alt="" coords="431,228,507,253"/>
+<area shape="rect" id="node4" href="$menus_8c.html#a3ccdb6767f1237284bf7c8e0d3e3eacb" title="Détruit la fenêtre et le rendu." alt="" coords="630,55,710,80"/>
+<area shape="rect" id="node5" href="$menus_8c.html#acd3f39401c59bbd01c9663c5348c63c1" title="Nous renvoi une erreur SDL." alt="" coords="604,104,736,129"/>
+<area shape="rect" id="node7" href="$sound_8c.html#a57d534ee1e2bc6ccbd6b927c1a45c388" title="Son de survol de bouton." alt="" coords="609,228,731,253"/>
+<area shape="rect" id="node14" href="$main_8c.html#a0f9a66b9fc132ae63360835a23fe0ab0" title="Délai de l&#39;animation du bouton de paramètres quand on a pas le curseur dessus." alt="" coords="383,303,556,328"/>
+<area shape="rect" id="node16" href="$main_8c.html#a0caf52e6e1d7fb594108d8d4f4fbcd77" title="Délai de l&#39;animation du bouton de paramètres quand on a le curseur dessus." alt="" coords="395,353,544,393"/>
+</map>

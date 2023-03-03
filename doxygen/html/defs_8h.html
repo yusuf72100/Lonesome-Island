@@ -104,17 +104,19 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 <div class="dyncontent">
 <div class="center"><img src="defs_8h__dep__incl.png" border="0" usemap="#a_c_1_2_users_2_yusuf_2_lonesome-_island_2src_2defs_8hdep" alt=""/></div>
 <map name="a_c_1_2_users_2_yusuf_2_lonesome-_island_2src_2defs_8hdep" id="a_c_1_2_users_2_yusuf_2_lonesome-_island_2src_2defs_8hdep">
-<area shape="rect" title="Fichier contenant toutes les définitions de structures et de types." alt="" coords="204,5,379,45"/>
+<area shape="rect" title="Fichier contenant toutes les définitions de structures et de types." alt="" coords="303,5,477,45"/>
 <area shape="rect" href="defs_8c.html" title="Fichier qui initialisera les variables globales." alt="" coords="5,93,180,133"/>
 <area shape="rect" href="map_8h_source.html" title=" " alt="" coords="204,93,379,133"/>
-<area shape="rect" href="socket_8h.html" title="Fichier qui contient les informations relatives aux clients et au serveur point de vu socket." alt="" coords="403,93,577,133"/>
-<area shape="rect" href="client_8h.html" title="Fichier content toutes les informations relatives au client et au serveur." alt="" coords="304,181,479,221"/>
-<area shape="rect" href="socket_8c.html" title="Fichier qui s&#39;occupera uniquement du serveur." alt="" coords="503,181,677,221"/>
-<area shape="rect" href="client_8c.html" title="Fichier qui contient la configuration du socket client." alt="" coords="124,357,299,397"/>
-<area shape="rect" href="main_8h.html" title="Fichier contenant toutes les variables d&#39;affichage." alt="" coords="304,269,479,309"/>
-<area shape="rect" href="menus_8h.html" title="Fichier contenant toutes les variables d&#39;affichage." alt="" coords="503,269,677,309"/>
-<area shape="rect" href="main_8c.html" title="Fichier principal du programme qui s&#39;occupera de la partie jeu." alt="" coords="521,357,696,397"/>
-<area shape="rect" href="menus_8c.html" title="Fichier qui s&#39;occupera de l&#39;affichage des éléments." alt="" coords="323,357,497,397"/>
+<area shape="rect" href="settings_8h.html" title="Fichier content les définitions pour le fichier settings.c." alt="" coords="403,93,577,133"/>
+<area shape="rect" href="socket_8h.html" title="Fichier qui contient les informations relatives aux clients et au serveur point de vu socket." alt="" coords="601,93,776,133"/>
+<area shape="rect" href="main_8h.html" title="Fichier contenant toutes les variables d&#39;affichage." alt="" coords="529,269,704,309"/>
+<area shape="rect" href="settings_8c.html" title="Programme qui s&#39;occupera de la sauvegarde des paramètres de l&#39;utilisateur." alt="" coords="403,181,577,221"/>
+<area shape="rect" href="client_8c.html" title="Fichier qui contient la configuration du socket client." alt="" coords="709,357,884,397"/>
+<area shape="rect" href="main_8c.html" title="Fichier principal du programme qui s&#39;occupera de la partie jeu." alt="" coords="312,357,487,397"/>
+<area shape="rect" href="menus_8c.html" title="Fichier qui s&#39;occupera de l&#39;affichage des éléments." alt="" coords="511,357,685,397"/>
+<area shape="rect" href="client_8h.html" title="Fichier content toutes les informations relatives au client et au serveur." alt="" coords="601,181,776,221"/>
+<area shape="rect" href="socket_8c.html" title="Fichier qui s&#39;occupera uniquement du serveur." alt="" coords="800,181,975,221"/>
+<area shape="rect" href="menus_8h.html" title="Fichier contenant toutes les variables d&#39;affichage." alt="" coords="331,269,505,309"/>
 </map>
 </div>
 </div>
@@ -161,7 +163,8 @@ Macros</h2></td></tr>
 , <b>HOST_BUTTON_HOVER</b>
 , <b>SETTINGS_BUTTON_HOVER</b>
 , <br />
-&#160;&#160;<b>INVENTORY_BUTTON_HOVER</b>
+&#160;&#160;<b>SETTINGS_KEYBIND_HOVER</b>
+, <b>INVENTORY_BUTTON_HOVER</b>
 <br />
  }</td></tr>
 <tr class="separator:a3d557a407330b62b30959d41183b05a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -171,7 +174,8 @@ Macros</h2></td></tr>
 , <b>HOST_BUTTON_CLICKED</b>
 , <b>SETTINGS_BUTTON_CLICKED</b>
 , <br />
-&#160;&#160;<b>INVENTORY_BUTTON_CLICKED</b>
+&#160;&#160;<b>SETTINGS_KEYBIND_CLICKED</b>
+, <b>INVENTORY_BUTTON_CLICKED</b>
 <br />
  }</td></tr>
 <tr class="separator:ac77a8f425887dd84757f43f2cec98c73"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -179,9 +183,11 @@ Macros</h2></td></tr>
 &#160;&#160;<b>MAIN_MENU</b>
 , <b>INGAME_MENU</b>
 , <b>INVENTORY_MENU</b>
-, <b>SETTINGS_MENU</b>
+, <b>SETTINGS_MAIN_MENU</b>
 , <br />
-&#160;&#160;<b>ERR_MENU</b>
+&#160;&#160;<b>SETTINGS_MAIN_KEYBIND_MENU</b>
+, <b>SETTINGS_INGAME_MENU</b>
+, <b>ERR_MENU</b>
 <br />
  }</td></tr>
 <tr class="separator:ac74f3fe130dd2907991df748d4dc4a13"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -212,6 +218,12 @@ Variables</h2></td></tr>
 <tr class="memitem:aef93a21306f15a44929d28318aab5ffb"><td class="memItemLeft" align="right" valign="top"><a id="aef93a21306f15a44929d28318aab5ffb" name="aef93a21306f15a44929d28318aab5ffb"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>SOLO</b></td></tr>
 <tr class="separator:aef93a21306f15a44929d28318aab5ffb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade7358028ced54508b163d7e93630830"><td class="memItemLeft" align="right" valign="top"><a id="ade7358028ced54508b163d7e93630830" name="ade7358028ced54508b163d7e93630830"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>HOST</b></td></tr>
+<tr class="separator:ade7358028ced54508b163d7e93630830"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace11e48823811038e01fa56a3fb77381"><td class="memItemLeft" align="right" valign="top"><a id="ace11e48823811038e01fa56a3fb77381" name="ace11e48823811038e01fa56a3fb77381"></a>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>IP_PUBLIC</b> [256]</td></tr>
+<tr class="separator:ace11e48823811038e01fa56a3fb77381"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70ae92227e50fde6d6e4568d3ce849d9"><td class="memItemLeft" align="right" valign="top"><a id="a70ae92227e50fde6d6e4568d3ce849d9" name="a70ae92227e50fde6d6e4568d3ce849d9"></a>
 T_MENU&#160;</td><td class="memItemRight" valign="bottom"><b>menu</b></td></tr>
 <tr class="separator:a70ae92227e50fde6d6e4568d3ce849d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -221,6 +233,9 @@ T_MENU&#160;</td><td class="memItemRight" valign="bottom"><b>menu</b></td></tr>
 <tr class="memitem:a59600277ef5467e1f4aa8f46789d6d12"><td class="memItemLeft" align="right" valign="top"><a id="a59600277ef5467e1f4aa8f46789d6d12" name="a59600277ef5467e1f4aa8f46789d6d12"></a>
 SDL_bool&#160;</td><td class="memItemRight" valign="bottom"><b>tabEvent</b> [20]</td></tr>
 <tr class="separator:a59600277ef5467e1f4aa8f46789d6d12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a214c7e79ace1aa0227c0c9ec3ba792eb"><td class="memItemLeft" align="right" valign="top"><a id="a214c7e79ace1aa0227c0c9ec3ba792eb" name="a214c7e79ace1aa0227c0c9ec3ba792eb"></a>
+SDL_KeyCode&#160;</td><td class="memItemRight" valign="bottom"><b>globalKeyTab</b> [20]</td></tr>
+<tr class="separator:a214c7e79ace1aa0227c0c9ec3ba792eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ef9fdf65d6a7d2e7bea9a793682d40f"><td class="memItemLeft" align="right" valign="top"><a id="a2ef9fdf65d6a7d2e7bea9a793682d40f" name="a2ef9fdf65d6a7d2e7bea9a793682d40f"></a>
 <a class="el" href="structcase__inventory.html">case_inventory</a>&#160;</td><td class="memItemRight" valign="bottom"><b>mat_inventory</b> [3][10]</td></tr>
 <tr class="separator:a2ef9fdf65d6a7d2e7bea9a793682d40f"><td class="memSeparator" colspan="2">&#160;</td></tr>

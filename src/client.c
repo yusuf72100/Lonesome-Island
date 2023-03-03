@@ -198,8 +198,8 @@ int startConnection()
     WSAStartup(MAKEWORD(2,0), &WSAData);
     SOCKADDR_IN addrServer;
 
-    if(HOST == FALSE) addrServer.sin_addr.s_addr = inet_addr(IP_PUBLIC);    
-    else addrServer.sin_addr.s_addr = inet_addr(IP_LOCALE);      
+    if(HOST == FALSE && SOLO == FALSE) addrServer.sin_addr.s_addr = inet_addr(IP_PUBLIC);    
+    else addrServer.sin_addr.s_addr = inet_addr(getLocalIp());      
     addrServer.sin_family = AF_INET;
     addrServer.sin_port = htons(4148);
     *socket_Server = socket(AF_INET,SOCK_STREAM,IPPROTO_TCP);

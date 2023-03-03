@@ -442,6 +442,7 @@ static void doEvents()
             pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
             changeMenu(INGAME_MENU);
             switchButtonState_hover(HOST_BUTTON_HOVER);
+            HOST = TRUE;
         }
         
         //settings button

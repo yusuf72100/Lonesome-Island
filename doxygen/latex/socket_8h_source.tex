@@ -23,63 +23,64 @@
 \DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{defs_8h}{defs.h}}"{}}}
 \DoxyCodeLine{00028\ }
 \DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ dataLen\ 5}}
-\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ IP\_LOCALE\ "{}127.0.0.1"{}}}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \textcolor{keyword}{typedef}\ uint32\_t\ socklen\_t;}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ \textcolor{keyword}{static}\ pthread\_t\ *receive\_from\_client;}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ tramClient\_send[100];}
-\DoxyCodeLine{00037\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ tramClient\_receive[100];}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ recvBuffer[dataLen];\ }
-\DoxyCodeLine{00040\ \textcolor{keyword}{static}\ SOCKET\ socketServer;}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ max\_player\ =\ 10;}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00048\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }}
-\DoxyCodeLine{00049\ \{}
-\DoxyCodeLine{00050\ \ \ \ \ SOCKET\ socketServer;}
-\DoxyCodeLine{00051\ \ \ \ \ SOCKET\ clientSocket;}
-\DoxyCodeLine{00052\ \ \ \ \ SOCKADDR\_IN\ addrClient;}
-\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{structplayer__t}{player\_t}}\ joueur;}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ \}\mbox{\hyperlink{structsocket_datas}{socketDatas}};}
-\DoxyCodeLine{00056\ }
-\DoxyCodeLine{00061\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }}
-\DoxyCodeLine{00062\ \{}
-\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{structsocket_datas}{socketDatas}}\ *\ sd;}
-\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{int}\ running;}
-\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{int}\ size;}
-\DoxyCodeLine{00066\ }
-\DoxyCodeLine{00067\ \}\mbox{\hyperlink{structarg_server}{argServer}};}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00069\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structarg_server}{argServer}}\ *argt\ =\ NULL;}
-\DoxyCodeLine{00070\ }
-\DoxyCodeLine{00075\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structsend2_client}{send2Client}}}
-\DoxyCodeLine{00076\ \{}
-\DoxyCodeLine{00077\ \ \ \ \ SOCKET\ socket;}
-\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{int}\ port;}
-\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{structarg_server}{argServer}}\ *\ argt;}
-\DoxyCodeLine{00080\ }
-\DoxyCodeLine{00081\ \}\mbox{\hyperlink{structsend2_client}{send2Client}};}
-\DoxyCodeLine{00082\ }
-\DoxyCodeLine{00083\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structsend2_client}{send2Client}}\ *argClient\ =\ NULL;}
-\DoxyCodeLine{00084\ }
-\DoxyCodeLine{00085\ \textcolor{keywordtype}{void}\ *clearInput(SOCKET\ socketClient);}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{socket_8h_a49cbd679b22e0661bdc353826c8c5086}{findPosition}}(\mbox{\hyperlink{structsend2_client}{send2Client}}\ *argClient);}
-\DoxyCodeLine{00088\ }
-\DoxyCodeLine{00089\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{socket_8h_ad768973bc551435391fa1ddfbb0355a1}{searchClients}}(\textcolor{keywordtype}{void}\ *argt);}
-\DoxyCodeLine{00090\ }
-\DoxyCodeLine{00091\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{socket_8h_a3b61093f2f5316157d1e6d3d05cf5ebc}{receiveFromClient}}(\textcolor{keywordtype}{void}\ *arg);}
-\DoxyCodeLine{00092\ }
-\DoxyCodeLine{00093\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ *sendToClient(\mbox{\hyperlink{structsend2_client}{send2Client}}\ *argClient,\ \textcolor{keywordtype}{int}\ position);}
-\DoxyCodeLine{00094\ }
-\DoxyCodeLine{00095\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{socket_8h_a3490387e86b9ba6a1ee9ed3984b637d5}{startServer}}();}
-\DoxyCodeLine{00096\ }
-\DoxyCodeLine{00097\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{socket_8h_ac1e551c19cd6ce8d7da8b13d1f290863}{stopServer}}();}
-\DoxyCodeLine{00098\ }
-\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{typedef}\ uint32\_t\ socklen\_t;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{static}\ pthread\_t\ *receive\_from\_client;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ tramClient\_send[100];}
+\DoxyCodeLine{00036\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ tramClient\_receive[100];}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ recvBuffer[dataLen];\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{static}\ SOCKET\ socketServer;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ max\_player\ =\ 10;}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }}
+\DoxyCodeLine{00048\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ SOCKET\ socketServer;}
+\DoxyCodeLine{00050\ \ \ \ \ SOCKET\ clientSocket;}
+\DoxyCodeLine{00051\ \ \ \ \ SOCKADDR\_IN\ addrClient;}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{structplayer__t}{player\_t}}\ joueur;}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \}\mbox{\hyperlink{structsocket_datas}{socketDatas}};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00060\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }}
+\DoxyCodeLine{00061\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{structsocket_datas}{socketDatas}}\ *\ sd;}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{int}\ running;}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{int}\ size;}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \}\mbox{\hyperlink{structarg_server}{argServer}};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structarg_server}{argServer}}\ *argt\ =\ NULL;}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00074\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structsend2_client}{send2Client}}}
+\DoxyCodeLine{00075\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ SOCKET\ socket;}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{int}\ port;}
+\DoxyCodeLine{00078\ \ \ \ \ \mbox{\hyperlink{structarg_server}{argServer}}\ *\ argt;}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \}\mbox{\hyperlink{structsend2_client}{send2Client}};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{socket_8h_acc971d38ba2d98589d00bde6652a6e39}{getLocalIp}}();}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structsend2_client}{send2Client}}\ *argClient\ =\ NULL;}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{keywordtype}{void}\ *clearInput(SOCKET\ socketClient);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{socket_8h_a49cbd679b22e0661bdc353826c8c5086}{findPosition}}(\mbox{\hyperlink{structsend2_client}{send2Client}}\ *argClient);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{socket_8h_ad768973bc551435391fa1ddfbb0355a1}{searchClients}}(\textcolor{keywordtype}{void}\ *argt);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{socket_8h_a3b61093f2f5316157d1e6d3d05cf5ebc}{receiveFromClient}}(\textcolor{keywordtype}{void}\ *arg);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ *sendToClient(\mbox{\hyperlink{structsend2_client}{send2Client}}\ *argClient,\ \textcolor{keywordtype}{int}\ position);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{socket_8h_a3490387e86b9ba6a1ee9ed3984b637d5}{startServer}}();}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{socket_8h_ac1e551c19cd6ce8d7da8b13d1f290863}{stopServer}}();}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

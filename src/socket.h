@@ -27,7 +27,6 @@
 #include "defs.h"
 
 #define dataLen 5
-#define IP_LOCALE "192.168.1.16"
 
 typedef uint32_t socklen_t;
 
@@ -79,6 +78,8 @@ typedef struct send2Client
     argServer * argt;
 
 }send2Client;
+
+char *getLocalIp();
 
 static send2Client *argClient = NULL;
 

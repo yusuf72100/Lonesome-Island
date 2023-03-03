@@ -45,9 +45,6 @@ struct \mbox{\hyperlink{structsend2_client}{send2\+Client}}
 \item 
 \mbox{\Hypertarget{socket_8h_a84ac3266d9efb284e798de99c6bd8165}\label{socket_8h_a84ac3266d9efb284e798de99c6bd8165}} 
 \#define {\bfseries data\+Len}~5
-\item 
-\mbox{\Hypertarget{socket_8h_ab88eb169a168b47e25d70b2f442f6c5b}\label{socket_8h_ab88eb169a168b47e25d70b2f442f6c5b}} 
-\#define {\bfseries IP\+\_\+\+LOCALE}~\char`\"{}127.\+0.\+0.\+1\char`\"{}
 \end{DoxyCompactItemize}
 \doxysubsection*{Définitions de type}
 \begin{DoxyCompactItemize}
@@ -61,6 +58,8 @@ typedef struct \mbox{\hyperlink{structsend2_client}{send2\+Client}} {\bfseries s
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
+char $\ast$ \mbox{\hyperlink{socket_8h_acc971d38ba2d98589d00bde6652a6e39}{get\+Local\+Ip}} ()
+\begin{DoxyCompactList}\small\item\em Renvoi l\textquotesingle{}ip local du client. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{socket_8h_a10d588931e71363df68940a8dd01b898}\label{socket_8h_a10d588931e71363df68940a8dd01b898}} 
 void $\ast$ {\bfseries clear\+Input} (SOCKET socket\+Client)
 \item 
@@ -150,6 +149,27 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \includegraphics[width=350pt]{socket_8h_a49cbd679b22e0661bdc353826c8c5086_icgraph}
 \end{center}
 \end{figure}
+\mbox{\Hypertarget{socket_8h_acc971d38ba2d98589d00bde6652a6e39}\label{socket_8h_acc971d38ba2d98589d00bde6652a6e39}} 
+\index{socket.h@{socket.h}!getLocalIp@{getLocalIp}}
+\index{getLocalIp@{getLocalIp}!socket.h@{socket.h}}
+\doxysubsubsection{\texorpdfstring{getLocalIp()}{getLocalIp()}}
+{\footnotesize\ttfamily char $\ast$ get\+Local\+Ip (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Renvoi l\textquotesingle{}ip local du client. 
+
+\begin{DoxyReturn}{Renvoie}
+char$\ast$ 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{socket_8h_acc971d38ba2d98589d00bde6652a6e39_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{socket_8h_a3b61093f2f5316157d1e6d3d05cf5ebc}\label{socket_8h_a3b61093f2f5316157d1e6d3d05cf5ebc}} 
 \index{socket.h@{socket.h}!receiveFromClient@{receiveFromClient}}
 \index{receiveFromClient@{receiveFromClient}!socket.h@{socket.h}}
@@ -233,7 +253,8 @@ Démarre le serveur et initie la table de clients.
 \begin{DoxyReturn}{Renvoie}
 void$\ast$ 
 \end{DoxyReturn}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

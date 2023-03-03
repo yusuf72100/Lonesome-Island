@@ -1,4 +1,5 @@
 <map id="startConnection" name="startConnection">
-<area shape="rect" id="node1" title="Démarre la connexion au serveur et renvoi TRUE en cas d&#39;erreur sinon renvoi FALSE." alt="" coords="5,5,119,31"/>
-<area shape="rect" id="node2" href="$client_8c.html#a1a44fcc8a4125e81a0730b67c2603470" title="Arrête la connexion avec le serveur." alt="" coords="167,5,279,31"/>
+<area shape="rect" id="node1" title="Démarre la connexion au serveur et renvoi TRUE en cas d&#39;erreur sinon renvoi FALSE." alt="" coords="5,31,119,56"/>
+<area shape="rect" id="node2" href="$socket_8c.html#acc971d38ba2d98589d00bde6652a6e39" title="Renvoi l&#39;ip local du client." alt="" coords="182,5,263,31"/>
+<area shape="rect" id="node3" href="$client_8c.html#a1a44fcc8a4125e81a0730b67c2603470" title="Arrête la connexion avec le serveur." alt="" coords="167,55,279,80"/>
 </map>

@@ -11,6 +11,7 @@
 
 int SOLO = FALSE;
 int HOST = FALSE;
+char IP_PUBLIC[] = "90.12.114.239";
 
 item_t *axe;
 item_t *apple;

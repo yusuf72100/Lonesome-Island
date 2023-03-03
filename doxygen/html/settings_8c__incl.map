@@ -1,12 +1,13 @@
 <map id="C:/Users/Yusuf/Lonesome&#45;Island/src/settings.c" name="C:/Users/Yusuf/Lonesome&#45;Island/src/settings.c">
-<area shape="rect" id="node1" title="Programme qui s&#39;occupera de la sauvegarde des paramètres de l&#39;utilisateur." alt="" coords="251,5,426,45"/>
-<area shape="rect" id="node2" href="$settings_8h.html" title="Fichier content les définitions pour le fichier settings.c." alt="" coords="299,93,378,119"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,167,69,192"/>
-<area shape="rect" id="node4" title=" " alt="" coords="93,167,155,192"/>
-<area shape="rect" id="node5" title=" " alt="" coords="179,167,237,192"/>
-<area shape="rect" id="node6" title=" " alt="" coords="262,167,327,192"/>
-<area shape="rect" id="node7" title=" " alt="" coords="351,167,414,192"/>
-<area shape="rect" id="node8" title=" " alt="" coords="438,167,514,192"/>
-<area shape="rect" id="node9" title=" " alt="" coords="539,167,621,192"/>
-<area shape="rect" id="node10" title=" " alt="" coords="645,167,704,192"/>
+<area shape="rect" id="node1" title="Programme qui s&#39;occupera de la sauvegarde des paramètres de l&#39;utilisateur." alt="" coords="194,5,369,45"/>
+<area shape="rect" id="node2" href="$settings_8h.html" title="Fichier content les définitions pour le fichier settings.c." alt="" coords="242,93,321,119"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,240,69,265"/>
+<area shape="rect" id="node4" title=" " alt="" coords="96,240,157,265"/>
+<area shape="rect" id="node5" title=" " alt="" coords="252,167,311,192"/>
+<area shape="rect" id="node6" title=" " alt="" coords="335,167,401,192"/>
+<area shape="rect" id="node7" title=" " alt="" coords="425,167,487,192"/>
+<area shape="rect" id="node8" title=" " alt="" coords="511,167,587,192"/>
+<area shape="rect" id="node9" title=" " alt="" coords="612,167,695,192"/>
+<area shape="rect" id="node10" title=" " alt="" coords="183,240,241,265"/>
+<area shape="rect" id="node11" href="$defs_8h.html" title="Fichier contenant toutes les définitions de structures et de types." alt="" coords="119,167,177,192"/>
 </map>

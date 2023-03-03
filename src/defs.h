@@ -25,6 +25,8 @@ typedef enum {CHEST, RESOURCE, BLOCK} T_BLOCK;
 extern int SOLO;
 extern int HOST;
 
+extern char IP_PUBLIC[256];
+
 /**
  * @brief Sauvegarde les informations de chaque joueurs relatives uniquement au jeu en lui-même (points de vie, coordonnées, animation...).
  * 

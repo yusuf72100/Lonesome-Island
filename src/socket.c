@@ -10,6 +10,33 @@
 #include "socket.h"
 
 /**
+ * @brief Renvoi l'ip local du client.
+ * 
+ * @return char* 
+ */
+char *getLocalIp()
+{
+    WSADATA wsaData;
+    if (WSAStartup(MAKEWORD(2,2), &wsaData) != 0) {
+        printf("WSAStartup failed.\n");
+    }
+
+    char hostname[256];
+    gethostname(hostname, sizeof(hostname));
+    struct hostent* host;
+    struct in_addr addr;
+    host = gethostbyname(hostname);
+
+    if (host == NULL) {
+        printf("gethostbyname failed.\n");
+    }
+    memcpy(&addr, host->h_addr_list[0], sizeof(struct in_addr));
+    return (inet_ntoa(addr));
+
+    WSACleanup();
+}
+
+/**
  * @brief Construit une trame dédiée uniquement au client i.
  * 
  * @param joueur 
@@ -328,7 +355,7 @@ void *startServer()
 
     //socket du serveur
     SOCKADDR_IN addrServer;
-    addrServer.sin_addr.s_addr = inet_addr(IP_LOCALE);    
+    addrServer.sin_addr.s_addr = inet_addr(getLocalIp());    
     addrServer.sin_family = AF_INET;
     addrServer.sin_port = htons(4148);
     socketServer = socket(AF_INET,SOCK_STREAM,IPPROTO_TCP);

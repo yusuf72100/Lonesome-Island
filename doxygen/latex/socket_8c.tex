@@ -16,6 +16,8 @@ Graphe des dépendances par inclusion de socket.\+c\+:\nopagebreak
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
+char $\ast$ \mbox{\hyperlink{socket_8c_acc971d38ba2d98589d00bde6652a6e39}{get\+Local\+Ip}} ()
+\begin{DoxyCompactList}\small\item\em Renvoi l\textquotesingle{}ip local du client. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{socket_8c_ac422f6ffe2be4ee3387e8b98b6393193}{buildtram\+Client\+\_\+send}} (\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} joueur, int i)
 \begin{DoxyCompactList}\small\item\em Construit une trame dédiée uniquement au client i. \end{DoxyCompactList}\item 
 static void $\ast$ \mbox{\hyperlink{socket_8c_af8f7aaaf34db2175c7a9c4ab7d3306fc}{send\+To\+Client}} (\mbox{\hyperlink{structsend2_client}{send2\+Client}} $\ast$arg\+Client, int position)
@@ -138,6 +140,27 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \includegraphics[width=350pt]{socket_8c_a88d900ece06509fc9c398d81b5200e71_icgraph}
 \end{center}
 \end{figure}
+\mbox{\Hypertarget{socket_8c_acc971d38ba2d98589d00bde6652a6e39}\label{socket_8c_acc971d38ba2d98589d00bde6652a6e39}} 
+\index{socket.c@{socket.c}!getLocalIp@{getLocalIp}}
+\index{getLocalIp@{getLocalIp}!socket.c@{socket.c}}
+\doxysubsubsection{\texorpdfstring{getLocalIp()}{getLocalIp()}}
+{\footnotesize\ttfamily char $\ast$ get\+Local\+Ip (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Renvoi l\textquotesingle{}ip local du client. 
+
+\begin{DoxyReturn}{Renvoie}
+char$\ast$ 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{socket_8c_acc971d38ba2d98589d00bde6652a6e39_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{socket_8c_a3b61093f2f5316157d1e6d3d05cf5ebc}\label{socket_8c_a3b61093f2f5316157d1e6d3d05cf5ebc}} 
 \index{socket.c@{socket.c}!receiveFromClient@{receiveFromClient}}
 \index{receiveFromClient@{receiveFromClient}!socket.c@{socket.c}}
@@ -255,7 +278,8 @@ Démarre le serveur et initie la table de clients.
 \begin{DoxyReturn}{Renvoie}
 void$\ast$ 
 \end{DoxyReturn}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

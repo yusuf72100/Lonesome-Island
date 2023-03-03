@@ -152,9 +152,6 @@ Macros</h2></td></tr>
 <tr class="memitem:a84ac3266d9efb284e798de99c6bd8165"><td class="memItemLeft" align="right" valign="top"><a id="a84ac3266d9efb284e798de99c6bd8165" name="a84ac3266d9efb284e798de99c6bd8165"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>dataLen</b>&#160;&#160;&#160;5</td></tr>
 <tr class="separator:a84ac3266d9efb284e798de99c6bd8165"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab88eb169a168b47e25d70b2f442f6c5b"><td class="memItemLeft" align="right" valign="top"><a id="ab88eb169a168b47e25d70b2f442f6c5b" name="ab88eb169a168b47e25d70b2f442f6c5b"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>IP_LOCALE</b>&#160;&#160;&#160;&quot;127.0.0.1&quot;</td></tr>
-<tr class="separator:ab88eb169a168b47e25d70b2f442f6c5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Définitions de type</h2></td></tr>
@@ -168,6 +165,9 @@ typedef struct <a class="el" href="structsend2_client.html">send2Client</a>&#160
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
+<tr class="memitem:acc971d38ba2d98589d00bde6652a6e39"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="socket_8h.html#acc971d38ba2d98589d00bde6652a6e39">getLocalIp</a> ()</td></tr>
+<tr class="memdesc:acc971d38ba2d98589d00bde6652a6e39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoi l'ip local du client.  <br /></td></tr>
+<tr class="separator:acc971d38ba2d98589d00bde6652a6e39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10d588931e71363df68940a8dd01b898"><td class="memItemLeft" align="right" valign="top"><a id="a10d588931e71363df68940a8dd01b898" name="a10d588931e71363df68940a8dd01b898"></a>
 void *&#160;</td><td class="memItemRight" valign="bottom"><b>clearInput</b> (SOCKET socketClient)</td></tr>
 <tr class="separator:a10d588931e71363df68940a8dd01b898"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -268,6 +268,38 @@ Voici le graphe des appelants de cette fonction :</div>
 <area shape="rect" href="socket_8c.html#a3490387e86b9ba6a1ee9ed3984b637d5" title="Démarre le serveur et initie la table de clients." alt="" coords="227,5,311,31"/>
 <area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="acc971d38ba2d98589d00bde6652a6e39" name="acc971d38ba2d98589d00bde6652a6e39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc971d38ba2d98589d00bde6652a6e39">&#9670;&#160;</a></span>getLocalIp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * getLocalIp </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Renvoi l'ip local du client. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>char* </dd></dl>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="socket_8h_acc971d38ba2d98589d00bde6652a6e39_icgraph.png" border="0" usemap="#asocket_8h_acc971d38ba2d98589d00bde6652a6e39_icgraph" alt=""/></div>
+<map name="asocket_8h_acc971d38ba2d98589d00bde6652a6e39_icgraph" id="asocket_8h_acc971d38ba2d98589d00bde6652a6e39_icgraph">
+<area shape="rect" title="Renvoi l&#39;ip local du client." alt="" coords="388,31,469,56"/>
+<area shape="rect" href="client_8c.html#a3622090a7ff391221a74cad6493bbca9" title="Démarre la connexion au serveur et renvoi TRUE en cas d&#39;erreur sinon renvoi FALSE." alt="" coords="227,5,340,31"/>
+<area shape="rect" href="socket_8c.html#a3490387e86b9ba6a1ee9ed3984b637d5" title="Démarre le serveur et initie la table de clients." alt="" coords="241,55,325,80"/>
+<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,31,179,56"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,31,56,56"/>
 </map>
 </div>
 
@@ -404,7 +436,8 @@ Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="socket_8h_a3490387e86b9ba6a1ee9ed3984b637d5_cgraph.png" border="0" usemap="#asocket_8h_a3490387e86b9ba6a1ee9ed3984b637d5_cgraph" alt=""/></div>
 <map name="asocket_8h_a3490387e86b9ba6a1ee9ed3984b637d5_cgraph" id="asocket_8h_a3490387e86b9ba6a1ee9ed3984b637d5_cgraph">
-<area shape="rect" title="Démarre le serveur et initie la table de clients." alt="" coords="5,81,89,107"/>
+<area shape="rect" title="Démarre le serveur et initie la table de clients." alt="" coords="5,57,89,83"/>
+<area shape="rect" href="socket_8c.html#acc971d38ba2d98589d00bde6652a6e39" title="Renvoi l&#39;ip local du client." alt="" coords="147,32,229,57"/>
 <area shape="rect" href="socket_8c.html#a68b45930fad2153f053144a8678afa1c" title="Gère la place des clients dans la table de client et reçoit les nouveaux clients." alt="" coords="137,81,239,107"/>
 <area shape="rect" href="socket_8c.html#a3b61093f2f5316157d1e6d3d05cf5ebc" title="Écoute un client tant que la connexion est établie." alt="" coords="287,81,412,107"/>
 <area shape="rect" href="socket_8c.html#af93eb740b3e202bdcb05795a2da4ef8c" title="Déconnecte le client en fonction de sa position dans le tableau." alt="" coords="460,5,583,31"/>

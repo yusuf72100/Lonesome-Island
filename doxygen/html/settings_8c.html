@@ -73,6 +73,8 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
   <div class="headertitle"><div class="title">Référence du fichier settings.c</div></div>
 </div><!--header-->
 <div class="contents">
@@ -85,26 +87,102 @@ Graphe des dépendances par inclusion de settings.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="settings_8c__incl.png" border="0" usemap="#a_c_1_2_users_2_yusuf_2_lonesome-_island_2src_2settings_8c" alt=""/></div>
 <map name="a_c_1_2_users_2_yusuf_2_lonesome-_island_2src_2settings_8c" id="a_c_1_2_users_2_yusuf_2_lonesome-_island_2src_2settings_8c">
-<area shape="rect" title="Programme qui s&#39;occupera de la sauvegarde des paramètres de l&#39;utilisateur." alt="" coords="251,5,426,45"/>
-<area shape="rect" href="settings_8h.html" title="Fichier content les définitions pour le fichier settings.c." alt="" coords="299,93,378,119"/>
-<area shape="rect" title=" " alt="" coords="5,167,69,192"/>
-<area shape="rect" title=" " alt="" coords="93,167,155,192"/>
-<area shape="rect" title=" " alt="" coords="179,167,237,192"/>
-<area shape="rect" title=" " alt="" coords="262,167,327,192"/>
-<area shape="rect" title=" " alt="" coords="351,167,414,192"/>
-<area shape="rect" title=" " alt="" coords="438,167,514,192"/>
-<area shape="rect" title=" " alt="" coords="539,167,621,192"/>
-<area shape="rect" title=" " alt="" coords="645,167,704,192"/>
+<area shape="rect" title="Programme qui s&#39;occupera de la sauvegarde des paramètres de l&#39;utilisateur." alt="" coords="194,5,369,45"/>
+<area shape="rect" href="settings_8h.html" title="Fichier content les définitions pour le fichier settings.c." alt="" coords="242,93,321,119"/>
+<area shape="rect" title=" " alt="" coords="5,240,69,265"/>
+<area shape="rect" title=" " alt="" coords="96,240,157,265"/>
+<area shape="rect" title=" " alt="" coords="252,167,311,192"/>
+<area shape="rect" title=" " alt="" coords="335,167,401,192"/>
+<area shape="rect" title=" " alt="" coords="425,167,487,192"/>
+<area shape="rect" title=" " alt="" coords="511,167,587,192"/>
+<area shape="rect" title=" " alt="" coords="612,167,695,192"/>
+<area shape="rect" title=" " alt="" coords="183,240,241,265"/>
+<area shape="rect" href="defs_8h.html" title="Fichier contenant toutes les définitions de structures et de types." alt="" coords="119,167,177,192"/>
 </map>
 </div>
-</div><a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ade55ed097a2eb2e0e02023ad1c364bc0"><td class="memItemLeft" align="right" valign="top"><a id="ade55ed097a2eb2e0e02023ad1c364bc0" name="ade55ed097a2eb2e0e02023ad1c364bc0"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>createConfigs</b> ()</td></tr>
+<tr class="memdesc:ade55ed097a2eb2e0e02023ad1c364bc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer le fichier de config et charge les paramètres par défaut. <br /></td></tr>
+<tr class="separator:ade55ed097a2eb2e0e02023ad1c364bc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fa304d3fe58272c8deac3b29c3e036e"><td class="memItemLeft" align="right" valign="top"><a id="a0fa304d3fe58272c8deac3b29c3e036e" name="a0fa304d3fe58272c8deac3b29c3e036e"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>loadKeybinds</b> ()</td></tr>
+<tr class="memdesc:a0fa304d3fe58272c8deac3b29c3e036e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui charge les keybinds dans le tableau global. <br /></td></tr>
+<tr class="separator:a0fa304d3fe58272c8deac3b29c3e036e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfef91263b80140b08929f805d83306d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="settings_8c.html#abfef91263b80140b08929f805d83306d">toKeyCode</a> (int key, int scancode)</td></tr>
+<tr class="memdesc:abfef91263b80140b08929f805d83306d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convertis un entier en sdl keycode et le met dans le tableau des keycode local.  <br /></td></tr>
+<tr class="separator:abfef91263b80140b08929f805d83306d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1165e1d4439a045e94970c9fbc73bb3c"><td class="memItemLeft" align="right" valign="top"><a id="a1165e1d4439a045e94970c9fbc73bb3c" name="a1165e1d4439a045e94970c9fbc73bb3c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>loadSettings</b> ()</td></tr>
+<tr class="memdesc:a1165e1d4439a045e94970c9fbc73bb3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui s'occupe de charger les paramètres du joueur depuis un fichier. <br /></td></tr>
+<tr class="separator:a1165e1d4439a045e94970c9fbc73bb3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Programme qui s'occupera de la sauvegarde des paramètres de l'utilisateur. </p>
 <dl class="section author"><dt>Auteur</dt><dd>Yusuf Ulas <br  />
  </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2023-02-28 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2023 </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="abfef91263b80140b08929f805d83306d" name="abfef91263b80140b08929f805d83306d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfef91263b80140b08929f805d83306d">&#9670;&#160;</a></span>toKeyCode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void toKeyCode </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>scancode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Convertis un entier en sdl keycode et le met dans le tableau des keycode local. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td></td></tr>
+    <tr><td class="paramname">scancode</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="settings_8c_abfef91263b80140b08929f805d83306d_icgraph.png" border="0" usemap="#asettings_8c_abfef91263b80140b08929f805d83306d_icgraph" alt=""/></div>
+<map name="asettings_8c_abfef91263b80140b08929f805d83306d_icgraph" id="asettings_8c_abfef91263b80140b08929f805d83306d_icgraph">
+<area shape="rect" title="Convertis un entier en sdl keycode et le met dans le tableau des keycode local." alt="" coords="247,29,333,55"/>
+<area shape="rect" href="settings_8c.html#a1165e1d4439a045e94970c9fbc73bb3c" title="Fonction qui s&#39;occupe de charger les paramètres du joueur depuis un fichier." alt="" coords="104,29,199,55"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,29,56,55"/>
+</map>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6

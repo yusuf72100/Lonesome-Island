@@ -10,5 +10,6 @@ var searchData=
   ['clickitem_7',['clickItem',['../menus_8c.html#af62b6c78dad8d3b0ae378b5174a28784',1,'clickItem():&#160;menus.c'],['../menus_8h.html#af62b6c78dad8d3b0ae378b5174a28784',1,'clickItem():&#160;menus.c']]],
   ['client_2ec_8',['client.c',['../client_8c.html',1,'']]],
   ['client_2eh_9',['client.h',['../client_8h.html',1,'']]],
-  ['creation_5fcanaux_5fmusique_10',['creation_canaux_musique',['../sound_8c.html#acb373f7276274a75af2fc3ec23a8e266',1,'creation_canaux_musique():&#160;sound.c'],['../sound_8h.html#acb373f7276274a75af2fc3ec23a8e266',1,'creation_canaux_musique():&#160;sound.c']]]
+  ['createconfigs_10',['createConfigs',['../settings_8c.html#ade55ed097a2eb2e0e02023ad1c364bc0',1,'settings.c']]],
+  ['creation_5fcanaux_5fmusique_11',['creation_canaux_musique',['../sound_8c.html#acb373f7276274a75af2fc3ec23a8e266',1,'creation_canaux_musique():&#160;sound.c'],['../sound_8h.html#acb373f7276274a75af2fc3ec23a8e266',1,'creation_canaux_musique():&#160;sound.c']]]
 ];
