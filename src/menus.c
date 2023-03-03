@@ -202,7 +202,6 @@ void drawButtons()
         drawButton(texture_connect_inert, connect_button_rect, surface_connect_inert);
         drawButton(texture_host_inert, host_button_rect, surface_host_inert);
         break;
-
     case SETTINGS_MAIN_MENU:
         drawButton(texture_settings_menu_keybinds_button, settings_menu_keybinds_button_rect, surface_settings_menu_keybinds_button);
         break;

@@ -71,6 +71,7 @@ static SDL_Rect lifebar_rect;
 static SDL_Rect title_rect;
 static SDL_Rect settings_menu_bg_rect;
 static SDL_Rect settings_menu_keybinds_button_rect;
+static SDL_Rect settings_menu_keys_buttons_rect[5];
 
 static SDL_DisplayMode DM;
 
