@@ -13,7 +13,7 @@
  * @brief Créer le fichier de config et charge les paramètres par défaut.
  * 
  */
-void createConfigs()
+static void createConfigs()
 {
     FILE *config = fopen("settings.config", "w");
 
@@ -47,7 +47,7 @@ void createConfigs()
  * @brief Fonction qui charge les keybinds dans le tableau global.
  * 
  */
-void loadKeybinds()
+static void loadKeybinds()
 {
     globalKeyTab[0] = localKeyTab[0];
     globalKeyTab[1] = localKeyTab[1];
@@ -71,7 +71,7 @@ void loadKeybinds()
  * @param key 
  * @param scancode 
  */
-void toKeyCode(int key, int scancode)
+static void toKeyCode(int key, int scancode)
 {
     localKeyTab[key] = SDL_GetKeyFromScancode(scancode);
 }
