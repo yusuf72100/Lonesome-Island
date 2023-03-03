@@ -27,7 +27,7 @@
 #include "defs.h"
 
 #define dataLen 5
-#define IP_LOCALE "127.0.0.1"
+#define IP_LOCALE "192.168.1.16"
 
 typedef uint32_t socklen_t;
 
