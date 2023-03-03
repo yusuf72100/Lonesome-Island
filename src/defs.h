@@ -23,6 +23,7 @@ typedef enum {WEAPON, FOOD, TOOL, BLOCK_ITEM} T_ITEM;
 typedef enum {CHEST, RESOURCE, BLOCK} T_BLOCK;
 
 extern int SOLO;
+extern int HOST;
 
 /**
  * @brief Sauvegarde les informations de chaque joueurs relatives uniquement au jeu en lui-même (points de vie, coordonnées, animation...).

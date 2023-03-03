@@ -305,6 +305,7 @@ void stopServer()
         argt->sd = NULL;
         argt = NULL;
         argClient = NULL;
+        HOST = FALSE;
         
         printf("Server: server cleared!\n");
         WSACleanup();
@@ -357,6 +358,7 @@ void *startServer()
     argt->sd->joueur.playerRect.h = 81;
 
     //on lance et attend l'arrêt du serveur
+    HOST = TRUE;
     searchClients((void*)argt);
     printf("Fin du serveur\n");
 }

@@ -10,6 +10,7 @@
 #include "defs.h"
 
 int SOLO = FALSE;
+int HOST = FALSE;
 
 item_t *axe;
 item_t *apple;

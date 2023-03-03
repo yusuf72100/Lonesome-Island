@@ -86,22 +86,30 @@ void switchButtonState_hover(T_BUTTONS_HOVER button)
  */
 void changeButtonState_hover(T_BUTTONS_HOVER button, int state)
 {
-    if(button == CONNECT_BUTTON_HOVER)
+    switch (button)
     {
+    case CONNECT_BUTTON_HOVER:
         hover_connectbutton = state;
-    }
-    else if(button == HOST_BUTTON_HOVER){
+        break;
+    case HOST_BUTTON_HOVER:
         hover_hostbutton = state;
-    }
-    else if(button == PLAY_BUTTON_HOVER){
+        break;
+    case PLAY_BUTTON_HOVER:
         hover_playbutton = state;
-    }
-    else if(button == SETTINGS_BUTTON_HOVER){
+        break;
+    case SETTINGS_BUTTON_HOVER:
         hover_settingsbutton = state;
-    }
-    else if(button == INVENTORY_BUTTON_HOVER){
+        break;
+    case SETTINGS_MAIN_KEYBIND_MENU:
+        hover_settings_keybindsbutton = state;
+        break;
+    case INVENTORY_BUTTON_HOVER:
         hover_inventoryitem = state;
+        break;
+    default:
+        break;
     }
+
 }
 
 /**

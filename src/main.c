@@ -527,8 +527,8 @@ static void doEvents()
         {
             if((SDL_GetTicks() - tabTick[10]) >= 200)
             {
+                changeButtonState_hover(SETTINGS_KEYBIND_HOVER, FALSE);
                 changeMenu(MAIN_MENU);
-                switchButtonState_hover(SETTINGS_KEYBIND_HOVER);
                 tabTick[10] = SDL_GetTicks();
             }
         }
