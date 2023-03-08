@@ -195,6 +195,15 @@ int onButton(T_BUTTONS_HOVER button)
 }
 
 /**
+ * @brief Dessine les bouttons pour configurer les touches de jeu.
+ * 
+ */
+void drawBindButtons()
+{
+    
+}
+
+/**
  * @brief Essaye de dessiner tous les bouttons.
  * 
  */
@@ -207,12 +216,16 @@ void drawButtons()
         drawButton(texture_connect_inert, connect_button_rect, surface_connect_inert);
         drawButton(texture_host_inert, host_button_rect, surface_host_inert);
         break;
+
     case SETTINGS_MAIN_MENU:
         drawButton(texture_settings_menu_keybinds_button, settings_menu_keybinds_button_rect, surface_settings_menu_keybinds_button);
         break;
+
     case SETTINGS_MAIN_KEYBIND_MENU:
         drawButton(texture_settings_menu_keybinds_button_hover, settings_menu_keybinds_button_rect, surface_settings_menu_keybinds_button);
+        drawBindButtons();
         break;
+
     default:
         break;
     }
