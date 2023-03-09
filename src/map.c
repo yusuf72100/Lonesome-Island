@@ -1,173 +1,186 @@
-#include "map.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <map.h>
 
-void setPlayerFacing(SDL_Renderer* render, player_t* player, facing_e face) {
-    SDL_Surface* img = IMG_Load("resources/player_faces.png");
-    SDL_Surface* final = SDL_CreateRGBSurface(0, 16, 16, 32, 0, 0, 0, 0);
-    
-    SDL_Rect src = {face*TILE_SIZE, 0, TILE_SIZE, TILE_SIZE};
-    SDL_Rect dest = {0, 0, TILE_SIZE, TILE_SIZE};
-
-    SDL_BlitSurface(img, &src, final, &dest);
-    player->texture = SDL_CreateTextureFromSurface(render, final);
-    player->facing = face;
-
-    SDL_FreeSurface(img);
-    SDL_FreeSurface(final);
-}
-
-void init_border_map(int map[MAP_SIZE][MAP_SIZE]) {
-    int coin = MAP_SIZE*0.1;
-    for(int i = coin; i < MAP_SIZE-coin; i++) {
-        for(int j = coin; j < MAP_SIZE-coin; j++){
-            map[i][j] = GRASS;
-        }
-    }
-}
-
-void init_map(int map[MAP_SIZE][MAP_SIZE]) {
-    int i, j, text;
-    for(i = 0; i < MAP_SIZE; i++) {
-        for(j = 0; j < MAP_SIZE; j++) {
-            text = WATER;
-            if(i == 0 || j == 0) text = CONSTRUCTOR;
-            map[i][j] = text;
-        }     
-    }
-    init_border_map(map);
-}
-
-int movePlayer(player_t *player, int map[MAP_SIZE][MAP_SIZE], int facing) {
-
-    position_t transfer = {player->pos.x, player->pos.y};
-    
-    switch(facing) {
-        case NORTH:
-            transfer.y--;
-            break;
-        case EAST:
-            transfer.x++;
-            break;
-        case SOUTH:
-            transfer.y++;
-            break;
-        case WEST:
-            transfer.x--;
-            break;
-    }
-
-    if(transfer.x < 0 || transfer.x > MAP_SIZE-1 || transfer.y < 0 || transfer.y > MAP_SIZE) return 0;
-
-    player->pos.x = transfer.x;
-    player->pos.y = transfer.y;
-    return 1;
-}
-
-void renderMapOnPlayer(SDL_Renderer **render, int map[MAP_SIZE][MAP_SIZE], SDL_Window* window, player_t* player) {
-    
-    SDL_Surface *tileset;
-    tileset = IMG_Load("resources/tileset.png");
-    SDL_Texture *texture = SDL_CreateTextureFromSurface(*render, tileset);
-    SDL_FreeSurface(tileset);
-    
-    int w, h;
-    SDL_GetWindowSize(window, &w, &h);
-    int tileSize = w/TOTALRENDER;
-    int totalYRender = h/tileSize;
-    int YRender = totalYRender%2 == 0 ? totalYRender/2-1 : totalYRender/2;
-
-    position_t start = {player->pos.x - RENDER, player->pos.y - YRender};
-    
-    SDL_Rect src = {0, 0, TILE_SIZE, TILE_SIZE};
-    SDL_Rect dest = {0, 0, tileSize, tileSize};
-
-    for(int i = 0; i <= TOTALRENDER; i++) {
-        for(int j = 0; j <= totalYRender; j++) {
-            src.x = map[i+start.x][j+start.y]*TILE_SIZE;
-            src.y = BIOME;
-
-            dest.x = i*tileSize;
-            dest.y = j*tileSize;
-
-            SDL_RenderCopy(*render, texture, &src, &dest);
-        }
-    }
-
-    src.x = 0;
-    src.y = 0;
-
-    dest.x = (RENDER)*tileSize;
-    dest.y = (YRender)*tileSize;
-
-    SDL_RenderCopy(*render, player->texture, &src, &dest);
-}
-
-void afficher_map(int map[MAP_SIZE][MAP_SIZE]) {
-    int i, j;
-    for(i = 0; i < MAP_SIZE; i++) {
-        for(j = 0; j < MAP_SIZE; j++) {
+void print_map(int map[MAP_SIZE][MAP_SIZE])
+{
+    for (int i = 0; i < MAP_SIZE; i++)
+    {
+        for (int j = 0; j < MAP_SIZE; j++)
+        {
             printf("%2d", map[i][j]);
-        }  
-    printf("\n");
+        }
+        printf("\n");
     }
 }
 
-int main(int argc, char *argv[]) {
-    (void) argc;
-    (void) argv;
+void mapCopy(int src[MAP_SIZE][MAP_SIZE], int dest[MAP_SIZE][MAP_SIZE]) {
+    for (int i = 0; i < MAP_SIZE; i++) {
+        for (int j = 0; j < MAP_SIZE; j++) {
+            dest[i][j] = src[i][j];
+        }
+    }
+}
 
-    player_t* player = createPlayer("IzeLeam", 16, 18, NORTH);
-    setPlayerFacing(render, player, NORTH);
-    init_map(map);
 
-    renderMapOnPlayer(&render, map, window, player);
+int checkSameNeighboor(int ground[MAP_SIZE][MAP_SIZE], int x, int y)
+{
 
-    while(!quit){
+    int cptr = 0;
+    int tile = ground[x][y];
+    int places[4] = {ground[x + 1][y], ground[x][y + 1], ground[x - 1][y], ground[x][y - 1]};
 
-        SDL_Delay(50);
-        while(SDL_PollEvent(&event)) {
+    for (int i = 0; i < 4; i++)
+    {
+        if (places[i] == tile)
+            cptr++;
+    }
 
-            if(event.type == SDL_MOUSEMOTION) continue;
+    return cptr;
+}
 
-            switch(event.type) {
-                case SDL_QUIT :
-                    quit = 1;
-                    break;
-                case SDL_WINDOWEVENT_RESIZED : 
-                    renderMapOnPlayer(&render, map, window, player);
-                    break;
-                case SDL_KEYDOWN :
-                    int facing = 0;
-                    switch(event.key.keysym.scancode) {
-                        case SDL_SCANCODE_W :
-                            facing = NORTH;
-                            break;
-                        case SDL_SCANCODE_A :
-                            facing = WEST;
-                            break;
-                        case SDL_SCANCODE_S :
-                            facing = SOUTH;
-                            break;
-                        case SDL_SCANCODE_D :
-                            facing = EAST;
-                            break;
-                    }
-                   
-                    setPlayerFacing(render, player, facing);
-                   
-                    if(movePlayer(player, map, facing)) {
-                        renderMapOnPlayer(&render, map, window, player);
-                        printf("Player : x=%d | y=%d\n", player->pos.x, player->pos.y);
-                    }
-       
-                    break;
+int isAnyGrassNear(int ground[MAP_SIZE][MAP_SIZE], int x, int y, int range) {
+    for(int i = 0; i < range*2+1; i++) {
+        for(int j = 0; j < range*2+1; j++) {
+            if(ground[x+i-range][y+j-range] == GRASS) return 1;
+        }
+    }
+    return 0;
+}
+
+int isAnySandNear(int ground[MAP_SIZE][MAP_SIZE], int x, int y, int range) {
+    for(int i = 0; i < range*2+1; i++) {
+        for(int j = 0; j < range*2+1; j++) {
+            if(ground[x+i-range][y+j-range] == SAND) return 1;
+        }
+    }
+    return 0;
+}
+
+void firstRandomPreset(int ground[MAP_SIZE][MAP_SIZE])
+{
+
+    int perc;
+    int center = MAP_SIZE / 2;
+
+    srand(time(NULL));
+
+    for (int i = 0; i < MAP_SIZE; i++)
+    {
+        for (int j = 0; j < MAP_SIZE; j++)
+        {
+            perc = rand() % MAP_SIZE / 10 * GRASS_RATIO;
+
+            if (perc > abs(center - i) && perc > abs(center - j))
+            {
+                ground[i][j] = GRASS;
             }
         }
-        SDL_RenderPresent(render);
+    }
+}
+
+void addBeachTransition(int ground[MAP_SIZE][MAP_SIZE]) {
+
+    //Premier ajout de sable
+    for(int i = 0; i < MAP_SIZE; i++) {
+        for(int j = 0; j < MAP_SIZE; j++) {
+            if(ground[i][j] == WATER && isAnyGrassNear(ground, i, j, 1)) {
+                ground[i][j] = SAND;
+            }
+        }
     }
 
-    SDL_DestroyRenderer(render);
-    SDL_DestroyWindow(window);
-    SDL_Quit();
+    int groundCopy[MAP_SIZE][MAP_SIZE];
+    mapCopy(ground, groundCopy);
 
-    return 0;
+    //Rendre les plages plus naturelles
+    for(int i = 0; i < MAP_SIZE; i++) {
+        for(int j = 0; j < MAP_SIZE; j++) {
+            if(ground[i][j] == WATER && isAnySandNear(ground, i, j, 1) && rand()%10+1 < SAND_RATIO) {
+                groundCopy[i][j] = SAND;
+            }
+        }
+    }
+    //Rendre les plages plus fluides
+    for(int i = 0; i < MAP_SIZE; i++) {
+        for(int j = 0; j < MAP_SIZE; j++) {
+            if(groundCopy[i][j] == WATER && checkSameNeighboor(groundCopy, i, j) <= 1) {
+                groundCopy[i][j] = SAND;
+            }
+        }
+    }
+
+    mapCopy(groundCopy, ground);
+}
+
+void smoothGroundShape(int ground[MAP_SIZE][MAP_SIZE])
+{
+    for (int i = 0; i < MAP_SIZE; i++)
+    {
+        for (int j = 0; j < MAP_SIZE; j++)
+        {
+            if (checkSameNeighboor(ground, i, j) <= 2)
+                ground[i][j] = (ground[i][j] == WATER ? GRASS : WATER);
+        }
+    }
+}
+
+void init_ground(int ground[MAP_SIZE][MAP_SIZE])
+{
+    // Set ground randomly from map center
+    firstRandomPreset(ground);
+    // Smooth ground shape
+    for (int i = 0; i < SMOOTH_MAP; i++)
+    {
+        smoothGroundShape(ground);
+    }
+
+
+    // Add sand beach transition
+    addBeachTransition(ground);
+
+}
+
+void init_utils(map_t* map)
+{
+    int perc;
+
+    for (int i = 0; i < MAP_SIZE; i++)
+    {
+        for (int j = 0; j < MAP_SIZE; j++)
+        {
+            if (map->ground[i][j] == GRASS)
+            {
+                perc = rand() % 101;
+                if (perc < TREE_RATIO)
+                    map->utils[i][j] = TREE;
+            }
+        }
+    }
+}
+
+void init_map(map_t *map)
+{
+    for (int i = 0; i < MAP_SIZE; i++)
+    {
+        for (int j = 0; j < MAP_SIZE; j++)
+        {
+            map->ground[i][j] = WATER;
+            map->utils[i][j] = -1;
+        }
+    }
+}
+
+void build_map(map_t** map)
+{
+    // Initialisation du random
+    srand(time(NULL));
+
+    // Initialisation de la map
+    init_map(*map);
+
+    // Création du sol et des ressources
+    init_ground((*map)->ground);
+    //init_utils(*map);
 }
