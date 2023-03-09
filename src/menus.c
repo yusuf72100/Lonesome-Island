@@ -200,7 +200,10 @@ int onButton(T_BUTTONS_HOVER button)
  */
 void drawBindButtons()
 {
-    
+    for(int i = 0; i < 5 ; i++)
+    {
+        drawButton(texture_settings_menu_key_button, settings_menu_keys_buttons_rect[i], surface_settings_menu_key_button);
+    }
 }
 
 /**
@@ -703,6 +706,7 @@ static void surfacesInit()
     surface_settings_bg = IMG_Load("resources/settings_menu_bg.png");
     surface_settings_menu_keybinds_button = IMG_Load("resources/settings_keybind_button.png");
     surface_settings_menu_keybinds_button_hover = IMG_Load("resources/settings_keybind_button_hover.png");
+    surface_settings_menu_key_button = IMG_Load("resources/button_keybind.png");
 
     //player    
     surface_joueur_h1 = IMG_Load("resources/characters/player_h1.png");
@@ -759,6 +763,7 @@ static void texturesInit()
     init_texture(&surface_settings_bg, &texture_settings_bg);
     init_texture(&surface_settings_menu_keybinds_button, &texture_settings_menu_keybinds_button);
     init_texture(&surface_settings_menu_keybinds_button_hover, &texture_settings_menu_keybinds_button_hover);
+    init_texture(&surface_settings_menu_key_button, &texture_settings_menu_key_button);
 
     //game assets
     init_texture(&background , &background_texture);
@@ -835,6 +840,17 @@ static void rectanglesInit()
     settings_menu_keybinds_button_rect.h = 98;
     settings_menu_keybinds_button_rect.x = settings_menu_bg_rect.x + ((settings_menu_bg_rect.w*6)/100);
     settings_menu_keybinds_button_rect.y = settings_menu_bg_rect.y + ((settings_menu_bg_rect.h*20)/100);
+
+    for(int i = 0; i < 5; i++)
+    {
+        settings_menu_keys_buttons_rect[i].w = 215;
+        settings_menu_keys_buttons_rect[i].h = 90;
+        settings_menu_keys_buttons_rect[i].x = (settings_menu_bg_rect.x + settings_menu_bg_rect.w) - ((settings_menu_bg_rect.w*5) / 100) - settings_menu_keys_buttons_rect[i].w;
+        if(i == 0) 
+            settings_menu_keys_buttons_rect[i].y = settings_menu_bg_rect.y + 100;
+        else
+            settings_menu_keys_buttons_rect[i].y = settings_menu_bg_rect.y + settings_menu_keys_buttons_rect[i-1].y;
+    }
 
     //inventory 
     inventory_rect.w = 800;

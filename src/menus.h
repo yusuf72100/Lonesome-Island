@@ -137,6 +137,7 @@ static SDL_Surface *surface_settings_inert = NULL;
 static SDL_Surface *surface_settings_bg = NULL;
 static SDL_Surface *surface_settings_menu_keybinds_button = NULL;
 static SDL_Surface *surface_settings_menu_keybinds_button_hover = NULL;
+static SDL_Surface *surface_settings_menu_key_button = NULL;
 
 static SDL_Texture *texture_play_inert = NULL;
 static SDL_Texture *texture_play_hover = NULL;	
@@ -148,6 +149,7 @@ static SDL_Texture *texture_settings_inert = NULL;
 static SDL_Texture *texture_settings_bg = NULL;
 static SDL_Texture *texture_settings_menu_keybinds_button = NULL;
 static SDL_Texture *texture_settings_menu_keybinds_button_hover = NULL;
+static SDL_Texture *texture_settings_menu_key_button = NULL;
 
 //window init
 static SDL_Window *window = NULL;
