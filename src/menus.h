@@ -42,6 +42,13 @@ static int settings_button_animation_state = 0;
 static int xWindow = 0, yWindow = 0;
 static int WindowW = 1920, WindowH = 1080;
 
+typedef struct {
+    SDL_Rect rect;
+    SDL_Surface *text_surface;
+}keybind_button;
+
+static keybind_button keybinds_buttons[5];
+
 static Liste *l;
 
 static SDL_Point mouse_position;   
@@ -72,7 +79,6 @@ static SDL_Rect lifebar_rect;
 static SDL_Rect title_rect;
 static SDL_Rect settings_menu_bg_rect;
 static SDL_Rect settings_menu_keybinds_button_rect;
-static SDL_Rect settings_menu_keys_buttons_rect[5];
 
 static SDL_DisplayMode DM;
 

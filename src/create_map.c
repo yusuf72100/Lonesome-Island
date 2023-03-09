@@ -143,7 +143,13 @@ coord_t choixTile(int map[MAP_SIZE][MAP_SIZE], int x, int y) {
     return coord ;
 }
 
-//Affiche le jeu selon la camera donnée
+/**
+ * @brief Fait le rendu de la map.
+ * 
+ * @param render 
+ * @param map 
+ * @param camera 
+ */
 void renderMap(SDL_Renderer** render, map_t* map, camera_t* camera) {
 
     SDL_Surface *grass;
@@ -179,6 +185,10 @@ void renderMap(SDL_Renderer** render, map_t* map, camera_t* camera) {
     }
 }
 
+/**
+ * @brief Create a map object.
+ * 
+ */
 void create_map() {
     //Initialisation de la camera
     camera = malloc(sizeof(camera_t));
@@ -189,6 +199,10 @@ void create_map() {
     build_map(&map);
 }
 
+/**
+ * @brief Affiche la map.
+ * 
+ */
 void afficherMap(){
     renderMap(&renderer, map, camera);
 }
