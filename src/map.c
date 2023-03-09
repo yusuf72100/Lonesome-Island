@@ -1,5 +1,21 @@
+/**
+ * @file map.c
+ * @author Luca Pourceau et Melvin Maubert
+ * @brief Fichier comportant les méthodes pour générer la map.
+ * @version 0.1
+ * @date 2023-03-09
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
 #include "map.h"
 
+/**
+ * @brief Affiche la matrice de la map.
+ * 
+ * @param map 
+ */
 void print_map(int map[MAP_SIZE][MAP_SIZE])
 {
     for (int i = 0; i < MAP_SIZE; i++)
@@ -12,6 +28,12 @@ void print_map(int map[MAP_SIZE][MAP_SIZE])
     }
 }
 
+/**
+ * @brief Fait une copie de la map.
+ * 
+ * @param src 
+ * @param dest 
+ */
 void mapCopy(int src[MAP_SIZE][MAP_SIZE], int dest[MAP_SIZE][MAP_SIZE]) {
     for (int i = 0; i < MAP_SIZE; i++) {
         for (int j = 0; j < MAP_SIZE; j++) {
@@ -20,7 +42,14 @@ void mapCopy(int src[MAP_SIZE][MAP_SIZE], int dest[MAP_SIZE][MAP_SIZE]) {
     }
 }
 
-
+/**
+ * @brief Vérifie si 2 tiles ont le même voisin.
+ * 
+ * @param ground 
+ * @param x 
+ * @param y 
+ * @return int 
+ */
 int checkSameNeighboor(int ground[MAP_SIZE][MAP_SIZE], int x, int y)
 {
 
@@ -37,6 +66,15 @@ int checkSameNeighboor(int ground[MAP_SIZE][MAP_SIZE], int x, int y)
     return cptr;
 }
 
+/**
+ * @brief Cherche la position du tile de terre le plus proche.
+ * 
+ * @param ground 
+ * @param x 
+ * @param y 
+ * @param range 
+ * @return int 
+ */
 int isAnyGrassNear(int ground[MAP_SIZE][MAP_SIZE], int x, int y, int range) {
     for(int i = 0; i < range*2+1; i++) {
         for(int j = 0; j < range*2+1; j++) {
@@ -46,6 +84,15 @@ int isAnyGrassNear(int ground[MAP_SIZE][MAP_SIZE], int x, int y, int range) {
     return 0;
 }
 
+/**
+ * @brief Cherche la position du tile de sable le plus proche.
+ * 
+ * @param ground 
+ * @param x 
+ * @param y 
+ * @param range 
+ * @return int 
+ */
 int isAnySandNear(int ground[MAP_SIZE][MAP_SIZE], int x, int y, int range) {
     for(int i = 0; i < range*2+1; i++) {
         for(int j = 0; j < range*2+1; j++) {
@@ -57,7 +104,6 @@ int isAnySandNear(int ground[MAP_SIZE][MAP_SIZE], int x, int y, int range) {
 
 void firstRandomPreset(int ground[MAP_SIZE][MAP_SIZE])
 {
-
     int perc;
     int center = MAP_SIZE / 2;
 
@@ -77,6 +123,11 @@ void firstRandomPreset(int ground[MAP_SIZE][MAP_SIZE])
     }
 }
 
+/**
+ * @brief Ajoute une transition de plage.
+ * 
+ * @param ground 
+ */
 void addBeachTransition(int ground[MAP_SIZE][MAP_SIZE]) {
 
     //Premier ajout de sable
@@ -111,6 +162,11 @@ void addBeachTransition(int ground[MAP_SIZE][MAP_SIZE]) {
     mapCopy(groundCopy, ground);
 }
 
+/**
+ * @brief Fait un lissage de la matrice.
+ * 
+ * @param ground 
+ */
 void smoothGroundShape(int ground[MAP_SIZE][MAP_SIZE])
 {
     for (int i = 0; i < MAP_SIZE; i++)
@@ -123,6 +179,11 @@ void smoothGroundShape(int ground[MAP_SIZE][MAP_SIZE])
     }
 }
 
+/**
+ * @brief Initialise le sol.
+ * 
+ * @param ground 
+ */
 void init_ground(int ground[MAP_SIZE][MAP_SIZE])
 {
     // Set ground randomly from map center
@@ -134,7 +195,6 @@ void init_ground(int ground[MAP_SIZE][MAP_SIZE])
     }
     // Add sand beach transition
     addBeachTransition(ground);
-
 }
 
 void init_utils(map_t* map)
@@ -155,6 +215,11 @@ void init_utils(map_t* map)
     }
 }
 
+/**
+ * @brief Initialise la map.
+ * 
+ * @param map 
+ */
 void init_map(map_t *map)
 {
     for (int i = 0; i < MAP_SIZE; i++)
@@ -167,6 +232,11 @@ void init_map(map_t *map)
     }
 }
 
+/**
+ * @brief Génère une map.
+ * 
+ * @param map 
+ */
 void build_map(map_t** map)
 {
     // Initialisation du random

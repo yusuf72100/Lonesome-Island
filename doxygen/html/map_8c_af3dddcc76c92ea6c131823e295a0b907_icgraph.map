@@ -1,0 +1,7 @@
+<map id="init_ground" name="init_ground">
+<area shape="rect" id="node1" title="Initialise le sol." alt="" coords="495,5,580,31"/>
+<area shape="rect" id="node2" href="$map_8c.html#a734e0337e05972d515299fb5f35bb483" title="Génère une map." alt="" coords="365,5,447,31"/>
+<area shape="rect" id="node3" href="$create__map_8c.html#a018fa899a26c3434a11d5bc5716b52ef" title="Create a map object." alt="" coords="227,5,317,31"/>
+<area shape="rect" id="node4" href="$main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
+<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>

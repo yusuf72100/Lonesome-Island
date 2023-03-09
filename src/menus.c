@@ -202,7 +202,7 @@ void drawBindButtons()
 {
     for(int i = 0; i < 5 ; i++)
     {
-        drawButton(texture_settings_menu_key_button, settings_menu_keys_buttons_rect[i], surface_settings_menu_key_button);
+        drawButton(texture_settings_menu_key_button, keybinds_buttons[i].rect, surface_settings_menu_key_button);
     }
 }
 
@@ -332,11 +332,11 @@ void drawCaseText(case_inventory case_x)
         SDL_ExitWithError("Impossible de charger l'image des items...");
     }
     case_x.text_texture = SDL_CreateTextureFromSurface(renderer, case_x.text_surface);
-    if (case_x.text_texture == NULL)
+    /*if (case_x.text_texture == NULL)
     {
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de charger l'image des dafonts des items...");
-    }
+    }*/
     //SDL_BlitSurface(case_x.text_surface,NULL,case_x.Item->surface,&case_x.item_rectangle);
     SDL_RenderCopy(renderer,case_x.text_texture, NULL, &case_x.text_rectangle);
 }
@@ -843,13 +843,13 @@ static void rectanglesInit()
 
     for(int i = 0; i < 5; i++)
     {
-        settings_menu_keys_buttons_rect[i].w = 215;
-        settings_menu_keys_buttons_rect[i].h = 90;
-        settings_menu_keys_buttons_rect[i].x = (settings_menu_bg_rect.x + settings_menu_bg_rect.w) - ((settings_menu_bg_rect.w*5) / 100) - settings_menu_keys_buttons_rect[i].w;
+        keybinds_buttons[i].rect.w = 215;
+        keybinds_buttons[i].rect.h = 90;
+        keybinds_buttons[i].rect.x = (settings_menu_bg_rect.x + settings_menu_bg_rect.w) - ((settings_menu_bg_rect.w*5) / 100) - keybinds_buttons[i].rect.w;
         if(i == 0) 
-            settings_menu_keys_buttons_rect[i].y = settings_menu_bg_rect.y + 100;
+            keybinds_buttons[i].rect.y = settings_menu_bg_rect.y + 125;
         else
-            settings_menu_keys_buttons_rect[i].y = settings_menu_bg_rect.y + settings_menu_keys_buttons_rect[i-1].y;
+            keybinds_buttons[i].rect.y = settings_menu_bg_rect.y + keybinds_buttons[i-1].rect.y;
     }
 
     //inventory 

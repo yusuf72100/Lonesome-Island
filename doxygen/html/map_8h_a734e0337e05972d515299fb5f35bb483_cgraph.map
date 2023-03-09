@@ -1,0 +1,11 @@
+<map id="build_map" name="build_map">
+<area shape="rect" id="node1" title="Génère une map." alt="" coords="5,55,87,80"/>
+<area shape="rect" id="node2" href="$map_8c.html#af3dddcc76c92ea6c131823e295a0b907" title="Initialise le sol." alt="" coords="135,29,220,55"/>
+<area shape="rect" id="node9" href="$map_8c.html#ae015ba68927a7b2e9ef48ff1ec08ff59" title="Initialise la map." alt="" coords="142,79,213,104"/>
+<area shape="rect" id="node3" href="$map_8c.html#aab46a0694f1c293b21c571af71593fd4" title="Ajoute une transition de plage." alt="" coords="272,55,408,80"/>
+<area shape="rect" id="node8" href="$map_8c.html#a60b91f8b94c3cb4df036b95aa2b64938" title="Fait un lissage de la matrice." alt="" coords="268,5,412,31"/>
+<area shape="rect" id="node4" href="$map_8c.html#a7e72a7ae14ee89b5e331229d77366a97" title="Vérifie si 2 tiles ont le même voisin." alt="" coords="460,5,609,31"/>
+<area shape="rect" id="node5" href="$map_8c.html#a012dd0f89b1121420052d64018ccae97" title="Cherche la position du tile de terre le plus proche." alt="" coords="476,55,593,80"/>
+<area shape="rect" id="node6" href="$map_8c.html#aece796df8f58d669ec874b906ae04797" title="Cherche la position du tile de sable le plus proche." alt="" coords="479,104,591,129"/>
+<area shape="rect" id="node7" href="$map_8c.html#a67c15abbd6b66f91d5b8cfbdb60fb5dc" title="Fait une copie de la map." alt="" coords="496,153,573,179"/>
+</map>

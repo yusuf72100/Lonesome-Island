@@ -1,0 +1,696 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Lonesome Island: Référence du fichier C:/Users/Yusuf/Lonesome-Island/src/create_map.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Lonesome Island
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier create_map.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Programme qui génère la map et les tiles.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="create__map_8h_source.html">create_map.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de create_map.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="create__map_8c__incl.png" border="0" usemap="#a_c_1_2_users_2_yusuf_2_lonesome-_island_2src_2create__map_8c" alt=""/></div>
+<map name="a_c_1_2_users_2_yusuf_2_lonesome-_island_2src_2create__map_8c" id="a_c_1_2_users_2_yusuf_2_lonesome-_island_2src_2create__map_8c">
+<area shape="rect" title="Programme qui génère la map et les tiles." alt="" coords="365,5,539,45"/>
+<area shape="rect" href="create__map_8h.html" title="Fichier header create_map.c." alt="" coords="401,93,503,119"/>
+<area shape="rect" title=" " alt="" coords="367,313,431,339"/>
+<area shape="rect" title=" " alt="" coords="93,313,155,339"/>
+<area shape="rect" title=" " alt="" coords="28,240,87,265"/>
+<area shape="rect" title=" " alt="" coords="162,167,227,192"/>
+<area shape="rect" title=" " alt="" coords="251,167,314,192"/>
+<area shape="rect" title=" " alt="" coords="338,167,414,192"/>
+<area shape="rect" title=" " alt="" coords="795,313,853,339"/>
+<area shape="rect" title=" " alt="" coords="490,167,590,192"/>
+<area shape="rect" title=" " alt="" coords="614,167,690,192"/>
+<area shape="rect" title=" " alt="" coords="714,167,811,192"/>
+<area shape="rect" title=" " alt="" coords="836,167,919,192"/>
+<area shape="rect" href="map_8h.html" title="Fichier header à map.c." alt="" coords="79,167,137,192"/>
+<area shape="rect" href="defs_8h.html" title="Fichier contenant toutes les définitions de structures et de types." alt="" coords="370,240,427,265"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a7967c281a3df3dede0837ddb8dbbde79"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="create__map_8c.html#a7967c281a3df3dede0837ddb8dbbde79">initCamera</a> (<a class="el" href="structcamera__s.html">camera_t</a> *camera, SDL_Window *window)</td></tr>
+<tr class="memdesc:a7967c281a3df3dede0837ddb8dbbde79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise la caméra en fonction du joueur.  <br /></td></tr>
+<tr class="separator:a7967c281a3df3dede0837ddb8dbbde79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a235f855f5a3fbd14f98c1a01a573f656"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="create__map_8c.html#a235f855f5a3fbd14f98c1a01a573f656">compterVoisinCote</a> (int map[MAP_SIZE][MAP_SIZE], int x, int y)</td></tr>
+<tr class="memdesc:a235f855f5a3fbd14f98c1a01a573f656"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compte les voisins sur le coté dans la matrice.  <br /></td></tr>
+<tr class="separator:a235f855f5a3fbd14f98c1a01a573f656"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb18460b7eadcb8e3e25dd71839495f2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="create__map_8c.html#afb18460b7eadcb8e3e25dd71839495f2">compterVoisinDiag</a> (int map[MAP_SIZE][MAP_SIZE], int x, int y)</td></tr>
+<tr class="memdesc:afb18460b7eadcb8e3e25dd71839495f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compter les voisins en diagonale.  <br /></td></tr>
+<tr class="separator:afb18460b7eadcb8e3e25dd71839495f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a0b996fb2e3bfdf50c9b9c69059ecbc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="create__map_8c.html#a3a0b996fb2e3bfdf50c9b9c69059ecbc">checkPositionVoisinCote</a> (int map[MAP_SIZE][MAP_SIZE], int x, int y)</td></tr>
+<tr class="memdesc:a3a0b996fb2e3bfdf50c9b9c69059ecbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie les positions des voisins.  <br /></td></tr>
+<tr class="separator:a3a0b996fb2e3bfdf50c9b9c69059ecbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a423569673b6cc32da7a86a71b8e9ae15"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="create__map_8c.html#a423569673b6cc32da7a86a71b8e9ae15">checkPositionVoisinCote3voisins</a> (int map[MAP_SIZE][MAP_SIZE], int x, int y)</td></tr>
+<tr class="memdesc:a423569673b6cc32da7a86a71b8e9ae15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cherche le seul voisin de coté non sable.  <br /></td></tr>
+<tr class="separator:a423569673b6cc32da7a86a71b8e9ae15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3c73aa5e196e572d4bab4512df3bfe3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="create__map_8c.html#ab3c73aa5e196e572d4bab4512df3bfe3">checkPositionVoisinAngle</a> (int map[MAP_SIZE][MAP_SIZE], int x, int y)</td></tr>
+<tr class="memdesc:ab3c73aa5e196e572d4bab4512df3bfe3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie la position des voisins en angle.  <br /></td></tr>
+<tr class="separator:ab3c73aa5e196e572d4bab4512df3bfe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57ccdcacf244e867e9252f316e8139c2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="create__map_8c.html#a57ccdcacf244e867e9252f316e8139c2">checkPositionVoisinDiag</a> (int map[MAP_SIZE][MAP_SIZE], int x, int y)</td></tr>
+<tr class="memdesc:a57ccdcacf244e867e9252f316e8139c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie la position des voisins en diagonale.  <br /></td></tr>
+<tr class="separator:a57ccdcacf244e867e9252f316e8139c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7176db32701a440a52a2f37fad87d1b2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcoord__s.html">coord_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="create__map_8c.html#a7176db32701a440a52a2f37fad87d1b2">choixTile</a> (int map[MAP_SIZE][MAP_SIZE], int x, int y)</td></tr>
+<tr class="memdesc:a7176db32701a440a52a2f37fad87d1b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Algo choix tile pour une case.  <br /></td></tr>
+<tr class="separator:a7176db32701a440a52a2f37fad87d1b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9c9e978f54e2187c07d259df9095b41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="create__map_8c.html#ac9c9e978f54e2187c07d259df9095b41">renderMap</a> (SDL_Renderer **render, <a class="el" href="structmap__s.html">map_t</a> *map, <a class="el" href="structcamera__s.html">camera_t</a> *camera)</td></tr>
+<tr class="memdesc:ac9c9e978f54e2187c07d259df9095b41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fait le rendu de la map.  <br /></td></tr>
+<tr class="separator:ac9c9e978f54e2187c07d259df9095b41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a018fa899a26c3434a11d5bc5716b52ef"><td class="memItemLeft" align="right" valign="top"><a id="a018fa899a26c3434a11d5bc5716b52ef" name="a018fa899a26c3434a11d5bc5716b52ef"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>create_map</b> ()</td></tr>
+<tr class="memdesc:a018fa899a26c3434a11d5bc5716b52ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a map object. <br /></td></tr>
+<tr class="separator:a018fa899a26c3434a11d5bc5716b52ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9cdbd9e4a54eecb70bdc4d2a1530567"><td class="memItemLeft" align="right" valign="top"><a id="ac9cdbd9e4a54eecb70bdc4d2a1530567" name="ac9cdbd9e4a54eecb70bdc4d2a1530567"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>afficherMap</b> ()</td></tr>
+<tr class="memdesc:ac9cdbd9e4a54eecb70bdc4d2a1530567"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche la map. <br /></td></tr>
+<tr class="separator:ac9cdbd9e4a54eecb70bdc4d2a1530567"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Programme qui génère la map et les tiles. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Luca Pourceau et Melvin Maubert </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2023-03-09</dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2023 </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="ab3c73aa5e196e572d4bab4512df3bfe3" name="ab3c73aa5e196e572d4bab4512df3bfe3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3c73aa5e196e572d4bab4512df3bfe3">&#9670;&#160;</a></span>checkPositionVoisinAngle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int checkPositionVoisinAngle </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>map</em>[MAP_SIZE][MAP_SIZE], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vérifie la position des voisins en angle. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td></td></tr>
+    <tr><td class="paramname">x</td><td></td></tr>
+    <tr><td class="paramname">y</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int </dd></dl>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="create__map_8c_ab3c73aa5e196e572d4bab4512df3bfe3_icgraph.png" border="0" usemap="#acreate__map_8c_ab3c73aa5e196e572d4bab4512df3bfe3_icgraph" alt=""/></div>
+<map name="acreate__map_8c_ab3c73aa5e196e572d4bab4512df3bfe3_icgraph" id="acreate__map_8c_ab3c73aa5e196e572d4bab4512df3bfe3_icgraph">
+<area shape="rect" title="Vérifie la position des voisins en angle." alt="" coords="615,5,788,31"/>
+<area shape="rect" href="create__map_8c.html#a7176db32701a440a52a2f37fad87d1b2" title="Algo choix tile pour une case." alt="" coords="493,5,567,31"/>
+<area shape="rect" href="create__map_8c.html#ac9c9e978f54e2187c07d259df9095b41" title="Fait le rendu de la map." alt="" coords="363,5,445,31"/>
+<area shape="rect" href="create__map_8c.html#ac9cdbd9e4a54eecb70bdc4d2a1530567" title="Affiche la map." alt="" coords="227,5,315,31"/>
+<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a3a0b996fb2e3bfdf50c9b9c69059ecbc" name="a3a0b996fb2e3bfdf50c9b9c69059ecbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a0b996fb2e3bfdf50c9b9c69059ecbc">&#9670;&#160;</a></span>checkPositionVoisinCote()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int checkPositionVoisinCote </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>map</em>[MAP_SIZE][MAP_SIZE], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vérifie les positions des voisins. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td></td></tr>
+    <tr><td class="paramname">x</td><td></td></tr>
+    <tr><td class="paramname">y</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int </dd></dl>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="create__map_8c_a3a0b996fb2e3bfdf50c9b9c69059ecbc_icgraph.png" border="0" usemap="#acreate__map_8c_a3a0b996fb2e3bfdf50c9b9c69059ecbc_icgraph" alt=""/></div>
+<map name="acreate__map_8c_a3a0b996fb2e3bfdf50c9b9c69059ecbc_icgraph" id="acreate__map_8c_a3a0b996fb2e3bfdf50c9b9c69059ecbc_icgraph">
+<area shape="rect" title="Vérifie les positions des voisins." alt="" coords="615,5,781,31"/>
+<area shape="rect" href="create__map_8c.html#a7176db32701a440a52a2f37fad87d1b2" title="Algo choix tile pour une case." alt="" coords="493,5,567,31"/>
+<area shape="rect" href="create__map_8c.html#ac9c9e978f54e2187c07d259df9095b41" title="Fait le rendu de la map." alt="" coords="363,5,445,31"/>
+<area shape="rect" href="create__map_8c.html#ac9cdbd9e4a54eecb70bdc4d2a1530567" title="Affiche la map." alt="" coords="227,5,315,31"/>
+<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a423569673b6cc32da7a86a71b8e9ae15" name="a423569673b6cc32da7a86a71b8e9ae15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a423569673b6cc32da7a86a71b8e9ae15">&#9670;&#160;</a></span>checkPositionVoisinCote3voisins()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int checkPositionVoisinCote3voisins </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>map</em>[MAP_SIZE][MAP_SIZE], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cherche le seul voisin de coté non sable. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td></td></tr>
+    <tr><td class="paramname">x</td><td></td></tr>
+    <tr><td class="paramname">y</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int </dd></dl>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="create__map_8c_a423569673b6cc32da7a86a71b8e9ae15_icgraph.png" border="0" usemap="#acreate__map_8c_a423569673b6cc32da7a86a71b8e9ae15_icgraph" alt=""/></div>
+<map name="acreate__map_8c_a423569673b6cc32da7a86a71b8e9ae15_icgraph" id="acreate__map_8c_a423569673b6cc32da7a86a71b8e9ae15_icgraph">
+<area shape="rect" title="Cherche le seul voisin de coté non sable." alt="" coords="615,5,828,31"/>
+<area shape="rect" href="create__map_8c.html#a7176db32701a440a52a2f37fad87d1b2" title="Algo choix tile pour une case." alt="" coords="493,5,567,31"/>
+<area shape="rect" href="create__map_8c.html#ac9c9e978f54e2187c07d259df9095b41" title="Fait le rendu de la map." alt="" coords="363,5,445,31"/>
+<area shape="rect" href="create__map_8c.html#ac9cdbd9e4a54eecb70bdc4d2a1530567" title="Affiche la map." alt="" coords="227,5,315,31"/>
+<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a57ccdcacf244e867e9252f316e8139c2" name="a57ccdcacf244e867e9252f316e8139c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57ccdcacf244e867e9252f316e8139c2">&#9670;&#160;</a></span>checkPositionVoisinDiag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int checkPositionVoisinDiag </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>map</em>[MAP_SIZE][MAP_SIZE], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vérifie la position des voisins en diagonale. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td></td></tr>
+    <tr><td class="paramname">x</td><td></td></tr>
+    <tr><td class="paramname">y</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int </dd></dl>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="create__map_8c_a57ccdcacf244e867e9252f316e8139c2_icgraph.png" border="0" usemap="#acreate__map_8c_a57ccdcacf244e867e9252f316e8139c2_icgraph" alt=""/></div>
+<map name="acreate__map_8c_a57ccdcacf244e867e9252f316e8139c2_icgraph" id="acreate__map_8c_a57ccdcacf244e867e9252f316e8139c2_icgraph">
+<area shape="rect" title="Vérifie la position des voisins en diagonale." alt="" coords="615,5,781,31"/>
+<area shape="rect" href="create__map_8c.html#a7176db32701a440a52a2f37fad87d1b2" title="Algo choix tile pour une case." alt="" coords="493,5,567,31"/>
+<area shape="rect" href="create__map_8c.html#ac9c9e978f54e2187c07d259df9095b41" title="Fait le rendu de la map." alt="" coords="363,5,445,31"/>
+<area shape="rect" href="create__map_8c.html#ac9cdbd9e4a54eecb70bdc4d2a1530567" title="Affiche la map." alt="" coords="227,5,315,31"/>
+<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a7176db32701a440a52a2f37fad87d1b2" name="a7176db32701a440a52a2f37fad87d1b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7176db32701a440a52a2f37fad87d1b2">&#9670;&#160;</a></span>choixTile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structcoord__s.html">coord_t</a> choixTile </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>map</em>[MAP_SIZE][MAP_SIZE], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Algo choix tile pour une case. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td></td></tr>
+    <tr><td class="paramname">x</td><td></td></tr>
+    <tr><td class="paramname">y</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>coord_t </dd></dl>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="create__map_8c_a7176db32701a440a52a2f37fad87d1b2_cgraph.png" border="0" usemap="#acreate__map_8c_a7176db32701a440a52a2f37fad87d1b2_cgraph" alt=""/></div>
+<map name="acreate__map_8c_a7176db32701a440a52a2f37fad87d1b2_cgraph" id="acreate__map_8c_a7176db32701a440a52a2f37fad87d1b2_cgraph">
+<area shape="rect" title="Algo choix tile pour une case." alt="" coords="5,129,79,155"/>
+<area shape="rect" href="create__map_8c.html#ab3c73aa5e196e572d4bab4512df3bfe3" title="Vérifie la position des voisins en angle." alt="" coords="147,5,320,31"/>
+<area shape="rect" href="create__map_8c.html#a3a0b996fb2e3bfdf50c9b9c69059ecbc" title="Vérifie les positions des voisins." alt="" coords="150,55,317,80"/>
+<area shape="rect" href="create__map_8c.html#a423569673b6cc32da7a86a71b8e9ae15" title="Cherche le seul voisin de coté non sable." alt="" coords="127,104,340,129"/>
+<area shape="rect" href="create__map_8c.html#a57ccdcacf244e867e9252f316e8139c2" title="Vérifie la position des voisins en diagonale." alt="" coords="150,153,317,179"/>
+<area shape="rect" href="create__map_8c.html#a235f855f5a3fbd14f98c1a01a573f656" title="Compte les voisins sur le coté dans la matrice." alt="" coords="167,203,299,228"/>
+<area shape="rect" href="create__map_8c.html#afb18460b7eadcb8e3e25dd71839495f2" title="Compter les voisins en diagonale." alt="" coords="168,252,299,277"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="create__map_8c_a7176db32701a440a52a2f37fad87d1b2_icgraph.png" border="0" usemap="#acreate__map_8c_a7176db32701a440a52a2f37fad87d1b2_icgraph" alt=""/></div>
+<map name="acreate__map_8c_a7176db32701a440a52a2f37fad87d1b2_icgraph" id="acreate__map_8c_a7176db32701a440a52a2f37fad87d1b2_icgraph">
+<area shape="rect" title="Algo choix tile pour une case." alt="" coords="493,5,567,31"/>
+<area shape="rect" href="create__map_8c.html#ac9c9e978f54e2187c07d259df9095b41" title="Fait le rendu de la map." alt="" coords="363,5,445,31"/>
+<area shape="rect" href="create__map_8c.html#ac9cdbd9e4a54eecb70bdc4d2a1530567" title="Affiche la map." alt="" coords="227,5,315,31"/>
+<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a235f855f5a3fbd14f98c1a01a573f656" name="a235f855f5a3fbd14f98c1a01a573f656"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a235f855f5a3fbd14f98c1a01a573f656">&#9670;&#160;</a></span>compterVoisinCote()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int compterVoisinCote </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>map</em>[MAP_SIZE][MAP_SIZE], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compte les voisins sur le coté dans la matrice. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td></td></tr>
+    <tr><td class="paramname">x</td><td></td></tr>
+    <tr><td class="paramname">y</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int </dd></dl>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="create__map_8c_a235f855f5a3fbd14f98c1a01a573f656_icgraph.png" border="0" usemap="#acreate__map_8c_a235f855f5a3fbd14f98c1a01a573f656_icgraph" alt=""/></div>
+<map name="acreate__map_8c_a235f855f5a3fbd14f98c1a01a573f656_icgraph" id="acreate__map_8c_a235f855f5a3fbd14f98c1a01a573f656_icgraph">
+<area shape="rect" title="Compte les voisins sur le coté dans la matrice." alt="" coords="615,5,747,31"/>
+<area shape="rect" href="create__map_8c.html#a7176db32701a440a52a2f37fad87d1b2" title="Algo choix tile pour une case." alt="" coords="493,5,567,31"/>
+<area shape="rect" href="create__map_8c.html#ac9c9e978f54e2187c07d259df9095b41" title="Fait le rendu de la map." alt="" coords="363,5,445,31"/>
+<area shape="rect" href="create__map_8c.html#ac9cdbd9e4a54eecb70bdc4d2a1530567" title="Affiche la map." alt="" coords="227,5,315,31"/>
+<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="afb18460b7eadcb8e3e25dd71839495f2" name="afb18460b7eadcb8e3e25dd71839495f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb18460b7eadcb8e3e25dd71839495f2">&#9670;&#160;</a></span>compterVoisinDiag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int compterVoisinDiag </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>map</em>[MAP_SIZE][MAP_SIZE], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compter les voisins en diagonale. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td></td></tr>
+    <tr><td class="paramname">x</td><td></td></tr>
+    <tr><td class="paramname">y</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int </dd></dl>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="create__map_8c_afb18460b7eadcb8e3e25dd71839495f2_icgraph.png" border="0" usemap="#acreate__map_8c_afb18460b7eadcb8e3e25dd71839495f2_icgraph" alt=""/></div>
+<map name="acreate__map_8c_afb18460b7eadcb8e3e25dd71839495f2_icgraph" id="acreate__map_8c_afb18460b7eadcb8e3e25dd71839495f2_icgraph">
+<area shape="rect" title="Compter les voisins en diagonale." alt="" coords="615,5,745,31"/>
+<area shape="rect" href="create__map_8c.html#a7176db32701a440a52a2f37fad87d1b2" title="Algo choix tile pour une case." alt="" coords="493,5,567,31"/>
+<area shape="rect" href="create__map_8c.html#ac9c9e978f54e2187c07d259df9095b41" title="Fait le rendu de la map." alt="" coords="363,5,445,31"/>
+<area shape="rect" href="create__map_8c.html#ac9cdbd9e4a54eecb70bdc4d2a1530567" title="Affiche la map." alt="" coords="227,5,315,31"/>
+<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a7967c281a3df3dede0837ddb8dbbde79" name="a7967c281a3df3dede0837ddb8dbbde79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7967c281a3df3dede0837ddb8dbbde79">&#9670;&#160;</a></span>initCamera()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void initCamera </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structcamera__s.html">camera_t</a> *&#160;</td>
+          <td class="paramname"><em>camera</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>window</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialise la caméra en fonction du joueur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">camera</td><td></td></tr>
+    <tr><td class="paramname">window</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="create__map_8c_a7967c281a3df3dede0837ddb8dbbde79_icgraph.png" border="0" usemap="#acreate__map_8c_a7967c281a3df3dede0837ddb8dbbde79_icgraph" alt=""/></div>
+<map name="acreate__map_8c_a7967c281a3df3dede0837ddb8dbbde79_icgraph" id="acreate__map_8c_a7967c281a3df3dede0837ddb8dbbde79_icgraph">
+<area shape="rect" title="Initialise la caméra en fonction du joueur." alt="" coords="365,5,449,31"/>
+<area shape="rect" href="create__map_8c.html#a018fa899a26c3434a11d5bc5716b52ef" title="Create a map object." alt="" coords="227,5,317,31"/>
+<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac9c9e978f54e2187c07d259df9095b41" name="ac9c9e978f54e2187c07d259df9095b41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9c9e978f54e2187c07d259df9095b41">&#9670;&#160;</a></span>renderMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void renderMap </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer **&#160;</td>
+          <td class="paramname"><em>render</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structmap__s.html">map_t</a> *&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcamera__s.html">camera_t</a> *&#160;</td>
+          <td class="paramname"><em>camera</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fait le rendu de la map. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">render</td><td></td></tr>
+    <tr><td class="paramname">map</td><td></td></tr>
+    <tr><td class="paramname">camera</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="create__map_8c_ac9c9e978f54e2187c07d259df9095b41_cgraph.png" border="0" usemap="#acreate__map_8c_ac9c9e978f54e2187c07d259df9095b41_cgraph" alt=""/></div>
+<map name="acreate__map_8c_ac9c9e978f54e2187c07d259df9095b41_cgraph" id="acreate__map_8c_ac9c9e978f54e2187c07d259df9095b41_cgraph">
+<area shape="rect" title="Fait le rendu de la map." alt="" coords="5,129,88,155"/>
+<area shape="rect" href="create__map_8c.html#a7176db32701a440a52a2f37fad87d1b2" title="Algo choix tile pour une case." alt="" coords="136,129,209,155"/>
+<area shape="rect" href="create__map_8c.html#ab3c73aa5e196e572d4bab4512df3bfe3" title="Vérifie la position des voisins en angle." alt="" coords="277,5,451,31"/>
+<area shape="rect" href="create__map_8c.html#a3a0b996fb2e3bfdf50c9b9c69059ecbc" title="Vérifie les positions des voisins." alt="" coords="281,55,447,80"/>
+<area shape="rect" href="create__map_8c.html#a423569673b6cc32da7a86a71b8e9ae15" title="Cherche le seul voisin de coté non sable." alt="" coords="257,104,471,129"/>
+<area shape="rect" href="create__map_8c.html#a57ccdcacf244e867e9252f316e8139c2" title="Vérifie la position des voisins en diagonale." alt="" coords="281,153,447,179"/>
+<area shape="rect" href="create__map_8c.html#a235f855f5a3fbd14f98c1a01a573f656" title="Compte les voisins sur le coté dans la matrice." alt="" coords="298,203,430,228"/>
+<area shape="rect" href="create__map_8c.html#afb18460b7eadcb8e3e25dd71839495f2" title="Compter les voisins en diagonale." alt="" coords="299,252,429,277"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="create__map_8c_ac9c9e978f54e2187c07d259df9095b41_icgraph.png" border="0" usemap="#acreate__map_8c_ac9c9e978f54e2187c07d259df9095b41_icgraph" alt=""/></div>
+<map name="acreate__map_8c_ac9c9e978f54e2187c07d259df9095b41_icgraph" id="acreate__map_8c_ac9c9e978f54e2187c07d259df9095b41_icgraph">
+<area shape="rect" title="Fait le rendu de la map." alt="" coords="363,5,445,31"/>
+<area shape="rect" href="create__map_8c.html#ac9cdbd9e4a54eecb70bdc4d2a1530567" title="Affiche la map." alt="" coords="227,5,315,31"/>
+<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+</small></address>
+</body>
+</html>

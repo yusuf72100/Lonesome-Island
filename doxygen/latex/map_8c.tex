@@ -1,0 +1,346 @@
+\hypertarget{map_8c}{}\doxysection{Référence du fichier C\+:/\+Users/\+Yusuf/\+Lonesome-\/\+Island/src/map.c}
+\label{map_8c}\index{C:/Users/Yusuf/Lonesome-\/Island/src/map.c@{C:/Users/Yusuf/Lonesome-\/Island/src/map.c}}
+
+
+Fichier comportant les méthodes pour générer la map.  
+
+
+{\ttfamily \#include \char`\"{}map.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de map.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{map_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{map_8c_ade30cce8083545c0ad45af195bc5cbf8}{print\+\_\+map}} (int map\mbox{[}MAP\+\_\+\+SIZE\mbox{]}\mbox{[}MAP\+\_\+\+SIZE\mbox{]})
+\begin{DoxyCompactList}\small\item\em Affiche la matrice de la map. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{map_8c_a67c15abbd6b66f91d5b8cfbdb60fb5dc}{map\+Copy}} (int src\mbox{[}MAP\+\_\+\+SIZE\mbox{]}\mbox{[}MAP\+\_\+\+SIZE\mbox{]}, int dest\mbox{[}MAP\+\_\+\+SIZE\mbox{]}\mbox{[}MAP\+\_\+\+SIZE\mbox{]})
+\begin{DoxyCompactList}\small\item\em Fait une copie de la map. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{map_8c_a7e72a7ae14ee89b5e331229d77366a97}{check\+Same\+Neighboor}} (int ground\mbox{[}MAP\+\_\+\+SIZE\mbox{]}\mbox{[}MAP\+\_\+\+SIZE\mbox{]}, int x, int y)
+\begin{DoxyCompactList}\small\item\em Vérifie si 2 tiles ont le même voisin. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{map_8c_a012dd0f89b1121420052d64018ccae97}{is\+Any\+Grass\+Near}} (int ground\mbox{[}MAP\+\_\+\+SIZE\mbox{]}\mbox{[}MAP\+\_\+\+SIZE\mbox{]}, int x, int y, int range)
+\begin{DoxyCompactList}\small\item\em Cherche la position du tile de terre le plus proche. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{map_8c_aece796df8f58d669ec874b906ae04797}{is\+Any\+Sand\+Near}} (int ground\mbox{[}MAP\+\_\+\+SIZE\mbox{]}\mbox{[}MAP\+\_\+\+SIZE\mbox{]}, int x, int y, int range)
+\begin{DoxyCompactList}\small\item\em Cherche la position du tile de sable le plus proche. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{map_8c_abae23a102baac0a675ee68a120265724}\label{map_8c_abae23a102baac0a675ee68a120265724}} 
+void {\bfseries first\+Random\+Preset} (int ground\mbox{[}MAP\+\_\+\+SIZE\mbox{]}\mbox{[}MAP\+\_\+\+SIZE\mbox{]})
+\item 
+void \mbox{\hyperlink{map_8c_aab46a0694f1c293b21c571af71593fd4}{add\+Beach\+Transition}} (int ground\mbox{[}MAP\+\_\+\+SIZE\mbox{]}\mbox{[}MAP\+\_\+\+SIZE\mbox{]})
+\begin{DoxyCompactList}\small\item\em Ajoute une transition de plage. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{map_8c_a60b91f8b94c3cb4df036b95aa2b64938}{smooth\+Ground\+Shape}} (int ground\mbox{[}MAP\+\_\+\+SIZE\mbox{]}\mbox{[}MAP\+\_\+\+SIZE\mbox{]})
+\begin{DoxyCompactList}\small\item\em Fait un lissage de la matrice. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{map_8c_af3dddcc76c92ea6c131823e295a0b907}{init\+\_\+ground}} (int ground\mbox{[}MAP\+\_\+\+SIZE\mbox{]}\mbox{[}MAP\+\_\+\+SIZE\mbox{]})
+\begin{DoxyCompactList}\small\item\em Initialise le sol. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{map_8c_a961bb03694009138728733d9ef2c6774}\label{map_8c_a961bb03694009138728733d9ef2c6774}} 
+void {\bfseries init\+\_\+utils} (\mbox{\hyperlink{structmap__s}{map\+\_\+t}} $\ast$map)
+\item 
+void \mbox{\hyperlink{map_8c_ae015ba68927a7b2e9ef48ff1ec08ff59}{init\+\_\+map}} (\mbox{\hyperlink{structmap__s}{map\+\_\+t}} $\ast$map)
+\begin{DoxyCompactList}\small\item\em Initialise la map. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{map_8c_a734e0337e05972d515299fb5f35bb483}{build\+\_\+map}} (\mbox{\hyperlink{structmap__s}{map\+\_\+t}} $\ast$$\ast$map)
+\begin{DoxyCompactList}\small\item\em Génère une map. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier comportant les méthodes pour générer la map. 
+
+\begin{DoxyAuthor}{Auteur}
+Luca Pourceau et Melvin Maubert 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2023-\/03-\/09
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{map_8c_aab46a0694f1c293b21c571af71593fd4}\label{map_8c_aab46a0694f1c293b21c571af71593fd4}} 
+\index{map.c@{map.c}!addBeachTransition@{addBeachTransition}}
+\index{addBeachTransition@{addBeachTransition}!map.c@{map.c}}
+\doxysubsubsection{\texorpdfstring{addBeachTransition()}{addBeachTransition()}}
+{\footnotesize\ttfamily void add\+Beach\+Transition (\begin{DoxyParamCaption}\item[{int}]{ground\mbox{[}\+MAP\+\_\+\+SIZE\mbox{]}\mbox{[}\+MAP\+\_\+\+SIZE\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Ajoute une transition de plage. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em ground} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{map_8c_aab46a0694f1c293b21c571af71593fd4_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{map_8c_aab46a0694f1c293b21c571af71593fd4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{map_8c_a734e0337e05972d515299fb5f35bb483}\label{map_8c_a734e0337e05972d515299fb5f35bb483}} 
+\index{map.c@{map.c}!build\_map@{build\_map}}
+\index{build\_map@{build\_map}!map.c@{map.c}}
+\doxysubsubsection{\texorpdfstring{build\_map()}{build\_map()}}
+{\footnotesize\ttfamily void build\+\_\+map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmap__s}{map\+\_\+t}} $\ast$$\ast$}]{map }\end{DoxyParamCaption})}
+
+
+
+Génère une map. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em map} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{map_8c_a734e0337e05972d515299fb5f35bb483_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{map_8c_a734e0337e05972d515299fb5f35bb483_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{map_8c_a7e72a7ae14ee89b5e331229d77366a97}\label{map_8c_a7e72a7ae14ee89b5e331229d77366a97}} 
+\index{map.c@{map.c}!checkSameNeighboor@{checkSameNeighboor}}
+\index{checkSameNeighboor@{checkSameNeighboor}!map.c@{map.c}}
+\doxysubsubsection{\texorpdfstring{checkSameNeighboor()}{checkSameNeighboor()}}
+{\footnotesize\ttfamily int check\+Same\+Neighboor (\begin{DoxyParamCaption}\item[{int}]{ground\mbox{[}\+MAP\+\_\+\+SIZE\mbox{]}\mbox{[}\+MAP\+\_\+\+SIZE\mbox{]},  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Vérifie si 2 tiles ont le même voisin. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em ground} & \\
+\hline
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{map_8c_a7e72a7ae14ee89b5e331229d77366a97_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{map_8c_af3dddcc76c92ea6c131823e295a0b907}\label{map_8c_af3dddcc76c92ea6c131823e295a0b907}} 
+\index{map.c@{map.c}!init\_ground@{init\_ground}}
+\index{init\_ground@{init\_ground}!map.c@{map.c}}
+\doxysubsubsection{\texorpdfstring{init\_ground()}{init\_ground()}}
+{\footnotesize\ttfamily void init\+\_\+ground (\begin{DoxyParamCaption}\item[{int}]{ground\mbox{[}\+MAP\+\_\+\+SIZE\mbox{]}\mbox{[}\+MAP\+\_\+\+SIZE\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Initialise le sol. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em ground} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{map_8c_af3dddcc76c92ea6c131823e295a0b907_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{map_8c_af3dddcc76c92ea6c131823e295a0b907_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{map_8c_ae015ba68927a7b2e9ef48ff1ec08ff59}\label{map_8c_ae015ba68927a7b2e9ef48ff1ec08ff59}} 
+\index{map.c@{map.c}!init\_map@{init\_map}}
+\index{init\_map@{init\_map}!map.c@{map.c}}
+\doxysubsubsection{\texorpdfstring{init\_map()}{init\_map()}}
+{\footnotesize\ttfamily void init\+\_\+map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmap__s}{map\+\_\+t}} $\ast$}]{map }\end{DoxyParamCaption})}
+
+
+
+Initialise la map. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em map} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{map_8c_ae015ba68927a7b2e9ef48ff1ec08ff59_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{map_8c_a012dd0f89b1121420052d64018ccae97}\label{map_8c_a012dd0f89b1121420052d64018ccae97}} 
+\index{map.c@{map.c}!isAnyGrassNear@{isAnyGrassNear}}
+\index{isAnyGrassNear@{isAnyGrassNear}!map.c@{map.c}}
+\doxysubsubsection{\texorpdfstring{isAnyGrassNear()}{isAnyGrassNear()}}
+{\footnotesize\ttfamily int is\+Any\+Grass\+Near (\begin{DoxyParamCaption}\item[{int}]{ground\mbox{[}\+MAP\+\_\+\+SIZE\mbox{]}\mbox{[}\+MAP\+\_\+\+SIZE\mbox{]},  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{range }\end{DoxyParamCaption})}
+
+
+
+Cherche la position du tile de terre le plus proche. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em ground} & \\
+\hline
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+{\em range} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{map_8c_a012dd0f89b1121420052d64018ccae97_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{map_8c_aece796df8f58d669ec874b906ae04797}\label{map_8c_aece796df8f58d669ec874b906ae04797}} 
+\index{map.c@{map.c}!isAnySandNear@{isAnySandNear}}
+\index{isAnySandNear@{isAnySandNear}!map.c@{map.c}}
+\doxysubsubsection{\texorpdfstring{isAnySandNear()}{isAnySandNear()}}
+{\footnotesize\ttfamily int is\+Any\+Sand\+Near (\begin{DoxyParamCaption}\item[{int}]{ground\mbox{[}\+MAP\+\_\+\+SIZE\mbox{]}\mbox{[}\+MAP\+\_\+\+SIZE\mbox{]},  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{range }\end{DoxyParamCaption})}
+
+
+
+Cherche la position du tile de sable le plus proche. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em ground} & \\
+\hline
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+{\em range} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{map_8c_aece796df8f58d669ec874b906ae04797_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{map_8c_a67c15abbd6b66f91d5b8cfbdb60fb5dc}\label{map_8c_a67c15abbd6b66f91d5b8cfbdb60fb5dc}} 
+\index{map.c@{map.c}!mapCopy@{mapCopy}}
+\index{mapCopy@{mapCopy}!map.c@{map.c}}
+\doxysubsubsection{\texorpdfstring{mapCopy()}{mapCopy()}}
+{\footnotesize\ttfamily void map\+Copy (\begin{DoxyParamCaption}\item[{int}]{src\mbox{[}\+MAP\+\_\+\+SIZE\mbox{]}\mbox{[}\+MAP\+\_\+\+SIZE\mbox{]},  }\item[{int}]{dest\mbox{[}\+MAP\+\_\+\+SIZE\mbox{]}\mbox{[}\+MAP\+\_\+\+SIZE\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Fait une copie de la map. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em src} & \\
+\hline
+{\em dest} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{map_8c_a67c15abbd6b66f91d5b8cfbdb60fb5dc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{map_8c_ade30cce8083545c0ad45af195bc5cbf8}\label{map_8c_ade30cce8083545c0ad45af195bc5cbf8}} 
+\index{map.c@{map.c}!print\_map@{print\_map}}
+\index{print\_map@{print\_map}!map.c@{map.c}}
+\doxysubsubsection{\texorpdfstring{print\_map()}{print\_map()}}
+{\footnotesize\ttfamily void print\+\_\+map (\begin{DoxyParamCaption}\item[{int}]{map\mbox{[}\+MAP\+\_\+\+SIZE\mbox{]}\mbox{[}\+MAP\+\_\+\+SIZE\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Affiche la matrice de la map. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em map} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{map_8c_a60b91f8b94c3cb4df036b95aa2b64938}\label{map_8c_a60b91f8b94c3cb4df036b95aa2b64938}} 
+\index{map.c@{map.c}!smoothGroundShape@{smoothGroundShape}}
+\index{smoothGroundShape@{smoothGroundShape}!map.c@{map.c}}
+\doxysubsubsection{\texorpdfstring{smoothGroundShape()}{smoothGroundShape()}}
+{\footnotesize\ttfamily void smooth\+Ground\+Shape (\begin{DoxyParamCaption}\item[{int}]{ground\mbox{[}\+MAP\+\_\+\+SIZE\mbox{]}\mbox{[}\+MAP\+\_\+\+SIZE\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Fait un lissage de la matrice. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em ground} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{map_8c_a60b91f8b94c3cb4df036b95aa2b64938_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{map_8c_a60b91f8b94c3cb4df036b95aa2b64938_icgraph}
+\end{center}
+\end{figure}

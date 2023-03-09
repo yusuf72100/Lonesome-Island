@@ -37,15 +37,26 @@
 #define RUNNING_DOWN_START 9
 #define RUNNING_DOWN_END 10
 
+//Animations
 static int animations_thread_running = FALSE;
 static int settings_button_animation_state = 0;
+
+//Fenêtre
 static int xWindow = 0, yWindow = 0;
 static int WindowW = 1920, WindowH = 1080;
 
-static Liste *l;
+typedef struct {
+    SDL_Rect rect;
+    SDL_Surface *text_surface;
+}keybind_button;
 
+//Bouttons du menu keybinds
+static keybind_button keybinds_buttons[5];
+
+//Curseur de la souris
 static SDL_Point mouse_position;   
 
+//Events check
 static SDL_bool hover_playbutton = SDL_FALSE;
 static SDL_bool hover_connectbutton = SDL_FALSE;
 static SDL_bool hover_hostbutton = SDL_FALSE;
@@ -72,7 +83,6 @@ static SDL_Rect lifebar_rect;
 static SDL_Rect title_rect;
 static SDL_Rect settings_menu_bg_rect;
 static SDL_Rect settings_menu_keybinds_button_rect;
-static SDL_Rect settings_menu_keys_buttons_rect[5];
 
 static SDL_DisplayMode DM;
 

@@ -1,6 +1,6 @@
 /**
  * @file create_map.c
- * @author Yusuf Ulas
+ * @author Luca Pourceau et Melvin Maubert
  * @brief Programme qui génère la map et les tiles.
  * @version 0.1
  * @date 2023-03-09
@@ -11,6 +11,12 @@
 
 #include "create_map.h"
 
+/**
+ * @brief Initialise la caméra en fonction du joueur.
+ * 
+ * @param camera 
+ * @param window 
+ */
 void initCamera(camera_t* camera, SDL_Window* window) {
     camera->startPosition.x = 0;
     camera->startPosition.y = 0;
@@ -25,7 +31,14 @@ void initCamera(camera_t* camera, SDL_Window* window) {
     camera->hRender = h/tileSize;
 }
 
-/* Compte les voisins sur le coté dans la matrice */
+/**
+ * @brief Compte les voisins sur le coté dans la matrice
+ * 
+ * @param map 
+ * @param x 
+ * @param y 
+ * @return int 
+ */
 int compterVoisinCote(int map[MAP_SIZE][MAP_SIZE], int x, int y) {
     int cpt=0 ;
     int valCase = map[x][y]+1;
@@ -40,7 +53,14 @@ int compterVoisinCote(int map[MAP_SIZE][MAP_SIZE], int x, int y) {
     return cpt ;
 }
 
-/* Compter les voisins en diagonale*/
+/**
+ * @brief Compter les voisins en diagonale
+ * 
+ * @param map 
+ * @param x 
+ * @param y 
+ * @return int 
+ */
 int compterVoisinDiag(int map[MAP_SIZE][MAP_SIZE], int x, int y) {
     int cpt=0; 
     int valCase = map[x][y]+1;
@@ -55,7 +75,14 @@ int compterVoisinDiag(int map[MAP_SIZE][MAP_SIZE], int x, int y) {
     return cpt ;
 }
 
-/**/
+/**
+ * @brief Vérifie les positions des voisins.
+ * 
+ * @param map 
+ * @param x 
+ * @param y 
+ * @return int 
+ */
 int checkPositionVoisinCote(int map[MAP_SIZE][MAP_SIZE], int x, int y) {
     int valCase = map[x][y]+1 ;
     if(map[x+1][y] == valCase) 
@@ -68,7 +95,14 @@ int checkPositionVoisinCote(int map[MAP_SIZE][MAP_SIZE], int x, int y) {
         return 48;
 }
 
-/* Cherche le seul voisin de coté non sable*/
+/**
+ * @brief Cherche le seul voisin de coté non sable
+ * 
+ * @param map 
+ * @param x 
+ * @param y 
+ * @return int 
+ */
 int checkPositionVoisinCote3voisins(int map[MAP_SIZE][MAP_SIZE], int x, int y) {
     int valCase = map[x][y] ;
     if(map[x+1][y] == valCase) 
@@ -81,6 +115,14 @@ int checkPositionVoisinCote3voisins(int map[MAP_SIZE][MAP_SIZE], int x, int y) {
         return 48;
 }
 
+/**
+ * @brief Vérifie la position des voisins en angle.
+ * 
+ * @param map 
+ * @param x 
+ * @param y 
+ * @return int 
+ */
 int checkPositionVoisinAngle(int map[MAP_SIZE][MAP_SIZE], int x, int y) {
     int valCase = map[x][y]+1 ;
     if(map[x+1][y] == valCase && map[x][y-1] == valCase) 
@@ -93,6 +135,14 @@ int checkPositionVoisinAngle(int map[MAP_SIZE][MAP_SIZE], int x, int y) {
         return 48;
 }
 
+/**
+ * @brief Vérifie la position des voisins en diagonale.
+ * 
+ * @param map 
+ * @param x 
+ * @param y 
+ * @return int 
+ */
 int checkPositionVoisinDiag(int map[MAP_SIZE][MAP_SIZE], int x, int y) {
     int valCase = map[x][y]+1 ;
     if( (map[x+1][y-1] == valCase) ) 
@@ -105,7 +155,14 @@ int checkPositionVoisinDiag(int map[MAP_SIZE][MAP_SIZE], int x, int y) {
         return 48;
 }
 
-/* Algo choix tile pour une case */
+/**
+ * @brief Algo choix tile pour une case.
+ * 
+ * @param map 
+ * @param x 
+ * @param y 
+ * @return coord_t 
+ */
 coord_t choixTile(int map[MAP_SIZE][MAP_SIZE], int x, int y) {
     coord_t coord;
     int nbVoisin = compterVoisinCote(map, x, y);
@@ -143,7 +200,13 @@ coord_t choixTile(int map[MAP_SIZE][MAP_SIZE], int x, int y) {
     return coord ;
 }
 
-//Affiche le jeu selon la camera donnée
+/**
+ * @brief Fait le rendu de la map.
+ * 
+ * @param render 
+ * @param map 
+ * @param camera 
+ */
 void renderMap(SDL_Renderer** render, map_t* map, camera_t* camera) {
 
     SDL_Surface *grass;
@@ -179,6 +242,10 @@ void renderMap(SDL_Renderer** render, map_t* map, camera_t* camera) {
     }
 }
 
+/**
+ * @brief Create a map object.
+ * 
+ */
 void create_map() {
     //Initialisation de la camera
     camera = malloc(sizeof(camera_t));
@@ -189,6 +256,10 @@ void create_map() {
     build_map(&map);
 }
 
+/**
+ * @brief Affiche la map.
+ * 
+ */
 void afficherMap(){
     renderMap(&renderer, map, camera);
 }
