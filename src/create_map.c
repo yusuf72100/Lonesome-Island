@@ -1,41 +1,15 @@
-//C includes
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+/**
+ * @file create_map.c
+ * @author Yusuf Ulas
+ * @brief Programme qui génère la map et les tiles.
+ * @version 0.1
+ * @date 2023-03-09
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 
-//Personnal includes
-#include <map.h>
-
-//SDL includes
-#include <SDL.h>
-#include <SDL_image.h>
-
-typedef struct coord_s{
-    int x;
-    int y;
-}coord_t;
-
-typedef struct player_s{
-    coord_t position;
-}player_t;
-
-typedef struct camera_s{
-    int wRender;
-    int hRender;
-    int tileSizeOnRender;
-    coord_t startPosition;
-}camera_t;
-
-void initSDL(SDL_Window** window, SDL_Renderer** renderer) {
-    SDL_Init(SDL_INIT_EVERYTHING);
-    *window = SDL_CreateWindow("Lonesome Island", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1, 1, SDL_WINDOW_MAXIMIZED);
-    *renderer = SDL_CreateRenderer(*window, -1, SDL_RENDERER_ACCELERATED);
-}
-
-void initPlayer(player_t* player) {
-    player->position.x = 50;
-    player->position.y = 50;
-}
+#include "create_map.h"
 
 void initCamera(camera_t* camera, SDL_Window* window) {
     camera->startPosition.x = 0;
@@ -205,135 +179,16 @@ void renderMap(SDL_Renderer** render, map_t* map, camera_t* camera) {
     }
 }
 
-int main(int argc, char** argv) {
-
-    SDL_Window* window = NULL;
-    SDL_Renderer* renderer = NULL;
-    SDL_Event event;
-
-    //Initialisation de la SDL par une fonction ()
-    initSDL(&window, &renderer);
-
-    //Initialisation du joueur
-    player_t* player = malloc(sizeof(player_t));
-    initPlayer(player);
-
+void create_map() {
     //Initialisation de la camera
-    camera_t* camera = malloc(sizeof(camera_t));
+    camera = malloc(sizeof(camera_t));
     initCamera(camera, window);
 
     //Création de la map
-    map_t* map = malloc(sizeof(map_t)); 
+    map = malloc(sizeof(map_t)); 
     build_map(&map);
-
-    //Boucle de jeu ~infini
-    int game = 1;
-    while(game) {
-        SDL_Delay(50);
-        while(SDL_PollEvent(&event)) {
-
-            if(event.type == SDL_MOUSEMOTION) continue;
-
-            switch(event.type) {
-                case SDL_QUIT :
-                    game = 0;
-                    break;
-            }
-        }
-        renderMap(&renderer, map, camera);
-        SDL_RenderPresent(renderer);
-    }
-    
-    //Suppression des pointeurs et des éléments de SDL
-    free(player);
-    free(camera);
-    free(map);
-
-    SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
-    SDL_Quit();
-
-    return 0;
 }
 
-/*
-int main(int argc, char **argv) {
-    
-    (void)argc;
-    (void)argv;
-
-    SDL_Window *window = NULL;
-    SDL_Renderer *render = NULL;
-    SDL_Event event;
-
-    if(SDL_Init(SDL_INIT_EVERYTHING) != 0) printf("error");
-
-    window = SDL_CreateWindow("Survival Island", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1350, 700, SDL_WINDOW_SHOWN | SDL_WINDOW_MAXIMIZED);
-    render = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-    if(window == NULL || render == NULL) printf("error");
-    SDL_SetWindowMinimumSize(window, 500, 500);
-
-    player_t* player = createPlayer("IzeLeam", 16, 18, NORTH);
-    setPlayerFacing(render, player, NORTH);
-
-    position_t *camera = init_camera(player->pos);
-    
-    map_t* map = build_map();
-
-    renderMapOnPlayer(&render, map->ground, window, player, camera);
-    SDL_RenderPresent(render);
-
-    int quit = 0;
-    while(!quit){
-
-        SDL_Delay(50);
-        while(SDL_PollEvent(&event)) {
-
-            if(event.type == SDL_MOUSEMOTION) continue;
-
-            switch(event.type) {
-                case SDL_QUIT :
-                    quit = 1;
-                    break;
-                case SDL_WINDOWEVENT_RESIZED : 
-                    renderMapOnPlayer(&render, map->ground, window, player);
-                    break;
-                case SDL_KEYDOWN :
-                    int facing = 0;
-                    switch(event.key.keysym.scancode) {
-                        case SDL_SCANCODE_W :
-                            facing = NORTH;
-                            break;
-                        case SDL_SCANCODE_A :
-                            facing = WEST;
-                            break;
-                        case SDL_SCANCODE_S :
-                            facing = SOUTH;
-                            break;
-                        case SDL_SCANCODE_D :
-                            facing = EAST;
-                            break;
-                    }
-                   
-                    if(player->facing != facing) {
-                        setPlayerFacing(render, player, facing);
-                        renderMapOnPlayer(&render, map->ground, window, player);
-                    }
-                    else if(movePlayer(player, map->ground, facing)) {
-                        renderMapOnPlayer(&render, map->ground, window, player);
-                    }
-       
-                    break;
-            }
-            SDL_RenderPresent(render);
-        }
-    }
-
-
-    SDL_DestroyRenderer(render);
-    SDL_DestroyWindow(window);
-    SDL_Quit();
-
-    return 0;
+void afficherMap(){
+    renderMap(&renderer, map, camera);
 }
-*/

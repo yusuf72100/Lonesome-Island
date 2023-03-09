@@ -23,6 +23,7 @@
 #include "liste.h"
 #include "client.h"
 #include <windows.h>
+#include "create_map.h"
 
 //animations states
 #define BREATH_START 1
@@ -152,8 +153,7 @@ static SDL_Texture *texture_settings_menu_keybinds_button_hover = NULL;
 static SDL_Texture *texture_settings_menu_key_button = NULL;
 
 //window init
-static SDL_Window *window = NULL;
-static SDL_Renderer *renderer = NULL;
+
 static SDL_Texture *texture = NULL;
 static SDL_Surface *cursor = NULL;
 static SDL_Surface *cursor_select = NULL;

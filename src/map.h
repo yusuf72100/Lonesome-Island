@@ -1,5 +1,10 @@
-#ifndef MAP_h_
-#define MAP_h_
+#ifndef MAP_H
+#define MAP_H
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include "defs.h"
 
 #define MAP_SIZE 100
 #define SMOOTH_MAP 4

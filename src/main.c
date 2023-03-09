@@ -403,6 +403,7 @@ static void doEvents()
         if(onButton(PLAY_BUTTON_HOVER) && menu == MAIN_MENU)
         {
             SOLO = TRUE;
+            create_map();
             init_boop(&tabEvent[7]);
             if (debug) printf("Host button clicked\n");
             pthread_create(&server,NULL,startServer,NULL);              //on héberge le serveur 
@@ -585,6 +586,7 @@ static void doEvents()
     {
         if(connectedError == FALSE) 
         {
+            afficherMap();
             drawPlayers(joueurs, size);
         }
         else{

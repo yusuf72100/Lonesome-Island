@@ -25,6 +25,8 @@
 #include "sound.h"
 #include "settings.h"
 #include <windows.h>
+#include "defs.h"
+#include "create_map.h"
 
 static Liste *l;
 

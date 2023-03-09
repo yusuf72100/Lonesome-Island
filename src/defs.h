@@ -25,6 +25,9 @@ typedef enum {CHEST, RESOURCE, BLOCK} T_BLOCK;
 extern int SOLO;
 extern int HOST;
 
+extern SDL_Window *window;
+extern SDL_Renderer *renderer;
+
 extern char IP_PUBLIC[256];
 
 /**

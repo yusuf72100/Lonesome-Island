@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <map.h>
+#include "map.h"
 
 void print_map(int map[MAP_SIZE][MAP_SIZE])
 {
@@ -135,8 +132,6 @@ void init_ground(int ground[MAP_SIZE][MAP_SIZE])
     {
         smoothGroundShape(ground);
     }
-
-
     // Add sand beach transition
     addBeachTransition(ground);
 

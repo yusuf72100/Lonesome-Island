@@ -6,12 +6,20 @@ LIBDIR=lib
 CFLAGS= -W -Wall $(shell sdl2-config --cflags)
 LDFLAGS=-I include -L lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer -lpthread -lwsock32
 
-objets= liste.o socket.o client.o sound.o menus.o defs.o settings.o
+objets= liste.o socket.o client.o sound.o menus.o defs.o settings.o create_map.o map.o
  
 main:	$(objets)
-	GCC $(SRCDIR)/main.c -o prog $(LIBDIR)/liste.o  $(LIBDIR)/socket.o $(LIBDIR)/client.o $(LIBDIR)/menus.o $(LIBDIR)/sound.o $(LIBDIR)/defs.o $(LIBDIR)/settings.o $(LDFLAGS)
+	GCC $(SRCDIR)/main.c -o prog $(LIBDIR)/liste.o  $(LIBDIR)/socket.o $(LIBDIR)/client.o $(LIBDIR)/menus.o $(LIBDIR)/sound.o $(LIBDIR)/defs.o $(LIBDIR)/settings.o $(LIBDIR)/create_map.o $(LIBDIR)/map.o $(LDFLAGS)
 	@echo "Main compilation success!"
 	make success
+
+map.o:	$(SRCDIR)/map.c
+	GCC -o $(LIBDIR)/map.o -c $(SRCDIR)/map.c $(LDFLAGS)
+	@echo "map compilation success!"
+
+create_map.o:	$(SRCDIR)/create_map.c
+	GCC -o $(LIBDIR)/create_map.o -c $(SRCDIR)/create_map.c $(LDFLAGS)
+	@echo "create_map compilation success!"
 
 settings.o:	$(SRCDIR)/settings.c
 	GCC -o $(LIBDIR)/settings.o -c $(SRCDIR)/settings.c $(LDFLAGS)

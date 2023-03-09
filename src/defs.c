@@ -13,6 +13,9 @@ int SOLO = FALSE;
 int HOST = FALSE;
 char IP_PUBLIC[] = "90.12.114.239";
 
+SDL_Window *window = NULL;
+SDL_Renderer *renderer = NULL;
+
 item_t *axe;
 item_t *apple;
 item_t *chest_item;
