@@ -1,0 +1,7 @@
+<map id="addBeachTransition" name="addBeachTransition">
+<area shape="rect" id="node1" title="Ajoute une transition de plage." alt="" coords="5,80,141,105"/>
+<area shape="rect" id="node2" href="$map_8c.html#a7e72a7ae14ee89b5e331229d77366a97" title="Vérifie si 2 tiles ont le même voisin." alt="" coords="189,5,339,31"/>
+<area shape="rect" id="node3" href="$map_8c.html#a012dd0f89b1121420052d64018ccae97" title="Cherche la position du tile de terre le plus proche." alt="" coords="205,55,323,80"/>
+<area shape="rect" id="node4" href="$map_8c.html#aece796df8f58d669ec874b906ae04797" title="Cherche la position du tile de sable le plus proche." alt="" coords="208,104,320,129"/>
+<area shape="rect" id="node5" href="$map_8c.html#a67c15abbd6b66f91d5b8cfbdb60fb5dc" title="Fait une copie de la map." alt="" coords="225,153,303,179"/>
+</map>

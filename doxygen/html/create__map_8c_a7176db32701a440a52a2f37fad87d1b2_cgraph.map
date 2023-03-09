@@ -1,0 +1,9 @@
+<map id="choixTile" name="choixTile">
+<area shape="rect" id="node1" title="Algo choix tile pour une case." alt="" coords="5,129,79,155"/>
+<area shape="rect" id="node2" href="$create__map_8c.html#ab3c73aa5e196e572d4bab4512df3bfe3" title="Vérifie la position des voisins en angle." alt="" coords="147,5,320,31"/>
+<area shape="rect" id="node3" href="$create__map_8c.html#a3a0b996fb2e3bfdf50c9b9c69059ecbc" title="Vérifie les positions des voisins." alt="" coords="150,55,317,80"/>
+<area shape="rect" id="node4" href="$create__map_8c.html#a423569673b6cc32da7a86a71b8e9ae15" title="Cherche le seul voisin de coté non sable." alt="" coords="127,104,340,129"/>
+<area shape="rect" id="node5" href="$create__map_8c.html#a57ccdcacf244e867e9252f316e8139c2" title="Vérifie la position des voisins en diagonale." alt="" coords="150,153,317,179"/>
+<area shape="rect" id="node6" href="$create__map_8c.html#a235f855f5a3fbd14f98c1a01a573f656" title="Compte les voisins sur le coté dans la matrice." alt="" coords="167,203,299,228"/>
+<area shape="rect" id="node7" href="$create__map_8c.html#afb18460b7eadcb8e3e25dd71839495f2" title="Compter les voisins en diagonale." alt="" coords="168,252,299,277"/>
+</map>

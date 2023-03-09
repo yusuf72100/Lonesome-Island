@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['getbuttonstate_5fclicked_0',['getButtonState_clicked',['../menus_8c.html#ab283db36e8911aeb9d32d5886f156570',1,'getButtonState_clicked(T_BUTTONS_CLICKED button):&#160;menus.c'],['../menus_8h.html#ab283db36e8911aeb9d32d5886f156570',1,'getButtonState_clicked(T_BUTTONS_CLICKED button):&#160;menus.c']]],
-  ['getlocalip_1',['getLocalIp',['../socket_8c.html#acc971d38ba2d98589d00bde6652a6e39',1,'getLocalIp():&#160;socket.c'],['../socket_8h.html#acc971d38ba2d98589d00bde6652a6e39',1,'getLocalIp():&#160;socket.c']]]
+  ['findposition_0',['findPosition',['../socket_8c.html#a88d900ece06509fc9c398d81b5200e71',1,'findPosition(send2Client *argClient):&#160;socket.c'],['../socket_8h.html#a49cbd679b22e0661bdc353826c8c5086',1,'findPosition(send2Client *argClient):&#160;socket.c']]]
 ];

@@ -1,0 +1,4 @@
+<map id="smoothGroundShape" name="smoothGroundShape">
+<area shape="rect" id="node1" title="Fait un lissage de la matrice." alt="" coords="5,5,149,31"/>
+<area shape="rect" id="node2" href="$map_8c.html#a7e72a7ae14ee89b5e331229d77366a97" title="Vérifie si 2 tiles ont le même voisin." alt="" coords="197,5,347,31"/>
+</map>

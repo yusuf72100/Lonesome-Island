@@ -1,10 +1,9 @@
 var searchData=
 [
-  ['changebuttonstate_5fclicked_0',['changeButtonState_clicked',['../menus_8c.html#ae7efaad914bff1a5511184fd96f0d9b7',1,'changeButtonState_clicked(T_BUTTONS_CLICKED button, int state):&#160;menus.c'],['../menus_8h.html#ae7efaad914bff1a5511184fd96f0d9b7',1,'changeButtonState_clicked(T_BUTTONS_CLICKED button, int state):&#160;menus.c']]],
-  ['changebuttonstate_5fhover_1',['changeButtonState_hover',['../menus_8c.html#a20432793012cb1509389bf14f94a8ee9',1,'changeButtonState_hover(T_BUTTONS_HOVER button, int state):&#160;menus.c'],['../menus_8h.html#a20432793012cb1509389bf14f94a8ee9',1,'changeButtonState_hover(T_BUTTONS_HOVER button, int state):&#160;menus.c']]],
-  ['changemenu_2',['changeMenu',['../defs_8c.html#acbae57aa2d8c508e63c0597b44024977',1,'changeMenu(T_MENU menuTarget):&#160;defs.c'],['../defs_8h.html#acbae57aa2d8c508e63c0597b44024977',1,'changeMenu(T_MENU menuTarget):&#160;defs.c']]],
-  ['checkevents_3',['checkEvents',['../main_8c.html#a65942d285a85ebdda2445b5da031c2e2',1,'main.c']]],
-  ['clickitem_4',['clickItem',['../menus_8c.html#af62b6c78dad8d3b0ae378b5174a28784',1,'clickItem():&#160;menus.c'],['../menus_8h.html#af62b6c78dad8d3b0ae378b5174a28784',1,'clickItem():&#160;menus.c']]],
-  ['createconfigs_5',['createConfigs',['../settings_8c.html#ade55ed097a2eb2e0e02023ad1c364bc0',1,'settings.c']]],
-  ['creation_5fcanaux_5fmusique_6',['creation_canaux_musique',['../sound_8c.html#acb373f7276274a75af2fc3ec23a8e266',1,'creation_canaux_musique():&#160;sound.c'],['../sound_8h.html#acb373f7276274a75af2fc3ec23a8e266',1,'creation_canaux_musique():&#160;sound.c']]]
+  ['breathanimation_0',['breathAnimation',['../menus_8c.html#a0fa3f94da8421e8f4e5d11404f87856b',1,'breathAnimation(void *j):&#160;menus.c'],['../menus_8h.html#a0fa3f94da8421e8f4e5d11404f87856b',1,'breathAnimation(void *j):&#160;menus.c']]],
+  ['build_5fmap_1',['build_map',['../map_8c.html#a734e0337e05972d515299fb5f35bb483',1,'build_map(map_t **map):&#160;map.c'],['../map_8h.html#a734e0337e05972d515299fb5f35bb483',1,'build_map(map_t **map):&#160;map.c']]],
+  ['buildtram_2',['buildTram',['../client_8c.html#ad2e9b80b5c5fa53e006e439a25c692cc',1,'client.c']]],
+  ['buildtramclient_5fsend_3',['buildtramClient_send',['../socket_8c.html#ac422f6ffe2be4ee3387e8b98b6393193',1,'socket.c']]],
+  ['buttonhover_4',['buttonHover',['../menus_8c.html#ab5e1f7649b8b40f10bd9168c6a098883',1,'buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button):&#160;menus.c'],['../menus_8h.html#ab5e1f7649b8b40f10bd9168c6a098883',1,'buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button):&#160;menus.c']]],
+  ['buttonhoverwithanimation_5',['buttonHoverWithAnimation',['../menus_8c.html#ad9a4714e86590146659768dcd5357272',1,'buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button, void *(*p)(void *), void *(*p2)(void *)):&#160;menus.c'],['../menus_8h.html#ad9a4714e86590146659768dcd5357272',1,'buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button, void *(*p)(void *), void *(*p2)(void *)):&#160;menus.c']]]
 ];

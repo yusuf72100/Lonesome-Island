@@ -1,0 +1,9 @@
+<map id="isAnySandNear" name="isAnySandNear">
+<area shape="rect" id="node1" title="Cherche la position du tile de sable le plus proche." alt="" coords="812,5,924,31"/>
+<area shape="rect" id="node2" href="$map_8c.html#aab46a0694f1c293b21c571af71593fd4" title="Ajoute une transition de plage." alt="" coords="628,5,764,31"/>
+<area shape="rect" id="node3" href="$map_8c.html#af3dddcc76c92ea6c131823e295a0b907" title="Initialise le sol." alt="" coords="495,5,580,31"/>
+<area shape="rect" id="node4" href="$map_8c.html#a734e0337e05972d515299fb5f35bb483" title="Génère une map." alt="" coords="365,5,447,31"/>
+<area shape="rect" id="node5" href="$create__map_8c.html#a018fa899a26c3434a11d5bc5716b52ef" title="Create a map object." alt="" coords="227,5,317,31"/>
+<area shape="rect" id="node6" href="$main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
+<area shape="rect" id="node7" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="checkSameNeighboor" name="checkSameNeighboor">
+<area shape="rect" id="node1" title="Vérifie si 2 tiles ont le même voisin." alt="" coords="820,31,969,56"/>
+<area shape="rect" id="node2" href="$map_8c.html#aab46a0694f1c293b21c571af71593fd4" title="Ajoute une transition de plage." alt="" coords="632,5,768,31"/>
+<area shape="rect" id="node8" href="$map_8c.html#a60b91f8b94c3cb4df036b95aa2b64938" title="Fait un lissage de la matrice." alt="" coords="628,55,772,80"/>
+<area shape="rect" id="node3" href="$map_8c.html#af3dddcc76c92ea6c131823e295a0b907" title="Initialise le sol." alt="" coords="495,31,580,56"/>
+<area shape="rect" id="node4" href="$map_8c.html#a734e0337e05972d515299fb5f35bb483" title="Génère une map." alt="" coords="365,31,447,56"/>
+<area shape="rect" id="node5" href="$create__map_8c.html#a018fa899a26c3434a11d5bc5716b52ef" title="Create a map object." alt="" coords="227,31,317,56"/>
+<area shape="rect" id="node6" href="$main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,31,179,56"/>
+<area shape="rect" id="node7" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,31,56,56"/>
+</map>

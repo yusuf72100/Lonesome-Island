@@ -1,3 +1,14 @@
+/**
+ * @file map.h
+ * @author Luca Pourceau et Melvin Maubert
+ * @brief Fichier header à map.c
+ * @version 0.1
+ * @date 2023-03-09
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
 #ifndef MAP_H
 #define MAP_H
 

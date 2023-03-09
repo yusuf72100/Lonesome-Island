@@ -1,0 +1,87 @@
+\hypertarget{create__map_8h}{}\doxysection{Référence du fichier C\+:/\+Users/\+Yusuf/\+Lonesome-\/\+Island/src/create\+\_\+map.h}
+\label{create__map_8h}\index{C:/Users/Yusuf/Lonesome-\/Island/src/create\_map.h@{C:/Users/Yusuf/Lonesome-\/Island/src/create\_map.h}}
+
+
+Fichier header \mbox{\hyperlink{create__map_8c}{create\+\_\+map.\+c}}.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$pthread.\+h$>$}\newline
+{\ttfamily \#include $<$SDL.\+h$>$}\newline
+{\ttfamily \#include $<$SDL\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include $<$SDL\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include $<$SDL\+\_\+mixer.\+h$>$}\newline
+{\ttfamily \#include $<$windows.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}map.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}defs.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de create\+\_\+map.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{create__map_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{create__map_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Structures de données}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcoord__s}{coord\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{structcamera__s}{camera\+\_\+s}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{create__map_8h_ac51f93f3d5d9db89cb707a0e859c81f8}\label{create__map_8h_ac51f93f3d5d9db89cb707a0e859c81f8}} 
+typedef struct \mbox{\hyperlink{structcoord__s}{coord\+\_\+s}} {\bfseries coord\+\_\+t}
+\item 
+\mbox{\Hypertarget{create__map_8h_ad3b5e692b869a191ad42aa7df10d2aa9}\label{create__map_8h_ad3b5e692b869a191ad42aa7df10d2aa9}} 
+typedef struct \mbox{\hyperlink{structcamera__s}{camera\+\_\+s}} {\bfseries camera\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{create__map_8h_ac9cdbd9e4a54eecb70bdc4d2a1530567}\label{create__map_8h_ac9cdbd9e4a54eecb70bdc4d2a1530567}} 
+void {\bfseries afficher\+Map} ()
+\begin{DoxyCompactList}\small\item\em Affiche la map. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{create__map_8h_a018fa899a26c3434a11d5bc5716b52ef}\label{create__map_8h_a018fa899a26c3434a11d5bc5716b52ef}} 
+void {\bfseries create\+\_\+map} ()
+\begin{DoxyCompactList}\small\item\em Create a map object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{create__map_8h_af90d9c5474a96a57000759cc813ff7d5}\label{create__map_8h_af90d9c5474a96a57000759cc813ff7d5}} 
+static \mbox{\hyperlink{structcamera__s}{camera\+\_\+t}} $\ast$ {\bfseries camera}
+\item 
+\mbox{\Hypertarget{create__map_8h_af2bb9dc718068dc88b8250185d0d6ab7}\label{create__map_8h_af2bb9dc718068dc88b8250185d0d6ab7}} 
+static \mbox{\hyperlink{structmap__s}{map\+\_\+t}} $\ast$ {\bfseries map}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier header \mbox{\hyperlink{create__map_8c}{create\+\_\+map.\+c}}. 
+
+\begin{DoxyAuthor}{Auteur}
+Luca Pourceau et Melvin Maubert 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2023-\/01-\/31 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
