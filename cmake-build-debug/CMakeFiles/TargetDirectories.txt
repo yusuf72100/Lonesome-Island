@@ -1,0 +1,3 @@
+C:/Users/Yusuf/CLionProjects/Lonesome-Island/cmake-build-debug/CMakeFiles/Lonesome-Island.dir
+C:/Users/Yusuf/CLionProjects/Lonesome-Island/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Yusuf/CLionProjects/Lonesome-Island/cmake-build-debug/CMakeFiles/rebuild_cache.dir
