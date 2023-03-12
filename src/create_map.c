@@ -64,6 +64,7 @@ int compterVoisinCote(int map[MAP_SIZE][MAP_SIZE], int x, int y) {
 int compterVoisinDiag(int map[MAP_SIZE][MAP_SIZE], int x, int y) {
     int cpt=0; 
     int valCase = map[x][y]+1;
+
     if(map[x+1][y+1] == valCase) 
         cpt++ ;
     if(map[x-1][y-1] == valCase) 
@@ -93,6 +94,7 @@ int checkPositionVoisinCote(int map[MAP_SIZE][MAP_SIZE], int x, int y) {
         return 32;
     if(map[x][y-1] == valCase) 
         return 48;
+    return 0;
 }
 
 /**
@@ -113,6 +115,7 @@ int checkPositionVoisinCote3voisins(int map[MAP_SIZE][MAP_SIZE], int x, int y) {
         return 32;
     if(map[x][y-1] == valCase) 
         return 48;
+    return 0;
 }
 
 /**
@@ -133,6 +136,7 @@ int checkPositionVoisinAngle(int map[MAP_SIZE][MAP_SIZE], int x, int y) {
         return 32;
     if(map[x-1][y] == valCase && map[x][y-1] == valCase) 
         return 48;
+    return 0;
 }
 
 /**
@@ -153,6 +157,7 @@ int checkPositionVoisinDiag(int map[MAP_SIZE][MAP_SIZE], int x, int y) {
         return 32;
     if( (map[x-1][y-1] == valCase) ) 
         return 48;
+    return 0;
 }
 
 /**
@@ -166,6 +171,7 @@ int checkPositionVoisinDiag(int map[MAP_SIZE][MAP_SIZE], int x, int y) {
 coord_t choixTile(int map[MAP_SIZE][MAP_SIZE], int x, int y) {
     coord_t coord;
     int nbVoisin = compterVoisinCote(map, x, y);
+
     if( nbVoisin == 1){ //Colonne 1
         coord.x = 0 ;
         coord.y = checkPositionVoisinCote(map, x, y) ;

@@ -148,6 +148,7 @@ static void buildTram(player_t joueur)
     char dataY[4] = "y";
     itoa(joueur.playerRect.y, bufferY, 10);
     strcat(dataY, bufferY);
+
     strcat(tramClient_send, dataY);
     
     char bufferA[3] = "";

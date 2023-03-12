@@ -55,26 +55,29 @@ void startAnimation(char *animation, player_t *joueur)
  */
 void switchButtonState_hover(T_BUTTONS_HOVER button)
 {
-    if(button == CONNECT_BUTTON_HOVER)
-    {
-        if(hover_connectbutton == FALSE) hover_connectbutton = TRUE;
-        else hover_connectbutton = FALSE;
-    }
-    else if(button == HOST_BUTTON_HOVER){
-        if(hover_hostbutton == FALSE) hover_hostbutton = TRUE;
-        else hover_hostbutton = FALSE;
-    }
-    else if(button == PLAY_BUTTON_HOVER){
-        if(hover_playbutton == FALSE) hover_playbutton = TRUE;
-        else hover_playbutton = FALSE;
-    }
-    else if(button == SETTINGS_BUTTON_HOVER){
-        if(hover_settingsbutton == FALSE) hover_settingsbutton = TRUE;
-        else hover_settingsbutton = FALSE;
-    }
-    else if(button == SETTINGS_KEYBIND_HOVER){
-        if(hover_settings_keybindsbutton == FALSE) hover_settings_keybindsbutton = TRUE;
-        else hover_settings_keybindsbutton = FALSE;
+    switch (button) {
+        case CONNECT_BUTTON_HOVER:
+            if(hover_connectbutton == FALSE) hover_connectbutton = TRUE;
+            else hover_connectbutton = FALSE;
+            break;
+        case HOST_BUTTON_HOVER:
+            if(hover_hostbutton == FALSE) hover_hostbutton = TRUE;
+            else hover_hostbutton = FALSE;
+            break;
+        case PLAY_BUTTON_HOVER:
+            if(hover_playbutton == FALSE) hover_playbutton = TRUE;
+            else hover_playbutton = FALSE;
+            break;
+        case SETTINGS_BUTTON_HOVER:
+            if(hover_settingsbutton == FALSE) hover_settingsbutton = TRUE;
+            else hover_settingsbutton = FALSE;
+            break;
+        case SETTINGS_KEYBIND_HOVER:
+            if(hover_settings_keybindsbutton == FALSE) hover_settings_keybindsbutton = TRUE;
+            else hover_settings_keybindsbutton = FALSE;
+            break;
+        default:
+            break;
     }
 }
 
@@ -88,26 +91,26 @@ void changeButtonState_hover(T_BUTTONS_HOVER button, int state)
 {
     switch (button)
     {
-    case CONNECT_BUTTON_HOVER:
-        hover_connectbutton = state;
-        break;
-    case HOST_BUTTON_HOVER:
-        hover_hostbutton = state;
-        break;
-    case PLAY_BUTTON_HOVER:
-        hover_playbutton = state;
-        break;
-    case SETTINGS_BUTTON_HOVER:
-        hover_settingsbutton = state;
-        break;
-    case SETTINGS_MAIN_KEYBIND_MENU:
-        hover_settings_keybindsbutton = state;
-        break;
-    case INVENTORY_BUTTON_HOVER:
-        hover_inventoryitem = state;
-        break;
-    default:
-        break;
+        case CONNECT_BUTTON_HOVER:
+            hover_connectbutton = state;
+            break;
+        case HOST_BUTTON_HOVER:
+            hover_hostbutton = state;
+            break;
+        case PLAY_BUTTON_HOVER:
+            hover_playbutton = state;
+            break;
+        case SETTINGS_BUTTON_HOVER:
+            hover_settingsbutton = state;
+            break;
+        case SETTINGS_MAIN_KEYBIND_MENU:
+            hover_settings_keybindsbutton = state;
+            break;
+        case INVENTORY_BUTTON_HOVER:
+            hover_inventoryitem = state;
+            break;
+        default:
+            break;
     }
 }
 
@@ -121,26 +124,26 @@ void changeButtonState_clicked(T_BUTTONS_CLICKED button, int state)
 {
     switch (button)
     {
-    case CONNECT_BUTTON_CLICKED:
-        clicked_connectbutton = state;
-        break;
-    case HOST_BUTTON_CLICKED:
-        clicked_hostbutton = state;
-        break;
-    case PLAY_BUTTON_CLICKED:
-        clicked_playbutton = state;
-        break;
-    case SETTINGS_BUTTON_CLICKED:
-        clicked_settingsbutton = state;
-        break;
-    case SETTINGS_KEYBIND_CLICKED:
-        clicked_settings_keybindsbutton = state;
-        break;
-    case INVENTORY_BUTTON_CLICKED:
-        clicked_inventoryitem = state;
-        break;
-    default:
-        break;
+        case CONNECT_BUTTON_CLICKED:
+            clicked_connectbutton = state;
+            break;
+        case HOST_BUTTON_CLICKED:
+            clicked_hostbutton = state;
+            break;
+        case PLAY_BUTTON_CLICKED:
+            clicked_playbutton = state;
+            break;
+        case SETTINGS_BUTTON_CLICKED:
+            clicked_settingsbutton = state;
+            break;
+        case SETTINGS_KEYBIND_CLICKED:
+            clicked_settings_keybindsbutton = state;
+            break;
+        case INVENTORY_BUTTON_CLICKED:
+            clicked_inventoryitem = state;
+            break;
+        default:
+            break;
     }
 }
 
@@ -154,18 +157,18 @@ int getButtonState_clicked(T_BUTTONS_CLICKED button)
 {
     switch (button)
     {
-    case CONNECT_BUTTON_CLICKED:
-        return clicked_connectbutton;
-    case HOST_BUTTON_CLICKED:
-        return clicked_hostbutton;
-    case PLAY_BUTTON_CLICKED:
-        return clicked_playbutton;
-    case SETTINGS_BUTTON_CLICKED:
-        return clicked_settingsbutton;
-    case INVENTORY_BUTTON_CLICKED:
-        return clicked_inventoryitem;
-    default:
-        return FALSE;
+        case CONNECT_BUTTON_CLICKED:
+            return clicked_connectbutton;
+        case HOST_BUTTON_CLICKED:
+            return clicked_hostbutton;
+        case PLAY_BUTTON_CLICKED:
+            return clicked_playbutton;
+        case SETTINGS_BUTTON_CLICKED:
+            return clicked_settingsbutton;
+        case INVENTORY_BUTTON_CLICKED:
+            return clicked_inventoryitem;
+        default:
+            return FALSE;
     }
 }
 
@@ -179,18 +182,18 @@ int onButton(T_BUTTONS_HOVER button)
 {
     switch (button)
     {
-    case CONNECT_BUTTON_HOVER:
-        return SDL_PointInRect(&mouse_position, &connect_button_rect);
-    case HOST_BUTTON_HOVER:
-        return SDL_PointInRect(&mouse_position, &host_button_rect);
-    case PLAY_BUTTON_HOVER:
-        return SDL_PointInRect(&mouse_position, &play_button_rect);
-    case SETTINGS_BUTTON_HOVER:
-        return SDL_PointInRect(&mouse_position, &settings_button_rect);
-    case SETTINGS_KEYBIND_HOVER:
-        return SDL_PointInRect(&mouse_position, &settings_menu_keybinds_button_rect);
-    default:
-        return FALSE;
+        case CONNECT_BUTTON_HOVER:
+            return SDL_PointInRect(&mouse_position, &connect_button_rect);
+        case HOST_BUTTON_HOVER:
+            return SDL_PointInRect(&mouse_position, &host_button_rect);
+        case PLAY_BUTTON_HOVER:
+            return SDL_PointInRect(&mouse_position, &play_button_rect);
+        case SETTINGS_BUTTON_HOVER:
+            return SDL_PointInRect(&mouse_position, &settings_button_rect);
+        case SETTINGS_KEYBIND_HOVER:
+            return SDL_PointInRect(&mouse_position, &settings_menu_keybinds_button_rect);
+        default:
+            return FALSE;
     }
 }
 
@@ -214,24 +217,21 @@ void drawButtons()
 {
     switch (menu)
     {
-    case MAIN_MENU:
-        drawButton(texture_play_inert, play_button_rect, surface_play_inert);
-        drawButton(texture_connect_inert, connect_button_rect, surface_connect_inert);
-        drawButton(texture_host_inert, host_button_rect, surface_host_inert);
-        break;
-
-    case SETTINGS_MAIN_MENU:
-        drawButton(texture_settings_menu_keybinds_button, settings_menu_keybinds_button_rect, surface_settings_menu_keybinds_button);
-        break;
-
-    case SETTINGS_MAIN_KEYBIND_MENU:
-        drawButton(texture_settings_menu_keybinds_button_hover, settings_menu_keybinds_button_rect, surface_settings_menu_keybinds_button);
-        drawBindButtons();
-        break;
-
-    default:
-        break;
-    }
+        case MAIN_MENU:
+            drawButton(texture_play_inert, play_button_rect, surface_play_inert);
+            drawButton(texture_connect_inert, connect_button_rect, surface_connect_inert);
+            drawButton(texture_host_inert, host_button_rect, surface_host_inert);
+            break;
+        case SETTINGS_MAIN_MENU:
+            drawButton(texture_settings_menu_keybinds_button, settings_menu_keybinds_button_rect, surface_settings_menu_keybinds_button);
+            break;
+        case SETTINGS_MAIN_KEYBIND_MENU:
+            drawButton(texture_settings_menu_keybinds_button_hover, settings_menu_keybinds_button_rect, surface_settings_menu_keybinds_button);
+            drawBindButtons();
+            break;
+        default:
+            break;
+        }
 }
 
 /**
@@ -421,50 +421,40 @@ static void switchAnimation(player_t Joueur)
 {
     switch (Joueur.animation_state)
     {
-    case BREATH_START:
-        drawPlayer(texture_joueur_h1,Joueur.playerRect);
-        break;
-
-    case BREATH_END:
-        drawPlayer(texture_joueur_h2,Joueur.playerRect);
-        break;
-
-    case RUNNING_LEFT_START:
-        drawPlayer(texture_joueur_left_1,Joueur.playerRect);
-        break;
-
-    case RUNNING_LEFT_END:
-        drawPlayer(texture_joueur_left_2,Joueur.playerRect);
-        break;
-
-    case RUNNING_RIGHT_START:
-        drawPlayer(texture_joueur_right_1,Joueur.playerRect);
-        break;
-
-    case RUNNING_RIGHT_END:
-        drawPlayer(texture_joueur_right_2,Joueur.playerRect);
-        break;
-
-    case RUNNING_UP_START:
-        drawPlayer(texture_joueur_up_1,Joueur.playerRect);
-        break;
-
-    case RUNNING_UP_END:
-        drawPlayer(texture_joueur_up_2,Joueur.playerRect);
-        break;
-
-    case RUNNING_DOWN_START:
-        drawPlayer(texture_joueur_down_1,Joueur.playerRect);
-        break;
-
-    case RUNNING_DOWN_END:
-        drawPlayer(texture_joueur_down_2,Joueur.playerRect);
-        break;
-    
-    default:
-        drawPlayer(texture_joueur_h1,Joueur.playerRect);
-        break;
-    }
+        case BREATH_START:
+            drawPlayer(texture_joueur_h1,Joueur.playerRect);
+            break;
+        case BREATH_END:
+            drawPlayer(texture_joueur_h2,Joueur.playerRect);
+            break;
+        case RUNNING_LEFT_START:
+            drawPlayer(texture_joueur_left_1,Joueur.playerRect);
+            break;
+        case RUNNING_LEFT_END:
+            drawPlayer(texture_joueur_left_2,Joueur.playerRect);
+            break;
+        case RUNNING_RIGHT_START:
+            drawPlayer(texture_joueur_right_1,Joueur.playerRect);
+            break;
+        case RUNNING_RIGHT_END:
+            drawPlayer(texture_joueur_right_2,Joueur.playerRect);
+            break;
+        case RUNNING_UP_START:
+            drawPlayer(texture_joueur_up_1,Joueur.playerRect);
+            break;
+        case RUNNING_UP_END:
+            drawPlayer(texture_joueur_up_2,Joueur.playerRect);
+            break;
+        case RUNNING_DOWN_START:
+            drawPlayer(texture_joueur_down_1,Joueur.playerRect);
+            break;
+        case RUNNING_DOWN_END:
+            drawPlayer(texture_joueur_down_2,Joueur.playerRect);
+            break;
+        default:
+            drawPlayer(texture_joueur_h1,Joueur.playerRect);
+            break;
+        }
 }   
 
 /**
