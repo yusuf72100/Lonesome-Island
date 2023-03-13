@@ -203,7 +203,7 @@ coord_t choixTile(int map[MAP_SIZE][MAP_SIZE], int x, int y) {
     }
     coord.x = 80;
     coord.y = 0;
-    return coord ;
+    return coord;
 }
 
 /**
