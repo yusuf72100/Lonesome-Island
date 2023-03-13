@@ -20,6 +20,8 @@ Logiciels avec lequels ce projet est développé:
 
 * [Visual Studio Code](https://code.visualstudio.com) 
 
+* [Clion](https://www.jetbrains.com/fr-fr/clion/) 
+
 * [Github Desktop](https://desktop.github.com) 
 
 ## Syntaxes
