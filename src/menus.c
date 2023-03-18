@@ -23,6 +23,17 @@ void destroyAll()
 }
 
 /**
+ * @brief Change de menu.
+ *
+ * @param menuTarget
+ */
+extern void changeMenu(T_MENU menuTarget)
+{
+    if(menuTarget == MAIN_MENU) SOLO = FALSE;
+    menu = menuTarget;
+}
+
+/**
  * @brief Commence l'animation souhaitée au joueur demandé.
  * 
  * @param animation 
@@ -252,7 +263,8 @@ void update_screen()
  */
 void drawMouse()
 {
-    if(hover_playbutton || hover_connectbutton || hover_hostbutton || hover_settingsbutton || hover_inventoryitem || hover_settings_keybindsbutton|| wearingItem) 
+    //hover cursor
+    if(hover_playbutton || hover_connectbutton || hover_hostbutton || hover_settingsbutton || hover_inventoryitem || hover_settings_keybindsbutton || wearingItem)
     {
         if(SDL_QueryTexture(cursor_select_texture, NULL, NULL, &mouseRect.w, &mouseRect.h) != 0)
         {
@@ -261,6 +273,7 @@ void drawMouse()
         }
         SDL_RenderCopy(renderer, cursor_select_texture, NULL, &mouseRect);
     }
+    //pointeur cursor
     else{
         if(SDL_QueryTexture(cursor_texture, NULL, NULL, &mouseRect.w, &mouseRect.h) != 0)
         {
@@ -1286,6 +1299,7 @@ void drawMenu()
         SettingsMainKeybindMenu();
         break;
     default:
+        MainMenu();
         break;
     }
     SDL_RenderPresent(renderer);

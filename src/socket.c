@@ -32,6 +32,7 @@ char *getLocalIp()
     }
     memcpy(&addr, host->h_addr_list[0], sizeof(struct in_addr));
     WSACleanup();
+    printf("ip trouvee: %s\n", inet_ntoa(addr));
     return (inet_ntoa(addr));
 }
 

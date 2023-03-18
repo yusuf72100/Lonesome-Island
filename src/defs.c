@@ -68,14 +68,3 @@ void defineItem()
     chest_item->surface = NULL;
     chest_item->Item = &(block_t){ .Block = chest_block };
 }
-
-/**
- * @brief Change de menu.
- * 
- * @param menuTarget 
- */
-void changeMenu(T_MENU menuTarget)
-{
-    if(menuTarget == MAIN_MENU) SOLO = FALSE;
-    menu = menuTarget;
-}

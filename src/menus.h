@@ -54,7 +54,7 @@ typedef struct {
 static keybind_button keybinds_buttons[5];
 
 //Curseur de la souris
-static SDL_Point mouse_position;   
+static SDL_Point mouse_position;
 
 //Events check
 static SDL_bool hover_playbutton = SDL_FALSE;
@@ -216,5 +216,7 @@ void *running_left_animation(void *j);
 void *breathAnimation(void *j);
 void *drawPlayers(player_t *joueurs, int size);
 void clickItem();
+
+extern void changeMenu(T_MENU menuTarget);
 
 #endif
