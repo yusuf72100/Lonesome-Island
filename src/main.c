@@ -438,11 +438,11 @@ static void doEvents()
             init_boop(&tabEvent[7]);
             if (debug) printf("Host button clicked\n");
             pthread_create(&server,NULL,startServer,NULL);
-            HOST = TRUE;           //on héberge le serveur
+            HOST = TRUE;
             create_map();
-            startConnection();                                          //on créer un client qui se connecte au serveur
-            pthread_create(&sendtoserver,NULL,Send2Server,NULL);
-            pthread_create(&receivefromserver,NULL,receiveFromServer,NULL);
+            startConnection();                                                                          //on créer un client qui se connecte au serveur
+            pthread_create(&sendtoserver,NULL,Send2Server,NULL);                    //on envoi les données du client une première fois
+            pthread_create(&receivefromserver,NULL,receiveFromServer,NULL);         //on établie la communication au serveur
             changeMenu(INGAME_MENU);
             switchButtonState_hover(HOST_BUTTON_HOVER);
         }

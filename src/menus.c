@@ -284,6 +284,10 @@ void drawMouse()
     }
 }
 
+float *(p(int)) (double);
+void (*(*p)(int)) (float);
+void (*(*p(int)(double))) (double);
+
 /**
  * @brief Initialise les textures des cases de l'inventaire.
  * 
