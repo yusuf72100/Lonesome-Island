@@ -1,6 +1,6 @@
 /**
  * @file create_map.h
- * @author Luca Pourceau et Melvin Maubert
+ * @author Luca Pourceau et Elvin Maubert
  * @brief Fichier header create_map.c
  * @version 0.1
  * @date 2023-01-31
