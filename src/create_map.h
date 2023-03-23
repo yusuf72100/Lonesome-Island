@@ -30,10 +30,13 @@ typedef struct coord_s{
 }coord_t;
 
 typedef struct camera_s{
+    int wWindow;
+    int hWindow;
     int wRender;
     int hRender;
     int tileSizeOnRender;
     coord_t startPosition;
+    coord_t offset;
 }camera_t;
 
 static camera_t* camera;
