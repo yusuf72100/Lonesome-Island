@@ -80,21 +80,12 @@ typedef struct send2Client
 }send2Client;
 
 char *getLocalIp();
-
 static send2Client *argClient = NULL;
-
-void *clearInput(SOCKET socketClient);
-
 static int findPosition(send2Client *argClient);
-
 void *searchClients(void *argt);
-
 void *receiveFromClient(void *arg);
-
 static void *sendToClient(send2Client *argClient, int position);
-
 void *startServer();
-
 void stopServer();
 
 #endif

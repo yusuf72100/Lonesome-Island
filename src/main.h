@@ -55,39 +55,22 @@ static pthread_t receivefromserver;
 static pthread_t animations_thread;
 
 static void checkEvents();
-
 static void doEvents();
-
 void *Send2Server();
-
 Vecteur InitVecteur(int angle, int vitesse);
-
 void delay_settings_button_right();
-
 void delay_settings_button_left();
-
 void delay_running_down();
-
 void delay_running_up();
-
 void delay_running_right();
-
 void delay_running_left();
-
 void delay_breath();
-
 static void *rechargement();
-
 void *synchDatas(player_t * Joueurs, int taille);
-
 static void UpdateBullet(Bullet * b);
-
 static void UpdateBulletAll();
-
 char* newLogName();
-
 char* eventTime();
-
 static void initBullet(Bullet * b, int x, int y, int rotation);
 
 #endif

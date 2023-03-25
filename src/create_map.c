@@ -297,10 +297,10 @@ void renderMap(SDL_Renderer** render, map_t* map, camera_t* camera) {
 
             if(map->ground[i][j] == WATER) {
                 
-                SDL_RenderCopy(*render, tileset, &src, &dest);
+                SDL_RenderCopy(*render, grass_sand, &src, &dest);
             }
             else {
-                SDL_RenderCopy(*render, tileset, &src, &dest);
+                SDL_RenderCopy(*render, grass_sand, &src, &dest);
             }
         }
     }

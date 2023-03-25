@@ -30,18 +30,14 @@
 
 typedef uint32_t socklen_t;
 
+static int size;
+
 static SOCKET *socket_Server;
 static char tramClient_send[100];
 static char tramClient_receive[100];
-
-static int size;
-
 void *sendDatas(player_t joueur);
-
 void *receiveFromServer();
-
 void stopConnection();
-
 int startConnection();
 
 #endif

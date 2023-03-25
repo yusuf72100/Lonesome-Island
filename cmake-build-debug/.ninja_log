@@ -1,18 +1,12 @@
 # ninja log v5
 19	441	7003276259052714	CMakeFiles/Lonesome-Island.dir/src/defs.c.obj	2bedd563ec4b27a7
-1	141	7003278497639533	build.ninja	ffbbbc5b2a5a7243
+1	141	7012937737155809	build.ninja	ffbbbc5b2a5a7243
 42	482	7003276259458813	CMakeFiles/Lonesome-Island.dir/src/map.c.obj	8d3956e6e7bd25ac
-37	918	7003276263828489	CMakeFiles/Lonesome-Island.dir/src/sound.c.obj	d441f1a3270760d2
+2	617	7003280310075816	CMakeFiles/Lonesome-Island.dir/src/sound.c.obj	d441f1a3270760d2
 10	917	7003276263813412	CMakeFiles/Lonesome-Island.dir/src/client.c.obj	e98e13b48c279bf7
 25	927	7003276263928667	CMakeFiles/Lonesome-Island.dir/src/settings.c.obj	cf314998b909351e
-31	934	7003276263999645	CMakeFiles/Lonesome-Island.dir/src/create_map.c.obj	13f498e195312926
+5	936	7004447195314993	CMakeFiles/Lonesome-Island.dir/src/create_map.c.obj	13f498e195312926
 2	929	7003276263949622	CMakeFiles/Lonesome-Island.dir/src/main.c.obj	db1c60ae13a4630e
 15	880	7003276263447702	CMakeFiles/Lonesome-Island.dir/src/socket.c.obj	4a0b361ccc1345c9
-7	953	7003276264189942	CMakeFiles/Lonesome-Island.dir/src/menus.c.obj	f7cb262e3871332c
-48	457	7003276259217932	CMakeFiles/Lonesome-Island.dir/src/liste.c.obj	7f99d516b017c665
-2	524	7003279079213096	CMakeFiles/Lonesome-Island.dir/src/sound.c.obj	d441f1a3270760d2
-2	617	7003280310075816	CMakeFiles/Lonesome-Island.dir/src/sound.c.obj	d441f1a3270760d2
-3	855	7003313743218144	CMakeFiles/Lonesome-Island.dir/src/menus.c.obj	f7cb262e3871332c
-8	1042	7003321146028844	CMakeFiles/Lonesome-Island.dir/src/create_map.c.obj	13f498e195312926
 3	1098	7003321146564525	CMakeFiles/Lonesome-Island.dir/src/menus.c.obj	f7cb262e3871332c
-5	936	7004447195314993	CMakeFiles/Lonesome-Island.dir/src/create_map.c.obj	13f498e195312926
+48	457	7003276259217932	CMakeFiles/Lonesome-Island.dir/src/liste.c.obj	7f99d516b017c665

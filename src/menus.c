@@ -39,7 +39,7 @@ extern void changeMenu(T_MENU menuTarget)
  * @param animation 
  * @param joueur 
  */
-void startAnimation(char *animation, player_t *joueur)
+extern void startAnimation(char *animation, player_t *joueur)
 {
     if(animations_thread_running == FALSE){
         if(strcmp(animation,"running_up") == 0)
@@ -83,9 +83,13 @@ void switchButtonState_hover(T_BUTTONS_HOVER button)
             if(hover_settingsbutton == FALSE) hover_settingsbutton = TRUE;
             else hover_settingsbutton = FALSE;
             break;
-        case SETTINGS_KEYBIND_HOVER:
+        case SETTINGS_KEYBINDS_HOVER:
             if(hover_settings_keybindsbutton == FALSE) hover_settings_keybindsbutton = TRUE;
             else hover_settings_keybindsbutton = FALSE;
+            break;
+        case SETTINGS_KEYBIND_HOVER:
+            if(hover_keybindbutton == FALSE) hover_keybindbutton = TRUE;
+            else hover_keybindbutton = FALSE;
             break;
         default:
             break;
@@ -94,9 +98,9 @@ void switchButtonState_hover(T_BUTTONS_HOVER button)
 
 /**
  * @brief Change le boutton ciblé avec l'état voulut.
- * 
- * @param button 
- * @param state 
+ *
+ * @param button
+ * @param state
  */
 void changeButtonState_hover(T_BUTTONS_HOVER button, int state)
 {
@@ -117,6 +121,9 @@ void changeButtonState_hover(T_BUTTONS_HOVER button, int state)
         case SETTINGS_MAIN_KEYBIND_MENU:
             hover_settings_keybindsbutton = state;
             break;
+        case SETTINGS_KEYBIND_HOVER:
+            hover_keybindbutton = state;
+            break;
         case INVENTORY_BUTTON_HOVER:
             hover_inventoryitem = state;
             break;
@@ -127,9 +134,9 @@ void changeButtonState_hover(T_BUTTONS_HOVER button, int state)
 
 /**
  * @brief Change le boutton ciblé avec l'état voulut.
- * 
- * @param button 
- * @param state 
+ *
+ * @param button
+ * @param state
  */
 void changeButtonState_clicked(T_BUTTONS_CLICKED button, int state)
 {
@@ -147,7 +154,7 @@ void changeButtonState_clicked(T_BUTTONS_CLICKED button, int state)
         case SETTINGS_BUTTON_CLICKED:
             clicked_settingsbutton = state;
             break;
-        case SETTINGS_KEYBIND_CLICKED:
+        case SETTINGS_KEYBINDS_CLICKED:
             clicked_settings_keybindsbutton = state;
             break;
         case INVENTORY_BUTTON_CLICKED:
@@ -160,9 +167,9 @@ void changeButtonState_clicked(T_BUTTONS_CLICKED button, int state)
 
 /**
  * @brief Renvoi l'état du boutton demandé.
- * 
- * @param button 
- * @return int 
+ *
+ * @param button
+ * @return int
  */
 int getButtonState_clicked(T_BUTTONS_CLICKED button)
 {
@@ -185,8 +192,8 @@ int getButtonState_clicked(T_BUTTONS_CLICKED button)
 
 /**
  * @brief Renvoi TRUE si le curseur est sur le boutton passé en paramètre sinon renvoi FALSE si le curseur est sur aucun boutton.
- * 
- * @param button 
+ *
+ * @param button
  * @return int
  */
 int onButton(T_BUTTONS_HOVER button)
@@ -201,8 +208,11 @@ int onButton(T_BUTTONS_HOVER button)
             return SDL_PointInRect(&mouse_position, &play_button_rect);
         case SETTINGS_BUTTON_HOVER:
             return SDL_PointInRect(&mouse_position, &settings_button_rect);
-        case SETTINGS_KEYBIND_HOVER:
+        case SETTINGS_KEYBINDS_HOVER:
             return SDL_PointInRect(&mouse_position, &settings_menu_keybinds_button_rect);
+        case SETTINGS_KEYBIND_HOVER:
+            for(int i = 0; i < 5; i++)
+                if(SDL_PointInRect(&mouse_position, &(keybinds_buttons[i].rect))) return TRUE;
         default:
             return FALSE;
     }
@@ -210,7 +220,7 @@ int onButton(T_BUTTONS_HOVER button)
 
 /**
  * @brief Dessine les bouttons pour configurer les touches de jeu.
- * 
+ *
  */
 void drawBindButtons()
 {
@@ -222,7 +232,7 @@ void drawBindButtons()
 
 /**
  * @brief Essaye de dessiner tous les bouttons.
- * 
+ *
  */
 void drawButtons()
 {
@@ -247,7 +257,7 @@ void drawButtons()
 
 /**
  * @brief Met à jour les valeurs de l'écran.
- * 
+ *
  */
 void update_screen()
 {
@@ -259,12 +269,12 @@ void update_screen()
 
 /**
  * @brief Dessine le bon curseur en fonction de site on survol un bouton ou pas.
- * 
+ *
  */
 void drawMouse()
 {
     //hover cursor
-    if(hover_playbutton || hover_connectbutton || hover_hostbutton || hover_settingsbutton || hover_inventoryitem || hover_settings_keybindsbutton || wearingItem)
+    if(hover_playbutton || hover_connectbutton || hover_hostbutton || hover_settingsbutton || hover_inventoryitem || hover_settings_keybindsbutton || hover_keybindbutton|| wearingItem)
     {
         if(SDL_QueryTexture(cursor_select_texture, NULL, NULL, &mouseRect.w, &mouseRect.h) != 0)
         {
@@ -286,7 +296,7 @@ void drawMouse()
 
 /**
  * @brief Initialise les textures des cases de l'inventaire.
- * 
+ *
  */
 void inventoryInit(case_inventory mat[3][10])
 {
@@ -308,10 +318,10 @@ void inventoryInit(case_inventory mat[3][10])
 
 /**
  * @brief Dessine un bouton normal.
- * 
- * @param texture 
- * @param rectangle 
- * @param surface 
+ *
+ * @param texture
+ * @param rectangle
+ * @param surface
  */
 void drawButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface)
 {
@@ -325,8 +335,8 @@ void drawButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface)
 
 /**
  * @brief Affiche le nombre d'items pour chaque case de l'inventaire.
- * 
- * @param case_x 
+ *
+ * @param case_x
  */
 void drawCaseText(case_inventory case_x)
 {
@@ -356,8 +366,8 @@ void drawCaseText(case_inventory case_x)
 
 /**
  * @brief Dessine l'item à la bonne case de l'inventaire.
- * 
- * @param item 
+ *
+ * @param item
  */
 void drawItem(case_inventory case_x)
 {
@@ -371,11 +381,11 @@ void drawItem(case_inventory case_x)
 
 /**
  * @brief Dessine un boutton en fonction d'une certaine rotation.
- * 
- * @param texture 
- * @param rectangle 
- * @param surface 
- * @param menuTarget 
+ *
+ * @param texture
+ * @param rectangle
+ * @param surface
+ * @param menuTarget
  */
 void drawButton_withRotation(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface)
 {
@@ -383,12 +393,12 @@ void drawButton_withRotation(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surfa
     {
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de rotate du boutton jouer...");
-    }   
+    }
 }
 
 /**
  * @brief Trie les joueurs en fonction de leur coordonnées Y et organise l'ordre d'affichage des joueurs.
- * 
+ *
  */
 static void sortPlayers()
 {
@@ -411,9 +421,9 @@ static void sortPlayers()
 
 /**
  * @brief Dessine un joueur en fonction de ses coordonnées et de sa texture.
- * 
- * @param texture_joueur 
- * @param playerRect 
+ *
+ * @param texture_joueur
+ * @param playerRect
  */
 void drawPlayer(SDL_Texture *texture_joueur, SDL_Rect playerRect)
 {
@@ -427,8 +437,8 @@ void drawPlayer(SDL_Texture *texture_joueur, SDL_Rect playerRect)
 
 /**
  * @brief Applique la bonne texture au joueur en fonction de son animation.
- * 
- * @param Joueur 
+ *
+ * @param Joueur
  */
 static void switchAnimation(player_t Joueur)
 {
@@ -468,12 +478,12 @@ static void switchAnimation(player_t Joueur)
             drawPlayer(texture_joueur_h1,Joueur.playerRect);
             break;
         }
-}   
+}
 
 /**
  * @brief Dessine tous les joueurs.
- * 
- * @return void* 
+ *
+ * @return void*
  */
 void *drawPlayers(player_t *joueurs, int size)
 {
@@ -489,11 +499,11 @@ void *drawPlayers(player_t *joueurs, int size)
 
 /**
  * @brief Animation de respiration
- * 
- * @return void* 
+ *
+ * @return void*
  */
 void *breathAnimation(void *j)
-{    
+{
     player_t *joueur = j;
     joueur->animation_state = BREATH_START;
     Send2Server();
@@ -508,8 +518,8 @@ void *breathAnimation(void *j)
 
 /**
  * @brief Animation "courrir à gauche"
- * 
- * @return void* 
+ *
+ * @return void*
  */
 void *running_left_animation(void *j)
 {
@@ -525,8 +535,8 @@ void *running_left_animation(void *j)
 
 /**
  * @brief Animation "courrir à droite"
- * 
- * @return void* 
+ *
+ * @return void*
  */
 void *running_right_animation(void *j)
 {
@@ -542,8 +552,8 @@ void *running_right_animation(void *j)
 
 /**
  * @brief Animation "courrir àen haut"
- * 
- * @return void* 
+ *
+ * @return void*
  */
 void *running_up_animation(void *j)
 {
@@ -559,8 +569,8 @@ void *running_up_animation(void *j)
 
 /**
  * @brief Animation "courrir en bas"
- * 
- * @return void* 
+ *
+ * @return void*
  */
 void *running_down_animation(void *j)
 {
@@ -576,8 +586,8 @@ void *running_down_animation(void *j)
 
 /**
  * @brief Animation du bouton paramètres quand on a pas le curseur dessus.
- * 
- * @return void* 
+ *
+ * @return void*
  */
 void *settings_button_animation_left()
 {
@@ -593,8 +603,8 @@ void *settings_button_animation_left()
 
 /**
  * @brief Animation du bouton paramètres quand on a le curseur dessus.
- * 
- * @return void* 
+ *
+ * @return void*
  */
 void *settings_button_animation_right()
 {
@@ -610,7 +620,7 @@ void *settings_button_animation_right()
 
 /**
  * @brief Dessine l'image souhaitée
- * 
+ *
  */
 void drawImage(SDL_Texture *texture, SDL_Rect rect)
 {
@@ -624,9 +634,9 @@ void drawImage(SDL_Texture *texture, SDL_Rect rect)
 
 /**
  * @brief Affiche l'erreur à l'écran.
- * 
- * @param rect 
- * @param texture 
+ *
+ * @param rect
+ * @param texture
  */
 void drawError(SDL_Rect rect, SDL_Texture *texture)
 {
@@ -640,8 +650,8 @@ void drawError(SDL_Rect rect, SDL_Texture *texture)
 
 /**
  * @brief Dessine l'erreur avec TTF.
- * 
- * @param s 
+ *
+ * @param s
  */
 void displayError(char *s)
 {
@@ -656,7 +666,7 @@ void displayError(char *s)
     error.h = 500;
     error.x = (WindowW / 2) - 315;
     error.y = rect.y + (rect.h / 2) - 15;
-    
+
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     SDL_RenderDrawRect(renderer, &rect);
     SDL_RenderFillRect(renderer, &rect);
@@ -669,9 +679,9 @@ void displayError(char *s)
 
 /**
  * @brief Initialise l'asset demandé.
- * 
- * @param surface 
- * @param texture 
+ *
+ * @param surface
+ * @param texture
  */
 static void init_texture(SDL_Surface **surface, SDL_Texture **texture)
 {
@@ -686,7 +696,7 @@ static void init_texture(SDL_Surface **surface, SDL_Texture **texture)
 
 /**
  * @brief Initialise les surfaces du jeu.
- * 
+ *
  */
 static void surfacesInit()
 {
@@ -711,7 +721,7 @@ static void surfacesInit()
     surface_settings_menu_keybinds_button_hover = IMG_Load("resources/settings_keybind_button_hover.png");
     surface_settings_menu_key_button = IMG_Load("resources/button_keybind.png");
 
-    //player    
+    //player
     surface_joueur_h1 = IMG_Load("resources/characters/player_h1.png");
     surface_joueur_h2 = IMG_Load("resources/characters/player_h2.png");
     surface_joueur_left_1 = IMG_Load("resources/characters/player_left_1.png");
@@ -723,14 +733,14 @@ static void surfacesInit()
     surface_joueur_down_1 = IMG_Load("resources/characters/player_down_1.png");
     surface_joueur_down_2 = IMG_Load("resources/characters/player_down_2.png");
 
-    //items 
+    //items
     apple->surface = IMG_Load("resources/items/apple_food.png");
     chest_item->surface = IMG_Load("resources/items/chest_block.png");
 }
 
 /**
  * @brief Initialise les éléments de la fenêtre.
- * 
+ *
  */
 static void windowInit()
 {
@@ -749,7 +759,7 @@ static void windowInit()
 
 /**
  * @brief Initialise les textures du jeu.
- * 
+ *
  */
 static void texturesInit()
 {
@@ -789,7 +799,7 @@ static void texturesInit()
 
 /**
  * @brief Initialise les rectangles.
- * 
+ *
  */
 static void rectanglesInit()
 {
@@ -849,13 +859,13 @@ static void rectanglesInit()
         keybinds_buttons[i].rect.w = 215;
         keybinds_buttons[i].rect.h = 90;
         keybinds_buttons[i].rect.x = (settings_menu_bg_rect.x + settings_menu_bg_rect.w) - ((settings_menu_bg_rect.w*5) / 100) - keybinds_buttons[i].rect.w;
-        if(i == 0) 
+        if(i == 0)
             keybinds_buttons[i].rect.y = settings_menu_bg_rect.y + 125;
         else
             keybinds_buttons[i].rect.y = settings_menu_bg_rect.y + keybinds_buttons[i-1].rect.y;
     }
 
-    //inventory 
+    //inventory
     inventory_rect.w = 800;
     inventory_rect.h = 350;
     inventory_rect.x = (DM.w / 2) - (inventory_rect.w / 2);
@@ -866,12 +876,12 @@ static void rectanglesInit()
     lifebar_rect.h = 75;
     lifebar_rect.x = 0;
     lifebar_rect.y = DM.h - (lifebar_rect.h*2);
-    
+
 }
 
 /**
  * @brief Initialise les dafonts.
- * 
+ *
  */
 void ttfInit()
 {
@@ -899,7 +909,7 @@ void ttfInit()
 
 /**
  * @brief Initialise toutes les variables relatives aux menus.
- * 
+ *
  */
 void init_menus_vars()
 {
@@ -921,7 +931,7 @@ void init_menus_vars()
         destroyAll(window, renderer);
         SDL_ExitWithError("Impossible de charger la texture de la souris...");
     }
-    
+
     cursor_select_texture = SDL_CreateTextureFromSurface(renderer, cursor_select);
 
     if(cursor_select == NULL)
@@ -951,7 +961,7 @@ static void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect
 
 /**
  * @brief Change le mode plein écran.
- * 
+ *
  */
 void toggleFullscreen()
 {
@@ -969,12 +979,12 @@ void toggleFullscreen()
 
 /**
  * @brief Affiche la texture de survol du bouton demandé en dans le menu souhaité.
- * 
- * @param button_surface 
- * @param button_texture 
- * @param button_rect 
- * @param hover_button 
- * @param menuTarget 
+ *
+ * @param button_surface
+ * @param button_texture
+ * @param button_rect
+ * @param hover_button
+ * @param menuTarget
  */
 void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button)
 {
@@ -991,13 +1001,13 @@ void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_R
 
 /**
  * @brief Affiche la texture de survol avec animation du bouton demandé en dans le menu souhaité.
- * 
- * @param button_surface 
- * @param button_texture 
- * @param button_rect 
- * @param hover_button 
- * @param p 
- * @param p2 
+ *
+ * @param button_surface
+ * @param button_texture
+ * @param button_rect
+ * @param hover_button
+ * @param p
+ * @param p2
  */
 void buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button, void* (*p)(void*), void* (*p2)(void*))
 {
@@ -1007,21 +1017,21 @@ void buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *button_t
         init_hover(hover_button);
         if(animations_thread_running == FALSE){
             animations_thread_running = TRUE;
-            pthread_create(&animations_thread, NULL, p, NULL);   
+            pthread_create(&animations_thread, NULL, p, NULL);
         }
     }
     else{
-        *hover_button = SDL_FALSE;            
+        *hover_button = SDL_FALSE;
         if(animations_thread_running == FALSE){
             animations_thread_running = TRUE;
-            pthread_create(&animations_thread, NULL, p2, NULL);   
+            pthread_create(&animations_thread, NULL, p2, NULL);
         }
     }
 }
 
 /**
  * @brief Évalue sur quel item on a cliqué.
- * 
+ *
  */
 void clickItem()
 {
@@ -1030,9 +1040,9 @@ void clickItem()
 
     if(clicked_inventoryitem == TRUE)
     {
-        for(i = 0; i < 3 && finded == FALSE; i++) 
+        for(i = 0; i < 3 && finded == FALSE; i++)
         {
-            for(j = 0; j < 10 && finded == FALSE; j++) 
+            for(j = 0; j < 10 && finded == FALSE; j++)
             {
                 if(wearingItem == SDL_FALSE)
                 {
@@ -1067,7 +1077,7 @@ void clickItem()
                 {
                     if((mat_inventory[i][j].Item->itemType == wearedItem->Item->itemType) && mat_inventory[i][j].number > 0 && mat_inventory[i][j].number < 64 && wearedItem->number > 0 && wearedItem->number < 64)
                     {
-                        if(mat_inventory[i][j].number + wearedItem->number <= 64) 
+                        if(mat_inventory[i][j].number + wearedItem->number <= 64)
                         {
                             mat_inventory[i][j].number += wearedItem->number;
                             wearedItem->number = 0;
@@ -1096,7 +1106,7 @@ void clickItem()
 
 /**
  * @brief Dessine l'inventaire.
- * 
+ *
  */
 void drawInventory()
 {
@@ -1110,7 +1120,7 @@ void drawInventory()
 
 /**
  * @brief Dessine les cases de l'inventaire
- * 
+ *
  */
 void drawCases()
 {
@@ -1142,7 +1152,7 @@ void drawCases()
 
 /**
  * @brief Affiche l'item transporté par le curseur du joueur.
- * 
+ *
  */
 void wearing()
 {
@@ -1161,7 +1171,7 @@ void wearing()
 
 /**
  * @brief Dessine la barre de vie du joueur.
- * 
+ *
  */
 void drawlifeBar()
 {
@@ -1179,13 +1189,13 @@ void drawlifeBar()
 
 /**
  * @brief Affiche le menu principal
- * 
+ *
  */
 static void MainMenu()
 {
     mouseRect.x = mouse_position.x;
     mouseRect.y = mouse_position.y;
-        
+
     drawButtons();
     buttonHover(surface_play_hover, texture_play_hover, &play_button_rect, &hover_playbutton);
     buttonHover(surface_connect_hover, texture_connect_hover, &connect_button_rect, &hover_connectbutton);
@@ -1198,7 +1208,7 @@ static void MainMenu()
 
 /**
  * @brief Affiche le menu des paramètres dans le menu principal
- * 
+ *
  */
 static void SettingsMainMenu()
 {
@@ -1206,15 +1216,15 @@ static void SettingsMainMenu()
     mouseRect.x = mouse_position.x;
     mouseRect.y = mouse_position.y;
     drawImage(texture_settings_bg, settings_menu_bg_rect);
-    
+
     buttonHover(surface_settings_menu_keybinds_button, texture_settings_menu_keybinds_button, &settings_menu_keybinds_button_rect, &hover_settings_keybindsbutton);
     drawButtons();
     drawMouse();
 }
 
 /**
- * @brief Affiche le menu des paramètres des keybinds dans le menu principal 
- * 
+ * @brief Affiche le menu des paramètres des keybinds dans le menu principal
+ *
  */
 static void SettingsMainKeybindMenu()
 {
@@ -1222,8 +1232,12 @@ static void SettingsMainKeybindMenu()
     mouseRect.x = mouse_position.x;
     mouseRect.y = mouse_position.y;
     drawImage(texture_settings_bg, settings_menu_bg_rect);
-    
+
     buttonHover(surface_settings_menu_keybinds_button_hover, texture_settings_menu_keybinds_button_hover, &settings_menu_keybinds_button_rect, &hover_settings_keybindsbutton);
+    for(int i = 0; i < 5; i++)
+    {
+        buttonHover(surface_settings_menu_key_button, texture_settings_menu_key_button, &keybinds_buttons[i].rect, &hover_keybindbutton);
+    }
     drawButtons();
     drawMouse();
 }
