@@ -87,9 +87,21 @@ void switchButtonState_hover(T_BUTTONS_HOVER button)
             if(hover_settings_keybindsbutton == FALSE) hover_settings_keybindsbutton = TRUE;
             else hover_settings_keybindsbutton = FALSE;
             break;
-        case SETTINGS_KEYBIND_HOVER:
-            if(hover_keybindbutton == FALSE) hover_keybindbutton = TRUE;
-            else hover_keybindbutton = FALSE;
+        case SETTINGS_KEYBIND_FORWARD_HOVER:
+            if(hover_keybind_forward == FALSE) hover_keybind_forward = TRUE;
+            else hover_keybind_forward = FALSE;
+            break;
+        case SETTINGS_KEYBIND_BACKWARD_HOVER:
+            if(hover_keybind_backward == FALSE) hover_keybind_backward = TRUE;
+            else hover_keybind_backward = FALSE;
+            break;
+        case SETTINGS_KEYBIND_LEFT_HOVER:
+            if(hover_keybind_left == FALSE) hover_keybind_left = TRUE;
+            else hover_keybind_left = FALSE;
+            break;
+        case SETTINGS_KEYBIND_RIGHT_HOVER:
+            if(hover_keybind_right == FALSE) hover_keybind_right = TRUE;
+            else hover_keybind_right = FALSE;
             break;
         default:
             break;
@@ -121,8 +133,17 @@ void changeButtonState_hover(T_BUTTONS_HOVER button, int state)
         case SETTINGS_MAIN_KEYBIND_MENU:
             hover_settings_keybindsbutton = state;
             break;
-        case SETTINGS_KEYBIND_HOVER:
-            hover_keybindbutton = state;
+        case SETTINGS_KEYBIND_FORWARD_HOVER:
+            hover_keybind_forward = state;
+            break;
+        case SETTINGS_KEYBIND_BACKWARD_HOVER:
+            hover_keybind_forward = state;
+            break;
+        case SETTINGS_KEYBIND_LEFT_HOVER:
+            hover_keybind_forward = state;
+            break;
+        case SETTINGS_KEYBIND_RIGHT_HOVER:
+            hover_keybind_forward = state;
             break;
         case INVENTORY_BUTTON_HOVER:
             hover_inventoryitem = state;
@@ -157,6 +178,18 @@ void changeButtonState_clicked(T_BUTTONS_CLICKED button, int state)
         case SETTINGS_KEYBINDS_CLICKED:
             clicked_settings_keybindsbutton = state;
             break;
+        case SETTINGS_KEYBIND_FORWARD_CLICKED:
+            clicked_settings_keybind_forward = state;
+            break;
+        case SETTINGS_KEYBIND_BACKWARD_CLICKED:
+            clicked_settings_keybind_forward = state;
+            break;
+        case SETTINGS_KEYBIND_LEFT_CLICKED:
+            clicked_settings_keybind_left = state;
+            break;
+        case SETTINGS_KEYBIND_RIGHT_CLICKED:
+            clicked_settings_keybind_right = state;
+            break;
         case INVENTORY_BUTTON_CLICKED:
             clicked_inventoryitem = state;
             break;
@@ -183,6 +216,16 @@ int getButtonState_clicked(T_BUTTONS_CLICKED button)
             return clicked_playbutton;
         case SETTINGS_BUTTON_CLICKED:
             return clicked_settingsbutton;
+        case SETTINGS_KEYBINDS_CLICKED:
+            return clicked_settings_keybindsbutton;
+        case SETTINGS_KEYBIND_FORWARD_CLICKED:
+            return clicked_settings_keybind_forward;
+        case SETTINGS_KEYBIND_BACKWARD_CLICKED:
+            return clicked_settings_keybind_backward;
+        case SETTINGS_KEYBIND_LEFT_CLICKED:
+            return clicked_settings_keybind_left;
+        case SETTINGS_KEYBIND_RIGHT_CLICKED:
+            return clicked_settings_keybind_right;
         case INVENTORY_BUTTON_CLICKED:
             return clicked_inventoryitem;
         default:
@@ -210,9 +253,14 @@ int onButton(T_BUTTONS_HOVER button)
             return SDL_PointInRect(&mouse_position, &settings_button_rect);
         case SETTINGS_KEYBINDS_HOVER:
             return SDL_PointInRect(&mouse_position, &settings_menu_keybinds_button_rect);
-        case SETTINGS_KEYBIND_HOVER:
-            for(int i = 0; i < 5; i++)
-                if(SDL_PointInRect(&mouse_position, &(keybinds_buttons[i].rect))) return TRUE;
+        case SETTINGS_KEYBIND_FORWARD_HOVER:
+                return SDL_PointInRect(&mouse_position, &settings_menu_keybind_forward_rect);
+        case SETTINGS_KEYBIND_BACKWARD_HOVER:
+            return SDL_PointInRect(&mouse_position, &settings_menu_keybind_backward_rect);
+        case SETTINGS_KEYBIND_LEFT_HOVER:
+            return SDL_PointInRect(&mouse_position, &settings_menu_keybind_left_rect);
+        case SETTINGS_KEYBIND_RIGHT_HOVER:
+            return SDL_PointInRect(&mouse_position, &settings_menu_keybind_right_rect);
         default:
             return FALSE;
     }
@@ -224,10 +272,10 @@ int onButton(T_BUTTONS_HOVER button)
  */
 void drawBindButtons()
 {
-    for(int i = 0; i < 5 ; i++)
-    {
-        drawButton(texture_settings_menu_key_button, keybinds_buttons[i].rect, surface_settings_menu_key_button);
-    }
+    drawButton(texture_settings_menu_key_button, settings_menu_keybind_forward_rect, surface_settings_menu_key_button);
+    drawButton(texture_settings_menu_key_button, settings_menu_keybind_backward_rect, surface_settings_menu_key_button);
+    drawButton(texture_settings_menu_key_button, settings_menu_keybind_left_rect, surface_settings_menu_key_button);
+    drawButton(texture_settings_menu_key_button, settings_menu_keybind_right_rect, surface_settings_menu_key_button);
 }
 
 /**
@@ -274,7 +322,7 @@ void update_screen()
 void drawMouse()
 {
     //hover cursor
-    if(hover_playbutton || hover_connectbutton || hover_hostbutton || hover_settingsbutton || hover_inventoryitem || hover_settings_keybindsbutton || hover_keybindbutton|| wearingItem)
+    if(hover_playbutton || hover_connectbutton || hover_hostbutton || hover_settingsbutton || hover_inventoryitem || hover_settings_keybindsbutton || hover_keybind_forward || hover_keybind_backward || hover_keybind_left || hover_keybind_right || wearingItem)
     {
         if(SDL_QueryTexture(cursor_select_texture, NULL, NULL, &mouseRect.w, &mouseRect.h) != 0)
         {
@@ -854,16 +902,25 @@ static void rectanglesInit()
     settings_menu_keybinds_button_rect.x = settings_menu_bg_rect.x + ((settings_menu_bg_rect.w*6)/100);
     settings_menu_keybinds_button_rect.y = settings_menu_bg_rect.y + ((settings_menu_bg_rect.h*20)/100);
 
-    for(int i = 0; i < 5; i++)
-    {
-        keybinds_buttons[i].rect.w = 215;
-        keybinds_buttons[i].rect.h = 90;
-        keybinds_buttons[i].rect.x = (settings_menu_bg_rect.x + settings_menu_bg_rect.w) - ((settings_menu_bg_rect.w*5) / 100) - keybinds_buttons[i].rect.w;
-        if(i == 0)
-            keybinds_buttons[i].rect.y = settings_menu_bg_rect.y + 125;
-        else
-            keybinds_buttons[i].rect.y = settings_menu_bg_rect.y + keybinds_buttons[i-1].rect.y;
-    }
+    settings_menu_keybind_forward_rect.w = 215;
+    settings_menu_keybind_forward_rect.h = 90;
+    settings_menu_keybind_forward_rect.x = (settings_menu_bg_rect.x + settings_menu_bg_rect.w) - ((settings_menu_bg_rect.w*5) / 100) - settings_menu_keybind_forward_rect.w;
+    settings_menu_keybind_forward_rect.y = settings_menu_bg_rect.y + 125;
+
+    settings_menu_keybind_backward_rect.w = 215;
+    settings_menu_keybind_backward_rect.h = 90;
+    settings_menu_keybind_backward_rect.x = (settings_menu_bg_rect.x + settings_menu_bg_rect.w) - ((settings_menu_bg_rect.w*5) / 100) - settings_menu_keybind_forward_rect.w;
+    settings_menu_keybind_backward_rect.y = settings_menu_keybind_forward_rect.y + 150;
+
+    settings_menu_keybind_left_rect.w = 215;
+    settings_menu_keybind_left_rect.h = 90;
+    settings_menu_keybind_left_rect.x = (settings_menu_bg_rect.x + settings_menu_bg_rect.w) - ((settings_menu_bg_rect.w*5) / 100) - settings_menu_keybind_forward_rect.w;
+    settings_menu_keybind_left_rect.y = settings_menu_keybind_backward_rect.y + 150;
+
+    settings_menu_keybind_right_rect.w = 215;
+    settings_menu_keybind_right_rect.h = 90;
+    settings_menu_keybind_right_rect.x = (settings_menu_bg_rect.x + settings_menu_bg_rect.w) - ((settings_menu_bg_rect.w*5) / 100) - settings_menu_keybind_forward_rect.w;
+    settings_menu_keybind_right_rect.y = settings_menu_keybind_left_rect.y + 150;
 
     //inventory
     inventory_rect.w = 800;
@@ -1234,10 +1291,12 @@ static void SettingsMainKeybindMenu()
     drawImage(texture_settings_bg, settings_menu_bg_rect);
 
     buttonHover(surface_settings_menu_keybinds_button_hover, texture_settings_menu_keybinds_button_hover, &settings_menu_keybinds_button_rect, &hover_settings_keybindsbutton);
-    for(int i = 0; i < 5; i++)
-    {
-        buttonHover(surface_settings_menu_key_button, texture_settings_menu_key_button, &keybinds_buttons[i].rect, &hover_keybindbutton);
-    }
+
+    buttonHover(surface_settings_menu_key_button, texture_settings_menu_key_button, &settings_menu_keybind_forward_rect, &hover_keybind_forward);
+    buttonHover(surface_settings_menu_key_button, texture_settings_menu_key_button, &settings_menu_keybind_backward_rect, &hover_keybind_backward);
+    buttonHover(surface_settings_menu_key_button, texture_settings_menu_key_button, &settings_menu_keybind_left_rect, &hover_keybind_left);
+    buttonHover(surface_settings_menu_key_button, texture_settings_menu_key_button, &settings_menu_keybind_right_rect, &hover_keybind_right);
+
     drawButtons();
     drawMouse();
 }

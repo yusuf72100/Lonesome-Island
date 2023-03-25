@@ -45,14 +45,6 @@ static int settings_button_animation_state = 0;
 static int xWindow = 0, yWindow = 0;
 static int WindowW = 1920, WindowH = 1080;
 
-typedef struct {
-    SDL_Rect rect;
-    SDL_Surface *text_surface;
-}keybind_button;
-
-//Bouttons du menu keybinds
-static keybind_button keybinds_buttons[5];
-
 //Curseur de la souris
 static SDL_Point mouse_position;
 
@@ -62,7 +54,10 @@ static SDL_bool hover_connectbutton = SDL_FALSE;
 static SDL_bool hover_hostbutton = SDL_FALSE;
 static SDL_bool hover_settingsbutton = SDL_FALSE;
 static SDL_bool hover_settings_keybindsbutton = SDL_FALSE;
-static SDL_bool hover_keybindbutton = SDL_FALSE;
+static SDL_bool hover_keybind_forward = SDL_FALSE;
+static SDL_bool hover_keybind_backward = SDL_FALSE;
+static SDL_bool hover_keybind_left = SDL_FALSE;
+static SDL_bool hover_keybind_right = SDL_FALSE;
 static SDL_bool hover_inventoryitem = SDL_FALSE;
 
 static SDL_bool clicked_playbutton = SDL_FALSE;
@@ -70,6 +65,10 @@ static SDL_bool clicked_connectbutton = SDL_FALSE;
 static SDL_bool clicked_hostbutton = SDL_FALSE;
 static SDL_bool clicked_settingsbutton = SDL_FALSE;
 static SDL_bool clicked_settings_keybindsbutton = SDL_FALSE;
+static SDL_bool clicked_settings_keybind_forward = SDL_FALSE;
+static SDL_bool clicked_settings_keybind_backward = SDL_FALSE;
+static SDL_bool clicked_settings_keybind_left = SDL_FALSE;
+static SDL_bool clicked_settings_keybind_right = SDL_FALSE;
 static SDL_bool clicked_inventoryitem = SDL_FALSE;
 
 static SDL_bool fullscreen = SDL_FALSE;
@@ -86,6 +85,10 @@ static SDL_Rect lifebar_rect;
 static SDL_Rect title_rect;
 static SDL_Rect settings_menu_bg_rect;
 static SDL_Rect settings_menu_keybinds_button_rect;
+static SDL_Rect settings_menu_keybind_forward_rect;
+static SDL_Rect settings_menu_keybind_backward_rect;
+static SDL_Rect settings_menu_keybind_left_rect;
+static SDL_Rect settings_menu_keybind_right_rect;
 
 static SDL_DisplayMode DM;
 

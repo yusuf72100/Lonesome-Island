@@ -463,11 +463,13 @@ static void doEvents()
                 if((SDL_GetTicks() - tabTick[7]) >= 200)
                 {
                     init_boop(&tabEvent[7]);
-                    switchButtonState_hover(SETTINGS_KEYBINDS_HOVER);
                     changeButtonState_clicked(SETTINGS_KEYBINDS_CLICKED, TRUE);
                     tabTick[7] = SDL_GetTicks();
                     changeMenu(SETTINGS_MAIN_KEYBIND_MENU);
                 }
+            }
+            else{
+                changeButtonState_clicked(SETTINGS_KEYBINDS_CLICKED, FALSE);
             }
         }
 
@@ -479,23 +481,24 @@ static void doEvents()
                 if((SDL_GetTicks() - tabTick[7]) >= 200)
                 {
                     init_boop(&tabEvent[7]);
-                    switchButtonState_hover(SETTINGS_KEYBINDS_HOVER);
                     changeButtonState_clicked(SETTINGS_KEYBINDS_CLICKED, TRUE);
                     tabTick[7] = SDL_GetTicks();
                     changeMenu(SETTINGS_MAIN_MENU);
                 }
             }
+            else{
+                changeButtonState_clicked(SETTINGS_KEYBINDS_CLICKED, FALSE);
+            }
         }
 
         //keybind buttons
-        if(onButton(SETTINGS_KEYBIND_HOVER) && (menu == SETTINGS_MAIN_MENU || menu == SETTINGS_INGAME_MENU))
+        if(onButton(SETTINGS_KEYBIND_FORWARD_HOVER) && (menu == SETTINGS_MAIN_MENU || menu == SETTINGS_INGAME_MENU))
         {
-            if(getButtonState_clicked(SETTINGS_KEYBIND_HOVER) == FALSE)
+            if(getButtonState_clicked(SETTINGS_KEYBIND_FORWARD_HOVER) == FALSE)
             {
                 if((SDL_GetTicks() - tabTick[7]) >= 200)
                 {
                     init_boop(&tabEvent[7]);
-                    switchButtonState_hover(SETTINGS_KEYBIND_HOVER);
                     changeButtonState_clicked(SETTINGS_KEYBIND_CLICKED, TRUE);
                     tabTick[7] = SDL_GetTicks();
                 }
@@ -545,7 +548,7 @@ static void doEvents()
         {
             if((SDL_GetTicks() - tabTick[10]) >= 200)
             {
-                changeButtonState_hover(SETTINGS_KEYBIND_HOVER, FALSE);
+                changeButtonState_hover(SETTINGS_KEYBINDS_HOVER, FALSE);
                 changeMenu(MAIN_MENU);
                 tabTick[10] = SDL_GetTicks();
             }
