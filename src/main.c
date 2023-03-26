@@ -492,9 +492,9 @@ static void doEvents()
         }
 
         //keybind buttons
-        if(onButton(SETTINGS_KEYBIND_FORWARD_HOVER) && (menu == SETTINGS_MAIN_MENU || menu == SETTINGS_INGAME_MENU))
+        if(onButton(SETTINGS_KEYBIND_UP_HOVER) && (menu == SETTINGS_MAIN_MENU || menu == SETTINGS_INGAME_MENU))
         {
-            if(getButtonState_clicked(SETTINGS_KEYBIND_FORWARD_HOVER) == FALSE)
+            if(getButtonState_clicked(SETTINGS_KEYBIND_UP_HOVER) == FALSE)
             {
                 if((SDL_GetTicks() - tabTick[7]) >= 200)
                 {
@@ -598,7 +598,9 @@ static void doEvents()
     if(menu == ERR_MENU)
     {
         if(connectedError == TRUE)
+        {
             displayError("Error: Server looking offline :/");
+        }
     }
 
     if ((menu == INGAME_MENU || menu == INVENTORY_MENU || menu == SETTINGS_INGAME_MENU))

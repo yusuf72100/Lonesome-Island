@@ -87,13 +87,13 @@ void switchButtonState_hover(T_BUTTONS_HOVER button)
             if(hover_settings_keybindsbutton == FALSE) hover_settings_keybindsbutton = TRUE;
             else hover_settings_keybindsbutton = FALSE;
             break;
-        case SETTINGS_KEYBIND_FORWARD_HOVER:
-            if(hover_keybind_forward == FALSE) hover_keybind_forward = TRUE;
-            else hover_keybind_forward = FALSE;
+        case SETTINGS_KEYBIND_UP_HOVER:
+            if(hover_keybind_up == FALSE) hover_keybind_up = TRUE;
+            else hover_keybind_up = FALSE;
             break;
-        case SETTINGS_KEYBIND_BACKWARD_HOVER:
-            if(hover_keybind_backward == FALSE) hover_keybind_backward = TRUE;
-            else hover_keybind_backward = FALSE;
+        case SETTINGS_KEYBIND_DOWN_HOVER:
+            if(hover_keybind_down == FALSE) hover_keybind_down = TRUE;
+            else hover_keybind_down = FALSE;
             break;
         case SETTINGS_KEYBIND_LEFT_HOVER:
             if(hover_keybind_left == FALSE) hover_keybind_left = TRUE;
@@ -133,17 +133,17 @@ void changeButtonState_hover(T_BUTTONS_HOVER button, int state)
         case SETTINGS_MAIN_KEYBIND_MENU:
             hover_settings_keybindsbutton = state;
             break;
-        case SETTINGS_KEYBIND_FORWARD_HOVER:
-            hover_keybind_forward = state;
+        case SETTINGS_KEYBIND_UP_HOVER:
+            hover_keybind_up = state;
             break;
-        case SETTINGS_KEYBIND_BACKWARD_HOVER:
-            hover_keybind_forward = state;
+        case SETTINGS_KEYBIND_DOWN_HOVER:
+            hover_keybind_up = state;
             break;
         case SETTINGS_KEYBIND_LEFT_HOVER:
-            hover_keybind_forward = state;
+            hover_keybind_up = state;
             break;
         case SETTINGS_KEYBIND_RIGHT_HOVER:
-            hover_keybind_forward = state;
+            hover_keybind_up = state;
             break;
         case INVENTORY_BUTTON_HOVER:
             hover_inventoryitem = state;
@@ -178,11 +178,11 @@ void changeButtonState_clicked(T_BUTTONS_CLICKED button, int state)
         case SETTINGS_KEYBINDS_CLICKED:
             clicked_settings_keybindsbutton = state;
             break;
-        case SETTINGS_KEYBIND_FORWARD_CLICKED:
-            clicked_settings_keybind_forward = state;
+        case SETTINGS_KEYBIND_UP_CLICKED:
+            clicked_settings_keybind_up = state;
             break;
-        case SETTINGS_KEYBIND_BACKWARD_CLICKED:
-            clicked_settings_keybind_forward = state;
+        case SETTINGS_KEYBIND_DOWN_CLICKED:
+            clicked_settings_keybind_up = state;
             break;
         case SETTINGS_KEYBIND_LEFT_CLICKED:
             clicked_settings_keybind_left = state;
@@ -218,10 +218,10 @@ int getButtonState_clicked(T_BUTTONS_CLICKED button)
             return clicked_settingsbutton;
         case SETTINGS_KEYBINDS_CLICKED:
             return clicked_settings_keybindsbutton;
-        case SETTINGS_KEYBIND_FORWARD_CLICKED:
-            return clicked_settings_keybind_forward;
-        case SETTINGS_KEYBIND_BACKWARD_CLICKED:
-            return clicked_settings_keybind_backward;
+        case SETTINGS_KEYBIND_UP_CLICKED:
+            return clicked_settings_keybind_up;
+        case SETTINGS_KEYBIND_DOWN_CLICKED:
+            return clicked_settings_keybind_down;
         case SETTINGS_KEYBIND_LEFT_CLICKED:
             return clicked_settings_keybind_left;
         case SETTINGS_KEYBIND_RIGHT_CLICKED:
@@ -253,10 +253,10 @@ int onButton(T_BUTTONS_HOVER button)
             return SDL_PointInRect(&mouse_position, &settings_button_rect);
         case SETTINGS_KEYBINDS_HOVER:
             return SDL_PointInRect(&mouse_position, &settings_menu_keybinds_button_rect);
-        case SETTINGS_KEYBIND_FORWARD_HOVER:
-                return SDL_PointInRect(&mouse_position, &settings_menu_keybind_forward_rect);
-        case SETTINGS_KEYBIND_BACKWARD_HOVER:
-            return SDL_PointInRect(&mouse_position, &settings_menu_keybind_backward_rect);
+        case SETTINGS_KEYBIND_UP_HOVER:
+                return SDL_PointInRect(&mouse_position, &settings_menu_keybind_up_rect);
+        case SETTINGS_KEYBIND_DOWN_HOVER:
+            return SDL_PointInRect(&mouse_position, &settings_menu_keybind_down_rect);
         case SETTINGS_KEYBIND_LEFT_HOVER:
             return SDL_PointInRect(&mouse_position, &settings_menu_keybind_left_rect);
         case SETTINGS_KEYBIND_RIGHT_HOVER:
@@ -272,8 +272,8 @@ int onButton(T_BUTTONS_HOVER button)
  */
 void drawBindButtons()
 {
-    drawButton(texture_settings_menu_key_button, settings_menu_keybind_forward_rect, surface_settings_menu_key_button);
-    drawButton(texture_settings_menu_key_button, settings_menu_keybind_backward_rect, surface_settings_menu_key_button);
+    drawButton(texture_settings_menu_key_button, settings_menu_keybind_up_rect, surface_settings_menu_key_button);
+    drawButton(texture_settings_menu_key_button, settings_menu_keybind_down_rect, surface_settings_menu_key_button);
     drawButton(texture_settings_menu_key_button, settings_menu_keybind_left_rect, surface_settings_menu_key_button);
     drawButton(texture_settings_menu_key_button, settings_menu_keybind_right_rect, surface_settings_menu_key_button);
 }
@@ -322,7 +322,7 @@ void update_screen()
 void drawMouse()
 {
     //hover cursor
-    if(hover_playbutton || hover_connectbutton || hover_hostbutton || hover_settingsbutton || hover_inventoryitem || hover_settings_keybindsbutton || hover_keybind_forward || hover_keybind_backward || hover_keybind_left || hover_keybind_right || wearingItem)
+    if(hover_playbutton || hover_connectbutton || hover_hostbutton || hover_settingsbutton || hover_inventoryitem || hover_settings_keybindsbutton || hover_keybind_up || hover_keybind_down || hover_keybind_left || hover_keybind_right || wearingItem)
     {
         if(SDL_QueryTexture(cursor_select_texture, NULL, NULL, &mouseRect.w, &mouseRect.h) != 0)
         {
@@ -904,24 +904,24 @@ static void rectanglesInit()
     settings_menu_keybinds_button_rect.x = settings_menu_bg_rect.x + ((settings_menu_bg_rect.w*6)/100);
     settings_menu_keybinds_button_rect.y = settings_menu_bg_rect.y + ((settings_menu_bg_rect.h*20)/100);
 
-    settings_menu_keybind_forward_rect.w = 215;
-    settings_menu_keybind_forward_rect.h = 90;
-    settings_menu_keybind_forward_rect.x = (settings_menu_bg_rect.x + settings_menu_bg_rect.w) - ((settings_menu_bg_rect.w*5) / 100) - settings_menu_keybind_forward_rect.w;
-    settings_menu_keybind_forward_rect.y = settings_menu_bg_rect.y + 125;
+    settings_menu_keybind_up_rect.w = 215;
+    settings_menu_keybind_up_rect.h = 90;
+    settings_menu_keybind_up_rect.x = (settings_menu_bg_rect.x + settings_menu_bg_rect.w) - ((settings_menu_bg_rect.w*5) / 100) - settings_menu_keybind_up_rect.w;
+    settings_menu_keybind_up_rect.y = settings_menu_bg_rect.y + 125;
 
-    settings_menu_keybind_backward_rect.w = 215;
-    settings_menu_keybind_backward_rect.h = 90;
-    settings_menu_keybind_backward_rect.x = (settings_menu_bg_rect.x + settings_menu_bg_rect.w) - ((settings_menu_bg_rect.w*5) / 100) - settings_menu_keybind_forward_rect.w;
-    settings_menu_keybind_backward_rect.y = settings_menu_keybind_forward_rect.y + 150;
+    settings_menu_keybind_down_rect.w = 215;
+    settings_menu_keybind_down_rect.h = 90;
+    settings_menu_keybind_down_rect.x = (settings_menu_bg_rect.x + settings_menu_bg_rect.w) - ((settings_menu_bg_rect.w*5) / 100) - settings_menu_keybind_up_rect.w;
+    settings_menu_keybind_down_rect.y = settings_menu_keybind_up_rect.y + 150;
 
     settings_menu_keybind_left_rect.w = 215;
     settings_menu_keybind_left_rect.h = 90;
-    settings_menu_keybind_left_rect.x = (settings_menu_bg_rect.x + settings_menu_bg_rect.w) - ((settings_menu_bg_rect.w*5) / 100) - settings_menu_keybind_forward_rect.w;
-    settings_menu_keybind_left_rect.y = settings_menu_keybind_backward_rect.y + 150;
+    settings_menu_keybind_left_rect.x = (settings_menu_bg_rect.x + settings_menu_bg_rect.w) - ((settings_menu_bg_rect.w*5) / 100) - settings_menu_keybind_up_rect.w;
+    settings_menu_keybind_left_rect.y = settings_menu_keybind_down_rect.y + 150;
 
     settings_menu_keybind_right_rect.w = 215;
     settings_menu_keybind_right_rect.h = 90;
-    settings_menu_keybind_right_rect.x = (settings_menu_bg_rect.x + settings_menu_bg_rect.w) - ((settings_menu_bg_rect.w*5) / 100) - settings_menu_keybind_forward_rect.w;
+    settings_menu_keybind_right_rect.x = (settings_menu_bg_rect.x + settings_menu_bg_rect.w) - ((settings_menu_bg_rect.w*5) / 100) - settings_menu_keybind_up_rect.w;
     settings_menu_keybind_right_rect.y = settings_menu_keybind_left_rect.y + 150;
 
     //inventory
@@ -1281,6 +1281,63 @@ static void SettingsMainMenu()
     drawMouse();
 }
 
+/***/
+static void drawText(SDL_Rect *rect, SDL_Texture *texture, SDL_Surface *surface, char *text)
+{
+    surface = TTF_RenderText_Blended(police, text, whiteColor);
+    texture = SDL_CreateTextureFromSurface(renderer, surface);
+    if(SDL_QueryTexture(texture, NULL, NULL, &rect->w,&rect->h) != 0)
+    {
+        destroyAll(texture, renderer);
+        SDL_ExitWithError("Impossible d'afficher la texture du boutton de keybind...");
+    }
+    SDL_RenderCopy(renderer, texture, NULL, rect);
+}
+
+/**
+ * @brief Dessine le texte du menu keybind
+ *
+ */
+static void drawKeybindMenuText()
+{
+    SDL_Texture *keybind_texte_texture = NULL;
+    SDL_Surface *keybind_texte_surface = NULL;
+    SDL_Rect up_text_rect;
+    SDL_Rect down_text_rect;
+    SDL_Rect left_text_rect;
+    SDL_Rect right_text_rect;
+
+    up_text_rect.w = 50;
+    up_text_rect.h = 50;
+    up_text_rect.x = settings_menu_keybind_up_rect.x - 100;
+    up_text_rect.y = settings_menu_keybind_up_rect.y + (settings_menu_keybind_up_rect.h/2) - (up_text_rect.h/2);
+
+    down_text_rect.w = 50;
+    down_text_rect.h = 50;
+    down_text_rect.x = settings_menu_keybind_down_rect.x - 120;
+    down_text_rect.y = settings_menu_keybind_down_rect.y + (settings_menu_keybind_down_rect.h/2) - (down_text_rect.h/2);
+
+    left_text_rect.w = 50;
+    left_text_rect.h = 50;
+    left_text_rect.x = settings_menu_keybind_left_rect.x - 120;
+    left_text_rect.y = settings_menu_keybind_left_rect.y + (settings_menu_keybind_left_rect.h/2) - (left_text_rect.h/2);
+
+    right_text_rect.w = 50;
+    right_text_rect.h = 50;
+    right_text_rect.x = settings_menu_keybind_right_rect.x - 125;
+    right_text_rect.y = settings_menu_keybind_right_rect.y + (settings_menu_keybind_right_rect.h/2) - (right_text_rect.h/2);
+
+    drawText(&up_text_rect, keybind_texte_texture, keybind_texte_surface, "Up");
+    drawText(&down_text_rect, keybind_texte_texture, keybind_texte_surface, "Down");
+    drawText(&left_text_rect, keybind_texte_texture, keybind_texte_surface, "Left");
+    drawText(&right_text_rect, keybind_texte_texture, keybind_texte_surface, "Right");
+
+    SDL_BlitSurface(keybind_texte_surface,NULL,background,&up_text_rect);
+    SDL_BlitSurface(keybind_texte_surface,NULL,background,&down_text_rect);
+    SDL_BlitSurface(keybind_texte_surface,NULL,background,&left_text_rect);
+    SDL_BlitSurface(keybind_texte_surface,NULL,background,&right_text_rect);
+}
+
 /**
  * @brief Affiche le menu des paramètres des keybinds dans le menu principal
  *
@@ -1293,14 +1350,13 @@ static void SettingsMainKeybindMenu()
     drawImage(texture_settings_bg, settings_menu_bg_rect);
 
     buttonHover(surface_settings_menu_keybinds_button_hover, texture_settings_menu_keybinds_button_hover, &settings_menu_keybinds_button_rect, &hover_settings_keybindsbutton);
-
     drawButtons();
-
-    buttonHover(surface_settings_menu_key_button_hover, texture_settings_menu_key_button_hover, &settings_menu_keybind_forward_rect, &hover_keybind_forward);
-    buttonHover(surface_settings_menu_key_button_hover, texture_settings_menu_key_button_hover, &settings_menu_keybind_backward_rect, &hover_keybind_backward);
+    buttonHover(surface_settings_menu_key_button_hover, texture_settings_menu_key_button_hover, &settings_menu_keybind_up_rect, &hover_keybind_up);
+    buttonHover(surface_settings_menu_key_button_hover, texture_settings_menu_key_button_hover, &settings_menu_keybind_down_rect, &hover_keybind_down);
     buttonHover(surface_settings_menu_key_button_hover, texture_settings_menu_key_button_hover, &settings_menu_keybind_left_rect, &hover_keybind_left);
     buttonHover(surface_settings_menu_key_button_hover, texture_settings_menu_key_button_hover, &settings_menu_keybind_right_rect, &hover_keybind_right);
 
+    drawKeybindMenuText();
     drawMouse();
 }
 
