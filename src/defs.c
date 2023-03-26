@@ -13,6 +13,7 @@ int SOLO = FALSE;
 int HOST = FALSE;
 char IP_PUBLIC[] = "90.12.114.239";
 
+T_BUTTONS_CLICKED KEYBIND_WAITING = NONE;
 SDL_Window *window = NULL;
 SDL_Renderer *renderer = NULL;
 

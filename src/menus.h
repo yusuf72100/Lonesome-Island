@@ -89,6 +89,7 @@ static SDL_Rect settings_menu_keybind_up_rect;
 static SDL_Rect settings_menu_keybind_down_rect;
 static SDL_Rect settings_menu_keybind_left_rect;
 static SDL_Rect settings_menu_keybind_right_rect;
+static SDL_Rect keybind_waiting_rect;
 
 static SDL_DisplayMode DM;
 
@@ -156,6 +157,7 @@ static SDL_Surface *surface_settings_menu_keybinds_button = NULL;
 static SDL_Surface *surface_settings_menu_keybinds_button_hover = NULL;
 static SDL_Surface *surface_settings_menu_key_button = NULL;
 static SDL_Surface *surface_settings_menu_key_button_hover = NULL;
+static SDL_Surface *surface_keybind_waiting = NULL;
 
 static SDL_Texture *texture_play_inert = NULL;
 static SDL_Texture *texture_play_hover = NULL;	
@@ -169,9 +171,9 @@ static SDL_Texture *texture_settings_menu_keybinds_button = NULL;
 static SDL_Texture *texture_settings_menu_keybinds_button_hover = NULL;
 static SDL_Texture *texture_settings_menu_key_button = NULL;
 static SDL_Texture *texture_settings_menu_key_button_hover = NULL;
+static SDL_Texture *texture_keybind_waiting = NULL;
 
 //window init
-
 static SDL_Texture *texture = NULL;
 static SDL_Surface *cursor = NULL;
 static SDL_Surface *cursor_select = NULL;
@@ -225,6 +227,7 @@ void *breathAnimation(void *j);
 void *drawPlayers(player_t *joueurs, int size);
 void clickItem();
 
+extern void configKey(T_BUTTONS_CLICKED button);
 extern void changeMenu(T_MENU menuTarget);
 
 #endif

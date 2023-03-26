@@ -769,6 +769,7 @@ static void surfacesInit()
     surface_settings_menu_keybinds_button_hover = IMG_Load("resources/settings_keybind_button_hover.png");
     surface_settings_menu_key_button = IMG_Load("resources/button_keybind.png");
     surface_settings_menu_key_button_hover = IMG_Load("resources/button_keybind_hover.png");
+    surface_keybind_waiting = IMG_Load("resources/button_keybind_waiting.png");
 
     //player
     surface_joueur_h1 = IMG_Load("resources/characters/player_h1.png");
@@ -827,6 +828,7 @@ static void texturesInit()
     init_texture(&surface_settings_menu_keybinds_button_hover, &texture_settings_menu_keybinds_button_hover);
     init_texture(&surface_settings_menu_key_button, &texture_settings_menu_key_button);
     init_texture(&surface_settings_menu_key_button_hover, &texture_settings_menu_key_button_hover);
+    init_texture(&surface_keybind_waiting, &texture_keybind_waiting);
 
     //game assets
     init_texture(&background , &background_texture);
@@ -923,6 +925,11 @@ static void rectanglesInit()
     settings_menu_keybind_right_rect.h = 90;
     settings_menu_keybind_right_rect.x = (settings_menu_bg_rect.x + settings_menu_bg_rect.w) - ((settings_menu_bg_rect.w*5) / 100) - settings_menu_keybind_up_rect.w;
     settings_menu_keybind_right_rect.y = settings_menu_keybind_left_rect.y + 150;
+
+    keybind_waiting_rect.w = 215;
+    keybind_waiting_rect.h = 90;
+    keybind_waiting_rect.x = 0;
+    keybind_waiting_rect.y = 0;
 
     //inventory
     inventory_rect.w = 800;
@@ -1344,18 +1351,29 @@ static void drawKeybindMenuText()
  */
 static void SettingsMainKeybindMenu()
 {
+    pthread_t newthread;
     settings_button_animation_state = 0;
     mouseRect.x = mouse_position.x;
     mouseRect.y = mouse_position.y;
     drawImage(texture_settings_bg, settings_menu_bg_rect);
-
-    buttonHover(surface_settings_menu_keybinds_button_hover, texture_settings_menu_keybinds_button_hover, &settings_menu_keybinds_button_rect, &hover_settings_keybindsbutton);
     drawButtons();
-    buttonHover(surface_settings_menu_key_button_hover, texture_settings_menu_key_button_hover, &settings_menu_keybind_up_rect, &hover_keybind_up);
-    buttonHover(surface_settings_menu_key_button_hover, texture_settings_menu_key_button_hover, &settings_menu_keybind_down_rect, &hover_keybind_down);
-    buttonHover(surface_settings_menu_key_button_hover, texture_settings_menu_key_button_hover, &settings_menu_keybind_left_rect, &hover_keybind_left);
-    buttonHover(surface_settings_menu_key_button_hover, texture_settings_menu_key_button_hover, &settings_menu_keybind_right_rect, &hover_keybind_right);
 
+    switch (KEYBIND_WAITING) {
+        case SETTINGS_KEYBIND_UP_CLICKED:
+            keybind_waiting_rect.x = settings_menu_keybind_up_rect.x;
+            keybind_waiting_rect.y = settings_menu_keybind_up_rect.y;
+            drawButton(texture_keybind_waiting, keybind_waiting_rect, surface_keybind_waiting);
+            break;
+        case NONE:
+            buttonHover(surface_settings_menu_keybinds_button_hover, texture_settings_menu_keybinds_button_hover, &settings_menu_keybinds_button_rect, &hover_settings_keybindsbutton);
+            buttonHover(surface_settings_menu_key_button_hover, texture_settings_menu_key_button_hover, &settings_menu_keybind_up_rect, &hover_keybind_up);
+            buttonHover(surface_settings_menu_key_button_hover, texture_settings_menu_key_button_hover, &settings_menu_keybind_down_rect, &hover_keybind_down);
+            buttonHover(surface_settings_menu_key_button_hover, texture_settings_menu_key_button_hover, &settings_menu_keybind_left_rect, &hover_keybind_left);
+            buttonHover(surface_settings_menu_key_button_hover, texture_settings_menu_key_button_hover, &settings_menu_keybind_right_rect, &hover_keybind_right);
+            break;
+        default:
+            break;
+    }
     drawKeybindMenuText();
     drawMouse();
 }

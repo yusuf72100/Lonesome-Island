@@ -135,9 +135,15 @@ char* eventTime()
 static void checkEvents()
 {
     switch(event.type)
+    {
+        //clavier
+        case SDL_KEYDOWN:
+            //si il s'agit d'une configuration de touche...
+            if(KEYBIND_WAITING != NONE)
             {
-            case SDL_KEYDOWN:
-
+                (char) event.key.keysym.sym;
+            }
+            else{
                 if (event.key.keysym.sym == globalKeyTab[0]) tabEvent[0] = SDL_TRUE;
 
                 if (event.key.keysym.sym == globalKeyTab[1]) tabEvent[1] = SDL_TRUE;
@@ -159,10 +165,16 @@ static void checkEvents()
                 if (event.key.keysym.sym == globalKeyTab[12]) tabEvent[12] = SDL_TRUE;
 
                 if (event.key.keysym.sym == globalKeyTab[13]) tabEvent[13] = SDL_TRUE;
-            break;
+            }
+        break;
 
-            case SDL_KEYUP:
-
+        case SDL_KEYUP:
+            //si il s'agit d'une configuration de touche...
+            if(KEYBIND_WAITING != NONE)
+            {
+                KEYBIND_WAITING = NONE;
+            }
+            else{
                 if (event.key.keysym.sym == globalKeyTab[0]) tabEvent[0] = SDL_FALSE;
 
                 if (event.key.keysym.sym == globalKeyTab[1]) tabEvent[1] = SDL_FALSE;
@@ -184,29 +196,30 @@ static void checkEvents()
                 if (event.key.keysym.sym == globalKeyTab[12]) tabEvent[12] = SDL_FALSE;
 
                 if (event.key.keysym.sym == globalKeyTab[13]) tabEvent[13] = SDL_FALSE;
-            break;
-
-            //mouse buttons
-            case SDL_MOUSEBUTTONDOWN:
-                if (event.button.button == globalKeyTab[7]) tabEvent[7] = SDL_TRUE;
-
-                if (event.button.button == globalKeyTab[8]) tabEvent[8] = SDL_TRUE;
-
-                if (event.button.button == globalKeyTab[9]) tabEvent[9] = SDL_TRUE;
-            break;
-
-            case SDL_MOUSEBUTTONUP:
-                if (event.button.button == globalKeyTab[7]) tabEvent[7] = SDL_FALSE;
-
-                if (event.button.button == globalKeyTab[8]) tabEvent[8] = SDL_FALSE;
-
-                if (event.button.button == globalKeyTab[9]) tabEvent[9] = SDL_FALSE;
-            break;
-
-            case SDL_QUIT:
-                program_launched = SDL_FALSE;
-                break;
             }
+        break;
+
+        //souris
+        case SDL_MOUSEBUTTONDOWN:
+            if (event.button.button == globalKeyTab[7]) tabEvent[7] = SDL_TRUE;
+
+            if (event.button.button == globalKeyTab[8]) tabEvent[8] = SDL_TRUE;
+
+            if (event.button.button == globalKeyTab[9]) tabEvent[9] = SDL_TRUE;
+        break;
+
+        case SDL_MOUSEBUTTONUP:
+            if (event.button.button == globalKeyTab[7]) tabEvent[7] = SDL_FALSE;
+
+            if (event.button.button == globalKeyTab[8]) tabEvent[8] = SDL_FALSE;
+
+            if (event.button.button == globalKeyTab[9]) tabEvent[9] = SDL_FALSE;
+        break;
+
+        case SDL_QUIT:
+            program_launched = SDL_FALSE;
+            break;
+    }
 }
 
 /**
@@ -458,7 +471,7 @@ static void doEvents()
         //settings keybinds button (main to settings_keybind)
         if(onButton(SETTINGS_KEYBINDS_HOVER) && menu == SETTINGS_MAIN_MENU)
         {
-            if(getButtonState_clicked(SETTINGS_KEYBINDS_CLICKED) == FALSE)
+            if(getButtonState_clicked(SETTINGS_KEYBINDS_CLICKED) == FALSE && KEYBIND_WAITING == NONE)
             {
                 if((SDL_GetTicks() - tabTick[7]) >= 200)
                 {
@@ -476,7 +489,7 @@ static void doEvents()
         //settings keybinds button (settings_keybind to main)
         if(onButton(SETTINGS_KEYBINDS_HOVER) && menu == SETTINGS_MAIN_KEYBIND_MENU)
         {
-            if(getButtonState_clicked(SETTINGS_KEYBINDS_CLICKED) == FALSE)
+            if(getButtonState_clicked(SETTINGS_KEYBINDS_CLICKED) == FALSE && KEYBIND_WAITING == NONE)
             {
                 if((SDL_GetTicks() - tabTick[7]) >= 200)
                 {
@@ -491,17 +504,24 @@ static void doEvents()
             }
         }
 
-        //keybind buttons
-        if(onButton(SETTINGS_KEYBIND_UP_HOVER) && (menu == SETTINGS_MAIN_MENU || menu == SETTINGS_INGAME_MENU))
+        //KEYBINDS
+
+        //UP
+        if(onButton(SETTINGS_KEYBIND_UP_HOVER) && (menu == SETTINGS_MAIN_KEYBIND_MENU || menu == SETTINGS_INGAME_MENU))
         {
-            if(getButtonState_clicked(SETTINGS_KEYBIND_UP_HOVER) == FALSE)
+            if(getButtonState_clicked(SETTINGS_KEYBIND_UP_CLICKED) == FALSE)
             {
                 if((SDL_GetTicks() - tabTick[7]) >= 200)
                 {
                     init_boop(&tabEvent[7]);
-                    changeButtonState_clicked(SETTINGS_KEYBIND_CLICKED, TRUE);
+                    changeButtonState_clicked(SETTINGS_KEYBIND_UP_CLICKED, TRUE);
                     tabTick[7] = SDL_GetTicks();
+                    KEYBIND_WAITING = SETTINGS_KEYBIND_UP_CLICKED;
+                    changeButtonState_hover(SETTINGS_KEYBIND_UP_CLICKED, FALSE);
                 }
+            }
+            else{
+                changeButtonState_clicked(SETTINGS_KEYBIND_UP_CLICKED, FALSE);
             }
         }
 
