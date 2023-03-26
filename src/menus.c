@@ -768,6 +768,7 @@ static void surfacesInit()
     surface_settings_menu_keybinds_button = IMG_Load("resources/settings_keybind_button.png");
     surface_settings_menu_keybinds_button_hover = IMG_Load("resources/settings_keybind_button_hover.png");
     surface_settings_menu_key_button = IMG_Load("resources/button_keybind.png");
+    surface_settings_menu_key_button_hover = IMG_Load("resources/button_keybind_hover.png");
 
     //player
     surface_joueur_h1 = IMG_Load("resources/characters/player_h1.png");
@@ -825,6 +826,7 @@ static void texturesInit()
     init_texture(&surface_settings_menu_keybinds_button, &texture_settings_menu_keybinds_button);
     init_texture(&surface_settings_menu_keybinds_button_hover, &texture_settings_menu_keybinds_button_hover);
     init_texture(&surface_settings_menu_key_button, &texture_settings_menu_key_button);
+    init_texture(&surface_settings_menu_key_button_hover, &texture_settings_menu_key_button_hover);
 
     //game assets
     init_texture(&background , &background_texture);
@@ -1292,12 +1294,13 @@ static void SettingsMainKeybindMenu()
 
     buttonHover(surface_settings_menu_keybinds_button_hover, texture_settings_menu_keybinds_button_hover, &settings_menu_keybinds_button_rect, &hover_settings_keybindsbutton);
 
-    buttonHover(surface_settings_menu_key_button, texture_settings_menu_key_button, &settings_menu_keybind_forward_rect, &hover_keybind_forward);
-    buttonHover(surface_settings_menu_key_button, texture_settings_menu_key_button, &settings_menu_keybind_backward_rect, &hover_keybind_backward);
-    buttonHover(surface_settings_menu_key_button, texture_settings_menu_key_button, &settings_menu_keybind_left_rect, &hover_keybind_left);
-    buttonHover(surface_settings_menu_key_button, texture_settings_menu_key_button, &settings_menu_keybind_right_rect, &hover_keybind_right);
-
     drawButtons();
+
+    buttonHover(surface_settings_menu_key_button_hover, texture_settings_menu_key_button_hover, &settings_menu_keybind_forward_rect, &hover_keybind_forward);
+    buttonHover(surface_settings_menu_key_button_hover, texture_settings_menu_key_button_hover, &settings_menu_keybind_backward_rect, &hover_keybind_backward);
+    buttonHover(surface_settings_menu_key_button_hover, texture_settings_menu_key_button_hover, &settings_menu_keybind_left_rect, &hover_keybind_left);
+    buttonHover(surface_settings_menu_key_button_hover, texture_settings_menu_key_button_hover, &settings_menu_keybind_right_rect, &hover_keybind_right);
+
     drawMouse();
 }
 
