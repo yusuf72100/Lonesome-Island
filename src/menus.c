@@ -415,7 +415,7 @@ void drawCaseText(case_inventory case_x)
 /**
  * @brief Dessine l'item à la bonne case de l'inventaire.
  *
- * @param item
+ * @param case_x
  */
 void drawItem(case_inventory case_x)
 {
@@ -433,7 +433,6 @@ void drawItem(case_inventory case_x)
  * @param texture
  * @param rectangle
  * @param surface
- * @param menuTarget
  */
 void drawButton_withRotation(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface)
 {
@@ -530,8 +529,9 @@ static void switchAnimation(player_t Joueur)
 
 /**
  * @brief Dessine tous les joueurs.
- *
- * @return void*
+ * @param joueurs
+ * @param size
+ * @return
  */
 void *drawPlayers(player_t *joueurs, int size)
 {
@@ -546,9 +546,9 @@ void *drawPlayers(player_t *joueurs, int size)
 }
 
 /**
- * @brief Animation de respiration
- *
- * @return void*
+ * Animation de respiration
+ * @param j
+ * @return
  */
 void *breathAnimation(void *j)
 {
@@ -1288,10 +1288,35 @@ static void SettingsMainMenu()
     drawMouse();
 }
 
-/***/
+/**
+ * @brief Affiche un texte en ttf.
+ * @param rect
+ * @param texture
+ * @param surface
+ * @param text
+ */
 static void drawText(SDL_Rect *rect, SDL_Texture *texture, SDL_Surface *surface, char *text)
 {
     surface = TTF_RenderText_Blended(police, text, whiteColor);
+    texture = SDL_CreateTextureFromSurface(renderer, surface);
+    if(SDL_QueryTexture(texture, NULL, NULL, &rect->w,&rect->h) != 0)
+    {
+        destroyAll(texture, renderer);
+        SDL_ExitWithError("Impossible d'afficher la texture du boutton de keybind...");
+    }
+    SDL_RenderCopy(renderer, texture, NULL, rect);
+}
+
+/**
+ * @brief Affiche un seul caractère en ttf.
+ * @param rect
+ * @param texture
+ * @param surface
+ * @param c
+ */
+static void drawChar(SDL_Rect *rect, SDL_Texture *texture, SDL_Surface *surface, char c)
+{
+    surface = TTF_RenderGlyph_Blended(police, c, whiteColor);
     texture = SDL_CreateTextureFromSurface(renderer, surface);
     if(SDL_QueryTexture(texture, NULL, NULL, &rect->w,&rect->h) != 0)
     {
@@ -1313,6 +1338,31 @@ static void drawKeybindMenuText()
     SDL_Rect down_text_rect;
     SDL_Rect left_text_rect;
     SDL_Rect right_text_rect;
+
+    SDL_Rect keybind_key_up_text = {
+        .w = 50,
+        .h = 50,
+        .x = (settings_menu_keybind_up_rect.x + (settings_menu_keybind_up_rect.w / 2)) - 20,
+        .y = settings_menu_keybind_up_rect.y + ((settings_menu_keybind_up_rect.h / 2) - 25)
+    };
+    SDL_Rect keybind_key_down_text = {
+        .w = 50,
+        .h = 50,
+        .x = (settings_menu_keybind_down_rect.x + (settings_menu_keybind_down_rect.w / 2)) - 20,
+        .y = settings_menu_keybind_down_rect.y + ((settings_menu_keybind_down_rect.h / 2) - 25)
+    };
+    SDL_Rect keybind_key_left_text = {
+        .w = 50,
+        .h = 50,
+        .x = (settings_menu_keybind_left_rect.x + (settings_menu_keybind_left_rect.w / 2)) - 20,
+        .y = settings_menu_keybind_left_rect.y + ((settings_menu_keybind_left_rect.h / 2) - 25)
+    };
+    SDL_Rect keybind_key_right_text = {
+        .w = 50,
+        .h = 50,
+        .x = (settings_menu_keybind_right_rect.x + (settings_menu_keybind_right_rect.w / 2)) - 20,
+        .y = settings_menu_keybind_right_rect.y + ((settings_menu_keybind_right_rect.h / 2) - 25)
+    };
 
     up_text_rect.w = 50;
     up_text_rect.h = 50;
@@ -1339,6 +1389,12 @@ static void drawKeybindMenuText()
     drawText(&left_text_rect, keybind_texte_texture, keybind_texte_surface, "Left");
     drawText(&right_text_rect, keybind_texte_texture, keybind_texte_surface, "Right");
 
+    //keybind key text
+    drawChar(&keybind_key_up_text, keybind_texte_texture, keybind_texte_surface, bindButtonText[0]);
+    drawChar(&keybind_key_left_text, keybind_texte_texture, keybind_texte_surface, bindButtonText[1]);
+    drawChar(&keybind_key_down_text, keybind_texte_texture, keybind_texte_surface, bindButtonText[2]);
+    drawChar(&keybind_key_right_text, keybind_texte_texture, keybind_texte_surface, bindButtonText[3]);
+
     SDL_BlitSurface(keybind_texte_surface,NULL,background,&up_text_rect);
     SDL_BlitSurface(keybind_texte_surface,NULL,background,&down_text_rect);
     SDL_BlitSurface(keybind_texte_surface,NULL,background,&left_text_rect);
@@ -1362,6 +1418,25 @@ static void SettingsMainKeybindMenu()
         case SETTINGS_KEYBIND_UP_CLICKED:
             keybind_waiting_rect.x = settings_menu_keybind_up_rect.x;
             keybind_waiting_rect.y = settings_menu_keybind_up_rect.y;
+            drawKeybindMenuText();
+            drawButton(texture_keybind_waiting, keybind_waiting_rect, surface_keybind_waiting);
+            break;
+        case SETTINGS_KEYBIND_DOWN_CLICKED:
+            keybind_waiting_rect.x = settings_menu_keybind_down_rect.x;
+            keybind_waiting_rect.y = settings_menu_keybind_down_rect.y;
+            drawKeybindMenuText();
+            drawButton(texture_keybind_waiting, keybind_waiting_rect, surface_keybind_waiting);
+            break;
+        case SETTINGS_KEYBIND_LEFT_CLICKED:
+            keybind_waiting_rect.x = settings_menu_keybind_left_rect.x;
+            keybind_waiting_rect.y = settings_menu_keybind_left_rect.y;
+            drawKeybindMenuText();
+            drawButton(texture_keybind_waiting, keybind_waiting_rect, surface_keybind_waiting);
+            break;
+        case SETTINGS_KEYBIND_RIGHT_CLICKED:
+            keybind_waiting_rect.x = settings_menu_keybind_right_rect.x;
+            keybind_waiting_rect.y = settings_menu_keybind_right_rect.y;
+            drawKeybindMenuText();
             drawButton(texture_keybind_waiting, keybind_waiting_rect, surface_keybind_waiting);
             break;
         case NONE:
@@ -1370,11 +1445,11 @@ static void SettingsMainKeybindMenu()
             buttonHover(surface_settings_menu_key_button_hover, texture_settings_menu_key_button_hover, &settings_menu_keybind_down_rect, &hover_keybind_down);
             buttonHover(surface_settings_menu_key_button_hover, texture_settings_menu_key_button_hover, &settings_menu_keybind_left_rect, &hover_keybind_left);
             buttonHover(surface_settings_menu_key_button_hover, texture_settings_menu_key_button_hover, &settings_menu_keybind_right_rect, &hover_keybind_right);
+            drawKeybindMenuText();
             break;
         default:
             break;
     }
-    drawKeybindMenuText();
     drawMouse();
 }
 

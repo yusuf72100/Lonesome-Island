@@ -29,6 +29,7 @@ extern T_BUTTONS_CLICKED KEYBIND_WAITING;
 extern SDL_Window *window;
 extern SDL_Renderer *renderer;
 
+extern char bindButtonText[4];
 extern char IP_PUBLIC[256];
 
 /**

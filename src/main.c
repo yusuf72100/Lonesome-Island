@@ -141,7 +141,8 @@ static void checkEvents()
             //si il s'agit d'une configuration de touche...
             if(KEYBIND_WAITING != NONE)
             {
-                (char) event.key.keysym.sym;
+                saveKey(event.key.keysym.sym);
+                KEYBIND_WAITING = NONE;
             }
             else{
                 if (event.key.keysym.sym == globalKeyTab[0]) tabEvent[0] = SDL_TRUE;
@@ -172,7 +173,7 @@ static void checkEvents()
             //si il s'agit d'une configuration de touche...
             if(KEYBIND_WAITING != NONE)
             {
-                KEYBIND_WAITING = NONE;
+
             }
             else{
                 if (event.key.keysym.sym == globalKeyTab[0]) tabEvent[0] = SDL_FALSE;
@@ -525,6 +526,63 @@ static void doEvents()
             }
         }
 
+        //DOWN
+        if(onButton(SETTINGS_KEYBIND_DOWN_HOVER) && (menu == SETTINGS_MAIN_KEYBIND_MENU || menu == SETTINGS_INGAME_MENU))
+        {
+            if(getButtonState_clicked(SETTINGS_KEYBIND_DOWN_CLICKED) == FALSE)
+            {
+                if((SDL_GetTicks() - tabTick[7]) >= 200)
+                {
+                    init_boop(&tabEvent[7]);
+                    changeButtonState_clicked(SETTINGS_KEYBIND_DOWN_CLICKED, TRUE);
+                    tabTick[7] = SDL_GetTicks();
+                    KEYBIND_WAITING = SETTINGS_KEYBIND_DOWN_CLICKED;
+                    changeButtonState_hover(SETTINGS_KEYBIND_DOWN_CLICKED, FALSE);
+                }
+            }
+            else{
+                changeButtonState_clicked(SETTINGS_KEYBIND_DOWN_CLICKED, FALSE);
+            }
+        }
+
+        //LEFT
+        if(onButton(SETTINGS_KEYBIND_LEFT_HOVER) && (menu == SETTINGS_MAIN_KEYBIND_MENU || menu == SETTINGS_INGAME_MENU))
+        {
+            if(getButtonState_clicked(SETTINGS_KEYBIND_LEFT_CLICKED) == FALSE)
+            {
+                if((SDL_GetTicks() - tabTick[7]) >= 200)
+                {
+                    init_boop(&tabEvent[7]);
+                    changeButtonState_clicked(SETTINGS_KEYBIND_LEFT_CLICKED, TRUE);
+                    tabTick[7] = SDL_GetTicks();
+                    KEYBIND_WAITING = SETTINGS_KEYBIND_LEFT_CLICKED;
+                    changeButtonState_hover(SETTINGS_KEYBIND_LEFT_CLICKED, FALSE);
+                }
+            }
+            else{
+                changeButtonState_clicked(SETTINGS_KEYBIND_LEFT_CLICKED, FALSE);
+            }
+        }
+
+        //RIGHT
+        if(onButton(SETTINGS_KEYBIND_RIGHT_HOVER) && (menu == SETTINGS_MAIN_KEYBIND_MENU || menu == SETTINGS_INGAME_MENU))
+        {
+            if(getButtonState_clicked(SETTINGS_KEYBIND_RIGHT_CLICKED) == FALSE)
+            {
+                if((SDL_GetTicks() - tabTick[7]) >= 200)
+                {
+                    init_boop(&tabEvent[7]);
+                    changeButtonState_clicked(SETTINGS_KEYBIND_RIGHT_CLICKED, TRUE);
+                    tabTick[7] = SDL_GetTicks();
+                    KEYBIND_WAITING = SETTINGS_KEYBIND_RIGHT_CLICKED;
+                    changeButtonState_hover(SETTINGS_KEYBIND_RIGHT_CLICKED, FALSE);
+                }
+            }
+            else{
+                changeButtonState_clicked(SETTINGS_KEYBIND_RIGHT_CLICKED, FALSE);
+            }
+        }
+
         //inventory item click
         if(getButtonState_clicked(INVENTORY_BUTTON_CLICKED) == FALSE && menu == INVENTORY_MENU)
         {
@@ -694,10 +752,8 @@ int main(int argc, char *argv[])
         {
             checkEvents();
         }
-
         doEvents();
         drawMenu();
-
         if((timer = (1000 / 75)-(SDL_GetTicks() - tick)) > 0)
             SDL_Delay(timer);
         else    

@@ -23,5 +23,6 @@
 static SDL_KeyCode localKeyTab[14];
 
 extern void loadSettings();
+extern void saveKey(SDL_KeyCode keycode);
 
 #endif

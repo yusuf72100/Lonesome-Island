@@ -9,14 +9,25 @@
 
 #include "settings.h"
 
+static void saveFile()
+{
+    FILE *config = fopen("settings.config", "w+");
+
+    fprintf(config, "[ KEYBINDS ]:\n");
+    for(int i = 0; i < 14; i++)
+    {
+        fprintf(config, "%d : %d\n", i, SDL_GetScancodeFromKey(globalKeyTab[i]));
+    }
+    fprintf(config, "[ \\KEYBINDS ]\n");
+    fclose(config);
+}
+
 /**
  * @brief Créer le fichier de config et charge les paramètres par défaut.
  * 
  */
 static void createConfigs()
 {
-    FILE *config = fopen("settings.config", "w");
-
     globalKeyTab[0] = SDLK_z;
     globalKeyTab[1] = SDLK_q;
     globalKeyTab[2] = SDLK_s;
@@ -31,16 +42,11 @@ static void createConfigs()
     globalKeyTab[11] = SDLK_LALT;
     globalKeyTab[12] = SDLK_RETURN;
     globalKeyTab[13] = SDLK_TAB;
+}
 
-    fprintf(config, "[ KEYBINDS ]:\n");
-
-    for(int i = 0; i < 14; i++)
-    {
-        fprintf(config, "%d : %d\n", i, SDL_GetScancodeFromKey(globalKeyTab[i]));
-    }
-    fprintf(config, "[ \\KEYBINDS ]\n");
-
-    fclose(config);
+static void saveKeybind(int key, SDL_KeyCode keycode)
+{
+    localKeyTab[key] = keycode;
 }
 
 /**
@@ -63,6 +69,11 @@ static void loadKeybinds()
     globalKeyTab[11] = SDLK_LALT;
     globalKeyTab[12] = SDLK_RETURN;
     globalKeyTab[13] = localKeyTab[13];
+
+    bindButtonText[0] = (char) globalKeyTab[0];
+    bindButtonText[1] = (char) globalKeyTab[1];
+    bindButtonText[2] = (char) globalKeyTab[2];
+    bindButtonText[3] = (char) globalKeyTab[3];
 }
 
 /**
@@ -113,8 +124,28 @@ extern void loadSettings()
     else{
         printf("Creation of config file\n");
         createConfigs();
-        loadSettings();
+        saveFile();
     }
 
     fclose(config);
+}
+
+extern void saveKey(SDL_KeyCode keycode)
+{
+    switch (KEYBIND_WAITING) {
+        case SETTINGS_KEYBIND_UP_CLICKED:
+            saveKeybind(0, keycode);
+            break;
+        case SETTINGS_KEYBIND_LEFT_CLICKED:
+            saveKeybind(1, keycode);
+            break;
+        case SETTINGS_KEYBIND_DOWN_CLICKED:
+            saveKeybind(2, keycode);
+            break;
+        case SETTINGS_KEYBIND_RIGHT_CLICKED:
+            saveKeybind(3, keycode);
+            break;
+    }
+    loadKeybinds();
+    saveFile();
 }
