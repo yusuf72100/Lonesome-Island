@@ -1,5 +1,5 @@
-\hypertarget{defs_8h}{}\doxysection{Référence du fichier C\+:/\+Users/\+Yusuf/\+Lonesome-\/\+Island/src/defs.h}
-\label{defs_8h}\index{C:/Users/Yusuf/Lonesome-\/Island/src/defs.h@{C:/Users/Yusuf/Lonesome-\/Island/src/defs.h}}
+\hypertarget{defs_8h}{}\doxysection{Référence du fichier C\+:/\+Users/\+Yusuf/\+CLion\+Projects/\+Lonesome-\/\+Island/src/defs.h}
+\label{defs_8h}\index{C:/Users/Yusuf/CLionProjects/Lonesome-\/Island/src/defs.h@{C:/Users/Yusuf/CLionProjects/Lonesome-\/Island/src/defs.h}}
 
 
 Fichier contenant toutes les définitions de structures et de types.  
@@ -8,7 +8,8 @@ Fichier contenant toutes les définitions de structures et de types.
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$SDL.\+h$>$}\newline
-Graphe des dépendances par inclusion de defs.\+h\+:\nopagebreak
+Graphe des dépendances par inclusion de defs.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -59,7 +60,12 @@ enum {\bfseries T\+\_\+\+BUTTONS\+\_\+\+HOVER} \{ \newline
 , {\bfseries HOST\+\_\+\+BUTTON\+\_\+\+HOVER}
 , {\bfseries SETTINGS\+\_\+\+BUTTON\+\_\+\+HOVER}
 , \newline
-{\bfseries SETTINGS\+\_\+\+KEYBIND\+\_\+\+HOVER}
+{\bfseries SETTINGS\+\_\+\+KEYBINDS\+\_\+\+HOVER}
+, {\bfseries SETTINGS\+\_\+\+KEYBIND\+\_\+\+UP\+\_\+\+HOVER}
+, {\bfseries SETTINGS\+\_\+\+KEYBIND\+\_\+\+DOWN\+\_\+\+HOVER}
+, {\bfseries SETTINGS\+\_\+\+KEYBIND\+\_\+\+LEFT\+\_\+\+HOVER}
+, \newline
+{\bfseries SETTINGS\+\_\+\+KEYBIND\+\_\+\+RIGHT\+\_\+\+HOVER}
 , {\bfseries INVENTORY\+\_\+\+BUTTON\+\_\+\+HOVER}
  \}
 \item 
@@ -70,8 +76,15 @@ enum {\bfseries T\+\_\+\+BUTTONS\+\_\+\+CLICKED} \{ \newline
 , {\bfseries HOST\+\_\+\+BUTTON\+\_\+\+CLICKED}
 , {\bfseries SETTINGS\+\_\+\+BUTTON\+\_\+\+CLICKED}
 , \newline
-{\bfseries SETTINGS\+\_\+\+KEYBIND\+\_\+\+CLICKED}
+{\bfseries SETTINGS\+\_\+\+KEYBINDS\+\_\+\+CLICKED}
+, {\bfseries SETTINGS\+\_\+\+KEYBIND\+\_\+\+CLICKED}
+, {\bfseries SETTINGS\+\_\+\+KEYBIND\+\_\+\+UP\+\_\+\+CLICKED}
+, {\bfseries SETTINGS\+\_\+\+KEYBIND\+\_\+\+DOWN\+\_\+\+CLICKED}
+, \newline
+{\bfseries SETTINGS\+\_\+\+KEYBIND\+\_\+\+LEFT\+\_\+\+CLICKED}
+, {\bfseries SETTINGS\+\_\+\+KEYBIND\+\_\+\+RIGHT\+\_\+\+CLICKED}
 , {\bfseries INVENTORY\+\_\+\+BUTTON\+\_\+\+CLICKED}
+, {\bfseries NONE}
  \}
 \item 
 \mbox{\Hypertarget{defs_8h_ac74f3fe130dd2907991df748d4dc4a13}\label{defs_8h_ac74f3fe130dd2907991df748d4dc4a13}} 
@@ -102,8 +115,6 @@ enum {\bfseries T\+\_\+\+BLOCK} \{ {\bfseries CHEST}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{defs_8h_acbae57aa2d8c508e63c0597b44024977}{change\+Menu}} (T\+\_\+\+MENU menu\+Target)
-\begin{DoxyCompactList}\small\item\em Change de menu. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{defs_8h_a6bd9bc7437d75b11d5e167fcf0114dc2}\label{defs_8h_a6bd9bc7437d75b11d5e167fcf0114dc2}} 
 void {\bfseries define\+Item} ()
 \begin{DoxyCompactList}\small\item\em Initialise les items globaux. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -116,11 +127,17 @@ int {\bfseries SOLO}
 \mbox{\Hypertarget{defs_8h_ade7358028ced54508b163d7e93630830}\label{defs_8h_ade7358028ced54508b163d7e93630830}} 
 int {\bfseries HOST}
 \item 
+\mbox{\Hypertarget{defs_8h_af0fa3c1234b4fd6ba5cfdcec13daaa52}\label{defs_8h_af0fa3c1234b4fd6ba5cfdcec13daaa52}} 
+T\+\_\+\+BUTTONS\+\_\+\+CLICKED {\bfseries KEYBIND\+\_\+\+WAITING}
+\item 
 \mbox{\Hypertarget{defs_8h_aaa8e409e04dcf575ef63fd5fb3db06f9}\label{defs_8h_aaa8e409e04dcf575ef63fd5fb3db06f9}} 
 SDL\+\_\+\+Window $\ast$ {\bfseries window}
 \item 
 \mbox{\Hypertarget{defs_8h_a966da7a60c4ea3ba301e26ccc5efe452}\label{defs_8h_a966da7a60c4ea3ba301e26ccc5efe452}} 
 SDL\+\_\+\+Renderer $\ast$ {\bfseries renderer}
+\item 
+\mbox{\Hypertarget{defs_8h_a99a35a6d05775d2462a6c8a86310c5d7}\label{defs_8h_a99a35a6d05775d2462a6c8a86310c5d7}} 
+char {\bfseries bind\+Button\+Text} \mbox{[}4\mbox{]}
 \item 
 \mbox{\Hypertarget{defs_8h_ace11e48823811038e01fa56a3fb77381}\label{defs_8h_ace11e48823811038e01fa56a3fb77381}} 
 char {\bfseries IP\+\_\+\+PUBLIC} \mbox{[}256\mbox{]}
@@ -178,28 +195,3 @@ Yusuf Ulas
 \begin{DoxyCopyright}{Copyright}
 Copyright (c) 2023 
 \end{DoxyCopyright}
-
-
-\doxysubsection{Documentation des fonctions}
-\mbox{\Hypertarget{defs_8h_acbae57aa2d8c508e63c0597b44024977}\label{defs_8h_acbae57aa2d8c508e63c0597b44024977}} 
-\index{defs.h@{defs.h}!changeMenu@{changeMenu}}
-\index{changeMenu@{changeMenu}!defs.h@{defs.h}}
-\doxysubsubsection{\texorpdfstring{changeMenu()}{changeMenu()}}
-{\footnotesize\ttfamily void change\+Menu (\begin{DoxyParamCaption}\item[{T\+\_\+\+MENU}]{menu\+Target }\end{DoxyParamCaption})}
-
-
-
-Change de menu. 
-
-
-\begin{DoxyParams}{Paramètres}
-{\em menu\+Target} & \\
-\hline
-\end{DoxyParams}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=318pt]{defs_8h_acbae57aa2d8c508e63c0597b44024977_icgraph}
-\end{center}
-\end{figure}

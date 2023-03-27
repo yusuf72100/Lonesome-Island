@@ -1,5 +1,5 @@
 \hypertarget{client_8h_source}{}\doxysection{client.\+h}
-\label{client_8h_source}\index{C:/Users/Yusuf/Lonesome-\/Island/src/client.h@{C:/Users/Yusuf/Lonesome-\/Island/src/client.h}}
+\label{client_8h_source}\index{C:/Users/Yusuf/CLionProjects/Lonesome-\/Island/src/client.h@{C:/Users/Yusuf/CLionProjects/Lonesome-\/Island/src/client.h}}
 \mbox{\hyperlink{client_8h}{Aller à la documentation de ce fichier.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
@@ -15,7 +15,7 @@
 \DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
 \DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <pthread.h>}}
 \DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <string.h>}}
-\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <SDL.h>}\ \ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <SDL.h>}}
 \DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <SDL\_image.h>}}
 \DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <SDL\_ttf.h>}}
 \DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{socket_8h}{socket.h}}"{}}}
@@ -26,20 +26,16 @@
 \DoxyCodeLine{00030\ }
 \DoxyCodeLine{00031\ \textcolor{keyword}{typedef}\ uint32\_t\ socklen\_t;}
 \DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \textcolor{keyword}{static}\ SOCKET\ *socket\_Server;}
-\DoxyCodeLine{00034\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ tramClient\_send[100];}
-\DoxyCodeLine{00035\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ tramClient\_receive[100];}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ size;}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{client_8h_a6ff46bda2f9d755b3e1b4a941b10e8e1}{sendDatas}}(\mbox{\hyperlink{structplayer__t}{player\_t}}\ joueur);}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{client_8h_a37deea5f4750c52937a56b0e97d566b9}{receiveFromServer}}();}
+\DoxyCodeLine{00033\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ size;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{static}\ SOCKET\ *socket\_Server;}
+\DoxyCodeLine{00036\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ tramClient\_send[100];}
+\DoxyCodeLine{00037\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ tramClient\_receive[100];}
+\DoxyCodeLine{00038\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{client_8h_a6ff46bda2f9d755b3e1b4a941b10e8e1}{sendDatas}}(\mbox{\hyperlink{structplayer__t}{player\_t}}\ joueur);}
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{client_8h_a37deea5f4750c52937a56b0e97d566b9}{receiveFromServer}}();}
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{client_8h_a1a44fcc8a4125e81a0730b67c2603470}{stopConnection}}();}
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{client_8h_a3622090a7ff391221a74cad6493bbca9}{startConnection}}();}
 \DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{client_8h_a1a44fcc8a4125e81a0730b67c2603470}{stopConnection}}();}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{client_8h_a3622090a7ff391221a74cad6493bbca9}{startConnection}}();}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

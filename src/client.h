@@ -30,8 +30,6 @@
 
 typedef uint32_t socklen_t;
 
-static int size;
-
 static SOCKET *socket_Server;
 static char tramClient_send[100];
 static char tramClient_receive[100];

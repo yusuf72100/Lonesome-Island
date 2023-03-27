@@ -1,5 +1,5 @@
 \hypertarget{menus_8h_source}{}\doxysection{menus.\+h}
-\label{menus_8h_source}\index{C:/Users/Yusuf/Lonesome-\/Island/src/menus.h@{C:/Users/Yusuf/Lonesome-\/Island/src/menus.h}}
+\label{menus_8h_source}\index{C:/Users/Yusuf/CLionProjects/Lonesome-\/Island/src/menus.h@{C:/Users/Yusuf/CLionProjects/Lonesome-\/Island/src/menus.h}}
 \mbox{\hyperlink{menus_8h}{Aller à la documentation de ce fichier.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
@@ -41,178 +41,191 @@
 \DoxyCodeLine{00045\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ xWindow\ =\ 0,\ yWindow\ =\ 0;}
 \DoxyCodeLine{00046\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ WindowW\ =\ 1920,\ WindowH\ =\ 1080;}
 \DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00049\ \ \ \ \ SDL\_Rect\ rect;}
-\DoxyCodeLine{00050\ \ \ \ \ SDL\_Surface\ *text\_surface;}
-\DoxyCodeLine{00051\ \}\mbox{\hyperlink{structkeybind__button}{keybind\_button}};}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ \textcolor{comment}{//Bouttons\ du\ menu\ keybinds}}
-\DoxyCodeLine{00054\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structkeybind__button}{keybind\_button}}\ keybinds\_buttons[5];}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \textcolor{comment}{//Curseur\ de\ la\ souris}}
-\DoxyCodeLine{00057\ \textcolor{keyword}{static}\ SDL\_Point\ mouse\_position;\ \ \ }
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00059\ \textcolor{comment}{//Events\ check}}
-\DoxyCodeLine{00060\ \textcolor{keyword}{static}\ SDL\_bool\ hover\_playbutton\ =\ SDL\_FALSE;}
-\DoxyCodeLine{00061\ \textcolor{keyword}{static}\ SDL\_bool\ hover\_connectbutton\ =\ SDL\_FALSE;}
-\DoxyCodeLine{00062\ \textcolor{keyword}{static}\ SDL\_bool\ hover\_hostbutton\ =\ SDL\_FALSE;}
-\DoxyCodeLine{00063\ \textcolor{keyword}{static}\ SDL\_bool\ hover\_settingsbutton\ =\ SDL\_FALSE;}
-\DoxyCodeLine{00064\ \textcolor{keyword}{static}\ SDL\_bool\ hover\_settings\_keybindsbutton\ =\ SDL\_FALSE;}
-\DoxyCodeLine{00065\ \textcolor{keyword}{static}\ SDL\_bool\ hover\_inventoryitem\ =\ SDL\_FALSE;}
-\DoxyCodeLine{00066\ \textcolor{keyword}{static}\ SDL\_bool\ clicked\_playbutton\ =\ SDL\_FALSE;}
-\DoxyCodeLine{00067\ \textcolor{keyword}{static}\ SDL\_bool\ clicked\_connectbutton\ =\ SDL\_FALSE;}
-\DoxyCodeLine{00068\ \textcolor{keyword}{static}\ SDL\_bool\ clicked\_hostbutton\ =\ SDL\_FALSE;}
-\DoxyCodeLine{00069\ \textcolor{keyword}{static}\ SDL\_bool\ clicked\_settingsbutton\ =\ SDL\_FALSE;}
-\DoxyCodeLine{00070\ \textcolor{keyword}{static}\ SDL\_bool\ clicked\_settings\_keybindsbutton\ =\ SDL\_FALSE;}
-\DoxyCodeLine{00071\ \textcolor{keyword}{static}\ SDL\_bool\ clicked\_inventoryitem\ =\ SDL\_FALSE;}
-\DoxyCodeLine{00072\ \textcolor{keyword}{static}\ SDL\_bool\ fullscreen\ =\ SDL\_FALSE;}
-\DoxyCodeLine{00073\ \textcolor{keyword}{static}\ SDL\_bool\ wearingItem\ =\ SDL\_FALSE;}
-\DoxyCodeLine{00074\ }
-\DoxyCodeLine{00075\ \textcolor{comment}{//menu\ buttons\ rectangle}}
-\DoxyCodeLine{00076\ \textcolor{keyword}{static}\ SDL\_Rect\ mouseRect;}
-\DoxyCodeLine{00077\ \textcolor{keyword}{static}\ SDL\_Rect\ play\_button\_rect;}
-\DoxyCodeLine{00078\ \textcolor{keyword}{static}\ SDL\_Rect\ connect\_button\_rect;}
-\DoxyCodeLine{00079\ \textcolor{keyword}{static}\ SDL\_Rect\ host\_button\_rect;}
-\DoxyCodeLine{00080\ \textcolor{keyword}{static}\ SDL\_Rect\ settings\_button\_rect;}
-\DoxyCodeLine{00081\ \textcolor{keyword}{static}\ SDL\_Rect\ inventory\_rect;}
-\DoxyCodeLine{00082\ \textcolor{keyword}{static}\ SDL\_Rect\ lifebar\_rect;}
-\DoxyCodeLine{00083\ \textcolor{keyword}{static}\ SDL\_Rect\ title\_rect;}
-\DoxyCodeLine{00084\ \textcolor{keyword}{static}\ SDL\_Rect\ settings\_menu\_bg\_rect;}
-\DoxyCodeLine{00085\ \textcolor{keyword}{static}\ SDL\_Rect\ settings\_menu\_keybinds\_button\_rect;}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \textcolor{keyword}{static}\ SDL\_DisplayMode\ DM;}
-\DoxyCodeLine{00088\ }
-\DoxyCodeLine{00089\ \textcolor{comment}{//window\ icon}}
-\DoxyCodeLine{00090\ \textcolor{keyword}{static}\ SDL\_Surface\ *icon\_surface\ =\ NULL;}
-\DoxyCodeLine{00091\ \ \ \ \ }
-\DoxyCodeLine{00092\ \textcolor{comment}{//texte\ assets}}
-\DoxyCodeLine{00093\ \textcolor{keyword}{static}\ SDL\_Color\ blackColor\ =\ \{0,\ 0,\ 0\};}
-\DoxyCodeLine{00094\ \textcolor{keyword}{static}\ SDL\_Color\ whiteColor\ =\ \{239,\ 198,\ 155\};}
-\DoxyCodeLine{00095\ \textcolor{keyword}{static}\ TTF\_Font\ *police\ =\ NULL;}
-\DoxyCodeLine{00096\ \textcolor{keyword}{static}\ TTF\_Font\ *item\_dafont\ =\ NULL;}
-\DoxyCodeLine{00097\ }
-\DoxyCodeLine{00098\ \textcolor{comment}{//game\ assets}}
-\DoxyCodeLine{00099\ \textcolor{keyword}{static}\ SDL\_Surface\ *lifebar\_surface\ =\ NULL;}
-\DoxyCodeLine{00100\ \textcolor{keyword}{static}\ SDL\_Surface\ *inventory\_surface\ =\ NULL;}
-\DoxyCodeLine{00101\ \textcolor{keyword}{static}\ SDL\_Surface\ *imagebullet\ =\ NULL;}
-\DoxyCodeLine{00102\ \textcolor{keyword}{static}\ SDL\_Surface\ *texte\ =\ NULL;}
-\DoxyCodeLine{00103\ \textcolor{keyword}{static}\ SDL\_Texture\ *texte\_texture\ =\ NULL;}
-\DoxyCodeLine{00104\ \textcolor{keyword}{static}\ SDL\_Surface\ *title\_surface\ =\ NULL;}
-\DoxyCodeLine{00105\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_joueur\_h1\ =\ NULL;}
-\DoxyCodeLine{00106\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_joueur\_h2\ =\ NULL;}
-\DoxyCodeLine{00107\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_joueur\_left\_1\ =\ NULL;}
-\DoxyCodeLine{00108\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_joueur\_left\_2\ =\ NULL;}
-\DoxyCodeLine{00109\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_joueur\_right\_1\ =\ NULL;}
-\DoxyCodeLine{00110\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_joueur\_right\_2\ =\ NULL;}
-\DoxyCodeLine{00111\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_joueur\_up\_1\ =\ NULL;}
-\DoxyCodeLine{00112\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_joueur\_up\_2\ =\ NULL;}
-\DoxyCodeLine{00113\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_joueur\_down\_1\ =\ NULL;}
-\DoxyCodeLine{00114\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_joueur\_down\_2\ =\ NULL;}
-\DoxyCodeLine{00115\ }
-\DoxyCodeLine{00116\ \textcolor{comment}{//items\ surfaces}}
-\DoxyCodeLine{00117\ \textcolor{keyword}{static}\ SDL\_Surface\ *apple\_food\_surface\ =\ NULL;}
-\DoxyCodeLine{00118\ }
-\DoxyCodeLine{00119\ \textcolor{comment}{//items\ textures}}
-\DoxyCodeLine{00120\ \textcolor{keyword}{static}\ SDL\_Texture\ *apple\_food\_texture\ =\ NULL;}
-\DoxyCodeLine{00121\ }
-\DoxyCodeLine{00122\ \textcolor{comment}{//items\ rectangles}}
-\DoxyCodeLine{00123\ \textcolor{keyword}{static}\ SDL\_Rect\ apple\_food\_rect;}
-\DoxyCodeLine{00124\ }
-\DoxyCodeLine{00125\ \textcolor{keyword}{static}\ SDL\_Texture\ *lifebar\_texture\ =\ NULL;}
-\DoxyCodeLine{00126\ \textcolor{keyword}{static}\ SDL\_Texture\ *inventory\_texture\ =\ NULL;}
-\DoxyCodeLine{00127\ \textcolor{keyword}{static}\ SDL\_Texture\ *texturebullet\ =\ NULL;\ \ \ }
-\DoxyCodeLine{00128\ \textcolor{keyword}{static}\ SDL\_Texture\ *title\_texture\ =\ NULL;}
-\DoxyCodeLine{00129\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_joueur\_h1\ =\ NULL;}
-\DoxyCodeLine{00130\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_joueur\_h2\ =\ NULL;}
-\DoxyCodeLine{00131\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_joueur\_left\_1\ =\ NULL;}
-\DoxyCodeLine{00132\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_joueur\_left\_2\ =\ NULL;}
-\DoxyCodeLine{00133\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_joueur\_right\_1\ =\ NULL;}
-\DoxyCodeLine{00134\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_joueur\_right\_2\ =\ NULL;}
-\DoxyCodeLine{00135\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_joueur\_up\_1\ =\ NULL;}
-\DoxyCodeLine{00136\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_joueur\_up\_2\ =\ NULL;}
-\DoxyCodeLine{00137\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_joueur\_down\_1\ =\ NULL;}
-\DoxyCodeLine{00138\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_joueur\_down\_2\ =\ NULL;}
-\DoxyCodeLine{00139\ }
-\DoxyCodeLine{00140\ \textcolor{comment}{//menu\ assets}}
-\DoxyCodeLine{00141\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_play\_inert\ =\ NULL;}
-\DoxyCodeLine{00142\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_play\_hover\ =\ NULL;}
-\DoxyCodeLine{00143\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_connect\_inert\ =\ NULL;}
-\DoxyCodeLine{00144\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_connect\_hover\ =\ NULL;}
-\DoxyCodeLine{00145\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_host\_inert\ =\ NULL;}
-\DoxyCodeLine{00146\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_host\_hover\ =\ NULL;}
-\DoxyCodeLine{00147\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_settings\_inert\ =\ NULL;}
-\DoxyCodeLine{00148\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_settings\_bg\ =\ NULL;}
-\DoxyCodeLine{00149\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_settings\_menu\_keybinds\_button\ =\ NULL;}
-\DoxyCodeLine{00150\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_settings\_menu\_keybinds\_button\_hover\ =\ NULL;}
-\DoxyCodeLine{00151\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_settings\_menu\_key\_button\ =\ NULL;}
-\DoxyCodeLine{00152\ }
-\DoxyCodeLine{00153\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_play\_inert\ =\ NULL;}
-\DoxyCodeLine{00154\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_play\_hover\ =\ NULL;\ \ }
-\DoxyCodeLine{00155\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_connect\_inert\ =\ NULL;}
-\DoxyCodeLine{00156\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_connect\_hover\ =\ NULL;\ \ \ }
-\DoxyCodeLine{00157\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_host\_inert\ =\ NULL;}
-\DoxyCodeLine{00158\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_host\_hover\ =\ NULL;\ \ }
-\DoxyCodeLine{00159\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_settings\_inert\ =\ NULL;}
-\DoxyCodeLine{00160\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_settings\_bg\ =\ NULL;}
-\DoxyCodeLine{00161\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_settings\_menu\_keybinds\_button\ =\ NULL;}
-\DoxyCodeLine{00162\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_settings\_menu\_keybinds\_button\_hover\ =\ NULL;}
-\DoxyCodeLine{00163\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_settings\_menu\_key\_button\ =\ NULL;}
-\DoxyCodeLine{00164\ }
-\DoxyCodeLine{00165\ \textcolor{comment}{//window\ init}}
-\DoxyCodeLine{00166\ }
-\DoxyCodeLine{00167\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\ =\ NULL;}
-\DoxyCodeLine{00168\ \textcolor{keyword}{static}\ SDL\_Surface\ *cursor\ =\ NULL;}
-\DoxyCodeLine{00169\ \textcolor{keyword}{static}\ SDL\_Surface\ *cursor\_select\ =\ NULL;}
-\DoxyCodeLine{00170\ \textcolor{keyword}{static}\ SDL\_Texture\ *cursor\_texture\ =\ NULL;}
-\DoxyCodeLine{00171\ \textcolor{keyword}{static}\ SDL\_Texture\ *cursor\_select\_texture\ =\ NULL;}
-\DoxyCodeLine{00172\ }
-\DoxyCodeLine{00173\ \textcolor{comment}{//background\ }}
-\DoxyCodeLine{00174\ \textcolor{keyword}{static}\ SDL\_Surface\ *background\ =\ NULL;}
-\DoxyCodeLine{00175\ \textcolor{keyword}{static}\ SDL\_Texture\ *background\_texture\ =\ NULL;}
-\DoxyCodeLine{00176\ }
-\DoxyCodeLine{00177\ \textcolor{comment}{//static\ functions}}
-\DoxyCodeLine{00178\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ surfacesInit();}
-\DoxyCodeLine{00179\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_acd3f39401c59bbd01c9663c5348c63c1}{SDL\_ExitWithError}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *message);}
-\DoxyCodeLine{00180\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ sortPlayers();}
-\DoxyCodeLine{00181\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ dessinerBalle(SDL\_Texture\ *texture,\ SDL\_Renderer\ *renderer,\ SDL\_Rect\ rectangle,\ SDL\_Window\ *window,\ \mbox{\hyperlink{struct_bullet}{Bullet}}\ *b,\ \textcolor{keywordtype}{int}\ rotation,\ \textcolor{keywordtype}{int}\ vitesse);}
-\DoxyCodeLine{00182\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ init\_texture(SDL\_Surface\ **surface,\ SDL\_Texture\ **texture);}
-\DoxyCodeLine{00183\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ switchAnimation(\mbox{\hyperlink{structplayer__t}{player\_t}}\ Joueur);}
-\DoxyCodeLine{00184\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ windowInit();}
-\DoxyCodeLine{00185\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ texturesInit();}
-\DoxyCodeLine{00186\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ rectanglesInit();}
-\DoxyCodeLine{00187\ }
-\DoxyCodeLine{00188\ \textcolor{comment}{//global\ functions}}
-\DoxyCodeLine{00189\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_aad1bede5062a8bca30d1b8bbcafef3c8}{switchButtonState\_hover}}(T\_BUTTONS\_HOVER\ button);}
-\DoxyCodeLine{00190\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_a20432793012cb1509389bf14f94a8ee9}{changeButtonState\_hover}}(T\_BUTTONS\_HOVER\ button,\ \textcolor{keywordtype}{int}\ state);}
-\DoxyCodeLine{00191\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_ae7efaad914bff1a5511184fd96f0d9b7}{changeButtonState\_clicked}}(T\_BUTTONS\_CLICKED\ button,\ \textcolor{keywordtype}{int}\ state);}
-\DoxyCodeLine{00192\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{menus_8h_ab283db36e8911aeb9d32d5886f156570}{getButtonState\_clicked}}(T\_BUTTONS\_CLICKED\ button);}
-\DoxyCodeLine{00193\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_a8cbdceb9c205a8d9c279691a09b337a1}{startAnimation}}(\textcolor{keywordtype}{char}\ *animation,\ \mbox{\hyperlink{structplayer__t}{player\_t}}\ *joueur);}
-\DoxyCodeLine{00194\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{menus_8h_a62b05feb314b3c7d6effb9892fa5b8ae}{onButton}}(T\_BUTTONS\_HOVER\ button);}
-\DoxyCodeLine{00195\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_aad0757276ad4bc900c8826f8ecbe6ecc}{toggleFullscreen}}();}
-\DoxyCodeLine{00196\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_a258a73384029adb1d7e22ca959235633}{drawButtons}}();}
-\DoxyCodeLine{00197\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_aa13653318c21b0e6b86838e6091bfc9a}{drawMenu}}();}
-\DoxyCodeLine{00198\ \textcolor{keywordtype}{void}\ mainMenu();}
-\DoxyCodeLine{00199\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_a10da25e92e69613be93d099bb029feb2}{update\_screen}}();}
-\DoxyCodeLine{00200\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_a48e3fe80d276c94e23eed3c1017a05ee}{init\_menus\_vars}}();}
-\DoxyCodeLine{00201\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_aab7430a217db9969c46ead48adffbd05}{drawMouse}}();}
-\DoxyCodeLine{00202\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_a2dfe41d8c0f122241c47441391c02de3}{drawPlayer}}(SDL\_Texture\ *texture\_joueur,\ SDL\_Rect\ playerRect);}
-\DoxyCodeLine{00203\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_a3ccdb6767f1237284bf7c8e0d3e3eacb}{destroyAll}}();}
-\DoxyCodeLine{00204\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_ad452b0eb987136d6af7d68a474fd7bc1}{drawButton}}(SDL\_Texture\ *texture,\ SDL\_Rect\ rectangle,\ SDL\_Surface\ *surface);}
-\DoxyCodeLine{00205\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_ab5e1f7649b8b40f10bd9168c6a098883}{buttonHover}}(SDL\_Surface\ *button\_surface,\ SDL\_Texture\ *button\_texture,\ SDL\_Rect\ *button\_rect,\ SDL\_bool\ *hover\_button);}
-\DoxyCodeLine{00206\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_ad9a4714e86590146659768dcd5357272}{buttonHoverWithAnimation}}(SDL\_Surface\ *button\_surface,\ SDL\_Texture\ *button\_texture,\ SDL\_Rect\ *button\_rect,\ SDL\_bool\ *hover\_button,\ \textcolor{keywordtype}{void}*\ (*p)(\textcolor{keywordtype}{void}*),\ \textcolor{keywordtype}{void}*\ (*p2)(\textcolor{keywordtype}{void}*));}
-\DoxyCodeLine{00207\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_a9cde538499636a6a74cb0f3e206d4a73}{displayError}}(\textcolor{keywordtype}{char}\ *s);}
-\DoxyCodeLine{00208\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_ae06068ec3d07bace5f405fbf6eeb3c20}{drawError}}(SDL\_Rect\ rect,\ SDL\_Texture\ *texture);}
-\DoxyCodeLine{00209\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_a317983aacbc3405e75432d6290b1b280}{drawImage}}(SDL\_Texture\ *texture,\ SDL\_Rect\ rect);}
-\DoxyCodeLine{00210\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{menus_8h_a48c083415f7a9126fec9cc228b651991}{settings\_button\_animation\_right}}();}
-\DoxyCodeLine{00211\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{menus_8h_ab6d77ef359eb1ad9820145690e17a427}{settings\_button\_animation\_left}}();}
-\DoxyCodeLine{00212\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{menus_8h_a2baaae2f0feebce6bd015a37345e2270}{running\_down\_animation}}(\textcolor{keywordtype}{void}\ *j);}
-\DoxyCodeLine{00213\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{menus_8h_ad1aa5c5c7c6e33913f1a654a09ba6a00}{running\_up\_animation}}(\textcolor{keywordtype}{void}\ *j);}
-\DoxyCodeLine{00214\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{menus_8h_a1fdb9aee8fd08118ac0bc4234da6a2eb}{running\_right\_animation}}(\textcolor{keywordtype}{void}\ *j);}
-\DoxyCodeLine{00215\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{menus_8h_a2fdf89dd6b22fb5e5d73f8370470985b}{running\_left\_animation}}(\textcolor{keywordtype}{void}\ *j);}
-\DoxyCodeLine{00216\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{menus_8h_a0fa3f94da8421e8f4e5d11404f87856b}{breathAnimation}}(\textcolor{keywordtype}{void}\ *j);}
-\DoxyCodeLine{00217\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{menus_8h_ab804df0c510979d77fd5599feef21ae0}{drawPlayers}}(\mbox{\hyperlink{structplayer__t}{player\_t}}\ *joueurs,\ \textcolor{keywordtype}{int}\ size);}
-\DoxyCodeLine{00218\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_af62b6c78dad8d3b0ae378b5174a28784}{clickItem}}();}
-\DoxyCodeLine{00219\ }
-\DoxyCodeLine{00220\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00048\ \textcolor{comment}{//Curseur\ de\ la\ souris}}
+\DoxyCodeLine{00049\ \textcolor{keyword}{static}\ SDL\_Point\ mouse\_position;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{comment}{//Events\ check}}
+\DoxyCodeLine{00052\ \textcolor{keyword}{static}\ SDL\_bool\ hover\_playbutton\ =\ SDL\_FALSE;}
+\DoxyCodeLine{00053\ \textcolor{keyword}{static}\ SDL\_bool\ hover\_connectbutton\ =\ SDL\_FALSE;}
+\DoxyCodeLine{00054\ \textcolor{keyword}{static}\ SDL\_bool\ hover\_hostbutton\ =\ SDL\_FALSE;}
+\DoxyCodeLine{00055\ \textcolor{keyword}{static}\ SDL\_bool\ hover\_settingsbutton\ =\ SDL\_FALSE;}
+\DoxyCodeLine{00056\ \textcolor{keyword}{static}\ SDL\_bool\ hover\_settings\_keybindsbutton\ =\ SDL\_FALSE;}
+\DoxyCodeLine{00057\ \textcolor{keyword}{static}\ SDL\_bool\ hover\_keybind\_up\ =\ SDL\_FALSE;}
+\DoxyCodeLine{00058\ \textcolor{keyword}{static}\ SDL\_bool\ hover\_keybind\_down\ =\ SDL\_FALSE;}
+\DoxyCodeLine{00059\ \textcolor{keyword}{static}\ SDL\_bool\ hover\_keybind\_left\ =\ SDL\_FALSE;}
+\DoxyCodeLine{00060\ \textcolor{keyword}{static}\ SDL\_bool\ hover\_keybind\_right\ =\ SDL\_FALSE;}
+\DoxyCodeLine{00061\ \textcolor{keyword}{static}\ SDL\_bool\ hover\_inventoryitem\ =\ SDL\_FALSE;}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{keyword}{static}\ SDL\_bool\ clicked\_playbutton\ =\ SDL\_FALSE;}
+\DoxyCodeLine{00064\ \textcolor{keyword}{static}\ SDL\_bool\ clicked\_connectbutton\ =\ SDL\_FALSE;}
+\DoxyCodeLine{00065\ \textcolor{keyword}{static}\ SDL\_bool\ clicked\_hostbutton\ =\ SDL\_FALSE;}
+\DoxyCodeLine{00066\ \textcolor{keyword}{static}\ SDL\_bool\ clicked\_settingsbutton\ =\ SDL\_FALSE;}
+\DoxyCodeLine{00067\ \textcolor{keyword}{static}\ SDL\_bool\ clicked\_settings\_keybindsbutton\ =\ SDL\_FALSE;}
+\DoxyCodeLine{00068\ \textcolor{keyword}{static}\ SDL\_bool\ clicked\_settings\_keybind\_up\ =\ SDL\_FALSE;}
+\DoxyCodeLine{00069\ \textcolor{keyword}{static}\ SDL\_bool\ clicked\_settings\_keybind\_down\ =\ SDL\_FALSE;}
+\DoxyCodeLine{00070\ \textcolor{keyword}{static}\ SDL\_bool\ clicked\_settings\_keybind\_left\ =\ SDL\_FALSE;}
+\DoxyCodeLine{00071\ \textcolor{keyword}{static}\ SDL\_bool\ clicked\_settings\_keybind\_right\ =\ SDL\_FALSE;}
+\DoxyCodeLine{00072\ \textcolor{keyword}{static}\ SDL\_bool\ clicked\_inventoryitem\ =\ SDL\_FALSE;}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{keyword}{static}\ SDL\_bool\ fullscreen\ =\ SDL\_FALSE;}
+\DoxyCodeLine{00075\ \textcolor{keyword}{static}\ SDL\_bool\ wearingItem\ =\ SDL\_FALSE;}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{comment}{//menu\ buttons\ rectangle}}
+\DoxyCodeLine{00078\ \textcolor{keyword}{static}\ SDL\_Rect\ mouseRect;}
+\DoxyCodeLine{00079\ \textcolor{keyword}{static}\ SDL\_Rect\ play\_button\_rect;}
+\DoxyCodeLine{00080\ \textcolor{keyword}{static}\ SDL\_Rect\ connect\_button\_rect;}
+\DoxyCodeLine{00081\ \textcolor{keyword}{static}\ SDL\_Rect\ host\_button\_rect;}
+\DoxyCodeLine{00082\ \textcolor{keyword}{static}\ SDL\_Rect\ settings\_button\_rect;}
+\DoxyCodeLine{00083\ \textcolor{keyword}{static}\ SDL\_Rect\ inventory\_rect;}
+\DoxyCodeLine{00084\ \textcolor{keyword}{static}\ SDL\_Rect\ lifebar\_rect;}
+\DoxyCodeLine{00085\ \textcolor{keyword}{static}\ SDL\_Rect\ title\_rect;}
+\DoxyCodeLine{00086\ \textcolor{keyword}{static}\ SDL\_Rect\ settings\_menu\_bg\_rect;}
+\DoxyCodeLine{00087\ \textcolor{keyword}{static}\ SDL\_Rect\ settings\_menu\_keybinds\_button\_rect;}
+\DoxyCodeLine{00088\ \textcolor{keyword}{static}\ SDL\_Rect\ settings\_menu\_keybind\_up\_rect;}
+\DoxyCodeLine{00089\ \textcolor{keyword}{static}\ SDL\_Rect\ settings\_menu\_keybind\_down\_rect;}
+\DoxyCodeLine{00090\ \textcolor{keyword}{static}\ SDL\_Rect\ settings\_menu\_keybind\_left\_rect;}
+\DoxyCodeLine{00091\ \textcolor{keyword}{static}\ SDL\_Rect\ settings\_menu\_keybind\_right\_rect;}
+\DoxyCodeLine{00092\ \textcolor{keyword}{static}\ SDL\_Rect\ keybind\_waiting\_rect;}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{keyword}{static}\ SDL\_DisplayMode\ DM;}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \textcolor{comment}{//window\ icon}}
+\DoxyCodeLine{00097\ \textcolor{keyword}{static}\ SDL\_Surface\ *icon\_surface\ =\ NULL;}
+\DoxyCodeLine{00098\ \ \ \ \ }
+\DoxyCodeLine{00099\ \textcolor{comment}{//texte\ assets}}
+\DoxyCodeLine{00100\ \textcolor{keyword}{static}\ SDL\_Color\ blackColor\ =\ \{0,\ 0,\ 0\};}
+\DoxyCodeLine{00101\ \textcolor{keyword}{static}\ SDL\_Color\ whiteColor\ =\ \{239,\ 198,\ 155\};}
+\DoxyCodeLine{00102\ \textcolor{keyword}{static}\ TTF\_Font\ *police\ =\ NULL;}
+\DoxyCodeLine{00103\ \textcolor{keyword}{static}\ TTF\_Font\ *item\_dafont\ =\ NULL;}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \textcolor{comment}{//game\ assets}}
+\DoxyCodeLine{00106\ \textcolor{keyword}{static}\ SDL\_Surface\ *lifebar\_surface\ =\ NULL;}
+\DoxyCodeLine{00107\ \textcolor{keyword}{static}\ SDL\_Surface\ *inventory\_surface\ =\ NULL;}
+\DoxyCodeLine{00108\ \textcolor{keyword}{static}\ SDL\_Surface\ *imagebullet\ =\ NULL;}
+\DoxyCodeLine{00109\ \textcolor{keyword}{static}\ SDL\_Surface\ *texte\ =\ NULL;}
+\DoxyCodeLine{00110\ \textcolor{keyword}{static}\ SDL\_Texture\ *texte\_texture\ =\ NULL;}
+\DoxyCodeLine{00111\ \textcolor{keyword}{static}\ SDL\_Surface\ *title\_surface\ =\ NULL;}
+\DoxyCodeLine{00112\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_joueur\_h1\ =\ NULL;}
+\DoxyCodeLine{00113\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_joueur\_h2\ =\ NULL;}
+\DoxyCodeLine{00114\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_joueur\_left\_1\ =\ NULL;}
+\DoxyCodeLine{00115\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_joueur\_left\_2\ =\ NULL;}
+\DoxyCodeLine{00116\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_joueur\_right\_1\ =\ NULL;}
+\DoxyCodeLine{00117\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_joueur\_right\_2\ =\ NULL;}
+\DoxyCodeLine{00118\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_joueur\_up\_1\ =\ NULL;}
+\DoxyCodeLine{00119\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_joueur\_up\_2\ =\ NULL;}
+\DoxyCodeLine{00120\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_joueur\_down\_1\ =\ NULL;}
+\DoxyCodeLine{00121\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_joueur\_down\_2\ =\ NULL;}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \textcolor{comment}{//items\ surfaces}}
+\DoxyCodeLine{00124\ \textcolor{keyword}{static}\ SDL\_Surface\ *apple\_food\_surface\ =\ NULL;}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \textcolor{comment}{//items\ textures}}
+\DoxyCodeLine{00127\ \textcolor{keyword}{static}\ SDL\_Texture\ *apple\_food\_texture\ =\ NULL;}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \textcolor{comment}{//items\ rectangles}}
+\DoxyCodeLine{00130\ \textcolor{keyword}{static}\ SDL\_Rect\ apple\_food\_rect;}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \textcolor{keyword}{static}\ SDL\_Texture\ *lifebar\_texture\ =\ NULL;}
+\DoxyCodeLine{00133\ \textcolor{keyword}{static}\ SDL\_Texture\ *inventory\_texture\ =\ NULL;}
+\DoxyCodeLine{00134\ \textcolor{keyword}{static}\ SDL\_Texture\ *texturebullet\ =\ NULL;\ \ \ }
+\DoxyCodeLine{00135\ \textcolor{keyword}{static}\ SDL\_Texture\ *title\_texture\ =\ NULL;}
+\DoxyCodeLine{00136\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_joueur\_h1\ =\ NULL;}
+\DoxyCodeLine{00137\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_joueur\_h2\ =\ NULL;}
+\DoxyCodeLine{00138\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_joueur\_left\_1\ =\ NULL;}
+\DoxyCodeLine{00139\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_joueur\_left\_2\ =\ NULL;}
+\DoxyCodeLine{00140\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_joueur\_right\_1\ =\ NULL;}
+\DoxyCodeLine{00141\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_joueur\_right\_2\ =\ NULL;}
+\DoxyCodeLine{00142\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_joueur\_up\_1\ =\ NULL;}
+\DoxyCodeLine{00143\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_joueur\_up\_2\ =\ NULL;}
+\DoxyCodeLine{00144\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_joueur\_down\_1\ =\ NULL;}
+\DoxyCodeLine{00145\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_joueur\_down\_2\ =\ NULL;}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \textcolor{comment}{//menu\ assets}}
+\DoxyCodeLine{00148\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_play\_inert\ =\ NULL;}
+\DoxyCodeLine{00149\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_play\_hover\ =\ NULL;}
+\DoxyCodeLine{00150\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_connect\_inert\ =\ NULL;}
+\DoxyCodeLine{00151\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_connect\_hover\ =\ NULL;}
+\DoxyCodeLine{00152\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_host\_inert\ =\ NULL;}
+\DoxyCodeLine{00153\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_host\_hover\ =\ NULL;}
+\DoxyCodeLine{00154\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_settings\_inert\ =\ NULL;}
+\DoxyCodeLine{00155\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_settings\_bg\ =\ NULL;}
+\DoxyCodeLine{00156\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_settings\_menu\_keybinds\_button\ =\ NULL;}
+\DoxyCodeLine{00157\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_settings\_menu\_keybinds\_button\_hover\ =\ NULL;}
+\DoxyCodeLine{00158\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_settings\_menu\_key\_button\ =\ NULL;}
+\DoxyCodeLine{00159\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_settings\_menu\_key\_button\_hover\ =\ NULL;}
+\DoxyCodeLine{00160\ \textcolor{keyword}{static}\ SDL\_Surface\ *surface\_keybind\_waiting\ =\ NULL;}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_play\_inert\ =\ NULL;}
+\DoxyCodeLine{00163\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_play\_hover\ =\ NULL;\ \ }
+\DoxyCodeLine{00164\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_connect\_inert\ =\ NULL;}
+\DoxyCodeLine{00165\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_connect\_hover\ =\ NULL;\ \ \ }
+\DoxyCodeLine{00166\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_host\_inert\ =\ NULL;}
+\DoxyCodeLine{00167\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_host\_hover\ =\ NULL;\ \ }
+\DoxyCodeLine{00168\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_settings\_inert\ =\ NULL;}
+\DoxyCodeLine{00169\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_settings\_bg\ =\ NULL;}
+\DoxyCodeLine{00170\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_settings\_menu\_keybinds\_button\ =\ NULL;}
+\DoxyCodeLine{00171\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_settings\_menu\_keybinds\_button\_hover\ =\ NULL;}
+\DoxyCodeLine{00172\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_settings\_menu\_key\_button\ =\ NULL;}
+\DoxyCodeLine{00173\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_settings\_menu\_key\_button\_hover\ =\ NULL;}
+\DoxyCodeLine{00174\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\_keybind\_waiting\ =\ NULL;}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \textcolor{comment}{//window\ init}}
+\DoxyCodeLine{00177\ \textcolor{keyword}{static}\ SDL\_Texture\ *texture\ =\ NULL;}
+\DoxyCodeLine{00178\ \textcolor{keyword}{static}\ SDL\_Surface\ *cursor\ =\ NULL;}
+\DoxyCodeLine{00179\ \textcolor{keyword}{static}\ SDL\_Surface\ *cursor\_select\ =\ NULL;}
+\DoxyCodeLine{00180\ \textcolor{keyword}{static}\ SDL\_Texture\ *cursor\_texture\ =\ NULL;}
+\DoxyCodeLine{00181\ \textcolor{keyword}{static}\ SDL\_Texture\ *cursor\_select\_texture\ =\ NULL;}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \textcolor{comment}{//background\ }}
+\DoxyCodeLine{00184\ \textcolor{keyword}{static}\ SDL\_Surface\ *background\ =\ NULL;}
+\DoxyCodeLine{00185\ \textcolor{keyword}{static}\ SDL\_Texture\ *background\_texture\ =\ NULL;}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \textcolor{comment}{//static\ functions}}
+\DoxyCodeLine{00188\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ surfacesInit();}
+\DoxyCodeLine{00189\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_acd3f39401c59bbd01c9663c5348c63c1}{SDL\_ExitWithError}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *message);}
+\DoxyCodeLine{00190\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ sortPlayers();}
+\DoxyCodeLine{00191\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ dessinerBalle(SDL\_Texture\ *texture,\ SDL\_Renderer\ *renderer,\ SDL\_Rect\ rectangle,\ SDL\_Window\ *window,\ \mbox{\hyperlink{struct_bullet}{Bullet}}\ *b,\ \textcolor{keywordtype}{int}\ rotation,\ \textcolor{keywordtype}{int}\ vitesse);}
+\DoxyCodeLine{00192\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ init\_texture(SDL\_Surface\ **surface,\ SDL\_Texture\ **texture);}
+\DoxyCodeLine{00193\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ switchAnimation(\mbox{\hyperlink{structplayer__t}{player\_t}}\ Joueur);}
+\DoxyCodeLine{00194\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ windowInit();}
+\DoxyCodeLine{00195\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ texturesInit();}
+\DoxyCodeLine{00196\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ rectanglesInit();}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \textcolor{comment}{//global\ functions}}
+\DoxyCodeLine{00199\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_aad1bede5062a8bca30d1b8bbcafef3c8}{switchButtonState\_hover}}(T\_BUTTONS\_HOVER\ button);}
+\DoxyCodeLine{00200\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_a20432793012cb1509389bf14f94a8ee9}{changeButtonState\_hover}}(T\_BUTTONS\_HOVER\ button,\ \textcolor{keywordtype}{int}\ state);}
+\DoxyCodeLine{00201\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_ae7efaad914bff1a5511184fd96f0d9b7}{changeButtonState\_clicked}}(T\_BUTTONS\_CLICKED\ button,\ \textcolor{keywordtype}{int}\ state);}
+\DoxyCodeLine{00202\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{menus_8h_ab283db36e8911aeb9d32d5886f156570}{getButtonState\_clicked}}(T\_BUTTONS\_CLICKED\ button);}
+\DoxyCodeLine{00203\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_a8cbdceb9c205a8d9c279691a09b337a1}{startAnimation}}(\textcolor{keywordtype}{char}\ *animation,\ \mbox{\hyperlink{structplayer__t}{player\_t}}\ *joueur);}
+\DoxyCodeLine{00204\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{menus_8h_a62b05feb314b3c7d6effb9892fa5b8ae}{onButton}}(T\_BUTTONS\_HOVER\ button);}
+\DoxyCodeLine{00205\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_aad0757276ad4bc900c8826f8ecbe6ecc}{toggleFullscreen}}();}
+\DoxyCodeLine{00206\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_a258a73384029adb1d7e22ca959235633}{drawButtons}}();}
+\DoxyCodeLine{00207\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_aa13653318c21b0e6b86838e6091bfc9a}{drawMenu}}();}
+\DoxyCodeLine{00208\ \textcolor{keywordtype}{void}\ mainMenu();}
+\DoxyCodeLine{00209\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_a10da25e92e69613be93d099bb029feb2}{update\_screen}}();}
+\DoxyCodeLine{00210\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_a48e3fe80d276c94e23eed3c1017a05ee}{init\_menus\_vars}}();}
+\DoxyCodeLine{00211\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_aab7430a217db9969c46ead48adffbd05}{drawMouse}}();}
+\DoxyCodeLine{00212\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_a2dfe41d8c0f122241c47441391c02de3}{drawPlayer}}(SDL\_Texture\ *texture\_joueur,\ SDL\_Rect\ playerRect);}
+\DoxyCodeLine{00213\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_a3ccdb6767f1237284bf7c8e0d3e3eacb}{destroyAll}}();}
+\DoxyCodeLine{00214\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_ad452b0eb987136d6af7d68a474fd7bc1}{drawButton}}(SDL\_Texture\ *texture,\ SDL\_Rect\ rectangle,\ SDL\_Surface\ *surface);}
+\DoxyCodeLine{00215\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_ab5e1f7649b8b40f10bd9168c6a098883}{buttonHover}}(SDL\_Surface\ *button\_surface,\ SDL\_Texture\ *button\_texture,\ SDL\_Rect\ *button\_rect,\ SDL\_bool\ *hover\_button);}
+\DoxyCodeLine{00216\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_ad9a4714e86590146659768dcd5357272}{buttonHoverWithAnimation}}(SDL\_Surface\ *button\_surface,\ SDL\_Texture\ *button\_texture,\ SDL\_Rect\ *button\_rect,\ SDL\_bool\ *hover\_button,\ \textcolor{keywordtype}{void}*\ (*p)(\textcolor{keywordtype}{void}*),\ \textcolor{keywordtype}{void}*\ (*p2)(\textcolor{keywordtype}{void}*));}
+\DoxyCodeLine{00217\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_a9cde538499636a6a74cb0f3e206d4a73}{displayError}}(\textcolor{keywordtype}{char}\ *s);}
+\DoxyCodeLine{00218\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_ae06068ec3d07bace5f405fbf6eeb3c20}{drawError}}(SDL\_Rect\ rect,\ SDL\_Texture\ *texture);}
+\DoxyCodeLine{00219\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_a317983aacbc3405e75432d6290b1b280}{drawImage}}(SDL\_Texture\ *texture,\ SDL\_Rect\ rect);}
+\DoxyCodeLine{00220\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{menus_8h_a48c083415f7a9126fec9cc228b651991}{settings\_button\_animation\_right}}();}
+\DoxyCodeLine{00221\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{menus_8h_ab6d77ef359eb1ad9820145690e17a427}{settings\_button\_animation\_left}}();}
+\DoxyCodeLine{00222\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{menus_8h_a2baaae2f0feebce6bd015a37345e2270}{running\_down\_animation}}(\textcolor{keywordtype}{void}\ *j);}
+\DoxyCodeLine{00223\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{menus_8h_ad1aa5c5c7c6e33913f1a654a09ba6a00}{running\_up\_animation}}(\textcolor{keywordtype}{void}\ *j);}
+\DoxyCodeLine{00224\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{menus_8h_a1fdb9aee8fd08118ac0bc4234da6a2eb}{running\_right\_animation}}(\textcolor{keywordtype}{void}\ *j);}
+\DoxyCodeLine{00225\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{menus_8h_a2fdf89dd6b22fb5e5d73f8370470985b}{running\_left\_animation}}(\textcolor{keywordtype}{void}\ *j);}
+\DoxyCodeLine{00226\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{menus_8h_a0fa3f94da8421e8f4e5d11404f87856b}{breathAnimation}}(\textcolor{keywordtype}{void}\ *j);}
+\DoxyCodeLine{00227\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{menus_8h_ab804df0c510979d77fd5599feef21ae0}{drawPlayers}}(\mbox{\hyperlink{structplayer__t}{player\_t}}\ *joueurs,\ \textcolor{keywordtype}{int}\ size);}
+\DoxyCodeLine{00228\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_af62b6c78dad8d3b0ae378b5174a28784}{clickItem}}();}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ configKey(T\_BUTTONS\_CLICKED\ button);}
+\DoxyCodeLine{00231\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{menus_8h_acbae57aa2d8c508e63c0597b44024977}{changeMenu}}(T\_MENU\ menuTarget);}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

@@ -1,0 +1,5 @@
+<map id="drawChar" name="drawChar">
+<area shape="rect" id="node1" title="Affiche un seul caractère en ttf." alt="" coords="5,31,81,56"/>
+<area shape="rect" id="node2" href="$menus_8c.html#a3ccdb6767f1237284bf7c8e0d3e3eacb" title="Détruit la fenêtre et le rendu." alt="" coords="155,5,235,31"/>
+<area shape="rect" id="node3" href="$menus_8c.html#acd3f39401c59bbd01c9663c5348c63c1" title="Nous renvoi une erreur SDL." alt="" coords="129,55,261,80"/>
+</map>

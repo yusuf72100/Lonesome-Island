@@ -1,5 +1,5 @@
 <map id="toKeyCode" name="toKeyCode">
-<area shape="rect" id="node1" title="Convertis un entier en sdl keycode et le met dans le tableau des keycode local." alt="" coords="247,29,333,55"/>
-<area shape="rect" id="node2" href="$settings_8c.html#a1165e1d4439a045e94970c9fbc73bb3c" title="Fonction qui s&#39;occupe de charger les paramètres du joueur depuis un fichier." alt="" coords="104,29,199,55"/>
-<area shape="rect" id="node3" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,29,56,55"/>
+<area shape="rect" id="node1" title="Convertis un entier en sdl keycode et le met dans le tableau des keycode local." alt="" coords="247,5,333,31"/>
+<area shape="rect" id="node2" href="$settings_8c.html#a1165e1d4439a045e94970c9fbc73bb3c" title="Fonction qui s&#39;occupe de charger les paramètres du joueur depuis un fichier." alt="" coords="104,5,199,31"/>
+<area shape="rect" id="node3" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
 </map>

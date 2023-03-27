@@ -1,8 +1,8 @@
-<map id="C:/Users/Yusuf/Lonesome&#45;Island/src/sound.h" name="C:/Users/Yusuf/Lonesome&#45;Island/src/sound.h">
-<area shape="rect" id="node1" title="Fichier contenant les sons." alt="" coords="303,5,477,45"/>
-<area shape="rect" id="node2" href="$main_8h.html" title="Fichier contenant toutes les variables d&#39;affichage." alt="" coords="204,93,379,133"/>
-<area shape="rect" id="node6" href="$sound_8c.html" title="Fichier de gestion de l&#39;audio." alt="" coords="403,93,577,133"/>
-<area shape="rect" id="node3" href="$client_8c.html" title="Fichier qui contient la configuration du socket client." alt="" coords="5,181,180,221"/>
-<area shape="rect" id="node4" href="$main_8c.html" title="Fichier principal du programme qui s&#39;occupera de la partie jeu." alt="" coords="204,181,379,221"/>
-<area shape="rect" id="node5" href="$menus_8c.html" title="Fichier qui s&#39;occupera de l&#39;affichage des éléments." alt="" coords="403,181,577,221"/>
+<map id="C:/Users/Yusuf/CLionProjects/Lonesome&#45;Island/src/sound.h" name="C:/Users/Yusuf/CLionProjects/Lonesome&#45;Island/src/sound.h">
+<area shape="rect" id="node1" title="Fichier contenant les sons." alt="" coords="333,5,529,45"/>
+<area shape="rect" id="node2" href="$main_8h.html" title="Fichier contenant toutes les variables d&#39;affichage." alt="" coords="224,93,419,133"/>
+<area shape="rect" id="node6" href="$sound_8c.html" title="Fichier de gestion de l&#39;audio." alt="" coords="443,93,639,133"/>
+<area shape="rect" id="node3" href="$client_8c.html" title="Fichier qui contient la configuration du socket client." alt="" coords="5,181,200,221"/>
+<area shape="rect" id="node4" href="$main_8c.html" title="Fichier principal du programme qui s&#39;occupera de la partie jeu." alt="" coords="224,181,419,221"/>
+<area shape="rect" id="node5" href="$menus_8c.html" title="Fichier qui s&#39;occupera de l&#39;affichage des éléments." alt="" coords="443,181,643,221"/>
 </map>

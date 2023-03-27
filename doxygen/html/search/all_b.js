@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['newlogname_0',['newLogName',['../main_8c.html#ac1c725f21345e0148e7ca2fdc7fe77f9',1,'newLogName():&#160;main.c'],['../main_8h.html#ac1c725f21345e0148e7ca2fdc7fe77f9',1,'newLogName():&#160;main.c']]]
+  ['onbutton_0',['onButton',['../menus_8c.html#a62b05feb314b3c7d6effb9892fa5b8ae',1,'onButton(T_BUTTONS_HOVER button):&#160;menus.c'],['../menus_8h.html#a62b05feb314b3c7d6effb9892fa5b8ae',1,'onButton(T_BUTTONS_HOVER button):&#160;menus.c']]]
 ];

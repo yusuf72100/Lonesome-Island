@@ -1,5 +1,5 @@
-\hypertarget{menus_8h}{}\doxysection{Référence du fichier C\+:/\+Users/\+Yusuf/\+Lonesome-\/\+Island/src/menus.h}
-\label{menus_8h}\index{C:/Users/Yusuf/Lonesome-\/Island/src/menus.h@{C:/Users/Yusuf/Lonesome-\/Island/src/menus.h}}
+\hypertarget{menus_8h}{}\doxysection{Référence du fichier C\+:/\+Users/\+Yusuf/\+CLion\+Projects/\+Lonesome-\/\+Island/src/menus.h}
+\label{menus_8h}\index{C:/Users/Yusuf/CLionProjects/Lonesome-\/Island/src/menus.h@{C:/Users/Yusuf/CLionProjects/Lonesome-\/Island/src/menus.h}}
 
 
 Fichier contenant toutes les variables d\textquotesingle{}affichage.  
@@ -27,18 +27,14 @@ Graphe des dépendances par inclusion de menus.\+h\+:
 \includegraphics[width=350pt]{menus_8h__incl}
 \end{center}
 \end{figure}
-Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:\nopagebreak
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{menus_8h__dep__incl}
 \end{center}
 \end{figure}
-\doxysubsection*{Structures de données}
-\begin{DoxyCompactItemize}
-\item 
-struct \mbox{\hyperlink{structkeybind__button}{keybind\+\_\+button}}
-\end{DoxyCompactItemize}
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -168,7 +164,12 @@ void $\ast$ \mbox{\hyperlink{menus_8h_ab804df0c510979d77fd5599feef21ae0}{draw\+P
 \begin{DoxyCompactList}\small\item\em Dessine tous les joueurs. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{menus_8h_af62b6c78dad8d3b0ae378b5174a28784}\label{menus_8h_af62b6c78dad8d3b0ae378b5174a28784}} 
 void {\bfseries click\+Item} ()
-\begin{DoxyCompactList}\small\item\em Évalue sur quel item on a cliqué. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Évalue sur quel item on a cliqué. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{menus_8h_a672901df9310bbcec706ee0a973f0129}\label{menus_8h_a672901df9310bbcec706ee0a973f0129}} 
+void {\bfseries config\+Key} (T\+\_\+\+BUTTONS\+\_\+\+CLICKED button)
+\item 
+void \mbox{\hyperlink{menus_8h_acbae57aa2d8c508e63c0597b44024977}{change\+Menu}} (T\+\_\+\+MENU menu\+Target)
+\begin{DoxyCompactList}\small\item\em Change de menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -190,9 +191,6 @@ static int {\bfseries WindowW} = 1920
 \mbox{\Hypertarget{menus_8h_ac583e1a33ff68aacec20bac73d6a72fb}\label{menus_8h_ac583e1a33ff68aacec20bac73d6a72fb}} 
 static int {\bfseries WindowH} = 1080
 \item 
-\mbox{\Hypertarget{menus_8h_aeca8359e1a6a42e2160362c785805bee}\label{menus_8h_aeca8359e1a6a42e2160362c785805bee}} 
-static \mbox{\hyperlink{structkeybind__button}{keybind\+\_\+button}} {\bfseries keybinds\+\_\+buttons} \mbox{[}5\mbox{]}
-\item 
 \mbox{\Hypertarget{menus_8h_a7b934759372aeebd296c9a28e568d460}\label{menus_8h_a7b934759372aeebd296c9a28e568d460}} 
 static SDL\+\_\+\+Point {\bfseries mouse\+\_\+position}
 \item 
@@ -211,6 +209,18 @@ static SDL\+\_\+bool {\bfseries hover\+\_\+settingsbutton} = SDL\+\_\+\+FALSE
 \mbox{\Hypertarget{menus_8h_ad649dcd485d6496b49fea4bf709aa270}\label{menus_8h_ad649dcd485d6496b49fea4bf709aa270}} 
 static SDL\+\_\+bool {\bfseries hover\+\_\+settings\+\_\+keybindsbutton} = SDL\+\_\+\+FALSE
 \item 
+\mbox{\Hypertarget{menus_8h_af475f62bd498fe68d33830d0afe12d57}\label{menus_8h_af475f62bd498fe68d33830d0afe12d57}} 
+static SDL\+\_\+bool {\bfseries hover\+\_\+keybind\+\_\+up} = SDL\+\_\+\+FALSE
+\item 
+\mbox{\Hypertarget{menus_8h_abe322b3ff29da93f8ba0af6cf69b9d66}\label{menus_8h_abe322b3ff29da93f8ba0af6cf69b9d66}} 
+static SDL\+\_\+bool {\bfseries hover\+\_\+keybind\+\_\+down} = SDL\+\_\+\+FALSE
+\item 
+\mbox{\Hypertarget{menus_8h_af5e055d57ecc2cfeb2c14ab19d2ef1c8}\label{menus_8h_af5e055d57ecc2cfeb2c14ab19d2ef1c8}} 
+static SDL\+\_\+bool {\bfseries hover\+\_\+keybind\+\_\+left} = SDL\+\_\+\+FALSE
+\item 
+\mbox{\Hypertarget{menus_8h_a5704b2afa852f04f6334b3437b31f60e}\label{menus_8h_a5704b2afa852f04f6334b3437b31f60e}} 
+static SDL\+\_\+bool {\bfseries hover\+\_\+keybind\+\_\+right} = SDL\+\_\+\+FALSE
+\item 
 \mbox{\Hypertarget{menus_8h_a225f865625d7eb497b12ba90d7d89102}\label{menus_8h_a225f865625d7eb497b12ba90d7d89102}} 
 static SDL\+\_\+bool {\bfseries hover\+\_\+inventoryitem} = SDL\+\_\+\+FALSE
 \item 
@@ -228,6 +238,18 @@ static SDL\+\_\+bool {\bfseries clicked\+\_\+settingsbutton} = SDL\+\_\+\+FALSE
 \item 
 \mbox{\Hypertarget{menus_8h_a27b8af4405d522e651fe684989ea6278}\label{menus_8h_a27b8af4405d522e651fe684989ea6278}} 
 static SDL\+\_\+bool {\bfseries clicked\+\_\+settings\+\_\+keybindsbutton} = SDL\+\_\+\+FALSE
+\item 
+\mbox{\Hypertarget{menus_8h_af5ffb3d95543e7399350e8171df55f69}\label{menus_8h_af5ffb3d95543e7399350e8171df55f69}} 
+static SDL\+\_\+bool {\bfseries clicked\+\_\+settings\+\_\+keybind\+\_\+up} = SDL\+\_\+\+FALSE
+\item 
+\mbox{\Hypertarget{menus_8h_a32e8d575c59688daa9c048171f1861ee}\label{menus_8h_a32e8d575c59688daa9c048171f1861ee}} 
+static SDL\+\_\+bool {\bfseries clicked\+\_\+settings\+\_\+keybind\+\_\+down} = SDL\+\_\+\+FALSE
+\item 
+\mbox{\Hypertarget{menus_8h_a5e8c9e57dea35cb74a537cdfcb4ebf29}\label{menus_8h_a5e8c9e57dea35cb74a537cdfcb4ebf29}} 
+static SDL\+\_\+bool {\bfseries clicked\+\_\+settings\+\_\+keybind\+\_\+left} = SDL\+\_\+\+FALSE
+\item 
+\mbox{\Hypertarget{menus_8h_a23b80f19fd8b4ced3cae113a63cbd729}\label{menus_8h_a23b80f19fd8b4ced3cae113a63cbd729}} 
+static SDL\+\_\+bool {\bfseries clicked\+\_\+settings\+\_\+keybind\+\_\+right} = SDL\+\_\+\+FALSE
 \item 
 \mbox{\Hypertarget{menus_8h_ae65d48735f7e1d9f270a6ba107b21e9d}\label{menus_8h_ae65d48735f7e1d9f270a6ba107b21e9d}} 
 static SDL\+\_\+bool {\bfseries clicked\+\_\+inventoryitem} = SDL\+\_\+\+FALSE
@@ -267,6 +289,21 @@ static SDL\+\_\+\+Rect {\bfseries settings\+\_\+menu\+\_\+bg\+\_\+rect}
 \item 
 \mbox{\Hypertarget{menus_8h_af46a7f78b1c39a1279994c297a074b11}\label{menus_8h_af46a7f78b1c39a1279994c297a074b11}} 
 static SDL\+\_\+\+Rect {\bfseries settings\+\_\+menu\+\_\+keybinds\+\_\+button\+\_\+rect}
+\item 
+\mbox{\Hypertarget{menus_8h_a162150ed2ae915d0a31b887045c6cc35}\label{menus_8h_a162150ed2ae915d0a31b887045c6cc35}} 
+static SDL\+\_\+\+Rect {\bfseries settings\+\_\+menu\+\_\+keybind\+\_\+up\+\_\+rect}
+\item 
+\mbox{\Hypertarget{menus_8h_a41c014b6860d1d6fb92dee60897c3354}\label{menus_8h_a41c014b6860d1d6fb92dee60897c3354}} 
+static SDL\+\_\+\+Rect {\bfseries settings\+\_\+menu\+\_\+keybind\+\_\+down\+\_\+rect}
+\item 
+\mbox{\Hypertarget{menus_8h_ad12077d011cf98feabd7f3354b221514}\label{menus_8h_ad12077d011cf98feabd7f3354b221514}} 
+static SDL\+\_\+\+Rect {\bfseries settings\+\_\+menu\+\_\+keybind\+\_\+left\+\_\+rect}
+\item 
+\mbox{\Hypertarget{menus_8h_af6f8ad93b340dc0e453c3e7bcf1f4e12}\label{menus_8h_af6f8ad93b340dc0e453c3e7bcf1f4e12}} 
+static SDL\+\_\+\+Rect {\bfseries settings\+\_\+menu\+\_\+keybind\+\_\+right\+\_\+rect}
+\item 
+\mbox{\Hypertarget{menus_8h_af87aa18f7ee3eea96118f0644284e65c}\label{menus_8h_af87aa18f7ee3eea96118f0644284e65c}} 
+static SDL\+\_\+\+Rect {\bfseries keybind\+\_\+waiting\+\_\+rect}
 \item 
 \mbox{\Hypertarget{menus_8h_a4e152e6f15e7af4377e66feb4185cf29}\label{menus_8h_a4e152e6f15e7af4377e66feb4185cf29}} 
 static SDL\+\_\+\+Display\+Mode {\bfseries DM}
@@ -418,6 +455,12 @@ static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+settings\+\_\+menu\+\_\
 \mbox{\Hypertarget{menus_8h_ad4dec9e7088131c89f79e0e1397cdb7e}\label{menus_8h_ad4dec9e7088131c89f79e0e1397cdb7e}} 
 static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+settings\+\_\+menu\+\_\+key\+\_\+button} = NULL
 \item 
+\mbox{\Hypertarget{menus_8h_aa966fc104ed83eb44c76958f6ae8f865}\label{menus_8h_aa966fc104ed83eb44c76958f6ae8f865}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+settings\+\_\+menu\+\_\+key\+\_\+button\+\_\+hover} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a94390c1b9ada6263f86d5bdd0327628c}\label{menus_8h_a94390c1b9ada6263f86d5bdd0327628c}} 
+static SDL\+\_\+\+Surface $\ast$ {\bfseries surface\+\_\+keybind\+\_\+waiting} = NULL
+\item 
 \mbox{\Hypertarget{menus_8h_aaf6f7f1c89cf4f9d653a1bef253bbeaf}\label{menus_8h_aaf6f7f1c89cf4f9d653a1bef253bbeaf}} 
 static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+play\+\_\+inert} = NULL
 \item 
@@ -450,6 +493,12 @@ static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+settings\+\_\+menu\+\_\
 \item 
 \mbox{\Hypertarget{menus_8h_a92b81c4d46f6418699fdc006777ad68f}\label{menus_8h_a92b81c4d46f6418699fdc006777ad68f}} 
 static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+settings\+\_\+menu\+\_\+key\+\_\+button} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_ad68190110d5fc801f2240dbcc4335de9}\label{menus_8h_ad68190110d5fc801f2240dbcc4335de9}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+settings\+\_\+menu\+\_\+key\+\_\+button\+\_\+hover} = NULL
+\item 
+\mbox{\Hypertarget{menus_8h_a20d7538b23ca1cde41a3e533c64810f9}\label{menus_8h_a20d7538b23ca1cde41a3e533c64810f9}} 
+static SDL\+\_\+\+Texture $\ast$ {\bfseries texture\+\_\+keybind\+\_\+waiting} = NULL
 \item 
 \mbox{\Hypertarget{menus_8h_a859b8efbf9abe8e82757ee5c75a0c97c}\label{menus_8h_a859b8efbf9abe8e82757ee5c75a0c97c}} 
 static SDL\+\_\+\+Texture $\ast$ {\bfseries texture} = NULL
@@ -502,8 +551,13 @@ Copyright (c) 2023
 
 Animation de respiration. 
 
+
+\begin{DoxyParams}{Paramètres}
+{\em j} & \\
+\hline
+\end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-void$\ast$ 
+
 \end{DoxyReturn}
 Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \begin{figure}[H]
@@ -549,7 +603,8 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \includegraphics[width=350pt]{menus_8h_ab5e1f7649b8b40f10bd9168c6a098883_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -641,6 +696,29 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{menus_8h_a20432793012cb1509389bf14f94a8ee9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menus_8h_acbae57aa2d8c508e63c0597b44024977}\label{menus_8h_acbae57aa2d8c508e63c0597b44024977}} 
+\index{menus.h@{menus.h}!changeMenu@{changeMenu}}
+\index{changeMenu@{changeMenu}!menus.h@{menus.h}}
+\doxysubsubsection{\texorpdfstring{changeMenu()}{changeMenu()}}
+{\footnotesize\ttfamily void change\+Menu (\begin{DoxyParamCaption}\item[{T\+\_\+\+MENU}]{menu\+Target }\end{DoxyParamCaption})}
+
+
+
+Change de menu. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em menu\+Target} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{menus_8h_acbae57aa2d8c508e63c0597b44024977_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{menus_8h_a3ccdb6767f1237284bf7c8e0d3e3eacb}\label{menus_8h_a3ccdb6767f1237284bf7c8e0d3e3eacb}} 
@@ -772,7 +850,8 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \includegraphics[width=278pt]{menus_8h_a317983aacbc3405e75432d6290b1b280_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -820,8 +899,15 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 
 Dessine tous les joueurs. 
 
+
+\begin{DoxyParams}{Paramètres}
+{\em joueurs} & \\
+\hline
+{\em size} & \\
+\hline
+\end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-void$\ast$ 
+
 \end{DoxyReturn}
 Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \begin{figure}[H]

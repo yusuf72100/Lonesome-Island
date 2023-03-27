@@ -1,10 +1,11 @@
 <map id="init_hover" name="init_hover">
-<area shape="rect" id="node1" title="Fonction qui lance le son de survol de bouton dans un thread dédié." alt="" coords="681,31,757,56"/>
-<area shape="rect" id="node2" href="$menus_8c.html#ab5e1f7649b8b40f10bd9168c6a098883" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="501,55,591,80"/>
-<area shape="rect" id="node8" href="$menus_8c.html#ad9a4714e86590146659768dcd5357272" title="Affiche la texture de survol avec animation du bouton demandé en dans le menu souhaité." alt="" coords="459,5,633,31"/>
-<area shape="rect" id="node3" href="$menus_8c.html#ad4082538ea22b0a347c09456b67ba4bd" title="Affiche le menu principal." alt="" coords="281,5,363,31"/>
-<area shape="rect" id="node6" href="$menus_8c.html#a706ecee7dd0dc5e17064da807e4d0f7f" title="Affiche le menu des paramètres des keybinds dans le menu principal." alt="" coords="233,55,411,80"/>
-<area shape="rect" id="node7" href="$menus_8c.html#a081a8f6ffea1d158f2a87e4258f6329a" title="Affiche le menu des paramètres dans le menu principal." alt="" coords="257,104,387,129"/>
-<area shape="rect" id="node4" href="$menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,55,185,80"/>
-<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,55,56,80"/>
+<area shape="rect" id="node1" title="Fonction qui lance le son de survol de bouton dans un thread dédié." alt="" coords="860,32,936,57"/>
+<area shape="rect" id="node2" href="$menus_8c.html#ab5e1f7649b8b40f10bd9168c6a098883" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="679,56,770,81"/>
+<area shape="rect" id="node9" href="$menus_8c.html#ad9a4714e86590146659768dcd5357272" title="Affiche la texture de survol avec animation du bouton demandé en dans le menu souhaité." alt="" coords="637,7,812,32"/>
+<area shape="rect" id="node3" href="$menus_8c.html#ad4082538ea22b0a347c09456b67ba4bd" title="Affiche le menu principal." alt="" coords="483,5,565,31"/>
+<area shape="rect" id="node6" href="$menus_8c.html#a706ecee7dd0dc5e17064da807e4d0f7f" title="Affiche le menu des paramètres des keybinds dans le menu principal." alt="" coords="233,56,411,81"/>
+<area shape="rect" id="node7" href="$menus_8c.html#a081a8f6ffea1d158f2a87e4258f6329a" title="Affiche le menu des paramètres dans le menu principal." alt="" coords="459,107,589,132"/>
+<area shape="rect" id="node4" href="$menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,81,185,107"/>
+<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,81,56,107"/>
+<area shape="rect" id="node8" href="$menus_8c.html#a047a87d55ef5bac980f1df5f340f39fa" title="Affiche le menu des paramètres dans en jeu." alt="" coords="249,157,395,183"/>
 </map>

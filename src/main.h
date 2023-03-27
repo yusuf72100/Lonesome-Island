@@ -30,14 +30,11 @@
 
 static Liste *l;
 
-extern int connectedError;
-
 static short loading;
 static short debug = FALSE; 
 
 static int tick=0;
 static int tabTick[20] = {0};
-static int size;
 static int rotation = 0;
 
 static char *s;

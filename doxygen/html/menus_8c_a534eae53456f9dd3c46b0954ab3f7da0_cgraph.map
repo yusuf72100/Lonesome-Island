@@ -1,0 +1,7 @@
+<map id="drawKeybindMenuText" name="drawKeybindMenuText">
+<area shape="rect" id="node1" title="Dessine le texte du menu keybind." alt="" coords="5,31,159,56"/>
+<area shape="rect" id="node2" href="$menus_8c.html#a38919db31193e3a7fc097ddd23328def" title="Affiche un seul caractère en ttf." alt="" coords="207,5,283,31"/>
+<area shape="rect" id="node5" href="$menus_8c.html#ab93a928dfd7c09857ca343ca01a850f2" title="Affiche un texte en ttf." alt="" coords="207,55,282,80"/>
+<area shape="rect" id="node3" href="$menus_8c.html#a3ccdb6767f1237284bf7c8e0d3e3eacb" title="Détruit la fenêtre et le rendu." alt="" coords="357,5,437,31"/>
+<area shape="rect" id="node4" href="$menus_8c.html#acd3f39401c59bbd01c9663c5348c63c1" title="Nous renvoi une erreur SDL." alt="" coords="331,55,463,80"/>
+</map>

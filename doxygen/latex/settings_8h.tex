@@ -1,5 +1,5 @@
-\hypertarget{settings_8h}{}\doxysection{Référence du fichier C\+:/\+Users/\+Yusuf/\+Lonesome-\/\+Island/src/settings.h}
-\label{settings_8h}\index{C:/Users/Yusuf/Lonesome-\/Island/src/settings.h@{C:/Users/Yusuf/Lonesome-\/Island/src/settings.h}}
+\hypertarget{settings_8h}{}\doxysection{Référence du fichier C\+:/\+Users/\+Yusuf/\+CLion\+Projects/\+Lonesome-\/\+Island/src/settings.h}
+\label{settings_8h}\index{C:/Users/Yusuf/CLionProjects/Lonesome-\/Island/src/settings.h@{C:/Users/Yusuf/CLionProjects/Lonesome-\/Island/src/settings.h}}
 
 
 Fichier content les définitions pour le fichier \mbox{\hyperlink{settings_8c}{settings.\+c}}.  
@@ -14,14 +14,16 @@ Fichier content les définitions pour le fichier \mbox{\hyperlink{settings_8c}{s
 {\ttfamily \#include $<$windows.\+h$>$}\newline
 {\ttfamily \#include $<$SDL.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}defs.\+h\char`\"{}}\newline
-Graphe des dépendances par inclusion de settings.\+h\+:\nopagebreak
+Graphe des dépendances par inclusion de settings.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{settings_8h__incl}
 \end{center}
 \end{figure}
-Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:\nopagebreak
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -33,7 +35,9 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 \item 
 \mbox{\Hypertarget{settings_8h_a1165e1d4439a045e94970c9fbc73bb3c}\label{settings_8h_a1165e1d4439a045e94970c9fbc73bb3c}} 
 void {\bfseries load\+Settings} ()
-\begin{DoxyCompactList}\small\item\em Fonction qui s\textquotesingle{}occupe de charger les paramètres du joueur depuis un fichier. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Fonction qui s\textquotesingle{}occupe de charger les paramètres du joueur depuis un fichier. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{settings_8h_a78a3da557d14459ccc125159ba6cf9d0}{save\+Key}} (SDL\+\_\+\+Key\+Code keycode)
+\begin{DoxyCompactList}\small\item\em Gère l\textquotesingle{}enregistrement des touches. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -57,3 +61,37 @@ Yusuf Ulas
 \begin{DoxyCopyright}{Copyright}
 Copyright (c) 2023 
 \end{DoxyCopyright}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{settings_8h_a78a3da557d14459ccc125159ba6cf9d0}\label{settings_8h_a78a3da557d14459ccc125159ba6cf9d0}} 
+\index{settings.h@{settings.h}!saveKey@{saveKey}}
+\index{saveKey@{saveKey}!settings.h@{settings.h}}
+\doxysubsubsection{\texorpdfstring{saveKey()}{saveKey()}}
+{\footnotesize\ttfamily void save\+Key (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Key\+Code}]{keycode }\end{DoxyParamCaption})}
+
+
+
+Gère l\textquotesingle{}enregistrement des touches. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em keycode} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{settings_8h_a78a3da557d14459ccc125159ba6cf9d0_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=315pt]{settings_8h_a78a3da557d14459ccc125159ba6cf9d0_icgraph}
+\end{center}
+\end{figure}

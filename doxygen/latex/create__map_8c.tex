@@ -1,5 +1,5 @@
-\hypertarget{create__map_8c}{}\doxysection{Référence du fichier C\+:/\+Users/\+Yusuf/\+Lonesome-\/\+Island/src/create\+\_\+map.c}
-\label{create__map_8c}\index{C:/Users/Yusuf/Lonesome-\/Island/src/create\_map.c@{C:/Users/Yusuf/Lonesome-\/Island/src/create\_map.c}}
+\hypertarget{create__map_8c}{}\doxysection{Référence du fichier C\+:/\+Users/\+Yusuf/\+CLion\+Projects/\+Lonesome-\/\+Island/src/create\+\_\+map.c}
+\label{create__map_8c}\index{C:/Users/Yusuf/CLionProjects/Lonesome-\/Island/src/create\_map.c@{C:/Users/Yusuf/CLionProjects/Lonesome-\/Island/src/create\_map.c}}
 
 
 Programme qui génère la map et les tiles.  
@@ -19,18 +19,54 @@ Graphe des dépendances par inclusion de create\+\_\+map.\+c\+:
 \item 
 void \mbox{\hyperlink{create__map_8c_a7967c281a3df3dede0837ddb8dbbde79}{init\+Camera}} (\mbox{\hyperlink{structcamera__s}{camera\+\_\+t}} $\ast$camera, SDL\+\_\+\+Window $\ast$window)
 \begin{DoxyCompactList}\small\item\em Initialise la caméra en fonction du joueur. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{create__map_8c_a235f855f5a3fbd14f98c1a01a573f656}{compter\+Voisin\+Cote}} (int map\mbox{[}MAP\+\_\+\+SIZE\mbox{]}\mbox{[}MAP\+\_\+\+SIZE\mbox{]}, int x, int y)
-\begin{DoxyCompactList}\small\item\em Compte les voisins sur le coté dans la matrice. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{create__map_8c_afb18460b7eadcb8e3e25dd71839495f2}{compter\+Voisin\+Diag}} (int map\mbox{[}MAP\+\_\+\+SIZE\mbox{]}\mbox{[}MAP\+\_\+\+SIZE\mbox{]}, int x, int y)
-\begin{DoxyCompactList}\small\item\em Compter les voisins en diagonale. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{create__map_8c_a3a0b996fb2e3bfdf50c9b9c69059ecbc}{check\+Position\+Voisin\+Cote}} (int map\mbox{[}MAP\+\_\+\+SIZE\mbox{]}\mbox{[}MAP\+\_\+\+SIZE\mbox{]}, int x, int y)
-\begin{DoxyCompactList}\small\item\em Vérifie les positions des voisins. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{create__map_8c_a423569673b6cc32da7a86a71b8e9ae15}{check\+Position\+Voisin\+Cote3voisins}} (int map\mbox{[}MAP\+\_\+\+SIZE\mbox{]}\mbox{[}MAP\+\_\+\+SIZE\mbox{]}, int x, int y)
-\begin{DoxyCompactList}\small\item\em Cherche le seul voisin de coté non sable. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{create__map_8c_ab3c73aa5e196e572d4bab4512df3bfe3}{check\+Position\+Voisin\+Angle}} (int map\mbox{[}MAP\+\_\+\+SIZE\mbox{]}\mbox{[}MAP\+\_\+\+SIZE\mbox{]}, int x, int y)
-\begin{DoxyCompactList}\small\item\em Vérifie la position des voisins en angle. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{create__map_8c_a57ccdcacf244e867e9252f316e8139c2}{check\+Position\+Voisin\+Diag}} (int map\mbox{[}MAP\+\_\+\+SIZE\mbox{]}\mbox{[}MAP\+\_\+\+SIZE\mbox{]}, int x, int y)
-\begin{DoxyCompactList}\small\item\em Vérifie la position des voisins en diagonale. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{create__map_8c_ab5aae553038837d5d7ebbdee52be7baa}\label{create__map_8c_ab5aae553038837d5d7ebbdee52be7baa}} 
+int {\bfseries est\+\_\+valide} (int x)
+\item 
+\mbox{\Hypertarget{create__map_8c_a0262c17b1b25756b33e5e5aaa03fef6a}\label{create__map_8c_a0262c17b1b25756b33e5e5aaa03fef6a}} 
+int {\bfseries get\+Type} (int t)
+\item 
+\mbox{\Hypertarget{create__map_8c_aa9540ac0d8acf7aac8d40e324b5e0287}\label{create__map_8c_aa9540ac0d8acf7aac8d40e324b5e0287}} 
+int {\bfseries is\+Water} (int t)
+\item 
+\mbox{\Hypertarget{create__map_8c_aa80994f1ff89610724ba9190d8c9c3e2}\label{create__map_8c_aa80994f1ff89610724ba9190d8c9c3e2}} 
+int {\bfseries is\+Sand} (int t)
+\item 
+\mbox{\Hypertarget{create__map_8c_a123f08301abc054195bbabfb750b66cb}\label{create__map_8c_a123f08301abc054195bbabfb750b66cb}} 
+int {\bfseries is\+Grass} (int t)
+\item 
+\mbox{\Hypertarget{create__map_8c_a1c1a3df14232191956b5925d5fcf8f1a}\label{create__map_8c_a1c1a3df14232191956b5925d5fcf8f1a}} 
+int {\bfseries compter\+Voisin\+MASTER} (int($\ast$map)\mbox{[}MAP\+\_\+\+SIZE\mbox{]}, int x, int y)
+\item 
+\mbox{\Hypertarget{create__map_8c_a2cb6792c854be36d137c5dfd1a90c0de}\label{create__map_8c_a2cb6792c854be36d137c5dfd1a90c0de}} 
+SDL\+\_\+\+Rect {\bfseries choix\+Texture} (int($\ast$map)\mbox{[}MAP\+\_\+\+SIZE\mbox{]}, int x, int y)
+\item 
+\mbox{\Hypertarget{create__map_8c_a235f855f5a3fbd14f98c1a01a573f656}\label{create__map_8c_a235f855f5a3fbd14f98c1a01a573f656}} 
+int {\bfseries compter\+Voisin\+Cote} (int map\mbox{[}MAP\+\_\+\+SIZE\mbox{]}\mbox{[}MAP\+\_\+\+SIZE\mbox{]}, int x, int y)
+\item 
+\mbox{\Hypertarget{create__map_8c_afb18460b7eadcb8e3e25dd71839495f2}\label{create__map_8c_afb18460b7eadcb8e3e25dd71839495f2}} 
+int {\bfseries compter\+Voisin\+Diag} (int map\mbox{[}MAP\+\_\+\+SIZE\mbox{]}\mbox{[}MAP\+\_\+\+SIZE\mbox{]}, int x, int y)
+\item 
+\mbox{\Hypertarget{create__map_8c_a3a0b996fb2e3bfdf50c9b9c69059ecbc}\label{create__map_8c_a3a0b996fb2e3bfdf50c9b9c69059ecbc}} 
+int {\bfseries check\+Position\+Voisin\+Cote} (int map\mbox{[}MAP\+\_\+\+SIZE\mbox{]}\mbox{[}MAP\+\_\+\+SIZE\mbox{]}, int x, int y)
+\item 
+\mbox{\Hypertarget{create__map_8c_abb332d6e1d419b8ad9fe3e12c6224b4d}\label{create__map_8c_abb332d6e1d419b8ad9fe3e12c6224b4d}} 
+int {\bfseries check\+Position2\+Voisin\+Oppose} (int map\mbox{[}MAP\+\_\+\+SIZE\mbox{]}\mbox{[}MAP\+\_\+\+SIZE\mbox{]}, int x, int y)
+\item 
+\mbox{\Hypertarget{create__map_8c_a423569673b6cc32da7a86a71b8e9ae15}\label{create__map_8c_a423569673b6cc32da7a86a71b8e9ae15}} 
+int {\bfseries check\+Position\+Voisin\+Cote3voisins} (int map\mbox{[}MAP\+\_\+\+SIZE\mbox{]}\mbox{[}MAP\+\_\+\+SIZE\mbox{]}, int x, int y)
+\item 
+\mbox{\Hypertarget{create__map_8c_ab3c73aa5e196e572d4bab4512df3bfe3}\label{create__map_8c_ab3c73aa5e196e572d4bab4512df3bfe3}} 
+int {\bfseries check\+Position\+Voisin\+Angle} (int map\mbox{[}MAP\+\_\+\+SIZE\mbox{]}\mbox{[}MAP\+\_\+\+SIZE\mbox{]}, int x, int y)
+\item 
+\mbox{\Hypertarget{create__map_8c_a57ccdcacf244e867e9252f316e8139c2}\label{create__map_8c_a57ccdcacf244e867e9252f316e8139c2}} 
+int {\bfseries check\+Position\+Voisin\+Diag} (int map\mbox{[}MAP\+\_\+\+SIZE\mbox{]}\mbox{[}MAP\+\_\+\+SIZE\mbox{]}, int x, int y)
+\item 
+\mbox{\Hypertarget{create__map_8c_ad2546d1a6ffc985a7b2d4ffa1298e0b9}\label{create__map_8c_ad2546d1a6ffc985a7b2d4ffa1298e0b9}} 
+int {\bfseries check\+Position2\+Voisin\+Diag} (int map\mbox{[}MAP\+\_\+\+SIZE\mbox{]}\mbox{[}MAP\+\_\+\+SIZE\mbox{]}, int x, int y)
+\item 
+\mbox{\Hypertarget{create__map_8c_a334b0c7cb8e9d83324e3abecd6ca7ab0}\label{create__map_8c_a334b0c7cb8e9d83324e3abecd6ca7ab0}} 
+int {\bfseries check\+Position2\+Voisin\+Diag\+Oppose} (int map\mbox{[}MAP\+\_\+\+SIZE\mbox{]}\mbox{[}MAP\+\_\+\+SIZE\mbox{]}, int x, int y)
+\item 
 \mbox{\hyperlink{structcoord__s}{coord\+\_\+t}} \mbox{\hyperlink{create__map_8c_a7176db32701a440a52a2f37fad87d1b2}{choix\+Tile}} (int map\mbox{[}MAP\+\_\+\+SIZE\mbox{]}\mbox{[}MAP\+\_\+\+SIZE\mbox{]}, int x, int y)
 \begin{DoxyCompactList}\small\item\em Algo choix tile pour une case. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{create__map_8c_ac9c9e978f54e2187c07d259df9095b41}{render\+Map}} (SDL\+\_\+\+Renderer $\ast$$\ast$render, \mbox{\hyperlink{structmap__s}{map\+\_\+t}} $\ast$map, \mbox{\hyperlink{structcamera__s}{camera\+\_\+t}} $\ast$camera)
@@ -61,126 +97,6 @@ Copyright (c) 2023
 
 
 \doxysubsection{Documentation des fonctions}
-\mbox{\Hypertarget{create__map_8c_ab3c73aa5e196e572d4bab4512df3bfe3}\label{create__map_8c_ab3c73aa5e196e572d4bab4512df3bfe3}} 
-\index{create\_map.c@{create\_map.c}!checkPositionVoisinAngle@{checkPositionVoisinAngle}}
-\index{checkPositionVoisinAngle@{checkPositionVoisinAngle}!create\_map.c@{create\_map.c}}
-\doxysubsubsection{\texorpdfstring{checkPositionVoisinAngle()}{checkPositionVoisinAngle()}}
-{\footnotesize\ttfamily int check\+Position\+Voisin\+Angle (\begin{DoxyParamCaption}\item[{int}]{map\mbox{[}\+MAP\+\_\+\+SIZE\mbox{]}\mbox{[}\+MAP\+\_\+\+SIZE\mbox{]},  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
-
-
-
-Vérifie la position des voisins en angle. 
-
-
-\begin{DoxyParams}{Paramètres}
-{\em map} & \\
-\hline
-{\em x} & \\
-\hline
-{\em y} & \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
-int 
-\end{DoxyReturn}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{create__map_8c_ab3c73aa5e196e572d4bab4512df3bfe3_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{create__map_8c_a3a0b996fb2e3bfdf50c9b9c69059ecbc}\label{create__map_8c_a3a0b996fb2e3bfdf50c9b9c69059ecbc}} 
-\index{create\_map.c@{create\_map.c}!checkPositionVoisinCote@{checkPositionVoisinCote}}
-\index{checkPositionVoisinCote@{checkPositionVoisinCote}!create\_map.c@{create\_map.c}}
-\doxysubsubsection{\texorpdfstring{checkPositionVoisinCote()}{checkPositionVoisinCote()}}
-{\footnotesize\ttfamily int check\+Position\+Voisin\+Cote (\begin{DoxyParamCaption}\item[{int}]{map\mbox{[}\+MAP\+\_\+\+SIZE\mbox{]}\mbox{[}\+MAP\+\_\+\+SIZE\mbox{]},  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
-
-
-
-Vérifie les positions des voisins. 
-
-
-\begin{DoxyParams}{Paramètres}
-{\em map} & \\
-\hline
-{\em x} & \\
-\hline
-{\em y} & \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
-int 
-\end{DoxyReturn}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{create__map_8c_a3a0b996fb2e3bfdf50c9b9c69059ecbc_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{create__map_8c_a423569673b6cc32da7a86a71b8e9ae15}\label{create__map_8c_a423569673b6cc32da7a86a71b8e9ae15}} 
-\index{create\_map.c@{create\_map.c}!checkPositionVoisinCote3voisins@{checkPositionVoisinCote3voisins}}
-\index{checkPositionVoisinCote3voisins@{checkPositionVoisinCote3voisins}!create\_map.c@{create\_map.c}}
-\doxysubsubsection{\texorpdfstring{checkPositionVoisinCote3voisins()}{checkPositionVoisinCote3voisins()}}
-{\footnotesize\ttfamily int check\+Position\+Voisin\+Cote3voisins (\begin{DoxyParamCaption}\item[{int}]{map\mbox{[}\+MAP\+\_\+\+SIZE\mbox{]}\mbox{[}\+MAP\+\_\+\+SIZE\mbox{]},  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
-
-
-
-Cherche le seul voisin de coté non sable. 
-
-
-\begin{DoxyParams}{Paramètres}
-{\em map} & \\
-\hline
-{\em x} & \\
-\hline
-{\em y} & \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
-int 
-\end{DoxyReturn}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{create__map_8c_a423569673b6cc32da7a86a71b8e9ae15_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{create__map_8c_a57ccdcacf244e867e9252f316e8139c2}\label{create__map_8c_a57ccdcacf244e867e9252f316e8139c2}} 
-\index{create\_map.c@{create\_map.c}!checkPositionVoisinDiag@{checkPositionVoisinDiag}}
-\index{checkPositionVoisinDiag@{checkPositionVoisinDiag}!create\_map.c@{create\_map.c}}
-\doxysubsubsection{\texorpdfstring{checkPositionVoisinDiag()}{checkPositionVoisinDiag()}}
-{\footnotesize\ttfamily int check\+Position\+Voisin\+Diag (\begin{DoxyParamCaption}\item[{int}]{map\mbox{[}\+MAP\+\_\+\+SIZE\mbox{]}\mbox{[}\+MAP\+\_\+\+SIZE\mbox{]},  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
-
-
-
-Vérifie la position des voisins en diagonale. 
-
-
-\begin{DoxyParams}{Paramètres}
-{\em map} & \\
-\hline
-{\em x} & \\
-\hline
-{\em y} & \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
-int 
-\end{DoxyReturn}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{create__map_8c_a57ccdcacf244e867e9252f316e8139c2_icgraph}
-\end{center}
-\end{figure}
 \mbox{\Hypertarget{create__map_8c_a7176db32701a440a52a2f37fad87d1b2}\label{create__map_8c_a7176db32701a440a52a2f37fad87d1b2}} 
 \index{create\_map.c@{create\_map.c}!choixTile@{choixTile}}
 \index{choixTile@{choixTile}!create\_map.c@{create\_map.c}}
@@ -203,80 +119,11 @@ Algo choix tile pour une case.
 \begin{DoxyReturn}{Renvoie}
 coord\+\_\+t 
 \end{DoxyReturn}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=331pt]{create__map_8c_a7176db32701a440a52a2f37fad87d1b2_cgraph}
-\end{center}
-\end{figure}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{create__map_8c_a7176db32701a440a52a2f37fad87d1b2_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{create__map_8c_a235f855f5a3fbd14f98c1a01a573f656}\label{create__map_8c_a235f855f5a3fbd14f98c1a01a573f656}} 
-\index{create\_map.c@{create\_map.c}!compterVoisinCote@{compterVoisinCote}}
-\index{compterVoisinCote@{compterVoisinCote}!create\_map.c@{create\_map.c}}
-\doxysubsubsection{\texorpdfstring{compterVoisinCote()}{compterVoisinCote()}}
-{\footnotesize\ttfamily int compter\+Voisin\+Cote (\begin{DoxyParamCaption}\item[{int}]{map\mbox{[}\+MAP\+\_\+\+SIZE\mbox{]}\mbox{[}\+MAP\+\_\+\+SIZE\mbox{]},  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
-
-
-
-Compte les voisins sur le coté dans la matrice. 
-
-
-\begin{DoxyParams}{Paramètres}
-{\em map} & \\
-\hline
-{\em x} & \\
-\hline
-{\em y} & \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
-int 
-\end{DoxyReturn}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{create__map_8c_a235f855f5a3fbd14f98c1a01a573f656_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{create__map_8c_afb18460b7eadcb8e3e25dd71839495f2}\label{create__map_8c_afb18460b7eadcb8e3e25dd71839495f2}} 
-\index{create\_map.c@{create\_map.c}!compterVoisinDiag@{compterVoisinDiag}}
-\index{compterVoisinDiag@{compterVoisinDiag}!create\_map.c@{create\_map.c}}
-\doxysubsubsection{\texorpdfstring{compterVoisinDiag()}{compterVoisinDiag()}}
-{\footnotesize\ttfamily int compter\+Voisin\+Diag (\begin{DoxyParamCaption}\item[{int}]{map\mbox{[}\+MAP\+\_\+\+SIZE\mbox{]}\mbox{[}\+MAP\+\_\+\+SIZE\mbox{]},  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
-
-
-
-Compter les voisins en diagonale. 
-
-
-\begin{DoxyParams}{Paramètres}
-{\em map} & \\
-\hline
-{\em x} & \\
-\hline
-{\em y} & \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
-int 
-\end{DoxyReturn}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{create__map_8c_afb18460b7eadcb8e3e25dd71839495f2_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{create__map_8c_a7967c281a3df3dede0837ddb8dbbde79}\label{create__map_8c_a7967c281a3df3dede0837ddb8dbbde79}} 
@@ -296,8 +143,7 @@ Initialise la caméra en fonction du joueur.
 {\em window} & \\
 \hline
 \end{DoxyParams}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -328,11 +174,10 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{create__map_8c_ac9c9e978f54e2187c07d259df9095b41_cgraph}
+\includegraphics[width=233pt]{create__map_8c_ac9c9e978f54e2187c07d259df9095b41_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

@@ -470,7 +470,7 @@ static void doEvents()
         }
 
         //settings keybinds button (main to settings_keybind)
-        if(onButton(SETTINGS_KEYBINDS_HOVER) && menu == SETTINGS_MAIN_MENU)
+        if(onButton(SETTINGS_KEYBINDS_HOVER) && (menu == SETTINGS_MAIN_MENU || menu == SETTINGS_INGAME_MENU))
         {
             if(getButtonState_clicked(SETTINGS_KEYBINDS_CLICKED) == FALSE && KEYBIND_WAITING == NONE)
             {
@@ -497,7 +497,14 @@ static void doEvents()
                     init_boop(&tabEvent[7]);
                     changeButtonState_clicked(SETTINGS_KEYBINDS_CLICKED, TRUE);
                     tabTick[7] = SDL_GetTicks();
-                    changeMenu(SETTINGS_MAIN_MENU);
+
+                    if(SOLO == TRUE || HOST == TRUE)
+                    {
+                        changeMenu(SETTINGS_INGAME_MENU);
+                    }
+                    else{
+                        changeMenu(SETTINGS_MAIN_MENU);
+                    }
                 }
             }
             else{
@@ -622,11 +629,10 @@ static void doEvents()
     if(tabEvent[10])
     {
         //touche ESCAPE
-        if(menu == ERR_MENU || menu == SETTINGS_MAIN_MENU)
+        if(menu == ERR_MENU)
         {
             if((SDL_GetTicks() - tabTick[10]) >= 200)
             {
-                changeButtonState_hover(SETTINGS_KEYBINDS_HOVER, FALSE);
                 changeMenu(MAIN_MENU);
                 tabTick[10] = SDL_GetTicks();
             }
@@ -637,6 +643,18 @@ static void doEvents()
                 changeMenu(SETTINGS_INGAME_MENU);
                 tabTick[10] = SDL_GetTicks();
             }
+        }
+        else if(menu == SETTINGS_MAIN_MENU)
+        {
+            if(SOLO == TRUE || HOST == TRUE)
+            {
+                changeMenu(INGAME_MENU);
+            }
+            else{
+                changeMenu(MAIN_MENU);
+            }
+            changeButtonState_hover(SETTINGS_KEYBINDS_HOVER, FALSE);
+            tabTick[10] = SDL_GetTicks();
         }
         else if(menu == SETTINGS_INGAME_MENU){
             if((SDL_GetTicks() - tabTick[10]) >= 200)
@@ -681,17 +699,7 @@ static void doEvents()
         }
     }
 
-    if ((menu == INGAME_MENU || menu == INVENTORY_MENU || menu == SETTINGS_INGAME_MENU))
-    {
-        if(connectedError == FALSE) 
-        {
-            afficherMap();
-            drawPlayers(joueurs, size);
-        }
-        else{
-            changeMenu(ERR_MENU);
-        }
-    }
+
 }
 
 /**

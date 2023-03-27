@@ -9,6 +9,9 @@
 
 #include "settings.h"
 
+/**
+ * Met à jour le fichier de paramètres.
+ */
 static void saveFile()
 {
     FILE *config = fopen("settings.config", "w+");
@@ -44,6 +47,11 @@ static void createConfigs()
     globalKeyTab[13] = SDLK_TAB;
 }
 
+/**
+ * Enregistre une touche.
+ * @param key
+ * @param keycode
+ */
 static void saveKeybind(int key, SDL_KeyCode keycode)
 {
     localKeyTab[key] = keycode;
@@ -130,6 +138,10 @@ extern void loadSettings()
     fclose(config);
 }
 
+/**
+ * @brief Gère l'enregistrement des touches..
+ * @param keycode
+ */
 extern void saveKey(SDL_KeyCode keycode)
 {
     switch (KEYBIND_WAITING) {

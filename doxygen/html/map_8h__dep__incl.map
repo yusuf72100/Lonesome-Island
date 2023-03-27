@@ -1,11 +1,11 @@
-<map id="C:/Users/Yusuf/Lonesome&#45;Island/src/map.h" name="C:/Users/Yusuf/Lonesome&#45;Island/src/map.h">
-<area shape="rect" id="node1" title="Fichier header à map.c." alt="" coords="303,5,477,45"/>
-<area shape="rect" id="node2" href="$create__map_8h.html" title="Fichier header create_map.c." alt="" coords="204,93,379,133"/>
-<area shape="rect" id="node9" href="$map_8c.html" title="Fichier comportant les méthodes pour générer la map." alt="" coords="403,93,577,133"/>
-<area shape="rect" id="node3" href="$create__map_8c.html" title="Programme qui génère la map et les tiles." alt="" coords="5,181,180,221"/>
-<area shape="rect" id="node4" href="$main_8h.html" title="Fichier contenant toutes les variables d&#39;affichage." alt="" coords="204,181,379,221"/>
-<area shape="rect" id="node8" href="$menus_8h.html" title="Fichier contenant toutes les variables d&#39;affichage." alt="" coords="403,181,577,221"/>
-<area shape="rect" id="node5" href="$client_8c.html" title="Fichier qui contient la configuration du socket client." alt="" coords="5,269,180,309"/>
-<area shape="rect" id="node6" href="$main_8c.html" title="Fichier principal du programme qui s&#39;occupera de la partie jeu." alt="" coords="403,269,577,309"/>
-<area shape="rect" id="node7" href="$menus_8c.html" title="Fichier qui s&#39;occupera de l&#39;affichage des éléments." alt="" coords="204,269,379,309"/>
+<map id="C:/Users/Yusuf/CLionProjects/Lonesome&#45;Island/src/map.h" name="C:/Users/Yusuf/CLionProjects/Lonesome&#45;Island/src/map.h">
+<area shape="rect" id="node1" title="Fichier header à map.c." alt="" coords="376,5,571,45"/>
+<area shape="rect" id="node2" href="$create__map_8h.html" title="Fichier header create_map.c." alt="" coords="241,93,471,133"/>
+<area shape="rect" id="node9" href="$map_8c.html" title="Fichier comportant les méthodes pour générer la map." alt="" coords="495,93,689,133"/>
+<area shape="rect" id="node3" href="$create__map_8c.html" title="Programme qui génère la map et les tiles." alt="" coords="5,181,235,221"/>
+<area shape="rect" id="node4" href="$main_8h.html" title="Fichier contenant toutes les variables d&#39;affichage." alt="" coords="259,181,453,221"/>
+<area shape="rect" id="node8" href="$menus_8h.html" title="Fichier contenant toutes les variables d&#39;affichage." alt="" coords="477,181,677,221"/>
+<area shape="rect" id="node5" href="$client_8c.html" title="Fichier qui contient la configuration du socket client." alt="" coords="37,269,232,309"/>
+<area shape="rect" id="node6" href="$main_8c.html" title="Fichier principal du programme qui s&#39;occupera de la partie jeu." alt="" coords="480,269,675,309"/>
+<area shape="rect" id="node7" href="$menus_8c.html" title="Fichier qui s&#39;occupera de l&#39;affichage des éléments." alt="" coords="256,269,456,309"/>
 </map>

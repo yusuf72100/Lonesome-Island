@@ -10,8 +10,6 @@
 #include "client.h"
 #include "main.h"
 
-int connectedError= FALSE;
-
 /**
  * @brief Traite les données reçus par le serveur
  * 

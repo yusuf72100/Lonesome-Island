@@ -1,12 +1,13 @@
-\hypertarget{settings_8c}{}\doxysection{Référence du fichier C\+:/\+Users/\+Yusuf/\+Lonesome-\/\+Island/src/settings.c}
-\label{settings_8c}\index{C:/Users/Yusuf/Lonesome-\/Island/src/settings.c@{C:/Users/Yusuf/Lonesome-\/Island/src/settings.c}}
+\hypertarget{settings_8c}{}\doxysection{Référence du fichier C\+:/\+Users/\+Yusuf/\+CLion\+Projects/\+Lonesome-\/\+Island/src/settings.c}
+\label{settings_8c}\index{C:/Users/Yusuf/CLionProjects/Lonesome-\/Island/src/settings.c@{C:/Users/Yusuf/CLionProjects/Lonesome-\/Island/src/settings.c}}
 
 
 Programme qui s\textquotesingle{}occupera de la sauvegarde des paramètres de l\textquotesingle{}utilisateur.  
 
 
 {\ttfamily \#include \char`\"{}settings.\+h\char`\"{}}\newline
-Graphe des dépendances par inclusion de settings.\+c\+:\nopagebreak
+Graphe des dépendances par inclusion de settings.\+c\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -16,9 +17,14 @@ Graphe des dépendances par inclusion de settings.\+c\+:\nopagebreak
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{settings_8c_a5929d6499ed0df7eadba15d0f4365236}\label{settings_8c_a5929d6499ed0df7eadba15d0f4365236}} 
+static void {\bfseries save\+File} ()
+\begin{DoxyCompactList}\small\item\em Met à jour le fichier de paramètres. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{settings_8c_ade55ed097a2eb2e0e02023ad1c364bc0}\label{settings_8c_ade55ed097a2eb2e0e02023ad1c364bc0}} 
 static void {\bfseries create\+Configs} ()
 \begin{DoxyCompactList}\small\item\em Créer le fichier de config et charge les paramètres par défaut. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{settings_8c_a86287960e44d080989644fe78952b2a8}{save\+Keybind}} (int key, SDL\+\_\+\+Key\+Code keycode)
+\begin{DoxyCompactList}\small\item\em Enregistre une touche. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{settings_8c_a0fa304d3fe58272c8deac3b29c3e036e}\label{settings_8c_a0fa304d3fe58272c8deac3b29c3e036e}} 
 static void {\bfseries load\+Keybinds} ()
 \begin{DoxyCompactList}\small\item\em Fonction qui charge les keybinds dans le tableau global. \end{DoxyCompactList}\item 
@@ -26,7 +32,9 @@ static void \mbox{\hyperlink{settings_8c_abfef91263b80140b08929f805d83306d}{to\+
 \begin{DoxyCompactList}\small\item\em Convertis un entier en sdl keycode et le met dans le tableau des keycode local. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{settings_8c_a1165e1d4439a045e94970c9fbc73bb3c}\label{settings_8c_a1165e1d4439a045e94970c9fbc73bb3c}} 
 void {\bfseries load\+Settings} ()
-\begin{DoxyCompactList}\small\item\em Fonction qui s\textquotesingle{}occupe de charger les paramètres du joueur depuis un fichier. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Fonction qui s\textquotesingle{}occupe de charger les paramètres du joueur depuis un fichier. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{settings_8c_a78a3da557d14459ccc125159ba6cf9d0}{save\+Key}} (SDL\+\_\+\+Key\+Code keycode)
+\begin{DoxyCompactList}\small\item\em Gère l\textquotesingle{}enregistrement des touches. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
@@ -48,6 +56,62 @@ Copyright (c) 2023
 
 
 \doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{settings_8c_a78a3da557d14459ccc125159ba6cf9d0}\label{settings_8c_a78a3da557d14459ccc125159ba6cf9d0}} 
+\index{settings.c@{settings.c}!saveKey@{saveKey}}
+\index{saveKey@{saveKey}!settings.c@{settings.c}}
+\doxysubsubsection{\texorpdfstring{saveKey()}{saveKey()}}
+{\footnotesize\ttfamily void save\+Key (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Key\+Code}]{keycode }\end{DoxyParamCaption})}
+
+
+
+Gère l\textquotesingle{}enregistrement des touches. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em keycode} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{settings_8c_a78a3da557d14459ccc125159ba6cf9d0_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=315pt]{settings_8c_a78a3da557d14459ccc125159ba6cf9d0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{settings_8c_a86287960e44d080989644fe78952b2a8}\label{settings_8c_a86287960e44d080989644fe78952b2a8}} 
+\index{settings.c@{settings.c}!saveKeybind@{saveKeybind}}
+\index{saveKeybind@{saveKeybind}!settings.c@{settings.c}}
+\doxysubsubsection{\texorpdfstring{saveKeybind()}{saveKeybind()}}
+{\footnotesize\ttfamily static void save\+Keybind (\begin{DoxyParamCaption}\item[{int}]{key,  }\item[{SDL\+\_\+\+Key\+Code}]{keycode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Enregistre une touche. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em key} & \\
+\hline
+{\em keycode} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{settings_8c_a86287960e44d080989644fe78952b2a8_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{settings_8c_abfef91263b80140b08929f805d83306d}\label{settings_8c_abfef91263b80140b08929f805d83306d}} 
 \index{settings.c@{settings.c}!toKeyCode@{toKeyCode}}
 \index{toKeyCode@{toKeyCode}!settings.c@{settings.c}}
@@ -65,7 +129,8 @@ Convertis un entier en sdl keycode et le met dans le tableau des keycode local.
 {\em scancode} & \\
 \hline
 \end{DoxyParams}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

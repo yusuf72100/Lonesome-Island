@@ -1,0 +1,6 @@
+<map id="saveKey" name="saveKey">
+<area shape="rect" id="node1" title="Gère l&#39;enregistrement des touches." alt="" coords="5,55,76,80"/>
+<area shape="rect" id="node2" href="$settings_8c.html#a0fa304d3fe58272c8deac3b29c3e036e" title="Fonction qui charge les keybinds dans le tableau global." alt="" coords="124,5,224,31"/>
+<area shape="rect" id="node3" href="$settings_8c.html#a5929d6499ed0df7eadba15d0f4365236" title="Met à jour le fichier de paramètres." alt="" coords="139,55,209,80"/>
+<area shape="rect" id="node4" href="$settings_8c.html#a86287960e44d080989644fe78952b2a8" title="Enregistre une touche." alt="" coords="127,104,221,129"/>
+</map>

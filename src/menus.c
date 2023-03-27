@@ -294,6 +294,9 @@ void drawButtons()
         case SETTINGS_MAIN_MENU:
             drawButton(texture_settings_menu_keybinds_button, settings_menu_keybinds_button_rect, surface_settings_menu_keybinds_button);
             break;
+        case SETTINGS_INGAME_MENU:
+            drawButton(texture_settings_menu_keybinds_button, settings_menu_keybinds_button_rect, surface_settings_menu_keybinds_button);
+            break;
         case SETTINGS_MAIN_KEYBIND_MENU:
             drawButton(texture_settings_menu_keybinds_button_hover, settings_menu_keybinds_button_rect, surface_settings_menu_keybinds_button);
             drawBindButtons();
@@ -1402,6 +1405,36 @@ static void drawKeybindMenuText()
 }
 
 /**
+ * @brief Dessine le menu en jeu.
+ *
+ */
+static void IngameMenu()
+{
+    settings_button_animation_state = 0;
+    hover_inventoryitem = FALSE;
+    mouseRect.x = mouse_position.x;
+    mouseRect.y = mouse_position.y;
+    wearing();
+    drawlifeBar();
+
+    if ((menu == INGAME_MENU || menu == INVENTORY_MENU || menu == SETTINGS_INGAME_MENU || menu == SETTINGS_MAIN_KEYBIND_MENU))
+    {
+        if(connectedError == FALSE)
+        {
+            if(SOLO == TRUE || HOST == TRUE)
+            {
+                afficherMap();
+                drawPlayers(joueurs, size);
+            }
+        }
+        else{
+            changeMenu(ERR_MENU);
+        }
+    }
+    drawMouse();
+}
+
+/**
  * @brief Affiche le menu des paramètres des keybinds dans le menu principal
  *
  */
@@ -1411,6 +1444,11 @@ static void SettingsMainKeybindMenu()
     settings_button_animation_state = 0;
     mouseRect.x = mouse_position.x;
     mouseRect.y = mouse_position.y;
+
+    if(SOLO == TRUE || HOST == TRUE)
+    {
+        IngameMenu();
+    }
     drawImage(texture_settings_bg, settings_menu_bg_rect);
     drawButtons();
 
@@ -1454,21 +1492,6 @@ static void SettingsMainKeybindMenu()
 }
 
 /**
- * @brief Dessine le menu en jeu.
- * 
- */
-static void IngameMenu()
-{
-    settings_button_animation_state = 0;
-    hover_inventoryitem = FALSE;
-    mouseRect.x = mouse_position.x;
-    mouseRect.y = mouse_position.y;
-    wearing();
-    drawlifeBar();
-    drawMouse();
-}
-
-/**
  * @brief Dessin le menu de l'inventaire.
  * 
  */
@@ -1493,8 +1516,7 @@ static void SettingsInGameMenu()
     mouseRect.y = mouse_position.y;
 
     IngameMenu();
-    drawImage(texture_settings_bg, settings_menu_bg_rect);
-    drawMouse();
+    SettingsMainMenu();
 }
 
 /**

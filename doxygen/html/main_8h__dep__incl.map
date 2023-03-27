@@ -1,6 +1,6 @@
-<map id="C:/Users/Yusuf/Lonesome&#45;Island/src/main.h" name="C:/Users/Yusuf/Lonesome&#45;Island/src/main.h">
-<area shape="rect" id="node1" title="Fichier contenant toutes les variables d&#39;affichage." alt="" coords="204,5,379,45"/>
-<area shape="rect" id="node2" href="$client_8c.html" title="Fichier qui contient la configuration du socket client." alt="" coords="5,93,180,133"/>
-<area shape="rect" id="node3" href="$main_8c.html" title="Fichier principal du programme qui s&#39;occupera de la partie jeu." alt="" coords="204,93,379,133"/>
-<area shape="rect" id="node4" href="$menus_8c.html" title="Fichier qui s&#39;occupera de l&#39;affichage des éléments." alt="" coords="403,93,577,133"/>
+<map id="C:/Users/Yusuf/CLionProjects/Lonesome&#45;Island/src/main.h" name="C:/Users/Yusuf/CLionProjects/Lonesome&#45;Island/src/main.h">
+<area shape="rect" id="node1" title="Fichier contenant toutes les variables d&#39;affichage." alt="" coords="224,5,419,45"/>
+<area shape="rect" id="node2" href="$client_8c.html" title="Fichier qui contient la configuration du socket client." alt="" coords="5,93,200,133"/>
+<area shape="rect" id="node3" href="$main_8c.html" title="Fichier principal du programme qui s&#39;occupera de la partie jeu." alt="" coords="224,93,419,133"/>
+<area shape="rect" id="node4" href="$menus_8c.html" title="Fichier qui s&#39;occupera de l&#39;affichage des éléments." alt="" coords="443,93,643,133"/>
 </map>

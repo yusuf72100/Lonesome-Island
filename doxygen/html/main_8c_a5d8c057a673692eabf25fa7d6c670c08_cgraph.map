@@ -5,7 +5,7 @@
 <area shape="rect" id="node7" href="$main_8c.html#a506eeac61f56b2e172d086173bac5995" title="Envoi les données du joueur actuel au serveur." alt="" coords="379,104,474,129"/>
 <area shape="rect" id="node10" href="$menus_8c.html#ae7efaad914bff1a5511184fd96f0d9b7" title="Change le boutton ciblé avec l&#39;état voulut." alt="" coords="128,353,309,379"/>
 <area shape="rect" id="node11" href="$menus_8c.html#a20432793012cb1509389bf14f94a8ee9" title="Change le boutton ciblé avec l&#39;état voulut." alt="" coords="133,403,304,428"/>
-<area shape="rect" id="node12" href="$defs_8c.html#acbae57aa2d8c508e63c0597b44024977" title="Change de menu." alt="" coords="171,452,267,477"/>
+<area shape="rect" id="node12" href="$menus_8c.html#acbae57aa2d8c508e63c0597b44024977" title="Change de menu." alt="" coords="171,452,267,477"/>
 <area shape="rect" id="node13" href="$menus_8c.html#af62b6c78dad8d3b0ae378b5174a28784" title="Évalue sur quel item on a cliqué." alt="" coords="181,501,256,527"/>
 <area shape="rect" id="node14" href="$create__map_8c.html#a018fa899a26c3434a11d5bc5716b52ef" title="Create a map object." alt="" coords="173,551,264,576"/>
 <area shape="rect" id="node19" href="$menus_8c.html#a9cde538499636a6a74cb0f3e206d4a73" title="Dessine l&#39;erreur avec TTF." alt="" coords="381,651,472,676"/>

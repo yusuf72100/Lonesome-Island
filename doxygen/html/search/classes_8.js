@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['player_5ft_0',['player_t',['../structplayer__t.html',1,'']]]
+  ['send2client_0',['send2Client',['../structsend2_client.html',1,'']]],
+  ['socketdatas_1',['socketDatas',['../structsocket_datas.html',1,'']]]
 ];

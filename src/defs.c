@@ -11,6 +11,8 @@
 
 int SOLO = FALSE;
 int HOST = FALSE;
+int connectedError = FALSE;
+int size = 0;
 char IP_PUBLIC[] = "90.12.114.239";
 char bindButtonText[4] = {""};
 

@@ -1,10 +1,4 @@
 <map id="renderMap" name="renderMap">
-<area shape="rect" id="node1" title="Fait le rendu de la map." alt="" coords="5,129,88,155"/>
-<area shape="rect" id="node2" href="$create__map_8c.html#a7176db32701a440a52a2f37fad87d1b2" title="Algo choix tile pour une case." alt="" coords="136,129,209,155"/>
-<area shape="rect" id="node3" href="$create__map_8c.html#ab3c73aa5e196e572d4bab4512df3bfe3" title="Vérifie la position des voisins en angle." alt="" coords="277,5,451,31"/>
-<area shape="rect" id="node4" href="$create__map_8c.html#a3a0b996fb2e3bfdf50c9b9c69059ecbc" title="Vérifie les positions des voisins." alt="" coords="281,55,447,80"/>
-<area shape="rect" id="node5" href="$create__map_8c.html#a423569673b6cc32da7a86a71b8e9ae15" title="Cherche le seul voisin de coté non sable." alt="" coords="257,104,471,129"/>
-<area shape="rect" id="node6" href="$create__map_8c.html#a57ccdcacf244e867e9252f316e8139c2" title="Vérifie la position des voisins en diagonale." alt="" coords="281,153,447,179"/>
-<area shape="rect" id="node7" href="$create__map_8c.html#a235f855f5a3fbd14f98c1a01a573f656" title="Compte les voisins sur le coté dans la matrice." alt="" coords="298,203,430,228"/>
-<area shape="rect" id="node8" href="$create__map_8c.html#afb18460b7eadcb8e3e25dd71839495f2" title="Compter les voisins en diagonale." alt="" coords="299,252,429,277"/>
+<area shape="rect" id="node1" title="Fait le rendu de la map." alt="" coords="5,5,88,31"/>
+<area shape="rect" id="node2" href="$create__map_8c.html#a7176db32701a440a52a2f37fad87d1b2" title="Algo choix tile pour une case." alt="" coords="136,5,209,31"/>
 </map>
