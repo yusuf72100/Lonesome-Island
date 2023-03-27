@@ -660,6 +660,7 @@ static void doEvents()
             if((SDL_GetTicks() - tabTick[10]) >= 200)
             {
                 changeMenu(INGAME_MENU);
+                changeButtonState_hover(SETTINGS_KEYBINDS_HOVER, FALSE);
                 tabTick[10] = SDL_GetTicks();
             }
         }
