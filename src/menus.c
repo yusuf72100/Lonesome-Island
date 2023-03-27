@@ -1414,8 +1414,6 @@ static void IngameMenu()
     hover_inventoryitem = FALSE;
     mouseRect.x = mouse_position.x;
     mouseRect.y = mouse_position.y;
-    wearing();
-    drawlifeBar();
 
     if ((menu == INGAME_MENU || menu == INVENTORY_MENU || menu == SETTINGS_INGAME_MENU || menu == SETTINGS_MAIN_KEYBIND_MENU))
     {
@@ -1431,6 +1429,8 @@ static void IngameMenu()
             changeMenu(ERR_MENU);
         }
     }
+    wearing();
+    drawlifeBar();
     drawMouse();
 }
 
