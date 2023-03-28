@@ -1298,9 +1298,9 @@ static void SettingsMainMenu()
  * @param surface
  * @param text
  */
-static void drawText(SDL_Rect *rect, SDL_Texture *texture, SDL_Surface *surface, char *text)
+static void drawText(SDL_Rect *rect, SDL_Texture *texture, SDL_Surface *surface, char *text, SDL_Color color)
 {
-    surface = TTF_RenderText_Blended(police, text, whiteColor);
+    surface = TTF_RenderText_Blended(police, text, color);
     texture = SDL_CreateTextureFromSurface(renderer, surface);
     if(SDL_QueryTexture(texture, NULL, NULL, &rect->w,&rect->h) != 0)
     {
@@ -1317,9 +1317,9 @@ static void drawText(SDL_Rect *rect, SDL_Texture *texture, SDL_Surface *surface,
  * @param surface
  * @param c
  */
-static void drawChar(SDL_Rect *rect, SDL_Texture *texture, SDL_Surface *surface, char c)
+static void drawChar(SDL_Rect *rect, SDL_Texture *texture, SDL_Surface *surface, char c, SDL_Color color)
 {
-    surface = TTF_RenderGlyph_Blended(police, c, whiteColor);
+    surface = TTF_RenderGlyph_Blended(police, c, color);
     texture = SDL_CreateTextureFromSurface(renderer, surface);
     if(SDL_QueryTexture(texture, NULL, NULL, &rect->w,&rect->h) != 0)
     {
@@ -1387,16 +1387,16 @@ static void drawKeybindMenuText()
     right_text_rect.x = settings_menu_keybind_right_rect.x - 125;
     right_text_rect.y = settings_menu_keybind_right_rect.y + (settings_menu_keybind_right_rect.h/2) - (right_text_rect.h/2);
 
-    drawText(&up_text_rect, keybind_texte_texture, keybind_texte_surface, "Up");
-    drawText(&down_text_rect, keybind_texte_texture, keybind_texte_surface, "Down");
-    drawText(&left_text_rect, keybind_texte_texture, keybind_texte_surface, "Left");
-    drawText(&right_text_rect, keybind_texte_texture, keybind_texte_surface, "Right");
+    drawText(&up_text_rect, keybind_texte_texture, keybind_texte_surface, "Up", whiteColor);
+    drawText(&down_text_rect, keybind_texte_texture, keybind_texte_surface, "Down", whiteColor);
+    drawText(&left_text_rect, keybind_texte_texture, keybind_texte_surface, "Left", whiteColor);
+    drawText(&right_text_rect, keybind_texte_texture, keybind_texte_surface, "Right", whiteColor);
 
     //keybind key text
-    drawChar(&keybind_key_up_text, keybind_texte_texture, keybind_texte_surface, bindButtonText[0]);
-    drawChar(&keybind_key_left_text, keybind_texte_texture, keybind_texte_surface, bindButtonText[1]);
-    drawChar(&keybind_key_down_text, keybind_texte_texture, keybind_texte_surface, bindButtonText[2]);
-    drawChar(&keybind_key_right_text, keybind_texte_texture, keybind_texte_surface, bindButtonText[3]);
+    drawChar(&keybind_key_up_text, keybind_texte_texture, keybind_texte_surface, bindButtonText[0], whiteColor);
+    drawChar(&keybind_key_left_text, keybind_texte_texture, keybind_texte_surface, bindButtonText[1], whiteColor);
+    drawChar(&keybind_key_down_text, keybind_texte_texture, keybind_texte_surface, bindButtonText[2], whiteColor);
+    drawChar(&keybind_key_right_text, keybind_texte_texture, keybind_texte_surface, bindButtonText[3], whiteColor);
 
     SDL_BlitSurface(keybind_texte_surface,NULL,background,&up_text_rect);
     SDL_BlitSurface(keybind_texte_surface,NULL,background,&down_text_rect);
@@ -1452,7 +1452,7 @@ static void SettingsMainKeybindMenu()
     drawImage(texture_settings_bg, settings_menu_bg_rect);
     drawButtons();
 
-    //draw keybind waiting button and text
+    //draw waiting button and text
     switch (KEYBOARD_WAITING) {
         case SETTINGS_KEYBIND_UP_CLICKED:
             keybind_waiting_rect.x = settings_menu_keybind_up_rect.x;
@@ -1532,11 +1532,20 @@ static void getPlayerNameMenu()
     rect.w = WindowW;
     rect.h = 200;
 
-    SDL_Rect texte_rect;
-    texte_rect.w = 200;
-    texte_rect.h = 500;
-    texte_rect.x = (WindowW / 2) - 315;
-    texte_rect.y = rect.y + (rect.h / 2) - 15;
+    SDL_Rect texte_rect = {
+        .w = 200,
+        .h = 500,
+        .x = (WindowW / 2) - (strlen(joueur.playername) * 20),
+        .y = rect.y + (rect.h / 2) - 15
+    };
+
+    SDL_Rect title_rect = {
+        .w = 500,
+        .h = 500,
+        .x = (WindowW / 2) - 250,
+        .y = WindowH - ((WindowH * 80) / 100)
+    };
+
 
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     SDL_RenderDrawRect(renderer, &rect);
@@ -1544,7 +1553,11 @@ static void getPlayerNameMenu()
 
     SDL_Surface *surface = NULL;
     SDL_Texture *texture = NULL;
-    drawText(&texte_rect, texture, surface, joueur.playername);
+    SDL_Surface *surface_title = NULL;
+    SDL_Texture *texture_title = NULL;
+
+    drawText(&texte_rect, texture, surface, joueur.playername, blackColor);
+    drawText(&title_rect, texture_title, surface_title, "Enter your nick:", whiteColor);
     SDL_BlitSurface(surface,NULL,background,&texte_rect);
 }
 

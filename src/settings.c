@@ -21,12 +21,13 @@ void saveFile()
     {
         fprintf(config, "%d : %d\n", i, SDL_GetScancodeFromKey(globalKeyTab[i]));
     }
-    fprintf(config, "[ \\KEYBINDS ]\n");
+    fprintf(config, "[ \\KEYBINDS ]\n\n");
     fprintf(config, "[ PLAYERNAME ]:\n");
     fprintf(config, "%s\n", joueur.playername);
     fprintf(config, "[ \\PLAYERNAME ]\n");
 
     fclose(config);
+    loadSettings();
 }
 
 /**

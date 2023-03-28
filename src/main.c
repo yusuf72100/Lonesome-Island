@@ -160,6 +160,7 @@ static void checkEvents()
                     }
                 }
             }
+
             else{
                 if (event.key.keysym.sym == globalKeyTab[0]) tabEvent[0] = SDL_TRUE;
 
@@ -498,8 +499,8 @@ static void doEvents()
                 {
                     init_boop(&tabEvent[7]);
                     changeButtonState_clicked(SETTINGS_KEYBINDS_CLICKED, TRUE);
-                    tabTick[7] = SDL_GetTicks();
                     changeMenu(SETTINGS_MAIN_KEYBIND_MENU);
+                    tabTick[7] = SDL_GetTicks();
                 }
             }
             else{
