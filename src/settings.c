@@ -12,7 +12,7 @@
 /**
  * Met à jour le fichier de paramètres.
  */
-static void saveFile()
+void saveFile()
 {
     FILE *config = fopen("settings.config", "w+");
 
@@ -22,12 +22,16 @@ static void saveFile()
         fprintf(config, "%d : %d\n", i, SDL_GetScancodeFromKey(globalKeyTab[i]));
     }
     fprintf(config, "[ \\KEYBINDS ]\n");
+    fprintf(config, "[ PLAYERNAME ]:\n");
+    fprintf(config, "%s\n", joueur.playername);
+    fprintf(config, "[ \\PLAYERNAME ]\n");
+
     fclose(config);
 }
 
 /**
  * @brief Créer le fichier de config et charge les paramètres par défaut.
- * 
+ *
  */
 static void createConfigs()
 {
@@ -45,6 +49,9 @@ static void createConfigs()
     globalKeyTab[11] = SDLK_LALT;
     globalKeyTab[12] = SDLK_RETURN;
     globalKeyTab[13] = SDLK_TAB;
+
+    KEYBOARD_WAITING = GETPLAYERNAME_CLICKED;
+    changeMenu(GET_PLAYERNAME_MENU);
 }
 
 /**
@@ -59,14 +66,14 @@ static void saveKeybind(int key, SDL_KeyCode keycode)
 
 /**
  * @brief Fonction qui charge les keybinds dans le tableau global.
- * 
+ *
  */
 static void loadKeybinds()
 {
-    globalKeyTab[0] = localKeyTab[0];
-    globalKeyTab[1] = localKeyTab[1];
-    globalKeyTab[2] = localKeyTab[2];
-    globalKeyTab[3] = localKeyTab[3];
+    globalKeyTab[0] = localKeyTab[0];       //touche aller en haut
+    globalKeyTab[1] = localKeyTab[1];       //touche aller en bas
+    globalKeyTab[2] = localKeyTab[2];       //touche aller à gauche
+    globalKeyTab[3] = localKeyTab[3];       //touche aller à droite
     globalKeyTab[4] = SDLK_LEFT;
     globalKeyTab[5] = SDLK_RIGHT;
     globalKeyTab[6] = SDLK_SPACE;
@@ -76,7 +83,8 @@ static void loadKeybinds()
     globalKeyTab[10] = SDLK_ESCAPE;
     globalKeyTab[11] = SDLK_LALT;
     globalKeyTab[12] = SDLK_RETURN;
-    globalKeyTab[13] = localKeyTab[13];
+    globalKeyTab[13] = localKeyTab[13];     //touche TAB
+    globalKeyTab[14] = SDLK_DELETE;
 
     bindButtonText[0] = (char) globalKeyTab[0];
     bindButtonText[1] = (char) globalKeyTab[1];
@@ -86,9 +94,9 @@ static void loadKeybinds()
 
 /**
  * @brief Convertis un entier en sdl keycode et le met dans le tableau des keycode local.
- * 
- * @param key 
- * @param scancode 
+ *
+ * @param key
+ * @param scancode
  */
 static void toKeyCode(int key, int scancode)
 {
@@ -97,7 +105,7 @@ static void toKeyCode(int key, int scancode)
 
 /**
  * @brief Fonction qui s'occupe de charger les paramètres du joueur depuis un fichier.
- * 
+ *
  */
 extern void loadSettings()
 {
@@ -122,6 +130,9 @@ extern void loadSettings()
                         key++;
                     }
                 }
+                else if(strcmp(setting, "PLAYERNAME") == 0){
+                    fscanf(config, "%s", &joueur.playername);
+                }
                 loadKeybinds();
             }
             else{
@@ -144,7 +155,7 @@ extern void loadSettings()
  */
 extern void saveKey(SDL_KeyCode keycode)
 {
-    switch (KEYBIND_WAITING) {
+    switch (KEYBOARD_WAITING) {
         case SETTINGS_KEYBIND_UP_CLICKED:
             saveKeybind(0, keycode);
             break;
@@ -160,4 +171,23 @@ extern void saveKey(SDL_KeyCode keycode)
     }
     loadKeybinds();
     saveFile();
+}
+
+/**
+ * @brief Ajoute un caractère au pseudo du joueur.
+ * @param c
+ */
+extern void addCharToPlayerName(char c)
+{
+    int taille = strlen(joueur.playername);
+
+    if(!strcmp(joueur.playername, "Username"))
+    {
+        joueur.playername[0] = c;
+        joueur.playername[1] = '\0';
+    }
+    else{
+        joueur.playername[taille] = c;
+        joueur.playername[taille + 1] = '\0';
+    }
 }

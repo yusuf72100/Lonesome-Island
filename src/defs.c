@@ -16,7 +16,7 @@ int size = 0;
 char IP_PUBLIC[] = "90.12.114.239";
 char bindButtonText[4] = {""};
 
-T_BUTTONS_CLICKED KEYBIND_WAITING = NONE;
+T_BUTTONS_CLICKED KEYBOARD_WAITING = NONE;
 SDL_Window *window = NULL;
 SDL_Renderer *renderer = NULL;
 
@@ -42,6 +42,8 @@ void defineItem()
     joueurs->health = 100;
     joueurs->stuck = FALSE;
     joueur.health = 100;
+    strcat(joueur.playername, "Username");
+
     wearedItem = malloc(sizeof(case_inventory));
     axe = malloc(sizeof(item_t));
     apple = malloc(sizeof(item_t));

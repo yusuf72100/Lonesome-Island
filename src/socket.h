@@ -18,13 +18,11 @@
 #include <Ws2ipdef.h>   
 #include <pthread.h>
 #include <stdint.h>
-#pragma comment(lib, "ws2_32.lib")
-
-#include <string.h>
-#include <SDL.h>  
+#include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 #include "defs.h"
+#pragma comment(lib, "ws2_32.lib")
 
 #define dataLen 5
 

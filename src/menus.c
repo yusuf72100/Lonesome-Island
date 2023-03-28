@@ -1305,7 +1305,7 @@ static void drawText(SDL_Rect *rect, SDL_Texture *texture, SDL_Surface *surface,
     if(SDL_QueryTexture(texture, NULL, NULL, &rect->w,&rect->h) != 0)
     {
         destroyAll(texture, renderer);
-        SDL_ExitWithError("Impossible d'afficher la texture du boutton de keybind...");
+        SDL_ExitWithError("Impossible d'afficher la texture du text...");
     }
     SDL_RenderCopy(renderer, texture, NULL, rect);
 }
@@ -1452,7 +1452,8 @@ static void SettingsMainKeybindMenu()
     drawImage(texture_settings_bg, settings_menu_bg_rect);
     drawButtons();
 
-    switch (KEYBIND_WAITING) {
+    //draw keybind waiting button and text
+    switch (KEYBOARD_WAITING) {
         case SETTINGS_KEYBIND_UP_CLICKED:
             keybind_waiting_rect.x = settings_menu_keybind_up_rect.x;
             keybind_waiting_rect.y = settings_menu_keybind_up_rect.y;
@@ -1478,6 +1479,7 @@ static void SettingsMainKeybindMenu()
             drawButton(texture_keybind_waiting, keybind_waiting_rect, surface_keybind_waiting);
             break;
         case NONE:
+            //try button hover
             buttonHover(surface_settings_menu_keybinds_button_hover, texture_settings_menu_keybinds_button_hover, &settings_menu_keybinds_button_rect, &hover_settings_keybindsbutton);
             buttonHover(surface_settings_menu_key_button_hover, texture_settings_menu_key_button_hover, &settings_menu_keybind_up_rect, &hover_keybind_up);
             buttonHover(surface_settings_menu_key_button_hover, texture_settings_menu_key_button_hover, &settings_menu_keybind_down_rect, &hover_keybind_down);
@@ -1520,6 +1522,33 @@ static void SettingsInGameMenu()
 }
 
 /**
+ * @brief Affiche le menu d'affectation du joueur.playername
+ */
+static void getPlayerNameMenu()
+{
+    SDL_Rect rect;
+    rect.x = 0;
+    rect.y = (WindowH / 2) - 100;
+    rect.w = WindowW;
+    rect.h = 200;
+
+    SDL_Rect texte_rect;
+    texte_rect.w = 200;
+    texte_rect.h = 500;
+    texte_rect.x = (WindowW / 2) - 315;
+    texte_rect.y = rect.y + (rect.h / 2) - 15;
+
+    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+    SDL_RenderDrawRect(renderer, &rect);
+    SDL_RenderFillRect(renderer, &rect);
+
+    SDL_Surface *surface = NULL;
+    SDL_Texture *texture = NULL;
+    drawText(&texte_rect, texture, surface, joueur.playername);
+    SDL_BlitSurface(surface,NULL,background,&texte_rect);
+}
+
+/**
  * @brief Dessine le bon menu.
  * 
  */
@@ -1544,6 +1573,9 @@ void drawMenu()
         break;
     case SETTINGS_MAIN_KEYBIND_MENU:
         SettingsMainKeybindMenu();
+        break;
+    case GET_PLAYERNAME_MENU:
+        getPlayerNameMenu();
         break;
     default:
         MainMenu();

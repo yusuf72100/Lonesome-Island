@@ -16,13 +16,17 @@
 #include <string.h>
 #include <math.h>
 #include <pthread.h>
+#include "menus.h"
 #include <windows.h>
 #include <SDL.h>  
 #include "defs.h"
 
 static SDL_KeyCode localKeyTab[14];
 
+void saveFile();
 extern void loadSettings();
 extern void saveKey(SDL_KeyCode keycode);
+extern void addCharToPlayerName(char c);
+extern void savePlayerName();
 
 #endif
