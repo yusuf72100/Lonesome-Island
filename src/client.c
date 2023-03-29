@@ -183,6 +183,7 @@ void stopConnection()
     printf("Connection closed\n");
     closesocket(*socket_Server);
     WSACleanup();
+    CONNECTED = FALSE;
 }
 
 /**

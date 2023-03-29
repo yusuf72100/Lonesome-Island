@@ -29,10 +29,11 @@ char *getLocalIp()
 
     if (host == NULL) {
         printf("gethostbyname failed.\n");
+        //return ("error");
     }
     memcpy(&addr, host->h_addr_list[0], sizeof(struct in_addr));
     WSACleanup();
-    printf("ip trouvee: %s\n", inet_ntoa(addr));
+    printf("Ip founded: %s\n", inet_ntoa(addr));
     return (inet_ntoa(addr));
 }
 

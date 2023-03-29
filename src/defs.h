@@ -22,6 +22,7 @@ typedef enum {MAIN_MENU, INGAME_MENU, INVENTORY_MENU, SETTINGS_MAIN_MENU, SETTIN
 typedef enum {WEAPON, FOOD, TOOL, BLOCK_ITEM} T_ITEM;
 typedef enum {CHEST, RESOURCE, BLOCK} T_BLOCK;
 
+extern int CONNECTED;
 extern int SOLO;
 extern int HOST;
 extern int connectedError;

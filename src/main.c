@@ -456,6 +456,8 @@ static void doEvents()
             if (debug) printf("Connect button clicked\n");                                         
             if(startConnection() == 0)                                     //on créer un client qui se connecte au serveur 
             {
+                CONNECTED = TRUE;
+                create_map();
                 Sleep(1000);
                 pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
                 changeMenu(INGAME_MENU);

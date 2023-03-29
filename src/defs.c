@@ -9,11 +9,12 @@
 
 #include "defs.h"
 
+int CONNECTED = FALSE;
 int SOLO = FALSE;
 int HOST = FALSE;
 int connectedError = FALSE;
 int size = 0;
-char IP_PUBLIC[] = "90.12.114.239";
+char IP_PUBLIC[] = "172.18.192.1";
 char bindButtonText[4] = {""};
 
 T_BUTTONS_CLICKED KEYBOARD_WAITING = NONE;

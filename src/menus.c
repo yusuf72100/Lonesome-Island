@@ -1419,7 +1419,7 @@ static void IngameMenu()
     {
         if(connectedError == FALSE)
         {
-            if(SOLO == TRUE || HOST == TRUE)
+            if(SOLO == TRUE || HOST == TRUE || CONNECTED == TRUE)
             {
                 afficherMap();
                 drawPlayers(joueurs, size);
