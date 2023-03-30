@@ -396,8 +396,8 @@ void drawCaseText(case_inventory case_x)
 
     case_x.text_rectangle.h = 32;
     case_x.text_rectangle.w = 18 * strlen(buffer);
-    case_x.text_rectangle.x = case_x.item_rectangle.x + (case_x.item_rectangle.w/3);
-    case_x.text_rectangle.y = case_x.item_rectangle.y + (case_x.item_rectangle.h/3);
+    case_x.text_rectangle.x = case_x.item_rectangle.x + case_x.item_rectangle.w - case_x.text_rectangle.h;
+    case_x.text_rectangle.y = case_x.item_rectangle.y ;
     case_x.text_surface = TTF_RenderText_Blended(item_dafont, buffer, whiteColor);
 
     if (case_x.text_surface == NULL)
@@ -422,12 +422,7 @@ void drawCaseText(case_inventory case_x)
  */
 void drawItem(case_inventory case_x)
 {
-    if(SDL_QueryTexture(case_x.Item->texture, NULL, NULL, &case_x.item_rectangle.w, &case_x.item_rectangle.h) != 0)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible d'afficher la texture de l'item...");
-    }
-    SDL_RenderCopy(renderer,case_x.Item->texture, NULL, &case_x.item_rectangle);
+    SDL_RenderCopy(renderer, case_x.Item->texture, NULL, &case_x.item_rectangle);
 }
 
 /**
@@ -1179,11 +1174,6 @@ void clickItem()
  */
 void drawInventory()
 {
-    if(SDL_QueryTexture(inventory_texture, NULL, NULL, &inventory_rect.w, &inventory_rect.h) != 0)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible d'afficher la texture de la balle...");
-    }
     SDL_RenderCopy(renderer, inventory_texture, NULL, &inventory_rect);
 }
 
@@ -1198,10 +1188,10 @@ void drawCases()
     {
         for(int j = 0; j < 10; j++)
         {
-            mat_inventory[i][j].item_rectangle.x = inventory_rect.x + (80*(j) + 21);
-            mat_inventory[i][j].item_rectangle.y = DM.h - (80*((3-i))) - 10;
             mat_inventory[i][j].item_rectangle.h = 80;
             mat_inventory[i][j].item_rectangle.w = 80;
+            mat_inventory[i][j].item_rectangle.x = inventory_rect.x + (mat_inventory[i][j].item_rectangle.w * j) + 3;
+            mat_inventory[i][j].item_rectangle.y = (inventory_rect.y + inventory_rect.h) + ((mat_inventory[i][j].item_rectangle.h * (i - 3)));
 
             if(mat_inventory[i][j].number > 0)
             {
@@ -1302,11 +1292,7 @@ static void drawText(SDL_Rect *rect, SDL_Texture *texture, SDL_Surface *surface,
 {
     surface = TTF_RenderText_Blended(police, text, color);
     texture = SDL_CreateTextureFromSurface(renderer, surface);
-    if(SDL_QueryTexture(texture, NULL, NULL, &rect->w,&rect->h) != 0)
-    {
-        destroyAll(texture, renderer);
-        SDL_ExitWithError("Impossible d'afficher la texture du text...");
-    }
+
     SDL_RenderCopy(renderer, texture, NULL, rect);
 }
 
