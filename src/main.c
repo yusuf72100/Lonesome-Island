@@ -149,14 +149,25 @@ static void checkEvents()
                 }
                 //si il s'agit de la configuration du pseudo du joueur
                 else if(menu == GET_PLAYERNAME_MENU){
-                    if(strlen(joueur.playername) != 16 && event.key.keysym.sym != SDLK_RETURN) {
-                        addCharToPlayerName((char) event.key.keysym.sym);
-                    }
-                    else if(event.key.keysym.sym == SDLK_RETURN){
-                        //touche ENTRER
-                        KEYBOARD_WAITING = NONE;
-                        saveFile();
-                        changeMenu(MAIN_MENU);
+                    //on gère les touches d'effacement, d'insertion...
+                    switch (event.key.keysym.sym) {
+                        case SDLK_RETURN:
+                            //touche ENTRER
+                            if(strcmp(joueur.playername, "") || strcmp(joueur.playername, "\0"))
+                            {
+                                KEYBOARD_WAITING = NONE;
+                                saveFile();
+                                changeMenu(MAIN_MENU);
+                            }
+                            break;
+                        case SDLK_BACKSPACE:
+                            removeCharToPlayerName();
+                            break;
+                        default:
+                            if(strlen(joueur.playername) != 16) {
+                                addCharToPlayerName((char) event.key.keysym.sym);
+                            }
+                            break;
                     }
                 }
             }

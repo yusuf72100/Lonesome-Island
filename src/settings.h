@@ -27,6 +27,7 @@ void saveFile();
 extern void loadSettings();
 extern void saveKey(SDL_KeyCode keycode);
 extern void addCharToPlayerName(char c);
+extern void removeCharToPlayerName();
 extern void savePlayerName();
 
 #endif

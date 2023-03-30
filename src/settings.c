@@ -180,15 +180,30 @@ extern void saveKey(SDL_KeyCode keycode)
  */
 extern void addCharToPlayerName(char c)
 {
-    int taille = strlen(joueur.playername);
-
-    if(!strcmp(joueur.playername, "Username"))
+    if(strcmp(joueur.playername, "Username") == 0)
     {
         joueur.playername[0] = c;
         joueur.playername[1] = '\0';
     }
     else{
+        int taille = strlen(joueur.playername);
         joueur.playername[taille] = c;
         joueur.playername[taille + 1] = '\0';
+    }
+}
+
+/**
+ * @brief Enlève un caractère du pseudo du joueur.
+ */
+extern void removeCharToPlayerName()
+{
+    int taille = strlen(joueur.playername);
+    if(strcmp(joueur.playername, "Username") == 0 || taille == 1)
+    {
+        joueur.playername[0] = ' ';
+        joueur.playername[1] = '\0';
+    }
+    else{
+        joueur.playername[taille-1] = '\0';
     }
 }
