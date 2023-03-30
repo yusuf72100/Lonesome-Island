@@ -1,5 +1,5 @@
 <map id="argServer" name="argServer">
-<area shape="rect" id="node1" title="Rassemble toutes les données de tous les joueurs dans le but de pouvoir communiquer tout cela dans de..." alt="" coords="31,388,107,480"/>
-<area shape="rect" id="node2" href="$structsocket_datas.html" title="Sauvegarde les informations de chaque joueurs relatives au socket et à la connection au serveur (adre..." alt="" coords="14,219,123,325"/>
-<area shape="rect" id="node3" href="$structplayer__t.html" title="Sauvegarde les informations de chaque joueurs relatives uniquement au jeu en lui&#45;même (points de vie,..." alt="" coords="5,5,132,156"/>
+<area shape="rect" id="node1" title="Rassemble toutes les données de tous les joueurs dans le but de pouvoir communiquer tout cela dans de..." alt="" coords="31,403,107,495"/>
+<area shape="rect" id="node2" href="$structsocket_datas.html" title="Sauvegarde les informations de chaque joueurs relatives au socket et à la connection au serveur (adre..." alt="" coords="14,233,123,340"/>
+<area shape="rect" id="node3" href="$structplayer__t.html" title="Sauvegarde les informations de chaque joueurs relatives uniquement au jeu en lui&#45;même (points de vie,..." alt="" coords="5,5,132,171"/>
 </map>

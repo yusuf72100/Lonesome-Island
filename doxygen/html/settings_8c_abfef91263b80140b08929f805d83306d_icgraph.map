@@ -1,5 +1,8 @@
 <map id="toKeyCode" name="toKeyCode">
-<area shape="rect" id="node1" title="Convertis un entier en sdl keycode et le met dans le tableau des keycode local." alt="" coords="247,5,333,31"/>
-<area shape="rect" id="node2" href="$settings_8c.html#a1165e1d4439a045e94970c9fbc73bb3c" title="Fonction qui s&#39;occupe de charger les paramètres du joueur depuis un fichier." alt="" coords="104,5,199,31"/>
+<area shape="rect" id="node1" title="Convertis un entier en sdl keycode et le met dans le tableau des keycode local." alt="" coords="627,31,713,56"/>
+<area shape="rect" id="node2" href="$settings_8c.html#a1165e1d4439a045e94970c9fbc73bb3c" title="Fonction qui s&#39;occupe de charger les paramètres du joueur depuis un fichier." alt="" coords="484,31,579,56"/>
 <area shape="rect" id="node3" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+<area shape="rect" id="node4" href="$settings_8c.html#af1e0a5878c43267daa4455be9ea2d424" title="Met à jour le fichier de paramètres." alt="" coords="367,31,436,56"/>
+<area shape="rect" id="node5" href="$main_8c.html#a65942d285a85ebdda2445b5da031c2e2" title="Change les valeurs du tableau d&#39;évènements en fonction de nos instructions sur le clavier et la souri..." alt="" coords="104,31,200,56"/>
+<area shape="rect" id="node6" href="$settings_8c.html#a78a3da557d14459ccc125159ba6cf9d0" title="Gère l&#39;enregistrement des touches." alt="" coords="248,81,319,107"/>
 </map>

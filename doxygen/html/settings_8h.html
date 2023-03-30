@@ -88,6 +88,7 @@ $(function() {
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;math.h&gt;</code><br />
 <code>#include &lt;pthread.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="menus_8h_source.html">menus.h</a>&quot;</code><br />
 <code>#include &lt;windows.h&gt;</code><br />
 <code>#include &lt;SDL.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="defs_8h_source.html">defs.h</a>&quot;</code><br />
@@ -96,16 +97,29 @@ Graphe des dépendances par inclusion de settings.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="settings_8h__incl.png" border="0" usemap="#a_c_1_2_users_2_yusuf_2_c_lion_projects_2_lonesome-_island_2src_2settings_8h" alt=""/></div>
 <map name="a_c_1_2_users_2_yusuf_2_c_lion_projects_2_lonesome-_island_2src_2settings_8h" id="a_c_1_2_users_2_yusuf_2_c_lion_projects_2_lonesome-_island_2src_2settings_8h">
-<area shape="rect" title="Fichier content les définitions pour le fichier settings.c." alt="" coords="178,5,385,45"/>
-<area shape="rect" title=" " alt="" coords="5,167,69,192"/>
-<area shape="rect" title=" " alt="" coords="96,167,157,192"/>
-<area shape="rect" title=" " alt="" coords="252,93,311,119"/>
-<area shape="rect" title=" " alt="" coords="335,93,401,119"/>
-<area shape="rect" title=" " alt="" coords="425,93,487,119"/>
-<area shape="rect" title=" " alt="" coords="511,93,587,119"/>
-<area shape="rect" title=" " alt="" coords="612,93,695,119"/>
-<area shape="rect" title=" " alt="" coords="183,167,241,192"/>
-<area shape="rect" href="defs_8h.html" title="Fichier contenant toutes les définitions de structures et de types." alt="" coords="119,93,177,119"/>
+<area shape="rect" title="Fichier content les définitions pour le fichier settings.c." alt="" coords="1021,5,1227,45"/>
+<area shape="rect" title=" " alt="" coords="1557,387,1621,412"/>
+<area shape="rect" title=" " alt="" coords="481,387,543,412"/>
+<area shape="rect" title=" " alt="" coords="2019,313,2077,339"/>
+<area shape="rect" title=" " alt="" coords="954,313,1019,339"/>
+<area shape="rect" title=" " alt="" coords="1939,240,2002,265"/>
+<area shape="rect" title=" " alt="" coords="195,313,271,339"/>
+<area shape="rect" href="menus_8h.html" title="Fichier contenant toutes les variables d&#39;affichage." alt="" coords="1225,93,1297,119"/>
+<area shape="rect" title=" " alt="" coords="1787,387,1845,412"/>
+<area shape="rect" href="defs_8h.html" title="Fichier contenant toutes les définitions de structures et de types." alt="" coords="1502,313,1559,339"/>
+<area shape="rect" title=" " alt="" coords="2027,240,2109,265"/>
+<area shape="rect" title=" " alt="" coords="1043,313,1143,339"/>
+<area shape="rect" title=" " alt="" coords="1198,313,1274,339"/>
+<area shape="rect" title=" " alt="" coords="1126,240,1223,265"/>
+<area shape="rect" href="liste_8h_source.html" title=" " alt="" coords="1787,313,1845,339"/>
+<area shape="rect" href="client_8h.html" title="Fichier content toutes les informations relatives au client et au serveur." alt="" coords="600,167,664,192"/>
+<area shape="rect" href="create__map_8h.html" title="Fichier header create_map.c." alt="" coords="1489,167,1591,192"/>
+<area shape="rect" title=" " alt="" coords="295,313,363,339"/>
+<area shape="rect" title=" " alt="" coords="387,313,474,339"/>
+<area shape="rect" title=" " alt="" coords="651,313,738,339"/>
+<area shape="rect" title=" " alt="" coords="762,313,827,339"/>
+<area shape="rect" href="socket_8h.html" title="Fichier qui contient les informations relatives aux clients et au serveur point de vu socket." alt="" coords="472,240,544,265"/>
+<area shape="rect" href="map_8h.html" title="Fichier header à map.c." alt="" coords="1603,240,1661,265"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -126,6 +140,10 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
+<tr class="memitem:af1e0a5878c43267daa4455be9ea2d424"><td class="memItemLeft" align="right" valign="top"><a id="af1e0a5878c43267daa4455be9ea2d424" name="af1e0a5878c43267daa4455be9ea2d424"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>saveFile</b> ()</td></tr>
+<tr class="memdesc:af1e0a5878c43267daa4455be9ea2d424"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour le fichier de paramètres. <br /></td></tr>
+<tr class="separator:af1e0a5878c43267daa4455be9ea2d424"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1165e1d4439a045e94970c9fbc73bb3c"><td class="memItemLeft" align="right" valign="top"><a id="a1165e1d4439a045e94970c9fbc73bb3c" name="a1165e1d4439a045e94970c9fbc73bb3c"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>loadSettings</b> ()</td></tr>
 <tr class="memdesc:a1165e1d4439a045e94970c9fbc73bb3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui s'occupe de charger les paramètres du joueur depuis un fichier. <br /></td></tr>
@@ -133,6 +151,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>loadSettings</b> ()</
 <tr class="memitem:a78a3da557d14459ccc125159ba6cf9d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="settings_8h.html#a78a3da557d14459ccc125159ba6cf9d0">saveKey</a> (SDL_KeyCode keycode)</td></tr>
 <tr class="memdesc:a78a3da557d14459ccc125159ba6cf9d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gère l'enregistrement des touches.  <br /></td></tr>
 <tr class="separator:a78a3da557d14459ccc125159ba6cf9d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a22d55955c9101cb261abcafb4e33df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="settings_8h.html#a9a22d55955c9101cb261abcafb4e33df">addCharToPlayerName</a> (char c)</td></tr>
+<tr class="memdesc:a9a22d55955c9101cb261abcafb4e33df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute un caractère au pseudo du joueur.  <br /></td></tr>
+<tr class="separator:a9a22d55955c9101cb261abcafb4e33df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad67c3540ba0cbdbfb7fb6477d30d3a2d"><td class="memItemLeft" align="right" valign="top"><a id="ad67c3540ba0cbdbfb7fb6477d30d3a2d" name="ad67c3540ba0cbdbfb7fb6477d30d3a2d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>savePlayerName</b> ()</td></tr>
+<tr class="separator:ad67c3540ba0cbdbfb7fb6477d30d3a2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -147,6 +171,42 @@ static SDL_KeyCode&#160;</td><td class="memItemRight" valign="bottom"><b>localKe
 <dl class="section date"><dt>Date</dt><dd>2023-02-28 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2023 </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a9a22d55955c9101cb261abcafb4e33df" name="a9a22d55955c9101cb261abcafb4e33df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a22d55955c9101cb261abcafb4e33df">&#9670;&#160;</a></span>addCharToPlayerName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void addCharToPlayerName </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajoute un caractère au pseudo du joueur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="settings_8h_a9a22d55955c9101cb261abcafb4e33df_icgraph.png" border="0" usemap="#asettings_8h_a9a22d55955c9101cb261abcafb4e33df_icgraph" alt=""/></div>
+<map name="asettings_8h_a9a22d55955c9101cb261abcafb4e33df_icgraph" id="asettings_8h_a9a22d55955c9101cb261abcafb4e33df_icgraph">
+<area shape="rect" title="Ajoute un caractère au pseudo du joueur." alt="" coords="248,5,403,31"/>
+<area shape="rect" href="main_8c.html#a65942d285a85ebdda2445b5da031c2e2" title="Change les valeurs du tableau d&#39;évènements en fonction de nos instructions sur le clavier et la souri..." alt="" coords="104,5,200,31"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a78a3da557d14459ccc125159ba6cf9d0" name="a78a3da557d14459ccc125159ba6cf9d0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a78a3da557d14459ccc125159ba6cf9d0">&#9670;&#160;</a></span>saveKey()</h2>
 
@@ -175,10 +235,14 @@ Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="settings_8h_a78a3da557d14459ccc125159ba6cf9d0_cgraph.png" border="0" usemap="#asettings_8h_a78a3da557d14459ccc125159ba6cf9d0_cgraph" alt=""/></div>
 <map name="asettings_8h_a78a3da557d14459ccc125159ba6cf9d0_cgraph" id="asettings_8h_a78a3da557d14459ccc125159ba6cf9d0_cgraph">
-<area shape="rect" title="Gère l&#39;enregistrement des touches." alt="" coords="5,55,76,80"/>
-<area shape="rect" href="settings_8c.html#a0fa304d3fe58272c8deac3b29c3e036e" title="Fonction qui charge les keybinds dans le tableau global." alt="" coords="124,5,224,31"/>
-<area shape="rect" href="settings_8c.html#a5929d6499ed0df7eadba15d0f4365236" title="Met à jour le fichier de paramètres." alt="" coords="139,55,209,80"/>
-<area shape="rect" href="settings_8c.html#a86287960e44d080989644fe78952b2a8" title="Enregistre une touche." alt="" coords="127,104,221,129"/>
+<area shape="rect" title="Gère l&#39;enregistrement des touches." alt="" coords="5,56,76,81"/>
+<area shape="rect" href="settings_8c.html#a0fa304d3fe58272c8deac3b29c3e036e" title="Fonction qui charge les keybinds dans le tableau global." alt="" coords="410,5,510,31"/>
+<area shape="rect" href="settings_8c.html#af1e0a5878c43267daa4455be9ea2d424" title="Met à jour le fichier de paramètres." alt="" coords="137,56,206,81"/>
+<area shape="rect" href="settings_8c.html#a86287960e44d080989644fe78952b2a8" title="Enregistre une touche." alt="" coords="124,105,219,131"/>
+<area shape="rect" href="settings_8c.html#a1165e1d4439a045e94970c9fbc73bb3c" title="Fonction qui s&#39;occupe de charger les paramètres du joueur depuis un fichier." alt="" coords="267,56,361,81"/>
+<area shape="rect" href="settings_8c.html#ade55ed097a2eb2e0e02023ad1c364bc0" title="Créer le fichier de config et charge les paramètres par défaut." alt="" coords="409,55,511,80"/>
+<area shape="rect" href="settings_8c.html#abfef91263b80140b08929f805d83306d" title="Convertis un entier en sdl keycode et le met dans le tableau des keycode local." alt="" coords="417,104,503,129"/>
+<area shape="rect" href="menus_8c.html#acbae57aa2d8c508e63c0597b44024977" title="Change de menu." alt="" coords="559,55,655,80"/>
 </map>
 </div>
 <div class="dynheader">

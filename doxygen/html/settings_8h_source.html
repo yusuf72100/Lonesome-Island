@@ -86,19 +86,26 @@ $(function() {
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;math.h&gt;</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;pthread.h&gt;</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;windows.h&gt;</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;SDL.h&gt;</span>  </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;<a class="code" href="defs_8h.html">defs.h</a>&quot;</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">static</span> SDL_KeyCode localKeyTab[14];</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code hl_function" href="settings_8h.html#a1165e1d4439a045e94970c9fbc73bb3c">loadSettings</a>();</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code hl_function" href="settings_8h.html#a78a3da557d14459ccc125159ba6cf9d0">saveKey</a>(SDL_KeyCode keycode);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="menus_8h.html">menus.h</a>&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;windows.h&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;SDL.h&gt;</span>  </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;<a class="code" href="defs_8h.html">defs.h</a>&quot;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">static</span> SDL_KeyCode localKeyTab[14];</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keywordtype">void</span> <a class="code hl_function" href="settings_8h.html#af1e0a5878c43267daa4455be9ea2d424">saveFile</a>();</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code hl_function" href="settings_8h.html#a1165e1d4439a045e94970c9fbc73bb3c">loadSettings</a>();</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code hl_function" href="settings_8h.html#a78a3da557d14459ccc125159ba6cf9d0">saveKey</a>(SDL_KeyCode keycode);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code hl_function" href="settings_8h.html#a9a22d55955c9101cb261abcafb4e33df">addCharToPlayerName</a>(<span class="keywordtype">char</span> c);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">extern</span> <span class="keywordtype">void</span> savePlayerName();</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="adefs_8h_html"><div class="ttname"><a href="defs_8h.html">defs.h</a></div><div class="ttdoc">Fichier contenant toutes les définitions de structures et de types.</div></div>
-<div class="ttc" id="asettings_8h_html_a1165e1d4439a045e94970c9fbc73bb3c"><div class="ttname"><a href="settings_8h.html#a1165e1d4439a045e94970c9fbc73bb3c">loadSettings</a></div><div class="ttdeci">void loadSettings()</div><div class="ttdoc">Fonction qui s'occupe de charger les paramètres du joueur depuis un fichier.</div><div class="ttdef"><b>Definition:</b> settings.c:102</div></div>
-<div class="ttc" id="asettings_8h_html_a78a3da557d14459ccc125159ba6cf9d0"><div class="ttname"><a href="settings_8h.html#a78a3da557d14459ccc125159ba6cf9d0">saveKey</a></div><div class="ttdeci">void saveKey(SDL_KeyCode keycode)</div><div class="ttdoc">Gère l'enregistrement des touches.</div><div class="ttdef"><b>Definition:</b> settings.c:145</div></div>
+<div class="ttc" id="amenus_8h_html"><div class="ttname"><a href="menus_8h.html">menus.h</a></div><div class="ttdoc">Fichier contenant toutes les variables d'affichage.</div></div>
+<div class="ttc" id="asettings_8h_html_a1165e1d4439a045e94970c9fbc73bb3c"><div class="ttname"><a href="settings_8h.html#a1165e1d4439a045e94970c9fbc73bb3c">loadSettings</a></div><div class="ttdeci">void loadSettings()</div><div class="ttdoc">Fonction qui s'occupe de charger les paramètres du joueur depuis un fichier.</div><div class="ttdef"><b>Definition:</b> settings.c:111</div></div>
+<div class="ttc" id="asettings_8h_html_a78a3da557d14459ccc125159ba6cf9d0"><div class="ttname"><a href="settings_8h.html#a78a3da557d14459ccc125159ba6cf9d0">saveKey</a></div><div class="ttdeci">void saveKey(SDL_KeyCode keycode)</div><div class="ttdoc">Gère l'enregistrement des touches.</div><div class="ttdef"><b>Definition:</b> settings.c:157</div></div>
+<div class="ttc" id="asettings_8h_html_a9a22d55955c9101cb261abcafb4e33df"><div class="ttname"><a href="settings_8h.html#a9a22d55955c9101cb261abcafb4e33df">addCharToPlayerName</a></div><div class="ttdeci">void addCharToPlayerName(char c)</div><div class="ttdoc">Ajoute un caractère au pseudo du joueur.</div><div class="ttdef"><b>Definition:</b> settings.c:181</div></div>
+<div class="ttc" id="asettings_8h_html_af1e0a5878c43267daa4455be9ea2d424"><div class="ttname"><a href="settings_8h.html#af1e0a5878c43267daa4455be9ea2d424">saveFile</a></div><div class="ttdeci">void saveFile()</div><div class="ttdoc">Met à jour le fichier de paramètres.</div><div class="ttdef"><b>Definition:</b> settings.c:15</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

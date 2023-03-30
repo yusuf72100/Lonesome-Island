@@ -17,8 +17,8 @@ Graphe des dépendances par inclusion de settings.\+c\+:
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{settings_8c_a5929d6499ed0df7eadba15d0f4365236}\label{settings_8c_a5929d6499ed0df7eadba15d0f4365236}} 
-static void {\bfseries save\+File} ()
+\mbox{\Hypertarget{settings_8c_af1e0a5878c43267daa4455be9ea2d424}\label{settings_8c_af1e0a5878c43267daa4455be9ea2d424}} 
+void {\bfseries save\+File} ()
 \begin{DoxyCompactList}\small\item\em Met à jour le fichier de paramètres. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{settings_8c_ade55ed097a2eb2e0e02023ad1c364bc0}\label{settings_8c_ade55ed097a2eb2e0e02023ad1c364bc0}} 
 static void {\bfseries create\+Configs} ()
@@ -34,7 +34,9 @@ static void \mbox{\hyperlink{settings_8c_abfef91263b80140b08929f805d83306d}{to\+
 void {\bfseries load\+Settings} ()
 \begin{DoxyCompactList}\small\item\em Fonction qui s\textquotesingle{}occupe de charger les paramètres du joueur depuis un fichier. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{settings_8c_a78a3da557d14459ccc125159ba6cf9d0}{save\+Key}} (SDL\+\_\+\+Key\+Code keycode)
-\begin{DoxyCompactList}\small\item\em Gère l\textquotesingle{}enregistrement des touches. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gère l\textquotesingle{}enregistrement des touches. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{settings_8c_a9a22d55955c9101cb261abcafb4e33df}{add\+Char\+To\+Player\+Name}} (char c)
+\begin{DoxyCompactList}\small\item\em Ajoute un caractère au pseudo du joueur. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
@@ -56,6 +58,29 @@ Copyright (c) 2023
 
 
 \doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{settings_8c_a9a22d55955c9101cb261abcafb4e33df}\label{settings_8c_a9a22d55955c9101cb261abcafb4e33df}} 
+\index{settings.c@{settings.c}!addCharToPlayerName@{addCharToPlayerName}}
+\index{addCharToPlayerName@{addCharToPlayerName}!settings.c@{settings.c}}
+\doxysubsubsection{\texorpdfstring{addCharToPlayerName()}{addCharToPlayerName()}}
+{\footnotesize\ttfamily void add\+Char\+To\+Player\+Name (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Ajoute un caractère au pseudo du joueur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em c} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{settings_8c_a9a22d55955c9101cb261abcafb4e33df_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{settings_8c_a78a3da557d14459ccc125159ba6cf9d0}\label{settings_8c_a78a3da557d14459ccc125159ba6cf9d0}} 
 \index{settings.c@{settings.c}!saveKey@{saveKey}}
 \index{saveKey@{saveKey}!settings.c@{settings.c}}
@@ -76,11 +101,10 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=244pt]{settings_8c_a78a3da557d14459ccc125159ba6cf9d0_cgraph}
+\includegraphics[width=350pt]{settings_8c_a78a3da557d14459ccc125159ba6cf9d0_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -104,8 +128,7 @@ Enregistre une touche.
 {\em keycode} & \\
 \hline
 \end{DoxyParams}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -134,6 +157,6 @@ Voici le graphe des appelants de cette fonction \+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=326pt]{settings_8c_abfef91263b80140b08929f805d83306d_icgraph}
+\includegraphics[width=350pt]{settings_8c_abfef91263b80140b08929f805d83306d_icgraph}
 \end{center}
 \end{figure}

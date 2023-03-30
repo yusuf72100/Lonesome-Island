@@ -1,8 +1,10 @@
 <map id="C:/Users/Yusuf/CLionProjects/Lonesome&#45;Island/src/client.h" name="C:/Users/Yusuf/CLionProjects/Lonesome&#45;Island/src/client.h">
-<area shape="rect" id="node1" title="Fichier content toutes les informations relatives au client et au serveur." alt="" coords="204,5,399,45"/>
-<area shape="rect" id="node2" href="$client_8c.html" title="Fichier qui contient la configuration du socket client." alt="" coords="5,181,200,221"/>
-<area shape="rect" id="node3" href="$main_8h.html" title="Fichier contenant toutes les variables d&#39;affichage." alt="" coords="204,93,399,133"/>
-<area shape="rect" id="node6" href="$menus_8h.html" title="Fichier contenant toutes les variables d&#39;affichage." alt="" coords="423,93,623,133"/>
-<area shape="rect" id="node4" href="$main_8c.html" title="Fichier principal du programme qui s&#39;occupera de la partie jeu." alt="" coords="448,181,643,221"/>
-<area shape="rect" id="node5" href="$menus_8c.html" title="Fichier qui s&#39;occupera de l&#39;affichage des éléments." alt="" coords="224,181,424,221"/>
+<area shape="rect" id="node1" title="Fichier content toutes les informations relatives au client et au serveur." alt="" coords="85,5,280,45"/>
+<area shape="rect" id="node2" href="$client_8c.html" title="Fichier qui contient la configuration du socket client." alt="" coords="5,357,200,397"/>
+<area shape="rect" id="node3" href="$main_8h.html" title="Fichier contenant toutes les variables d&#39;affichage." alt="" coords="85,269,280,309"/>
+<area shape="rect" id="node6" href="$menus_8h.html" title="Fichier contenant toutes les variables d&#39;affichage." alt="" coords="379,93,579,133"/>
+<area shape="rect" id="node4" href="$main_8c.html" title="Fichier principal du programme qui s&#39;occupera de la partie jeu." alt="" coords="488,357,683,397"/>
+<area shape="rect" id="node5" href="$menus_8c.html" title="Fichier qui s&#39;occupera de l&#39;affichage des éléments." alt="" coords="251,357,451,397"/>
+<area shape="rect" id="node7" href="$settings_8h.html" title="Fichier content les définitions pour le fichier settings.c." alt="" coords="305,181,511,221"/>
+<area shape="rect" id="node8" href="$settings_8c.html" title="Programme qui s&#39;occupera de la sauvegarde des paramètres de l&#39;utilisateur." alt="" coords="305,269,511,309"/>
 </map>

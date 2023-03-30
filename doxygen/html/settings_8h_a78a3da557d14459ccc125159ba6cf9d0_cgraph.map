@@ -1,6 +1,10 @@
 <map id="saveKey" name="saveKey">
-<area shape="rect" id="node1" title="Gère l&#39;enregistrement des touches." alt="" coords="5,55,76,80"/>
-<area shape="rect" id="node2" href="$settings_8c.html#a0fa304d3fe58272c8deac3b29c3e036e" title="Fonction qui charge les keybinds dans le tableau global." alt="" coords="124,5,224,31"/>
-<area shape="rect" id="node3" href="$settings_8c.html#a5929d6499ed0df7eadba15d0f4365236" title="Met à jour le fichier de paramètres." alt="" coords="139,55,209,80"/>
-<area shape="rect" id="node4" href="$settings_8c.html#a86287960e44d080989644fe78952b2a8" title="Enregistre une touche." alt="" coords="127,104,221,129"/>
+<area shape="rect" id="node1" title="Gère l&#39;enregistrement des touches." alt="" coords="5,56,76,81"/>
+<area shape="rect" id="node2" href="$settings_8c.html#a0fa304d3fe58272c8deac3b29c3e036e" title="Fonction qui charge les keybinds dans le tableau global." alt="" coords="410,5,510,31"/>
+<area shape="rect" id="node3" href="$settings_8c.html#af1e0a5878c43267daa4455be9ea2d424" title="Met à jour le fichier de paramètres." alt="" coords="137,56,206,81"/>
+<area shape="rect" id="node8" href="$settings_8c.html#a86287960e44d080989644fe78952b2a8" title="Enregistre une touche." alt="" coords="124,105,219,131"/>
+<area shape="rect" id="node4" href="$settings_8c.html#a1165e1d4439a045e94970c9fbc73bb3c" title="Fonction qui s&#39;occupe de charger les paramètres du joueur depuis un fichier." alt="" coords="267,56,361,81"/>
+<area shape="rect" id="node5" href="$settings_8c.html#ade55ed097a2eb2e0e02023ad1c364bc0" title="Créer le fichier de config et charge les paramètres par défaut." alt="" coords="409,55,511,80"/>
+<area shape="rect" id="node7" href="$settings_8c.html#abfef91263b80140b08929f805d83306d" title="Convertis un entier en sdl keycode et le met dans le tableau des keycode local." alt="" coords="417,104,503,129"/>
+<area shape="rect" id="node6" href="$menus_8c.html#acbae57aa2d8c508e63c0597b44024977" title="Change de menu." alt="" coords="559,55,655,80"/>
 </map>

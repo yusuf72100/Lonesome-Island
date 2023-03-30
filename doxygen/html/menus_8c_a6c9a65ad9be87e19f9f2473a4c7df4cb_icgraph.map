@@ -1,0 +1,8 @@
+<map id="drawText" name="drawText">
+<area shape="rect" id="node1" title="Affiche un texte en ttf." alt="" coords="660,31,735,56"/>
+<area shape="rect" id="node2" href="$menus_8c.html#a534eae53456f9dd3c46b0954ab3f7da0" title="Dessine le texte du menu keybind." alt="" coords="459,5,612,31"/>
+<area shape="rect" id="node6" href="$menus_8c.html#a98db194fe85486f7e4038ab3044a841c" title="Affiche le menu d&#39;affectation du joueur.playername." alt="" coords="251,56,393,81"/>
+<area shape="rect" id="node3" href="$menus_8c.html#a706ecee7dd0dc5e17064da807e4d0f7f" title="Affiche le menu des paramètres des keybinds dans le menu principal." alt="" coords="233,7,411,32"/>
+<area shape="rect" id="node4" href="$menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,32,185,57"/>
+<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,32,56,57"/>
+</map>

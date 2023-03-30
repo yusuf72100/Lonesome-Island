@@ -136,9 +136,9 @@ static void \mbox{\hyperlink{menus_8c_ad4082538ea22b0a347c09456b67ba4bd}{Main\+M
 \begin{DoxyCompactList}\small\item\em Affiche le menu principal. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{menus_8c_a081a8f6ffea1d158f2a87e4258f6329a}{Settings\+Main\+Menu}} ()
 \begin{DoxyCompactList}\small\item\em Affiche le menu des paramètres dans le menu principal. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{menus_8c_ab93a928dfd7c09857ca343ca01a850f2}{draw\+Text}} (SDL\+\_\+\+Rect $\ast$rect, SDL\+\_\+\+Texture $\ast$texture, SDL\+\_\+\+Surface $\ast$surface, char $\ast$text)
+static void \mbox{\hyperlink{menus_8c_a6c9a65ad9be87e19f9f2473a4c7df4cb}{draw\+Text}} (SDL\+\_\+\+Rect $\ast$rect, SDL\+\_\+\+Texture $\ast$texture, SDL\+\_\+\+Surface $\ast$surface, char $\ast$text, SDL\+\_\+\+Color color)
 \begin{DoxyCompactList}\small\item\em Affiche un texte en ttf. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{menus_8c_a38919db31193e3a7fc097ddd23328def}{draw\+Char}} (SDL\+\_\+\+Rect $\ast$rect, SDL\+\_\+\+Texture $\ast$texture, SDL\+\_\+\+Surface $\ast$surface, char c)
+static void \mbox{\hyperlink{menus_8c_a2c77e93cff7609cf66cbf196174232db}{draw\+Char}} (SDL\+\_\+\+Rect $\ast$rect, SDL\+\_\+\+Texture $\ast$texture, SDL\+\_\+\+Surface $\ast$surface, char c, SDL\+\_\+\+Color color)
 \begin{DoxyCompactList}\small\item\em Affiche un seul caractère en ttf. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{menus_8c_a534eae53456f9dd3c46b0954ab3f7da0}{draw\+Keybind\+Menu\+Text}} ()
 \begin{DoxyCompactList}\small\item\em Dessine le texte du menu keybind. \end{DoxyCompactList}\item 
@@ -152,6 +152,9 @@ static void {\bfseries Inventory\+Menu} ()
 \begin{DoxyCompactList}\small\item\em Dessin le menu de l\textquotesingle{}inventaire. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{menus_8c_a047a87d55ef5bac980f1df5f340f39fa}{Settings\+In\+Game\+Menu}} ()
 \begin{DoxyCompactList}\small\item\em Affiche le menu des paramètres dans en jeu. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{menus_8c_a98db194fe85486f7e4038ab3044a841c}\label{menus_8c_a98db194fe85486f7e4038ab3044a841c}} 
+static void {\bfseries get\+Player\+Name\+Menu} ()
+\begin{DoxyCompactList}\small\item\em Affiche le menu d\textquotesingle{}affectation du joueur.\+playername. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{menus_8c_aa13653318c21b0e6b86838e6091bfc9a}\label{menus_8c_aa13653318c21b0e6b86838e6091bfc9a}} 
 void {\bfseries draw\+Menu} ()
 \begin{DoxyCompactList}\small\item\em Dessine le bon menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -237,8 +240,7 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \includegraphics[width=350pt]{menus_8c_ab5e1f7649b8b40f10bd9168c6a098883_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -352,7 +354,7 @@ Voici le graphe des appelants de cette fonction \+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=318pt]{menus_8c_acbae57aa2d8c508e63c0597b44024977_icgraph}
+\includegraphics[width=350pt]{menus_8c_acbae57aa2d8c508e63c0597b44024977_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{menus_8c_a3ccdb6767f1237284bf7c8e0d3e3eacb}\label{menus_8c_a3ccdb6767f1237284bf7c8e0d3e3eacb}} 
@@ -428,8 +430,7 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \includegraphics[width=280pt]{menus_8c_ad452b0eb987136d6af7d68a474fd7bc1_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -515,19 +516,18 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \includegraphics[width=293pt]{menus_8c_a66530cff59b9a7c9551fd82dce25fe40_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{menus_8c_a66530cff59b9a7c9551fd82dce25fe40_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{menus_8c_a38919db31193e3a7fc097ddd23328def}\label{menus_8c_a38919db31193e3a7fc097ddd23328def}} 
+\mbox{\Hypertarget{menus_8c_a2c77e93cff7609cf66cbf196174232db}\label{menus_8c_a2c77e93cff7609cf66cbf196174232db}} 
 \index{menus.c@{menus.c}!drawChar@{drawChar}}
 \index{drawChar@{drawChar}!menus.c@{menus.c}}
 \doxysubsubsection{\texorpdfstring{drawChar()}{drawChar()}}
-{\footnotesize\ttfamily static void draw\+Char (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Rect $\ast$}]{rect,  }\item[{SDL\+\_\+\+Texture $\ast$}]{texture,  }\item[{SDL\+\_\+\+Surface $\ast$}]{surface,  }\item[{char}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily static void draw\+Char (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Rect $\ast$}]{rect,  }\item[{SDL\+\_\+\+Texture $\ast$}]{texture,  }\item[{SDL\+\_\+\+Surface $\ast$}]{surface,  }\item[{char}]{c,  }\item[{SDL\+\_\+\+Color}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -549,7 +549,7 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=272pt]{menus_8c_a38919db31193e3a7fc097ddd23328def_cgraph}
+\includegraphics[width=272pt]{menus_8c_a2c77e93cff7609cf66cbf196174232db_cgraph}
 \end{center}
 \end{figure}
 Voici le graphe des appelants de cette fonction \+:
@@ -557,7 +557,7 @@ Voici le graphe des appelants de cette fonction \+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{menus_8c_a38919db31193e3a7fc097ddd23328def_icgraph}
+\includegraphics[width=350pt]{menus_8c_a2c77e93cff7609cf66cbf196174232db_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{menus_8c_ae06068ec3d07bace5f405fbf6eeb3c20}\label{menus_8c_ae06068ec3d07bace5f405fbf6eeb3c20}} 
@@ -608,8 +608,7 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \includegraphics[width=278pt]{menus_8c_a317983aacbc3405e75432d6290b1b280_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -638,8 +637,7 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \includegraphics[width=271pt]{menus_8c_ab5e92db476c0b623d52a2556f346b737_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -664,8 +662,7 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
 \includegraphics[width=350pt]{menus_8c_a534eae53456f9dd3c46b0954ab3f7da0_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -696,7 +693,8 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \includegraphics[width=280pt]{menus_8c_a2dfe41d8c0f122241c47441391c02de3_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -730,18 +728,19 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \includegraphics[width=350pt]{menus_8c_ab804df0c510979d77fd5599feef21ae0_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=316pt]{menus_8c_ab804df0c510979d77fd5599feef21ae0_icgraph}
+\includegraphics[width=350pt]{menus_8c_ab804df0c510979d77fd5599feef21ae0_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{menus_8c_ab93a928dfd7c09857ca343ca01a850f2}\label{menus_8c_ab93a928dfd7c09857ca343ca01a850f2}} 
+\mbox{\Hypertarget{menus_8c_a6c9a65ad9be87e19f9f2473a4c7df4cb}\label{menus_8c_a6c9a65ad9be87e19f9f2473a4c7df4cb}} 
 \index{menus.c@{menus.c}!drawText@{drawText}}
 \index{drawText@{drawText}!menus.c@{menus.c}}
 \doxysubsubsection{\texorpdfstring{drawText()}{drawText()}}
-{\footnotesize\ttfamily static void draw\+Text (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Rect $\ast$}]{rect,  }\item[{SDL\+\_\+\+Texture $\ast$}]{texture,  }\item[{SDL\+\_\+\+Surface $\ast$}]{surface,  }\item[{char $\ast$}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily static void draw\+Text (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Rect $\ast$}]{rect,  }\item[{SDL\+\_\+\+Texture $\ast$}]{texture,  }\item[{SDL\+\_\+\+Surface $\ast$}]{surface,  }\item[{char $\ast$}]{text,  }\item[{SDL\+\_\+\+Color}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -763,7 +762,7 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=271pt]{menus_8c_ab93a928dfd7c09857ca343ca01a850f2_cgraph}
+\includegraphics[width=271pt]{menus_8c_a6c9a65ad9be87e19f9f2473a4c7df4cb_cgraph}
 \end{center}
 \end{figure}
 Voici le graphe des appelants de cette fonction \+:
@@ -771,7 +770,7 @@ Voici le graphe des appelants de cette fonction \+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{menus_8c_ab93a928dfd7c09857ca343ca01a850f2_icgraph}
+\includegraphics[width=350pt]{menus_8c_a6c9a65ad9be87e19f9f2473a4c7df4cb_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{menus_8c_ab283db36e8911aeb9d32d5886f156570}\label{menus_8c_ab283db36e8911aeb9d32d5886f156570}} 
@@ -1131,8 +1130,7 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \includegraphics[width=350pt]{menus_8c_a081a8f6ffea1d158f2a87e4258f6329a_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -1185,7 +1183,8 @@ Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \includegraphics[width=350pt]{menus_8c_a6806c9e2f2bcbf342c2bfa91336c2d27_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

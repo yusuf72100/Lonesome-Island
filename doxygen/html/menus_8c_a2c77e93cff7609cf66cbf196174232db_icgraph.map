@@ -1,0 +1,7 @@
+<map id="drawChar" name="drawChar">
+<area shape="rect" id="node1" title="Affiche un seul caractère en ttf." alt="" coords="660,5,736,31"/>
+<area shape="rect" id="node2" href="$menus_8c.html#a534eae53456f9dd3c46b0954ab3f7da0" title="Dessine le texte du menu keybind." alt="" coords="459,5,612,31"/>
+<area shape="rect" id="node3" href="$menus_8c.html#a706ecee7dd0dc5e17064da807e4d0f7f" title="Affiche le menu des paramètres des keybinds dans le menu principal." alt="" coords="233,5,411,31"/>
+<area shape="rect" id="node4" href="$menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,5,185,31"/>
+<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>

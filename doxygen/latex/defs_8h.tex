@@ -8,8 +8,7 @@ Fichier contenant toutes les définitions de structures et de types.
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$SDL.\+h$>$}\newline
-Graphe des dépendances par inclusion de defs.\+h\+:
-\nopagebreak
+Graphe des dépendances par inclusion de defs.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -77,13 +76,13 @@ enum {\bfseries T\+\_\+\+BUTTONS\+\_\+\+CLICKED} \{ \newline
 , {\bfseries SETTINGS\+\_\+\+BUTTON\+\_\+\+CLICKED}
 , \newline
 {\bfseries SETTINGS\+\_\+\+KEYBINDS\+\_\+\+CLICKED}
-, {\bfseries SETTINGS\+\_\+\+KEYBIND\+\_\+\+CLICKED}
 , {\bfseries SETTINGS\+\_\+\+KEYBIND\+\_\+\+UP\+\_\+\+CLICKED}
 , {\bfseries SETTINGS\+\_\+\+KEYBIND\+\_\+\+DOWN\+\_\+\+CLICKED}
+, {\bfseries SETTINGS\+\_\+\+KEYBIND\+\_\+\+LEFT\+\_\+\+CLICKED}
 , \newline
-{\bfseries SETTINGS\+\_\+\+KEYBIND\+\_\+\+LEFT\+\_\+\+CLICKED}
-, {\bfseries SETTINGS\+\_\+\+KEYBIND\+\_\+\+RIGHT\+\_\+\+CLICKED}
+{\bfseries SETTINGS\+\_\+\+KEYBIND\+\_\+\+RIGHT\+\_\+\+CLICKED}
 , {\bfseries INVENTORY\+\_\+\+BUTTON\+\_\+\+CLICKED}
+, {\bfseries GETPLAYERNAME\+\_\+\+CLICKED}
 , {\bfseries NONE}
  \}
 \item 
@@ -96,6 +95,7 @@ enum {\bfseries T\+\_\+\+MENU} \{ \newline
 , \newline
 {\bfseries SETTINGS\+\_\+\+MAIN\+\_\+\+KEYBIND\+\_\+\+MENU}
 , {\bfseries SETTINGS\+\_\+\+INGAME\+\_\+\+MENU}
+, {\bfseries GET\+\_\+\+PLAYERNAME\+\_\+\+MENU}
 , {\bfseries ERR\+\_\+\+MENU}
  \}
 \item 
@@ -121,14 +121,23 @@ void {\bfseries define\+Item} ()
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{defs_8h_a1294b31377227aee8ddca0b94ae8eab8}\label{defs_8h_a1294b31377227aee8ddca0b94ae8eab8}} 
+int {\bfseries CONNECTED}
+\item 
 \mbox{\Hypertarget{defs_8h_aef93a21306f15a44929d28318aab5ffb}\label{defs_8h_aef93a21306f15a44929d28318aab5ffb}} 
 int {\bfseries SOLO}
 \item 
 \mbox{\Hypertarget{defs_8h_ade7358028ced54508b163d7e93630830}\label{defs_8h_ade7358028ced54508b163d7e93630830}} 
 int {\bfseries HOST}
 \item 
-\mbox{\Hypertarget{defs_8h_af0fa3c1234b4fd6ba5cfdcec13daaa52}\label{defs_8h_af0fa3c1234b4fd6ba5cfdcec13daaa52}} 
-T\+\_\+\+BUTTONS\+\_\+\+CLICKED {\bfseries KEYBIND\+\_\+\+WAITING}
+\mbox{\Hypertarget{defs_8h_aff3044ad13b62f7063f2c121412e0258}\label{defs_8h_aff3044ad13b62f7063f2c121412e0258}} 
+int {\bfseries connected\+Error}
+\item 
+\mbox{\Hypertarget{defs_8h_a439227feff9d7f55384e8780cfc2eb82}\label{defs_8h_a439227feff9d7f55384e8780cfc2eb82}} 
+int {\bfseries size}
+\item 
+\mbox{\Hypertarget{defs_8h_acd02ef08af80ac215f0363b8fc514da9}\label{defs_8h_acd02ef08af80ac215f0363b8fc514da9}} 
+T\+\_\+\+BUTTONS\+\_\+\+CLICKED {\bfseries KEYBOARD\+\_\+\+WAITING}
 \item 
 \mbox{\Hypertarget{defs_8h_aaa8e409e04dcf575ef63fd5fb3db06f9}\label{defs_8h_aaa8e409e04dcf575ef63fd5fb3db06f9}} 
 SDL\+\_\+\+Window $\ast$ {\bfseries window}

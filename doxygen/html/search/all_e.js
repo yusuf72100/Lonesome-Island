@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['savefile_0',['saveFile',['../settings_8c.html#a5929d6499ed0df7eadba15d0f4365236',1,'settings.c']]],
-  ['savekey_1',['saveKey',['../settings_8h.html#a78a3da557d14459ccc125159ba6cf9d0',1,'saveKey(SDL_KeyCode keycode):&#160;settings.c'],['../settings_8c.html#a78a3da557d14459ccc125159ba6cf9d0',1,'saveKey(SDL_KeyCode keycode):&#160;settings.c']]],
+  ['savefile_0',['saveFile',['../settings_8c.html#af1e0a5878c43267daa4455be9ea2d424',1,'saveFile():&#160;settings.c'],['../settings_8h.html#af1e0a5878c43267daa4455be9ea2d424',1,'saveFile():&#160;settings.c']]],
+  ['savekey_1',['saveKey',['../settings_8c.html#a78a3da557d14459ccc125159ba6cf9d0',1,'saveKey(SDL_KeyCode keycode):&#160;settings.c'],['../settings_8h.html#a78a3da557d14459ccc125159ba6cf9d0',1,'saveKey(SDL_KeyCode keycode):&#160;settings.c']]],
   ['savekeybind_2',['saveKeybind',['../settings_8c.html#a86287960e44d080989644fe78952b2a8',1,'settings.c']]],
   ['sdl_5fexitwitherror_3',['SDL_ExitWithError',['../menus_8c.html#acd3f39401c59bbd01c9663c5348c63c1',1,'SDL_ExitWithError(const char *message):&#160;menus.c'],['../menus_8h.html#acd3f39401c59bbd01c9663c5348c63c1',1,'SDL_ExitWithError(const char *message):&#160;menus.c']]],
   ['searchclients_4',['searchClients',['../socket_8c.html#a68b45930fad2153f053144a8678afa1c',1,'searchClients(void *arg):&#160;socket.c'],['../socket_8h.html#ad768973bc551435391fa1ddfbb0355a1',1,'searchClients(void *argt):&#160;socket.c']]],

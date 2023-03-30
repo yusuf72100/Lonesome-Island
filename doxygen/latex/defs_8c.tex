@@ -6,8 +6,7 @@ Fichier qui initialisera les variables globales.
 
 
 {\ttfamily \#include \char`\"{}defs.\+h\char`\"{}}\newline
-Graphe des dépendances par inclusion de defs.\+c\+:
-\nopagebreak
+Graphe des dépendances par inclusion de defs.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -23,20 +22,29 @@ void {\bfseries define\+Item} ()
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{defs_8c_a1294b31377227aee8ddca0b94ae8eab8}\label{defs_8c_a1294b31377227aee8ddca0b94ae8eab8}} 
+int {\bfseries CONNECTED} = FALSE
+\item 
 \mbox{\Hypertarget{defs_8c_aef93a21306f15a44929d28318aab5ffb}\label{defs_8c_aef93a21306f15a44929d28318aab5ffb}} 
 int {\bfseries SOLO} = FALSE
 \item 
 \mbox{\Hypertarget{defs_8c_ade7358028ced54508b163d7e93630830}\label{defs_8c_ade7358028ced54508b163d7e93630830}} 
 int {\bfseries HOST} = FALSE
 \item 
+\mbox{\Hypertarget{defs_8c_aff3044ad13b62f7063f2c121412e0258}\label{defs_8c_aff3044ad13b62f7063f2c121412e0258}} 
+int {\bfseries connected\+Error} = FALSE
+\item 
+\mbox{\Hypertarget{defs_8c_a439227feff9d7f55384e8780cfc2eb82}\label{defs_8c_a439227feff9d7f55384e8780cfc2eb82}} 
+int {\bfseries size} = 0
+\item 
 \mbox{\Hypertarget{defs_8c_a89a8fc0874f591698ac9fa74d38bcd87}\label{defs_8c_a89a8fc0874f591698ac9fa74d38bcd87}} 
-char {\bfseries IP\+\_\+\+PUBLIC} \mbox{[}$\,$\mbox{]} = \char`\"{}90.\+12.\+114.\+239\char`\"{}
+char {\bfseries IP\+\_\+\+PUBLIC} \mbox{[}$\,$\mbox{]} = \char`\"{}172.\+18.\+192.\+1\char`\"{}
 \item 
 \mbox{\Hypertarget{defs_8c_a99a35a6d05775d2462a6c8a86310c5d7}\label{defs_8c_a99a35a6d05775d2462a6c8a86310c5d7}} 
 char {\bfseries bind\+Button\+Text} \mbox{[}4\mbox{]} = \{\char`\"{}\char`\"{}\}
 \item 
-\mbox{\Hypertarget{defs_8c_af0fa3c1234b4fd6ba5cfdcec13daaa52}\label{defs_8c_af0fa3c1234b4fd6ba5cfdcec13daaa52}} 
-T\+\_\+\+BUTTONS\+\_\+\+CLICKED {\bfseries KEYBIND\+\_\+\+WAITING} = NONE
+\mbox{\Hypertarget{defs_8c_acd02ef08af80ac215f0363b8fc514da9}\label{defs_8c_acd02ef08af80ac215f0363b8fc514da9}} 
+T\+\_\+\+BUTTONS\+\_\+\+CLICKED {\bfseries KEYBOARD\+\_\+\+WAITING} = NONE
 \item 
 \mbox{\Hypertarget{defs_8c_aaa8e409e04dcf575ef63fd5fb3db06f9}\label{defs_8c_aaa8e409e04dcf575ef63fd5fb3db06f9}} 
 SDL\+\_\+\+Window $\ast$ {\bfseries window} = NULL

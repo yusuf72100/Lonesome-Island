@@ -1,6 +1,10 @@
 <map id="switchAnimation" name="switchAnimation">
-<area shape="rect" id="node1" title="Applique la bonne texture au joueur en fonction de son animation." alt="" coords="368,5,485,31"/>
-<area shape="rect" id="node2" href="$menus_8c.html#ab804df0c510979d77fd5599feef21ae0" title="Dessine tous les joueurs." alt="" coords="227,5,320,31"/>
-<area shape="rect" id="node3" href="$main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
-<area shape="rect" id="node4" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+<area shape="rect" id="node1" title="Applique la bonne texture au joueur en fonction de son animation." alt="" coords="744,58,861,84"/>
+<area shape="rect" id="node2" href="$menus_8c.html#ab804df0c510979d77fd5599feef21ae0" title="Dessine tous les joueurs." alt="" coords="603,58,696,84"/>
+<area shape="rect" id="node3" href="$menus_8c.html#a3c98ffe9a3fcb71780598d084e08450b" title="Dessine le menu en jeu." alt="" coords="459,58,555,84"/>
+<area shape="rect" id="node4" href="$menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,58,185,84"/>
+<area shape="rect" id="node6" href="$menus_8c.html#a588196acaedd8824af54e4bac318358d" title="Dessin le menu de l&#39;inventaire." alt="" coords="269,33,375,58"/>
+<area shape="rect" id="node7" href="$menus_8c.html#a047a87d55ef5bac980f1df5f340f39fa" title="Affiche le menu des paramètres dans en jeu." alt="" coords="249,82,395,108"/>
+<area shape="rect" id="node8" href="$menus_8c.html#a706ecee7dd0dc5e17064da807e4d0f7f" title="Affiche le menu des paramètres des keybinds dans le menu principal." alt="" coords="233,132,411,157"/>
+<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,58,56,84"/>
 </map>
