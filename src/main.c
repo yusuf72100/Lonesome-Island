@@ -733,8 +733,6 @@ static void doEvents()
             displayError("Error: Server looking offline :/");
         }
     }
-
-
 }
 
 /**

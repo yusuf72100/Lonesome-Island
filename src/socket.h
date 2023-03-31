@@ -48,7 +48,6 @@ typedef struct
     SOCKET clientSocket;
     SOCKADDR_IN addrClient;
     player_t joueur;
-
 }socketDatas;
 
 /**

@@ -1353,24 +1353,24 @@ static void drawKeybindMenuText()
         .y = settings_menu_keybind_right_rect.y + ((settings_menu_keybind_right_rect.h / 2) - 25)
     };
 
-    up_text_rect.w = 50;
+    up_text_rect.w = 100;
     up_text_rect.h = 50;
-    up_text_rect.x = settings_menu_keybind_up_rect.x - 100;
+    up_text_rect.x = settings_menu_keybind_up_rect.x - 105;
     up_text_rect.y = settings_menu_keybind_up_rect.y + (settings_menu_keybind_up_rect.h/2) - (up_text_rect.h/2);
 
-    down_text_rect.w = 50;
+    down_text_rect.w = 120;
     down_text_rect.h = 50;
-    down_text_rect.x = settings_menu_keybind_down_rect.x - 120;
+    down_text_rect.x = settings_menu_keybind_down_rect.x - 125;
     down_text_rect.y = settings_menu_keybind_down_rect.y + (settings_menu_keybind_down_rect.h/2) - (down_text_rect.h/2);
 
-    left_text_rect.w = 50;
+    left_text_rect.w = 120;
     left_text_rect.h = 50;
-    left_text_rect.x = settings_menu_keybind_left_rect.x - 120;
+    left_text_rect.x = settings_menu_keybind_left_rect.x - 125;
     left_text_rect.y = settings_menu_keybind_left_rect.y + (settings_menu_keybind_left_rect.h/2) - (left_text_rect.h/2);
 
-    right_text_rect.w = 50;
+    right_text_rect.w = 120;
     right_text_rect.h = 50;
-    right_text_rect.x = settings_menu_keybind_right_rect.x - 125;
+    right_text_rect.x = settings_menu_keybind_right_rect.x - 130;
     right_text_rect.y = settings_menu_keybind_right_rect.y + (settings_menu_keybind_right_rect.h/2) - (right_text_rect.h/2);
 
     drawText(&up_text_rect, keybind_texte_texture, keybind_texte_surface, "Up", whiteColor);
@@ -1519,19 +1519,18 @@ static void getPlayerNameMenu()
     rect.h = 200;
 
     SDL_Rect texte_rect = {
-        .w = 200,
-        .h = 500,
-        .x = (WindowW / 2) - (strlen(joueur.playername) * 20),
+        .w = strlen(joueur.playername) * 50,
+        .h = 75,
+        .x = (WindowW / 2) - (strlen(joueur.playername) * 25),
         .y = rect.y + (rect.h / 2) - 15
     };
 
     SDL_Rect title_rect = {
-        .w = 500,
-        .h = 500,
-        .x = (WindowW / 2) - 250,
+        .w = 800,
+        .h = 75,
+        .x = (WindowW / 2) - 400,
         .y = WindowH - ((WindowH * 80) / 100)
     };
-
 
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     SDL_RenderDrawRect(renderer, &rect);
