@@ -54,7 +54,6 @@ static pthread_t animations_thread;
 static void checkEvents();
 static void doEvents();
 void *Send2Server();
-Vecteur InitVecteur(int angle, int vitesse);
 void delay_settings_button_right();
 void delay_settings_button_left();
 void delay_running_down();

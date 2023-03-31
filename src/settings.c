@@ -180,7 +180,7 @@ extern void saveKey(SDL_KeyCode keycode)
  */
 extern void addCharToPlayerName(char c)
 {
-    if(strcmp(joueur.playername, "Username") == 0)
+    if(strcmp(joueur.playername, "Username") == 0 || strcmp(joueur.playername, " ") == 0)
     {
         joueur.playername[0] = c;
         joueur.playername[1] = '\0';

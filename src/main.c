@@ -33,29 +33,47 @@ void *Send2Server()
 }
 
 /**
- * @brief Calcul un vecteur selon un angle de rotation et une vitesse.
- * 
- * @param angle 
- * @param vitesse 
- * @return Vecteur 
+ * @brief Renvoi vrai si le keycode passé en paramètre correspond au keycode d'une touche alpha (une lettre).
+ * @param code
+ * @return int
  */
-Vecteur InitVecteur(int angle, int vitesse)
+static int isKeyLetter(SDL_Keycode code)
 {
-    Vecteur Vecteur;
-    double bufferX;
-    double bufferY;
+    return (strlen(SDL_GetKeyName(code)) == 1 && isalpha(SDL_GetKeyName(code)[0]));
+}
 
-    bufferX = cos(angle) * vitesse;
-    bufferY = sin(angle) * vitesse; 
+/**
+ * @brief Renvoi vrai si le keycode passé en paramètre correspond au keycode d'une touche digit (un chiffre).
+ * @param code
+ * @return int
+ */
+static int isKeyNumber(SDL_Keycode code)
+{
+    return (strlen(SDL_GetKeyName(code)) == 1 && SDL_GetKeyName(code)[0] >= '0' && SDL_GetKeyName(code)[0] <= '9');
+}
 
-    Vecteur.x = round(bufferX);
-    Vecteur.y = round(bufferY);
+/**
+ * @brief Renvoi vrai si la touche pressée est une majuscule.
+ * @param code
+ * @return int
+ */
+static int isKeyMaj(SDL_Keycode code)
+{
+    const Uint8* state = SDL_GetKeyboardState(NULL);
 
-    if(debug) printf("Angle : %d\n", angle);
-    if(debug) printf("Vecteur.x : %lf pour un cos de %lf\n", Vecteur.x, cos(angle));
-    if(debug) printf("Vecteur.y : %lf pour un sin de %lf\n", Vecteur.y, sin(angle));
+    // Vérifie si la touche Caps Lock est enfoncée
+    if (SDL_GetModState() & KMOD_CAPS)
+        return 1;
 
-    return Vecteur;
+    // Vérifie si les touches Shift gauche ou droit sont enfoncées
+    if (SDL_GetModState() & KMOD_SHIFT)
+        return 1;
+
+    // Vérifie si la touche est une lettre majuscule
+    if (code >= SDLK_a && code <= SDLK_z)
+        return (SDL_GetModState() & KMOD_SHIFT);
+
+    return 0;
 }
 
 /**
@@ -164,8 +182,19 @@ static void checkEvents()
                             removeCharToPlayerName();
                             break;
                         default:
-                            if(strlen(joueur.playername) != 16) {
-                                addCharToPlayerName((char) event.key.keysym.sym);
+                            if ((strlen)(joueur.playername) != 16) {
+                                if (isKeyLetter(event.key.keysym.sym)) {
+                                    if (isKeyMaj(event.key.keysym.sym)) {
+                                        // Si la touche est une lettre majuscule
+                                        addCharToPlayerName((char)toupper(SDL_GetKeyName(event.key.keysym.sym)[0]));
+                                    } else {
+                                        // Sinon, c'est une lettre minuscule
+                                        addCharToPlayerName((char)event.key.keysym.sym);
+                                    }
+                                } else if (isKeyNumber(event.key.keysym.sym)) {
+                                    // Si la touche est un chiffre
+                                    addCharToPlayerName((char)event.key.keysym.sym);
+                                }
                             }
                             break;
                     }
