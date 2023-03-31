@@ -15,11 +15,19 @@ main:	$(objets)
 
 map.o:	$(SRCDIR)/map.c
 	GCC -o $(LIBDIR)/map.o -c $(SRCDIR)/map.c $(LDFLAGS)
-	@echo "map compilation success!"
+	@echo "Map compilation success!"
 
-create_map.o:	$(SRCDIR)/create_map.c
-	GCC -o $(LIBDIR)/create_map.o -c $(SRCDIR)/create_map.c $(LDFLAGS)
-	@echo "create_map compilation success!"
+player.o:	$(SRCDIR)/player.c
+	GCC -o $(LIBDIR)/player.o -c $(SRCDIR)/player.c $(LDFLAGS)
+	@echo "Player compilation success!"
+
+camera.o:	$(SRCDIR)/camera.c
+	GCC -o $(LIBDIR)/camera.o -c $(SRCDIR)/camera.c $(LDFLAGS)
+	@echo "Camera compilation success!"
+
+render.o:	$(SRCDIR)/render.c
+	GCC -o $(LIBDIR)/render.o -c $(SRCDIR)/render.c $(LDFLAGS)
+	@echo "Render compilation success!"
 
 settings.o:	$(SRCDIR)/settings.c
 	GCC -o $(LIBDIR)/settings.o -c $(SRCDIR)/settings.c $(LDFLAGS)
