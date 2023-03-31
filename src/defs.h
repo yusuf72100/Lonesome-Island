@@ -21,6 +21,7 @@ typedef enum {PLAY_BUTTON_CLICKED, CONNECT_BUTTON_CLICKED, HOST_BUTTON_CLICKED, 
 typedef enum {MAIN_MENU, INGAME_MENU, INVENTORY_MENU, SETTINGS_MAIN_MENU, SETTINGS_MAIN_KEYBIND_MENU, SETTINGS_INGAME_MENU, GET_PLAYERNAME_MENU, ERR_MENU} T_MENU;
 typedef enum {WEAPON, FOOD, TOOL, BLOCK_ITEM} T_ITEM;
 typedef enum {CHEST, RESOURCE, BLOCK} T_BLOCK;
+typedef enum {NORTH, EAST, SOUTH, WEST}T_FACING;
 
 extern int CONNECTED;
 extern int SOLO;
@@ -119,6 +120,11 @@ typedef struct
     SDL_Rect rect;
     T_BLOCK blockType;
 }block_t;
+
+typedef struct coord_s{
+    int x;
+    int y;
+}coord_t;
 
 extern T_MENU menu;
 extern item_t bois;

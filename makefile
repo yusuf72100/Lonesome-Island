@@ -9,7 +9,7 @@ LDFLAGS=-I include -L lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -l
 objets= liste.o socket.o client.o sound.o menus.o defs.o settings.o create_map.o map.o
  
 main:	$(objets)
-	GCC $(SRCDIR)/main.c -o prog $(LIBDIR)/liste.o  $(LIBDIR)/socket.o $(LIBDIR)/client.o $(LIBDIR)/menus.o $(LIBDIR)/sound.o $(LIBDIR)/defs.o $(LIBDIR)/settings.o $(LIBDIR)/create_map.o $(LIBDIR)/map.o $(LDFLAGS)
+	GCC $(SRCDIR)/main.c -o prog $(LIBDIR)/liste.o  $(LIBDIR)/socket.o $(LIBDIR)/client.o $(LIBDIR)/menus.o $(LIBDIR)/sound.o $(LIBDIR)/defs.o $(LIBDIR)/settings.o $(LIBDIR)/map.o $(LIBDIR)/render.o $(LIBDIR)/camera.o $(LIBDIR)/player.o $(LDFLAGS)
 	@echo "Main compilation success!"
 	make success
 
