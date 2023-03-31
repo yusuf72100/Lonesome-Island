@@ -703,14 +703,14 @@ void displayError(char *s)
 {
     SDL_Rect rect;
     rect.x = 0;
-    rect.y = (WindowH / 2) - 100;
-    rect.w = WindowW;
+    rect.y = (DM.h / 2) - 100;
+    rect.w = DM.w;
     rect.h = 200;
 
     SDL_Rect error;
     error.w = 200;
     error.h = 500;
-    error.x = (WindowW / 2) - 315;
+    error.x = (DM.w / 2) - 315;
     error.y = rect.y + (rect.h / 2) - 15;
 
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
@@ -1514,22 +1514,22 @@ static void getPlayerNameMenu()
 {
     SDL_Rect rect;
     rect.x = 0;
-    rect.y = (WindowH / 2) - 100;
-    rect.w = WindowW;
+    rect.y = (DM.h / 2) - 100;
+    rect.w = DM.w;
     rect.h = 200;
 
     SDL_Rect texte_rect = {
         .w = strlen(joueur.playername) * 50,
         .h = 75,
-        .x = (WindowW / 2) - (strlen(joueur.playername) * 25),
+        .x = (DM.w / 2) - (strlen(joueur.playername) * 25),
         .y = rect.y + (rect.h / 2) - 15
     };
 
     SDL_Rect title_rect = {
         .w = 800,
         .h = 75,
-        .x = (WindowW / 2) - 400,
-        .y = WindowH - ((WindowH * 80) / 100)
+        .x = (DM.w / 2) - 400,
+        .y = DM.h - ((DM.h * 80) / 100)
     };
 
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
