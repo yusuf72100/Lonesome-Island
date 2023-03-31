@@ -87,23 +87,6 @@ static void *rechargement()
     loading = 0;
 }
 
-static void UpdateBullet(Bullet * b)
-{
-  b->rectangle.x += b->Vitesse;
-  b->rectangle.y += b->Vitesse;
-}
-
-static void UpdateBulletAll()
-{
-    Liste *courant = l->suivant;
-    while(hasNext(courant))
-    {
-        if (debug) printf("Une bullet trouvé!\n");
-        UpdateBullet(courant->b);
-        courant = courant->suivant;
-    }
-}
-
 /**
  * @brief Initialise un fichier logs.
  * 
@@ -776,22 +759,6 @@ static void init_vars()
     rotation = 0;
     memset(tabEvent, 0, 7*sizeof(SDL_bool));
     init_menus_vars();
-}
-
-static void initBullet(Bullet * b, int x, int y, int rotation)
-{
-    b->rectangle.x = x;                                                 //directives
-    if (debug) printf("xbullet = %d\n", b->rectangle.x);
-    b->rectangle.y = y;
-    if (debug) printf("ybullet = %d\n", b->rectangle.y);
-    b->rectangle.w = 2;
-    b->rectangle.h = 8;
-    b->rotation = rotation;
-    if (debug) printf("bullet = %d\n", b->rotation);
-
-    b->DirX = cos(b->rotation);
-    b->DirY = -sin(b->rotation); 
-    b->Vitesse = 2;
 }
 
 /**

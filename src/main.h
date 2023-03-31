@@ -63,10 +63,7 @@ void delay_running_left();
 void delay_breath();
 static void *rechargement();
 void *synchDatas(player_t * Joueurs, int taille);
-static void UpdateBullet(Bullet * b);
-static void UpdateBulletAll();
 char* newLogName();
 char* eventTime();
-static void initBullet(Bullet * b, int x, int y, int rotation);
 
 #endif
