@@ -17,6 +17,9 @@ int size = 0;
 char IP_PUBLIC[] = "172.18.192.1";
 char bindButtonText[4] = {""};
 
+player_t joueur;
+player_t * joueurs;
+
 T_BUTTONS_CLICKED KEYBOARD_WAITING = NONE;
 SDL_Window *window = NULL;
 SDL_Renderer *renderer = NULL;
@@ -25,8 +28,6 @@ item_t *axe;
 item_t *apple;
 item_t *chest_item;
 block_t *chest_block;
-player_t joueur;
-player_t * joueurs;
 T_MENU menu = MAIN_MENU;
 SDL_bool tabEvent[20] = {SDL_FALSE};
 SDL_KeyCode globalKeyTab[20];

@@ -9,6 +9,9 @@
 
 #include "main.h"
 #include "menus.h"
+#include "render.h"
+#include "player.h"
+#include "camera.h"
 
 void SDL_ExitWithError(const char *message);
 
@@ -312,6 +315,7 @@ void drawButtons()
  */
 void update_screen()
 {
+    //if(SOLO == FALSE || HOST == FALSE || CONNECTED == FALSE)
     SDL_RenderCopy(renderer, background_texture, NULL, NULL);
     SDL_GetMouseState(&mouse_position.x,&mouse_position.y);
     SDL_GetWindowPosition(window, &xWindow, &yWindow);
@@ -445,6 +449,7 @@ void drawButton_withRotation(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surfa
  * @brief Trie les joueurs en fonction de leur coordonnées Y et organise l'ordre d'affichage des joueurs.
  *
  */
+ /*
 static void sortPlayers()
 {
     int position;
@@ -463,28 +468,13 @@ static void sortPlayers()
         joueurs[i] = buffer;
     }
 }
-
-/**
- * @brief Dessine un joueur en fonction de ses coordonnées et de sa texture.
- *
- * @param texture_joueur
- * @param playerRect
- */
-void drawPlayer(SDL_Texture *texture_joueur, SDL_Rect playerRect)
-{
-    if(SDL_QueryTexture(texture_joueur, NULL, NULL, &playerRect.w,&playerRect.h) != 0)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible d'afficher la texture du joueur...");
-    }
-    SDL_RenderCopy(renderer, texture_joueur, NULL, &playerRect);
-}
+*/
 
 /**
  * @brief Applique la bonne texture au joueur en fonction de son animation.
  *
  * @param Joueur
- */
+ *//*
 static void switchAnimation(player_t Joueur)
 {
     switch (Joueur.animation_state)
@@ -524,7 +514,7 @@ static void switchAnimation(player_t Joueur)
             break;
         }
 }
-
+*/
 /**
  * @brief Dessine tous les joueurs.
  * @param joueurs
@@ -538,7 +528,8 @@ void *drawPlayers(player_t *joueurs, int size)
     {
         if(joueurs[i].connected == TRUE)
         {
-            switchAnimation(joueurs[i]);
+            //renderPlayer(&renderer, NULL, &joueurs[i]);
+            //switchAnimation(joueurs[i]);
         }
     }
 }
@@ -747,6 +738,7 @@ static void init_texture(SDL_Surface **surface, SDL_Texture **texture)
 static void surfacesInit()
 {
     //assets init
+    thirstbar_surface = IMG_Load("resources/thirst_bar.png");
     lifebar_surface = IMG_Load("resources/life_bar.png");
     inventory_surface = IMG_Load("resources/inventory.png");
     icon_surface = IMG_Load("resources/icon.png");
@@ -829,6 +821,7 @@ static void texturesInit()
     init_texture(&surface_keybind_waiting, &texture_keybind_waiting);
 
     //game assets
+    //init_texture(&map_surface , &map_texture);
     init_texture(&background , &background_texture);
     init_texture(&surface_joueur_h1 , &texture_joueur_h1);
     init_texture(&surface_joueur_h2 , &texture_joueur_h2);
@@ -841,6 +834,7 @@ static void texturesInit()
     init_texture(&surface_joueur_down_1 , &texture_joueur_down_1);
     init_texture(&surface_joueur_down_2 , &texture_joueur_down_2);
     init_texture(&lifebar_surface , &lifebar_texture);
+    init_texture(&thirstbar_surface , &thirstbar_texture);
 
     //items
     init_texture(&((apple->surface)), &((apple->texture)));
@@ -854,10 +848,10 @@ static void texturesInit()
 static void rectanglesInit()
 {
     //player rectangle
-    joueur.playerRect.x = 0;
+    /*joueur.playerRect.x = 0;
     joueur.playerRect.y = 0;
     joueur.playerRect.w = 50;
-    joueur.playerRect.h = 81;
+    joueur.playerRect.h = 81;*/
 
     //title rectangle
     title_rect.w = 500;
@@ -940,6 +934,12 @@ static void rectanglesInit()
     lifebar_rect.h = 75;
     lifebar_rect.x = 0;
     lifebar_rect.y = DM.h - (lifebar_rect.h*2);
+
+    //thirstbar
+    thirstbar_rect.w = 300;
+    thirstbar_rect.h = 75;
+    thirstbar_rect.x = 0;
+    thirstbar_rect.y = 0;
 
 }
 
@@ -1229,6 +1229,24 @@ void wearing()
 }
 
 /**
+ * @brief Dessine la barre de soif du joueur.
+ *
+ */
+void drawThirstBar()
+{
+    SDL_Rect rect;
+    rect.x = thirstbar_rect.x+78;
+    rect.y = thirstbar_rect.y;
+    rect.w = thirstbar_rect.w-79 * (joueur.health/100);
+    rect.h = thirstbar_rect.h-2;
+    SDL_SetRenderDrawColor(renderer, 134, 0, 33, 255);
+    SDL_RenderDrawRect(renderer, &rect);
+    SDL_RenderFillRect(renderer, &rect);
+
+    drawImage(thirstbar_texture, thirstbar_rect);
+}
+
+/**
  * @brief Dessine la barre de vie du joueur.
  *
  */
@@ -1407,7 +1425,7 @@ static void IngameMenu()
         {
             if(SOLO == TRUE || HOST == TRUE || CONNECTED == TRUE)
             {
-                afficherMap();
+                renderMap(&renderer, map_texture);
                 drawPlayers(joueurs, size);
             }
         }
@@ -1417,6 +1435,7 @@ static void IngameMenu()
     }
     wearing();
     drawlifeBar();
+    drawThirstBar();
     drawMouse();
 }
 

@@ -54,16 +54,16 @@ static void buildtramClient_send(player_t joueur, int i)
 
     char bufferX[3] = "";
     char dataX[4] = "x";
-    itoa(joueur.playerRect.x, bufferX, 10);
+    itoa(joueur.mapPosition.x, bufferX, 10);
     strcat(dataX, bufferX);
     strcat(tramClient_send, dataX);
 
     char bufferY[3] = "";
     char dataY[4] = "y";
-    itoa(joueur.playerRect.y, bufferY, 10);
+    itoa(joueur.mapPosition.y, bufferY, 10);
     strcat(dataY, bufferY);
     strcat(tramClient_send, dataY);
-    
+
     char bufferA[3] = "";
     char dataA[4] = "a";
     itoa(joueur.animation_state, bufferA, 10);
@@ -81,7 +81,6 @@ static void buildtramClient_send(player_t joueur, int i)
     itoa(max_player, bufferS, 10);
     strcat(dataS, bufferS);
     strcat(tramClient_send, dataS);
-
 }
 
 /**
@@ -136,7 +135,7 @@ static void traitData(send2Client *argClient, int indice)
                 j++;
             }
             buffer[k] = '\0';
-            argClient->argt->sd[indice].joueur.playerRect.x = atoi(buffer);
+            argClient->argt->sd[indice].joueur.mapPosition.x = atoi(buffer);
             k=0;
             buffer[0] = '\0';
         }
@@ -150,7 +149,7 @@ static void traitData(send2Client *argClient, int indice)
                 j++;
             }
             buffer[k] = '\0';
-            argClient->argt->sd[indice].joueur.playerRect.y = atoi(buffer);
+            argClient->argt->sd[indice].joueur.mapPosition.y = atoi(buffer);
             k=0;
             buffer[0] = '\0';
         }
@@ -249,8 +248,8 @@ void *receiveFromClient(void *arg)
             i = findPosition(argClient);
             traitData(argClient, i);
             argClient->argt->sd[i].joueur.connected = TRUE;
-            argClient->argt->sd[i].joueur.playerRect.w = 50;
-            argClient->argt->sd[i].joueur.playerRect.h = 81;
+            //argClient->argt->sd[i].joueur.mapPosition.w = 50;
+            //argClient->argt->sd[i].joueur.mapPosition.h = 81;
             sendToClient(argClient, i);
             position = i;
             i=0;
@@ -382,8 +381,8 @@ void *startServer()
     argt->sd->socketServer = socketServer;
     argt->sd->clientSocket = clientSocket;
     argt->sd->addrClient = addrClient;
-    argt->sd->joueur.playerRect.w = 50;
-    argt->sd->joueur.playerRect.h = 81;
+    //argt->sd->joueur.mapPosition.w = 50;
+    //argt->sd->joueur.mapPosition.h = 81;
 
     //on lance et attend l'arrêt du serveur
     searchClients((void*)argt);

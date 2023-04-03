@@ -23,7 +23,7 @@
 #include "liste.h"
 #include "client.h"
 #include <windows.h>
-#include "create_map.h"
+#include "render.h"
 
 //animations states
 #define BREATH_START 1
@@ -82,6 +82,7 @@ static SDL_Rect host_button_rect;
 static SDL_Rect settings_button_rect;
 static SDL_Rect inventory_rect;
 static SDL_Rect lifebar_rect;
+static SDL_Rect thirstbar_rect;
 static SDL_Rect title_rect;
 static SDL_Rect settings_menu_bg_rect;
 static SDL_Rect settings_menu_keybinds_button_rect;
@@ -104,6 +105,7 @@ static TTF_Font *item_dafont = NULL;
 
 //game assets
 static SDL_Surface *lifebar_surface = NULL;
+static SDL_Surface *thirstbar_surface = NULL;
 static SDL_Surface *inventory_surface = NULL;
 static SDL_Surface *imagebullet = NULL;
 static SDL_Surface *texte = NULL;
@@ -130,6 +132,7 @@ static SDL_Texture *apple_food_texture = NULL;
 static SDL_Rect apple_food_rect;
 
 static SDL_Texture *lifebar_texture = NULL;
+static SDL_Texture *thirstbar_texture = NULL;
 static SDL_Texture *inventory_texture = NULL;
 static SDL_Texture *texturebullet = NULL;	
 static SDL_Texture *title_texture = NULL;
@@ -183,6 +186,8 @@ static SDL_Texture *cursor_select_texture = NULL;
 //background 
 static SDL_Surface *background = NULL;
 static SDL_Texture *background_texture = NULL;
+static SDL_Surface *map_surface = NULL;
+static SDL_Texture *map_texture = NULL;
 
 //static functions
 static void surfacesInit();

@@ -22,6 +22,7 @@
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 #include "defs.h"
+#include "player.h"
 #pragma comment(lib, "ws2_32.lib")
 
 #define dataLen 5
@@ -59,7 +60,6 @@ typedef struct
     socketDatas * sd;
     int running;
     int size;
-
 }argServer;
 
 static argServer *argt = NULL;
@@ -73,7 +73,6 @@ typedef struct send2Client
     SOCKET socket;
     int port;
     argServer * argt;
-
 }send2Client;
 
 char *getLocalIp();

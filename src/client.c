@@ -46,7 +46,7 @@ static void traitData()
                 j++;
             }
             buffer[k] = '\0';
-            joueurs[position].playerRect.x = atoi(buffer);
+            joueurs[position].mapPosition.x = atoi(buffer);
             k=0;
             buffer[0] = '\0';
         }
@@ -60,7 +60,7 @@ static void traitData()
                 j++;
             }
             buffer[k] = '\0';
-            joueurs[position].playerRect.y = atoi(buffer);
+            joueurs[position].mapPosition.y = atoi(buffer);
             k=0;
             buffer[0] = '\0';
         }
@@ -138,13 +138,13 @@ static void buildTram(player_t joueur)
     strcat(tramClient_send, "fff ");
     char bufferX[3] = "";
     char dataX[4] = "x";
-    itoa(joueur.playerRect.x, bufferX, 10);
+    itoa(joueur.mapPosition.x, bufferX, 10);
     strcat(dataX, bufferX);
     strcat(tramClient_send, dataX);
 
     char bufferY[3] = "";
     char dataY[4] = "y";
-    itoa(joueur.playerRect.y, bufferY, 10);
+    itoa(joueur.mapPosition.y, bufferY, 10);
     strcat(dataY, bufferY);
 
     strcat(tramClient_send, dataY);

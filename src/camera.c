@@ -4,10 +4,10 @@
 #include <time.h>
 
 //Personnal includes
-#include <defs.h>
-#include <player.h>
-#include <map.h>
-#include <camera.h>
+#include "defs.h"
+#include "player.h"
+#include "map.h"
+#include "camera.h"
 
 //SDL includes
 #include <SDL.h>

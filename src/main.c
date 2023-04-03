@@ -10,6 +10,8 @@
 #include "menus.h"
 #include "main.h"
 
+static map_t *map;
+
 /**
  * @brief Récupère les données depuis le socket client.
  * 
@@ -358,12 +360,12 @@ static void doEvents()
             if (menu == INGAME_MENU)
             {
                 if (debug) printf("Touche SDLK_z pressee | %s\n", eventTime());
-                joueur.playerRect.y = joueur.playerRect.y - 3;
+                movePlayer( map, &joueur, NORTH);
 
                 if(tabEvent[1] == SDL_FALSE && tabEvent[3] == SDL_FALSE)
                 {
-                    if(pthread_kill(animations_thread, 0) != 0)
-                        pthread_create(&animations_thread, NULL, running_up_animation,(void *)&joueur);  
+                   /* if(pthread_kill(animations_thread, 0) != 0)
+                        pthread_create(&animations_thread, NULL, running_up_animation,(void *)&joueur);  */
                     pthread_create(&sendtoserver,NULL,Send2Server,NULL);
                 }
             }
@@ -374,11 +376,11 @@ static void doEvents()
             //touche Q
             if(menu == INGAME_MENU)
             {
-                joueur.playerRect.x = joueur.playerRect.x - 3;
                 if (debug) printf("Touche SDLK_q pressee | %s\n", eventTime());
-                
-                if(pthread_kill(animations_thread, 0) != 0)
-                    pthread_create(&animations_thread, NULL, running_left_animation,(void *)&joueur);  
+                movePlayer( map, &joueur, WEST);
+
+                /*if(pthread_kill(animations_thread, 0) != 0)
+                    pthread_create(&animations_thread, NULL, running_left_animation,(void *)&joueur);  */
                 pthread_create(&sendtoserver,NULL,Send2Server,NULL);
             }
         }
@@ -389,12 +391,12 @@ static void doEvents()
             if(menu == INGAME_MENU)
             {
                 if (debug) printf("Touche SDLK_s pressee | %s\n", eventTime());
-                joueur.playerRect.y = joueur.playerRect.y + 3;
+                movePlayer( map, &joueur, SOUTH);
 
                 if(tabEvent[1] == SDL_FALSE && tabEvent[3] == SDL_FALSE)
                 {
-                    if(pthread_kill(animations_thread, 0) != 0)
-                        pthread_create(&animations_thread, NULL, running_down_animation,(void *)&joueur);  
+                    /*if(pthread_kill(animations_thread, 0) != 0)
+                        pthread_create(&animations_thread, NULL, running_down_animation,(void *)&joueur);  */
                     pthread_create(&sendtoserver,NULL,Send2Server,NULL);
                 }
             }
@@ -405,11 +407,11 @@ static void doEvents()
             //touche D
             if(menu == INGAME_MENU)
             {
-                joueur.playerRect.x = joueur.playerRect.x + 3;
                 if (debug) printf("Touche SDLK_d pressee | %s\n", eventTime());
+                movePlayer( map, &joueur, EAST);
 
-                if(pthread_kill(animations_thread, 0) != 0)
-                    pthread_create(&animations_thread, NULL, running_right_animation,(void *)&joueur);  
+               /* if(pthread_kill(animations_thread, 0) != 0)
+                    pthread_create(&animations_thread, NULL, running_right_animation,(void *)&joueur);  */
                 pthread_create(&sendtoserver,NULL,Send2Server,NULL);
             }
         }
@@ -461,7 +463,8 @@ static void doEvents()
         if(onButton(PLAY_BUTTON_HOVER) && menu == MAIN_MENU)
         {
             SOLO = TRUE;
-            create_map();
+            //create_map();
+            build_map(&map);
             init_boop(&tabEvent[7]);
             if (debug) printf("Host button clicked\n");
             pthread_create(&server,NULL,startServer,NULL);              //on héberge le serveur 
@@ -480,7 +483,7 @@ static void doEvents()
             if(startConnection() == 0)                                     //on créer un client qui se connecte au serveur 
             {
                 CONNECTED = TRUE;
-                create_map();
+                //create_map();
                 Sleep(1000);
                 pthread_create(&receivefromserver,NULL,receiveFromServer,NULL); 
                 changeMenu(INGAME_MENU);
@@ -499,7 +502,7 @@ static void doEvents()
             if (debug) printf("Host button clicked\n");
             pthread_create(&server,NULL,startServer,NULL);
             HOST = TRUE;
-            create_map();
+            //create_map();
             startConnection();                                                                          //on créer un client qui se connecte au serveur
             pthread_create(&sendtoserver,NULL,Send2Server,NULL);                    //on envoi les données du client une première fois
             pthread_create(&receivefromserver,NULL,receiveFromServer,NULL);         //on établie la communication au serveur
@@ -757,7 +760,7 @@ static void init_vars()
     l = creerListe();
     //freopen(newLogName(), "a+", stdout); 
     rotation = 0;
-    memset(tabEvent, 0, 7*sizeof(SDL_bool));
+    memset(tabEvent, 0, 20*sizeof(SDL_bool));
     init_menus_vars();
 }
 

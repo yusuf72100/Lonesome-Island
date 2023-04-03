@@ -1,11 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
 
-#include <defs.h>
-#include <player.h>
-#include <map.h>
-#include <SDL.h>
-#include <SDL_image.h>
+#include "player.h"
+#include "defs.h"
 
 void initPlayer(SDL_Renderer* renderer, player_t* player) {
 
@@ -21,7 +16,7 @@ void initPlayer(SDL_Renderer* renderer, player_t* player) {
     player->facing = SOUTH;
 
     //Animation du joueur
-    player->animationState = 0;
+    player->animation_state = 0;
 
     //Tileset du joueur
     SDL_Surface* tmp = IMG_Load("resources/player_animations.png");
@@ -29,8 +24,8 @@ void initPlayer(SDL_Renderer* renderer, player_t* player) {
     SDL_FreeSurface(tmp);
 }
 
-void nextAnimationState(player_t* player) {
-    player->animationState = (player->animationState == MAX_ANIMATION - 1 ? 0 : player->animationState + 1);
+void nextanimation_state(player_t* player) {
+    player->animation_state = (player->animation_state == MAX_ANIMATION - 1 ? 0 : player->animation_state + 1);
 }
 
 int isColisionOnTile(map_t* map, int x, int y) {

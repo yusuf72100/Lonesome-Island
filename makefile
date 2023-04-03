@@ -6,28 +6,28 @@ LIBDIR=lib
 CFLAGS= -W -Wall $(shell sdl2-config --cflags)
 LDFLAGS=-I include -L lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer -lpthread -lwsock32
 
-objets= liste.o socket.o client.o sound.o menus.o defs.o settings.o create_map.o map.o
+objets= liste.o socket.o client.o sound.o menus.o player.o defs.o settings.o camera.o map.o render.o
  
 main:	$(objets)
-	GCC $(SRCDIR)/main.c -o prog $(LIBDIR)/liste.o  $(LIBDIR)/socket.o $(LIBDIR)/client.o $(LIBDIR)/menus.o $(LIBDIR)/sound.o $(LIBDIR)/defs.o $(LIBDIR)/settings.o $(LIBDIR)/map.o $(LIBDIR)/render.o $(LIBDIR)/camera.o $(LIBDIR)/player.o $(LDFLAGS)
+	GCC $(SRCDIR)/main.c -o prog $(LIBDIR)/liste.o  $(LIBDIR)/socket.o $(LIBDIR)/client.o $(LIBDIR)/menus.o $(LIBDIR)/sound.o $(LIBDIR)/player.o $(LIBDIR)/defs.o $(LIBDIR)/settings.o $(LIBDIR)/map.o $(LIBDIR)/render.o $(LIBDIR)/camera.o $(LDFLAGS)
 	@echo "Main compilation success!"
 	make success
 
-map.o:	$(SRCDIR)/map.c
-	GCC -o $(LIBDIR)/map.o -c $(SRCDIR)/map.c $(LDFLAGS)
-	@echo "Map compilation success!"
+render.o:	$(SRCDIR)/render.c
+	GCC -o $(LIBDIR)/render.o -c $(SRCDIR)/render.c $(LDFLAGS)
+	@echo "Render compilation success!"
 
 player.o:	$(SRCDIR)/player.c
 	GCC -o $(LIBDIR)/player.o -c $(SRCDIR)/player.c $(LDFLAGS)
 	@echo "Player compilation success!"
 
+map.o:	$(SRCDIR)/map.c
+	GCC -o $(LIBDIR)/map.o -c $(SRCDIR)/map.c $(LDFLAGS)
+	@echo "Map compilation success!"
+
 camera.o:	$(SRCDIR)/camera.c
 	GCC -o $(LIBDIR)/camera.o -c $(SRCDIR)/camera.c $(LDFLAGS)
 	@echo "Camera compilation success!"
-
-render.o:	$(SRCDIR)/render.c
-	GCC -o $(LIBDIR)/render.o -c $(SRCDIR)/render.c $(LDFLAGS)
-	@echo "Render compilation success!"
 
 settings.o:	$(SRCDIR)/settings.c
 	GCC -o $(LIBDIR)/settings.o -c $(SRCDIR)/settings.c $(LDFLAGS)

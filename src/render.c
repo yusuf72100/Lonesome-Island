@@ -4,10 +4,10 @@
 #include <time.h>
 
 //Personnal includes
-#include <defs.h>
-#include <player.h>
-#include <map.h>
-#include <camera.h>
+#include "defs.h"
+#include "player.h"
+#include "map.h"
+#include "camera.h"
 
 //SDL includes
 #include <SDL.h>
@@ -220,7 +220,7 @@ void renderPlayer(SDL_Renderer** renderer, camera_t* camera, player_t* player) {
     xStart = camera->tileSizeOnRender * (player->mapPosition.x - camera->startPosition.x) - getPixelTilePos(camera->tileSizeOnRender, camera->offsetStartPosition.x) + getPixelTilePos(camera->tileSizeOnRender, player->tilePosition.x);
     yStart = camera->tileSizeOnRender * (player->mapPosition.y - camera->startPosition.y) - getPixelTilePos(camera->tileSizeOnRender, camera->offsetStartPosition.y) + getPixelTilePos(camera->tileSizeOnRender, player->tilePosition.y);
 
-    SDL_Rect src = {player->animationState*PLAYER_W_RESOLUTION, player->facing*PLAYER_H_RESOLUTION, PLAYER_W_RESOLUTION, PLAYER_W_RESOLUTION};
+    SDL_Rect src = {player->animation_state*PLAYER_W_RESOLUTION, player->facing*PLAYER_H_RESOLUTION, PLAYER_W_RESOLUTION, PLAYER_H_RESOLUTION};
     SDL_Rect dest = {xStart, yStart, camera->tileSizeOnRender, camera->tileSizeOnRender};
 
     SDL_RenderCopy(*renderer, player->tileset, &src, &dest);

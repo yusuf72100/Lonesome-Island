@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <map.h>
+#include "map.h"
 #include <SDL_image.h>
 
 int getType(int);
@@ -310,6 +310,7 @@ void build_map(map_t **map)
 {
     // Initialisation du random
     srand(time(NULL));
+    *map = malloc(sizeof(map_t));
 
     // Initialisation de la map
     init_map(*map);

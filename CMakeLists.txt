@@ -20,6 +20,6 @@ include_directories(${SDL2_INCLUDE_DIRS} ${SDL2_IMAGE_INCLUDE_DIRS})
 set(SDL2_LIBRARIES "-L${SDL2_LIBRARY_DIRS} -lSDL2 -lSDL2main")
 set(SDL2_IMAGE_LIBRARIES "-L${SDL2_IMAGE_LIBRARY_DIRS} -lSDL2_image")
 
-add_executable(Lonesome-Island src/main.c src/client.c src/defs.c src/menus.c src/socket.c src/settings.c src/create_map.c src/map.c src/defs.c src/sound.c)
+add_executable(Lonesome-Island src/main.c src/client.c src/defs.c src/menus.c src/socket.c src/settings.c src/create_map.c src/map.c src/defs.c src/sound.c src/player.c src/player.c src/render.c)
 
 target_link_libraries(Lonesome-Island ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})

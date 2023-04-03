@@ -12,6 +12,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <SDL.h>
+#include "player.h"
+#include "map.h"
 
 #define TRUE 1
 #define FALSE 0
@@ -33,24 +35,11 @@ extern T_BUTTONS_CLICKED KEYBOARD_WAITING;
 extern SDL_Window *window;
 extern SDL_Renderer *renderer;
 
+extern player_t joueur;
+extern player_t * joueurs;
 
 extern char bindButtonText[4];
 extern char IP_PUBLIC[256];
-
-/**
- * @brief Sauvegarde les informations de chaque joueurs relatives uniquement au jeu en lui-même (points de vie, coordonnées, animation...).
- * 
- */
-typedef struct
-{
-    SDL_Rect playerRect;
-    char playername[16];
-    int animation_state;
-    int connected;
-    int health;
-    int thirst;
-    int stuck;
-}player_t;
 
 /**
  * @brief Définition d'un weapon.
@@ -121,23 +110,16 @@ typedef struct
     T_BLOCK blockType;
 }block_t;
 
-typedef struct coord_s{
-    int x;
-    int y;
-}coord_t;
-
+extern void defineItem();
 extern T_MENU menu;
 extern item_t bois;
 extern SDL_bool tabEvent[20];
 extern SDL_KeyCode globalKeyTab[20];
 extern case_inventory mat_inventory[3][10];
 extern case_inventory *wearedItem;
-extern void defineItem();
 extern item_t *axe;
 extern item_t *apple;
 extern item_t *chest_item;
 extern block_t *chest_block;
-extern player_t joueur;
-extern player_t * joueurs;
 
 #endif
