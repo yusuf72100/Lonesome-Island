@@ -23,147 +23,45 @@ int getPixelTilePos(int tileSize, int tileState) {
     return(tileSize/MOVES_ON_TILE * tileState);
 }
 
-/* Compte les voisins sur le coté dans la matrice */
-int compterVoisinCote(int map[MAP_SIZE][MAP_SIZE], int x, int y) {
-    int cptr = 0 ;
-    int type = getType(map[x][y])+1;
-    int places[4] = {map[x+1][y], map[x-1][y], map[x][y+1], map[x][y-1]};
-
-    for(int i = 0; i < 4; i++) {
-        if(getType(places[i]) == type) cptr++;
-    }
-
-    return cptr;
-}
-
-/* Compter les voisins en diagonale*/
-int compterVoisinDiag(int map[MAP_SIZE][MAP_SIZE], int x, int y) {
-    int cptr = 0; 
-    int type = getType(map[x][y])+1;
-    int places[4] = {map[x+1][y+1], map[x-1][y-1], map[x-1][y+1], map[x+1][y-1]};
-
-    for(int i = 0; i < 4; i++) {
-        if(getType(places[i]) == type) cptr++;
-    }
-
-    return cptr;
-}
-
-/**/
-int checkPositionVoisinCote(int map[MAP_SIZE][MAP_SIZE], int x, int y) {
-    int type = getType(map[x][y])+1 ;
-    if(getType(map[x+1][y]) == type) 
-        return 0;
-    if(getType(map[x][y+1]) == type) 
-        return 16;
-    if(getType(map[x-1][y]) == type) 
-        return 32;
-    if(getType(map[x][y-1]) == type) 
-        return 48;
-}
-
-/* Cherche le seul voisin de coté non sable*/
-int checkPositionVoisinCote3voisins(int map[MAP_SIZE][MAP_SIZE], int x, int y) {
-    int type = getType(map[x][y]) ;
-    if(getType(map[x+1][y]) == type) 
-        return 0;
-    if(getType(map[x][y+1]) == type) 
-        return 16;
-    if(getType(map[x-1][y]) == type) 
-        return 32;
-    if(getType(map[x][y-1]) == type) 
-        return 48;
-}
-
-int checkPositionVoisinAngle(int map[MAP_SIZE][MAP_SIZE], int x, int y) {
-    int type = getType(map[x][y])+1 ;
-    if(getType(map[x+1][y]) == type && getType(map[x][y-1]) == type) 
-        return 0;
-    if(getType(map[x+1][y]) == type && getType(map[x][y+1]) == type) 
-        return 16;
-    if(getType(map[x-1][y]) == type && getType(map[x][y+1]) == type) 
-        return 32;
-    if(getType(map[x-1][y]) == type && getType(map[x][y-1]) == type) 
-        return 48;
-}
-
-int checkPositionVoisinDiag(int map[MAP_SIZE][MAP_SIZE], int x, int y) {
-    int type = getType(map[x][y])+1 ;
-    if(getType(map[x+1][y-1]) == type) 
-        return 0;
-    if(getType(map[x+1][y+1]) == type) 
-        return 16;
-    if(getType(map[x-1][y+1]) == type) 
-        return 32;
-    if(getType(map[x-1][y-1]) == type) 
-        return 48;
-}
-
-int checkPosition2VoisinDiag(int map[MAP_SIZE][MAP_SIZE], int x, int y) {
-    int type = getType(map[x][y])+1 ;
-    if(getType(map[x+1][y-1]) == type && getType(map[x+1][y+1]) == type)
-        return 0;
-    if(getType(map[x+1][y+1]) == type && getType(map[x-1][y+1]) == type) 
-        return 16;
-    if(getType(map[x-1][y+1]) == type && getType(map[x-1][y-1]) == type) 
-        return 32;
-    if(getType(map[x-1][y-1]) == type && getType(map[x+1][y-1]) == type) 
-        return 48;
-}
-
 /* Algo choix tile pour une case */
-coord_t choixTile(int map[MAP_SIZE][MAP_SIZE], int x, int y) {
-    coord_t coord;
-    coord.y = (isWater(map[x][y]) ? 64 : 0);
-    int nbVoisin = compterVoisinCote(map, x, y);
-    if( nbVoisin == 1){ //Colonne 1
-        coord.x = 0 ;
-        coord.y += checkPositionVoisinCote(map, x, y) ;
+coord_t choixTile(int (*map)[MAP_SIZE], unsigned char (*map_id)[MAP_SIZE], int x, int y) {
+    coord_t coord ;
+    coord.y = (isWater(map[x][y]) ? 96 : 0);
+    unsigned char id = map_id[x][y];
+    int tab_val[29] = { 74, 88, 82, 26, 
+                        24, 66, 18, 10, 72, 80, 
+                        2, 8, 64, 16, 
+                        161, 164, 133, 37, 
+                        129, 36, 33, 160, 132, 5, 
+                        4, 1, 32, 128 };
+    int nb_tiles[6] = {4, 6, 4, 4, 6, 4} ;
+    int i=0,j=0, k=0, x_res = 0;
+    if (id == 0x00) {
+        if(isWater(map[x][y])) 
+            coord.x = 96;
+        else if(isSand(map[x][y])) 
+            coord.x = 112;
+        else  //isGrass
+            coord.x = 128;
+        coord.y = map[x][y] % 10 * 16;
         return coord ;
     }
-    if(nbVoisin == 2) {
-        coord.x = 16;
-        coord.y += checkPositionVoisinAngle(map, x, y) ;
-        return coord ;
-    }
-    if (nbVoisin == 3) {
-        coord.x = 48 ;
-        coord.y += checkPositionVoisinCote3voisins(map, x, y);
-        return coord ;
-    }
-    if(nbVoisin == 0) {
-        nbVoisin = compterVoisinDiag(map,x, y);
-        if(nbVoisin == 0){
-            if(isWater(map[x][y])) {
-                coord.x = 96;
+    while (i < 29 ) {
+        for(j=0; j < nb_tiles[k]; j++){
+            if ( ( id & tab_val[i] ) == tab_val[i]) {
+                coord.x = x_res;
+                coord.y += j*16 ;
+                return coord;
             }
-            else if(isSand(map[x][y])) {
-                coord.x = 112;
-            }
-            else { //isGrass
-                coord.x = 128;
-            }
-            coord.y = map[x][y] % 10 * 16;
-            return coord ;
+            i++ ;
         }
-        if (nbVoisin == 1 ){
-            coord.x = 32 ;
-            coord.y += checkPositionVoisinDiag(map, x, y);
-            return coord ;
-        }
-        if (nbVoisin == 2) {
-            coord.x = 80;
-            coord.y += checkPosition2VoisinDiag(map, x, y);
-            return coord;
-        }
+        k++;
+        x_res+=16;
     }
-    coord.x = 96;
-    coord.y = 112;
-    return coord ;
 }
 
 void setTileSource(SDL_Rect* src, map_t* map, int x, int y) {
-    coord_t result = choixTile(map->ground, x, y);
+    coord_t result = choixTile(map->ground, map->id_tiles, x, y);
     src->x = result.x;
     src->y = result.y;
 }

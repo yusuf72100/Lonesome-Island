@@ -306,6 +306,43 @@ void init_map(map_t *map)
     }
 }
 
+int est_valide(int x, int y) {
+    return ( ! ( (x<0 || x >= MAP_SIZE) || (y<0 || y >= MAP_SIZE) ) ) ;
+}
+
+unsigned char calculId(int (*map)[MAP_SIZE], int x, int y){
+    int valTile = getType(map[x][y]) ;
+    unsigned char total = 0x00;
+    int places[8] = { 
+            est_valide(x-1,y-1) ? map[x-1][y-1] : -1, 
+            est_valide(x-1,y) ? map[x-1][y] : -1, 
+            est_valide(x-1,y+1) ? map[x-1][y+1] : -1, 
+            est_valide(x,y-1) ? map[x][y-1] : -1,
+            est_valide(x,y+1) ? map[x][y+1] : -1,
+            est_valide(x+1,y-1) ? map[x+1][y-1] : -1,
+            est_valide(x+1,y) ? map[x+1][y] : -1, 
+            est_valide(x+1,y+1) ? map[x+1][y+1] : -1
+    };
+    
+    for (int i = 0; i < 8; i++) {
+        if ( ( getType(places[i]) == (valTile+1) ) &&  places[i] != -1)
+            total +=( 1 << i) ;
+    }
+    return total ;
+}
+
+/* Attrbue l'id de chaque case dans une nouvelle matrice */
+void creerMapId(int (*map)[MAP_SIZE], unsigned char (*map_id)[MAP_SIZE]) {
+    int i, j ;
+    for(i = 0; i < MAP_SIZE ; i++) {
+        for(j = 0 ; j < MAP_SIZE ; j++ ) {
+            map_id[i][j] = calculId(map, i, j);
+        }
+    }
+    
+}
+
+
 void build_map(map_t **map)
 {
     // Initialisation du random
