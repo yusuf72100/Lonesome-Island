@@ -1433,6 +1433,15 @@ static void IngameMenu()
             changeMenu(ERR_MENU);
         }
     }
+
+    if((int) (SDL_GetTicks() - animationDelay) > 200) {
+        nextAnimationState(&joueur);
+        animationDelay = SDL_GetTicks();
+    }
+    renderMap(&renderer, currentGround);
+    renderPlayer(&renderer, camera, &joueur);
+    //SDL_RenderPresent(renderer);
+
     wearing();
     drawlifeBar();
     drawThirstBar();
