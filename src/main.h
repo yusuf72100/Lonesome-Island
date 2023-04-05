@@ -25,8 +25,8 @@
 #include "sound.h"
 #include "settings.h"
 #include <windows.h>
+#include "player.h"
 #include "defs.h"
-
 
 static Liste *l;
 
@@ -44,6 +44,8 @@ static Bullet *bullet = NULL;
 
 static SDL_bool program_launched = SDL_TRUE;
 static SDL_Event event; 
+
+static Uint32 animationDelay;
 
 static pthread_t reloading;
 static pthread_t server;

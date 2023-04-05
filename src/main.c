@@ -10,8 +10,6 @@
 #include "menus.h"
 #include "main.h"
 
-static map_t *map;
-
 /**
  * @brief Récupère les données depuis le socket client.
  * 
@@ -266,6 +264,7 @@ static void checkEvents()
         case SDL_QUIT:
             program_launched = SDL_FALSE;
             break;
+
     }
 }
 
@@ -359,8 +358,10 @@ static void doEvents()
             //touche Z
             if (menu == INGAME_MENU)
             {
-                if (debug) printf("Touche SDLK_z pressee | %s\n", eventTime());
+                if (debug) printf("Touche avancer pressee | %s\n", eventTime());
+                direction = NORTH;
                 movePlayer( map, &joueur, NORTH);
+
 
                 if(tabEvent[1] == SDL_FALSE && tabEvent[3] == SDL_FALSE)
                 {
@@ -376,7 +377,8 @@ static void doEvents()
             //touche Q
             if(menu == INGAME_MENU)
             {
-                if (debug) printf("Touche SDLK_q pressee | %s\n", eventTime());
+                if (debug) printf("Touche gauche pressee | %s\n", eventTime());
+                direction = WEST;
                 movePlayer( map, &joueur, WEST);
 
                 /*if(pthread_kill(animations_thread, 0) != 0)
@@ -390,7 +392,8 @@ static void doEvents()
             //touche S
             if(menu == INGAME_MENU)
             {
-                if (debug) printf("Touche SDLK_s pressee | %s\n", eventTime());
+                if (debug) printf("Touche descendre pressee | %s\n", eventTime());
+                direction = SOUTH;
                 movePlayer( map, &joueur, SOUTH);
 
                 if(tabEvent[1] == SDL_FALSE && tabEvent[3] == SDL_FALSE)
@@ -407,7 +410,8 @@ static void doEvents()
             //touche D
             if(menu == INGAME_MENU)
             {
-                if (debug) printf("Touche SDLK_d pressee | %s\n", eventTime());
+                if (debug) printf("Touche droite pressee | %s\n", eventTime());
+                direction = EAST;
                 movePlayer( map, &joueur, EAST);
 
                /* if(pthread_kill(animations_thread, 0) != 0)
@@ -457,7 +461,7 @@ static void doEvents()
     //mouse events
     if(tabEvent[7])
     {
-        //click LEFT DOWN
+        // --------------------------------------------- click LEFT DOWN -----------------------------------------------------------------
         
         //play button
         if(onButton(PLAY_BUTTON_HOVER) && menu == MAIN_MENU)
@@ -561,7 +565,7 @@ static void doEvents()
             }
         }
 
-        //KEYBINDS
+        // ---------------------------------------------------------KEYBINDS-------------------------------------------------------------
 
         //UP
         if(onButton(SETTINGS_KEYBIND_UP_HOVER) && (menu == SETTINGS_MAIN_KEYBIND_MENU || menu == SETTINGS_INGAME_MENU))
@@ -748,6 +752,11 @@ static void doEvents()
             displayError("Error: Server looking offline :/");
         }
     }
+
+    if(checkPlayerOut(camera, &joueur, direction)) {
+        moveCamera(camera, direction);
+        updateGroundTexture(&renderer, &currentGround, window, tileset, camera, map);
+    }
 }
 
 /**
@@ -758,10 +767,20 @@ static void init_vars()
 {
     loading = 0;
     l = creerListe();
-    //freopen(newLogName(), "a+", stdout); 
+    //freopen(newLogName(), "a+", stdout);
     rotation = 0;
     memset(tabEvent, 0, 20*sizeof(SDL_bool));
     init_menus_vars();
+
+    initPlayer(renderer,&joueur);
+    initCamera(camera, window, &joueur);
+    build_map(&map);
+
+    //Initialisation des tileset
+    tmp = IMG_Load("resources/tileset_ground.png");
+    tileset = SDL_CreateTextureFromSurface(renderer, tmp);
+    SDL_FreeSurface(tmp);
+    updateGroundTexture(&renderer, &currentGround, window, tileset, camera, map);
 }
 
 /**
@@ -784,10 +803,13 @@ int main(int argc, char *argv[])
     loadSettings();
     int timer = 0;
 
+    animationDelay = SDL_GetTicks();
+
     while(program_launched)
     {
         tick = SDL_GetTicks();
         update_screen();
+
         while(SDL_PollEvent(&event))
         {
             checkEvents();
@@ -798,9 +820,9 @@ int main(int argc, char *argv[])
         //On gère les fps.
         if((timer = (1000 / 75)-(SDL_GetTicks() - tick)) > 0)
             SDL_Delay(timer);
-        else    
+        else
             SDL_Delay(17);
-    }  
+    }
 
     stopServer();
     stopConnection();

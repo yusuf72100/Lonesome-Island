@@ -14,6 +14,7 @@
 #include <SDL.h>
 #include "player.h"
 #include "map.h"
+#include "camera.h"
 
 #define TRUE 1
 #define FALSE 0
@@ -34,6 +35,13 @@ extern T_BUTTONS_CLICKED KEYBOARD_WAITING;
 
 extern SDL_Window *window;
 extern SDL_Renderer *renderer;
+
+extern int direction;
+extern SDL_Surface* tmp;
+extern SDL_Texture* tileset;
+extern SDL_Texture* currentGround;
+extern camera_t* camera;
+extern map_t* map;
 
 extern player_t joueur;
 extern player_t * joueurs;

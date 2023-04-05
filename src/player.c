@@ -24,7 +24,7 @@ void initPlayer(SDL_Renderer* renderer, player_t* player) {
     SDL_FreeSurface(tmp);
 }
 
-void nextanimation_state(player_t* player) {
+void nextAnimationState(player_t* player) {
     player->animation_state = (player->animation_state == MAX_ANIMATION - 1 ? 0 : player->animation_state + 1);
 }
 
