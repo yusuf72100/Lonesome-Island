@@ -354,5 +354,6 @@ void build_map(map_t **map)
 
     // Création du sol et des ressources
     init_ground((*map)->ground);
+    creerMapId((*map)->ground, (*map)->id_tiles);
     init_utils(*map);
 }

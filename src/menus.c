@@ -67,7 +67,7 @@ extern void startAnimation(char *animation, player_t *joueur)
  * 
  * @param button 
  */
-extern void switchButtonState_hover(T_BUTTONS_HOVER button)
+void switchButtonState_hover(T_BUTTONS_HOVER button)
 {
     switch (button) {
         case CONNECT_BUTTON_HOVER:
@@ -117,7 +117,7 @@ extern void switchButtonState_hover(T_BUTTONS_HOVER button)
  * @param button
  * @param state
  */
-extern void changeButtonState_hover(T_BUTTONS_HOVER button, int state)
+void changeButtonState_hover(T_BUTTONS_HOVER button, int state)
 {
     switch (button)
     {
@@ -162,7 +162,7 @@ extern void changeButtonState_hover(T_BUTTONS_HOVER button, int state)
  * @param button
  * @param state
  */
-extern void changeButtonState_clicked(T_BUTTONS_CLICKED button, int state)
+void changeButtonState_clicked(T_BUTTONS_CLICKED button, int state)
 {
     switch (button)
     {
@@ -207,7 +207,7 @@ extern void changeButtonState_clicked(T_BUTTONS_CLICKED button, int state)
  * @param button
  * @return int
  */
-extern int getButtonState_clicked(T_BUTTONS_CLICKED button)
+int getButtonState_clicked(T_BUTTONS_CLICKED button)
 {
     switch (button)
     {
@@ -242,7 +242,7 @@ extern int getButtonState_clicked(T_BUTTONS_CLICKED button)
  * @param button
  * @return int
  */
-extern int onButton(T_BUTTONS_HOVER button)
+int onButton(T_BUTTONS_HOVER button)
 {
     switch (button)
     {
@@ -273,7 +273,7 @@ extern int onButton(T_BUTTONS_HOVER button)
  * @brief Dessine les bouttons pour configurer les touches de jeu.
  *
  */
-static void drawBindButtons()
+void drawBindButtons()
 {
     drawButton(texture_settings_menu_key_button, settings_menu_keybind_up_rect, surface_settings_menu_key_button);
     drawButton(texture_settings_menu_key_button, settings_menu_keybind_down_rect, surface_settings_menu_key_button);
@@ -285,7 +285,7 @@ static void drawBindButtons()
  * @brief Essaye de dessiner tous les bouttons.
  *
  */
-static void drawButtons()
+void drawButtons()
 {
     switch (menu)
     {
@@ -313,7 +313,7 @@ static void drawButtons()
  * @brief Met à jour les valeurs de l'écran.
  *
  */
-extern void update_screen()
+void update_screen()
 {
     //if(SOLO == FALSE || HOST == FALSE || CONNECTED == FALSE)
     SDL_RenderCopy(renderer, background_texture, NULL, NULL);
@@ -326,7 +326,7 @@ extern void update_screen()
  * @brief Dessine le bon curseur en fonction de site on survol un bouton ou pas.
  *
  */
-static void drawMouse()
+void drawMouse()
 {
     //hover cursor
     if(hover_playbutton || hover_connectbutton || hover_hostbutton || hover_settingsbutton || hover_inventoryitem || hover_settings_keybindsbutton || hover_keybind_up || hover_keybind_down || hover_keybind_left || hover_keybind_right || wearingItem)
@@ -353,7 +353,7 @@ static void drawMouse()
  * @brief Initialise les textures des cases de l'inventaire.
  *
  */
-static void inventoryInit(case_inventory mat[3][10])
+void inventoryInit(case_inventory mat[3][10])
 {
     for(int i = 0; i < 3; i++)
     {
@@ -378,7 +378,7 @@ static void inventoryInit(case_inventory mat[3][10])
  * @param rectangle
  * @param surface
  */
-static void drawButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface)
+void drawButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface)
 {
     if(SDL_QueryTexture(texture, NULL, NULL, &rectangle.w, &rectangle.h) != 0)
     {
@@ -393,7 +393,7 @@ static void drawButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *su
  *
  * @param case_x
  */
-static void drawCaseText(case_inventory case_x)
+void drawCaseText(case_inventory case_x)
 {
     char buffer[2];
     itoa(case_x.number, buffer, 10);
@@ -410,7 +410,6 @@ static void drawCaseText(case_inventory case_x)
         SDL_ExitWithError("Impossible de charger l'image des items...");
     }
     case_x.text_texture = SDL_CreateTextureFromSurface(renderer, case_x.text_surface);
-
     SDL_RenderCopy(renderer,case_x.text_texture, NULL, &case_x.text_rectangle);
 }
 
@@ -419,7 +418,7 @@ static void drawCaseText(case_inventory case_x)
  *
  * @param case_x
  */
-static void drawItem(case_inventory case_x)
+void drawItem(case_inventory case_x)
 {
     SDL_RenderCopy(renderer, case_x.Item->texture, NULL, &case_x.item_rectangle);
 }
@@ -818,16 +817,6 @@ static void texturesInit()
     //game assets
     //init_texture(&map_surface , &map_texture);
     init_texture(&background , &background_texture);
-    init_texture(&surface_joueur_h1 , &texture_joueur_h1);
-    init_texture(&surface_joueur_h2 , &texture_joueur_h2);
-    init_texture(&surface_joueur_left_1 , &texture_joueur_left_1);
-    init_texture(&surface_joueur_left_2 , &texture_joueur_left_2);
-    init_texture(&surface_joueur_right_1 , &texture_joueur_right_1);
-    init_texture(&surface_joueur_right_2 , &texture_joueur_right_2);
-    init_texture(&surface_joueur_up_1 , &texture_joueur_up_1);
-    init_texture(&surface_joueur_up_2 , &texture_joueur_up_2);
-    init_texture(&surface_joueur_down_1 , &texture_joueur_down_1);
-    init_texture(&surface_joueur_down_2 , &texture_joueur_down_2);
     init_texture(&lifebar_surface , &lifebar_texture);
     init_texture(&thirstbar_surface , &thirstbar_texture);
 
@@ -842,6 +831,12 @@ static void texturesInit()
  */
 static void rectanglesInit()
 {
+    //player rectangle
+    /*joueur.playerRect.x = 0;
+    joueur.playerRect.y = 0;
+    joueur.playerRect.w = 50;
+    joueur.playerRect.h = 81;*/
+
     //title rectangle
     title_rect.w = 500;
     title_rect.h = 223;
@@ -995,6 +990,21 @@ void init_menus_vars()
 
     texturesInit();
     rectanglesInit();
+}
+
+static void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, Bullet *b, int rotation, int vitesse)
+{
+    if(SDL_QueryTexture(texture, NULL, NULL, &rectangle.w, &rectangle.h) != 0)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible d'afficher la texture de la balle...");
+    }
+
+    if(SDL_RenderCopyEx(renderer, texture, NULL, &rectangle, rotation , NULL, SDL_FLIP_NONE) != 0)
+    {
+        destroyAll(window, renderer);
+        SDL_ExitWithError("Impossible de rotate le la balle...");
+    }
 }
 
 /**
@@ -1414,7 +1424,6 @@ static void IngameMenu()
     }
     renderMap(&renderer, currentGround);
     renderPlayer(&renderer, camera, &joueur);
-    //SDL_RenderPresent(renderer);
 
     wearing();
     drawlifeBar();
