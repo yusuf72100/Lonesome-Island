@@ -311,9 +311,18 @@ int est_valide(int x, int y) {
     return ( ! ( (x<0 || x >= MAP_SIZE) || (y<0 || y >= MAP_SIZE) ) ) ;
 }
 
+
+/**
+ * @brief Verifie la valeur des 8 voisins d'une case de la matrice et calcule l'id en fonction
+ * @param map
+ * @param x Coordonnée x du point dans la matrice
+ * @param y Coordonnée y du point dans la matrice
+ * @return Un ID unique qui correspond à une texture à lui attribuer pour le rendu.
+*/
 unsigned char calculId(int (*map)[MAP_SIZE], int x, int y){
     int valTile = getType(map[x][y]) ;
     unsigned char total = 0x00;
+    //On créé un tableau contenant la valeur des 8 voisins de la case courante, si le voisin est hors de la matrice, on note -1 comme valeur pour ne pas le compter
     int places[8] = { 
             est_valide(x-1,y-1) ? map[x-1][y-1] : -1, 
             est_valide(x-1,y) ? map[x-1][y] : -1, 
@@ -332,18 +341,27 @@ unsigned char calculId(int (*map)[MAP_SIZE], int x, int y){
     return total ;
 }
 
-/* Algo choix tile pour une case */
+/**
+ * @brief Permet de choisir la bonne texture d'une case dans le tileset
+ * @param map 
+ * @param id Désigne l'id unique d'un tile calculé en fonction de ces voisins
+ * @return des coordonnées qui designent l'emplacement de la texture dans le tileset
+*/
 coord_t choixTile(int (*map)[MAP_SIZE], unsigned char id) {
     coord_t coord ;
     coord.y = (isWater(map[x][y]) ? 96 : 0);
+    // Ce tableau contient les valeurs qu'il faut comparer avec les ID pour choisir les tiles. 
+    // Les valeurs sont positionnées dans le tableau en fonction de leur emplacement sur le tileset
     int tab_val[29] = { 74, 88, 82, 26, 
                         24, 66, 18, 10, 72, 80, 
                         2, 8, 64, 16, 
                         133, 164, 133, 37, 
                         129, 36, 33, 160, 132, 5, 
                         4, 1, 32, 128 };
+    // Correspond au nombre de tiles présentes dans chaque colonne du tileset, permet de faire varier la longeur de la boucle imbriquée et de s'adapter au tileset
     int nb_tiles[6] = {4, 6, 4, 4, 6, 4} ;
     int i=0,j=0, k=0, x_res = 0;
+    // Si l'id vaut 0, on utilise les 3 dernières colonnes du tileset. Elle correspondent à des variations du terrains pour ne pas avoir un terrain uniforme 
     if (id == 0x00) {
         if(isWater(map[x][y])) 
             coord.x = 96;
@@ -368,7 +386,11 @@ coord_t choixTile(int (*map)[MAP_SIZE], unsigned char id) {
     }
 }
 
-/* Attrbue l'id de chaque case dans une nouvelle matrice */
+/**
+ * @brief Stocke dans une matrice la position de la texture dans le tileset de toutes les cases de la matrice
+ * @param map  
+ * 
+*/
 void creerMapId(map_t *map) {
     int i, j ;
     unsigned char id ;
