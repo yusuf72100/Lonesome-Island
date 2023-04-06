@@ -23,44 +23,11 @@ int getPixelTilePos(int tileSize, int tileState) {
     return(tileSize/MOVES_ON_TILE * tileState);
 }
 
-/* Algo choix tile pour une case */
-coord_t choixTile(int (*map)[MAP_SIZE], unsigned char (*map_id)[MAP_SIZE], int x, int y) {
-    coord_t coord ;
-    coord.y = (isWater(map[x][y]) ? 96 : 0);
-    unsigned char id = map_id[x][y];
-    int tab_val[29] = { 74, 88, 82, 26, 
-                        24, 66, 18, 10, 72, 80, 
-                        2, 8, 64, 16, 
-                        133, 164, 133, 37, 
-                        129, 36, 33, 160, 132, 5, 
-                        4, 1, 32, 128 };
-    int nb_tiles[6] = {4, 6, 4, 4, 6, 4} ;
-    int i=0,j=0, k=0, x_res = 0;
-    if (id == 0x00) {
-        if(isWater(map[x][y])) 
-            coord.x = 96;
-        else if(isSand(map[x][y])) 
-            coord.x = 112;
-        else  //isGrass
-            coord.x = 128;
-        coord.y = map[x][y] % 10 * 16;
-        return coord ;
-    }
-    while (i < 29 ) {
-        for(j=0; j < nb_tiles[k]; j++){
-            if ( ( id & tab_val[i] ) == tab_val[i]) {
-                coord.x = x_res;
-                coord.y += j*16 ;
-                return coord;
-            }
-            i++ ;
-        }
-        k++;
-        x_res+=16;
-    }
-}
+
 
 void setTileSource(SDL_Rect* src, map_t* map, int x, int y) {
+    // src->x = map->map_coord[x][y].x ;
+    // src->y = map->map_coord[x][y].y ;
     coord_t result = choixTile(map->ground, map->id_tiles, x, y);
     src->x = result.x;
     src->y = result.y;
@@ -95,7 +62,8 @@ void updateGroundTexture(SDL_Renderer** renderer, SDL_Texture** target, SDL_Wind
             currentTile.x = i + camera->startPosition.x;
             currentTile.y = j + camera->startPosition.y;
 
-            setTileSource(&src, map, currentTile.x, currentTile.y);
+            src.x = map->coord.x[currentTile.x][currentTile.y];
+            src.y = map->coord.y[currentTile.x][currentTile.y];
 
             dest.x = i * camera->tileSizeOnRender - getPixelTilePos(camera->tileSizeOnRender, camera->offsetStartPosition.x);
             dest.y = j * camera->tileSizeOnRender - getPixelTilePos(camera->tileSizeOnRender, camera->offsetStartPosition.y);

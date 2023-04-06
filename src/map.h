@@ -14,7 +14,7 @@
 
 typedef struct map_s{
     int ground[MAP_SIZE][MAP_SIZE];
-    unsigned char id_tiles[MAP_SIZE][MAP_SIZE];
+    coord_t coord[MAP_SIZE][MAP_SIZE];
     int utils[MAP_SIZE][MAP_SIZE];
 }map_t;
 
