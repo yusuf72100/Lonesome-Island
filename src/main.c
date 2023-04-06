@@ -753,6 +753,20 @@ static void doEvents()
         }
     }
 
+    if ((menu == INGAME_MENU || menu == INVENTORY_MENU || menu == SETTINGS_INGAME_MENU || menu == SETTINGS_MAIN_KEYBIND_MENU))
+    {
+        if(connectedError == FALSE)
+        {
+            if(SOLO == TRUE || HOST == TRUE || CONNECTED == TRUE)
+            {
+                renderMap(&renderer, map_texture);
+                drawPlayers(joueurs, size);
+            }
+        }
+        else{
+            changeMenu(ERR_MENU);
+        }
+    }
     if(checkPlayerOut(camera, &joueur, direction)) {
         moveCamera(camera, direction);
         updateGroundTexture(&renderer, &currentGround, window, tileset, camera, map);

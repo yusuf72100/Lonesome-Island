@@ -67,7 +67,7 @@ extern void startAnimation(char *animation, player_t *joueur)
  * 
  * @param button 
  */
-void switchButtonState_hover(T_BUTTONS_HOVER button)
+extern void switchButtonState_hover(T_BUTTONS_HOVER button)
 {
     switch (button) {
         case CONNECT_BUTTON_HOVER:
@@ -117,7 +117,7 @@ void switchButtonState_hover(T_BUTTONS_HOVER button)
  * @param button
  * @param state
  */
-void changeButtonState_hover(T_BUTTONS_HOVER button, int state)
+extern void changeButtonState_hover(T_BUTTONS_HOVER button, int state)
 {
     switch (button)
     {
@@ -162,7 +162,7 @@ void changeButtonState_hover(T_BUTTONS_HOVER button, int state)
  * @param button
  * @param state
  */
-void changeButtonState_clicked(T_BUTTONS_CLICKED button, int state)
+extern void changeButtonState_clicked(T_BUTTONS_CLICKED button, int state)
 {
     switch (button)
     {
@@ -207,7 +207,7 @@ void changeButtonState_clicked(T_BUTTONS_CLICKED button, int state)
  * @param button
  * @return int
  */
-int getButtonState_clicked(T_BUTTONS_CLICKED button)
+extern int getButtonState_clicked(T_BUTTONS_CLICKED button)
 {
     switch (button)
     {
@@ -242,7 +242,7 @@ int getButtonState_clicked(T_BUTTONS_CLICKED button)
  * @param button
  * @return int
  */
-int onButton(T_BUTTONS_HOVER button)
+extern int onButton(T_BUTTONS_HOVER button)
 {
     switch (button)
     {
@@ -273,7 +273,7 @@ int onButton(T_BUTTONS_HOVER button)
  * @brief Dessine les bouttons pour configurer les touches de jeu.
  *
  */
-void drawBindButtons()
+static void drawBindButtons()
 {
     drawButton(texture_settings_menu_key_button, settings_menu_keybind_up_rect, surface_settings_menu_key_button);
     drawButton(texture_settings_menu_key_button, settings_menu_keybind_down_rect, surface_settings_menu_key_button);
@@ -285,7 +285,7 @@ void drawBindButtons()
  * @brief Essaye de dessiner tous les bouttons.
  *
  */
-void drawButtons()
+static void drawButtons()
 {
     switch (menu)
     {
@@ -313,7 +313,7 @@ void drawButtons()
  * @brief Met à jour les valeurs de l'écran.
  *
  */
-void update_screen()
+extern void update_screen()
 {
     //if(SOLO == FALSE || HOST == FALSE || CONNECTED == FALSE)
     SDL_RenderCopy(renderer, background_texture, NULL, NULL);
@@ -326,7 +326,7 @@ void update_screen()
  * @brief Dessine le bon curseur en fonction de site on survol un bouton ou pas.
  *
  */
-void drawMouse()
+static void drawMouse()
 {
     //hover cursor
     if(hover_playbutton || hover_connectbutton || hover_hostbutton || hover_settingsbutton || hover_inventoryitem || hover_settings_keybindsbutton || hover_keybind_up || hover_keybind_down || hover_keybind_left || hover_keybind_right || wearingItem)
@@ -353,7 +353,7 @@ void drawMouse()
  * @brief Initialise les textures des cases de l'inventaire.
  *
  */
-void inventoryInit(case_inventory mat[3][10])
+static void inventoryInit(case_inventory mat[3][10])
 {
     for(int i = 0; i < 3; i++)
     {
@@ -378,7 +378,7 @@ void inventoryInit(case_inventory mat[3][10])
  * @param rectangle
  * @param surface
  */
-void drawButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface)
+static void drawButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface)
 {
     if(SDL_QueryTexture(texture, NULL, NULL, &rectangle.w, &rectangle.h) != 0)
     {
@@ -393,7 +393,7 @@ void drawButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface)
  *
  * @param case_x
  */
-void drawCaseText(case_inventory case_x)
+static void drawCaseText(case_inventory case_x)
 {
     char buffer[2];
     itoa(case_x.number, buffer, 10);
@@ -418,7 +418,7 @@ void drawCaseText(case_inventory case_x)
  *
  * @param case_x
  */
-void drawItem(case_inventory case_x)
+static void drawItem(case_inventory case_x)
 {
     SDL_RenderCopy(renderer, case_x.Item->texture, NULL, &case_x.item_rectangle);
 }
@@ -430,7 +430,7 @@ void drawItem(case_inventory case_x)
  * @param rectangle
  * @param surface
  */
-void drawButton_withRotation(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface)
+static void drawButton_withRotation(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface)
 {
     if(SDL_RenderCopyEx(renderer, texture, NULL, &rectangle, settings_button_animation_state, NULL, SDL_FLIP_NONE) != 0)
     {
@@ -515,7 +515,7 @@ static void switchAnimation(player_t Joueur)
  * @param size
  * @return
  */
-void *drawPlayers(player_t *joueurs, int size)
+static void *drawPlayers(player_t *joueurs, int size)
 {
     //sortPlayers();
     for(int i = 1; i <= size; i++)
@@ -653,7 +653,7 @@ void *settings_button_animation_right()
  * @brief Dessine l'image souhaitée
  *
  */
-void drawImage(SDL_Texture *texture, SDL_Rect rect)
+static void drawImage(SDL_Texture *texture, SDL_Rect rect)
 {
     if(SDL_QueryTexture(texture, NULL, NULL, &rect.w,&rect.h) != 0)
     {
@@ -669,7 +669,7 @@ void drawImage(SDL_Texture *texture, SDL_Rect rect)
  * @param rect
  * @param texture
  */
-void drawError(SDL_Rect rect, SDL_Texture *texture)
+static void drawError(SDL_Rect rect, SDL_Texture *texture)
 {
     if(SDL_QueryTexture(texture, NULL, NULL, &rect.w,&rect.h) != 0)
     {
@@ -684,7 +684,7 @@ void drawError(SDL_Rect rect, SDL_Texture *texture)
  *
  * @param s
  */
-void displayError(char *s)
+extern void displayError(char *s)
 {
     SDL_Rect rect;
     rect.x = 0;
@@ -831,11 +831,6 @@ static void texturesInit()
  */
 static void rectanglesInit()
 {
-    //player rectangle
-    /*joueur.playerRect.x = 0;
-    joueur.playerRect.y = 0;
-    joueur.playerRect.w = 50;
-    joueur.playerRect.h = 81;*/
 
     //title rectangle
     title_rect.w = 500;
@@ -931,7 +926,7 @@ static void rectanglesInit()
  * @brief Initialise les dafonts.
  *
  */
-void ttfInit()
+static void ttfInit()
 {
     if (TTF_Init() == -1)
     {
@@ -959,7 +954,7 @@ void ttfInit()
  * @brief Initialise toutes les variables relatives aux menus.
  *
  */
-void init_menus_vars()
+extern void init_menus_vars()
 {
     defineItem();
     inventoryInit(mat_inventory);
@@ -992,26 +987,11 @@ void init_menus_vars()
     rectanglesInit();
 }
 
-static void dessinerBalle(SDL_Texture *texture, SDL_Renderer *renderer, SDL_Rect rectangle, SDL_Window *window, Bullet *b, int rotation, int vitesse)
-{
-    if(SDL_QueryTexture(texture, NULL, NULL, &rectangle.w, &rectangle.h) != 0)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible d'afficher la texture de la balle...");
-    }
-
-    if(SDL_RenderCopyEx(renderer, texture, NULL, &rectangle, rotation , NULL, SDL_FLIP_NONE) != 0)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible de rotate le la balle...");
-    }
-}
-
 /**
  * @brief Change le mode plein écran.
  *
  */
-void toggleFullscreen()
+extern void toggleFullscreen()
 {
     if(fullscreen == SDL_FALSE)
     {
@@ -1034,7 +1014,7 @@ void toggleFullscreen()
  * @param hover_button
  * @param menuTarget
  */
-void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button)
+static void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button)
 {
     if(SDL_PointInRect(&mouse_position, button_rect))
     {
@@ -1057,7 +1037,7 @@ void buttonHover(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_R
  * @param p
  * @param p2
  */
-void buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button, void* (*p)(void*), void* (*p2)(void*))
+static void buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *button_texture, SDL_Rect *button_rect, SDL_bool *hover_button, void* (*p)(void*), void* (*p2)(void*))
 {
     if(SDL_PointInRect(&mouse_position, button_rect))
     {
@@ -1081,7 +1061,7 @@ void buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *button_t
  * @brief Évalue sur quel item on a cliqué.
  *
  */
-void clickItem()
+extern void clickItem()
 {
     int i = 0, j = 0;
     int finded = FALSE;
@@ -1156,7 +1136,7 @@ void clickItem()
  * @brief Dessine l'inventaire.
  *
  */
-void drawInventory()
+static void drawInventory()
 {
     SDL_RenderCopy(renderer, inventory_texture, NULL, &inventory_rect);
 }
@@ -1165,7 +1145,7 @@ void drawInventory()
  * @brief Dessine les cases de l'inventaire
  *
  */
-void drawCases()
+static void drawCases()
 {
     int compteur = 0;
     for(int i = 0; i < 3; i++)
@@ -1197,7 +1177,7 @@ void drawCases()
  * @brief Affiche l'item transporté par le curseur du joueur.
  *
  */
-void wearing()
+static void wearing()
 {
     if(wearingItem == SDL_TRUE)
     {
@@ -1216,7 +1196,7 @@ void wearing()
  * @brief Dessine la barre de soif du joueur.
  *
  */
-void drawThirstBar()
+static void drawThirstBar()
 {
     SDL_Rect rect;
     rect.x = thirstbar_rect.x+78;
@@ -1234,7 +1214,7 @@ void drawThirstBar()
  * @brief Dessine la barre de vie du joueur.
  *
  */
-void drawlifeBar()
+static void drawlifeBar()
 {
     SDL_Rect rect;
     rect.x = lifebar_rect.x+78;
@@ -1403,25 +1383,11 @@ static void IngameMenu()
     mouseRect.x = mouse_position.x;
     mouseRect.y = mouse_position.y;
 
-    if ((menu == INGAME_MENU || menu == INVENTORY_MENU || menu == SETTINGS_INGAME_MENU || menu == SETTINGS_MAIN_KEYBIND_MENU))
-    {
-        if(connectedError == FALSE)
-        {
-            if(SOLO == TRUE || HOST == TRUE || CONNECTED == TRUE)
-            {
-                renderMap(&renderer, map_texture);
-                drawPlayers(joueurs, size);
-            }
-        }
-        else{
-            changeMenu(ERR_MENU);
-        }
-    }
-
     if((int) (SDL_GetTicks() - animationDelay) > 200) {
         nextAnimationState(&joueur);
         animationDelay = SDL_GetTicks();
     }
+
     renderMap(&renderer, currentGround);
     renderPlayer(&renderer, camera, &joueur);
 
@@ -1561,7 +1527,7 @@ static void getPlayerNameMenu()
  * @brief Dessine le bon menu.
  * 
  */
-void drawMenu()
+extern void drawMenu()
 {
     switch (menu)
     {

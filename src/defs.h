@@ -44,7 +44,7 @@ extern camera_t* camera;
 extern map_t* map;
 
 extern player_t joueur;
-extern player_t * joueurs;
+extern player_t *joueurs[10];
 
 extern char bindButtonText[4];
 extern char IP_PUBLIC[256];
