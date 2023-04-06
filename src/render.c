@@ -26,11 +26,8 @@ int getPixelTilePos(int tileSize, int tileState) {
 
 
 void setTileSource(SDL_Rect* src, map_t* map, int x, int y) {
-    // src->x = map->map_coord[x][y].x ;
-    // src->y = map->map_coord[x][y].y ;
-    coord_t result = choixTile(map->ground, map->id_tiles, x, y);
-    src->x = result.x;
-    src->y = result.y;
+    src->x = map->coord[x][y].x ;
+    src->y = map->coord[x][y].y ;
 }
 
 void updateGroundTexture(SDL_Renderer** renderer, SDL_Texture** target, SDL_Window* window, SDL_Texture* tileset, camera_t* camera, map_t* map) {
@@ -62,8 +59,8 @@ void updateGroundTexture(SDL_Renderer** renderer, SDL_Texture** target, SDL_Wind
             currentTile.x = i + camera->startPosition.x;
             currentTile.y = j + camera->startPosition.y;
 
-            src.x = map->coord.x[currentTile.x][currentTile.y];
-            src.y = map->coord.y[currentTile.x][currentTile.y];
+            src.x = map->coord[currentTile.x][currentTile.y].x;
+            src.y = map->coord[currentTile.x][currentTile.y].y;
 
             dest.x = i * camera->tileSizeOnRender - getPixelTilePos(camera->tileSizeOnRender, camera->offsetStartPosition.x);
             dest.y = j * camera->tileSizeOnRender - getPixelTilePos(camera->tileSizeOnRender, camera->offsetStartPosition.y);

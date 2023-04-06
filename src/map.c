@@ -374,7 +374,7 @@ void creerMapId(map_t *map) {
     unsigned char id ;
     for(i = 0; i < MAP_SIZE ; i++) {
         for(j = 0 ; j < MAP_SIZE ; j++ ) {
-            id = calculId(map, i, j);
+            id = calculId(map->ground, i, j);
             map->coord[i][j] = choixTile(map->ground, id, i, j) ;
         }
     }
