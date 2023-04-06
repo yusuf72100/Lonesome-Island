@@ -2,6 +2,11 @@
 #include "player.h"
 #include "defs.h"
 
+/**
+ * @brief Initialise les variables du joueur.
+ * @param renderer
+ * @param player
+ */
 void initPlayer(SDL_Renderer* renderer, player_t* player) {
 
     //Position sur la map
@@ -24,16 +29,33 @@ void initPlayer(SDL_Renderer* renderer, player_t* player) {
     SDL_FreeSurface(tmp);
 }
 
+/**
+ * @brief Change l'animation du joueur.
+ * @param player
+ */
 void nextAnimationState(player_t* player) {
     player->animation_state = (player->animation_state == MAX_ANIMATION - 1 ? 0 : player->animation_state + 1);
 }
 
+/**
+ * @brief Renvoi vrai si uen collision est détectée.
+ * @param map
+ * @param x
+ * @param y
+ * @return
+ */
 int isColisionOnTile(map_t* map, int x, int y) {
     if(x < 0 || x > MAP_SIZE || y < 0 || y > MAP_SIZE) return 1;
     if(isWater(map->ground[x][y]) || map->utils[x][y] != -1) return 1;
     return 0;
 }
 
+/**
+ * @brief Déplace le joueur.
+ * @param map
+ * @param player
+ * @param direction
+ */
 void movePlayer(map_t* map, player_t* player, int direction) {
     if(direction != player->facing) {
         player->facing = direction;

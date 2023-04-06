@@ -5,14 +5,20 @@
 #include <SDL_image.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "map.h"
 
 #define MAX_ANIMATION 6
 #define MOVES_ON_TILE 6
 #define PLAYER_W_RESOLUTION 16
 #define PLAYER_H_RESOLUTION 24
 
+typedef struct player_s player_t;
 
+typedef struct{
+    int x;
+    int y;
+}coord_t;
+
+#include "map.h"
 
 /**
  * @brief Structure du joueur.

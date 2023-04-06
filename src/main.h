@@ -24,9 +24,8 @@
 #include "client.h"
 #include "sound.h"
 #include "settings.h"
-#include <windows.h>
-#include "player.h"
 #include "defs.h"
+#include <windows.h>
 
 static Liste *l;
 

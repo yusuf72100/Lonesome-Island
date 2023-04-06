@@ -1,6 +1,10 @@
 #ifndef MAP_h_
 #define MAP_h_
 
+typedef struct map_s map_t;
+
+#include "player.h"
+
 #define MAP_SIZE 100
 #define SMOOTH_MAP 4
 

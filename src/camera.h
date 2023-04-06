@@ -1,9 +1,8 @@
 #ifndef CAMERA_h_
 #define CAMERA_h_
 
-#include "defs.h"
-#include "player.h"
 #include <SDL.h>
+#include "player.h"
 
 #define RENDER 25;
 

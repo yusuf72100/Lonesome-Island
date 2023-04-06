@@ -13,8 +13,8 @@
 #include <stdlib.h>
 #include <SDL.h>
 #include "player.h"
-#include "map.h"
 #include "camera.h"
+#include "map.h"
 
 #define TRUE 1
 #define FALSE 0
