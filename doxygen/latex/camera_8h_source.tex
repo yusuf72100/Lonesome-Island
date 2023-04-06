@@ -1,0 +1,32 @@
+\hypertarget{camera_8h_source}{}\doxysection{camera.\+h}
+\label{camera_8h_source}\index{C:/Users/Yusuf/CLionProjects/Lonesome-\/Island/src/camera.h@{C:/Users/Yusuf/CLionProjects/Lonesome-\/Island/src/camera.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CAMERA\_h\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CAMERA\_h\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{defs_8h}{defs.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}player.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <SDL.h>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ RENDER\ 25;}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcamera__s}{camera\_s}}\{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{int}\ wWindow;}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{int}\ hWindow;}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{int}\ wRender;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ hRender;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{int}\ tileSizeOnRender;}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{structcoord__s}{coord\_t}}\ startPosition;}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{structcoord__s}{coord\_t}}\ offsetStartPosition;}
+\DoxyCodeLine{00018\ \}\mbox{\hyperlink{structcamera__s}{camera\_t}};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keywordtype}{void}\ initCamera(\mbox{\hyperlink{structcamera__s}{camera\_t}}*\ camera,\ SDL\_Window*\ window,\ \mbox{\hyperlink{structplayer__s}{player\_t}}*\ player);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keywordtype}{int}\ checkPlayerOut(\mbox{\hyperlink{structcamera__s}{camera\_t}}*\ camera,\ \mbox{\hyperlink{structplayer__s}{player\_t}}*\ player,\ \textcolor{keywordtype}{int}\ direction);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keywordtype}{void}\ moveCamera(\mbox{\hyperlink{structcamera__s}{camera\_t}}*\ camera,\ \textcolor{keywordtype}{int}\ direction);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

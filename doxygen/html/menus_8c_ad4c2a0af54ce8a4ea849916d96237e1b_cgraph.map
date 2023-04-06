@@ -1,0 +1,7 @@
+<map id="drawCases" name="drawCases">
+<area shape="rect" id="node1" title="Dessine les cases de l&#39;inventaire." alt="" coords="5,55,92,80"/>
+<area shape="rect" id="node2" href="$menus_8c.html#aac65ec8dc8ee64aa76b5497b1bad3fb7" title="Affiche le nombre d&#39;items pour chaque case de l&#39;inventaire." alt="" coords="140,29,244,55"/>
+<area shape="rect" id="node5" href="$menus_8c.html#ad5ab7650cd53725296273d67450e6981" title="Dessine l&#39;item à la bonne case de l&#39;inventaire." alt="" coords="155,79,229,104"/>
+<area shape="rect" id="node3" href="$menus_8c.html#a3ccdb6767f1237284bf7c8e0d3e3eacb" title="Détruit la fenêtre et le rendu." alt="" coords="318,5,398,31"/>
+<area shape="rect" id="node4" href="$menus_8c.html#acd3f39401c59bbd01c9663c5348c63c1" title="Nous renvoi une erreur SDL." alt="" coords="292,55,424,80"/>
+</map>

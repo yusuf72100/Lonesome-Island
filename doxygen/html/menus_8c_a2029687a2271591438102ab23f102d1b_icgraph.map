@@ -1,0 +1,12 @@
+<map id="drawButton" name="drawButton">
+<area shape="rect" id="node1" title="Dessine un bouton normal." alt="" coords="964,81,1051,107"/>
+<area shape="rect" id="node2" href="$menus_8c.html#a8f086b9f4a7667ad12f3014727ca5a97" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="655,107,746,132"/>
+<area shape="rect" id="node6" href="$menus_8c.html#a706ecee7dd0dc5e17064da807e4d0f7f" title="Affiche le menu des paramètres des keybinds dans le menu principal." alt="" coords="428,157,605,183"/>
+<area shape="rect" id="node9" href="$menus_8c.html#a92374e22bf3866cd847b08988d4b0e14" title="Dessine les bouttons pour configurer les touches de jeu." alt="" coords="796,5,916,31"/>
+<area shape="rect" id="node10" href="$menus_8c.html#aa28a91563c1544b785c234a341407650" title="Essaye de dessiner tous les bouttons." alt="" coords="653,56,748,81"/>
+<area shape="rect" id="node3" href="$menus_8c.html#ad4082538ea22b0a347c09456b67ba4bd" title="Affiche le menu principal." alt="" coords="475,107,558,132"/>
+<area shape="rect" id="node7" href="$menus_8c.html#a081a8f6ffea1d158f2a87e4258f6329a" title="Affiche le menu des paramètres dans le menu principal." alt="" coords="451,56,582,81"/>
+<area shape="rect" id="node4" href="$menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,81,185,107"/>
+<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,81,56,107"/>
+<area shape="rect" id="node8" href="$menus_8c.html#a047a87d55ef5bac980f1df5f340f39fa" title="Affiche le menu des paramètres dans en jeu." alt="" coords="233,5,380,31"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="drawCaseText" name="drawCaseText">
+<area shape="rect" id="node1" title="Affiche le nombre d&#39;items pour chaque case de l&#39;inventaire." alt="" coords="717,31,821,56"/>
+<area shape="rect" id="node2" href="$menus_8c.html#ad4c2a0af54ce8a4ea849916d96237e1b" title="Dessine les cases de l&#39;inventaire." alt="" coords="463,5,550,31"/>
+<area shape="rect" id="node6" href="$menus_8c.html#af95a53ea12545b184a401ec583e8f450" title="Affiche l&#39;item transporté par le curseur du joueur." alt="" coords="603,56,669,81"/>
+<area shape="rect" id="node3" href="$menus_8c.html#a588196acaedd8824af54e4bac318358d" title="Dessin le menu de l&#39;inventaire." alt="" coords="269,31,375,56"/>
+<area shape="rect" id="node4" href="$menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,107,185,132"/>
+<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,107,56,132"/>
+<area shape="rect" id="node7" href="$menus_8c.html#a3c98ffe9a3fcb71780598d084e08450b" title="Dessine le menu en jeu." alt="" coords="459,107,555,132"/>
+<area shape="rect" id="node8" href="$menus_8c.html#a047a87d55ef5bac980f1df5f340f39fa" title="Affiche le menu des paramètres dans en jeu." alt="" coords="249,132,395,157"/>
+<area shape="rect" id="node9" href="$menus_8c.html#a706ecee7dd0dc5e17064da807e4d0f7f" title="Affiche le menu des paramètres des keybinds dans le menu principal." alt="" coords="233,181,411,207"/>
+</map>
