@@ -62,7 +62,8 @@ void updateGroundTexture(SDL_Renderer** renderer, SDL_Texture** target, SDL_Wind
             currentTile.x = i + camera->startPosition.x;
             currentTile.y = j + camera->startPosition.y;
 
-            setTileSource(&src, map, currentTile.x, currentTile.y);
+            src.x = map->coord.x[currentTile.x][currentTile.y];
+            src.y = map->coord.y[currentTile.x][currentTile.y];
 
             dest.x = i * camera->tileSizeOnRender - getPixelTilePos(camera->tileSizeOnRender, camera->offsetStartPosition.x);
             dest.y = j * camera->tileSizeOnRender - getPixelTilePos(camera->tileSizeOnRender, camera->offsetStartPosition.y);

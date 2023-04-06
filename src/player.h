@@ -7,10 +7,10 @@
 #include <stdlib.h>
 #include "map.h"
 
-#define MAX_ANIMATION 4
-#define MOVES_ON_TILE 4
+#define MAX_ANIMATION 6
+#define MOVES_ON_TILE 6
 #define PLAYER_W_RESOLUTION 16
-#define PLAYER_H_RESOLUTION 16
+#define PLAYER_H_RESOLUTION 24
 
 
 

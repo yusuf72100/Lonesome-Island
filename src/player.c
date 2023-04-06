@@ -19,7 +19,7 @@ void initPlayer(SDL_Renderer* renderer, player_t* player) {
     player->animation_state = 0;
 
     //Tileset du joueur
-    SDL_Surface* tmp = IMG_Load("resources/player_animations.png");
+    SDL_Surface* tmp = IMG_Load("resources/player2.png");
     player->tileset = SDL_CreateTextureFromSurface(renderer, tmp);
     SDL_FreeSurface(tmp);
 }
