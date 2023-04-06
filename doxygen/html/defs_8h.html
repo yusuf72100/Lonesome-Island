@@ -88,15 +88,22 @@ $(function() {
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;SDL.h&gt;</code><br />
+<code>#include &quot;player.h&quot;</code><br />
+<code>#include &quot;map.h&quot;</code><br />
+<code>#include &quot;camera.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Graphe des dépendances par inclusion de defs.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="defs_8h__incl.png" border="0" usemap="#a_c_1_2_users_2_yusuf_2_c_lion_projects_2_lonesome-_island_2src_2defs_8h" alt=""/></div>
 <map name="a_c_1_2_users_2_yusuf_2_c_lion_projects_2_lonesome-_island_2src_2defs_8h" id="a_c_1_2_users_2_yusuf_2_c_lion_projects_2_lonesome-_island_2src_2defs_8h">
-<area shape="rect" title="Fichier contenant toutes les définitions de structures et de types." alt="" coords="25,5,220,45"/>
-<area shape="rect" title=" " alt="" coords="5,93,67,119"/>
-<area shape="rect" title=" " alt="" coords="91,93,155,119"/>
-<area shape="rect" title=" " alt="" coords="179,93,237,119"/>
+<area shape="rect" title="Fichier contenant toutes les définitions de structures et de types." alt="" coords="168,5,363,45"/>
+<area shape="rect" title=" " alt="" coords="5,240,67,265"/>
+<area shape="rect" title=" " alt="" coords="91,240,155,265"/>
+<area shape="rect" title=" " alt="" coords="304,240,363,265"/>
+<area shape="rect" href="player_8h_source.html" title=" " alt="" coords="185,167,253,192"/>
+<area shape="rect" href="map_8h_source.html" title=" " alt="" coords="387,240,445,265"/>
+<area shape="rect" href="camera_8h_source.html" title=" " alt="" coords="227,93,303,119"/>
+<area shape="rect" title=" " alt="" coords="179,240,279,265"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -104,22 +111,20 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 <div class="dyncontent">
 <div class="center"><img src="defs_8h__dep__incl.png" border="0" usemap="#a_c_1_2_users_2_yusuf_2_c_lion_projects_2_lonesome-_island_2src_2defs_8hdep" alt=""/></div>
 <map name="a_c_1_2_users_2_yusuf_2_c_lion_projects_2_lonesome-_island_2src_2defs_8hdep" id="a_c_1_2_users_2_yusuf_2_c_lion_projects_2_lonesome-_island_2src_2defs_8hdep">
-<area shape="rect" title="Fichier contenant toutes les définitions de structures et de types." alt="" coords="517,5,712,45"/>
-<area shape="rect" href="create__map_8h.html" title="Fichier header create_map.c." alt="" coords="61,181,291,221"/>
-<area shape="rect" href="main_8h.html" title="Fichier contenant toutes les variables d&#39;affichage." alt="" coords="455,445,649,485"/>
-<area shape="rect" href="settings_8h.html" title="Fichier content les définitions pour le fichier settings.c." alt="" coords="658,357,865,397"/>
-<area shape="rect" href="defs_8c.html" title="Fichier qui initialisera les variables globales." alt="" coords="1077,93,1272,133"/>
-<area shape="rect" href="map_8h.html" title="Fichier header à map.c." alt="" coords="315,93,509,133"/>
-<area shape="rect" href="socket_8h.html" title="Fichier qui contient les informations relatives aux clients et au serveur point de vu socket." alt="" coords="584,93,784,133"/>
-<area shape="rect" href="create__map_8c.html" title="Programme qui génère la map et les tiles." alt="" coords="5,269,235,309"/>
-<area shape="rect" href="menus_8h.html" title="Fichier contenant toutes les variables d&#39;affichage." alt="" coords="309,269,509,309"/>
-<area shape="rect" href="client_8c.html" title="Fichier qui contient la configuration du socket client." alt="" coords="833,533,1028,573"/>
-<area shape="rect" href="main_8c.html" title="Fichier principal du programme qui s&#39;occupera de la partie jeu." alt="" coords="239,533,433,573"/>
-<area shape="rect" href="menus_8c.html" title="Fichier qui s&#39;occupera de l&#39;affichage des éléments." alt="" coords="457,533,657,573"/>
-<area shape="rect" href="settings_8c.html" title="Programme qui s&#39;occupera de la sauvegarde des paramètres de l&#39;utilisateur." alt="" coords="674,445,881,485"/>
-<area shape="rect" href="map_8c.html" title="Fichier comportant les méthodes pour générer la map." alt="" coords="315,181,509,221"/>
-<area shape="rect" href="client_8h.html" title="Fichier content toutes les informations relatives au client et au serveur." alt="" coords="584,181,779,221"/>
-<area shape="rect" href="socket_8c.html" title="Fichier qui s&#39;occupera uniquement du serveur." alt="" coords="803,181,1003,221"/>
+<area shape="rect" title="Fichier contenant toutes les définitions de structures et de types." alt="" coords="250,5,445,45"/>
+<area shape="rect" href="camera_8h_source.html" title=" " alt="" coords="37,93,241,133"/>
+<area shape="rect" href="settings_8h.html" title="Fichier content les définitions pour le fichier settings.c." alt="" coords="232,357,439,397"/>
+<area shape="rect" href="main_8h.html" title="Fichier contenant toutes les variables d&#39;affichage." alt="" coords="474,445,669,485"/>
+<area shape="rect" href="defs_8c.html" title="Fichier qui initialisera les variables globales." alt="" coords="810,93,1005,133"/>
+<area shape="rect" href="socket_8h.html" title="Fichier qui contient les informations relatives aux clients et au serveur point de vu socket." alt="" coords="317,93,517,133"/>
+<area shape="rect" href="menus_8c.html" title="Fichier qui s&#39;occupera de l&#39;affichage des éléments." alt="" coords="27,533,227,573"/>
+<area shape="rect" href="render_8h_source.html" title=" " alt="" coords="43,181,241,221"/>
+<area shape="rect" href="menus_8h.html" title="Fichier contenant toutes les variables d&#39;affichage." alt="" coords="94,269,294,309"/>
+<area shape="rect" href="main_8c.html" title="Fichier principal du programme qui s&#39;occupera de la partie jeu." alt="" coords="261,533,455,573"/>
+<area shape="rect" href="settings_8c.html" title="Programme qui s&#39;occupera de la sauvegarde des paramètres de l&#39;utilisateur." alt="" coords="232,445,439,485"/>
+<area shape="rect" href="client_8c.html" title="Fichier qui contient la configuration du socket client." alt="" coords="485,533,679,573"/>
+<area shape="rect" href="client_8h.html" title="Fichier content toutes les informations relatives au client et au serveur." alt="" coords="541,181,735,221"/>
+<area shape="rect" href="socket_8c.html" title="Fichier qui s&#39;occupera uniquement du serveur." alt="" coords="317,181,517,221"/>
 </map>
 </div>
 </div>
@@ -127,9 +132,6 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Structures de données</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structplayer__t.html">player_t</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sauvegarde les informations de chaque joueurs relatives uniquement au jeu en lui-même (points de vie, coordonnées, animation...).  <a href="structplayer__t.html#details">Plus de détails...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structweapon__t.html">weapon_t</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Définition d'un weapon.  <a href="structweapon__t.html#details">Plus de détails...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -218,12 +220,17 @@ Macros</h2></td></tr>
 , <b>BLOCK</b>
  }</td></tr>
 <tr class="separator:a76ea9a279bc30eca58a6dedc8f0dc836"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a376a0278dc89709be588ea7ba88cfbab"><td class="memItemLeft" align="right" valign="top"><a id="a376a0278dc89709be588ea7ba88cfbab" name="a376a0278dc89709be588ea7ba88cfbab"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>T_FACING</b> { <b>NORTH</b>
+, <b>EAST</b>
+, <b>SOUTH</b>
+, <b>WEST</b>
+ }</td></tr>
+<tr class="separator:a376a0278dc89709be588ea7ba88cfbab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:a6bd9bc7437d75b11d5e167fcf0114dc2"><td class="memItemLeft" align="right" valign="top"><a id="a6bd9bc7437d75b11d5e167fcf0114dc2" name="a6bd9bc7437d75b11d5e167fcf0114dc2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>defineItem</b> ()</td></tr>
-<tr class="memdesc:a6bd9bc7437d75b11d5e167fcf0114dc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise les items globaux. <br /></td></tr>
+<tr class="memitem:a6bd9bc7437d75b11d5e167fcf0114dc2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="defs_8h.html#a6bd9bc7437d75b11d5e167fcf0114dc2">defineItem</a> ()</td></tr>
+<tr class="memdesc:a6bd9bc7437d75b11d5e167fcf0114dc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise les items globaux.  <br /></td></tr>
 <tr class="separator:a6bd9bc7437d75b11d5e167fcf0114dc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
@@ -252,6 +259,30 @@ SDL_Window *&#160;</td><td class="memItemRight" valign="bottom"><b>window</b></t
 <tr class="memitem:a966da7a60c4ea3ba301e26ccc5efe452"><td class="memItemLeft" align="right" valign="top"><a id="a966da7a60c4ea3ba301e26ccc5efe452" name="a966da7a60c4ea3ba301e26ccc5efe452"></a>
 SDL_Renderer *&#160;</td><td class="memItemRight" valign="bottom"><b>renderer</b></td></tr>
 <tr class="separator:a966da7a60c4ea3ba301e26ccc5efe452"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a886d551d5381dc3e53f17825ffc51641"><td class="memItemLeft" align="right" valign="top"><a id="a886d551d5381dc3e53f17825ffc51641" name="a886d551d5381dc3e53f17825ffc51641"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>direction</b></td></tr>
+<tr class="separator:a886d551d5381dc3e53f17825ffc51641"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a167b8a132e3189bc30114d1d6e93d930"><td class="memItemLeft" align="right" valign="top"><a id="a167b8a132e3189bc30114d1d6e93d930" name="a167b8a132e3189bc30114d1d6e93d930"></a>
+SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><b>tmp</b></td></tr>
+<tr class="separator:a167b8a132e3189bc30114d1d6e93d930"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81c2fda7a3e98a38fb2c47cad46b0815"><td class="memItemLeft" align="right" valign="top"><a id="a81c2fda7a3e98a38fb2c47cad46b0815" name="a81c2fda7a3e98a38fb2c47cad46b0815"></a>
+SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><b>tileset</b></td></tr>
+<tr class="separator:a81c2fda7a3e98a38fb2c47cad46b0815"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a472d8154993aac24794fa03968afce39"><td class="memItemLeft" align="right" valign="top"><a id="a472d8154993aac24794fa03968afce39" name="a472d8154993aac24794fa03968afce39"></a>
+SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><b>currentGround</b></td></tr>
+<tr class="separator:a472d8154993aac24794fa03968afce39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af90d9c5474a96a57000759cc813ff7d5"><td class="memItemLeft" align="right" valign="top"><a id="af90d9c5474a96a57000759cc813ff7d5" name="af90d9c5474a96a57000759cc813ff7d5"></a>
+<a class="el" href="structcamera__s.html">camera_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>camera</b></td></tr>
+<tr class="separator:af90d9c5474a96a57000759cc813ff7d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2bb9dc718068dc88b8250185d0d6ab7"><td class="memItemLeft" align="right" valign="top"><a id="af2bb9dc718068dc88b8250185d0d6ab7" name="af2bb9dc718068dc88b8250185d0d6ab7"></a>
+<a class="el" href="structmap__s.html">map_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>map</b></td></tr>
+<tr class="separator:af2bb9dc718068dc88b8250185d0d6ab7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad92f2b056653cc55a088e47aff07f4aa"><td class="memItemLeft" align="right" valign="top"><a id="ad92f2b056653cc55a088e47aff07f4aa" name="ad92f2b056653cc55a088e47aff07f4aa"></a>
+<a class="el" href="structplayer__s.html">player_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>joueur</b></td></tr>
+<tr class="separator:ad92f2b056653cc55a088e47aff07f4aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0696137328ea5e7bb01aa02f9e14799c"><td class="memItemLeft" align="right" valign="top"><a id="a0696137328ea5e7bb01aa02f9e14799c" name="a0696137328ea5e7bb01aa02f9e14799c"></a>
+<a class="el" href="structplayer__s.html">player_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>joueurs</b> [10]</td></tr>
+<tr class="separator:a0696137328ea5e7bb01aa02f9e14799c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99a35a6d05775d2462a6c8a86310c5d7"><td class="memItemLeft" align="right" valign="top"><a id="a99a35a6d05775d2462a6c8a86310c5d7" name="a99a35a6d05775d2462a6c8a86310c5d7"></a>
 char&#160;</td><td class="memItemRight" valign="bottom"><b>bindButtonText</b> [4]</td></tr>
 <tr class="separator:a99a35a6d05775d2462a6c8a86310c5d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -288,12 +319,6 @@ SDL_KeyCode&#160;</td><td class="memItemRight" valign="bottom"><b>globalKeyTab</
 <tr class="memitem:a04cf3527550be0bb37507333d391f7dd"><td class="memItemLeft" align="right" valign="top"><a id="a04cf3527550be0bb37507333d391f7dd" name="a04cf3527550be0bb37507333d391f7dd"></a>
 <a class="el" href="structblock__t.html">block_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>chest_block</b></td></tr>
 <tr class="separator:a04cf3527550be0bb37507333d391f7dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad92f2b056653cc55a088e47aff07f4aa"><td class="memItemLeft" align="right" valign="top"><a id="ad92f2b056653cc55a088e47aff07f4aa" name="ad92f2b056653cc55a088e47aff07f4aa"></a>
-<a class="el" href="structplayer__t.html">player_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>joueur</b></td></tr>
-<tr class="separator:ad92f2b056653cc55a088e47aff07f4aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a551000248d53b0f87524224317c61f10"><td class="memItemLeft" align="right" valign="top"><a id="a551000248d53b0f87524224317c61f10" name="a551000248d53b0f87524224317c61f10"></a>
-<a class="el" href="structplayer__t.html">player_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>joueurs</b></td></tr>
-<tr class="separator:a551000248d53b0f87524224317c61f10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Fichier contenant toutes les définitions de structures et de types. </p>
@@ -301,7 +326,39 @@ SDL_KeyCode&#160;</td><td class="memItemRight" valign="bottom"><b>globalKeyTab</
 <dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2023-01-31 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2023 </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a6bd9bc7437d75b11d5e167fcf0114dc2" name="a6bd9bc7437d75b11d5e167fcf0114dc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bd9bc7437d75b11d5e167fcf0114dc2">&#9670;&#160;</a></span>defineItem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void defineItem </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialise les items globaux. </p>
+<p>joueurs[0}-&gt;health = 100; joueurs-&gt;stuck = FALSE;</p>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="defs_8h_a6bd9bc7437d75b11d5e167fcf0114dc2_icgraph.png" border="0" usemap="#adefs_8h_a6bd9bc7437d75b11d5e167fcf0114dc2_icgraph" alt=""/></div>
+<map name="adefs_8h_a6bd9bc7437d75b11d5e167fcf0114dc2_icgraph" id="adefs_8h_a6bd9bc7437d75b11d5e167fcf0114dc2_icgraph">
+<area shape="rect" title="Initialise les items globaux." alt="" coords="384,5,465,31"/>
+<area shape="rect" href="menus_8c.html#a48e3fe80d276c94e23eed3c1017a05ee" title="Initialise toutes les variables relatives aux menus." alt="" coords="221,5,336,31"/>
+<area shape="rect" href="main_8c.html#a270d20bdcadebb9a08a01a55c37858a9" title="Initialise toutes les variables relatives aux menus." alt="" coords="104,5,173,31"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6

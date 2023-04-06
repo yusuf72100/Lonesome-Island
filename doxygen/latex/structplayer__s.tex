@@ -2,30 +2,61 @@
 \label{structplayer__s}\index{player\_s@{player\_s}}
 
 
-Graphe de collaboration de player\+\_\+s\+:\nopagebreak
+Structure du joueur.  
+
+
+
+
+{\ttfamily \#include $<$player.\+h$>$}
+
+
+
+Graphe de collaboration de player\+\_\+s\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=141pt]{structplayer__s__coll__graph}
+\includegraphics[width=192pt]{structplayer__s__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsection*{Champs de données}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{structplayer__s_a5ac083a645d964373f022d03df4849c8}\label{structplayer__s_a5ac083a645d964373f022d03df4849c8}} 
-char $\ast$ {\bfseries name}
+\mbox{\Hypertarget{structplayer__s_a9379399ca01460b0347395ebc65a2913}\label{structplayer__s_a9379399ca01460b0347395ebc65a2913}} 
+\mbox{\hyperlink{structcoord__s}{coord\+\_\+t}} {\bfseries map\+Position}
 \item 
-\mbox{\Hypertarget{structplayer__s_a1b1c1320c95e683859cc0e295f63547f}\label{structplayer__s_a1b1c1320c95e683859cc0e295f63547f}} 
-\mbox{\hyperlink{structposition__s}{position\+\_\+t}} {\bfseries pos}
+\mbox{\Hypertarget{structplayer__s_a50b6f651663b8e7fa86214115786f11c}\label{structplayer__s_a50b6f651663b8e7fa86214115786f11c}} 
+\mbox{\hyperlink{structcoord__s}{coord\+\_\+t}} {\bfseries tile\+Position}
 \item 
-\mbox{\Hypertarget{structplayer__s_a1701f27966ea1f9a27696518253180b3}\label{structplayer__s_a1701f27966ea1f9a27696518253180b3}} 
-facing\+\_\+e {\bfseries facing}
+\mbox{\Hypertarget{structplayer__s_a81c2fda7a3e98a38fb2c47cad46b0815}\label{structplayer__s_a81c2fda7a3e98a38fb2c47cad46b0815}} 
+SDL\+\_\+\+Texture $\ast$ {\bfseries tileset}
 \item 
-\mbox{\Hypertarget{structplayer__s_a859b8efbf9abe8e82757ee5c75a0c97c}\label{structplayer__s_a859b8efbf9abe8e82757ee5c75a0c97c}} 
-SDL\+\_\+\+Texture $\ast$ {\bfseries texture}
+\mbox{\Hypertarget{structplayer__s_a0649f2bc6181d3fe471c7a9d9ab7b8a4}\label{structplayer__s_a0649f2bc6181d3fe471c7a9d9ab7b8a4}} 
+int {\bfseries facing}
+\item 
+\mbox{\Hypertarget{structplayer__s_a10bc1f8b51272f2e232d86d8fc1aefcb}\label{structplayer__s_a10bc1f8b51272f2e232d86d8fc1aefcb}} 
+char {\bfseries playername} \mbox{[}16\mbox{]}
+\item 
+\mbox{\Hypertarget{structplayer__s_a35f9f6f21a00571eda7c7bf73994a9fd}\label{structplayer__s_a35f9f6f21a00571eda7c7bf73994a9fd}} 
+int {\bfseries animation\+\_\+state}
+\item 
+\mbox{\Hypertarget{structplayer__s_a9709aefe4930807392898aecb0cb8a79}\label{structplayer__s_a9709aefe4930807392898aecb0cb8a79}} 
+int {\bfseries connected}
+\item 
+\mbox{\Hypertarget{structplayer__s_ae448fb16f537982185a0c5e8db56bdc6}\label{structplayer__s_ae448fb16f537982185a0c5e8db56bdc6}} 
+int {\bfseries health}
+\item 
+\mbox{\Hypertarget{structplayer__s_a58bfaec2fadb139b3630f62b1f387369}\label{structplayer__s_a58bfaec2fadb139b3630f62b1f387369}} 
+int {\bfseries thirst}
+\item 
+\mbox{\Hypertarget{structplayer__s_ab4677523146374d4a2b92985cca5447b}\label{structplayer__s_ab4677523146374d4a2b92985cca5447b}} 
+int {\bfseries stuck}
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Description détaillée}
+Structure du joueur. 
+
 La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/\+Yusuf/\+Lonesome-\/\+Island/src/map.\+h\end{DoxyCompactItemize}
+C\+:/\+Users/\+Yusuf/\+CLion\+Projects/\+Lonesome-\/\+Island/src/player.\+h\end{DoxyCompactItemize}

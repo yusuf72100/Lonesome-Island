@@ -1,7 +1,11 @@
 <map id="C:/Users/Yusuf/CLionProjects/Lonesome&#45;Island/src/defs.c" name="C:/Users/Yusuf/CLionProjects/Lonesome&#45;Island/src/defs.c">
-<area shape="rect" id="node1" title="Fichier qui initialisera les variables globales." alt="" coords="25,5,220,45"/>
-<area shape="rect" id="node2" href="$defs_8h.html" title="Fichier contenant toutes les définitions de structures et de types." alt="" coords="94,93,151,119"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,167,67,192"/>
-<area shape="rect" id="node4" title=" " alt="" coords="91,167,155,192"/>
-<area shape="rect" id="node5" title=" " alt="" coords="179,167,237,192"/>
+<area shape="rect" id="node1" title="Fichier qui initialisera les variables globales." alt="" coords="168,5,363,45"/>
+<area shape="rect" id="node2" href="$defs_8h.html" title="Fichier contenant toutes les définitions de structures et de types." alt="" coords="237,93,294,119"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,313,67,339"/>
+<area shape="rect" id="node4" title=" " alt="" coords="91,313,155,339"/>
+<area shape="rect" id="node5" title=" " alt="" coords="304,313,363,339"/>
+<area shape="rect" id="node6" href="$player_8h_source.html" title=" " alt="" coords="185,240,253,265"/>
+<area shape="rect" id="node8" href="$map_8h_source.html" title=" " alt="" coords="387,313,445,339"/>
+<area shape="rect" id="node9" href="$camera_8h_source.html" title=" " alt="" coords="227,167,303,192"/>
+<area shape="rect" id="node7" title=" " alt="" coords="179,313,279,339"/>
 </map>

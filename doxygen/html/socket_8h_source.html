@@ -92,29 +92,29 @@ $(function() {
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;SDL_image.h&gt;</span></div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;SDL_ttf.h&gt;</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="defs_8h.html">defs.h</a>&quot;</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#pragma comment(lib, &quot;ws2_32.lib&quot;</span>)</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#define dataLen 5</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">typedef</span> uint32_t socklen_t;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">static</span> pthread_t *receive_from_client;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">static</span> <span class="keywordtype">char</span> tramClient_send[100];</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">static</span> <span class="keywordtype">char</span> tramClient_receive[100];</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">static</span> <span class="keywordtype">char</span> recvBuffer[dataLen]; </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">static</span> SOCKET socketServer;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">static</span> <span class="keywordtype">int</span> max_player = 10;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="structsocket_datas.html">   45</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>{</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    SOCKET socketServer;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    SOCKET clientSocket;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    SOCKADDR_IN addrClient;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_struct" href="structplayer__t.html">player_t</a> joueur;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;player.h&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#pragma comment(lib, &quot;ws2_32.lib&quot;</span>)</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#define dataLen 5</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">typedef</span> uint32_t socklen_t;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">static</span> pthread_t *receive_from_client;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">static</span> <span class="keywordtype">char</span> tramClient_send[100];</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">static</span> <span class="keywordtype">char</span> tramClient_receive[100];</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">static</span> <span class="keywordtype">char</span> recvBuffer[dataLen]; </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">static</span> SOCKET socketServer;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">static</span> <span class="keywordtype">int</span> max_player = 10;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="structsocket_datas.html">   46</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>{</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    SOCKET socketServer;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    SOCKET clientSocket;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    SOCKADDR_IN addrClient;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_struct" href="structplayer__s.html">player_t</a> joueur;</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>}<a class="code hl_struct" href="structsocket_datas.html">socketDatas</a>;</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="structarg_server.html">   58</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span></div>
@@ -122,40 +122,38 @@ $(function() {
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <a class="code hl_struct" href="structsocket_datas.html">socketDatas</a> * sd;</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">int</span> running;</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">int</span> size;</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>}<a class="code hl_struct" href="structarg_server.html">argServer</a>;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keyword">static</span> <a class="code hl_struct" href="structarg_server.html">argServer</a> *argt = NULL;</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="structsend2_client.html">   72</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structsend2_client.html">send2Client</a></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>{</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    SOCKET socket;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordtype">int</span> port;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <a class="code hl_struct" href="structarg_server.html">argServer</a> * argt;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>}<a class="code hl_struct" href="structarg_server.html">argServer</a>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keyword">static</span> <a class="code hl_struct" href="structarg_server.html">argServer</a> *argt = NULL;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="structsend2_client.html">   71</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structsend2_client.html">send2Client</a></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>{</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    SOCKET socket;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">int</span> port;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <a class="code hl_struct" href="structarg_server.html">argServer</a> * argt;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="socket_8h.html#aa66179db696591eb40fed14d270a661d">   76</a></span>}<a class="code hl_struct" href="structsend2_client.html">send2Client</a>;</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="socket_8h.html#aa66179db696591eb40fed14d270a661d">   78</a></span>}<a class="code hl_struct" href="structsend2_client.html">send2Client</a>;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keywordtype">char</span> *<a class="code hl_function" href="socket_8h.html#acc971d38ba2d98589d00bde6652a6e39">getLocalIp</a>();</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keyword">static</span> <a class="code hl_struct" href="structsend2_client.html">send2Client</a> *argClient = NULL;</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code hl_function" href="socket_8h.html#a49cbd679b22e0661bdc353826c8c5086">findPosition</a>(<a class="code hl_struct" href="structsend2_client.html">send2Client</a> *argClient);</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keywordtype">void</span> *<a class="code hl_function" href="socket_8h.html#ad768973bc551435391fa1ddfbb0355a1">searchClients</a>(<span class="keywordtype">void</span> *argt);</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="keywordtype">void</span> *<a class="code hl_function" href="socket_8h.html#a3b61093f2f5316157d1e6d3d05cf5ebc">receiveFromClient</a>(<span class="keywordtype">void</span> *arg);</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="keyword">static</span> <span class="keywordtype">void</span> *sendToClient(<a class="code hl_struct" href="structsend2_client.html">send2Client</a> *argClient, <span class="keywordtype">int</span> position);</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="keywordtype">void</span> *<a class="code hl_function" href="socket_8h.html#a3490387e86b9ba6a1ee9ed3984b637d5">startServer</a>();</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="keywordtype">void</span> <a class="code hl_function" href="socket_8h.html#ac1e551c19cd6ce8d7da8b13d1f290863">stopServer</a>();</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="keywordtype">char</span> *<a class="code hl_function" href="socket_8h.html#acc971d38ba2d98589d00bde6652a6e39">getLocalIp</a>();</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keyword">static</span> <a class="code hl_struct" href="structsend2_client.html">send2Client</a> *argClient = NULL;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code hl_function" href="socket_8h.html#a49cbd679b22e0661bdc353826c8c5086">findPosition</a>(<a class="code hl_struct" href="structsend2_client.html">send2Client</a> *argClient);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keywordtype">void</span> *<a class="code hl_function" href="socket_8h.html#ad768973bc551435391fa1ddfbb0355a1">searchClients</a>(<span class="keywordtype">void</span> *argt);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keywordtype">void</span> *<a class="code hl_function" href="socket_8h.html#a3b61093f2f5316157d1e6d3d05cf5ebc">receiveFromClient</a>(<span class="keywordtype">void</span> *arg);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keyword">static</span> <span class="keywordtype">void</span> *sendToClient(<a class="code hl_struct" href="structsend2_client.html">send2Client</a> *argClient, <span class="keywordtype">int</span> position);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="keywordtype">void</span> *<a class="code hl_function" href="socket_8h.html#a3490387e86b9ba6a1ee9ed3984b637d5">startServer</a>();</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="keywordtype">void</span> <a class="code hl_function" href="socket_8h.html#ac1e551c19cd6ce8d7da8b13d1f290863">stopServer</a>();</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="adefs_8h_html"><div class="ttname"><a href="defs_8h.html">defs.h</a></div><div class="ttdoc">Fichier contenant toutes les définitions de structures et de types.</div></div>
-<div class="ttc" id="asocket_8h_html_a3490387e86b9ba6a1ee9ed3984b637d5"><div class="ttname"><a href="socket_8h.html#a3490387e86b9ba6a1ee9ed3984b637d5">startServer</a></div><div class="ttdeci">void * startServer()</div><div class="ttdoc">Démarre le serveur et initie la table de clients.</div><div class="ttdef"><b>Definition:</b> socket.c:348</div></div>
-<div class="ttc" id="asocket_8h_html_a3b61093f2f5316157d1e6d3d05cf5ebc"><div class="ttname"><a href="socket_8h.html#a3b61093f2f5316157d1e6d3d05cf5ebc">receiveFromClient</a></div><div class="ttdeci">void * receiveFromClient(void *arg)</div><div class="ttdoc">Écoute un client tant que la connexion est établie.</div><div class="ttdef"><b>Definition:</b> socket.c:233</div></div>
-<div class="ttc" id="asocket_8h_html_a49cbd679b22e0661bdc353826c8c5086"><div class="ttname"><a href="socket_8h.html#a49cbd679b22e0661bdc353826c8c5086">findPosition</a></div><div class="ttdeci">static int findPosition(send2Client *argClient)</div><div class="ttdoc">Cherche la position du client dans le tableau des clients.</div><div class="ttdef"><b>Definition:</b> socket.c:196</div></div>
-<div class="ttc" id="asocket_8h_html_ac1e551c19cd6ce8d7da8b13d1f290863"><div class="ttname"><a href="socket_8h.html#ac1e551c19cd6ce8d7da8b13d1f290863">stopServer</a></div><div class="ttdeci">void stopServer()</div><div class="ttdoc">Arrête le serveur en déconnectant tous les clients d'abord.</div><div class="ttdef"><b>Definition:</b> socket.c:319</div></div>
+<div class="ttc" id="asocket_8h_html_a3490387e86b9ba6a1ee9ed3984b637d5"><div class="ttname"><a href="socket_8h.html#a3490387e86b9ba6a1ee9ed3984b637d5">startServer</a></div><div class="ttdeci">void * startServer()</div><div class="ttdoc">Démarre le serveur et initie la table de clients.</div><div class="ttdef"><b>Definition:</b> socket.c:369</div></div>
+<div class="ttc" id="asocket_8h_html_a3b61093f2f5316157d1e6d3d05cf5ebc"><div class="ttname"><a href="socket_8h.html#a3b61093f2f5316157d1e6d3d05cf5ebc">receiveFromClient</a></div><div class="ttdeci">void * receiveFromClient(void *arg)</div><div class="ttdoc">Écoute un client tant que la connexion est établie.</div><div class="ttdef"><b>Definition:</b> socket.c:245</div></div>
+<div class="ttc" id="asocket_8h_html_a49cbd679b22e0661bdc353826c8c5086"><div class="ttname"><a href="socket_8h.html#a49cbd679b22e0661bdc353826c8c5086">findPosition</a></div><div class="ttdeci">static int findPosition(send2Client *argClient)</div><div class="ttdoc">Cherche la position du client dans le tableau des clients.</div><div class="ttdef"><b>Definition:</b> socket.c:203</div></div>
+<div class="ttc" id="asocket_8h_html_ac1e551c19cd6ce8d7da8b13d1f290863"><div class="ttname"><a href="socket_8h.html#ac1e551c19cd6ce8d7da8b13d1f290863">stopServer</a></div><div class="ttdeci">void stopServer()</div><div class="ttdoc">Arrête le serveur en déconnectant tous les clients d'abord.</div><div class="ttdef"><b>Definition:</b> socket.c:340</div></div>
 <div class="ttc" id="asocket_8h_html_acc971d38ba2d98589d00bde6652a6e39"><div class="ttname"><a href="socket_8h.html#acc971d38ba2d98589d00bde6652a6e39">getLocalIp</a></div><div class="ttdeci">char * getLocalIp()</div><div class="ttdoc">Renvoi l'ip local du client.</div><div class="ttdef"><b>Definition:</b> socket.c:17</div></div>
-<div class="ttc" id="asocket_8h_html_ad768973bc551435391fa1ddfbb0355a1"><div class="ttname"><a href="socket_8h.html#ad768973bc551435391fa1ddfbb0355a1">searchClients</a></div><div class="ttdeci">void * searchClients(void *argt)</div><div class="ttdoc">Gère la place des clients dans la table de client et reçoit les nouveaux clients.</div><div class="ttdef"><b>Definition:</b> socket.c:268</div></div>
+<div class="ttc" id="asocket_8h_html_ad768973bc551435391fa1ddfbb0355a1"><div class="ttname"><a href="socket_8h.html#ad768973bc551435391fa1ddfbb0355a1">searchClients</a></div><div class="ttdeci">void * searchClients(void *argt)</div><div class="ttdoc">Gère la place des clients dans la table de client et reçoit les nouveaux clients.</div><div class="ttdef"><b>Definition:</b> socket.c:282</div></div>
 <div class="ttc" id="astructarg_server_html"><div class="ttname"><a href="structarg_server.html">argServer</a></div><div class="ttdoc">Rassemble toutes les données de tous les joueurs dans le but de pouvoir communiquer tout cela dans de...</div><div class="ttdef"><b>Definition:</b> socket.h:59</div></div>
-<div class="ttc" id="astructplayer__t_html"><div class="ttname"><a href="structplayer__t.html">player_t</a></div><div class="ttdoc">Sauvegarde les informations de chaque joueurs relatives uniquement au jeu en lui-même (points de vie,...</div><div class="ttdef"><b>Definition:</b> defs.h:44</div></div>
-<div class="ttc" id="astructsend2_client_html"><div class="ttname"><a href="structsend2_client.html">send2Client</a></div><div class="ttdoc">Rassemble les données d'un seul joueur.</div><div class="ttdef"><b>Definition:</b> socket.h:73</div></div>
-<div class="ttc" id="astructsocket_datas_html"><div class="ttname"><a href="structsocket_datas.html">socketDatas</a></div><div class="ttdoc">Sauvegarde les informations de chaque joueurs relatives au socket et à la connection au serveur (adre...</div><div class="ttdef"><b>Definition:</b> socket.h:46</div></div>
+<div class="ttc" id="astructplayer__s_html"><div class="ttname"><a href="structplayer__s.html">player_s</a></div><div class="ttdoc">Structure du joueur.</div><div class="ttdef"><b>Definition:</b> player.h:27</div></div>
+<div class="ttc" id="astructsend2_client_html"><div class="ttname"><a href="structsend2_client.html">send2Client</a></div><div class="ttdoc">Rassemble les données d'un seul joueur.</div><div class="ttdef"><b>Definition:</b> socket.h:72</div></div>
+<div class="ttc" id="astructsocket_datas_html"><div class="ttname"><a href="structsocket_datas.html">socketDatas</a></div><div class="ttdoc">Sauvegarde les informations de chaque joueurs relatives au socket et à la connection au serveur (adre...</div><div class="ttdef"><b>Definition:</b> socket.h:47</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -1,6 +1,4 @@
 <map id="running_down_animation" name="running_down_animation">
-<area shape="rect" id="node1" title="Animation &quot;courrir en bas&quot;." alt="" coords="259,31,423,56"/>
-<area shape="rect" id="node2" href="$main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="120,5,195,31"/>
-<area shape="rect" id="node4" href="$menus_8c.html#a8cbdceb9c205a8d9c279691a09b337a1" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="104,55,211,80"/>
-<area shape="rect" id="node3" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+<area shape="rect" id="node1" title="Animation &quot;courrir en bas&quot;." alt="" coords="160,5,324,31"/>
+<area shape="rect" id="node2" href="$menus_8c.html#a8cbdceb9c205a8d9c279691a09b337a1" title="Commence l&#39;animation souhaitée au joueur demandé." alt="" coords="5,5,112,31"/>
 </map>

@@ -87,20 +87,23 @@ Graphe des dépendances par inclusion de socket.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="socket_8c__incl.png" border="0" usemap="#a_c_1_2_users_2_yusuf_2_c_lion_projects_2_lonesome-_island_2src_2socket_8c" alt=""/></div>
 <map name="a_c_1_2_users_2_yusuf_2_c_lion_projects_2_lonesome-_island_2src_2socket_8c" id="a_c_1_2_users_2_yusuf_2_c_lion_projects_2_lonesome-_island_2src_2socket_8c">
-<area shape="rect" title="Fichier qui s&#39;occupera uniquement du serveur." alt="" coords="315,5,515,45"/>
-<area shape="rect" href="socket_8h.html" title="Fichier qui contient les informations relatives aux clients et au serveur point de vu socket." alt="" coords="379,93,451,119"/>
+<area shape="rect" title="Fichier qui s&#39;occupera uniquement du serveur." alt="" coords="449,5,649,45"/>
+<area shape="rect" href="socket_8h.html" title="Fichier qui contient les informations relatives aux clients et au serveur point de vu socket." alt="" coords="513,93,585,119"/>
 <area shape="rect" title=" " alt="" coords="5,167,73,192"/>
-<area shape="rect" title=" " alt="" coords="86,240,147,265"/>
-<area shape="rect" title=" " alt="" coords="174,240,238,265"/>
-<area shape="rect" title=" " alt="" coords="333,167,399,192"/>
-<area shape="rect" title=" " alt="" coords="423,167,509,192"/>
-<area shape="rect" title=" " alt="" coords="533,167,620,192"/>
-<area shape="rect" title=" " alt="" coords="644,167,720,192"/>
-<area shape="rect" title=" " alt="" coords="744,167,809,192"/>
-<area shape="rect" title=" " alt="" coords="263,240,322,265"/>
-<area shape="rect" title=" " alt="" coords="833,167,933,192"/>
-<area shape="rect" title=" " alt="" coords="957,167,1033,192"/>
-<area shape="rect" href="defs_8h.html" title="Fichier contenant toutes les définitions de structures et de types." alt="" coords="149,167,207,192"/>
+<area shape="rect" title=" " alt="" coords="522,387,583,412"/>
+<area shape="rect" title=" " alt="" coords="609,387,673,412"/>
+<area shape="rect" title=" " alt="" coords="200,167,265,192"/>
+<area shape="rect" title=" " alt="" coords="289,167,376,192"/>
+<area shape="rect" title=" " alt="" coords="400,167,487,192"/>
+<area shape="rect" title=" " alt="" coords="511,167,587,192"/>
+<area shape="rect" title=" " alt="" coords="611,167,676,192"/>
+<area shape="rect" title=" " alt="" coords="905,387,963,412"/>
+<area shape="rect" title=" " alt="" coords="780,387,880,412"/>
+<area shape="rect" title=" " alt="" coords="833,167,909,192"/>
+<area shape="rect" href="defs_8h.html" title="Fichier contenant toutes les définitions de structures et de types." alt="" coords="752,167,809,192"/>
+<area shape="rect" href="player_8h_source.html" title=" " alt="" coords="692,313,760,339"/>
+<area shape="rect" href="map_8h_source.html" title=" " alt="" coords="697,387,755,412"/>
+<area shape="rect" href="camera_8h_source.html" title=" " alt="" coords="743,240,819,265"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -109,7 +112,7 @@ Fonctions</h2></td></tr>
 <tr class="memitem:acc971d38ba2d98589d00bde6652a6e39"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="socket_8c.html#acc971d38ba2d98589d00bde6652a6e39">getLocalIp</a> ()</td></tr>
 <tr class="memdesc:acc971d38ba2d98589d00bde6652a6e39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoi l'ip local du client.  <br /></td></tr>
 <tr class="separator:acc971d38ba2d98589d00bde6652a6e39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac422f6ffe2be4ee3387e8b98b6393193"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="socket_8c.html#ac422f6ffe2be4ee3387e8b98b6393193">buildtramClient_send</a> (<a class="el" href="structplayer__t.html">player_t</a> joueur, int i)</td></tr>
+<tr class="memitem:ac422f6ffe2be4ee3387e8b98b6393193"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="socket_8c.html#ac422f6ffe2be4ee3387e8b98b6393193">buildtramClient_send</a> (<a class="el" href="structplayer__s.html">player_t</a> joueur, int i)</td></tr>
 <tr class="memdesc:ac422f6ffe2be4ee3387e8b98b6393193"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construit une trame dédiée uniquement au client i.  <br /></td></tr>
 <tr class="separator:ac422f6ffe2be4ee3387e8b98b6393193"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8f7aaaf34db2175c7a9c4ab7d3306fc"><td class="memItemLeft" align="right" valign="top">static void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="socket_8c.html#af8f7aaaf34db2175c7a9c4ab7d3306fc">sendToClient</a> (<a class="el" href="structsend2_client.html">send2Client</a> *argClient, int position)</td></tr>
@@ -124,8 +127,8 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a88d900ece06509fc9c398d81b5200e71"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="socket_8c.html#a88d900ece06509fc9c398d81b5200e71">findPosition</a> (<a class="el" href="structsend2_client.html">send2Client</a> *argClient)</td></tr>
 <tr class="memdesc:a88d900ece06509fc9c398d81b5200e71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cherche la position du client dans le tableau des clients.  <br /></td></tr>
 <tr class="separator:a88d900ece06509fc9c398d81b5200e71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42c0b3f427a2ebf97ad8fb6aedfacf8c"><td class="memItemLeft" align="right" valign="top"><a id="a42c0b3f427a2ebf97ad8fb6aedfacf8c" name="a42c0b3f427a2ebf97ad8fb6aedfacf8c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>initConnection</b> (void *arg, int position)</td></tr>
+<tr class="memitem:a42c0b3f427a2ebf97ad8fb6aedfacf8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="socket_8c.html#a42c0b3f427a2ebf97ad8fb6aedfacf8c">initConnection</a> (void *arg, int position)</td></tr>
+<tr class="memdesc:a42c0b3f427a2ebf97ad8fb6aedfacf8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise la connexion du client.  <br /></td></tr>
 <tr class="separator:a42c0b3f427a2ebf97ad8fb6aedfacf8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b61093f2f5316157d1e6d3d05cf5ebc"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="socket_8c.html#a3b61093f2f5316157d1e6d3d05cf5ebc">receiveFromClient</a> (void *arg)</td></tr>
 <tr class="memdesc:a3b61093f2f5316157d1e6d3d05cf5ebc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Écoute un client tant que la connexion est établie.  <br /></td></tr>
@@ -160,7 +163,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>stopServer</b> ()</td
         <tr>
           <td class="memname">static void buildtramClient_send </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structplayer__t.html">player_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="structplayer__s.html">player_t</a>&#160;</td>
           <td class="paramname"><em>joueur</em>, </td>
         </tr>
         <tr>
@@ -195,15 +198,16 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="socket_8c_ac422f6ffe2be4ee3387e8b98b6393193_icgraph.png" border="0" usemap="#asocket_8c_ac422f6ffe2be4ee3387e8b98b6393193_icgraph" alt=""/></div>
 <map name="asocket_8c_ac422f6ffe2be4ee3387e8b98b6393193_icgraph" id="asocket_8c_ac422f6ffe2be4ee3387e8b98b6393193_icgraph">
-<area shape="rect" title="Construit une trame dédiée uniquement au client i." alt="" coords="997,31,1140,56"/>
-<area shape="rect" href="socket_8c.html#af8f7aaaf34db2175c7a9c4ab7d3306fc" title="Envoie la donnée d&#39;un client à tous les autres y compris au client lui&#45;même." alt="" coords="852,31,949,56"/>
-<area shape="rect" href="socket_8c.html#af93eb740b3e202bdcb05795a2da4ef8c" title="Déconnecte le client en fonction de sa position dans le tableau." alt="" coords="681,56,804,81"/>
-<area shape="rect" href="socket_8c.html#a3b61093f2f5316157d1e6d3d05cf5ebc" title="Écoute un client tant que la connexion est établie." alt="" coords="508,5,633,31"/>
-<area shape="rect" href="socket_8c.html#ac1e551c19cd6ce8d7da8b13d1f290863" title="Arrête le serveur en déconnectant tous les clients d&#39;abord." alt="" coords="368,56,451,81"/>
-<area shape="rect" href="socket_8c.html#a68b45930fad2153f053144a8678afa1c" title="Gère la place des clients dans la table de client et reçoit les nouveaux clients." alt="" coords="359,5,460,31"/>
-<area shape="rect" href="socket_8c.html#a3490387e86b9ba6a1ee9ed3984b637d5" title="Démarre le serveur et initie la table de clients." alt="" coords="227,5,311,31"/>
-<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,31,56,56"/>
+<area shape="rect" title="Construit une trame dédiée uniquement au client i." alt="" coords="1004,31,1147,56"/>
+<area shape="rect" href="socket_8c.html#a42c0b3f427a2ebf97ad8fb6aedfacf8c" title="Initialise la connexion du client." alt="" coords="852,5,956,31"/>
+<area shape="rect" href="socket_8c.html#af8f7aaaf34db2175c7a9c4ab7d3306fc" title="Envoie la donnée d&#39;un client à tous les autres y compris au client lui&#45;même." alt="" coords="855,55,953,80"/>
+<area shape="rect" href="socket_8c.html#af93eb740b3e202bdcb05795a2da4ef8c" title="Déconnecte le client en fonction de sa position dans le tableau." alt="" coords="681,80,804,105"/>
+<area shape="rect" href="socket_8c.html#a3b61093f2f5316157d1e6d3d05cf5ebc" title="Écoute un client tant que la connexion est établie." alt="" coords="508,29,633,55"/>
+<area shape="rect" href="socket_8c.html#ac1e551c19cd6ce8d7da8b13d1f290863" title="Arrête le serveur en déconnectant tous les clients d&#39;abord." alt="" coords="368,80,451,105"/>
+<area shape="rect" href="socket_8c.html#a68b45930fad2153f053144a8678afa1c" title="Gère la place des clients dans la table de client et reçoit les nouveaux clients." alt="" coords="359,29,460,55"/>
+<area shape="rect" href="socket_8c.html#a3490387e86b9ba6a1ee9ed3984b637d5" title="Démarre le serveur et initie la table de clients." alt="" coords="227,29,311,55"/>
+<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,29,179,55"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,55,56,80"/>
 </map>
 </div>
 
@@ -337,6 +341,52 @@ Voici le graphe des appelants de cette fonction :</div>
 <area shape="rect" href="socket_8c.html#a3490387e86b9ba6a1ee9ed3984b637d5" title="Démarre le serveur et initie la table de clients." alt="" coords="241,55,325,80"/>
 <area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,31,179,56"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,31,56,56"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a42c0b3f427a2ebf97ad8fb6aedfacf8c" name="a42c0b3f427a2ebf97ad8fb6aedfacf8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42c0b3f427a2ebf97ad8fb6aedfacf8c">&#9670;&#160;</a></span>initConnection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void initConnection </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>arg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>position</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialise la connexion du client. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arg</td><td></td></tr>
+    <tr><td class="paramname">position</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="socket_8c_a42c0b3f427a2ebf97ad8fb6aedfacf8c_cgraph.png" border="0" usemap="#asocket_8c_a42c0b3f427a2ebf97ad8fb6aedfacf8c_cgraph" alt=""/></div>
+<map name="asocket_8c_a42c0b3f427a2ebf97ad8fb6aedfacf8c_cgraph" id="asocket_8c_a42c0b3f427a2ebf97ad8fb6aedfacf8c_cgraph">
+<area shape="rect" title="Initialise la connexion du client." alt="" coords="5,5,109,31"/>
+<area shape="rect" href="socket_8c.html#ac422f6ffe2be4ee3387e8b98b6393193" title="Construit une trame dédiée uniquement au client i." alt="" coords="157,5,300,31"/>
 </map>
 </div>
 

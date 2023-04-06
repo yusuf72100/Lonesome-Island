@@ -1,19 +1,19 @@
 <map id="MainMenu" name="MainMenu">
 <area shape="rect" id="node1" title="Affiche le menu principal." alt="" coords="5,202,88,227"/>
-<area shape="rect" id="node2" href="$menus_8c.html#ab5e1f7649b8b40f10bd9168c6a098883" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="190,176,281,202"/>
-<area shape="rect" id="node8" href="$menus_8c.html#ad9a4714e86590146659768dcd5357272" title="Affiche la texture de survol avec animation du bouton demandé en dans le menu souhaité." alt="" coords="148,126,323,151"/>
-<area shape="rect" id="node9" href="$menus_8c.html#af533a07a1593c721a25b080bf2cc10d9" title="Dessine un boutton en fonction d&#39;une certaine rotation." alt="" coords="604,226,769,251"/>
-<area shape="rect" id="node10" href="$menus_8c.html#a258a73384029adb1d7e22ca959235633" title="Essaye de dessiner tous les bouttons." alt="" coords="188,227,283,252"/>
-<area shape="rect" id="node12" href="$menus_8c.html#a317983aacbc3405e75432d6290b1b280" title="Dessine l&#39;image souhaitée." alt="" coords="645,28,729,54"/>
-<area shape="rect" id="node13" href="$menus_8c.html#aab7430a217db9969c46ead48adffbd05" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="643,78,731,103"/>
+<area shape="rect" id="node2" href="$menus_8c.html#a8f086b9f4a7667ad12f3014727ca5a97" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="190,176,281,202"/>
+<area shape="rect" id="node8" href="$menus_8c.html#ac446fc03b154099be126d6f8fe52f125" title="Affiche la texture de survol avec animation du bouton demandé en dans le menu souhaité." alt="" coords="148,126,323,151"/>
+<area shape="rect" id="node9" href="$menus_8c.html#ac8bd81eded19c6d6402df5c125fbac5a" title="Dessine un boutton en fonction d&#39;une certaine rotation." alt="" coords="604,226,769,251"/>
+<area shape="rect" id="node10" href="$menus_8c.html#aa28a91563c1544b785c234a341407650" title="Essaye de dessiner tous les bouttons." alt="" coords="188,227,283,252"/>
+<area shape="rect" id="node12" href="$menus_8c.html#a278c718c4a5dfdda69d29b9a78bdbdce" title="Dessine l&#39;image souhaitée." alt="" coords="645,28,729,54"/>
+<area shape="rect" id="node13" href="$menus_8c.html#a4dd509784585dea800b3115747c81c42" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="643,78,731,103"/>
 <area shape="rect" id="node14" href="$menus_8c.html#ab6d77ef359eb1ad9820145690e17a427" title="Animation du bouton paramètres quand on a pas le curseur dessus." alt="" coords="136,379,335,404"/>
 <area shape="rect" id="node16" href="$menus_8c.html#a48c083415f7a9126fec9cc228b651991" title="Animation du bouton paramètres quand on a le curseur dessus." alt="" coords="148,429,323,469"/>
-<area shape="rect" id="node3" href="$menus_8c.html#ad452b0eb987136d6af7d68a474fd7bc1" title="Dessine un bouton normal." alt="" coords="643,176,730,202"/>
+<area shape="rect" id="node3" href="$menus_8c.html#a2029687a2271591438102ab23f102d1b" title="Dessine un bouton normal." alt="" coords="643,176,730,202"/>
 <area shape="rect" id="node6" href="$sound_8c.html#a57b4724b83449e52bba882dfcf33adbd" title="Fonction qui lance le son de survol de bouton dans un thread dédié." alt="" coords="431,126,507,151"/>
 <area shape="rect" id="node4" href="$menus_8c.html#a3ccdb6767f1237284bf7c8e0d3e3eacb" title="Détruit la fenêtre et le rendu." alt="" coords="843,91,923,116"/>
 <area shape="rect" id="node5" href="$menus_8c.html#acd3f39401c59bbd01c9663c5348c63c1" title="Nous renvoi une erreur SDL." alt="" coords="817,152,949,178"/>
 <area shape="rect" id="node7" href="$sound_8c.html#a57d534ee1e2bc6ccbd6b927c1a45c388" title="Son de survol de bouton." alt="" coords="626,127,747,152"/>
-<area shape="rect" id="node11" href="$menus_8c.html#a949ffb8e919d84ec01711d3508f07e13" title="Dessine les bouttons pour configurer les touches de jeu." alt="" coords="409,227,529,252"/>
+<area shape="rect" id="node11" href="$menus_8c.html#a92374e22bf3866cd847b08988d4b0e14" title="Dessine les bouttons pour configurer les touches de jeu." alt="" coords="409,227,529,252"/>
 <area shape="rect" id="node15" href="$main_8c.html#a0f9a66b9fc132ae63360835a23fe0ab0" title="Délai de l&#39;animation du bouton de paramètres quand on a pas le curseur dessus." alt="" coords="383,379,556,404"/>
 <area shape="rect" id="node17" href="$main_8c.html#a0caf52e6e1d7fb594108d8d4f4fbcd77" title="Délai de l&#39;animation du bouton de paramètres quand on a le curseur dessus." alt="" coords="395,429,544,469"/>
 </map>

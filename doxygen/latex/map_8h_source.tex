@@ -1,40 +1,47 @@
 \hypertarget{map_8h_source}{}\doxysection{map.\+h}
 \label{map_8h_source}\index{C:/Users/Yusuf/CLionProjects/Lonesome-\/Island/src/map.h@{C:/Users/Yusuf/CLionProjects/Lonesome-\/Island/src/map.h}}
-\mbox{\hyperlink{map_8h}{Aller à la documentation de ce fichier.}}
+
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ }
-\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ MAP\_H}}
-\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ MAP\_H}}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MAP\_h\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MAP\_h\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ MAP\_SIZE\ 100}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#define\ SMOOTH\_MAP\ 4}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ Sur\ une\ base\ 10}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ GRASS\_RATIO\ 7}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ SAND\_RATIO\ 8}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ Sur\ une\ base\ 100}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ TREE\_RATIO\ 0}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ ROCK\_RATIO\ 3}}
 \DoxyCodeLine{00014\ }
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
-\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
-\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <time.h>}}
-\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{defs_8h}{defs.h}}"{}}}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MAP\_SIZE\ 100}}
-\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ SMOOTH\_MAP\ 4}}
+\DoxyCodeLine{00015\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structmap__s}{map\_s}}\{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{int}\ ground[MAP\_SIZE][MAP\_SIZE];}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ id\_tiles[MAP\_SIZE][MAP\_SIZE];}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ utils[MAP\_SIZE][MAP\_SIZE];}
+\DoxyCodeLine{00019\ \}\mbox{\hyperlink{structmap__s}{map\_t}};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{enum}\ ground\{\ WATER,\ SAND,\ GRASS\};}
 \DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \textcolor{comment}{//\ Sur\ une\ base\ 10}}
-\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ GRASS\_RATIO\ 7}}
-\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ SAND\_RATIO\ 8}}
+\DoxyCodeLine{00023\ \textcolor{keyword}{enum}\ utils\{\ TREE\ =\ 1,\ ROCK\};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keywordtype}{int}\ isWater(\textcolor{keywordtype}{int});}
 \DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \textcolor{comment}{//\ Sur\ une\ base\ 100}}
-\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ TREE\_RATIO\ 10}}
-\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ ROCK\_RATIO\ 3}}
+\DoxyCodeLine{00027\ \textcolor{keywordtype}{int}\ isSand(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keywordtype}{int}\ isGrass(\textcolor{keywordtype}{int});}
 \DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structmap__s}{map\_s}}\{}
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ ground[MAP\_SIZE][MAP\_SIZE];}
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{int}\ utils[MAP\_SIZE][MAP\_SIZE];}
-\DoxyCodeLine{00034\ \}\mbox{\hyperlink{structmap__s}{map\_t}};}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ \textcolor{keyword}{enum}\ ground\{\ WATER,\ SAND,\ GRASS\};}
-\DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ \textcolor{keyword}{enum}\ utils\{\ TREE=3,\ ROCK\};}
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{map_8h_ade30cce8083545c0ad45af195bc5cbf8}{print\_map}}(\textcolor{keywordtype}{int}\ map[MAP\_SIZE][MAP\_SIZE]);}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{map_8h_a734e0337e05972d515299fb5f35bb483}{build\_map}}(\mbox{\hyperlink{structmap__s}{map\_t}}**\ map);}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00031\ \textcolor{keywordtype}{int}\ getType(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keywordtype}{int}\ getVarient(\textcolor{keywordtype}{int});\ }
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keywordtype}{void}\ getTreeDimensions(\textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int}*,\ \textcolor{keywordtype}{int}*);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ print\_map(\textcolor{keywordtype}{int}\ map[MAP\_SIZE][MAP\_SIZE]);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ build\_map(\mbox{\hyperlink{structmap__s}{map\_t}}**);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

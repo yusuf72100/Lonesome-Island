@@ -18,20 +18,18 @@ Graphe des dépendances par inclusion de main.\+c\+:
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-void $\ast$ \mbox{\hyperlink{main_8c_a6f34c428b3f0a7afe10321406af12adb}{synch\+Datas}} (\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} $\ast$Joueurs, int taille)
+void $\ast$ \mbox{\hyperlink{main_8c_a6f34c428b3f0a7afe10321406af12adb}{synch\+Datas}} (\mbox{\hyperlink{structplayer__s}{player\+\_\+t}} $\ast$Joueurs, int taille)
 \begin{DoxyCompactList}\small\item\em Récupère les données depuis le socket client. \end{DoxyCompactList}\item 
 void $\ast$ \mbox{\hyperlink{main_8c_a506eeac61f56b2e172d086173bac5995}{Send2\+Server}} ()
 \begin{DoxyCompactList}\small\item\em Envoi les données du joueur actuel au serveur. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_vecteur}{Vecteur}} \mbox{\hyperlink{main_8c_a5eaa5bf14462c0770a8514451b64df3c}{Init\+Vecteur}} (int angle, int vitesse)
-\begin{DoxyCompactList}\small\item\em Calcul un vecteur selon un angle de rotation et une vitesse. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{main_8c_ae755cf7fbcc658285956e24db03bc068}{is\+Key\+Letter}} (SDL\+\_\+\+Keycode code)
+\begin{DoxyCompactList}\small\item\em Renvoi vrai si le keycode passé en paramètre correspond au keycode d\textquotesingle{}une touche alpha (une lettre). \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{main_8c_a009d58156d475f13f3a272ff38497734}{is\+Key\+Number}} (SDL\+\_\+\+Keycode code)
+\begin{DoxyCompactList}\small\item\em Renvoi vrai si le keycode passé en paramètre correspond au keycode d\textquotesingle{}une touche digit (un chiffre). \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{main_8c_addc649cf71cc0dcbc6db6dc8f08800f1}{is\+Key\+Maj}} (SDL\+\_\+\+Keycode code)
+\begin{DoxyCompactList}\small\item\em Renvoi vrai si la touche pressée est une majuscule. \end{DoxyCompactList}\item 
 static void $\ast$ \mbox{\hyperlink{main_8c_a74d9cf129eac9371caa5a93b97b4f95c}{rechargement}} ()
 \begin{DoxyCompactList}\small\item\em Met un cooldown pour un rechargement. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{main_8c_a718d61fe7c5a7e6c83c14f312105bfa8}\label{main_8c_a718d61fe7c5a7e6c83c14f312105bfa8}} 
-static void {\bfseries Update\+Bullet} (\mbox{\hyperlink{struct_bullet}{Bullet}} $\ast$b)
-\item 
-\mbox{\Hypertarget{main_8c_a84acced0d2e89231ccd8fb71a62ce1d6}\label{main_8c_a84acced0d2e89231ccd8fb71a62ce1d6}} 
-static void {\bfseries Update\+Bullet\+All} ()
-\item 
 char $\ast$ \mbox{\hyperlink{main_8c_ac1c725f21345e0148e7ca2fdc7fe77f9}{new\+Log\+Name}} ()
 \begin{DoxyCompactList}\small\item\em Initialise un fichier logs. \end{DoxyCompactList}\item 
 char $\ast$ \mbox{\hyperlink{main_8c_ab5a2d27713f1814d93ff81281e653e22}{event\+Time}} ()
@@ -58,9 +56,6 @@ static void \mbox{\hyperlink{main_8c_a5d8c057a673692eabf25fa7d6c670c08}{do\+Even
 \mbox{\Hypertarget{main_8c_a270d20bdcadebb9a08a01a55c37858a9}\label{main_8c_a270d20bdcadebb9a08a01a55c37858a9}} 
 static void {\bfseries init\+\_\+vars} ()
 \begin{DoxyCompactList}\small\item\em Initialise toutes les variables relatives aux menus. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{main_8c_a4273912d67dc07dd74b4b4470ca02480}\label{main_8c_a4273912d67dc07dd74b4b4470ca02480}} 
-static void {\bfseries init\+Bullet} (\mbox{\hyperlink{struct_bullet}{Bullet}} $\ast$b, int x, int y, int rotation)
-\item 
 int \mbox{\hyperlink{main_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
 \begin{DoxyCompactList}\small\item\em Programme principal. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -110,7 +105,8 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 
 Délai de l\textquotesingle{}animation \char`\"{}courrir en bas\char`\"{}. 
 
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -127,7 +123,8 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 
 Délai de l\textquotesingle{}animation \char`\"{}courrir à gauche\char`\"{}. 
 
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -144,7 +141,8 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 
 Délai de l\textquotesingle{}animation \char`\"{}courrir à droite\char`\"{}. 
 
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -161,7 +159,8 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 
 Délai de l\textquotesingle{}animation \char`\"{}courrir en haut\char`\"{}. 
 
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -254,26 +253,84 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \includegraphics[width=306pt]{main_8c_ab5a2d27713f1814d93ff81281e653e22_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{main_8c_a5eaa5bf14462c0770a8514451b64df3c}\label{main_8c_a5eaa5bf14462c0770a8514451b64df3c}} 
-\index{main.c@{main.c}!InitVecteur@{InitVecteur}}
-\index{InitVecteur@{InitVecteur}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{InitVecteur()}{InitVecteur()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_vecteur}{Vecteur}} Init\+Vecteur (\begin{DoxyParamCaption}\item[{int}]{angle,  }\item[{int}]{vitesse }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{main_8c_ae755cf7fbcc658285956e24db03bc068}\label{main_8c_ae755cf7fbcc658285956e24db03bc068}} 
+\index{main.c@{main.c}!isKeyLetter@{isKeyLetter}}
+\index{isKeyLetter@{isKeyLetter}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{isKeyLetter()}{isKeyLetter()}}
+{\footnotesize\ttfamily static int is\+Key\+Letter (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Keycode}]{code }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
-Calcul un vecteur selon un angle de rotation et une vitesse. 
+Renvoi vrai si le keycode passé en paramètre correspond au keycode d\textquotesingle{}une touche alpha (une lettre). 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em angle} & \\
-\hline
-{\em vitesse} & \\
+{\em code} & \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-\mbox{\hyperlink{struct_vecteur}{Vecteur}} 
+int 
 \end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{main_8c_ae755cf7fbcc658285956e24db03bc068_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main_8c_addc649cf71cc0dcbc6db6dc8f08800f1}\label{main_8c_addc649cf71cc0dcbc6db6dc8f08800f1}} 
+\index{main.c@{main.c}!isKeyMaj@{isKeyMaj}}
+\index{isKeyMaj@{isKeyMaj}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{isKeyMaj()}{isKeyMaj()}}
+{\footnotesize\ttfamily static int is\+Key\+Maj (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Keycode}]{code }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Renvoi vrai si la touche pressée est une majuscule. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em code} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=319pt]{main_8c_addc649cf71cc0dcbc6db6dc8f08800f1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{main_8c_a009d58156d475f13f3a272ff38497734}\label{main_8c_a009d58156d475f13f3a272ff38497734}} 
+\index{main.c@{main.c}!isKeyNumber@{isKeyNumber}}
+\index{isKeyNumber@{isKeyNumber}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{isKeyNumber()}{isKeyNumber()}}
+{\footnotesize\ttfamily static int is\+Key\+Number (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Keycode}]{code }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Renvoi vrai si le keycode passé en paramètre correspond au keycode d\textquotesingle{}une touche digit (un chiffre). 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em code} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=337pt]{main_8c_a009d58156d475f13f3a272ff38497734_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{main_8c_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8c_a0ddf1224851353fc92bfbff6f499fa97}} 
 \index{main.c@{main.c}!main@{main}}
 \index{main@{main}!main.c@{main.c}}
@@ -368,7 +425,7 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \index{main.c@{main.c}!synchDatas@{synchDatas}}
 \index{synchDatas@{synchDatas}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{synchDatas()}{synchDatas()}}
-{\footnotesize\ttfamily void $\ast$ synch\+Datas (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} $\ast$}]{Joueurs,  }\item[{int}]{taille }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void $\ast$ synch\+Datas (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer__s}{player\+\_\+t}} $\ast$}]{Joueurs,  }\item[{int}]{taille }\end{DoxyParamCaption})}
 
 
 

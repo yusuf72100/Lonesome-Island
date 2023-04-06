@@ -1,6 +1,10 @@
 <map id="C:/Users/Yusuf/CLionProjects/Lonesome&#45;Island/src/defs.h" name="C:/Users/Yusuf/CLionProjects/Lonesome&#45;Island/src/defs.h">
-<area shape="rect" id="node1" title="Fichier contenant toutes les définitions de structures et de types." alt="" coords="25,5,220,45"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,93,67,119"/>
-<area shape="rect" id="node3" title=" " alt="" coords="91,93,155,119"/>
-<area shape="rect" id="node4" title=" " alt="" coords="179,93,237,119"/>
+<area shape="rect" id="node1" title="Fichier contenant toutes les définitions de structures et de types." alt="" coords="168,5,363,45"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,240,67,265"/>
+<area shape="rect" id="node3" title=" " alt="" coords="91,240,155,265"/>
+<area shape="rect" id="node4" title=" " alt="" coords="304,240,363,265"/>
+<area shape="rect" id="node5" href="$player_8h_source.html" title=" " alt="" coords="185,167,253,192"/>
+<area shape="rect" id="node7" href="$map_8h_source.html" title=" " alt="" coords="387,240,445,265"/>
+<area shape="rect" id="node8" href="$camera_8h_source.html" title=" " alt="" coords="227,93,303,119"/>
+<area shape="rect" id="node6" title=" " alt="" coords="179,240,279,265"/>
 </map>

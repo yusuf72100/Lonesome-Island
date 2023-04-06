@@ -88,19 +88,22 @@ Graphe des dépendances par inclusion de defs.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="defs_8c__incl.png" border="0" usemap="#a_c_1_2_users_2_yusuf_2_c_lion_projects_2_lonesome-_island_2src_2defs_8c" alt=""/></div>
 <map name="a_c_1_2_users_2_yusuf_2_c_lion_projects_2_lonesome-_island_2src_2defs_8c" id="a_c_1_2_users_2_yusuf_2_c_lion_projects_2_lonesome-_island_2src_2defs_8c">
-<area shape="rect" title="Fichier qui initialisera les variables globales." alt="" coords="25,5,220,45"/>
-<area shape="rect" href="defs_8h.html" title="Fichier contenant toutes les définitions de structures et de types." alt="" coords="94,93,151,119"/>
-<area shape="rect" title=" " alt="" coords="5,167,67,192"/>
-<area shape="rect" title=" " alt="" coords="91,167,155,192"/>
-<area shape="rect" title=" " alt="" coords="179,167,237,192"/>
+<area shape="rect" title="Fichier qui initialisera les variables globales." alt="" coords="168,5,363,45"/>
+<area shape="rect" href="defs_8h.html" title="Fichier contenant toutes les définitions de structures et de types." alt="" coords="237,93,294,119"/>
+<area shape="rect" title=" " alt="" coords="5,313,67,339"/>
+<area shape="rect" title=" " alt="" coords="91,313,155,339"/>
+<area shape="rect" title=" " alt="" coords="304,313,363,339"/>
+<area shape="rect" href="player_8h_source.html" title=" " alt="" coords="185,240,253,265"/>
+<area shape="rect" href="map_8h_source.html" title=" " alt="" coords="387,313,445,339"/>
+<area shape="rect" href="camera_8h_source.html" title=" " alt="" coords="227,167,303,192"/>
+<area shape="rect" title=" " alt="" coords="179,313,279,339"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:a6bd9bc7437d75b11d5e167fcf0114dc2"><td class="memItemLeft" align="right" valign="top"><a id="a6bd9bc7437d75b11d5e167fcf0114dc2" name="a6bd9bc7437d75b11d5e167fcf0114dc2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>defineItem</b> ()</td></tr>
-<tr class="memdesc:a6bd9bc7437d75b11d5e167fcf0114dc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise les items globaux. <br /></td></tr>
+<tr class="memitem:a6bd9bc7437d75b11d5e167fcf0114dc2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="defs_8c.html#a6bd9bc7437d75b11d5e167fcf0114dc2">defineItem</a> ()</td></tr>
+<tr class="memdesc:a6bd9bc7437d75b11d5e167fcf0114dc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise les items globaux.  <br /></td></tr>
 <tr class="separator:a6bd9bc7437d75b11d5e167fcf0114dc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
@@ -121,11 +124,35 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>connectedError</b> = F
 int&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> = 0</td></tr>
 <tr class="separator:a439227feff9d7f55384e8780cfc2eb82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89a8fc0874f591698ac9fa74d38bcd87"><td class="memItemLeft" align="right" valign="top"><a id="a89a8fc0874f591698ac9fa74d38bcd87" name="a89a8fc0874f591698ac9fa74d38bcd87"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><b>IP_PUBLIC</b> [] = &quot;172.18.192.1&quot;</td></tr>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>IP_PUBLIC</b> [] = &quot;192.168.1.16&quot;</td></tr>
 <tr class="separator:a89a8fc0874f591698ac9fa74d38bcd87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99a35a6d05775d2462a6c8a86310c5d7"><td class="memItemLeft" align="right" valign="top"><a id="a99a35a6d05775d2462a6c8a86310c5d7" name="a99a35a6d05775d2462a6c8a86310c5d7"></a>
 char&#160;</td><td class="memItemRight" valign="bottom"><b>bindButtonText</b> [4] = {&quot;&quot;}</td></tr>
 <tr class="separator:a99a35a6d05775d2462a6c8a86310c5d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a886d551d5381dc3e53f17825ffc51641"><td class="memItemLeft" align="right" valign="top"><a id="a886d551d5381dc3e53f17825ffc51641" name="a886d551d5381dc3e53f17825ffc51641"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>direction</b> = -1</td></tr>
+<tr class="separator:a886d551d5381dc3e53f17825ffc51641"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a167b8a132e3189bc30114d1d6e93d930"><td class="memItemLeft" align="right" valign="top"><a id="a167b8a132e3189bc30114d1d6e93d930" name="a167b8a132e3189bc30114d1d6e93d930"></a>
+SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><b>tmp</b> = NULL</td></tr>
+<tr class="separator:a167b8a132e3189bc30114d1d6e93d930"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81c2fda7a3e98a38fb2c47cad46b0815"><td class="memItemLeft" align="right" valign="top"><a id="a81c2fda7a3e98a38fb2c47cad46b0815" name="a81c2fda7a3e98a38fb2c47cad46b0815"></a>
+SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><b>tileset</b> = NULL</td></tr>
+<tr class="separator:a81c2fda7a3e98a38fb2c47cad46b0815"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a472d8154993aac24794fa03968afce39"><td class="memItemLeft" align="right" valign="top"><a id="a472d8154993aac24794fa03968afce39" name="a472d8154993aac24794fa03968afce39"></a>
+SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><b>currentGround</b> = NULL</td></tr>
+<tr class="separator:a472d8154993aac24794fa03968afce39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af90d9c5474a96a57000759cc813ff7d5"><td class="memItemLeft" align="right" valign="top"><a id="af90d9c5474a96a57000759cc813ff7d5" name="af90d9c5474a96a57000759cc813ff7d5"></a>
+<a class="el" href="structcamera__s.html">camera_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>camera</b> = NULL</td></tr>
+<tr class="separator:af90d9c5474a96a57000759cc813ff7d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2bb9dc718068dc88b8250185d0d6ab7"><td class="memItemLeft" align="right" valign="top"><a id="af2bb9dc718068dc88b8250185d0d6ab7" name="af2bb9dc718068dc88b8250185d0d6ab7"></a>
+<a class="el" href="structmap__s.html">map_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>map</b> = NULL</td></tr>
+<tr class="separator:af2bb9dc718068dc88b8250185d0d6ab7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad92f2b056653cc55a088e47aff07f4aa"><td class="memItemLeft" align="right" valign="top"><a id="ad92f2b056653cc55a088e47aff07f4aa" name="ad92f2b056653cc55a088e47aff07f4aa"></a>
+<a class="el" href="structplayer__s.html">player_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>joueur</b></td></tr>
+<tr class="separator:ad92f2b056653cc55a088e47aff07f4aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0696137328ea5e7bb01aa02f9e14799c"><td class="memItemLeft" align="right" valign="top"><a id="a0696137328ea5e7bb01aa02f9e14799c" name="a0696137328ea5e7bb01aa02f9e14799c"></a>
+<a class="el" href="structplayer__s.html">player_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>joueurs</b> [10]</td></tr>
+<tr class="separator:a0696137328ea5e7bb01aa02f9e14799c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd02ef08af80ac215f0363b8fc514da9"><td class="memItemLeft" align="right" valign="top"><a id="acd02ef08af80ac215f0363b8fc514da9" name="acd02ef08af80ac215f0363b8fc514da9"></a>
 T_BUTTONS_CLICKED&#160;</td><td class="memItemRight" valign="bottom"><b>KEYBOARD_WAITING</b> = NONE</td></tr>
 <tr class="separator:acd02ef08af80ac215f0363b8fc514da9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -147,12 +174,6 @@ SDL_Renderer *&#160;</td><td class="memItemRight" valign="bottom"><b>renderer</b
 <tr class="memitem:a04cf3527550be0bb37507333d391f7dd"><td class="memItemLeft" align="right" valign="top"><a id="a04cf3527550be0bb37507333d391f7dd" name="a04cf3527550be0bb37507333d391f7dd"></a>
 <a class="el" href="structblock__t.html">block_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>chest_block</b></td></tr>
 <tr class="separator:a04cf3527550be0bb37507333d391f7dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad92f2b056653cc55a088e47aff07f4aa"><td class="memItemLeft" align="right" valign="top"><a id="ad92f2b056653cc55a088e47aff07f4aa" name="ad92f2b056653cc55a088e47aff07f4aa"></a>
-<a class="el" href="structplayer__t.html">player_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>joueur</b></td></tr>
-<tr class="separator:ad92f2b056653cc55a088e47aff07f4aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a551000248d53b0f87524224317c61f10"><td class="memItemLeft" align="right" valign="top"><a id="a551000248d53b0f87524224317c61f10" name="a551000248d53b0f87524224317c61f10"></a>
-<a class="el" href="structplayer__t.html">player_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>joueurs</b></td></tr>
-<tr class="separator:a551000248d53b0f87524224317c61f10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70ae92227e50fde6d6e4568d3ce849d9"><td class="memItemLeft" align="right" valign="top"><a id="a70ae92227e50fde6d6e4568d3ce849d9" name="a70ae92227e50fde6d6e4568d3ce849d9"></a>
 T_MENU&#160;</td><td class="memItemRight" valign="bottom"><b>menu</b> = MAIN_MENU</td></tr>
 <tr class="separator:a70ae92227e50fde6d6e4568d3ce849d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -175,7 +196,39 @@ SDL_KeyCode&#160;</td><td class="memItemRight" valign="bottom"><b>globalKeyTab</
 <dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2023-01-31 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2023 </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a6bd9bc7437d75b11d5e167fcf0114dc2" name="a6bd9bc7437d75b11d5e167fcf0114dc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bd9bc7437d75b11d5e167fcf0114dc2">&#9670;&#160;</a></span>defineItem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void defineItem </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialise les items globaux. </p>
+<p>joueurs[0}-&gt;health = 100; joueurs-&gt;stuck = FALSE;</p>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="defs_8c_a6bd9bc7437d75b11d5e167fcf0114dc2_icgraph.png" border="0" usemap="#adefs_8c_a6bd9bc7437d75b11d5e167fcf0114dc2_icgraph" alt=""/></div>
+<map name="adefs_8c_a6bd9bc7437d75b11d5e167fcf0114dc2_icgraph" id="adefs_8c_a6bd9bc7437d75b11d5e167fcf0114dc2_icgraph">
+<area shape="rect" title="Initialise les items globaux." alt="" coords="384,5,465,31"/>
+<area shape="rect" href="menus_8c.html#a48e3fe80d276c94e23eed3c1017a05ee" title="Initialise toutes les variables relatives aux menus." alt="" coords="221,5,336,31"/>
+<area shape="rect" href="main_8c.html#a270d20bdcadebb9a08a01a55c37858a9" title="Initialise toutes les variables relatives aux menus." alt="" coords="104,5,173,31"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6

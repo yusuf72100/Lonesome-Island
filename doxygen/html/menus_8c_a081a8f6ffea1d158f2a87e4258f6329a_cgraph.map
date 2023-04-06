@@ -1,13 +1,13 @@
 <map id="SettingsMainMenu" name="SettingsMainMenu">
 <area shape="rect" id="node1" title="Affiche le menu des paramètres dans le menu principal." alt="" coords="5,183,136,208"/>
-<area shape="rect" id="node2" href="$menus_8c.html#ab5e1f7649b8b40f10bd9168c6a098883" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="186,157,277,183"/>
-<area shape="rect" id="node8" href="$menus_8c.html#a258a73384029adb1d7e22ca959235633" title="Essaye de dessiner tous les bouttons." alt="" coords="184,56,279,81"/>
-<area shape="rect" id="node10" href="$menus_8c.html#a317983aacbc3405e75432d6290b1b280" title="Dessine l&#39;image souhaitée." alt="" coords="513,208,597,233"/>
-<area shape="rect" id="node11" href="$menus_8c.html#aab7430a217db9969c46ead48adffbd05" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="511,257,599,283"/>
-<area shape="rect" id="node3" href="$menus_8c.html#ad452b0eb987136d6af7d68a474fd7bc1" title="Dessine un bouton normal." alt="" coords="512,107,599,132"/>
+<area shape="rect" id="node2" href="$menus_8c.html#a8f086b9f4a7667ad12f3014727ca5a97" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="186,157,277,183"/>
+<area shape="rect" id="node8" href="$menus_8c.html#aa28a91563c1544b785c234a341407650" title="Essaye de dessiner tous les bouttons." alt="" coords="184,56,279,81"/>
+<area shape="rect" id="node10" href="$menus_8c.html#a278c718c4a5dfdda69d29b9a78bdbdce" title="Dessine l&#39;image souhaitée." alt="" coords="513,208,597,233"/>
+<area shape="rect" id="node11" href="$menus_8c.html#a4dd509784585dea800b3115747c81c42" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="511,257,599,283"/>
+<area shape="rect" id="node3" href="$menus_8c.html#a2029687a2271591438102ab23f102d1b" title="Dessine un bouton normal." alt="" coords="512,107,599,132"/>
 <area shape="rect" id="node6" href="$sound_8c.html#a57b4724b83449e52bba882dfcf33adbd" title="Fonction qui lance le son de survol de bouton dans un thread dédié." alt="" coords="349,157,425,183"/>
 <area shape="rect" id="node4" href="$menus_8c.html#a3ccdb6767f1237284bf7c8e0d3e3eacb" title="Détruit la fenêtre et le rendu." alt="" coords="690,184,770,209"/>
 <area shape="rect" id="node5" href="$menus_8c.html#acd3f39401c59bbd01c9663c5348c63c1" title="Nous renvoi une erreur SDL." alt="" coords="664,233,796,259"/>
 <area shape="rect" id="node7" href="$sound_8c.html#a57d534ee1e2bc6ccbd6b927c1a45c388" title="Son de survol de bouton." alt="" coords="495,157,616,183"/>
-<area shape="rect" id="node9" href="$menus_8c.html#a949ffb8e919d84ec01711d3508f07e13" title="Dessine les bouttons pour configurer les touches de jeu." alt="" coords="327,5,447,31"/>
+<area shape="rect" id="node9" href="$menus_8c.html#a92374e22bf3866cd847b08988d4b0e14" title="Dessine les bouttons pour configurer les touches de jeu." alt="" coords="327,5,447,31"/>
 </map>

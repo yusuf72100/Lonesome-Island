@@ -13,15 +13,12 @@ var searchData=
   ['settingsingamemenu_10',['SettingsInGameMenu',['../menus_8c.html#a047a87d55ef5bac980f1df5f340f39fa',1,'menus.c']]],
   ['settingsmainkeybindmenu_11',['SettingsMainKeybindMenu',['../menus_8c.html#a706ecee7dd0dc5e17064da807e4d0f7f',1,'menus.c']]],
   ['settingsmainmenu_12',['SettingsMainMenu',['../menus_8c.html#a081a8f6ffea1d158f2a87e4258f6329a',1,'menus.c']]],
-  ['smoothgroundshape_13',['smoothGroundShape',['../map_8c.html#a60b91f8b94c3cb4df036b95aa2b64938',1,'map.c']]],
-  ['sortplayers_14',['sortPlayers',['../menus_8c.html#a0e6bd1afb7d1264f682820e9fa3ac010',1,'menus.c']]],
-  ['startanimation_15',['startAnimation',['../menus_8c.html#a8cbdceb9c205a8d9c279691a09b337a1',1,'startAnimation(char *animation, player_t *joueur):&#160;menus.c'],['../menus_8h.html#a8cbdceb9c205a8d9c279691a09b337a1',1,'startAnimation(char *animation, player_t *joueur):&#160;menus.c']]],
-  ['startconnection_16',['startConnection',['../client_8c.html#a3622090a7ff391221a74cad6493bbca9',1,'startConnection():&#160;client.c'],['../client_8h.html#a3622090a7ff391221a74cad6493bbca9',1,'startConnection():&#160;client.c']]],
-  ['startserver_17',['startServer',['../socket_8c.html#a3490387e86b9ba6a1ee9ed3984b637d5',1,'startServer():&#160;socket.c'],['../socket_8h.html#a3490387e86b9ba6a1ee9ed3984b637d5',1,'startServer():&#160;socket.c']]],
-  ['stopconnection_18',['stopConnection',['../client_8c.html#a1a44fcc8a4125e81a0730b67c2603470',1,'stopConnection():&#160;client.c'],['../client_8h.html#a1a44fcc8a4125e81a0730b67c2603470',1,'stopConnection():&#160;client.c']]],
-  ['stopserver_19',['stopServer',['../socket_8c.html#ac1e551c19cd6ce8d7da8b13d1f290863',1,'stopServer():&#160;socket.c'],['../socket_8h.html#ac1e551c19cd6ce8d7da8b13d1f290863',1,'stopServer():&#160;socket.c']]],
-  ['surfacesinit_20',['surfacesInit',['../menus_8c.html#a10a988b60c7285bbf30f40e3d12b847c',1,'menus.c']]],
-  ['switchanimation_21',['switchAnimation',['../menus_8c.html#a6806c9e2f2bcbf342c2bfa91336c2d27',1,'menus.c']]],
-  ['switchbuttonstate_5fhover_22',['switchButtonState_hover',['../menus_8c.html#aad1bede5062a8bca30d1b8bbcafef3c8',1,'switchButtonState_hover(T_BUTTONS_HOVER button):&#160;menus.c'],['../menus_8h.html#aad1bede5062a8bca30d1b8bbcafef3c8',1,'switchButtonState_hover(T_BUTTONS_HOVER button):&#160;menus.c']]],
-  ['synchdatas_23',['synchDatas',['../main_8c.html#a6f34c428b3f0a7afe10321406af12adb',1,'synchDatas(player_t *Joueurs, int taille):&#160;main.c'],['../main_8h.html#a6f34c428b3f0a7afe10321406af12adb',1,'synchDatas(player_t *Joueurs, int taille):&#160;main.c']]]
+  ['startanimation_13',['startAnimation',['../menus_8c.html#a8cbdceb9c205a8d9c279691a09b337a1',1,'startAnimation(char *animation, player_t *joueur):&#160;menus.c'],['../menus_8h.html#a8cbdceb9c205a8d9c279691a09b337a1',1,'startAnimation(char *animation, player_t *joueur):&#160;menus.c']]],
+  ['startconnection_14',['startConnection',['../client_8c.html#a3622090a7ff391221a74cad6493bbca9',1,'startConnection():&#160;client.c'],['../client_8h.html#a3622090a7ff391221a74cad6493bbca9',1,'startConnection():&#160;client.c']]],
+  ['startserver_15',['startServer',['../socket_8c.html#a3490387e86b9ba6a1ee9ed3984b637d5',1,'startServer():&#160;socket.c'],['../socket_8h.html#a3490387e86b9ba6a1ee9ed3984b637d5',1,'startServer():&#160;socket.c']]],
+  ['stopconnection_16',['stopConnection',['../client_8c.html#a1a44fcc8a4125e81a0730b67c2603470',1,'stopConnection():&#160;client.c'],['../client_8h.html#a1a44fcc8a4125e81a0730b67c2603470',1,'stopConnection():&#160;client.c']]],
+  ['stopserver_17',['stopServer',['../socket_8c.html#ac1e551c19cd6ce8d7da8b13d1f290863',1,'stopServer():&#160;socket.c'],['../socket_8h.html#ac1e551c19cd6ce8d7da8b13d1f290863',1,'stopServer():&#160;socket.c']]],
+  ['surfacesinit_18',['surfacesInit',['../menus_8c.html#a10a988b60c7285bbf30f40e3d12b847c',1,'menus.c']]],
+  ['switchbuttonstate_5fhover_19',['switchButtonState_hover',['../menus_8c.html#aad1bede5062a8bca30d1b8bbcafef3c8',1,'switchButtonState_hover(T_BUTTONS_HOVER button):&#160;menus.c'],['../menus_8h.html#aad1bede5062a8bca30d1b8bbcafef3c8',1,'switchButtonState_hover(T_BUTTONS_HOVER button):&#160;menus.c']]],
+  ['synchdatas_20',['synchDatas',['../main_8c.html#a6f34c428b3f0a7afe10321406af12adb',1,'synchDatas(player_t *Joueurs, int taille):&#160;main.c'],['../main_8h.html#a6f34c428b3f0a7afe10321406af12adb',1,'synchDatas(player_t *Joueurs, int taille):&#160;main.c']]]
 ];

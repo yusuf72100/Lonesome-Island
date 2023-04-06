@@ -515,7 +515,7 @@ static void switchAnimation(player_t Joueur)
  * @param size
  * @return
  */
-static void *drawPlayers(player_t *joueurs, int size)
+void *drawPlayers(player_t *joueurs, int size)
 {
     //sortPlayers();
     for(int i = 1; i <= size; i++)

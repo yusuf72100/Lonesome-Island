@@ -26,7 +26,7 @@ camera_t *camera = NULL;
 map_t *map = NULL;
 
 player_t joueur;
-player_t *joueurs[10];
+player_t *joueurs;
 
 T_BUTTONS_CLICKED KEYBOARD_WAITING = NONE;
 SDL_Window *window = NULL;
@@ -50,7 +50,7 @@ void defineItem()
 {
     camera = malloc((sizeof(camera_t)));
     map = malloc(sizeof(map_t));
-    *joueurs = malloc(sizeof(player_t) * 10);
+    joueurs = malloc(sizeof(player_t) * 10);
     /**joueurs[0}->health = 100;
     *joueurs->stuck = FALSE;*/
     joueur.health = 100;

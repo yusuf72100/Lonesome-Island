@@ -20,8 +20,8 @@ Fichier contenant toutes les variables d\textquotesingle{}affichage.
 {\ttfamily \#include \char`\"{}sound.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}settings.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$windows.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}player.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}defs.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}create\+\_\+map.\+h\char`\"{}}\newline
 Graphe des dépendances par inclusion de main.\+h\+:
 \nopagebreak
 \begin{figure}[H]
@@ -48,8 +48,6 @@ static void {\bfseries do\+Events} ()
 \item 
 void $\ast$ \mbox{\hyperlink{main_8h_a506eeac61f56b2e172d086173bac5995}{Send2\+Server}} ()
 \begin{DoxyCompactList}\small\item\em Envoi les données du joueur actuel au serveur. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_vecteur}{Vecteur}} \mbox{\hyperlink{main_8h_a5eaa5bf14462c0770a8514451b64df3c}{Init\+Vecteur}} (int angle, int vitesse)
-\begin{DoxyCompactList}\small\item\em Calcul un vecteur selon un angle de rotation et une vitesse. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8h_a0caf52e6e1d7fb594108d8d4f4fbcd77}{delay\+\_\+settings\+\_\+button\+\_\+right}} ()
 \begin{DoxyCompactList}\small\item\em Délai de l\textquotesingle{}animation du bouton de paramètres quand on a le curseur dessus. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8h_a0f9a66b9fc132ae63360835a23fe0ab0}{delay\+\_\+settings\+\_\+button\+\_\+left}} ()
@@ -67,21 +65,12 @@ void \mbox{\hyperlink{main_8h_a4f3c96146210adc4a3276d1e8bb2453c}{delay\+\_\+brea
 \mbox{\Hypertarget{main_8h_a74d9cf129eac9371caa5a93b97b4f95c}\label{main_8h_a74d9cf129eac9371caa5a93b97b4f95c}} 
 static void $\ast$ {\bfseries rechargement} ()
 \item 
-void $\ast$ \mbox{\hyperlink{main_8h_a6f34c428b3f0a7afe10321406af12adb}{synch\+Datas}} (\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} $\ast$Joueurs, int taille)
+void $\ast$ \mbox{\hyperlink{main_8h_a6f34c428b3f0a7afe10321406af12adb}{synch\+Datas}} (\mbox{\hyperlink{structplayer__s}{player\+\_\+t}} $\ast$Joueurs, int taille)
 \begin{DoxyCompactList}\small\item\em Récupère les données depuis le socket client. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{main_8h_a718d61fe7c5a7e6c83c14f312105bfa8}\label{main_8h_a718d61fe7c5a7e6c83c14f312105bfa8}} 
-static void {\bfseries Update\+Bullet} (\mbox{\hyperlink{struct_bullet}{Bullet}} $\ast$b)
-\item 
-\mbox{\Hypertarget{main_8h_a84acced0d2e89231ccd8fb71a62ce1d6}\label{main_8h_a84acced0d2e89231ccd8fb71a62ce1d6}} 
-static void {\bfseries Update\+Bullet\+All} ()
-\item 
 char $\ast$ \mbox{\hyperlink{main_8h_ac1c725f21345e0148e7ca2fdc7fe77f9}{new\+Log\+Name}} ()
 \begin{DoxyCompactList}\small\item\em Initialise un fichier logs. \end{DoxyCompactList}\item 
 char $\ast$ \mbox{\hyperlink{main_8h_ab5a2d27713f1814d93ff81281e653e22}{event\+Time}} ()
-\begin{DoxyCompactList}\small\item\em Récupère l\textquotesingle{}heure et la date actuelle. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{main_8h_a4273912d67dc07dd74b4b4470ca02480}\label{main_8h_a4273912d67dc07dd74b4b4470ca02480}} 
-static void {\bfseries init\+Bullet} (\mbox{\hyperlink{struct_bullet}{Bullet}} $\ast$b, int x, int y, int rotation)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Récupère l\textquotesingle{}heure et la date actuelle. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -117,6 +106,9 @@ static SDL\+\_\+bool {\bfseries program\+\_\+launched} = SDL\+\_\+\+TRUE
 \item 
 \mbox{\Hypertarget{main_8h_a6b57f01d3c576db5368dd0efc2f435a4}\label{main_8h_a6b57f01d3c576db5368dd0efc2f435a4}} 
 static SDL\+\_\+\+Event {\bfseries event}
+\item 
+\mbox{\Hypertarget{main_8h_ac5ecbee41e72cd5836ba2a241ab57877}\label{main_8h_ac5ecbee41e72cd5836ba2a241ab57877}} 
+static Uint32 {\bfseries animation\+Delay}
 \item 
 \mbox{\Hypertarget{main_8h_a7292f6279b611a29ec39253ac349228b}\label{main_8h_a7292f6279b611a29ec39253ac349228b}} 
 static pthread\+\_\+t {\bfseries reloading}
@@ -180,7 +172,8 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 
 Délai de l\textquotesingle{}animation \char`\"{}courrir en bas\char`\"{}. 
 
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -197,7 +190,8 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 
 Délai de l\textquotesingle{}animation \char`\"{}courrir à gauche\char`\"{}. 
 
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -214,7 +208,8 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 
 Délai de l\textquotesingle{}animation \char`\"{}courrir à droite\char`\"{}. 
 
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -231,7 +226,8 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 
 Délai de l\textquotesingle{}animation \char`\"{}courrir en haut\char`\"{}. 
 
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -299,26 +295,6 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \includegraphics[width=306pt]{main_8h_ab5a2d27713f1814d93ff81281e653e22_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{main_8h_a5eaa5bf14462c0770a8514451b64df3c}\label{main_8h_a5eaa5bf14462c0770a8514451b64df3c}} 
-\index{main.h@{main.h}!InitVecteur@{InitVecteur}}
-\index{InitVecteur@{InitVecteur}!main.h@{main.h}}
-\doxysubsubsection{\texorpdfstring{InitVecteur()}{InitVecteur()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_vecteur}{Vecteur}} Init\+Vecteur (\begin{DoxyParamCaption}\item[{int}]{angle,  }\item[{int}]{vitesse }\end{DoxyParamCaption})}
-
-
-
-Calcul un vecteur selon un angle de rotation et une vitesse. 
-
-
-\begin{DoxyParams}{Paramètres}
-{\em angle} & \\
-\hline
-{\em vitesse} & \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
-\mbox{\hyperlink{struct_vecteur}{Vecteur}} 
-\end{DoxyReturn}
 \mbox{\Hypertarget{main_8h_ac1c725f21345e0148e7ca2fdc7fe77f9}\label{main_8h_ac1c725f21345e0148e7ca2fdc7fe77f9}} 
 \index{main.h@{main.h}!newLogName@{newLogName}}
 \index{newLogName@{newLogName}!main.h@{main.h}}
@@ -363,7 +339,7 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \index{main.h@{main.h}!synchDatas@{synchDatas}}
 \index{synchDatas@{synchDatas}!main.h@{main.h}}
 \doxysubsubsection{\texorpdfstring{synchDatas()}{synchDatas()}}
-{\footnotesize\ttfamily void $\ast$ synch\+Datas (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} $\ast$}]{Joueurs,  }\item[{int}]{taille }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void $\ast$ synch\+Datas (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer__s}{player\+\_\+t}} $\ast$}]{Joueurs,  }\item[{int}]{taille }\end{DoxyParamCaption})}
 
 
 

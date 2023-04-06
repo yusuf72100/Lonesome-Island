@@ -8,11 +8,15 @@ Fichier contenant toutes les définitions de structures et de types.
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$SDL.\+h$>$}\newline
-Graphe des dépendances par inclusion de defs.\+h\+:\nopagebreak
+{\ttfamily \#include \char`\"{}player.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}map.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}camera.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de defs.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=254pt]{defs_8h__incl}
+\includegraphics[width=350pt]{defs_8h__incl}
 \end{center}
 \end{figure}
 Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
@@ -26,8 +30,6 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 \doxysubsection*{Structures de données}
 \begin{DoxyCompactItemize}
 \item 
-struct \mbox{\hyperlink{structplayer__t}{player\+\_\+t}}
-\begin{DoxyCompactList}\small\item\em Sauvegarde les informations de chaque joueurs relatives uniquement au jeu en lui-\/même (points de vie, coordonnées, animation...). \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structweapon__t}{weapon\+\_\+t}}
 \begin{DoxyCompactList}\small\item\em Définition d\textquotesingle{}un weapon. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structfood__t}{food\+\_\+t}}
@@ -111,12 +113,18 @@ enum {\bfseries T\+\_\+\+BLOCK} \{ {\bfseries CHEST}
 , {\bfseries RESOURCE}
 , {\bfseries BLOCK}
  \}
+\item 
+\mbox{\Hypertarget{defs_8h_a376a0278dc89709be588ea7ba88cfbab}\label{defs_8h_a376a0278dc89709be588ea7ba88cfbab}} 
+enum {\bfseries T\+\_\+\+FACING} \{ {\bfseries NORTH}
+, {\bfseries EAST}
+, {\bfseries SOUTH}
+, {\bfseries WEST}
+ \}
 \end{DoxyCompactItemize}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{defs_8h_a6bd9bc7437d75b11d5e167fcf0114dc2}\label{defs_8h_a6bd9bc7437d75b11d5e167fcf0114dc2}} 
-void {\bfseries define\+Item} ()
+void \mbox{\hyperlink{defs_8h_a6bd9bc7437d75b11d5e167fcf0114dc2}{define\+Item}} ()
 \begin{DoxyCompactList}\small\item\em Initialise les items globaux. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
@@ -144,6 +152,30 @@ SDL\+\_\+\+Window $\ast$ {\bfseries window}
 \item 
 \mbox{\Hypertarget{defs_8h_a966da7a60c4ea3ba301e26ccc5efe452}\label{defs_8h_a966da7a60c4ea3ba301e26ccc5efe452}} 
 SDL\+\_\+\+Renderer $\ast$ {\bfseries renderer}
+\item 
+\mbox{\Hypertarget{defs_8h_a886d551d5381dc3e53f17825ffc51641}\label{defs_8h_a886d551d5381dc3e53f17825ffc51641}} 
+int {\bfseries direction}
+\item 
+\mbox{\Hypertarget{defs_8h_a167b8a132e3189bc30114d1d6e93d930}\label{defs_8h_a167b8a132e3189bc30114d1d6e93d930}} 
+SDL\+\_\+\+Surface $\ast$ {\bfseries tmp}
+\item 
+\mbox{\Hypertarget{defs_8h_a81c2fda7a3e98a38fb2c47cad46b0815}\label{defs_8h_a81c2fda7a3e98a38fb2c47cad46b0815}} 
+SDL\+\_\+\+Texture $\ast$ {\bfseries tileset}
+\item 
+\mbox{\Hypertarget{defs_8h_a472d8154993aac24794fa03968afce39}\label{defs_8h_a472d8154993aac24794fa03968afce39}} 
+SDL\+\_\+\+Texture $\ast$ {\bfseries current\+Ground}
+\item 
+\mbox{\Hypertarget{defs_8h_af90d9c5474a96a57000759cc813ff7d5}\label{defs_8h_af90d9c5474a96a57000759cc813ff7d5}} 
+\mbox{\hyperlink{structcamera__s}{camera\+\_\+t}} $\ast$ {\bfseries camera}
+\item 
+\mbox{\Hypertarget{defs_8h_af2bb9dc718068dc88b8250185d0d6ab7}\label{defs_8h_af2bb9dc718068dc88b8250185d0d6ab7}} 
+\mbox{\hyperlink{structmap__s}{map\+\_\+t}} $\ast$ {\bfseries map}
+\item 
+\mbox{\Hypertarget{defs_8h_ad92f2b056653cc55a088e47aff07f4aa}\label{defs_8h_ad92f2b056653cc55a088e47aff07f4aa}} 
+\mbox{\hyperlink{structplayer__s}{player\+\_\+t}} {\bfseries joueur}
+\item 
+\mbox{\Hypertarget{defs_8h_a0696137328ea5e7bb01aa02f9e14799c}\label{defs_8h_a0696137328ea5e7bb01aa02f9e14799c}} 
+\mbox{\hyperlink{structplayer__s}{player\+\_\+t}} $\ast$ {\bfseries joueurs} \mbox{[}10\mbox{]}
 \item 
 \mbox{\Hypertarget{defs_8h_a99a35a6d05775d2462a6c8a86310c5d7}\label{defs_8h_a99a35a6d05775d2462a6c8a86310c5d7}} 
 char {\bfseries bind\+Button\+Text} \mbox{[}4\mbox{]}
@@ -180,12 +212,6 @@ SDL\+\_\+\+Key\+Code {\bfseries global\+Key\+Tab} \mbox{[}20\mbox{]}
 \item 
 \mbox{\Hypertarget{defs_8h_a04cf3527550be0bb37507333d391f7dd}\label{defs_8h_a04cf3527550be0bb37507333d391f7dd}} 
 \mbox{\hyperlink{structblock__t}{block\+\_\+t}} $\ast$ {\bfseries chest\+\_\+block}
-\item 
-\mbox{\Hypertarget{defs_8h_ad92f2b056653cc55a088e47aff07f4aa}\label{defs_8h_ad92f2b056653cc55a088e47aff07f4aa}} 
-\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} {\bfseries joueur}
-\item 
-\mbox{\Hypertarget{defs_8h_a551000248d53b0f87524224317c61f10}\label{defs_8h_a551000248d53b0f87524224317c61f10}} 
-\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} $\ast$ {\bfseries joueurs}
 \end{DoxyCompactItemize}
 
 
@@ -204,3 +230,24 @@ Yusuf Ulas
 \begin{DoxyCopyright}{Copyright}
 Copyright (c) 2023 
 \end{DoxyCopyright}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{defs_8h_a6bd9bc7437d75b11d5e167fcf0114dc2}\label{defs_8h_a6bd9bc7437d75b11d5e167fcf0114dc2}} 
+\index{defs.h@{defs.h}!defineItem@{defineItem}}
+\index{defineItem@{defineItem}!defs.h@{defs.h}}
+\doxysubsubsection{\texorpdfstring{defineItem()}{defineItem()}}
+{\footnotesize\ttfamily void define\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialise les items globaux. 
+
+joueurs\mbox{[}0\}-\/\texorpdfstring{$>$}{>}health = 100; joueurs-\/\texorpdfstring{$>$}{>}stuck = FALSE;Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{defs_8h_a6bd9bc7437d75b11d5e167fcf0114dc2_icgraph}
+\end{center}
+\end{figure}

@@ -6,7 +6,8 @@ Fichier qui s\textquotesingle{}occupera uniquement du serveur.
 
 
 {\ttfamily \#include \char`\"{}socket.\+h\char`\"{}}\newline
-Graphe des dépendances par inclusion de socket.\+c\+:\nopagebreak
+Graphe des dépendances par inclusion de socket.\+c\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -18,7 +19,7 @@ Graphe des dépendances par inclusion de socket.\+c\+:\nopagebreak
 \item 
 char $\ast$ \mbox{\hyperlink{socket_8c_acc971d38ba2d98589d00bde6652a6e39}{get\+Local\+Ip}} ()
 \begin{DoxyCompactList}\small\item\em Renvoi l\textquotesingle{}ip local du client. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{socket_8c_ac422f6ffe2be4ee3387e8b98b6393193}{buildtram\+Client\+\_\+send}} (\mbox{\hyperlink{structplayer__t}{player\+\_\+t}} joueur, int i)
+static void \mbox{\hyperlink{socket_8c_ac422f6ffe2be4ee3387e8b98b6393193}{buildtram\+Client\+\_\+send}} (\mbox{\hyperlink{structplayer__s}{player\+\_\+t}} joueur, int i)
 \begin{DoxyCompactList}\small\item\em Construit une trame dédiée uniquement au client i. \end{DoxyCompactList}\item 
 static void $\ast$ \mbox{\hyperlink{socket_8c_af8f7aaaf34db2175c7a9c4ab7d3306fc}{send\+To\+Client}} (\mbox{\hyperlink{structsend2_client}{send2\+Client}} $\ast$arg\+Client, int position)
 \begin{DoxyCompactList}\small\item\em Envoie la donnée d\textquotesingle{}un client à tous les autres y compris au client lui-\/même. \end{DoxyCompactList}\item 
@@ -28,9 +29,8 @@ void \mbox{\hyperlink{socket_8c_af93eb740b3e202bdcb05795a2da4ef8c}{disconnect\+P
 \begin{DoxyCompactList}\small\item\em Déconnecte le client en fonction de sa position dans le tableau. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{socket_8c_a88d900ece06509fc9c398d81b5200e71}{find\+Position}} (\mbox{\hyperlink{structsend2_client}{send2\+Client}} $\ast$arg\+Client)
 \begin{DoxyCompactList}\small\item\em Cherche la position du client dans le tableau des clients. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{socket_8c_a42c0b3f427a2ebf97ad8fb6aedfacf8c}\label{socket_8c_a42c0b3f427a2ebf97ad8fb6aedfacf8c}} 
-void {\bfseries init\+Connection} (void $\ast$arg, int position)
-\item 
+void \mbox{\hyperlink{socket_8c_a42c0b3f427a2ebf97ad8fb6aedfacf8c}{init\+Connection}} (void $\ast$arg, int position)
+\begin{DoxyCompactList}\small\item\em Initialise la connexion du client. \end{DoxyCompactList}\item 
 void $\ast$ \mbox{\hyperlink{socket_8c_a3b61093f2f5316157d1e6d3d05cf5ebc}{receive\+From\+Client}} (void $\ast$arg)
 \begin{DoxyCompactList}\small\item\em Écoute un client tant que la connexion est établie. \end{DoxyCompactList}\item 
 void $\ast$ \mbox{\hyperlink{socket_8c_a68b45930fad2153f053144a8678afa1c}{search\+Clients}} (void $\ast$arg)
@@ -64,7 +64,7 @@ Copyright (c) 2023
 \index{socket.c@{socket.c}!buildtramClient\_send@{buildtramClient\_send}}
 \index{buildtramClient\_send@{buildtramClient\_send}!socket.c@{socket.c}}
 \doxysubsubsection{\texorpdfstring{buildtramClient\_send()}{buildtramClient\_send()}}
-{\footnotesize\ttfamily static void buildtram\+Client\+\_\+send (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer__t}{player\+\_\+t}}}]{joueur,  }\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily static void buildtram\+Client\+\_\+send (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structplayer__s}{player\+\_\+t}}}]{joueur,  }\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -77,7 +77,8 @@ Construit une trame dédiée uniquement au client i.
 {\em i} & \\
 \hline
 \end{DoxyParams}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -158,6 +159,31 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{socket_8c_acc971d38ba2d98589d00bde6652a6e39_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{socket_8c_a42c0b3f427a2ebf97ad8fb6aedfacf8c}\label{socket_8c_a42c0b3f427a2ebf97ad8fb6aedfacf8c}} 
+\index{socket.c@{socket.c}!initConnection@{initConnection}}
+\index{initConnection@{initConnection}!socket.c@{socket.c}}
+\doxysubsubsection{\texorpdfstring{initConnection()}{initConnection()}}
+{\footnotesize\ttfamily void init\+Connection (\begin{DoxyParamCaption}\item[{void $\ast$}]{arg,  }\item[{int}]{position }\end{DoxyParamCaption})}
+
+
+
+Initialise la connexion du client. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em arg} & \\
+\hline
+{\em position} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=301pt]{socket_8c_a42c0b3f427a2ebf97ad8fb6aedfacf8c_cgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{socket_8c_a3b61093f2f5316157d1e6d3d05cf5ebc}\label{socket_8c_a3b61093f2f5316157d1e6d3d05cf5ebc}} 

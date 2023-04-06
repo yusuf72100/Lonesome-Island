@@ -227,7 +227,7 @@ void *running_up_animation(void *j);
 void *running_right_animation(void *j);
 void *running_left_animation(void *j);
 void *breathAnimation(void *j);
-static void *drawPlayers(player_t *joueurs, int size);
+void *drawPlayers(player_t *joueurs, int size);
 extern void clickItem();
 
 extern void configKey(T_BUTTONS_CLICKED button);

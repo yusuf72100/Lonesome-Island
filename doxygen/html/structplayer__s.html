@@ -74,33 +74,58 @@ $(function() {
   <div class="headertitle"><div class="title">Référence de la structure player_s</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Structure du joueur.  
+ <a href="structplayer__s.html#details">Plus de détails...</a></p>
+
+<p><code>#include &lt;<a class="el" href="player_8h_source.html">player.h</a>&gt;</code></p>
 <div class="dynheader">
 Graphe de collaboration de player_s:</div>
 <div class="dyncontent">
 <div class="center"><img src="structplayer__s__coll__graph.png" border="0" usemap="#aplayer__s_coll__map" alt="Collaboration graph"/></div>
 <map name="aplayer__s_coll__map" id="aplayer__s_coll__map">
-<area shape="rect" title=" " alt="" coords="9,160,83,267"/>
-<area shape="rect" href="structposition__s.html" title=" " alt="" coords="5,5,87,97"/>
+<area shape="rect" title="Structure du joueur." alt="" coords="5,175,132,355"/>
+<area shape="rect" href="structcoord__s.html" title="Stockera les coordonnées du joueur." alt="" coords="35,5,103,97"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Champs de données</h2></td></tr>
-<tr class="memitem:a5ac083a645d964373f022d03df4849c8"><td class="memItemLeft" align="right" valign="top"><a id="a5ac083a645d964373f022d03df4849c8" name="a5ac083a645d964373f022d03df4849c8"></a>
-char *&#160;</td><td class="memItemRight" valign="bottom"><b>name</b></td></tr>
-<tr class="separator:a5ac083a645d964373f022d03df4849c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b1c1320c95e683859cc0e295f63547f"><td class="memItemLeft" align="right" valign="top"><a id="a1b1c1320c95e683859cc0e295f63547f" name="a1b1c1320c95e683859cc0e295f63547f"></a>
-<a class="el" href="structposition__s.html">position_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>pos</b></td></tr>
-<tr class="separator:a1b1c1320c95e683859cc0e295f63547f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1701f27966ea1f9a27696518253180b3"><td class="memItemLeft" align="right" valign="top"><a id="a1701f27966ea1f9a27696518253180b3" name="a1701f27966ea1f9a27696518253180b3"></a>
-facing_e&#160;</td><td class="memItemRight" valign="bottom"><b>facing</b></td></tr>
-<tr class="separator:a1701f27966ea1f9a27696518253180b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a859b8efbf9abe8e82757ee5c75a0c97c"><td class="memItemLeft" align="right" valign="top"><a id="a859b8efbf9abe8e82757ee5c75a0c97c" name="a859b8efbf9abe8e82757ee5c75a0c97c"></a>
-SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><b>texture</b></td></tr>
-<tr class="separator:a859b8efbf9abe8e82757ee5c75a0c97c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9379399ca01460b0347395ebc65a2913"><td class="memItemLeft" align="right" valign="top"><a id="a9379399ca01460b0347395ebc65a2913" name="a9379399ca01460b0347395ebc65a2913"></a>
+<a class="el" href="structcoord__s.html">coord_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>mapPosition</b></td></tr>
+<tr class="separator:a9379399ca01460b0347395ebc65a2913"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50b6f651663b8e7fa86214115786f11c"><td class="memItemLeft" align="right" valign="top"><a id="a50b6f651663b8e7fa86214115786f11c" name="a50b6f651663b8e7fa86214115786f11c"></a>
+<a class="el" href="structcoord__s.html">coord_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>tilePosition</b></td></tr>
+<tr class="separator:a50b6f651663b8e7fa86214115786f11c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81c2fda7a3e98a38fb2c47cad46b0815"><td class="memItemLeft" align="right" valign="top"><a id="a81c2fda7a3e98a38fb2c47cad46b0815" name="a81c2fda7a3e98a38fb2c47cad46b0815"></a>
+SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><b>tileset</b></td></tr>
+<tr class="separator:a81c2fda7a3e98a38fb2c47cad46b0815"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0649f2bc6181d3fe471c7a9d9ab7b8a4"><td class="memItemLeft" align="right" valign="top"><a id="a0649f2bc6181d3fe471c7a9d9ab7b8a4" name="a0649f2bc6181d3fe471c7a9d9ab7b8a4"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>facing</b></td></tr>
+<tr class="separator:a0649f2bc6181d3fe471c7a9d9ab7b8a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10bc1f8b51272f2e232d86d8fc1aefcb"><td class="memItemLeft" align="right" valign="top"><a id="a10bc1f8b51272f2e232d86d8fc1aefcb" name="a10bc1f8b51272f2e232d86d8fc1aefcb"></a>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>playername</b> [16]</td></tr>
+<tr class="separator:a10bc1f8b51272f2e232d86d8fc1aefcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35f9f6f21a00571eda7c7bf73994a9fd"><td class="memItemLeft" align="right" valign="top"><a id="a35f9f6f21a00571eda7c7bf73994a9fd" name="a35f9f6f21a00571eda7c7bf73994a9fd"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>animation_state</b></td></tr>
+<tr class="separator:a35f9f6f21a00571eda7c7bf73994a9fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9709aefe4930807392898aecb0cb8a79"><td class="memItemLeft" align="right" valign="top"><a id="a9709aefe4930807392898aecb0cb8a79" name="a9709aefe4930807392898aecb0cb8a79"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>connected</b></td></tr>
+<tr class="separator:a9709aefe4930807392898aecb0cb8a79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae448fb16f537982185a0c5e8db56bdc6"><td class="memItemLeft" align="right" valign="top"><a id="ae448fb16f537982185a0c5e8db56bdc6" name="ae448fb16f537982185a0c5e8db56bdc6"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>health</b></td></tr>
+<tr class="separator:ae448fb16f537982185a0c5e8db56bdc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58bfaec2fadb139b3630f62b1f387369"><td class="memItemLeft" align="right" valign="top"><a id="a58bfaec2fadb139b3630f62b1f387369" name="a58bfaec2fadb139b3630f62b1f387369"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>thirst</b></td></tr>
+<tr class="separator:a58bfaec2fadb139b3630f62b1f387369"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4677523146374d4a2b92985cca5447b"><td class="memItemLeft" align="right" valign="top"><a id="ab4677523146374d4a2b92985cca5447b" name="ab4677523146374d4a2b92985cca5447b"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>stuck</b></td></tr>
+<tr class="separator:ab4677523146374d4a2b92985cca5447b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>La documentation de cette structure a été générée à partir du fichier suivant :<ul>
-<li>C:/Users/Yusuf/Lonesome-Island/src/<a class="el" href="map_8h_source.html">map.h</a></li>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Structure du joueur. </p>
+</div><hr/>La documentation de cette structure a été générée à partir du fichier suivant :<ul>
+<li>C:/Users/Yusuf/CLionProjects/Lonesome-Island/src/<a class="el" href="player_8h_source.html">player.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

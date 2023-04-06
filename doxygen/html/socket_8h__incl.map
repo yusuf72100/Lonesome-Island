@@ -1,15 +1,18 @@
 <map id="C:/Users/Yusuf/CLionProjects/Lonesome&#45;Island/src/socket.h" name="C:/Users/Yusuf/CLionProjects/Lonesome&#45;Island/src/socket.h">
-<area shape="rect" id="node1" title="Fichier qui contient les informations relatives aux clients et au serveur point de vu socket." alt="" coords="315,5,515,45"/>
+<area shape="rect" id="node1" title="Fichier qui contient les informations relatives aux clients et au serveur point de vu socket." alt="" coords="449,5,649,45"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,93,73,119"/>
-<area shape="rect" id="node3" title=" " alt="" coords="86,167,147,192"/>
-<area shape="rect" id="node4" title=" " alt="" coords="174,167,238,192"/>
-<area shape="rect" id="node5" title=" " alt="" coords="333,93,399,119"/>
-<area shape="rect" id="node6" title=" " alt="" coords="423,93,509,119"/>
-<area shape="rect" id="node7" title=" " alt="" coords="533,93,620,119"/>
-<area shape="rect" id="node8" title=" " alt="" coords="644,93,720,119"/>
-<area shape="rect" id="node9" title=" " alt="" coords="744,93,809,119"/>
-<area shape="rect" id="node10" title=" " alt="" coords="263,167,322,192"/>
-<area shape="rect" id="node11" title=" " alt="" coords="833,93,933,119"/>
-<area shape="rect" id="node12" title=" " alt="" coords="957,93,1033,119"/>
-<area shape="rect" id="node13" href="$defs_8h.html" title="Fichier contenant toutes les définitions de structures et de types." alt="" coords="149,93,207,119"/>
+<area shape="rect" id="node3" title=" " alt="" coords="522,313,583,339"/>
+<area shape="rect" id="node4" title=" " alt="" coords="609,313,673,339"/>
+<area shape="rect" id="node5" title=" " alt="" coords="200,93,265,119"/>
+<area shape="rect" id="node6" title=" " alt="" coords="289,93,376,119"/>
+<area shape="rect" id="node7" title=" " alt="" coords="400,93,487,119"/>
+<area shape="rect" id="node8" title=" " alt="" coords="511,93,587,119"/>
+<area shape="rect" id="node9" title=" " alt="" coords="611,93,676,119"/>
+<area shape="rect" id="node10" title=" " alt="" coords="905,313,963,339"/>
+<area shape="rect" id="node11" title=" " alt="" coords="780,313,880,339"/>
+<area shape="rect" id="node12" title=" " alt="" coords="833,93,909,119"/>
+<area shape="rect" id="node13" href="$defs_8h.html" title="Fichier contenant toutes les définitions de structures et de types." alt="" coords="752,93,809,119"/>
+<area shape="rect" id="node14" href="$player_8h_source.html" title=" " alt="" coords="692,240,760,265"/>
+<area shape="rect" id="node15" href="$map_8h_source.html" title=" " alt="" coords="697,313,755,339"/>
+<area shape="rect" id="node16" href="$camera_8h_source.html" title=" " alt="" coords="743,167,819,192"/>
 </map>

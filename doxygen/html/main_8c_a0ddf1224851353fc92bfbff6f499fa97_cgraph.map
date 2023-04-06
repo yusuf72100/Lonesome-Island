@@ -1,52 +1,52 @@
 <map id="main" name="main">
-<area shape="rect" id="node1" title="Programme principal." alt="" coords="5,1797,56,1823"/>
-<area shape="rect" id="node2" href="$main_8c.html#a65942d285a85ebdda2445b5da031c2e2" title="Change les valeurs du tableau d&#39;évènements en fonction de nos instructions sur le clavier et la souri..." alt="" coords="143,456,239,481"/>
-<area shape="rect" id="node6" href="$settings_8c.html#a1165e1d4439a045e94970c9fbc73bb3c" title="Fonction qui s&#39;occupe de charger les paramètres du joueur depuis un fichier." alt="" coords="733,439,828,464"/>
-<area shape="rect" id="node11" href="$sound_8c.html#acb373f7276274a75af2fc3ec23a8e266" title="Initialise les cannaux audio et les sons." alt="" coords="104,1797,277,1823"/>
-<area shape="rect" id="node12" href="$menus_8c.html#a3ccdb6767f1237284bf7c8e0d3e3eacb" title="Détruit la fenêtre et le rendu." alt="" coords="580,1873,660,1899"/>
-<area shape="rect" id="node13" href="$main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="153,1204,228,1229"/>
-<area shape="rect" id="node27" href="$client_8c.html#a1a44fcc8a4125e81a0730b67c2603470" title="Arrête la connexion avec le serveur." alt="" coords="564,1475,676,1500"/>
-<area shape="rect" id="node37" href="$menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="150,181,231,207"/>
-<area shape="rect" id="node45" href="$main_8c.html#a270d20bdcadebb9a08a01a55c37858a9" title="Initialise toutes les variables relatives aux menus." alt="" coords="156,1899,225,1924"/>
-<area shape="rect" id="node47" href="$sound_8c.html#ab74d84d6d4c90b2b18669590af038a07" title="Initialise le moteur audio." alt="" coords="155,1948,227,1973"/>
-<area shape="rect" id="node48" href="$socket_8c.html#ac1e551c19cd6ce8d7da8b13d1f290863" title="Arrête le serveur en déconnectant tous les clients d&#39;abord." alt="" coords="149,1997,232,2023"/>
-<area shape="rect" id="node50" href="$menus_8c.html#a10da25e92e69613be93d099bb029feb2" title="Met à jour les valeurs de l&#39;écran." alt="" coords="137,2047,244,2072"/>
-<area shape="rect" id="node3" href="$settings_8c.html#a9a22d55955c9101cb261abcafb4e33df" title="Ajoute un caractère au pseudo du joueur." alt="" coords="339,356,493,381"/>
-<area shape="rect" id="node4" href="$menus_8c.html#acbae57aa2d8c508e63c0597b44024977" title="Change de menu." alt="" coords="1025,481,1121,507"/>
-<area shape="rect" id="node5" href="$settings_8c.html#af1e0a5878c43267daa4455be9ea2d424" title="Met à jour le fichier de paramètres." alt="" coords="585,439,655,464"/>
-<area shape="rect" id="node10" href="$settings_8c.html#a78a3da557d14459ccc125159ba6cf9d0" title="Gère l&#39;enregistrement des touches." alt="" coords="381,405,451,431"/>
-<area shape="rect" id="node7" href="$settings_8c.html#ade55ed097a2eb2e0e02023ad1c364bc0" title="Créer le fichier de config et charge les paramètres par défaut." alt="" coords="876,456,977,481"/>
-<area shape="rect" id="node8" href="$settings_8c.html#a0fa304d3fe58272c8deac3b29c3e036e" title="Fonction qui charge les keybinds dans le tableau global." alt="" coords="877,357,977,383"/>
-<area shape="rect" id="node9" href="$settings_8c.html#abfef91263b80140b08929f805d83306d" title="Convertis un entier en sdl keycode et le met dans le tableau des keycode local." alt="" coords="883,407,970,432"/>
-<area shape="rect" id="node14" href="$menus_8c.html#a0fa3f94da8421e8f4e5d11404f87856b" title="Animation de respiration." alt="" coords="358,1179,474,1204"/>
-<area shape="rect" id="node15" href="$main_8c.html#a506eeac61f56b2e172d086173bac5995" title="Envoi les données du joueur actuel au serveur." alt="" coords="573,1019,667,1044"/>
-<area shape="rect" id="node16" href="$menus_8c.html#ae7efaad914bff1a5511184fd96f0d9b7" title="Change le boutton ciblé avec l&#39;état voulut." alt="" coords="325,1721,507,1747"/>
-<area shape="rect" id="node17" href="$menus_8c.html#a20432793012cb1509389bf14f94a8ee9" title="Change le boutton ciblé avec l&#39;état voulut." alt="" coords="331,659,501,684"/>
-<area shape="rect" id="node18" href="$menus_8c.html#af62b6c78dad8d3b0ae378b5174a28784" title="Évalue sur quel item on a cliqué." alt="" coords="379,708,453,733"/>
-<area shape="rect" id="node19" href="$create__map_8c.html#a018fa899a26c3434a11d5bc5716b52ef" title="Create a map object." alt="" coords="371,757,461,783"/>
-<area shape="rect" id="node20" href="$menus_8c.html#a9cde538499636a6a74cb0f3e206d4a73" title="Dessine l&#39;erreur avec TTF." alt="" coords="371,807,461,832"/>
-<area shape="rect" id="node21" href="$main_8c.html#ab5a2d27713f1814d93ff81281e653e22" title="Récupère l&#39;heure et la date actuelle." alt="" coords="376,932,456,957"/>
-<area shape="rect" id="node22" href="$menus_8c.html#ab283db36e8911aeb9d32d5886f156570" title="Renvoi l&#39;état du boutton demandé." alt="" coords="337,981,495,1007"/>
-<area shape="rect" id="node23" href="$sound_8c.html#a255dd9ed014ef2eaf3f9e53005134ec4" title="Fonction qui lance le son de clique de bouton dans un thread dédié." alt="" coords="379,1031,453,1056"/>
-<area shape="rect" id="node24" href="$sound_8c.html#a6e20a9752027528e301698e22522d0da" title="Fonction qui lance le son de clique de l&#39;item dans un thread dédié." alt="" coords="351,1080,481,1105"/>
-<area shape="rect" id="node25" href="$menus_8c.html#a62b05feb314b3c7d6effb9892fa5b8ae" title="Renvoi TRUE si le curseur est sur le boutton passé en paramètre sinon renvoi FALSE si le curseur est ..." alt="" coords="379,1129,453,1155"/>
-<area shape="rect" id="node26" href="$client_8c.html#a37deea5f4750c52937a56b0e97d566b9" title="Établie la connexion avec le serveur." alt="" coords="352,1475,480,1500"/>
-<area shape="rect" id="node28" href="$main_8c.html#a74d9cf129eac9371caa5a93b97b4f95c" title="Met un cooldown pour un rechargement." alt="" coords="365,1277,467,1303"/>
-<area shape="rect" id="node29" href="$menus_8c.html#a2baaae2f0feebce6bd015a37345e2270" title="Animation &quot;courrir en bas&quot;." alt="" coords="334,1327,498,1352"/>
-<area shape="rect" id="node30" href="$menus_8c.html#a2fdf89dd6b22fb5e5d73f8370470985b" title="Animation &quot;courrir à gauche&quot;." alt="" coords="341,1376,491,1401"/>
-<area shape="rect" id="node31" href="$menus_8c.html#a1fdb9aee8fd08118ac0bc4234da6a2eb" title="Animation &quot;courrir à droite&quot;." alt="" coords="337,1524,495,1549"/>
-<area shape="rect" id="node32" href="$menus_8c.html#ad1aa5c5c7c6e33913f1a654a09ba6a00" title="Animation &quot;courrir àen haut&quot;." alt="" coords="342,1573,490,1599"/>
-<area shape="rect" id="node33" href="$client_8c.html#a3622090a7ff391221a74cad6493bbca9" title="Démarre la connexion au serveur et renvoi TRUE en cas d&#39;erreur sinon renvoi FALSE." alt="" coords="359,1425,473,1451"/>
-<area shape="rect" id="node34" href="$socket_8c.html#a3490387e86b9ba6a1ee9ed3984b637d5" title="Démarre le serveur et initie la table de clients." alt="" coords="374,1623,458,1648"/>
-<area shape="rect" id="node35" href="$menus_8c.html#aad1bede5062a8bca30d1b8bbcafef3c8" title="Change l&#39;état du boutton ciblé." alt="" coords="333,1672,499,1697"/>
-<area shape="rect" id="node36" href="$menus_8c.html#aad0757276ad4bc900c8826f8ecbe6ecc" title="Change le mode plein écran." alt="" coords="357,1228,475,1253"/>
-<area shape="rect" id="node38" href="$menus_8c.html#a98db194fe85486f7e4038ab3044a841c" title="Affiche le menu d&#39;affectation du joueur.playername." alt="" coords="345,205,487,231"/>
-<area shape="rect" id="node39" href="$menus_8c.html#a3c98ffe9a3fcb71780598d084e08450b" title="Dessine le menu en jeu." alt="" coords="572,105,668,131"/>
-<area shape="rect" id="node40" href="$menus_8c.html#a588196acaedd8824af54e4bac318358d" title="Dessin le menu de l&#39;inventaire." alt="" coords="363,5,469,31"/>
-<area shape="rect" id="node41" href="$menus_8c.html#ad4082538ea22b0a347c09456b67ba4bd" title="Affiche le menu principal." alt="" coords="375,255,457,280"/>
-<area shape="rect" id="node42" href="$menus_8c.html#a047a87d55ef5bac980f1df5f340f39fa" title="Affiche le menu des paramètres dans en jeu." alt="" coords="343,156,489,181"/>
-<area shape="rect" id="node43" href="$menus_8c.html#a081a8f6ffea1d158f2a87e4258f6329a" title="Affiche le menu des paramètres dans le menu principal." alt="" coords="555,231,685,256"/>
-<area shape="rect" id="node44" href="$menus_8c.html#a706ecee7dd0dc5e17064da807e4d0f7f" title="Affiche le menu des paramètres des keybinds dans le menu principal." alt="" coords="327,55,505,80"/>
-<area shape="rect" id="node46" href="$menus_8c.html#a48e3fe80d276c94e23eed3c1017a05ee" title="Initialise toutes les variables relatives aux menus." alt="" coords="359,1899,473,1924"/>
-<area shape="rect" id="node49" href="$socket_8c.html#af93eb740b3e202bdcb05795a2da4ef8c" title="Déconnecte le client en fonction de sa position dans le tableau." alt="" coords="355,1997,477,2023"/>
+<area shape="rect" id="node1" title="Programme principal." alt="" coords="5,1506,56,1532"/>
+<area shape="rect" id="node2" href="$main_8c.html#a65942d285a85ebdda2445b5da031c2e2" title="Change les valeurs du tableau d&#39;évènements en fonction de nos instructions sur le clavier et la souri..." alt="" coords="143,238,239,264"/>
+<area shape="rect" id="node10" href="$settings_8c.html#a1165e1d4439a045e94970c9fbc73bb3c" title="Fonction qui s&#39;occupe de charger les paramètres du joueur depuis un fichier." alt="" coords="733,89,828,114"/>
+<area shape="rect" id="node15" href="$sound_8c.html#acb373f7276274a75af2fc3ec23a8e266" title="Initialise les cannaux audio et les sons." alt="" coords="104,1456,277,1481"/>
+<area shape="rect" id="node16" href="$menus_8c.html#a3ccdb6767f1237284bf7c8e0d3e3eacb" title="Détruit la fenêtre et le rendu." alt="" coords="580,1532,660,1557"/>
+<area shape="rect" id="node17" href="$main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="153,936,228,961"/>
+<area shape="rect" id="node31" href="$client_8c.html#a1a44fcc8a4125e81a0730b67c2603470" title="Arrête la connexion avec le serveur." alt="" coords="564,1206,676,1232"/>
+<area shape="rect" id="node37" href="$menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="150,1682,231,1708"/>
+<area shape="rect" id="node45" href="$main_8c.html#a270d20bdcadebb9a08a01a55c37858a9" title="Initialise toutes les variables relatives aux menus." alt="" coords="156,1557,225,1582"/>
+<area shape="rect" id="node47" href="$sound_8c.html#ab74d84d6d4c90b2b18669590af038a07" title="Initialise le moteur audio." alt="" coords="155,1732,227,1757"/>
+<area shape="rect" id="node48" href="$socket_8c.html#ac1e551c19cd6ce8d7da8b13d1f290863" title="Arrête le serveur en déconnectant tous les clients d&#39;abord." alt="" coords="149,1781,232,1806"/>
+<area shape="rect" id="node50" href="$menus_8c.html#a10da25e92e69613be93d099bb029feb2" title="Met à jour les valeurs de l&#39;écran." alt="" coords="137,1830,244,1856"/>
+<area shape="rect" id="node3" href="$settings_8c.html#a9a22d55955c9101cb261abcafb4e33df" title="Ajoute un caractère au pseudo du joueur." alt="" coords="339,337,493,362"/>
+<area shape="rect" id="node4" href="$menus_8c.html#acbae57aa2d8c508e63c0597b44024977" title="Change de menu." alt="" coords="1025,388,1121,413"/>
+<area shape="rect" id="node5" href="$main_8c.html#ae755cf7fbcc658285956e24db03bc068" title="Renvoi vrai si le keycode passé en paramètre correspond au keycode d&#39;une touche alpha (une lettre)." alt="" coords="372,189,460,214"/>
+<area shape="rect" id="node6" href="$main_8c.html#addc649cf71cc0dcbc6db6dc8f08800f1" title="Renvoi vrai si la touche pressée est une majuscule." alt="" coords="378,238,454,264"/>
+<area shape="rect" id="node7" href="$main_8c.html#a009d58156d475f13f3a272ff38497734" title="Renvoi vrai si le keycode passé en paramètre correspond au keycode d&#39;une touche digit (un chiffre)." alt="" coords="366,288,466,313"/>
+<area shape="rect" id="node8" href="$settings_8c.html#a2795a0769fdb676738d0a3d9a292df99" title="Enlève un caractère du pseudo du joueur." alt="" coords="329,38,503,64"/>
+<area shape="rect" id="node9" href="$settings_8c.html#af1e0a5878c43267daa4455be9ea2d424" title="Met à jour le fichier de paramètres." alt="" coords="585,89,655,114"/>
+<area shape="rect" id="node14" href="$settings_8c.html#a78a3da557d14459ccc125159ba6cf9d0" title="Gère l&#39;enregistrement des touches." alt="" coords="381,140,451,165"/>
+<area shape="rect" id="node11" href="$settings_8c.html#ade55ed097a2eb2e0e02023ad1c364bc0" title="Créer le fichier de config et charge les paramètres par défaut." alt="" coords="876,90,977,116"/>
+<area shape="rect" id="node12" href="$settings_8c.html#a0fa304d3fe58272c8deac3b29c3e036e" title="Fonction qui charge les keybinds dans le tableau global." alt="" coords="877,140,977,165"/>
+<area shape="rect" id="node13" href="$settings_8c.html#abfef91263b80140b08929f805d83306d" title="Convertis un entier en sdl keycode et le met dans le tableau des keycode local." alt="" coords="883,41,970,66"/>
+<area shape="rect" id="node18" href="$menus_8c.html#a0fa3f94da8421e8f4e5d11404f87856b" title="Animation de respiration." alt="" coords="358,590,474,616"/>
+<area shape="rect" id="node19" href="$main_8c.html#a506eeac61f56b2e172d086173bac5995" title="Envoi les données du joueur actuel au serveur." alt="" coords="573,565,667,590"/>
+<area shape="rect" id="node20" href="$menus_8c.html#ae7efaad914bff1a5511184fd96f0d9b7" title="Change le boutton ciblé avec l&#39;état voulut." alt="" coords="325,640,507,665"/>
+<area shape="rect" id="node21" href="$menus_8c.html#a20432793012cb1509389bf14f94a8ee9" title="Change le boutton ciblé avec l&#39;état voulut." alt="" coords="331,689,501,714"/>
+<area shape="rect" id="node22" href="$menus_8c.html#af62b6c78dad8d3b0ae378b5174a28784" title="Évalue sur quel item on a cliqué." alt="" coords="379,738,453,764"/>
+<area shape="rect" id="node23" href="$menus_8c.html#a9cde538499636a6a74cb0f3e206d4a73" title="Dessine l&#39;erreur avec TTF." alt="" coords="371,788,461,813"/>
+<area shape="rect" id="node24" href="$menus_8c.html#ad9f9e984dc9e1c14e8dc5d97e33c2e83" title="Trie les joueurs en fonction de leur coordonnées Y et organise l&#39;ordre d&#39;affichage des joueurs." alt="" coords="369,837,463,862"/>
+<area shape="rect" id="node25" href="$main_8c.html#ab5a2d27713f1814d93ff81281e653e22" title="Récupère l&#39;heure et la date actuelle." alt="" coords="376,910,456,936"/>
+<area shape="rect" id="node26" href="$menus_8c.html#ab283db36e8911aeb9d32d5886f156570" title="Renvoi l&#39;état du boutton demandé." alt="" coords="337,960,495,985"/>
+<area shape="rect" id="node27" href="$sound_8c.html#a255dd9ed014ef2eaf3f9e53005134ec4" title="Fonction qui lance le son de clique de bouton dans un thread dédié." alt="" coords="379,1009,453,1034"/>
+<area shape="rect" id="node28" href="$sound_8c.html#a6e20a9752027528e301698e22522d0da" title="Fonction qui lance le son de clique de l&#39;item dans un thread dédié." alt="" coords="351,1058,481,1084"/>
+<area shape="rect" id="node29" href="$menus_8c.html#a62b05feb314b3c7d6effb9892fa5b8ae" title="Renvoi TRUE si le curseur est sur le boutton passé en paramètre sinon renvoi FALSE si le curseur est ..." alt="" coords="379,1108,453,1133"/>
+<area shape="rect" id="node30" href="$client_8c.html#a37deea5f4750c52937a56b0e97d566b9" title="Établie la connexion avec le serveur." alt="" coords="352,1157,480,1182"/>
+<area shape="rect" id="node32" href="$main_8c.html#a74d9cf129eac9371caa5a93b97b4f95c" title="Met un cooldown pour un rechargement." alt="" coords="365,1256,467,1281"/>
+<area shape="rect" id="node33" href="$client_8c.html#a3622090a7ff391221a74cad6493bbca9" title="Démarre la connexion au serveur et renvoi TRUE en cas d&#39;erreur sinon renvoi FALSE." alt="" coords="359,1206,473,1232"/>
+<area shape="rect" id="node34" href="$socket_8c.html#a3490387e86b9ba6a1ee9ed3984b637d5" title="Démarre le serveur et initie la table de clients." alt="" coords="374,1305,458,1330"/>
+<area shape="rect" id="node35" href="$menus_8c.html#aad1bede5062a8bca30d1b8bbcafef3c8" title="Change l&#39;état du boutton ciblé." alt="" coords="333,1354,499,1380"/>
+<area shape="rect" id="node36" href="$menus_8c.html#aad0757276ad4bc900c8826f8ecbe6ecc" title="Change le mode plein écran." alt="" coords="357,438,475,464"/>
+<area shape="rect" id="node38" href="$menus_8c.html#a98db194fe85486f7e4038ab3044a841c" title="Affiche le menu d&#39;affectation du joueur.playername." alt="" coords="345,1806,487,1832"/>
+<area shape="rect" id="node39" href="$menus_8c.html#a3c98ffe9a3fcb71780598d084e08450b" title="Dessine le menu en jeu." alt="" coords="572,1757,668,1782"/>
+<area shape="rect" id="node40" href="$menus_8c.html#a588196acaedd8824af54e4bac318358d" title="Dessin le menu de l&#39;inventaire." alt="" coords="363,1908,469,1933"/>
+<area shape="rect" id="node41" href="$menus_8c.html#ad4082538ea22b0a347c09456b67ba4bd" title="Affiche le menu principal." alt="" coords="375,1757,457,1782"/>
+<area shape="rect" id="node42" href="$menus_8c.html#a047a87d55ef5bac980f1df5f340f39fa" title="Affiche le menu des paramètres dans en jeu." alt="" coords="343,1658,489,1684"/>
+<area shape="rect" id="node43" href="$menus_8c.html#a081a8f6ffea1d158f2a87e4258f6329a" title="Affiche le menu des paramètres dans le menu principal." alt="" coords="555,1633,685,1658"/>
+<area shape="rect" id="node44" href="$menus_8c.html#a706ecee7dd0dc5e17064da807e4d0f7f" title="Affiche le menu des paramètres des keybinds dans le menu principal." alt="" coords="327,1708,505,1733"/>
+<area shape="rect" id="node46" href="$menus_8c.html#a48e3fe80d276c94e23eed3c1017a05ee" title="Initialise toutes les variables relatives aux menus." alt="" coords="359,1557,473,1582"/>
+<area shape="rect" id="node49" href="$socket_8c.html#af93eb740b3e202bdcb05795a2da4ef8c" title="Déconnecte le client en fonction de sa position dans le tableau." alt="" coords="355,1957,477,1982"/>
 </map>
