@@ -50,6 +50,15 @@ extern char bindButtonText[4];
 extern char IP_PUBLIC[256];
 
 /**
+ * @brief Stockera les coordonnées du joueur.
+ */
+typedef struct coord_s
+{
+    int x;
+    int y;
+}coord_t;
+
+/**
  * @brief Définition d'un weapon.
  * 
  */

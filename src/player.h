@@ -12,14 +12,7 @@
 #define PLAYER_W_RESOLUTION 16
 #define PLAYER_H_RESOLUTION 16
 
-/**
- * @brief Stockera les coordonnées du joueur.
- */
-typedef struct coord_s
-{
-    int x;
-    int y;
-}coord_t;
+
 
 /**
  * @brief Structure du joueur.

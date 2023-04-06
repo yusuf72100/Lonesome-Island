@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "map.h"
+#include "defs.h"
 #include <SDL_image.h>
 
 int getType(int);
@@ -331,12 +332,50 @@ unsigned char calculId(int (*map)[MAP_SIZE], int x, int y){
     return total ;
 }
 
+/* Algo choix tile pour une case */
+coord_t choixTile(int (*map)[MAP_SIZE], unsigned char id) {
+    coord_t coord ;
+    coord.y = (isWater(map[x][y]) ? 96 : 0);
+    int tab_val[29] = { 74, 88, 82, 26, 
+                        24, 66, 18, 10, 72, 80, 
+                        2, 8, 64, 16, 
+                        133, 164, 133, 37, 
+                        129, 36, 33, 160, 132, 5, 
+                        4, 1, 32, 128 };
+    int nb_tiles[6] = {4, 6, 4, 4, 6, 4} ;
+    int i=0,j=0, k=0, x_res = 0;
+    if (id == 0x00) {
+        if(isWater(map[x][y])) 
+            coord.x = 96;
+        else if(isSand(map[x][y])) 
+            coord.x = 112;
+        else  //isGrass
+            coord.x = 128;
+        coord.y = map[x][y] % 10 * 16;
+        return coord ;
+    }
+    while (i < 29 ) {
+        for(j=0; j < nb_tiles[k]; j++){
+            if ( ( id & tab_val[i] ) == tab_val[i]) {
+                coord.x = x_res;
+                coord.y += j*16 ;
+                return coord;
+            }
+            i++ ;
+        }
+        k++;
+        x_res+=16;
+    }
+}
+
 /* Attrbue l'id de chaque case dans une nouvelle matrice */
-void creerMapId(int (*map)[MAP_SIZE], unsigned char (*map_id)[MAP_SIZE]) {
+void creerMapId(map_t *map) {
     int i, j ;
+    unsigned char id ;
     for(i = 0; i < MAP_SIZE ; i++) {
         for(j = 0 ; j < MAP_SIZE ; j++ ) {
-            map_id[i][j] = calculId(map, i, j);
+            id = calculId(map, i, j);
+            map->coord[i][j] = choixTile(map->ground, id) ;
         }
     }
     
