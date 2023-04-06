@@ -31,7 +31,7 @@ coord_t choixTile(int (*map)[MAP_SIZE], unsigned char (*map_id)[MAP_SIZE], int x
     int tab_val[29] = { 74, 88, 82, 26, 
                         24, 66, 18, 10, 72, 80, 
                         2, 8, 64, 16, 
-                        161, 164, 133, 37, 
+                        133, 164, 133, 37, 
                         129, 36, 33, 160, 132, 5, 
                         4, 1, 32, 128 };
     int nb_tiles[6] = {4, 6, 4, 4, 6, 4} ;
