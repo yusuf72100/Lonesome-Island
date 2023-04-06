@@ -333,7 +333,7 @@ unsigned char calculId(int (*map)[MAP_SIZE], int x, int y){
 }
 
 /* Algo choix tile pour une case */
-coord_t choixTile(int (*map)[MAP_SIZE], unsigned char id) {
+coord_t choixTile(int (*map)[MAP_SIZE], unsigned char id, int x, int y) {
     coord_t coord ;
     coord.y = (isWater(map[x][y]) ? 96 : 0);
     int tab_val[29] = { 74, 88, 82, 26, 
@@ -375,7 +375,7 @@ void creerMapId(map_t *map) {
     for(i = 0; i < MAP_SIZE ; i++) {
         for(j = 0 ; j < MAP_SIZE ; j++ ) {
             id = calculId(map, i, j);
-            map->coord[i][j] = choixTile(map->ground, id) ;
+            map->coord[i][j] = choixTile(map->ground, id, i, j) ;
         }
     }
     
