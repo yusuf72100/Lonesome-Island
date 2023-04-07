@@ -332,7 +332,14 @@ unsigned char calculId(int (*map)[MAP_SIZE], int x, int y){
     return total ;
 }
 
-/* Algo choix tile pour une case */
+/**
+ * @brief Algo choix tile pour une case
+ * @param map
+ * @param id
+ * @param x
+ * @param y
+ * @return
+ */
 coord_t choixTile(int (*map)[MAP_SIZE], unsigned char id, int x, int y) {
     coord_t coord ;
     coord.y = (isWater(map[x][y]) ? 96 : 0);
@@ -368,7 +375,10 @@ coord_t choixTile(int (*map)[MAP_SIZE], unsigned char id, int x, int y) {
     }
 }
 
-/* Attrbue l'id de chaque case dans une nouvelle matrice */
+/**
+ * @brief Attrbue l'id de chaque case dans une nouvelle matrice
+ * @param map
+ */
 void creerMapId(map_t *map) {
     int i, j ;
     unsigned char id ;
