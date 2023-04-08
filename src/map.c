@@ -311,9 +311,17 @@ int est_valide(int x, int y) {
     return ( ! ( (x<0 || x >= MAP_SIZE) || (y<0 || y >= MAP_SIZE) ) ) ;
 }
 
+/**
+ * @brief Calcule un id en focntion des voisins d'une case, permet de choisir une texture
+ * @param map
+ * @param x
+ * @param y 
+ * @return un octet contenant l'id de la case courante
+*/
 unsigned char calculId(int (*map)[MAP_SIZE], int x, int y){
     int valTile = getType(map[x][y]) ;
     unsigned char total = 0x00;
+    // On place la valeurs des 8 voisins dans un tableau s'il sont des coordonnées valides. 
     int places[8] = { 
             est_valide(x-1,y-1) ? map[x-1][y-1] : -1, 
             est_valide(x-1,y) ? map[x-1][y] : -1, 
@@ -333,22 +341,25 @@ unsigned char calculId(int (*map)[MAP_SIZE], int x, int y){
 }
 
 /**
- * @brief Algo choix tile pour une case
+ * @brief Permet de sélectionner la bonne texture dans le tileset
  * @param map
- * @param id
+ * @param id L'id est l'octet représentant les voisins d'une case 
  * @param x
  * @param y
- * @return
+ * @return Les coordonnées de la textures dans le tileset (en pixels) 
  */
 coord_t choixTile(int (*map)[MAP_SIZE], unsigned char id, int x, int y) {
     coord_t coord ;
     coord.y = (isWater(map[x][y]) ? 96 : 0);
+    //Le tableau contients les valeurs que l'on compare aux id
+    // Ces valeurs ont été calculé à la main et sont rangé dans les même ordre que le tileset (on parcours le tileset colonnes par colonnes et non lignes par lignes)
     int tab_val[29] = { 74, 88, 82, 26, 
                         24, 66, 18, 10, 72, 80, 
                         2, 8, 64, 16, 
                         133, 164, 133, 37, 
                         129, 36, 33, 160, 132, 5, 
                         4, 1, 32, 128 };
+    // Contient la taille de chauqe colonne du tileset, permet de faire varier la longueur de la boucle imbriquée
     int nb_tiles[6] = {4, 6, 4, 4, 6, 4} ;
     int i=0,j=0, k=0, x_res = 0;
     if (id == 0x00) {
@@ -376,10 +387,10 @@ coord_t choixTile(int (*map)[MAP_SIZE], unsigned char id, int x, int y) {
 }
 
 /**
- * @brief Attrbue l'id de chaque case dans une nouvelle matrice
+ * @brief Attribue un id à chaque cases et choisi puis stocke l'emplacement de la texture dans une matrice
  * @param map
  */
-void creerMapId(map_t *map) {
+void creerMapTileset(map_t *map) {
     int i, j ;
     unsigned char id ;
     for(i = 0; i < MAP_SIZE ; i++) {
@@ -403,6 +414,6 @@ void build_map(map_t **map)
 
     // Création du sol et des ressources
     init_ground((*map)->ground);
-    creerMapId(*map);
+    creerMapTileset(*map);
     init_utils(*map);
 }
