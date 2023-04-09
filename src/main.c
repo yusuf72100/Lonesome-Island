@@ -786,9 +786,9 @@ static void init_vars()
     memset(tabEvent, 0, 20*sizeof(SDL_bool));
     init_menus_vars();
 
-    initPlayer(renderer,&joueur);
-    initCamera(camera, window, &joueur);
     build_map(&map);
+    initPlayer(renderer, &joueur, map);
+    initCamera(camera, window, &joueur);
 
     //Initialisation des tileset
     tmp = IMG_Load("resources/tileset_ground.png");

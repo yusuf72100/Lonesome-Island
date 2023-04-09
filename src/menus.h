@@ -186,6 +186,7 @@ static SDL_Texture *cursor_select_texture = NULL;
 //background 
 static SDL_Surface *background = NULL;
 static SDL_Texture *background_texture = NULL;
+static SDL_Texture *utils_texture = NULL;
 static SDL_Surface *map_surface = NULL;
 static SDL_Texture *map_texture = NULL;
 

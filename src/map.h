@@ -24,7 +24,7 @@ typedef struct map_s{
 
 enum ground{ WATER, SAND, GRASS};
 
-enum utils{ TREE = 1, ROCK};
+enum utils{ TREE = 1, ROCK, RAFT, HOUSE};
 
 int isWater(int);
 
@@ -34,9 +34,11 @@ int isGrass(int);
 
 int getType(int);
 
-int getVarient(int); 
+int getVariant(int); 
 
-void getTreeDimensions(int, int*, int*);
+void getTreeRenderDimensions(int tree, int* w, int* h);
+
+void getTreeColisionsDimensions(int tree, int* w, int* h);
 
 void print_map(int map[MAP_SIZE][MAP_SIZE]);
 

@@ -30,13 +30,15 @@ typedef struct player_s{
     int facing;
     char playername[16];
     int animation_state;
+    int animationDelay;
+    int isRunning;
     int connected;
     int health;
     int thirst;
     int stuck;
 }player_t;
 
-void initPlayer(SDL_Renderer* renderer, player_t* player);
+void initPlayer(SDL_Renderer* renderer, player_t* player, map_t* map);
 
 void nextAnimationState(player_t* player);
 

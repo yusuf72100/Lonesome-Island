@@ -1,28 +1,36 @@
 
 #include "player.h"
 #include "defs.h"
+#include <time.h>
 
 /**
  * @brief Initialise les variables du joueur.
  * @param renderer
  * @param player
  */
-void initPlayer(SDL_Renderer* renderer, player_t* player) {
+void initPlayer(SDL_Renderer* renderer, player_t* player, map_t* map) {
+    printf("init rand");
+    srand(time(NULL));
 
+    printf("initpos");
     //Position sur la map
-    player->mapPosition.x = 50;
-    player->mapPosition.y = 50;
+    do {
+        player->mapPosition.x = rand() % MAP_SIZE;
+        player->mapPosition.y = rand() % MAP_SIZE;
+    } while(getType(map->ground[player->mapPosition.x][player->mapPosition.y]) == WATER || map->utils[player->mapPosition.x][player->mapPosition.y] != -1);
 
     //Decalage en pixel
     player->tilePosition.x = 0;
     player->tilePosition.y = 0;
-
+    printf("direction + isrunning");
     //Direction du joueur
     player->facing = SOUTH;
-
+    player->isRunning = 0;
+    printf("anim");
     //Animation du joueur
     player->animation_state = 0;
-
+    player->animationDelay = 250;
+    printf("tileset");
     //Tileset du joueur
     SDL_Surface* tmp = IMG_Load("resources/player2.png");
     player->tileset = SDL_CreateTextureFromSurface(renderer, tmp);
