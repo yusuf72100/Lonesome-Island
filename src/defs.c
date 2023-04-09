@@ -21,6 +21,7 @@ int direction = -1;
 SDL_Surface* tmp = NULL;
 SDL_Texture* tileset = NULL;
 SDL_Texture* currentGround = NULL;
+SDL_Texture* currentUtils = NULL;
 
 camera_t *camera = NULL;
 map_t *map = NULL;

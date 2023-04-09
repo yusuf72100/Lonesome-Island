@@ -266,8 +266,6 @@ void placeRaft(map_t* map) {
         y = rand() % MAP_SIZE;
     } while(map->ground[x][y] != WATER || !raftNearBeach(map, x, y));
 
-    printf("radeau at %d %d", x, y);
-
     for (int i = 3; i >= 0; i--) {
         for (int j = 3; j >= 0; j--) {
             map->utils[x - i][y - j] = 39;

@@ -9,10 +9,9 @@
  * @param player
  */
 void initPlayer(SDL_Renderer* renderer, player_t* player, map_t* map) {
-    printf("init rand");
+
     srand(time(NULL));
 
-    printf("initpos");
     //Position sur la map
     do {
         player->mapPosition.x = rand() % MAP_SIZE;
@@ -22,15 +21,15 @@ void initPlayer(SDL_Renderer* renderer, player_t* player, map_t* map) {
     //Decalage en pixel
     player->tilePosition.x = 0;
     player->tilePosition.y = 0;
-    printf("direction + isrunning");
+
     //Direction du joueur
     player->facing = SOUTH;
     player->isRunning = 0;
-    printf("anim");
+
     //Animation du joueur
     player->animation_state = 0;
     player->animationDelay = 250;
-    printf("tileset");
+
     //Tileset du joueur
     SDL_Surface* tmp = IMG_Load("resources/player2.png");
     player->tileset = SDL_CreateTextureFromSurface(renderer, tmp);

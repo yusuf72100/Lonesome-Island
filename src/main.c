@@ -770,6 +770,7 @@ static void doEvents()
     if(checkPlayerOut(camera, &joueur, direction)) {
         moveCamera(camera, direction);
         updateGroundTexture(&renderer, &currentGround, window, tileset, camera, map);
+        updateUtilsTexture(&renderer, &currentUtils, window, tileset, camera, map);
     }
 }
 
@@ -795,6 +796,7 @@ static void init_vars()
     tileset = SDL_CreateTextureFromSurface(renderer, tmp);
     SDL_FreeSurface(tmp);
     updateGroundTexture(&renderer, &currentGround, window, tileset, camera, map);
+    updateUtilsTexture(&renderer, &currentUtils, window, tileset, camera, map);
 }
 
 /**

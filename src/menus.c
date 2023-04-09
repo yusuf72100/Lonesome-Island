@@ -1390,6 +1390,7 @@ static void IngameMenu()
 
     renderMap(&renderer, currentGround);
     renderPlayer(&renderer, camera, &joueur);
+    renderUtils(&renderer, currentUtils);
 
     wearing();
     drawlifeBar();

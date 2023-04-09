@@ -40,6 +40,7 @@ extern int direction;
 extern SDL_Surface* tmp;
 extern SDL_Texture* tileset;
 extern SDL_Texture* currentGround;
+extern SDL_Texture* currentUtils;
 extern camera_t* camera;
 extern map_t* map;
 

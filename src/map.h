@@ -13,7 +13,7 @@ typedef struct map_s map_t;
 #define SAND_RATIO 8
 
 // Sur une base 100
-#define TREE_RATIO 0
+#define TREE_RATIO 2
 #define ROCK_RATIO 3
 
 typedef struct map_s{

@@ -30,7 +30,7 @@ void setTileSource(SDL_Rect* src, map_t* map, int x, int y) {
 
 void setUtilSource(SDL_Rect* src, int data) {
     if(getType(data) == TREE) {
-        src->y = 128;
+        src->y = 192;
         switch (getVariant(data)) {
             case 0 :
                 src->x = 0;
