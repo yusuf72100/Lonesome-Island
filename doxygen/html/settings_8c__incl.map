@@ -1,28 +1,28 @@
 <map id="C:/Users/Yusuf/CLionProjects/Lonesome&#45;Island/src/settings.c" name="C:/Users/Yusuf/CLionProjects/Lonesome&#45;Island/src/settings.c">
-<area shape="rect" id="node1" title="Programme qui s&#39;occupera de la sauvegarde des paramètres de l&#39;utilisateur." alt="" coords="154,5,361,45"/>
-<area shape="rect" id="node2" href="$settings_8h.html" title="Fichier content les définitions pour le fichier settings.c." alt="" coords="218,93,297,119"/>
-<area shape="rect" id="node3" title=" " alt="" coords="379,607,443,632"/>
-<area shape="rect" id="node4" title=" " alt="" coords="101,607,163,632"/>
-<area shape="rect" id="node5" title=" " alt="" coords="195,240,253,265"/>
-<area shape="rect" id="node6" title=" " alt="" coords="246,387,311,412"/>
-<area shape="rect" id="node7" title=" " alt="" coords="278,240,341,265"/>
-<area shape="rect" id="node8" title=" " alt="" coords="1423,387,1499,412"/>
-<area shape="rect" id="node9" href="$menus_8h.html" title="Fichier contenant toutes les variables d&#39;affichage." alt="" coords="617,167,689,192"/>
-<area shape="rect" id="node10" title=" " alt="" coords="888,607,947,632"/>
-<area shape="rect" id="node21" href="$defs_8h.html" title="Fichier contenant toutes les définitions de structures et de types." alt="" coords="438,387,495,412"/>
-<area shape="rect" id="node25" title=" " alt="" coords="1651,240,1733,265"/>
-<area shape="rect" id="node11" title=" " alt="" coords="1243,607,1343,632"/>
-<area shape="rect" id="node12" title=" " alt="" coords="1221,387,1297,412"/>
-<area shape="rect" id="node13" title=" " alt="" coords="518,240,615,265"/>
-<area shape="rect" id="node14" href="$liste_8h_source.html" title=" " alt="" coords="771,533,829,559"/>
-<area shape="rect" id="node15" href="$client_8h.html" title="Fichier content toutes les informations relatives au client et au serveur." alt="" coords="868,240,932,265"/>
-<area shape="rect" id="node26" href="$render_8h_source.html" title=" " alt="" coords="520,387,589,412"/>
-<area shape="rect" id="node16" title=" " alt="" coords="1129,387,1197,412"/>
-<area shape="rect" id="node17" title=" " alt="" coords="614,387,701,412"/>
-<area shape="rect" id="node18" title=" " alt="" coords="725,387,811,412"/>
-<area shape="rect" id="node19" title=" " alt="" coords="1039,387,1105,412"/>
-<area shape="rect" id="node20" href="$socket_8h.html" title="Fichier qui contient les informations relatives aux clients et au serveur point de vu socket." alt="" coords="864,313,936,339"/>
-<area shape="rect" id="node22" href="$player_8h_source.html" title=" " alt="" coords="526,533,594,559"/>
-<area shape="rect" id="node23" href="$map_8h_source.html" title=" " alt="" coords="531,607,589,632"/>
-<area shape="rect" id="node24" href="$camera_8h_source.html" title=" " alt="" coords="550,460,626,485"/>
+<area shape="rect" id="node1" title="Programme qui s&#39;occupera de la sauvegarde des paramètres de l&#39;utilisateur." alt="" coords="561,5,767,45"/>
+<area shape="rect" id="node2" href="$settings_8h.html" title="Fichier content les définitions pour le fichier settings.c." alt="" coords="625,93,703,119"/>
+<area shape="rect" id="node3" title=" " alt="" coords="855,607,919,632"/>
+<area shape="rect" id="node4" title=" " alt="" coords="203,607,264,632"/>
+<area shape="rect" id="node5" title=" " alt="" coords="144,240,203,265"/>
+<area shape="rect" id="node6" title=" " alt="" coords="307,387,373,412"/>
+<area shape="rect" id="node7" title=" " alt="" coords="227,240,290,265"/>
+<area shape="rect" id="node8" title=" " alt="" coords="1585,387,1661,412"/>
+<area shape="rect" id="node9" href="$menus_8h.html" title="Fichier contenant toutes les variables d&#39;affichage." alt="" coords="811,167,883,192"/>
+<area shape="rect" id="node10" title=" " alt="" coords="1425,607,1484,632"/>
+<area shape="rect" id="node21" href="$defs_8h.html" title="Fichier contenant toutes les définitions de structures et de types." alt="" coords="1257,387,1314,412"/>
+<area shape="rect" id="node25" title=" " alt="" coords="1592,240,1675,265"/>
+<area shape="rect" id="node11" title=" " alt="" coords="499,607,599,632"/>
+<area shape="rect" id="node12" title=" " alt="" coords="1157,387,1233,412"/>
+<area shape="rect" id="node13" title=" " alt="" coords="1369,240,1466,265"/>
+<area shape="rect" id="node14" href="$liste_8h_source.html" title=" " alt="" coords="1426,533,1483,559"/>
+<area shape="rect" id="node15" href="$client_8h.html" title="Fichier content toutes les informations relatives au client et au serveur." alt="" coords="815,240,879,265"/>
+<area shape="rect" id="node26" href="$render_8h_source.html" title=" " alt="" coords="1339,387,1408,412"/>
+<area shape="rect" id="node16" title=" " alt="" coords="1065,387,1133,412"/>
+<area shape="rect" id="node17" title=" " alt="" coords="550,387,637,412"/>
+<area shape="rect" id="node18" title=" " alt="" coords="661,387,747,412"/>
+<area shape="rect" id="node19" title=" " alt="" coords="975,387,1041,412"/>
+<area shape="rect" id="node20" href="$socket_8h.html" title="Fichier qui contient les informations relatives aux clients et au serveur point de vu socket." alt="" coords="863,313,935,339"/>
+<area shape="rect" id="node22" href="$player_8h_source.html" title=" " alt="" coords="1021,533,1089,559"/>
+<area shape="rect" id="node23" href="$map_8h_source.html" title=" " alt="" coords="1061,607,1120,632"/>
+<area shape="rect" id="node24" href="$camera_8h_source.html" title=" " alt="" coords="1154,460,1230,485"/>
 </map>

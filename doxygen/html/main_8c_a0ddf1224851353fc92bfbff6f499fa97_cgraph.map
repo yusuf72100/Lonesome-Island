@@ -28,7 +28,7 @@
 <area shape="rect" id="node21" href="$menus_8c.html#a20432793012cb1509389bf14f94a8ee9" title="Change le boutton ciblé avec l&#39;état voulut." alt="" coords="331,689,501,714"/>
 <area shape="rect" id="node22" href="$menus_8c.html#af62b6c78dad8d3b0ae378b5174a28784" title="Évalue sur quel item on a cliqué." alt="" coords="379,738,453,764"/>
 <area shape="rect" id="node23" href="$menus_8c.html#a9cde538499636a6a74cb0f3e206d4a73" title="Dessine l&#39;erreur avec TTF." alt="" coords="371,788,461,813"/>
-<area shape="rect" id="node24" href="$menus_8c.html#ad9f9e984dc9e1c14e8dc5d97e33c2e83" title="Trie les joueurs en fonction de leur coordonnées Y et organise l&#39;ordre d&#39;affichage des joueurs." alt="" coords="369,837,463,862"/>
+<area shape="rect" id="node24" href="$menus_8c.html#ab804df0c510979d77fd5599feef21ae0" title="Trie les joueurs en fonction de leur coordonnées Y et organise l&#39;ordre d&#39;affichage des joueurs." alt="" coords="369,837,463,862"/>
 <area shape="rect" id="node25" href="$main_8c.html#ab5a2d27713f1814d93ff81281e653e22" title="Récupère l&#39;heure et la date actuelle." alt="" coords="376,910,456,936"/>
 <area shape="rect" id="node26" href="$menus_8c.html#ab283db36e8911aeb9d32d5886f156570" title="Renvoi l&#39;état du boutton demandé." alt="" coords="337,960,495,985"/>
 <area shape="rect" id="node27" href="$sound_8c.html#a255dd9ed014ef2eaf3f9e53005134ec4" title="Fonction qui lance le son de clique de bouton dans un thread dédié." alt="" coords="379,1009,453,1034"/>

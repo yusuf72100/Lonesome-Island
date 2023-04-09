@@ -84,8 +84,8 @@ $(function() {
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;SDL.h&gt;</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;player.h&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;map.h&quot;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;camera.h&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;camera.h&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;map.h&quot;</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#define TRUE 1</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#define FALSE 0</span></div>
@@ -115,7 +115,7 @@ $(function() {
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">extern</span> <a class="code hl_struct" href="structmap__s.html">map_t</a>* map;</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">extern</span> <a class="code hl_struct" href="structplayer__s.html">player_t</a> joueur;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">extern</span> <a class="code hl_struct" href="structplayer__s.html">player_t</a> *joueurs[10];</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">extern</span> <a class="code hl_struct" href="structplayer__s.html">player_t</a> *joueurs;</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">extern</span> <span class="keywordtype">char</span> bindButtonText[4];</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keyword">extern</span> <span class="keywordtype">char</span> IP_PUBLIC[256];</div>
@@ -180,13 +180,13 @@ $(function() {
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="adefs_8h_html_a6bd9bc7437d75b11d5e167fcf0114dc2"><div class="ttname"><a href="defs_8h.html#a6bd9bc7437d75b11d5e167fcf0114dc2">defineItem</a></div><div class="ttdeci">void defineItem()</div><div class="ttdoc">Initialise les items globaux.</div><div class="ttdef"><b>Definition:</b> defs.c:49</div></div>
 <div class="ttc" id="astructblock__t_html"><div class="ttname"><a href="structblock__t.html">block_t</a></div><div class="ttdoc">Définition d'un block.</div><div class="ttdef"><b>Definition:</b> defs.h:112</div></div>
-<div class="ttc" id="astructcamera__s_html"><div class="ttname"><a href="structcamera__s.html">camera_s</a></div><div class="ttdef"><b>Definition:</b> camera.h:10</div></div>
+<div class="ttc" id="astructcamera__s_html"><div class="ttname"><a href="structcamera__s.html">camera_s</a></div><div class="ttdef"><b>Definition:</b> camera.h:9</div></div>
 <div class="ttc" id="astructcase__inventory_html"><div class="ttname"><a href="structcase__inventory.html">case_inventory</a></div><div class="ttdoc">Stockera les informations de chaque case de l'inventaire du joueur.</div><div class="ttdef"><b>Definition:</b> defs.h:89</div></div>
 <div class="ttc" id="astructchest__t_html"><div class="ttname"><a href="structchest__t.html">chest_t</a></div><div class="ttdoc">Définition d'un chest.</div><div class="ttdef"><b>Definition:</b> defs.h:103</div></div>
 <div class="ttc" id="astructfood__t_html"><div class="ttname"><a href="structfood__t.html">food_t</a></div><div class="ttdoc">Définition d'un food.</div><div class="ttdef"><b>Definition:</b> defs.h:66</div></div>
 <div class="ttc" id="astructitem__t_html"><div class="ttname"><a href="structitem__t.html">item_t</a></div><div class="ttdoc">Item avec ses stats.</div><div class="ttdef"><b>Definition:</b> defs.h:76</div></div>
-<div class="ttc" id="astructmap__s_html"><div class="ttname"><a href="structmap__s.html">map_s</a></div><div class="ttdef"><b>Definition:</b> map.h:15</div></div>
-<div class="ttc" id="astructplayer__s_html"><div class="ttname"><a href="structplayer__s.html">player_s</a></div><div class="ttdoc">Structure du joueur.</div><div class="ttdef"><b>Definition:</b> player.h:27</div></div>
+<div class="ttc" id="astructmap__s_html"><div class="ttname"><a href="structmap__s.html">map_s</a></div><div class="ttdef"><b>Definition:</b> map.h:19</div></div>
+<div class="ttc" id="astructplayer__s_html"><div class="ttname"><a href="structplayer__s.html">player_s</a></div><div class="ttdoc">Structure du joueur.</div><div class="ttdef"><b>Definition:</b> player.h:26</div></div>
 <div class="ttc" id="astructweapon__t_html"><div class="ttname"><a href="structweapon__t.html">weapon_t</a></div><div class="ttdoc">Définition d'un weapon.</div><div class="ttdef"><b>Definition:</b> defs.h:57</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

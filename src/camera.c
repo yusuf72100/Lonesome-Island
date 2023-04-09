@@ -13,6 +13,12 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
+/**
+ * @brief Initialise les variables de la caméra.
+ * @param camera
+ * @param window
+ * @param player
+ */
 void initCamera(camera_t* camera, SDL_Window* window, player_t* player) {
 
     camera->offsetStartPosition.x = 0;
@@ -34,6 +40,13 @@ void initCamera(camera_t* camera, SDL_Window* window, player_t* player) {
     camera->startPosition.y = player->mapPosition.y - (camera->hRender/2);
 }
 
+/**
+ * @brief Vérifie si le joueur se trouve en dehors du champ de la caméra.
+ * @param camera
+ * @param player
+ * @param direction
+ * @return
+ */
 int checkPlayerOut(camera_t* camera, player_t* player, int direction) {
     //NORTH
     if(direction == NORTH && player->mapPosition.y + (float) (player->tilePosition.y)/MOVES_ON_TILE < camera->startPosition.y + (float) (camera->offsetStartPosition.x)/MOVES_ON_TILE + (float) (camera->hRender)/5) return 1;
@@ -46,6 +59,11 @@ int checkPlayerOut(camera_t* camera, player_t* player, int direction) {
     return 0;
 }
 
+/**
+ * @brief Déplace la caméra selon une direction.
+ * @param camera
+ * @param direction
+ */
 void moveCamera(camera_t* camera, int direction) {
 
     switch(direction) {

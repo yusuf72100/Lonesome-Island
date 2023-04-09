@@ -9,38 +9,40 @@
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <SDL\_image.h>}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}map.h"{}}}
-\DoxyCodeLine{00009\ }
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ MAX\_ANIMATION\ 4}}
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ MOVES\_ON\_TILE\ 4}}
-\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ PLAYER\_W\_RESOLUTION\ 16}}
-\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ PLAYER\_H\_RESOLUTION\ 16}}
-\DoxyCodeLine{00014\ }
-\DoxyCodeLine{00018\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structcoord__s}{coord\_s}}}
-\DoxyCodeLine{00019\ \{}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ x;}
-\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ y;}
-\DoxyCodeLine{00022\ \}\mbox{\hyperlink{structcoord__s}{coord\_t}};}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00027\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structplayer__s}{player\_s}}\{}
-\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{structcoord__s}{coord\_t}}\ mapPosition;}
-\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{structcoord__s}{coord\_t}}\ tilePosition;}
-\DoxyCodeLine{00030\ \ \ \ \ SDL\_Texture*\ tileset;}
-\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{int}\ facing;}
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{char}\ playername[16];}
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{int}\ animation\_state;}
-\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ connected;}
-\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{int}\ health;}
-\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{int}\ thirst;}
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{int}\ stuck;}
-\DoxyCodeLine{00038\ \}\mbox{\hyperlink{structplayer__s}{player\_t}};}
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ \textcolor{keywordtype}{void}\ initPlayer(SDL\_Renderer*\ renderer,\ \mbox{\hyperlink{structplayer__s}{player\_t}}*\ player);}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \textcolor{keywordtype}{void}\ nextAnimationState(\mbox{\hyperlink{structplayer__s}{player\_t}}*\ player);}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \textcolor{keywordtype}{void}\ movePlayer(\mbox{\hyperlink{structmap__s}{map\_t}}*\ map,\ \mbox{\hyperlink{structplayer__s}{player\_t}}*\ player,\ \textcolor{keywordtype}{int}\ direction);}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ MAX\_ANIMATION\ 6}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ MOVES\_ON\_TILE\ 6}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ PLAYER\_W\_RESOLUTION\ 16}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ PLAYER\_H\_RESOLUTION\ 24}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structplayer__s}{player\_s}}\ \mbox{\hyperlink{structplayer__s}{player\_t}};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{int}\ x;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ y;}
+\DoxyCodeLine{00019\ \}\mbox{\hyperlink{structcoord__t}{coord\_t}};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}map.h"{}}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structplayer__s}{player\_s}}\{}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{structcoord__t}{coord\_t}}\ mapPosition;}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{structcoord__t}{coord\_t}}\ tilePosition;}
+\DoxyCodeLine{00029\ \ \ \ \ SDL\_Texture*\ tileset;}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ facing;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{char}\ playername[16];}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ animation\_state;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{int}\ connected;}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ health;}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{int}\ thirst;}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{int}\ stuck;}
+\DoxyCodeLine{00037\ \}\mbox{\hyperlink{structplayer__s}{player\_t}};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ initPlayer(SDL\_Renderer*\ renderer,\ \mbox{\hyperlink{structplayer__s}{player\_t}}*\ player);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{void}\ nextAnimationState(\mbox{\hyperlink{structplayer__s}{player\_t}}*\ player);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keywordtype}{void}\ movePlayer(\mbox{\hyperlink{structmap__s}{map\_t}}*\ map,\ \mbox{\hyperlink{structplayer__s}{player\_t}}*\ player,\ \textcolor{keywordtype}{int}\ direction);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

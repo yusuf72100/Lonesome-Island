@@ -1,4 +1,4 @@
 <map id="player_s" name="player_s">
 <area shape="rect" id="node1" title="Structure du joueur." alt="" coords="5,175,132,355"/>
-<area shape="rect" id="node2" href="$structcoord__s.html" title="Stockera les coordonnées du joueur." alt="" coords="35,5,103,97"/>
+<area shape="rect" id="node2" href="$structcoord__t.html" title=" " alt="" coords="36,5,101,97"/>
 </map>

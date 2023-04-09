@@ -2,5 +2,5 @@
 <area shape="rect" id="node1" title="Rassemble toutes les données de tous les joueurs dans le but de pouvoir communiquer tout cela dans de..." alt="" coords="31,587,107,679"/>
 <area shape="rect" id="node2" href="$structsocket_datas.html" title="Sauvegarde les informations de chaque joueurs relatives au socket et à la connection au serveur (adre..." alt="" coords="14,417,123,524"/>
 <area shape="rect" id="node3" href="$structplayer__s.html" title="Structure du joueur." alt="" coords="5,175,132,355"/>
-<area shape="rect" id="node4" href="$structcoord__s.html" title="Stockera les coordonnées du joueur." alt="" coords="35,5,103,97"/>
+<area shape="rect" id="node4" href="$structcoord__t.html" title=" " alt="" coords="36,5,101,97"/>
 </map>

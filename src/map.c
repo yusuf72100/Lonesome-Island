@@ -286,6 +286,10 @@ void add_rocks(map_t *map)
     }
 }
 
+/**
+ * @brief Initialise les resources de la map.
+ * @param map
+ */
 void init_utils(map_t *map)
 {
     // Add plantations
