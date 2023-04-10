@@ -1,3 +1,9 @@
+/**
+ * @file map.c
+ * @author Luca Pourceau Elvin Maubert
+ * @brief Fichier contenant les fonctions permettant de générer la map
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>

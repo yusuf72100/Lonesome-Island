@@ -1,3 +1,11 @@
+/**
+ * @file map.c
+ * @author Luca Pourceau Elvin Maubert
+ * @brief Fichier permettant de calculer le rendu de jeu
+ */
+
+
+
 //C includes
 #include <stdio.h>
 #include <stdlib.h>
