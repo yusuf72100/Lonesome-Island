@@ -1,7 +1,7 @@
 /**
  * @file liste.c
  * @author Yusuf Ulas
- * @brief Fichier d'utilisation de listes
+ * @brief CECI EST UN FICHIER NON UTILISÉ PAR LE PROGRAMME PRINCIPAL, IL S'AGIT D'UN FICHIER DE TEST!
  * @version 0.1
  * @date 2023-01-31
  * @copyright Copyright (c) 2023

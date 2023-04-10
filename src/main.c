@@ -833,7 +833,7 @@ int main(int argc, char *argv[])
         doEvents();
         drawMenu();
 
-        //On gère les fps.
+        //on gère les fps
         if((timer = (1000 / 75)-(SDL_GetTicks() - tick)) > 0)
             SDL_Delay(timer);
         else
