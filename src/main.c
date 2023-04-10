@@ -218,6 +218,8 @@ static void checkEvents()
 
             }
             else{
+                joueur.isRunning = 0;
+                
                 if (event.key.keysym.sym == globalKeyTab[0]) tabEvent[0] = SDL_FALSE;
 
                 if (event.key.keysym.sym == globalKeyTab[1]) tabEvent[1] = SDL_FALSE;
@@ -361,6 +363,7 @@ static void doEvents()
                 if (debug) printf("Touche avancer pressee | %s\n", eventTime());
                 direction = NORTH;
                 movePlayer( map, &joueur, NORTH);
+                joueur.isRunning = 1;
 
 
                 if(tabEvent[1] == SDL_FALSE && tabEvent[3] == SDL_FALSE)
@@ -380,6 +383,7 @@ static void doEvents()
                 if (debug) printf("Touche gauche pressee | %s\n", eventTime());
                 direction = WEST;
                 movePlayer( map, &joueur, WEST);
+                joueur.isRunning = 1;
 
                 /*if(pthread_kill(animations_thread, 0) != 0)
                     pthread_create(&animations_thread, NULL, running_left_animation,(void *)&joueur);  */
@@ -395,6 +399,7 @@ static void doEvents()
                 if (debug) printf("Touche descendre pressee | %s\n", eventTime());
                 direction = SOUTH;
                 movePlayer( map, &joueur, SOUTH);
+                joueur.isRunning = 1;
 
                 if(tabEvent[1] == SDL_FALSE && tabEvent[3] == SDL_FALSE)
                 {
@@ -413,6 +418,7 @@ static void doEvents()
                 if (debug) printf("Touche droite pressee | %s\n", eventTime());
                 direction = EAST;
                 movePlayer( map, &joueur, EAST);
+                joueur.isRunning = 1;
 
                /* if(pthread_kill(animations_thread, 0) != 0)
                     pthread_create(&animations_thread, NULL, running_right_animation,(void *)&joueur);  */
