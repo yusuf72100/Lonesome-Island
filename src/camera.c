@@ -37,9 +37,10 @@ void initCamera(camera_t* camera, SDL_Window* window, player_t* player) {
     camera->hRender = h/tileSize;
 
     if(player != NULL) {
-    camera->startPosition.x = (player->mapPosition.x - (camera->wRender/2) < 0 ? 0 : (player->mapPosition.x - (camera->wRender/2) + camera->wRender >= MAP_SIZE ? MAP_SIZE - camera->wRender - 1 : player->mapPosition.x - (camera->wRender/2)));
-    camera->startPosition.y = (player->mapPosition.y - (camera->hRender/2) < 0 ? 0 : (player->mapPosition.y - (camera->hRender/2) + camera->hRender >= MAP_SIZE ? MAP_SIZE - camera->hRender - 1 : player->mapPosition.y - (camera->hRender/2)));
-    } else {
+        camera->startPosition.x = (player->mapPosition.x - (camera->wRender/2) < 0 ? 0 : (player->mapPosition.x - (camera->wRender/2) + camera->wRender >= MAP_SIZE ? MAP_SIZE - camera->wRender - 1 : player->mapPosition.x - (camera->wRender/2)));
+        camera->startPosition.y = (player->mapPosition.y - (camera->hRender/2) < 0 ? 0 : (player->mapPosition.y - (camera->hRender/2) + camera->hRender >= MAP_SIZE ? MAP_SIZE - camera->hRender - 1 : player->mapPosition.y - (camera->hRender/2)));
+    }
+    else {
         camera->startPosition.x = 0;
         camera->startPosition.y = (MAP_SIZE + camera->hRender) / 2;
     }

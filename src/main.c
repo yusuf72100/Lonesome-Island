@@ -794,6 +794,10 @@ static void doEvents()
         updateGroundTexture(&renderer, &currentGround, window, tileset, camera, map);
         updateUtilsTexture(&renderer, &currentUtils, window, tileset, camera, map);
     }
+    if(menu == MAIN_MENU && ) {
+        moveCamera(camera, EAST);
+        updateGroundTexture(&renderer, &background_texture, window, tileset, camera, map);
+    }
 }
 
 /**
@@ -812,7 +816,6 @@ static void init_vars()
     build_map(&map);
     initPlayer(renderer, &joueur, map);
     initCamera(camera, window, &joueur);
-    initCamera(backgroundCamera, window, NULL);
 
     //Initialisation des tileset
     tmp = IMG_Load("resources/tileset_ground.png");
@@ -820,12 +823,12 @@ static void init_vars()
     SDL_FreeSurface(tmp);
 
     //Camera du menu
-    updateGroundTexture(&renderer, &background_texture, window, tileset, backgroundcamera, map);
-    updateUtilsTexture(&renderer, &background_texture, window, tileset, backgroundcamera, map);
+    updateGroundTexture(&renderer, &background_texture, window, tileset, camera, map);
+    updateUtilsTexture(&renderer, &background_texture, window, tileset, camera, map);
 
     //Camera de jeu
     updateGroundTexture(&renderer, &currentGround, window, tileset, camera, map);
-    updateUtilsTexture(&renderer, &currentUtils, window, tileset, camera, map);
+    //updateUtilsTexture(&renderer, &currentUtils, window, tileset, camera, map);
 }
 
 /**
@@ -853,6 +856,7 @@ int main(int argc, char *argv[])
     while(program_launched)
     {
         tick = SDL_GetTicks();
+
         update_screen();
 
         while(SDL_PollEvent(&event))

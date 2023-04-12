@@ -316,7 +316,7 @@ static void drawButtons()
 extern void update_screen()
 {
     //if(SOLO == FALSE || HOST == FALSE || CONNECTED == FALSE)
-    SDL_RenderCopy(renderer, background_texture, NULL, NULL);
+    renderMap(&renderer, background_texture);
     SDL_GetMouseState(&mouse_position.x,&mouse_position.y);
     SDL_GetWindowPosition(window, &xWindow, &yWindow);
     SDL_ShowCursor(SDL_DISABLE);
@@ -739,7 +739,6 @@ static void surfacesInit()
     imagebullet = IMG_Load("resources/bullet.png");
     cursor = IMG_Load("resources/cursor/cursor.png");
     cursor_select = IMG_Load("resources/cursor/cursor_select.png");
-    background = IMG_Load("resources/bg.png");
     surface_play_inert = IMG_Load("resources/play_inert.png");
     surface_play_hover = IMG_Load("resources/play_hover.png");
     surface_connect_inert = IMG_Load("resources/connect_inert.png");
@@ -816,7 +815,7 @@ static void texturesInit()
 
     //game assets
     //init_texture(&map_surface , &map_texture);
-    init_texture(&background , &background_texture);
+    //init_texture(&background , &background_texture);
     init_texture(&lifebar_surface , &lifebar_texture);
     init_texture(&thirstbar_surface , &thirstbar_texture);
 
