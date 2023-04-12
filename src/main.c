@@ -832,7 +832,8 @@ static void doEvents()
         updateGroundTexture(&renderer, &currentGround, window, tileset, camera, map);
         updateUtilsTexture(&renderer, &currentUtils, window, tileset, camera, map);
     }
-    if(menu == MAIN_MENU && ) {
+    if(menu == MAIN_MENU) {
+        tabTick[14] = SDL_GetTicks();
         moveCamera(camera, EAST);
         updateGroundTexture(&renderer, &background_texture, window, tileset, camera, map);
     }
@@ -896,6 +897,7 @@ int main(int argc, char *argv[])
         tick = SDL_GetTicks();
 
         update_screen();
+        renderMap(&renderer, background_texture);
 
         while(SDL_PollEvent(&event))
         {
