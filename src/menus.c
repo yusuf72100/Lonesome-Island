@@ -13,6 +13,8 @@
 #include "player.h"
 #include "camera.h"
 
+SDL_Texture *background_texture = NULL;
+
 void SDL_ExitWithError(const char *message);
 
 /**
@@ -315,7 +317,6 @@ static void drawButtons()
  */
 extern void update_screen()
 {
-    //if(SOLO == FALSE || HOST == FALSE || CONNECTED == FALSE)
     renderMap(&renderer, background_texture);
     SDL_GetMouseState(&mouse_position.x,&mouse_position.y);
     SDL_GetWindowPosition(window, &xWindow, &yWindow);
