@@ -24,6 +24,7 @@ SDL_Texture* currentGround = NULL;
 SDL_Texture* currentUtils = NULL;
 
 camera_t *camera = NULL;
+camera_t *backgroundCamera = NULL;
 map_t *map = NULL;
 
 player_t joueur;

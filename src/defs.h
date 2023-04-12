@@ -42,6 +42,7 @@ extern SDL_Texture* tileset;
 extern SDL_Texture* currentGround;
 extern SDL_Texture* currentUtils;
 extern camera_t* camera;
+extern camera_t* backgroundCamera;
 extern map_t* map;
 
 extern player_t joueur;
