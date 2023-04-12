@@ -832,6 +832,8 @@ static void doEvents()
         updateGroundTexture(&renderer, &currentGround, window, tileset, camera, map);
         updateUtilsTexture(&renderer, &currentUtils, window, tileset, camera, map);
     }
+
+    //animation main menu background
     if(menu == MAIN_MENU && ((SDL_GetTicks() - tabTick[14]) > 500 || tabTick[14] == 0)) {
         tabTick[14] = SDL_GetTicks();
         moveCamera(camera, EAST);
