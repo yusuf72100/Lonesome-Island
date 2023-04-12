@@ -797,7 +797,7 @@ static void doEvents()
         //touche E
         if(menu == INGAME_MENU)
         {
-            if((SDL_GetTicks() - tabTick[15]) >= 200)
+            if((SDL_GetTicks() - tabTick[13]) >= 200)
             {
 
             }
@@ -832,7 +832,7 @@ static void doEvents()
         updateGroundTexture(&renderer, &currentGround, window, tileset, camera, map);
         updateUtilsTexture(&renderer, &currentUtils, window, tileset, camera, map);
     }
-    if(menu == MAIN_MENU && ((SDL_GetTicks() - tabTick[14]) > 500 || tabTick[14] == 0)) {
+    if(menu == MAIN_MENU && ) {
         moveCamera(camera, EAST);
         updateGroundTexture(&renderer, &background_texture, window, tileset, camera, map);
     }
