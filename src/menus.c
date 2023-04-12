@@ -1324,7 +1324,7 @@ static void IngameMenu()
 
     wearing();
     drawlifeBar();
-    drawThirstBar();
+    //drawThirstBar();
     drawMouse();
 }
 
