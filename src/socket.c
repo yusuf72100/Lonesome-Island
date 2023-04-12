@@ -127,7 +127,7 @@ static void *sendToClient(send2Client *argClient, int position)
         {
             //on prévient de la perte de packet
             if(send(argClient->argt->sd[i].clientSocket,tramClient_send,(sizeof(char)*30),0) == SOCKET_ERROR) printf("Server: Packet lost for %d\n",i);
-            printf("Sended to client: %s\n",tramClient_send);
+            //printf("Sended to client: %s\n",tramClient_send);
         }
         i++;
     } while (i <= max_player);
