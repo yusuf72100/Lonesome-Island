@@ -108,6 +108,36 @@ static void traitData()
             k=0;
             buffer[0] = '\0';
         }
+        if(tramClient_receive[j] == 'f')
+        {
+
+            j++;
+            while(tramClient_receive[j] >= '0' && tramClient_receive[j] <= '9')
+            {
+                buffer[k] = tramClient_receive[j];
+                k++;
+                j++;
+            }
+            buffer[k] = '\0';
+            joueurs[position].facing = atoi(buffer);
+            k=0;
+            buffer[0] = '\0';
+        }
+        if(tramClient_receive[j] == 'r')
+        {
+
+            j++;
+            while(tramClient_receive[j] >= '0' && tramClient_receive[j] <= '9')
+            {
+                buffer[k] = tramClient_receive[j];
+                k++;
+                j++;
+            }
+            buffer[k] = '\0';
+            joueurs[position].isRunning = atoi(buffer);
+            k=0;
+            buffer[0] = '\0';
+        }
     }
     synchDatas(joueurs,size);
 }
@@ -146,7 +176,6 @@ static void buildTram(player_t joueur)
     char dataY[4] = "y";
     itoa(joueur.mapPosition.y, bufferY, 10);
     strcat(dataY, bufferY);
-
     strcat(tramClient_send, dataY);
     
     char bufferA[3] = "";
@@ -154,6 +183,19 @@ static void buildTram(player_t joueur)
     itoa(joueur.animation_state, bufferA, 10);
     strcat(dataA, bufferA);
     strcat(tramClient_send, dataA);
+
+    char bufferF[3] = "";
+    char dataF[4] = "f";
+    itoa(joueur.facing, bufferF, 10);
+    strcat(dataF, bufferF);
+    strcat(tramClient_send, dataF);
+
+    char bufferR[3] = "";
+    char dataR[4] = "r";
+    itoa(joueur.isRunning, bufferR, 10);
+    strcat(dataR, bufferR);
+    strcat(tramClient_send, dataR);
+
     strcat(tramClient_send, " fff");
 }
 

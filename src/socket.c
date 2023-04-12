@@ -87,6 +87,20 @@ static void buildtramClient_send(player_t joueur, int i)
     itoa(max_player, bufferS, 10);
     strcat(dataS, bufferS);
     strcat(tramClient_send, dataS);
+
+    //facing
+    char bufferF[3] = "";
+    char dataF[4] = "f";
+    itoa(joueur.facing, bufferF, 10);
+    strcat(dataF, bufferF);
+    strcat(tramClient_send, dataF);
+
+    //is running
+    char bufferR[3] = "";
+    char dataR[4] = "r";
+    itoa(joueur.isRunning, bufferR, 10);
+    strcat(dataR, bufferR);
+    strcat(tramClient_send, dataR);
 }
 
 /**
@@ -113,7 +127,7 @@ static void *sendToClient(send2Client *argClient, int position)
         {
             //on prévient de la perte de packet
             if(send(argClient->argt->sd[i].clientSocket,tramClient_send,(sizeof(char)*30),0) == SOCKET_ERROR) printf("Server: Packet lost for %d\n",i);
-            //printf("Sended to client: %s\n",tramClient_send);
+            printf("Sended to client: %s\n",tramClient_send);
         }
         i++;
     } while (i <= max_player);
@@ -130,7 +144,7 @@ static void traitData(send2Client *argClient, int indice)
 {
     int j, k;
     char buffer[20] = "\0";
-    for(j = 0; tramClient_receive[j]!='\0'; j++){
+    for(j = 0; tramClient_receive[j] != '\0'; j++){
         k = 0;
 
         if(tramClient_receive[j] == 'x')
@@ -172,6 +186,34 @@ static void traitData(send2Client *argClient, int indice)
             }
             buffer[k] = '\0';
             argClient->argt->sd[indice].joueur.animation_state = atoi(buffer);
+            k=0;
+            buffer[0] = '\0';
+        }
+        if(tramClient_receive[j] == 'f')
+        {
+            j++;
+            while(tramClient_receive[j] >= '0' && tramClient_receive[j] <= '9')
+            {
+                buffer[k] = tramClient_receive[j];
+                k++;
+                j++;
+            }
+            buffer[k] = '\0';
+            argClient->argt->sd[indice].joueur.facing = atoi(buffer);
+            k=0;
+            buffer[0] = '\0';
+        }
+        if(tramClient_receive[j] == 'r')
+        {
+            j++;
+            while(tramClient_receive[j] >= '0' && tramClient_receive[j] <= '9')
+            {
+                buffer[k] = tramClient_receive[j];
+                k++;
+                j++;
+            }
+            buffer[k] = '\0';
+            argClient->argt->sd[indice].joueur.isRunning = atoi(buffer);
             k=0;
             buffer[0] = '\0';
         }

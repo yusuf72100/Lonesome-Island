@@ -179,7 +179,7 @@ void renderPlayer(SDL_Renderer** renderer, camera_t* camera, player_t *players, 
         player = players[i];
         if(player.connected == TRUE)
         {
-            printf("%d, %d\n",player.mapPosition.x, player.mapPosition.y);
+            //printf("%d, %d, %d \n",player.mapPosition.x, player.mapPosition.y, player.animation_state);
             int xStart, yStart;
             xStart = camera->tileSizeOnRender * (player.mapPosition.x - camera->startPosition.x) - getPixelTilePos(camera->tileSizeOnRender, camera->offsetStartPosition.x) + getPixelTilePos(camera->tileSizeOnRender, player.tilePosition.x);
             yStart = camera->tileSizeOnRender * (player.mapPosition.y - camera->startPosition.y) - getPixelTilePos(camera->tileSizeOnRender, camera->offsetStartPosition.y) + getPixelTilePos(camera->tileSizeOnRender, player.tilePosition.y);
