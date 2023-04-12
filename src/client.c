@@ -104,7 +104,7 @@ static void traitData()
                 j++;
             }
             buffer[k] = '\0';
-            size = atoi(buffer) + 1;
+            size = atoi(buffer);
             k=0;
             buffer[0] = '\0';
         }

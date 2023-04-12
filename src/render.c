@@ -173,21 +173,22 @@ void renderUtils(SDL_Renderer** renderer, SDL_Texture* big_texture) {
 
 }
 
-void renderPlayer(SDL_Renderer** renderer, camera_t* camera, player_t** players, int nb_joueurs) {
-
-    player_t* player = malloc(sizeof(player_t));
-    for(int i = 0; i < nb_joueurs; i++) {
+void renderPlayer(SDL_Renderer** renderer, camera_t* camera, player_t *players, int nb_joueurs) {
+    player_t player;
+    for(int i = 0; i < 10; i++) {
         player = players[i];
+        if(player.connected == TRUE)
+        {
+            printf("%d, %d\n",player.mapPosition.x, player.mapPosition.y);
+            int xStart, yStart;
+            xStart = camera->tileSizeOnRender * (player.mapPosition.x - camera->startPosition.x) - getPixelTilePos(camera->tileSizeOnRender, camera->offsetStartPosition.x) + getPixelTilePos(camera->tileSizeOnRender, player.tilePosition.x);
+            yStart = camera->tileSizeOnRender * (player.mapPosition.y - camera->startPosition.y) - getPixelTilePos(camera->tileSizeOnRender, camera->offsetStartPosition.y) + getPixelTilePos(camera->tileSizeOnRender, player.tilePosition.y);
 
-        int xStart, yStart;
-        xStart = camera->tileSizeOnRender * (player->mapPosition.x - camera->startPosition.x) - getPixelTilePos(camera->tileSizeOnRender, camera->offsetStartPosition.x) + getPixelTilePos(camera->tileSizeOnRender, player->tilePosition.x);
-        yStart = camera->tileSizeOnRender * (player->mapPosition.y - camera->startPosition.y) - getPixelTilePos(camera->tileSizeOnRender, camera->offsetStartPosition.y) + getPixelTilePos(camera->tileSizeOnRender, player->tilePosition.y);
+            SDL_Rect src = {player.animation_state*PLAYER_W_RESOLUTION, player.facing*PLAYER_H_RESOLUTION, PLAYER_W_RESOLUTION, PLAYER_H_RESOLUTION};
+            src.y += player.isRunning ? 96 : 0;
+            SDL_Rect dest = {xStart, yStart - (float) (PLAYER_H_RESOLUTION - PLAYER_W_RESOLUTION)/TILE_RESOLUTION * camera->tileSizeOnRender, (float) PLAYER_W_RESOLUTION/TILE_RESOLUTION * camera->tileSizeOnRender, (float) PLAYER_H_RESOLUTION/TILE_RESOLUTION * camera->tileSizeOnRender};
 
-        SDL_Rect src = {player->animation_state*PLAYER_W_RESOLUTION, player->facing*PLAYER_H_RESOLUTION, PLAYER_W_RESOLUTION, PLAYER_H_RESOLUTION};
-        src.y += player->isRunning ? 96 : 0;
-        SDL_Rect dest = {xStart, yStart - (float) (PLAYER_H_RESOLUTION - PLAYER_W_RESOLUTION)/TILE_RESOLUTION * camera->tileSizeOnRender, (float) PLAYER_W_RESOLUTION/TILE_RESOLUTION * camera->tileSizeOnRender, (float) PLAYER_H_RESOLUTION/TILE_RESOLUTION * camera->tileSizeOnRender};
-
-        SDL_RenderCopy(*renderer, player->tileset, &src, &dest);
+            SDL_RenderCopy(*renderer, player.tileset, &src, &dest);
+        }
     }
-    free(player);
 }

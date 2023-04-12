@@ -300,32 +300,25 @@ void *searchClients(void *arg)
             WSACleanup();
         }
         else{
-            /*if(argt2->size < max_player+1)
-            {*/
+            if(argt2->size < max_player+1)
+            {
                 //on cherche une place pour le client
                 place=1;
                 while(argt2->sd[place].joueur.connected == TRUE || place < argt2->size) place++;
-                if(place == size){
-                    argt2->sd[place] = argt2->sd[max_player+1];
+                argt2->sd[place] = argt2->sd[max_player+1];
 
-                    struct sockaddr_in* pV4Addr = (struct sockaddr_in*)&argt2->sd[place].addrClient;
-                    struct in_addr ipAddr = pV4Addr->sin_addr;
-                    argt2->sd[place].socketServer = socketServer;
-                    argt2->sd[place].clientSocket = socketClient;
-                    printf("1 new client connected with ip %s and port %d and id %d\n",inet_ntoa(argt2->sd[place].addrClient.sin_addr), (int)ntohs(argt2->sd[place].addrClient.sin_port), place);
-                    printf("Connected clients : %d\n",argt2->size);
-                    argt2->size++;
-                    argClient[place].socket = socketClient;
-                    argClient[place].port = (int)ntohs(argt2->sd[place].addrClient.sin_port);
-                    argClient[place].argt = argt2;
-                    argt->sd[place].joueur.connected = TRUE;
-                    pthread_create(&receive_from_client[place],NULL,receiveFromClient,(void *)&argClient[place]);
-                //}
-                /*else{
-                    //on kick le joueur
-                    argt2->sd[max_player+1].joueur.connected == FALSE;
-                    closesocket(argt2->sd[max_player+1].clientSocket);
-                }*/
+                struct sockaddr_in* pV4Addr = (struct sockaddr_in*)&argt2->sd[place].addrClient;
+                struct in_addr ipAddr = pV4Addr->sin_addr;
+                argt2->sd[place].socketServer = socketServer;
+                argt2->sd[place].clientSocket = socketClient;
+                printf("1 new client connected with ip %s and port %d and id %d\n",inet_ntoa(argt2->sd[place].addrClient.sin_addr), (int)ntohs(argt2->sd[place].addrClient.sin_port), place);
+                printf("Connected clients : %d\n",argt2->size);
+                argt2->size++;
+                argClient[place].socket = socketClient;
+                argClient[place].port = (int)ntohs(argt2->sd[place].addrClient.sin_port);
+                argClient[place].argt = argt2;
+                argt->sd[place].joueur.connected = TRUE;
+                pthread_create(&receive_from_client[place],NULL,receiveFromClient,(void *)&argClient[place]);
             }
         }
     }
