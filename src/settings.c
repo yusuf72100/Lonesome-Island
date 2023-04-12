@@ -86,6 +86,7 @@ static void loadKeybinds()
     globalKeyTab[12] = SDLK_RETURN;
     globalKeyTab[13] = localKeyTab[13];     //touche TAB
     globalKeyTab[14] = SDLK_DELETE;
+    globalKeyTab[14] = SDLK_e;
 
     bindButtonText[0] = (char) globalKeyTab[0];
     bindButtonText[1] = (char) globalKeyTab[1];

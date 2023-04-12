@@ -208,6 +208,8 @@ static void checkEvents()
                 if (event.key.keysym.sym == globalKeyTab[13]) tabEvent[13] = SDL_TRUE;
 
                 if (event.key.keysym.sym == globalKeyTab[14]) tabEvent[14] = SDL_TRUE;
+
+                if (event.key.keysym.sym == globalKeyTab[15]) tabEvent[15] = SDL_TRUE;
             }
         break;
 
@@ -243,6 +245,8 @@ static void checkEvents()
                 if (event.key.keysym.sym == globalKeyTab[13]) tabEvent[13] = SDL_FALSE;
 
                 if (event.key.keysym.sym == globalKeyTab[14]) tabEvent[14] = SDL_FALSE;
+
+                if (event.key.keysym.sym == globalKeyTab[15]) tabEvent[15] = SDL_FALSE;
             }
         break;
 
@@ -746,6 +750,18 @@ static void doEvents()
             {
                 changeMenu(INGAME_MENU);
                 tabTick[13] = SDL_GetTicks();
+            }
+        }
+    }
+
+    if(tabEvent[15])
+    {
+        //touche E
+        if(menu == INGAME_MENU)
+        {
+            if((SDL_GetTicks() - tabTick[13]) >= 200)
+            {
+
             }
         }
     }
