@@ -1319,7 +1319,7 @@ static void IngameMenu()
     }
 
     renderMap(&renderer, currentGround);
-    renderPlayer(&renderer, camera, &joueur);
+    renderPlayer(&renderer, camera, &joueurs, size);
     renderUtils(&renderer, currentUtils);
 
     wearing();
