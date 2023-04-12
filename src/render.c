@@ -175,8 +175,8 @@ void renderUtils(SDL_Renderer** renderer, SDL_Texture* big_texture) {
 
 void renderPlayer(SDL_Renderer** renderer, camera_t* camera, player_t** players, int nb_joueurs) {
 
-    player_t* player;
-    for(int i = 0; i < nb_joueurs + 1; i++) {
+    player_t* player = malloc(sizeof(player_t));
+    for(int i = 0; i < nb_joueurs; i++) {
         player = players[i];
 
         int xStart, yStart;
@@ -189,4 +189,5 @@ void renderPlayer(SDL_Renderer** renderer, camera_t* camera, player_t** players,
 
         SDL_RenderCopy(*renderer, player->tileset, &src, &dest);
     }
+    free(player);
 }

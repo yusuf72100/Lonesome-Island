@@ -832,13 +832,9 @@ static void doEvents()
         updateGroundTexture(&renderer, &currentGround, window, tileset, camera, map);
         updateUtilsTexture(&renderer, &currentUtils, window, tileset, camera, map);
     }
-<<<<<<< HEAD
-    if(menu == MAIN_MENU && (SDL_GetTicks() - tabTick[14]) > 50 ) {
-=======
 
     //animation main menu background
-    if(menu == MAIN_MENU && ((SDL_GetTicks() - tabTick[14]) > 500 || tabTick[14] == 0)) {
->>>>>>> 497aa7326285dcb79cdaeb7cf97e0e5bd1d42068
+    if(menu == MAIN_MENU && ((SDL_GetTicks() - tabTick[14]) > 50 || tabTick[14] == 0)) {
         tabTick[14] = SDL_GetTicks();
         moveCamera(camera, EAST);
         if(camera->startPosition.x + camera->wRender + 1 > MAP_SIZE) camera->startPosition.x = 0;
