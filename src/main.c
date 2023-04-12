@@ -796,11 +796,18 @@ static void init_vars()
     build_map(&map);
     initPlayer(renderer, &joueur, map);
     initCamera(camera, window, &joueur);
+    initCamera(backgroundCamera, window, NULL);
 
     //Initialisation des tileset
     tmp = IMG_Load("resources/tileset_ground.png");
     tileset = SDL_CreateTextureFromSurface(renderer, tmp);
     SDL_FreeSurface(tmp);
+
+    //Camera du menu
+    updateGroundTexture(&renderer, &background_texture, window, tileset, backgroundcamera, map);
+    updateUtilsTexture(&renderer, &background_texture, window, tileset, backgroundcamera, map);
+
+    //Camera de jeu
     updateGroundTexture(&renderer, &currentGround, window, tileset, camera, map);
     updateUtilsTexture(&renderer, &currentUtils, window, tileset, camera, map);
 }
