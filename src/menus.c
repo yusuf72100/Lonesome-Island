@@ -440,76 +440,6 @@ static void drawButton_withRotation(SDL_Texture *texture, SDL_Rect rectangle, SD
 }
 
 /**
- * @brief Trie les joueurs en fonction de leur coordonnées Y et organise l'ordre d'affichage des joueurs.
- *
- */
- /*
-static void sortPlayers()
-{
-    int position;
-    int i,j;
-    for(i = 1; i < size; i++)
-    {
-        player_t buffer = joueurs[i];
-        position = i;
-        for(j = i; j < size; j++)
-        {
-            if(joueurs[i].playerRect.y > joueurs[j].playerRect.y) position++;
-        }
-
-        buffer = joueurs[position];
-        joueurs[position] = joueurs[i];
-        joueurs[i] = buffer;
-    }
-}
-*/
-
-/**
- * @brief Applique la bonne texture au joueur en fonction de son animation.
- *
- * @param Joueur
- *//*
-static void switchAnimation(player_t Joueur)
-{
-    switch (Joueur.animation_state)
-    {
-        case BREATH_START:
-            drawPlayer(texture_joueur_h1,Joueur.playerRect);
-            break;
-        case BREATH_END:
-            drawPlayer(texture_joueur_h2,Joueur.playerRect);
-            break;
-        case RUNNING_LEFT_START:
-            drawPlayer(texture_joueur_left_1,Joueur.playerRect);
-            break;
-        case RUNNING_LEFT_END:
-            drawPlayer(texture_joueur_left_2,Joueur.playerRect);
-            break;
-        case RUNNING_RIGHT_START:
-            drawPlayer(texture_joueur_right_1,Joueur.playerRect);
-            break;
-        case RUNNING_RIGHT_END:
-            drawPlayer(texture_joueur_right_2,Joueur.playerRect);
-            break;
-        case RUNNING_UP_START:
-            drawPlayer(texture_joueur_up_1,Joueur.playerRect);
-            break;
-        case RUNNING_UP_END:
-            drawPlayer(texture_joueur_up_2,Joueur.playerRect);
-            break;
-        case RUNNING_DOWN_START:
-            drawPlayer(texture_joueur_down_1,Joueur.playerRect);
-            break;
-        case RUNNING_DOWN_END:
-            drawPlayer(texture_joueur_down_2,Joueur.playerRect);
-            break;
-        default:
-            drawPlayer(texture_joueur_h1,Joueur.playerRect);
-            break;
-        }
-}
-*/
-/**
  * @brief Dessine tous les joueurs.
  * @param joueurs
  * @param size
@@ -1063,13 +993,13 @@ static void buttonHoverWithAnimation(SDL_Surface *button_surface, SDL_Texture *b
 extern void clickItem()
 {
     int i = 0, j = 0;
-    int finded = FALSE;
+    int founded = FALSE;
 
     if(clicked_inventoryitem == TRUE)
     {
-        for(i = 0; i < 3 && finded == FALSE; i++)
+        for(i = 0; i < 3 && founded == FALSE; i++)
         {
-            for(j = 0; j < 10 && finded == FALSE; j++)
+            for(j = 0; j < 10 && founded == FALSE; j++)
             {
                 if(wearingItem == SDL_FALSE)
                 {
@@ -1077,21 +1007,21 @@ extern void clickItem()
                     {
                         if(SDL_PointInRect(&mouse_position, &mat_inventory[i][j].item_rectangle))
                         {
-                            finded = TRUE;
+                            founded = TRUE;
                         }
                     }
                 }
                 else{
                     if(SDL_PointInRect(&mouse_position, &mat_inventory[i][j].item_rectangle))
                     {
-                        finded = TRUE;
+                        founded = TRUE;
                     }
                 }
             }
         }
         i--;
         j--;
-        if(finded == TRUE)
+        if(founded == TRUE)
         {
             if(wearingItem == SDL_FALSE)
             {

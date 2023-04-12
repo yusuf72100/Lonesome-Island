@@ -11,6 +11,44 @@
 #include "main.h"
 
 /**
+ * @brief Tente de placer un item dans l'inventaire et renvoi 0 si l'action a réussit.
+ * @param item
+ * @param number
+ * @return
+ */
+int putInInventory(item_t item, int number)
+{
+    int i, j;
+
+    for(i = 0; i < 3; i++)
+    {
+        for(j = 0; j < 10; j++)
+        {
+            if(mat_inventory[i][j].number == 0)
+            {
+                mat_inventory[i][j].number = number;
+                *mat_inventory[i][j].Item = item;
+                return FALSE;
+            }
+            else if(mat_inventory[i][j].Item->itemType == item.itemType && mat_inventory[i][j].number < 64)
+            {
+                if(mat_inventory[i][j].number + number <= 64)
+                {
+                    mat_inventory[i][j].number += number;
+                    return FALSE;
+                }
+                else{
+                    int newNumber = number - (64 - mat_inventory[i][j].number);
+                    mat_inventory[i][j].number = 64;
+                    return (putInInventory(item, newNumber));
+                }
+            }
+        }
+    }
+    return TRUE;
+}
+
+/**
  * @brief Récupère les données depuis le socket client.
  * 
  * @param Joueurs 
