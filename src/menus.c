@@ -1427,10 +1427,10 @@ static void getPlayerNameMenu()
     };
 
     SDL_Rect title_rect = {
-        .w = DM.w * 0.1,
-        .h = DM.h * 0.05,
-        .x = (DM.w / 2) - 400,
-        .y = DM.h - ((DM.h * 80) / 100)
+        .w = DM.w * 0.35,
+        .h = DM.h * 0.08,
+        .x = (DM.w / 2) - ((DM.w * 0.35) / 2),
+        .y = DM.h / 6
     };
 
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
@@ -1443,7 +1443,7 @@ static void getPlayerNameMenu()
     SDL_Texture *texture_title = NULL;
 
     drawText(&texte_rect, texture, surface, joueur.playername, blackColor);
-    drawText(&title_rect, texture_title, surface_title, "Enter your nick:", whiteColor);
+    drawText(&title_rect, texture_title, surface_title, "Enter your nick:", blackColor);
     SDL_BlitSurface(surface,NULL,background,&texte_rect);
 }
 
