@@ -381,11 +381,6 @@ static void inventoryInit(case_inventory mat[3][10])
  */
 static void drawButton(SDL_Texture *texture, SDL_Rect rectangle, SDL_Surface *surface)
 {
-    if(SDL_QueryTexture(texture, NULL, NULL, &rectangle.w, &rectangle.h) != 0)
-    {
-        destroyAll(window, renderer);
-        SDL_ExitWithError("Impossible d'afficher la texture du boutton...");
-    }
     SDL_RenderCopy(renderer, texture, NULL, &rectangle);
 }
 
@@ -773,62 +768,62 @@ static void rectanglesInit()
     mouseRect.h = 50;
 
     //play button
-    play_button_rect.w = 400;
-    play_button_rect.h = 200;
+    play_button_rect.w = DM.w * 0.2;
+    play_button_rect.h = DM.h * 0.2;
     play_button_rect.x = (DM.w / 2) - (play_button_rect.w / 2);
     play_button_rect.y = (((DM.h - title_rect.h) - (title_rect.y - 100)) / 3);
 
     //connect button
-    connect_button_rect.w = 500;
-    connect_button_rect.h = 250;
+    connect_button_rect.w = DM.w * 0.2;
+    connect_button_rect.h = DM.h * 0.2;
     connect_button_rect.x = (DM.w / 2) - (connect_button_rect.w / 2);
     connect_button_rect.y = (((DM.h - title_rect.h) - (title_rect.y - 100)) / 3) + (connect_button_rect.h);
 
     //host button
-    host_button_rect.w = 400;
-    host_button_rect.h = 200;
+    host_button_rect.w = DM.w * 0.2;
+    host_button_rect.h = DM.h * 0.2;
     host_button_rect.x = (DM.w / 2) - (host_button_rect.w / 2);
     host_button_rect.y = (((DM.h - title_rect.h) - (title_rect.y - 100)) / 3) + (connect_button_rect.h*2) + 40;
 
     //settings button
-    settings_button_rect.w = 150;
-    settings_button_rect.h = 150;
+    settings_button_rect.w = DM.w * 0.08;
+    settings_button_rect.h = DM.w * 0.08;
     settings_button_rect.x = 30;
     settings_button_rect.y = DM.h - settings_button_rect.h - ((DM.h * 3) / 100);
 
     //settings menu
-    settings_menu_bg_rect.w = 800;
-    settings_menu_bg_rect.h = 800;
+    settings_menu_bg_rect.w = DM.w * 0.4;
+    settings_menu_bg_rect.h = DM.h * 0.7;
     settings_menu_bg_rect.x = (DM.w / 2) - (settings_menu_bg_rect.w / 2);
     settings_menu_bg_rect.y = (DM.h / 2) - (settings_menu_bg_rect.h / 2);
 
-    settings_menu_keybinds_button_rect.w = 332;
-    settings_menu_keybinds_button_rect.h = 98;
+    settings_menu_keybinds_button_rect.w = DM.w * 0.13;
+    settings_menu_keybinds_button_rect.h = DM.h * 0.1;
     settings_menu_keybinds_button_rect.x = settings_menu_bg_rect.x + ((settings_menu_bg_rect.w*6)/100);
     settings_menu_keybinds_button_rect.y = settings_menu_bg_rect.y + ((settings_menu_bg_rect.h*20)/100);
 
-    settings_menu_keybind_up_rect.w = 215;
-    settings_menu_keybind_up_rect.h = 90;
+    settings_menu_keybind_right_rect.w = DM.w * 0.1;
+    settings_menu_keybind_right_rect.h = DM.h * 0.1;
+    settings_menu_keybind_right_rect.x = (settings_menu_bg_rect.x + settings_menu_bg_rect.w) - ((settings_menu_bg_rect.w*5) / 100) - settings_menu_keybind_right_rect.w;
+    settings_menu_keybind_right_rect.y = settings_menu_bg_rect.h - ((settings_menu_bg_rect.h * 2) / 100);
+
+    settings_menu_keybind_left_rect.w = DM.w * 0.1;
+    settings_menu_keybind_left_rect.h = DM.h * 0.1;
+    settings_menu_keybind_left_rect.x = (settings_menu_bg_rect.x + settings_menu_bg_rect.w) - ((settings_menu_bg_rect.w*5) / 100) - settings_menu_keybind_left_rect.w;
+    settings_menu_keybind_left_rect.y = settings_menu_keybind_right_rect.y - (settings_menu_bg_rect.h / 5);
+
+    settings_menu_keybind_down_rect.w = DM.w * 0.1;
+    settings_menu_keybind_down_rect.h = DM.h * 0.1;
+    settings_menu_keybind_down_rect.x = (settings_menu_bg_rect.x + settings_menu_bg_rect.w) - ((settings_menu_bg_rect.w*5) / 100) - settings_menu_keybind_down_rect.w;
+    settings_menu_keybind_down_rect.y = settings_menu_keybind_left_rect.y - (settings_menu_bg_rect.h / 5);
+
+    settings_menu_keybind_up_rect.w = DM.w * 0.1;
+    settings_menu_keybind_up_rect.h = DM.h * 0.1;
     settings_menu_keybind_up_rect.x = (settings_menu_bg_rect.x + settings_menu_bg_rect.w) - ((settings_menu_bg_rect.w*5) / 100) - settings_menu_keybind_up_rect.w;
-    settings_menu_keybind_up_rect.y = settings_menu_bg_rect.y + 125;
+    settings_menu_keybind_up_rect.y = settings_menu_keybind_down_rect.y - (settings_menu_bg_rect.h / 5);
 
-    settings_menu_keybind_down_rect.w = 215;
-    settings_menu_keybind_down_rect.h = 90;
-    settings_menu_keybind_down_rect.x = (settings_menu_bg_rect.x + settings_menu_bg_rect.w) - ((settings_menu_bg_rect.w*5) / 100) - settings_menu_keybind_up_rect.w;
-    settings_menu_keybind_down_rect.y = settings_menu_keybind_up_rect.y + 150;
-
-    settings_menu_keybind_left_rect.w = 215;
-    settings_menu_keybind_left_rect.h = 90;
-    settings_menu_keybind_left_rect.x = (settings_menu_bg_rect.x + settings_menu_bg_rect.w) - ((settings_menu_bg_rect.w*5) / 100) - settings_menu_keybind_up_rect.w;
-    settings_menu_keybind_left_rect.y = settings_menu_keybind_down_rect.y + 150;
-
-    settings_menu_keybind_right_rect.w = 215;
-    settings_menu_keybind_right_rect.h = 90;
-    settings_menu_keybind_right_rect.x = (settings_menu_bg_rect.x + settings_menu_bg_rect.w) - ((settings_menu_bg_rect.w*5) / 100) - settings_menu_keybind_up_rect.w;
-    settings_menu_keybind_right_rect.y = settings_menu_keybind_left_rect.y + 150;
-
-    keybind_waiting_rect.w = 215;
-    keybind_waiting_rect.h = 90;
+    keybind_waiting_rect.w = DM.w * 0.1;
+    keybind_waiting_rect.h = DM.h * 0.1;
     keybind_waiting_rect.x = 0;
     keybind_waiting_rect.y = 0;
 
@@ -845,8 +840,8 @@ static void rectanglesInit()
     lifebar_rect.y = DM.h - (lifebar_rect.h*2);
 
     //thirstbar
-    thirstbar_rect.w = 300;
-    thirstbar_rect.h = 75;
+    thirstbar_rect.w = DM.w * 0.1;
+    thirstbar_rect.h = DM.h * 0.2;
     thirstbar_rect.x = 0;
     thirstbar_rect.y = 0;
 
@@ -1186,7 +1181,7 @@ static void SettingsMainMenu()
     settings_button_animation_state = 0;
     mouseRect.x = mouse_position.x;
     mouseRect.y = mouse_position.y;
-    drawImage(texture_settings_bg, settings_menu_bg_rect);
+    SDL_RenderCopy(renderer, texture_settings_bg, NULL, &settings_menu_bg_rect);
 
     buttonHover(surface_settings_menu_keybinds_button, texture_settings_menu_keybinds_button, &settings_menu_keybinds_button_rect, &hover_settings_keybindsbutton);
     drawButtons();
@@ -1241,26 +1236,26 @@ static void drawKeybindMenuText()
     SDL_Rect right_text_rect;
 
     SDL_Rect keybind_key_up_text = {
-        .w = 50,
-        .h = 50,
+        .w = DM.w*0.05,
+        .h = DM.h*0.05,
         .x = (settings_menu_keybind_up_rect.x + (settings_menu_keybind_up_rect.w / 2)) - 20,
         .y = settings_menu_keybind_up_rect.y + ((settings_menu_keybind_up_rect.h / 2) - 25)
     };
     SDL_Rect keybind_key_down_text = {
-        .w = 50,
-        .h = 50,
+        .w = DM.w*0.05,
+        .h = DM.h*0.05,
         .x = (settings_menu_keybind_down_rect.x + (settings_menu_keybind_down_rect.w / 2)) - 20,
         .y = settings_menu_keybind_down_rect.y + ((settings_menu_keybind_down_rect.h / 2) - 25)
     };
     SDL_Rect keybind_key_left_text = {
-        .w = 50,
-        .h = 50,
+        .w = DM.w*0.05,
+        .h = DM.h*0.05,
         .x = (settings_menu_keybind_left_rect.x + (settings_menu_keybind_left_rect.w / 2)) - 20,
         .y = settings_menu_keybind_left_rect.y + ((settings_menu_keybind_left_rect.h / 2) - 25)
     };
     SDL_Rect keybind_key_right_text = {
-        .w = 50,
-        .h = 50,
+        .w = DM.w*0.05,
+        .h = DM.h*0.05,
         .x = (settings_menu_keybind_right_rect.x + (settings_menu_keybind_right_rect.w / 2)) - 20,
         .y = settings_menu_keybind_right_rect.y + ((settings_menu_keybind_right_rect.h / 2) - 25)
     };
@@ -1343,7 +1338,7 @@ static void SettingsMainKeybindMenu()
     {
         IngameMenu();
     }
-    drawImage(texture_settings_bg, settings_menu_bg_rect);
+    SDL_RenderCopy(renderer, texture_settings_bg, NULL, &settings_menu_bg_rect);
     drawButtons();
 
     //draw waiting button and text
