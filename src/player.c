@@ -14,10 +14,11 @@ void initPlayer(SDL_Renderer* renderer, player_t* player, map_t* map) {
 
     //Position sur la map
     coord_t co = {0, 0};
-    while(getType(map->ground[co.x][co.y]) == WATER || map->utils[co.x][co.y] != -1) {
+    while(isWater(map->ground[co.x][co.y]) || map->utils[co.x][co.y] != -1) {
         co.x = rand() % MAP_SIZE;
         co.y = rand() % MAP_SIZE;
     }
+
     player->mapPosition.x = co.x;
     player->mapPosition.y = co.y;
 
@@ -28,13 +29,14 @@ void initPlayer(SDL_Renderer* renderer, player_t* player, map_t* map) {
     //Direction du joueur
     player->facing = SOUTH;
     player->isRunning = 0;
+    player->isRunning = 0;
 
     //Animation du joueur
     player->animation_state = 0;
     player->animationDelay = 250;
 
     //Tileset du joueur
-    SDL_Surface* tmp = IMG_Load("resources/player2.png");
+    SDL_Surface* tmp = IMG_Load("resources/player_new.png");
     player->tileset = SDL_CreateTextureFromSurface(renderer, tmp);
     SDL_FreeSurface(tmp);
 }
@@ -44,7 +46,9 @@ void initPlayer(SDL_Renderer* renderer, player_t* player, map_t* map) {
  * @param player
  */
 void nextAnimationState(player_t* player) {
-    player->animation_state = (player->animation_state == MAX_ANIMATION - 1 ? 0 : player->animation_state + 1);
+    int max;
+    max = player->isAttack ? 3 : MAX_ANIMATION;
+    player->animation_state = (player->animation_state == max - 1 ? 0 : player->animation_state + 1);
 }
 
 /**

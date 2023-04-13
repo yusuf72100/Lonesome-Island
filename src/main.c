@@ -808,6 +808,9 @@ static void doEvents()
         {
             if((SDL_GetTicks() - tabTick[13]) >= 200)
             {
+                tabTick[17] = SDL_GetTicks();
+                joueur.isAttack = 1;
+                joueur.animation_state = 0;
                 int places[4] = {map->utils[joueur.mapPosition.x][joueur.mapPosition.y-1], map->utils[joueur.mapPosition.x+1][joueur.mapPosition.y], map->utils[joueur.mapPosition.x][joueur.mapPosition.y+1], map->utils[joueur.mapPosition.x-1][joueur.mapPosition.y]};
                 if(getType(places[joueur.facing]) == TREE) {
 
@@ -830,11 +833,16 @@ static void doEvents()
                         y = joueur.mapPosition.y;
                         break;
                     }
-                    putInInventory(bois, 1);
                     getNearestTreeBase(map->utils, &x, &y);
                     getTreeColisionsDimensions(getVariant(map->utils[x][y]), &w, &h);
                     cut_tree(map->utils, x, y, w, h);
                     updateUtilsTexture(&renderer, &currentUtils, window, tileset, camera, map);
+
+                    int amount;
+                    amount = rand() % (w + h) + 1;
+                    putInInventory(bois, amount);
+                    amount = rand() % (int)((w + h) / 2) + 1;
+                    putInInventory(apple, amount);
                 }
                 tabTick[13] = SDL_GetTicks();
             }
@@ -880,6 +888,9 @@ static void doEvents()
         }
         updateGroundTexture(&renderer, &currentGround, window, tileset, camera, map);
         updateUtilsTexture(&renderer, &currentUtils, window, tileset, camera, map);
+    }
+    if(SDL_GetTicks() - tabTick[17] > 500) {
+        joueur.isAttack = 0;
     }
 }
 

@@ -276,7 +276,7 @@ void add_rocks(map_t *map) {
         for (int j = 0; j < MAP_SIZE; j++) {
             if (isGrass(map->ground[i][j]) && map->utils[i][j] == -1) {
                 perc = rand() % 101;
-                if (perc < TREE_RATIO) map->utils[i][j] = rand() % 1 + 10;
+                if (perc < ROCK_RATIO) map->utils[i][j] = 20;
             }
         }
     }
@@ -285,9 +285,9 @@ void add_rocks(map_t *map) {
 int raftNearBeach(map_t* map, int x, int y) {
     int dim = 3;
 
-    for (int i = dim; i >= 0; i--) {
-        for (int j = dim; j >= 0; j--) {
-            if(isAnySandNear(map->ground, x - i, y - j, 1) && isAnyGrassNear(map->ground, x - i, y - i, 2));
+    for (int i = dim - 1; i >= 0; i--) {
+        for (int j = dim - 1; j >= 0; j--) {
+            if(isAnySandNear(map->ground, x - i, y - j, 1) && isAnyGrassNear(map->ground, x - i, y - i, 2) && isWater(map->ground[x-i][y-j]));
             return 1;
         }
     }
@@ -299,10 +299,10 @@ void placeRaft(map_t* map) {
     do {
         x = rand() % MAP_SIZE;
         y = rand() % MAP_SIZE;
-    } while(map->ground[x][y] == WATER && !raftNearBeach(map, x, y));
+    } while(!raftNearBeach(map, x, y));
 
-    for (int i = 3; i >= 0; i--) {
-        for (int j = 3; j >= 0; j--) {
+    for (int i = 3 - 1; i >= 0; i--) {
+        for (int j = 3 - 1; j >= 0; j--) {
             map->utils[x - i][y - j] = 39;
         }
     }
@@ -314,7 +314,7 @@ void init_utils(map_t *map) {
     plant_trees(map);
 
     // Add rocks
-    // add_rocks(map);
+    add_rocks(map);
 
     //Add raft
     placeRaft(map); 

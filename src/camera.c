@@ -84,7 +84,7 @@ void moveCamera(camera_t* camera, int direction) {
             }
             break;
         case EAST :
-            if(camera->startPosition.x + camera->wRender > MAP_SIZE-1) return;
+            if(camera->startPosition.x + camera->wRender > MAP_SIZE-2) return;
             if(camera->offsetStartPosition.x == MOVES_ON_TILE - 1) {
                 camera->offsetStartPosition.x = 0;
                 camera->startPosition.x++;
@@ -94,7 +94,7 @@ void moveCamera(camera_t* camera, int direction) {
             }
             break;
         case SOUTH :
-            if(camera->startPosition.y + camera->hRender > MAP_SIZE-1) return;
+            if(camera->startPosition.y + camera->hRender > MAP_SIZE-2) return;
             if(camera->offsetStartPosition.y == MOVES_ON_TILE - 1) {
                 camera->offsetStartPosition.y = 0;
                 camera->startPosition.y++;
