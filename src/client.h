@@ -31,8 +31,9 @@
 typedef uint32_t socklen_t;
 
 static SOCKET *socket_Server;
-static char tramClient_send[100];
-static char tramClient_receive[100];
+static char tramClient_send[500];
+static char tramClient_receive[500];
+extern void receiveMap(map_t *map);
 void *sendDatas(player_t joueur);
 void *receiveFromServer();
 void stopConnection();

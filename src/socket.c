@@ -279,10 +279,61 @@ void initConnection(void *arg, int position)
 }
 
 /**
+ * @brief Cette fonction envera la map au joueur (premade & s'execute uniquement dans une fonction)
+ * @param arg
+ * @return
+ */
+void *sendMapToClient(void *arg)
+{
+    int position=0;
+    send2Client *argClient = (send2Client *)arg;
+    tramClient_receive[0] = '\0';
+
+    //on cherche la position du joueur
+    position = findPosition(argClient);
+
+    char buffer[3];
+    int swap = 0;
+
+    //on récupère les infos de la trame
+    //matrice ground
+    for(int i = 0; i < 100; i++)
+    {
+        for(int j = 0; j < 100; j++)
+        {
+            itoa(map->ground[i][j], buffer, 3);
+            strcpy(tramClient_send, buffer);
+            buffer[0] = '\0';
+        }
+        printf("tram server : %s\n",tramClient_send);
+        send(argClient->argt->sd[i].clientSocket,tramClient_send,(sizeof(char)*500),0);
+        send(argClient->argt->sd[i].clientSocket,"end",(sizeof(char)*500),0);
+        buffer[0] = '\0';
+    }
+
+    //matrice coords
+    for(int i = 0; i < 100; i++)
+    {
+        for(int j = 0; j < 100; j++)
+        {
+            itoa(map->coord[i][j].x, buffer, 3);
+            strcpy(tramClient_send, buffer);
+            buffer[0] = '\0';
+            itoa(map->coord[i][j].y, buffer, 3);
+            strcpy(tramClient_send, buffer);
+            buffer[0] = '\0';
+        }
+        send(argClient->argt->sd[i].clientSocket,tramClient_send,(sizeof(char)*500),0);
+        send(argClient->argt->sd[i].clientSocket,"end",(sizeof(char)*500),0);
+    }
+    pthread_exit(&receive_from_client[position]);
+}
+
+/**
  * @brief Écoute un client tant que la connexion est établie. (se lance dans un thread)
  * 
  * @param arg 
- * @return void* 
+ * @return void*
  */
 void *receiveFromClient(void *arg)
 {
@@ -359,7 +410,15 @@ void *searchClients(void *arg)
                 argClient[place].socket = socketClient;
                 argClient[place].port = (int)ntohs(argt2->sd[place].addrClient.sin_port);
                 argClient[place].argt = argt2;
-                argt->sd[place].joueur.connected = TRUE;
+
+                //on envoi la map
+                /*if(place != 1)
+                {
+                    //sendMapToClient((void *)&argClient[place]);
+                    pthread_create(&receive_from_client[place],NULL,sendMapToClient,(void *)&argClient[place]);
+                    argt->sd[place].joueur.connected = TRUE;
+                }*/
+                //on écoute le client tant qu'il est connecté
                 pthread_create(&receive_from_client[place],NULL,receiveFromClient,(void *)&argClient[place]);
             }
         }
