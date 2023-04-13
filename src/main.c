@@ -803,11 +803,12 @@ static void doEvents()
         {
             if((SDL_GetTicks() - tabTick[13]) >= 200)
             {
+                putInInventory(*apple, 1);
                 int places[4] = {map->utils[joueur.mapPosition.x][joueur.mapPosition.y+1], map->utils[joueur.mapPosition.x+1][joueur.mapPosition.y], map->utils[joueur.mapPosition.x][joueur.mapPosition.y-1], map->utils[joueur.mapPosition.x-1][joueur.mapPosition.y]};
                 if(getType(places[joueur.facing]) == TREE) {
-                    putInInventory(*bois, 1);
-                    tabTick[13] = SDL_GetTicks();
+                    putInInventory(*apple, 1);
                 }
+                tabTick[13] = SDL_GetTicks();
             }
         }
     }
