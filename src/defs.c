@@ -33,6 +33,7 @@ T_BUTTONS_CLICKED KEYBOARD_WAITING = NONE;
 SDL_Window *window = NULL;
 SDL_Renderer *renderer = NULL;
 
+item_t *bois;
 item_t *axe;
 item_t *apple;
 item_t *chest_item;

@@ -803,7 +803,11 @@ static void doEvents()
         {
             if((SDL_GetTicks() - tabTick[13]) >= 200)
             {
-
+                int places[4] = {map->utils[joueur.mapPosition.x][joueur.mapPosition.y+1], map->utils[joueur.mapPosition.x+1][joueur.mapPosition.y], map->utils[joueur.mapPosition.x][joueur.mapPosition.y-1], map->utils[joueur.mapPosition.x-1][joueur.mapPosition.y]};
+                if(getType(places[joueur.facing]) == TREE) {
+                    putInInventory(*bois, 1);
+                    tabTick[13] = SDL_GetTicks();
+                }
             }
         }
     }
@@ -843,7 +847,7 @@ static void doEvents()
         moveCamera(camera, EAST);
         if(camera->startPosition.x + camera->wRender + 1 > MAP_SIZE) {
             camera->startPosition.x = 0;
-            camera->startPosition.y = rand() % MAP_SIZE - camera->hRender - 1;
+            camera->startPosition.y = rand() % (MAP_SIZE - camera->hRender - 1);
         }
         updateGroundTexture(&renderer, &currentGround, window, tileset, camera, map);
         updateUtilsTexture(&renderer, &currentUtils, window, tileset, camera, map);

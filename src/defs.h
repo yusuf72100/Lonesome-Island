@@ -121,11 +121,11 @@ typedef struct
 
 extern void defineItem();
 extern T_MENU menu;
-extern item_t bois;
 extern SDL_bool tabEvent[20];
 extern SDL_KeyCode globalKeyTab[20];
 extern case_inventory mat_inventory[3][10];
 extern case_inventory *wearedItem;
+extern item_t *bois;
 extern item_t *axe;
 extern item_t *apple;
 extern item_t *chest_item;

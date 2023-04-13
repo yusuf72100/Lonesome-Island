@@ -13,10 +13,13 @@ void initPlayer(SDL_Renderer* renderer, player_t* player, map_t* map) {
     srand(time(NULL));
 
     //Position sur la map
-    do {
-        player->mapPosition.x = rand() % MAP_SIZE;
-        player->mapPosition.y = rand() % MAP_SIZE;
-    } while(getType(map->ground[player->mapPosition.x][player->mapPosition.y]) == WATER || map->utils[player->mapPosition.x][player->mapPosition.y] != -1);
+    coord_t co = {0, 0};
+    while(getType(map->ground[co.x][co.y]) == WATER || map->utils[co.x][co.y] != -1) {
+        co.x = rand() % MAP_SIZE;
+        co.y = rand() % MAP_SIZE;
+    }
+    player->mapPosition.x = co.x;
+    player->mapPosition.y = co.y;
 
     //Decalage en pixel
     player->tilePosition.x = 0;
@@ -51,9 +54,9 @@ void nextAnimationState(player_t* player) {
  * @param y
  * @return
  */
-int isColisionOnTile(map_t* map, int x, int y) {
-    if(x < 0 || x > MAP_SIZE || y < 0 || y > MAP_SIZE) return 1;
-    if(isWater(map->ground[x][y]) || map->utils[x][y] != -1) return 1;
+int isColisionOnTile(map_t* map, coord_t mapPos, coord_t tilePos) {
+    if(mapPos.x < 0 || mapPos.x > MAP_SIZE || mapPos.y < 0 || mapPos.y > MAP_SIZE) return 1;
+    if(isWater(map->ground[mapPos.x][mapPos.y]) || map->utils[mapPos.x][mapPos.y] != -1) return 1;
     return 0;
 }
 
@@ -72,7 +75,6 @@ void movePlayer(map_t* map, player_t* player, int direction) {
     coord_t tilePos = player->tilePosition;
     switch(direction) {
         case NORTH :
-            if(isColisionOnTile(map, mapPos.x, mapPos.y)) break;
             if(tilePos.y == 0) {
                 mapPos.y--;
                 tilePos.y = MOVES_ON_TILE - 1;
@@ -109,7 +111,7 @@ void movePlayer(map_t* map, player_t* player, int direction) {
             }
             break;
     }
-    if(isColisionOnTile(map, mapPos.x, mapPos.y)) return;
+    if(isColisionOnTile(map, mapPos, tilePos)) return;
     player->mapPosition.x = mapPos.x;
     player->mapPosition.y = mapPos.y;
     player->tilePosition.x = tilePos.x;
