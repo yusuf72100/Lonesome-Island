@@ -361,16 +361,10 @@ static void inventoryInit(case_inventory mat[3][10])
     {
         for(int j = 0; j < 10; j++)
         {
-            mat[i][j].Item = apple;
+            mat[i][j].Item = NULL;
             mat[i][j].number = 0;
         }
     }
-    mat[0][0].Item = apple;
-    mat[0][0].number = 5;
-    mat[2][5].Item = apple;
-    mat[2][5].number = 63;
-    mat[1][5].Item = chest_item;
-    mat[1][5].number = 1;
 }
 
 /**

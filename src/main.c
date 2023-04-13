@@ -16,7 +16,7 @@
  * @param number
  * @return
  */
-int putInInventory(item_t item, int number)
+int putInInventory(item_t *item, int number)
 {
     int i, j;
 
@@ -24,19 +24,24 @@ int putInInventory(item_t item, int number)
     {
         for(j = 0; j < 10; j++)
         {
+            //si la case est vide, alors on arrête de chercher
             if(mat_inventory[i][j].number == 0)
             {
                 mat_inventory[i][j].number = number;
-                *mat_inventory[i][j].Item = item;
+                mat_inventory[i][j].Item = NULL;
+                mat_inventory[i][j].Item = item;
                 return FALSE;
             }
-            else if(mat_inventory[i][j].Item->itemType == item.itemType && mat_inventory[i][j].number < 64)
+            //sinon, on regard si l'item actuel dans la case est le même que celui qu'on veut mettre
+            else if(mat_inventory[i][j].Item->itemType == item->itemType && mat_inventory[i][j].number < 64)
             {
+                //si c'est les mêmes et qu'il y a de la place on ajoute
                 if(mat_inventory[i][j].number + number <= 64)
                 {
                     mat_inventory[i][j].number += number;
                     return FALSE;
                 }
+                //sinon, on ajoute ce qu'on peut et on recherche un autre slot
                 else{
                     int newNumber = number - (64 - mat_inventory[i][j].number);
                     mat_inventory[i][j].number = 64;
@@ -825,7 +830,7 @@ static void doEvents()
                         y = joueur.mapPosition.y;
                         break;
                     }
-                    putInInventory(*bois, 1);
+                    putInInventory(bois, 1);
                     getNearestTreeBase(map->utils, &x, &y);
                     getTreeColisionsDimensions(getVariant(map->utils[x][y]), &w, &h);
                     cut_tree(map->utils, x, y, w, h);
