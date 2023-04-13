@@ -18,6 +18,7 @@ void initPlayer(SDL_Renderer* renderer, player_t* player, map_t* map) {
         co.x = rand() % MAP_SIZE;
         co.y = rand() % MAP_SIZE;
     }
+    printf("at %d %d : %d\n", co.x, co.y, map->ground[co.x][co.y]);
 
     player->mapPosition.x = co.x;
     player->mapPosition.y = co.y;

@@ -405,7 +405,7 @@ static void doEvents()
         if(tabEvent[0])
         {
             //touche Z
-            if (menu == INGAME_MENU)
+            if (menu == INGAME_MENU);
             {
                 if (debug) printf("Touche avancer pressee | %s\n", eventTime());
                 direction = NORTH;
@@ -882,7 +882,7 @@ static void doEvents()
     if(menu == MAIN_MENU && ((SDL_GetTicks() - tabTick[14]) > 50 || tabTick[14] == 0)) {
         tabTick[14] = SDL_GetTicks();
         moveCamera(camera, EAST);
-        if(camera->startPosition.x + camera->wRender + 1 > MAP_SIZE) {
+        if(camera->startPosition.x + camera->wRender + 2 > MAP_SIZE) {
             camera->startPosition.x = 0;
             camera->startPosition.y = rand() % (MAP_SIZE - camera->hRender - 1);
         }
