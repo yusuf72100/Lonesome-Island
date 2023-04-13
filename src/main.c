@@ -517,6 +517,9 @@ static void doEvents()
             SOLO = TRUE;
             //create_map();
             build_map(&map);
+            initCamera(camera, window, &joueur);
+            updateGroundTexture(&renderer, &currentGround, window, tileset, camera, map);
+            updateUtilsTexture(&renderer, &currentUtils, window, tileset, camera, map);
             init_boop(&tabEvent[7]);
             if (debug) printf("Host button clicked\n");
             pthread_create(&server,NULL,startServer,NULL);              //on héberge le serveur 
@@ -837,8 +840,12 @@ static void doEvents()
     if(menu == MAIN_MENU && ((SDL_GetTicks() - tabTick[14]) > 50 || tabTick[14] == 0)) {
         tabTick[14] = SDL_GetTicks();
         moveCamera(camera, EAST);
-        if(camera->startPosition.x + camera->wRender + 1 > MAP_SIZE) camera->startPosition.x = 0;
-        updateGroundTexture(&renderer, &background_texture, window, tileset, camera, map);
+        if(camera->startPosition.x + camera->wRender + 1 > MAP_SIZE) {
+            camera->startPosition.x = 0;
+            camera->startPosition.y = rand() % MAP_SIZE - camera->hRender - 1;
+        }
+        updateGroundTexture(&renderer, &currentGround, window, tileset, camera, map);
+        updateUtilsTexture(&renderer, &currentUtils, window, tileset, camera, map);
     }
 }
 
@@ -864,13 +871,9 @@ static void init_vars()
     tileset = SDL_CreateTextureFromSurface(renderer, tmp);
     SDL_FreeSurface(tmp);
 
-    //Camera du menu
-    updateGroundTexture(&renderer, &background_texture, window, tileset, camera, map);
-    updateUtilsTexture(&renderer, &background_texture, window, tileset, camera, map);
-
     //Camera de jeu
     updateGroundTexture(&renderer, &currentGround, window, tileset, camera, map);
-    //updateUtilsTexture(&renderer, &currentUtils, window, tileset, camera, map);
+    updateUtilsTexture(&renderer, &currentUtils, window, tileset, camera, map);
 }
 
 /**

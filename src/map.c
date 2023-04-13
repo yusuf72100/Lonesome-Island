@@ -187,6 +187,13 @@ void smoothGroundShape(int ground[MAP_SIZE][MAP_SIZE]) {
                 ground[i][j] = rand() % 7 + (isWater(ground[i][j]) ? 20 : 0);
         }
     }
+
+    for (int i = 0; i < MAP_SIZE; i++) {
+        for (int j = 0; j < MAP_SIZE; j++) {
+            if (checkSameNeighboor(ground, i, j) == 0)
+                ground[i][j] = rand() % 7 + (isWater(ground[i][j]) ? 20 : 0);
+        }
+    }
 }
 
 void init_ground(int ground[MAP_SIZE][MAP_SIZE]) {

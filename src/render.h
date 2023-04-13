@@ -14,6 +14,6 @@ void updateUtilsTexture(SDL_Renderer** renderer, SDL_Texture** target, SDL_Windo
 
 void renderUtils(SDL_Renderer** renderer, SDL_Texture* big_texture);
 
-void renderPlayer(SDL_Renderer** renderer, camera_t* camera, player_t* players, int nb_joueurs);
+void renderPlayer(SDL_Renderer** renderer, camera_t* camera, player_t* player);
 
 #endif

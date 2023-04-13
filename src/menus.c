@@ -317,7 +317,8 @@ static void drawButtons()
  */
 extern void update_screen()
 {
-    renderMap(&renderer, background_texture);
+    renderMap(&renderer, currentGround);
+    renderUtils(&renderer, currentUtils);
     SDL_GetMouseState(&mouse_position.x,&mouse_position.y);
     SDL_GetWindowPosition(window, &xWindow, &yWindow);
     SDL_ShowCursor(SDL_DISABLE);
@@ -1314,7 +1315,7 @@ static void IngameMenu()
     }
 
     renderMap(&renderer, currentGround);
-    renderPlayer(&renderer, camera, joueurs, size);
+    renderPlayer(&renderer, camera, &joueur);
     renderUtils(&renderer, currentUtils);
 
     wearing();
