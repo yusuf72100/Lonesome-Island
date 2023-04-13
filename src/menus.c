@@ -694,7 +694,7 @@ static void surfacesInit()
     surface_joueur_down_2 = IMG_Load("resources/characters/player_down_2.png");
 
     //items
-    bois->surface = IMG_Load("ressources/items/wooden_log.png");
+    bois->surface = IMG_Load("resources/items/wooden_log.png");
     apple->surface = IMG_Load("resources/items/apple.png");
     chest_item->surface = IMG_Load("resources/items/chest_block.png");
 }
