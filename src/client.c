@@ -25,7 +25,7 @@ extern void receiveMap(map_t *map)
     //matrice ground
     do{
         recv(*socket_Server,tramClient_receive,(sizeof(char)*500),0);
-        printf("trame client: %s\n",tramClient_receive);
+        //printf("trame client: %s\n",tramClient_receive);
         if(strcmp(tramClient_receive, "start") == 1)
         {
             for(int i = 0; tramClient_receive[i] != '\0'; i++)
@@ -238,6 +238,7 @@ void *receiveFromServer()
 {
     while(recv(*socket_Server,tramClient_receive,(sizeof(char)*30),0) != INVALID_SOCKET)
     {
+        printf("client data: %s\n",tramClient_receive);
         traitData();
     }
     stopConnection();
