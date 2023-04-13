@@ -83,6 +83,9 @@ void getTreeColisionsDimensions(int tree, int *w, int *h) {
         *w = 2;
         *h = 1;
         break;
+    default :
+        *w = 0;
+        *h = 0;
     }
 }
 
@@ -229,6 +232,25 @@ void place_tree(int util[MAP_SIZE][MAP_SIZE], int x, int y, int w, int h, int tr
     util[x][y] = tree + 10;
 }
 
+void getNearestTreeBase(int map[MAP_SIZE][MAP_SIZE], int* x, int* y) {
+    for(int i = 1; i >= -2; i--) {
+        for(int j = 2; j >= -3; j--) {
+            if(getType(map[*x-i][*y-j]) == TREE && getVariant(map[*x-i][*y-j]) != 9) {
+                *x -= i;
+                *y -= j;
+            }
+        }
+    }
+}
+
+void cut_tree(int map[MAP_SIZE][MAP_SIZE], int x, int y, int w, int h) {
+    for (int i = w-1; i >= 0; i--) {
+        for (int j = h-1; j >= 0; j--) {
+            map[x - i][y - j] = -1;
+        }
+    }
+}
+
 void plant_trees(map_t *map) {
     int perc;
     int tree, w, h;
@@ -265,7 +287,7 @@ int raftNearBeach(map_t* map, int x, int y) {
 
     for (int i = dim; i >= 0; i--) {
         for (int j = dim; j >= 0; j--) {
-            if(isAnySandNear(map->ground, x - i, y - j, 1) && isAnyGrassNear(map->ground, x - i, y - i, 4));
+            if(isAnySandNear(map->ground, x - i, y - j, 1) && isAnyGrassNear(map->ground, x - i, y - i, 2));
             return 1;
         }
     }
@@ -277,7 +299,7 @@ void placeRaft(map_t* map) {
     do {
         x = rand() % MAP_SIZE;
         y = rand() % MAP_SIZE;
-    } while(map->ground[x][y] != WATER || !raftNearBeach(map, x, y));
+    } while(map->ground[x][y] == WATER && !raftNearBeach(map, x, y));
 
     for (int i = 3; i >= 0; i--) {
         for (int j = 3; j >= 0; j--) {

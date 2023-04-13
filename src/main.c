@@ -803,9 +803,33 @@ static void doEvents()
         {
             if((SDL_GetTicks() - tabTick[13]) >= 200)
             {
-                int places[4] = {map->utils[joueur.mapPosition.x][joueur.mapPosition.y+1], map->utils[joueur.mapPosition.x+1][joueur.mapPosition.y], map->utils[joueur.mapPosition.x][joueur.mapPosition.y-1], map->utils[joueur.mapPosition.x-1][joueur.mapPosition.y]};
+                int places[4] = {map->utils[joueur.mapPosition.x][joueur.mapPosition.y-1], map->utils[joueur.mapPosition.x+1][joueur.mapPosition.y], map->utils[joueur.mapPosition.x][joueur.mapPosition.y+1], map->utils[joueur.mapPosition.x-1][joueur.mapPosition.y]};
                 if(getType(places[joueur.facing]) == TREE) {
+
+                    int x, y, w, h;
+                    switch (joueur.facing){
+                    case NORTH :
+                        x = joueur.mapPosition.x;
+                        y = joueur.mapPosition.y-1;
+                        break;
+                    case EAST :
+                        x = joueur.mapPosition.x+1;
+                        y = joueur.mapPosition.y;
+                        break;
+                    case SOUTH :
+                        x = joueur.mapPosition.x;
+                        y = joueur.mapPosition.y+1;
+                        break;
+                    case WEST :
+                        x = joueur.mapPosition.x-1;
+                        y = joueur.mapPosition.y;
+                        break;
+                    }
                     putInInventory(*bois, 1);
+                    getNearestTreeBase(map->utils, &x, &y);
+                    getTreeColisionsDimensions(getVariant(map->utils[x][y]), &w, &h);
+                    cut_tree(map->utils, x, y, w, h);
+                    updateUtilsTexture(&renderer, &currentUtils, window, tileset, camera, map);
                 }
                 tabTick[13] = SDL_GetTicks();
             }

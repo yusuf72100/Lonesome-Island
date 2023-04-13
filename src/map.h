@@ -42,6 +42,10 @@ void getTreeColisionsDimensions(int tree, int* w, int* h);
 
 void print_map(int map[MAP_SIZE][MAP_SIZE]);
 
+void getNearestTreeBase(int util[MAP_SIZE][MAP_SIZE], int* x, int* y);
+
+void cut_tree(int util[MAP_SIZE][MAP_SIZE], int x, int y, int w, int h);
+
 void build_map(map_t**);
 
 #endif

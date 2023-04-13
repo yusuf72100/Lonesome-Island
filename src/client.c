@@ -238,7 +238,7 @@ void *receiveFromServer()
 {
     while(recv(*socket_Server,tramClient_receive,(sizeof(char)*30),0) != INVALID_SOCKET)
     {
-        printf("client data: %s\n",tramClient_receive);
+        //printf("client data: %s\n",tramClient_receive);
         traitData();
     }
     stopConnection();
