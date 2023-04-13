@@ -759,8 +759,8 @@ static void rectanglesInit()
 {
 
     //title rectangle
-    title_rect.w = 500;
-    title_rect.h = 223;
+    title_rect.w = DM.w * 0.3;
+    title_rect.h = DM.h * 0.2;
     title_rect.x = (DM.w / 2) - (title_rect.w / 2);
     title_rect.y = 20;
 
@@ -1169,7 +1169,8 @@ static void MainMenu()
     buttonHover(surface_host_hover, texture_host_hover, &host_button_rect, &hover_hostbutton);
     buttonHoverWithAnimation(surface_settings_inert, texture_settings_inert, &settings_button_rect, &hover_settingsbutton, settings_button_animation_right, settings_button_animation_left);
     drawButton_withRotation(texture_settings_inert, settings_button_rect, surface_settings_inert);
-    drawImage(title_texture, title_rect);
+    SDL_RenderCopy(renderer, title_texture, NULL, &title_rect);
+
     drawMouse();
 }
 
@@ -1430,8 +1431,8 @@ static void getPlayerNameMenu()
     };
 
     SDL_Rect title_rect = {
-        .w = 800,
-        .h = 75,
+        .w = DM.w * 0.1,
+        .h = DM.h * 0.05,
         .x = (DM.w / 2) - 400,
         .y = DM.h - ((DM.h * 80) / 100)
     };

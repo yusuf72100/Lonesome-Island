@@ -11,6 +11,93 @@
 #include "main.h"
 
 /**
+ * @brief Récupère la map du serveur.
+ * @param map
+ */
+extern void receiveMap(map_t *map)
+{
+    map = malloc(sizeof(map_t));
+    char buffer[3];
+    int j = 0;
+    int swap = 0;
+
+    //on récupère les infos de la trame
+    //matrice ground
+    do{
+        recv(*socket_Server,tramClient_receive,(sizeof(char)*500),0);
+        printf("trame client: %s\n",tramClient_receive);
+        if(strcmp(tramClient_receive, "start") == 1)
+        {
+            for(int i = 0; tramClient_receive[i] != '\0'; i++)
+            {
+                buffer[0] = tramClient_receive[i];
+                buffer[1] = '\0';
+                if(buffer[0] == '-')
+                {
+                    buffer[1] = tramClient_receive[i];
+                    buffer[2] = '\0';
+                }
+                map->ground[i][j] = atoi(buffer);
+            }
+        }
+        j++;
+    }while(strcmp(tramClient_receive, "end") == 1);
+    j = 0;
+    tramClient_receive[0] = '\0';
+
+    //matrice coords
+    do{
+        recv(*socket_Server,tramClient_receive,(sizeof(char)*500),0);
+        if(strcmp(tramClient_receive, "start") == 1)
+        {
+            for(int i = 0; tramClient_receive[i] != '\0'; i++)
+            {
+                buffer[0] = tramClient_receive[i];
+                buffer[1] = '\0';
+                if(buffer[0] == '-')
+                {
+                    buffer[1] = tramClient_receive[i];
+                    buffer[2] = '\0';
+                }
+                if(swap == 0)
+                {
+                    map->coord[i][j].x = atoi(buffer);
+                    swap = 1;
+                }
+                else{
+                    map->coord[i][j].y = atoi(buffer);
+                    swap = 0;
+                }
+            }
+        }
+        j++;
+    }while(strcmp(tramClient_receive, "end") == 1);
+    j = 0;
+    tramClient_receive[0] = '\0';
+
+    //matrice utils
+    do{
+        recv(*socket_Server,tramClient_receive,(sizeof(char)*500),0);
+        if(strcmp(tramClient_receive, "start") == 1)
+        {
+            for(int i = 0; tramClient_receive[i] != '\0'; i++)
+            {
+                buffer[0] = tramClient_receive[i];
+                buffer[1] = '\0';
+                if(buffer[0] == '-')
+                {
+                    buffer[1] = tramClient_receive[i];
+                    buffer[2] = '\0';
+                }
+                map->utils[i][j] = atoi(buffer);
+            }
+        }
+        j++;
+    }while(strcmp(tramClient_receive, "end") == 1);
+    tramClient_receive[0] = '\0';
+}
+
+/**
  * @brief Traite les données reçus par le serveur
  * 
  */
@@ -151,7 +238,6 @@ void *receiveFromServer()
 {
     while(recv(*socket_Server,tramClient_receive,(sizeof(char)*30),0) != INVALID_SOCKET)
     {
-        //printf("Received from server: %s\n",tramClient_receive);
         traitData();
     }
     stopConnection();

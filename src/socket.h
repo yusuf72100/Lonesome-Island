@@ -31,8 +31,8 @@ typedef uint32_t socklen_t;
 
 static pthread_t *receive_from_client;
 
-static char tramClient_send[100];
-static char tramClient_receive[100];
+static char tramClient_send[500];
+static char tramClient_receive[500];
 
 static char recvBuffer[dataLen]; 
 static SOCKET socketServer;
@@ -78,6 +78,7 @@ typedef struct send2Client
 char *getLocalIp();
 static send2Client *argClient = NULL;
 static int findPosition(send2Client *argClient);
+static void *sendMapToClient(void *arg);
 void *searchClients(void *argt);
 void *receiveFromClient(void *arg);
 static void *sendToClient(send2Client *argClient, int position);
