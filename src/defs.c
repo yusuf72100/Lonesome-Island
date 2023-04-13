@@ -61,6 +61,7 @@ void defineItem()
     wearedItem = malloc(sizeof(case_inventory));
     axe = malloc(sizeof(item_t));
     apple = malloc(sizeof(item_t));
+    bois = malloc(sizeof(item_t));
     chest_item = malloc(sizeof(item_t));
     chest_block = malloc(sizeof(block_t));
 
@@ -81,6 +82,12 @@ void defineItem()
     apple->texture = NULL;
     apple->surface = NULL;
     apple->Item = &(food_t){ .feed = 15, .thirst = 5 };
+
+    bois->itemType = RESOURCES;
+    strcpy(bois->name, "Bois");
+    bois->texture = NULL;
+    bois->surface = NULL;
+    bois->Item = &(resource_t){ .nothing = 0 };
 
     chest_item->itemType = BLOCK_ITEM;
     strcpy(chest_item->name, "Coffre");
