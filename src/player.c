@@ -13,7 +13,7 @@ void initPlayer(SDL_Renderer* renderer, player_t* player, map_t* map) {
     srand(time(NULL));
 
     //Position sur la map
-    coord_t co = {0, 0};
+    coord_t co = {50, 50};
     while(isWater(map->ground[co.x][co.y]) || map->utils[co.x][co.y] != -1) {
         co.x = rand() % MAP_SIZE;
         co.y = rand() % MAP_SIZE;

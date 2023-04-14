@@ -33,7 +33,7 @@ int putInInventory(item_t *item, int number)
                 return FALSE;
             }
             //sinon, on regard si l'item actuel dans la case est le même que celui qu'on veut mettre
-            else if(mat_inventory[i][j].Item->itemType == item->itemType && mat_inventory[i][j].number < 64)
+            else if(strcmp(mat_inventory[i][j].Item->name, item->name) == 0 && mat_inventory[i][j].number < 64)
             {
                 //si c'est les mêmes et qu'il y a de la place on ajoute
                 if(mat_inventory[i][j].number + number <= 64)
@@ -843,6 +843,10 @@ static void doEvents()
                     putInInventory(bois, amount);
                     amount = rand() % (int)((w + h) / 2) + 1;
                     putInInventory(apple, amount);
+                }
+                if(getType(places[joueur.facing]) == ROCK) {
+                    int amount = rand() % 3 + 1;
+                    putInInventory(pierre, amount);
                 }
                 tabTick[13] = SDL_GetTicks();
             }

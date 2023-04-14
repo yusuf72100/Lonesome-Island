@@ -55,13 +55,13 @@ void initCamera(camera_t* camera, SDL_Window* window, player_t* player) {
  */
 int checkPlayerOut(camera_t* camera, player_t* player, int direction) {
     //NORTH
-    if(direction == NORTH && player->mapPosition.y + (float) (player->tilePosition.y)/MOVES_ON_TILE < camera->startPosition.y + (float) (camera->offsetStartPosition.y)/MOVES_ON_TILE + (float) (camera->hRender)/5) return 1;
+    if(direction == NORTH && player->mapPosition.y + (float) (player->tilePosition.y)/MOVES_ON_TILE < camera->startPosition.y + (float) (camera->offsetStartPosition.y)/MOVES_ON_TILE + (float) (camera->hRender)/4) return 1;
     //EAST
-    if(direction == EAST && player->mapPosition.x + (float) (player->tilePosition.x)/MOVES_ON_TILE + 1 > camera->startPosition.x + (float) (camera->offsetStartPosition.x)/MOVES_ON_TILE + camera->wRender - (float) (camera->wRender)/10) return 1;
+    if(direction == EAST && player->mapPosition.x + (float) (player->tilePosition.x)/MOVES_ON_TILE + 1 > camera->startPosition.x + (float) (camera->offsetStartPosition.x)/MOVES_ON_TILE + camera->wRender - (float) (camera->wRender)/4) return 1;
     //SOUTH
-    if(direction == SOUTH && player->mapPosition.y + (float) (player->tilePosition.y)/MOVES_ON_TILE + 1 > camera->startPosition.y + (float) (camera->offsetStartPosition.y)/MOVES_ON_TILE + camera->hRender - (float) (camera->hRender)/5) return 1;
+    if(direction == SOUTH && player->mapPosition.y + (float) (player->tilePosition.y)/MOVES_ON_TILE + 1 > camera->startPosition.y + (float) (camera->offsetStartPosition.y)/MOVES_ON_TILE + camera->hRender - (float) (camera->hRender)/4) return 1;
     //WEST
-    if(direction == WEST && player->mapPosition.x + (float) (player->tilePosition.x)/MOVES_ON_TILE < camera->startPosition.x + (float) (camera->offsetStartPosition.x)/MOVES_ON_TILE + (float) (camera->wRender)/10) return 1;
+    if(direction == WEST && player->mapPosition.x + (float) (player->tilePosition.x)/MOVES_ON_TILE < camera->startPosition.x + (float) (camera->offsetStartPosition.x)/MOVES_ON_TILE + (float) (camera->wRender)/4) return 1;
     return 0;
 }
 

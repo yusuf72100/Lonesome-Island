@@ -36,6 +36,7 @@ SDL_Renderer *renderer = NULL;
 item_t *bois;
 item_t *axe;
 item_t *apple;
+item_t *pierre;
 item_t *chest_item;
 block_t *chest_block;
 T_MENU menu = MAIN_MENU;
@@ -62,6 +63,7 @@ void defineItem()
     axe = malloc(sizeof(item_t));
     apple = malloc(sizeof(item_t));
     bois = malloc(sizeof(item_t));
+    pierre = malloc(sizeof(item_t));
     chest_item = malloc(sizeof(item_t));
     chest_block = malloc(sizeof(block_t));
 
@@ -88,6 +90,12 @@ void defineItem()
     bois->texture = NULL;
     bois->surface = NULL;
     bois->Item = &(resource_t){ .nothing = 0 };
+
+    pierre->itemType = RESOURCES;
+    strcpy(pierre->name, "Pierre");
+    pierre->texture = NULL;
+    pierre->surface = NULL;
+    pierre->Item = &(resource_t){ .nothing = 0 };
 
     chest_item->itemType = BLOCK_ITEM;
     strcpy(chest_item->name, "Coffre");
