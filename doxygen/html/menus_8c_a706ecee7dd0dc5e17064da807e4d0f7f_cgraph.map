@@ -1,22 +1,21 @@
 <map id="SettingsMainKeybindMenu" name="SettingsMainKeybindMenu">
-<area shape="rect" id="node1" title="Affiche le menu des paramètres des keybinds dans le menu principal." alt="" coords="5,259,183,284"/>
+<area shape="rect" id="node1" title="Affiche le menu des paramètres des keybinds dans le menu principal." alt="" coords="5,232,183,257"/>
 <area shape="rect" id="node2" href="$menus_8c.html#a8f086b9f4a7667ad12f3014727ca5a97" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="233,56,324,81"/>
-<area shape="rect" id="node3" href="$menus_8c.html#a2029687a2271591438102ab23f102d1b" title="Dessine un bouton normal." alt="" coords="593,183,680,208"/>
-<area shape="rect" id="node8" href="$menus_8c.html#aa28a91563c1544b785c234a341407650" title="Essaye de dessiner tous les bouttons." alt="" coords="231,208,326,233"/>
-<area shape="rect" id="node10" href="$menus_8c.html#a278c718c4a5dfdda69d29b9a78bdbdce" title="Dessine l&#39;image souhaitée." alt="" coords="595,259,679,284"/>
-<area shape="rect" id="node11" href="$menus_8c.html#a534eae53456f9dd3c46b0954ab3f7da0" title="Dessine le texte du menu keybind." alt="" coords="375,507,528,532"/>
-<area shape="rect" id="node14" href="$menus_8c.html#a4dd509784585dea800b3115747c81c42" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="407,457,495,483"/>
-<area shape="rect" id="node15" href="$menus_8c.html#a3c98ffe9a3fcb71780598d084e08450b" title="Dessine le menu en jeu." alt="" coords="231,359,327,384"/>
-<area shape="rect" id="node6" href="$sound_8c.html#a57b4724b83449e52bba882dfcf33adbd" title="Fonction qui lance le son de survol de bouton dans un thread dédié." alt="" coords="413,5,489,31"/>
-<area shape="rect" id="node4" href="$menus_8c.html#a3ccdb6767f1237284bf7c8e0d3e3eacb" title="Détruit la fenêtre et le rendu." alt="" coords="771,359,851,384"/>
-<area shape="rect" id="node5" href="$menus_8c.html#acd3f39401c59bbd01c9663c5348c63c1" title="Nous renvoi une erreur SDL." alt="" coords="745,409,877,435"/>
-<area shape="rect" id="node7" href="$sound_8c.html#a57d534ee1e2bc6ccbd6b927c1a45c388" title="Son de survol de bouton." alt="" coords="576,5,697,31"/>
-<area shape="rect" id="node9" href="$menus_8c.html#a92374e22bf3866cd847b08988d4b0e14" title="Dessine les bouttons pour configurer les touches de jeu." alt="" coords="391,208,511,233"/>
-<area shape="rect" id="node12" href="$menus_8c.html#a2c77e93cff7609cf66cbf196174232db" title="Affiche un seul caractère en ttf." alt="" coords="599,459,675,484"/>
-<area shape="rect" id="node13" href="$menus_8c.html#a6c9a65ad9be87e19f9f2473a4c7df4cb" title="Affiche un texte en ttf." alt="" coords="599,560,674,585"/>
-<area shape="rect" id="node16" href="$menus_8c.html#a4b593095cf6863d0d687ad700e4c039c" title="Dessine la barre de vie du joueur." alt="" coords="409,309,494,335"/>
-<area shape="rect" id="node17" href="$menus_8c.html#ae3971b269256d10767909b822dfcebdc" title="Dessine la barre de soif du joueur." alt="" coords="401,359,502,384"/>
-<area shape="rect" id="node18" href="$menus_8c.html#af95a53ea12545b184a401ec583e8f450" title="Affiche l&#39;item transporté par le curseur du joueur." alt="" coords="418,408,485,433"/>
-<area shape="rect" id="node19" href="$menus_8c.html#aac65ec8dc8ee64aa76b5497b1bad3fb7" title="Affiche le nombre d&#39;items pour chaque case de l&#39;inventaire." alt="" coords="585,409,689,435"/>
-<area shape="rect" id="node20" href="$menus_8c.html#ad5ab7650cd53725296273d67450e6981" title="Dessine l&#39;item à la bonne case de l&#39;inventaire." alt="" coords="599,308,674,333"/>
+<area shape="rect" id="node3" href="$menus_8c.html#a2029687a2271591438102ab23f102d1b" title="Dessine un bouton normal." alt="" coords="593,129,680,155"/>
+<area shape="rect" id="node6" href="$menus_8c.html#aa28a91563c1544b785c234a341407650" title="Essaye de dessiner tous les bouttons." alt="" coords="231,207,326,232"/>
+<area shape="rect" id="node8" href="$menus_8c.html#a534eae53456f9dd3c46b0954ab3f7da0" title="Dessine le texte du menu keybind." alt="" coords="375,257,528,283"/>
+<area shape="rect" id="node13" href="$menus_8c.html#a4dd509784585dea800b3115747c81c42" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="407,336,495,361"/>
+<area shape="rect" id="node14" href="$menus_8c.html#a3c98ffe9a3fcb71780598d084e08450b" title="Dessine le menu en jeu." alt="" coords="231,377,327,403"/>
+<area shape="rect" id="node4" href="$sound_8c.html#a57b4724b83449e52bba882dfcf33adbd" title="Fonction qui lance le son de survol de bouton dans un thread dédié." alt="" coords="413,5,489,31"/>
+<area shape="rect" id="node5" href="$sound_8c.html#a57d534ee1e2bc6ccbd6b927c1a45c388" title="Son de survol de bouton." alt="" coords="576,5,697,31"/>
+<area shape="rect" id="node7" href="$menus_8c.html#a92374e22bf3866cd847b08988d4b0e14" title="Dessine les bouttons pour configurer les touches de jeu." alt="" coords="391,208,511,233"/>
+<area shape="rect" id="node9" href="$menus_8c.html#a2c77e93cff7609cf66cbf196174232db" title="Affiche un seul caractère en ttf." alt="" coords="599,253,675,279"/>
+<area shape="rect" id="node12" href="$menus_8c.html#a6c9a65ad9be87e19f9f2473a4c7df4cb" title="Affiche un texte en ttf." alt="" coords="599,204,674,229"/>
+<area shape="rect" id="node10" href="$menus_8c.html#a3ccdb6767f1237284bf7c8e0d3e3eacb" title="Détruit la fenêtre et le rendu." alt="" coords="771,317,851,343"/>
+<area shape="rect" id="node11" href="$menus_8c.html#acd3f39401c59bbd01c9663c5348c63c1" title="Nous renvoi une erreur SDL." alt="" coords="745,380,877,405"/>
+<area shape="rect" id="node15" href="$menus_8c.html#a4b593095cf6863d0d687ad700e4c039c" title="Dessine la barre de vie du joueur." alt="" coords="409,403,494,428"/>
+<area shape="rect" id="node17" href="$menus_8c.html#af95a53ea12545b184a401ec583e8f450" title="Affiche l&#39;item transporté par le curseur du joueur." alt="" coords="418,455,485,480"/>
+<area shape="rect" id="node16" href="$menus_8c.html#a278c718c4a5dfdda69d29b9a78bdbdce" title="Dessine l&#39;image souhaitée." alt="" coords="595,405,679,431"/>
+<area shape="rect" id="node18" href="$menus_8c.html#aac65ec8dc8ee64aa76b5497b1bad3fb7" title="Affiche le nombre d&#39;items pour chaque case de l&#39;inventaire." alt="" coords="585,455,689,480"/>
+<area shape="rect" id="node19" href="$menus_8c.html#ad5ab7650cd53725296273d67450e6981" title="Dessine l&#39;item à la bonne case de l&#39;inventaire." alt="" coords="599,504,674,529"/>
 </map>

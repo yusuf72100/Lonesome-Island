@@ -1,0 +1,11 @@
+<map id="C:/Users/Yusuf/CLionProjects/Lonesome&#45;Island/src/liste.h" name="C:/Users/Yusuf/CLionProjects/Lonesome&#45;Island/src/liste.h">
+<area shape="rect" id="node1" title="CECI EST UN FICHIER NON UTILISÉ PAR LE PROGRAMME PRINCIPAL, IL S&#39;AGIT D&#39;UN FICHIER DE TEST!" alt="" coords="140,5,335,45"/>
+<area shape="rect" id="node2" href="$liste_8c.html" title="CECI EST UN FICHIER NON UTILISÉ PAR LE PROGRAMME PRINCIPAL, IL S&#39;AGIT D&#39;UN FICHIER DE TEST!" alt="" coords="5,93,200,133"/>
+<area shape="rect" id="node3" href="$main_8h.html" title="Fichier contenant toutes les variables d&#39;affichage." alt="" coords="325,269,520,309"/>
+<area shape="rect" id="node7" href="$menus_8h.html" title="Fichier contenant toutes les variables d&#39;affichage." alt="" coords="301,93,501,133"/>
+<area shape="rect" id="node4" href="$client_8c.html" title="Fichier qui contient la configuration du socket client." alt="" coords="412,357,607,397"/>
+<area shape="rect" id="node5" href="$main_8c.html" title="Fichier principal du programme qui s&#39;occupera de la partie jeu." alt="" coords="661,357,856,397"/>
+<area shape="rect" id="node6" href="$menus_8c.html" title="Fichier qui s&#39;occupera de l&#39;affichage des éléments." alt="" coords="188,357,388,397"/>
+<area shape="rect" id="node8" href="$settings_8h.html" title="Fichier content les définitions pour le fichier settings.c." alt="" coords="326,181,533,221"/>
+<area shape="rect" id="node9" href="$settings_8c.html" title="Programme qui s&#39;occupera de la sauvegarde des paramètres de l&#39;utilisateur." alt="" coords="545,269,751,309"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="choixTile" name="choixTile">
+<area shape="rect" id="node1" title="Permet de sélectionner la bonne texture dans le tileset." alt="" coords="168,5,241,31"/>
+<area shape="rect" id="node2" href="$map_8c.html#afea8ab96441e5b07e5c5fea2ab5eadeb" title="Attribue un id à chaque cases et choisi puis stocke l&#39;emplacement de la texture dans une matrice." alt="" coords="5,5,120,31"/>
+</map>

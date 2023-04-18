@@ -1,6 +1,7 @@
 <map id="findPosition" name="findPosition">
-<area shape="rect" id="node1" title="Cherche la position du client dans le tableau des clients." alt="" coords="681,5,771,31"/>
+<area shape="rect" id="node1" title="Cherche la position du client dans le tableau des clients." alt="" coords="681,31,771,56"/>
 <area shape="rect" id="node2" href="$socket_8c.html#a3b61093f2f5316157d1e6d3d05cf5ebc" title="Écoute un client tant que la connexion est établie." alt="" coords="508,5,633,31"/>
+<area shape="rect" id="node7" href="$socket_8c.html#a042aa936acd13560f5b89900f46cc9dc" title="Cette fonction envera la map au joueur (premade &amp; s&#39;execute uniquement dans une fonction)" alt="" coords="509,55,632,80"/>
 <area shape="rect" id="node3" href="$socket_8c.html#a68b45930fad2153f053144a8678afa1c" title="Gère la place des clients dans la table de client et reçoit les nouveaux clients." alt="" coords="359,5,460,31"/>
 <area shape="rect" id="node4" href="$socket_8c.html#a3490387e86b9ba6a1ee9ed3984b637d5" title="Démarre le serveur et initie la table de clients." alt="" coords="227,5,311,31"/>
 <area shape="rect" id="node5" href="$main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>

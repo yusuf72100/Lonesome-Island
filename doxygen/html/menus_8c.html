@@ -74,7 +74,8 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Fonctions</a>  </div>
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">Référence du fichier menus.c</div></div>
 </div><!--header-->
 <div class="contents">
@@ -107,7 +108,7 @@ Graphe des dépendances par inclusion de menus.c:</div>
 <area shape="rect" title=" " alt="" coords="563,680,663,705"/>
 <area shape="rect" title=" " alt="" coords="1207,460,1283,485"/>
 <area shape="rect" title=" " alt="" coords="1106,313,1203,339"/>
-<area shape="rect" href="liste_8h_source.html" title=" " alt="" coords="315,387,373,412"/>
+<area shape="rect" href="liste_8h.html" title="CECI EST UN FICHIER NON UTILISÉ PAR LE PROGRAMME PRINCIPAL, IL S&#39;AGIT D&#39;UN FICHIER DE TEST!" alt="" coords="315,387,373,412"/>
 <area shape="rect" href="client_8h.html" title="Fichier content toutes les informations relatives au client et au serveur." alt="" coords="663,313,727,339"/>
 <area shape="rect" href="defs_8h.html" title="Fichier contenant toutes les définitions de structures et de types." alt="" coords="1651,460,1709,485"/>
 <area shape="rect" href="sound_8h.html" title="Fichier contenant les sons." alt="" coords="1459,240,1527,265"/>
@@ -184,7 +185,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>inventoryInit<
 <tr class="memdesc:ac8bd81eded19c6d6402df5c125fbac5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine un boutton en fonction d'une certaine rotation.  <br /></td></tr>
 <tr class="separator:ac8bd81eded19c6d6402df5c125fbac5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab804df0c510979d77fd5599feef21ae0"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menus_8c.html#ab804df0c510979d77fd5599feef21ae0">drawPlayers</a> (<a class="el" href="structplayer__s.html">player_t</a> *joueurs, int size)</td></tr>
-<tr class="memdesc:ab804df0c510979d77fd5599feef21ae0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trie les joueurs en fonction de leur coordonnées Y et organise l'ordre d'affichage des joueurs.  <br /></td></tr>
+<tr class="memdesc:ab804df0c510979d77fd5599feef21ae0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine tous les joueurs.  <br /></td></tr>
 <tr class="separator:ab804df0c510979d77fd5599feef21ae0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0fa3f94da8421e8f4e5d11404f87856b"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menus_8c.html#a0fa3f94da8421e8f4e5d11404f87856b">breathAnimation</a> (void *j)</td></tr>
 <tr class="memdesc:a0fa3f94da8421e8f4e5d11404f87856b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Animation de respiration.  <br /></td></tr>
@@ -313,6 +314,12 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>getPlayerNameM
 void&#160;</td><td class="memItemRight" valign="bottom"><b>drawMenu</b> ()</td></tr>
 <tr class="memdesc:aa13653318c21b0e6b86838e6091bfc9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine le bon menu. <br /></td></tr>
 <tr class="separator:aa13653318c21b0e6b86838e6091bfc9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a010bf5f9e86c34ba740704d8c755dcfa"><td class="memItemLeft" align="right" valign="top"><a id="a010bf5f9e86c34ba740704d8c755dcfa" name="a010bf5f9e86c34ba740704d8c755dcfa"></a>
+SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><b>background_texture</b> = NULL</td></tr>
+<tr class="separator:a010bf5f9e86c34ba740704d8c755dcfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Fichier qui s'occupera de l'affichage des éléments. </p>
@@ -434,12 +441,10 @@ Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="menus_8c_a8f086b9f4a7667ad12f3014727ca5a97_cgraph.png" border="0" usemap="#amenus_8c_a8f086b9f4a7667ad12f3014727ca5a97_cgraph" alt=""/></div>
 <map name="amenus_8c_a8f086b9f4a7667ad12f3014727ca5a97_cgraph" id="amenus_8c_a8f086b9f4a7667ad12f3014727ca5a97_cgraph">
-<area shape="rect" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="5,80,96,105"/>
-<area shape="rect" href="menus_8c.html#a2029687a2271591438102ab23f102d1b" title="Dessine un bouton normal." alt="" coords="144,55,231,80"/>
-<area shape="rect" href="sound_8c.html#a57b4724b83449e52bba882dfcf33adbd" title="Fonction qui lance le son de survol de bouton dans un thread dédié." alt="" coords="149,104,225,129"/>
-<area shape="rect" href="menus_8c.html#a3ccdb6767f1237284bf7c8e0d3e3eacb" title="Détruit la fenêtre et le rendu." alt="" coords="305,5,385,31"/>
-<area shape="rect" href="menus_8c.html#acd3f39401c59bbd01c9663c5348c63c1" title="Nous renvoi une erreur SDL." alt="" coords="279,55,411,80"/>
-<area shape="rect" href="sound_8c.html#a57d534ee1e2bc6ccbd6b927c1a45c388" title="Son de survol de bouton." alt="" coords="284,104,405,129"/>
+<area shape="rect" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="5,31,96,56"/>
+<area shape="rect" href="menus_8c.html#a2029687a2271591438102ab23f102d1b" title="Dessine un bouton normal." alt="" coords="144,5,231,31"/>
+<area shape="rect" href="sound_8c.html#a57b4724b83449e52bba882dfcf33adbd" title="Fonction qui lance le son de survol de bouton dans un thread dédié." alt="" coords="149,55,225,80"/>
+<area shape="rect" href="sound_8c.html#a57d534ee1e2bc6ccbd6b927c1a45c388" title="Son de survol de bouton." alt="" coords="279,55,400,80"/>
 </map>
 </div>
 <div class="dynheader">
@@ -710,37 +715,33 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="menus_8c_a3ccdb6767f1237284bf7c8e0d3e3eacb_icgraph.png" border="0" usemap="#amenus_8c_a3ccdb6767f1237284bf7c8e0d3e3eacb_icgraph" alt=""/></div>
 <map name="amenus_8c_a3ccdb6767f1237284bf7c8e0d3e3eacb_icgraph" id="amenus_8c_a3ccdb6767f1237284bf7c8e0d3e3eacb_icgraph">
-<area shape="rect" title="Détruit la fenêtre et le rendu." alt="" coords="1204,522,1284,547"/>
-<area shape="rect" href="menus_8c.html#a2029687a2271591438102ab23f102d1b" title="Dessine un bouton normal." alt="" coords="1030,522,1117,547"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,443,56,469"/>
-<area shape="rect" href="menus_8c.html#ac8bd81eded19c6d6402df5c125fbac5a" title="Dessine un boutton en fonction d&#39;une certaine rotation." alt="" coords="991,446,1156,471"/>
-<area shape="rect" href="menus_8c.html#aac65ec8dc8ee64aa76b5497b1bad3fb7" title="Affiche le nombre d&#39;items pour chaque case de l&#39;inventaire." alt="" coords="831,94,935,119"/>
-<area shape="rect" href="menus_8c.html#a2c77e93cff7609cf66cbf196174232db" title="Affiche un seul caractère en ttf." alt="" coords="1035,597,1111,622"/>
-<area shape="rect" href="menus_8c.html#afe3fb63c56410a3ac3ab9397fdc8df8c" title="Affiche l&#39;erreur à l&#39;écran." alt="" coords="1035,673,1112,698"/>
-<area shape="rect" href="menus_8c.html#a278c718c4a5dfdda69d29b9a78bdbdce" title="Dessine l&#39;image souhaitée." alt="" coords="841,255,925,281"/>
-<area shape="rect" href="menus_8c.html#a4dd509784585dea800b3115747c81c42" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="673,345,761,370"/>
-<area shape="rect" href="menus_8c.html#a48e3fe80d276c94e23eed3c1017a05ee" title="Initialise toutes les variables relatives aux menus." alt="" coords="660,787,775,813"/>
-<area shape="rect" href="menus_8c.html#ac96e8912bb03df1f73f5ccb6db495085" title="Initialise l&#39;asset demandé." alt="" coords="1030,801,1117,826"/>
-<area shape="rect" href="menus_8c.html#a28764a87180355f2ae61ce329d0549b7" title="Initialise les dafonts." alt="" coords="1048,850,1099,875"/>
-<area shape="rect" href="menus_8c.html#a8f086b9f4a7667ad12f3014727ca5a97" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="672,497,763,522"/>
-<area shape="rect" href="menus_8c.html#a706ecee7dd0dc5e17064da807e4d0f7f" title="Affiche le menu des paramètres des keybinds dans le menu principal." alt="" coords="233,494,411,519"/>
-<area shape="rect" href="menus_8c.html#a92374e22bf3866cd847b08988d4b0e14" title="Dessine les bouttons pour configurer les touches de jeu." alt="" coords="823,497,943,522"/>
-<area shape="rect" href="menus_8c.html#aa28a91563c1544b785c234a341407650" title="Essaye de dessiner tous les bouttons." alt="" coords="670,546,765,571"/>
-<area shape="rect" href="menus_8c.html#ad4082538ea22b0a347c09456b67ba4bd" title="Affiche le menu principal." alt="" coords="494,446,577,471"/>
-<area shape="rect" href="menus_8c.html#a081a8f6ffea1d158f2a87e4258f6329a" title="Affiche le menu des paramètres dans le menu principal." alt="" coords="470,345,601,370"/>
-<area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,363,185,389"/>
-<area shape="rect" href="menus_8c.html#a047a87d55ef5bac980f1df5f340f39fa" title="Affiche le menu des paramètres dans en jeu." alt="" coords="249,313,395,338"/>
-<area shape="rect" href="menus_8c.html#ad4c2a0af54ce8a4ea849916d96237e1b" title="Dessine les cases de l&#39;inventaire." alt="" coords="492,55,579,81"/>
-<area shape="rect" href="menus_8c.html#af95a53ea12545b184a401ec583e8f450" title="Affiche l&#39;item transporté par le curseur du joueur." alt="" coords="684,94,751,119"/>
-<area shape="rect" href="menus_8c.html#a588196acaedd8824af54e4bac318358d" title="Dessin le menu de l&#39;inventaire." alt="" coords="269,193,375,218"/>
-<area shape="rect" href="menus_8c.html#a3c98ffe9a3fcb71780598d084e08450b" title="Dessine le menu en jeu." alt="" coords="487,193,583,218"/>
-<area shape="rect" href="menus_8c.html#a534eae53456f9dd3c46b0954ab3f7da0" title="Dessine le texte du menu keybind." alt="" coords="459,649,612,674"/>
-<area shape="rect" href="menus_8c.html#a9cde538499636a6a74cb0f3e206d4a73" title="Dessine l&#39;erreur avec TTF." alt="" coords="837,699,928,725"/>
-<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="107,621,182,646"/>
-<area shape="rect" href="menus_8c.html#a4b593095cf6863d0d687ad700e4c039c" title="Dessine la barre de vie du joueur." alt="" coords="675,193,760,218"/>
-<area shape="rect" href="menus_8c.html#ae3971b269256d10767909b822dfcebdc" title="Dessine la barre de soif du joueur." alt="" coords="667,143,768,169"/>
-<area shape="rect" href="main_8c.html#a270d20bdcadebb9a08a01a55c37858a9" title="Initialise toutes les variables relatives aux menus." alt="" coords="110,670,179,695"/>
-<area shape="rect" href="menus_8c.html#a1d535222d73c1839cb6c5ef121b00baf" title="Initialise les textures du jeu." alt="" coords="839,801,926,826"/>
+<area shape="rect" title="Détruit la fenêtre et le rendu." alt="" coords="1023,235,1103,260"/>
+<area shape="rect" href="menus_8c.html#ac8bd81eded19c6d6402df5c125fbac5a" title="Dessine un boutton en fonction d&#39;une certaine rotation." alt="" coords="809,108,975,133"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,133,56,159"/>
+<area shape="rect" href="menus_8c.html#aac65ec8dc8ee64aa76b5497b1bad3fb7" title="Affiche le nombre d&#39;items pour chaque case de l&#39;inventaire." alt="" coords="840,357,944,383"/>
+<area shape="rect" href="menus_8c.html#a2c77e93cff7609cf66cbf196174232db" title="Affiche un seul caractère en ttf." alt="" coords="854,159,930,184"/>
+<area shape="rect" href="menus_8c.html#afe3fb63c56410a3ac3ab9397fdc8df8c" title="Affiche l&#39;erreur à l&#39;écran." alt="" coords="853,57,931,83"/>
+<area shape="rect" href="menus_8c.html#a278c718c4a5dfdda69d29b9a78bdbdce" title="Dessine l&#39;image souhaitée." alt="" coords="850,260,934,285"/>
+<area shape="rect" href="menus_8c.html#a4dd509784585dea800b3115747c81c42" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="667,209,755,235"/>
+<area shape="rect" href="menus_8c.html#a48e3fe80d276c94e23eed3c1017a05ee" title="Initialise toutes les variables relatives aux menus." alt="" coords="478,509,593,535"/>
+<area shape="rect" href="menus_8c.html#ac96e8912bb03df1f73f5ccb6db495085" title="Initialise l&#39;asset demandé." alt="" coords="849,509,935,535"/>
+<area shape="rect" href="menus_8c.html#a28764a87180355f2ae61ce329d0549b7" title="Initialise les dafonts." alt="" coords="867,559,917,584"/>
+<area shape="rect" href="menus_8c.html#ad4082538ea22b0a347c09456b67ba4bd" title="Affiche le menu principal." alt="" coords="494,108,577,133"/>
+<area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,209,185,235"/>
+<area shape="rect" href="menus_8c.html#ad4c2a0af54ce8a4ea849916d96237e1b" title="Dessine les cases de l&#39;inventaire." alt="" coords="492,460,579,485"/>
+<area shape="rect" href="menus_8c.html#af95a53ea12545b184a401ec583e8f450" title="Affiche l&#39;item transporté par le curseur du joueur." alt="" coords="677,357,744,383"/>
+<area shape="rect" href="menus_8c.html#a588196acaedd8824af54e4bac318358d" title="Dessin le menu de l&#39;inventaire." alt="" coords="269,361,375,387"/>
+<area shape="rect" href="menus_8c.html#a3c98ffe9a3fcb71780598d084e08450b" title="Dessine le menu en jeu." alt="" coords="487,308,583,333"/>
+<area shape="rect" href="menus_8c.html#a047a87d55ef5bac980f1df5f340f39fa" title="Affiche le menu des paramètres dans en jeu." alt="" coords="249,260,395,285"/>
+<area shape="rect" href="menus_8c.html#a706ecee7dd0dc5e17064da807e4d0f7f" title="Affiche le menu des paramètres des keybinds dans le menu principal." alt="" coords="233,159,411,184"/>
+<area shape="rect" href="menus_8c.html#a534eae53456f9dd3c46b0954ab3f7da0" title="Dessine le texte du menu keybind." alt="" coords="459,157,612,183"/>
+<area shape="rect" href="menus_8c.html#a9cde538499636a6a74cb0f3e206d4a73" title="Dessine l&#39;erreur avec TTF." alt="" coords="665,57,756,83"/>
+<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="107,95,182,120"/>
+<area shape="rect" href="menus_8c.html#a4b593095cf6863d0d687ad700e4c039c" title="Dessine la barre de vie du joueur." alt="" coords="668,308,753,333"/>
+<area shape="rect" href="menus_8c.html#ae3971b269256d10767909b822dfcebdc" title="Dessine la barre de soif du joueur." alt="" coords="660,259,761,284"/>
+<area shape="rect" href="menus_8c.html#a081a8f6ffea1d158f2a87e4258f6329a" title="Affiche le menu des paramètres dans le menu principal." alt="" coords="470,259,601,284"/>
+<area shape="rect" href="main_8c.html#a270d20bdcadebb9a08a01a55c37858a9" title="Initialise toutes les variables relatives aux menus." alt="" coords="110,335,179,360"/>
+<area shape="rect" href="menus_8c.html#a1d535222d73c1839cb6c5ef121b00baf" title="Initialise les textures du jeu." alt="" coords="667,509,754,535"/>
 </map>
 </div>
 
@@ -842,16 +843,6 @@ Voici le graphe des appelants de cette fonction :</div>
   </table>
   </dd>
 </dl>
-<div class="dynheader">
-Voici le graphe d'appel pour cette fonction :</div>
-<div class="dyncontent">
-<div class="center"><img src="menus_8c_a2029687a2271591438102ab23f102d1b_cgraph.png" border="0" usemap="#amenus_8c_a2029687a2271591438102ab23f102d1b_cgraph" alt=""/></div>
-<map name="amenus_8c_a2029687a2271591438102ab23f102d1b_cgraph" id="amenus_8c_a2029687a2271591438102ab23f102d1b_cgraph">
-<area shape="rect" title="Dessine un bouton normal." alt="" coords="5,31,92,56"/>
-<area shape="rect" href="menus_8c.html#a3ccdb6767f1237284bf7c8e0d3e3eacb" title="Détruit la fenêtre et le rendu." alt="" coords="166,5,246,31"/>
-<area shape="rect" href="menus_8c.html#acd3f39401c59bbd01c9663c5348c63c1" title="Nous renvoi une erreur SDL." alt="" coords="140,55,272,80"/>
-</map>
-</div>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
@@ -1258,17 +1249,15 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="menus_8c_a278c718c4a5dfdda69d29b9a78bdbdce_icgraph.png" border="0" usemap="#amenus_8c_a278c718c4a5dfdda69d29b9a78bdbdce_icgraph" alt=""/></div>
 <map name="amenus_8c_a278c718c4a5dfdda69d29b9a78bdbdce_icgraph" id="amenus_8c_a278c718c4a5dfdda69d29b9a78bdbdce_icgraph">
-<area shape="rect" title="Dessine l&#39;image souhaitée." alt="" coords="787,105,871,131"/>
-<area shape="rect" href="menus_8c.html#a4b593095cf6863d0d687ad700e4c039c" title="Dessine la barre de vie du joueur." alt="" coords="645,55,731,80"/>
-<area shape="rect" href="menus_8c.html#a706ecee7dd0dc5e17064da807e4d0f7f" title="Affiche le menu des paramètres des keybinds dans le menu principal." alt="" coords="233,141,411,167"/>
-<area shape="rect" href="menus_8c.html#ae3971b269256d10767909b822dfcebdc" title="Dessine la barre de soif du joueur." alt="" coords="637,5,739,31"/>
-<area shape="rect" href="menus_8c.html#ad4082538ea22b0a347c09456b67ba4bd" title="Affiche le menu principal." alt="" coords="483,219,565,244"/>
-<area shape="rect" href="menus_8c.html#a081a8f6ffea1d158f2a87e4258f6329a" title="Affiche le menu des paramètres dans le menu principal." alt="" coords="459,105,589,131"/>
-<area shape="rect" href="menus_8c.html#a3c98ffe9a3fcb71780598d084e08450b" title="Dessine le menu en jeu." alt="" coords="476,49,572,75"/>
-<area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,117,185,143"/>
-<area shape="rect" href="menus_8c.html#a588196acaedd8824af54e4bac318358d" title="Dessin le menu de l&#39;inventaire." alt="" coords="269,43,375,68"/>
-<area shape="rect" href="menus_8c.html#a047a87d55ef5bac980f1df5f340f39fa" title="Affiche le menu des paramètres dans en jeu." alt="" coords="249,92,395,117"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,117,56,143"/>
+<area shape="rect" title="Dessine l&#39;image souhaitée." alt="" coords="752,84,836,109"/>
+<area shape="rect" href="menus_8c.html#a4b593095cf6863d0d687ad700e4c039c" title="Dessine la barre de vie du joueur." alt="" coords="611,58,696,84"/>
+<area shape="rect" href="menus_8c.html#ae3971b269256d10767909b822dfcebdc" title="Dessine la barre de soif du joueur." alt="" coords="603,108,704,133"/>
+<area shape="rect" href="menus_8c.html#a3c98ffe9a3fcb71780598d084e08450b" title="Dessine le menu en jeu." alt="" coords="459,58,555,84"/>
+<area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,58,185,84"/>
+<area shape="rect" href="menus_8c.html#a588196acaedd8824af54e4bac318358d" title="Dessin le menu de l&#39;inventaire." alt="" coords="269,33,375,58"/>
+<area shape="rect" href="menus_8c.html#a047a87d55ef5bac980f1df5f340f39fa" title="Affiche le menu des paramètres dans en jeu." alt="" coords="249,82,395,108"/>
+<area shape="rect" href="menus_8c.html#a706ecee7dd0dc5e17064da807e4d0f7f" title="Affiche le menu des paramètres des keybinds dans le menu principal." alt="" coords="233,132,411,157"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,58,56,84"/>
 </map>
 </div>
 
@@ -1400,15 +1389,8 @@ Voici le graphe des appelants de cette fonction :</div>
       </table>
 </div><div class="memdoc">
 
-<p>Trie les joueurs en fonction de leur coordonnées Y et organise l'ordre d'affichage des joueurs. </p>
-<p>Applique la bonne texture au joueur en fonction de son animation.</p>
+<p>Dessine tous les joueurs. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">Joueur</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<p>Dessine tous les joueurs. </p><dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">joueurs</td><td></td></tr>
     <tr><td class="paramname">size</td><td></td></tr>
@@ -1421,7 +1403,7 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="menus_8c_ab804df0c510979d77fd5599feef21ae0_icgraph.png" border="0" usemap="#amenus_8c_ab804df0c510979d77fd5599feef21ae0_icgraph" alt=""/></div>
 <map name="amenus_8c_ab804df0c510979d77fd5599feef21ae0_icgraph" id="amenus_8c_ab804df0c510979d77fd5599feef21ae0_icgraph">
-<area shape="rect" title="Trie les joueurs en fonction de leur coordonnées Y et organise l&#39;ordre d&#39;affichage des joueurs." alt="" coords="227,5,320,31"/>
+<area shape="rect" title="Dessine tous les joueurs." alt="" coords="227,5,320,31"/>
 <area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
 </map>
@@ -1640,23 +1622,22 @@ Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="menus_8c_ad4082538ea22b0a347c09456b67ba4bd_cgraph.png" border="0" usemap="#amenus_8c_ad4082538ea22b0a347c09456b67ba4bd_cgraph" alt=""/></div>
 <map name="amenus_8c_ad4082538ea22b0a347c09456b67ba4bd_cgraph" id="amenus_8c_ad4082538ea22b0a347c09456b67ba4bd_cgraph">
-<area shape="rect" title="Affiche le menu principal." alt="" coords="5,202,88,227"/>
-<area shape="rect" href="menus_8c.html#a8f086b9f4a7667ad12f3014727ca5a97" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="190,176,281,202"/>
-<area shape="rect" href="menus_8c.html#ac446fc03b154099be126d6f8fe52f125" title="Affiche la texture de survol avec animation du bouton demandé en dans le menu souhaité." alt="" coords="148,126,323,151"/>
-<area shape="rect" href="menus_8c.html#ac8bd81eded19c6d6402df5c125fbac5a" title="Dessine un boutton en fonction d&#39;une certaine rotation." alt="" coords="604,226,769,251"/>
-<area shape="rect" href="menus_8c.html#aa28a91563c1544b785c234a341407650" title="Essaye de dessiner tous les bouttons." alt="" coords="188,227,283,252"/>
-<area shape="rect" href="menus_8c.html#a278c718c4a5dfdda69d29b9a78bdbdce" title="Dessine l&#39;image souhaitée." alt="" coords="645,28,729,54"/>
-<area shape="rect" href="menus_8c.html#a4dd509784585dea800b3115747c81c42" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="643,78,731,103"/>
-<area shape="rect" href="menus_8c.html#ab6d77ef359eb1ad9820145690e17a427" title="Animation du bouton paramètres quand on a pas le curseur dessus." alt="" coords="136,379,335,404"/>
-<area shape="rect" href="menus_8c.html#a48c083415f7a9126fec9cc228b651991" title="Animation du bouton paramètres quand on a le curseur dessus." alt="" coords="148,429,323,469"/>
-<area shape="rect" href="menus_8c.html#a2029687a2271591438102ab23f102d1b" title="Dessine un bouton normal." alt="" coords="643,176,730,202"/>
-<area shape="rect" href="sound_8c.html#a57b4724b83449e52bba882dfcf33adbd" title="Fonction qui lance le son de survol de bouton dans un thread dédié." alt="" coords="431,126,507,151"/>
-<area shape="rect" href="menus_8c.html#a3ccdb6767f1237284bf7c8e0d3e3eacb" title="Détruit la fenêtre et le rendu." alt="" coords="843,91,923,116"/>
-<area shape="rect" href="menus_8c.html#acd3f39401c59bbd01c9663c5348c63c1" title="Nous renvoi une erreur SDL." alt="" coords="817,152,949,178"/>
-<area shape="rect" href="sound_8c.html#a57d534ee1e2bc6ccbd6b927c1a45c388" title="Son de survol de bouton." alt="" coords="626,127,747,152"/>
-<area shape="rect" href="menus_8c.html#a92374e22bf3866cd847b08988d4b0e14" title="Dessine les bouttons pour configurer les touches de jeu." alt="" coords="409,227,529,252"/>
-<area shape="rect" href="main_8c.html#a0f9a66b9fc132ae63360835a23fe0ab0" title="Délai de l&#39;animation du bouton de paramètres quand on a pas le curseur dessus." alt="" coords="383,379,556,404"/>
-<area shape="rect" href="main_8c.html#a0caf52e6e1d7fb594108d8d4f4fbcd77" title="Délai de l&#39;animation du bouton de paramètres quand on a le curseur dessus." alt="" coords="395,429,544,469"/>
+<area shape="rect" title="Affiche le menu principal." alt="" coords="5,207,88,232"/>
+<area shape="rect" href="menus_8c.html#a8f086b9f4a7667ad12f3014727ca5a97" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="190,108,281,133"/>
+<area shape="rect" href="menus_8c.html#ac446fc03b154099be126d6f8fe52f125" title="Affiche la texture de survol avec animation du bouton demandé en dans le menu souhaité." alt="" coords="148,157,323,183"/>
+<area shape="rect" href="menus_8c.html#ac8bd81eded19c6d6402df5c125fbac5a" title="Dessine un boutton en fonction d&#39;une certaine rotation." alt="" coords="153,256,318,281"/>
+<area shape="rect" href="menus_8c.html#aa28a91563c1544b785c234a341407650" title="Essaye de dessiner tous les bouttons." alt="" coords="188,56,283,81"/>
+<area shape="rect" href="menus_8c.html#a4dd509784585dea800b3115747c81c42" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="191,207,279,232"/>
+<area shape="rect" href="menus_8c.html#ab6d77ef359eb1ad9820145690e17a427" title="Animation du bouton paramètres quand on a pas le curseur dessus." alt="" coords="136,305,335,331"/>
+<area shape="rect" href="menus_8c.html#a48c083415f7a9126fec9cc228b651991" title="Animation du bouton paramètres quand on a le curseur dessus." alt="" coords="148,355,323,395"/>
+<area shape="rect" href="menus_8c.html#a2029687a2271591438102ab23f102d1b" title="Dessine un bouton normal." alt="" coords="621,56,708,81"/>
+<area shape="rect" href="sound_8c.html#a57b4724b83449e52bba882dfcf33adbd" title="Fonction qui lance le son de survol de bouton dans un thread dédié." alt="" coords="431,157,507,183"/>
+<area shape="rect" href="sound_8c.html#a57d534ee1e2bc6ccbd6b927c1a45c388" title="Son de survol de bouton." alt="" coords="604,157,725,183"/>
+<area shape="rect" href="menus_8c.html#a3ccdb6767f1237284bf7c8e0d3e3eacb" title="Détruit la fenêtre et le rendu." alt="" coords="429,207,509,232"/>
+<area shape="rect" href="menus_8c.html#acd3f39401c59bbd01c9663c5348c63c1" title="Nous renvoi une erreur SDL." alt="" coords="403,256,535,281"/>
+<area shape="rect" href="menus_8c.html#a92374e22bf3866cd847b08988d4b0e14" title="Dessine les bouttons pour configurer les touches de jeu." alt="" coords="409,5,529,31"/>
+<area shape="rect" href="main_8c.html#a0f9a66b9fc132ae63360835a23fe0ab0" title="Délai de l&#39;animation du bouton de paramètres quand on a pas le curseur dessus." alt="" coords="383,305,556,331"/>
+<area shape="rect" href="main_8c.html#a0caf52e6e1d7fb594108d8d4f4fbcd77" title="Délai de l&#39;animation du bouton de paramètres quand on a le curseur dessus." alt="" coords="395,355,544,395"/>
 </map>
 </div>
 <div class="dynheader">
@@ -1893,38 +1874,34 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="menus_8c_acd3f39401c59bbd01c9663c5348c63c1_icgraph.png" border="0" usemap="#amenus_8c_acd3f39401c59bbd01c9663c5348c63c1_icgraph" alt=""/></div>
 <map name="amenus_8c_acd3f39401c59bbd01c9663c5348c63c1_icgraph" id="amenus_8c_acd3f39401c59bbd01c9663c5348c63c1_icgraph">
-<area shape="rect" title="Nous renvoi une erreur SDL." alt="" coords="1171,611,1303,636"/>
-<area shape="rect" href="menus_8c.html#a2029687a2271591438102ab23f102d1b" title="Dessine un bouton normal." alt="" coords="1036,459,1123,484"/>
-<area shape="rect" href="menus_8c.html#ac8bd81eded19c6d6402df5c125fbac5a" title="Dessine un boutton en fonction d&#39;une certaine rotation." alt="" coords="823,560,988,585"/>
-<area shape="rect" href="menus_8c.html#aac65ec8dc8ee64aa76b5497b1bad3fb7" title="Affiche le nombre d&#39;items pour chaque case de l&#39;inventaire." alt="" coords="853,57,957,83"/>
-<area shape="rect" href="menus_8c.html#a2c77e93cff7609cf66cbf196174232db" title="Affiche un seul caractère en ttf." alt="" coords="1041,611,1117,636"/>
-<area shape="rect" href="menus_8c.html#afe3fb63c56410a3ac3ab9397fdc8df8c" title="Affiche l&#39;erreur à l&#39;écran." alt="" coords="1041,661,1118,687"/>
-<area shape="rect" href="menus_8c.html#a278c718c4a5dfdda69d29b9a78bdbdce" title="Dessine l&#39;image souhaitée." alt="" coords="863,283,947,308"/>
-<area shape="rect" href="menus_8c.html#a4dd509784585dea800b3115747c81c42" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="673,207,761,232"/>
-<area shape="rect" href="menus_8c.html#a48e3fe80d276c94e23eed3c1017a05ee" title="Initialise toutes les variables relatives aux menus." alt="" coords="660,763,775,788"/>
-<area shape="rect" href="menus_8c.html#ac96e8912bb03df1f73f5ccb6db495085" title="Initialise l&#39;asset demandé." alt="" coords="1036,864,1123,889"/>
-<area shape="rect" href="menus_8c.html#a28764a87180355f2ae61ce329d0549b7" title="Initialise les dafonts." alt="" coords="1054,712,1105,737"/>
-<area shape="rect" href="menus_8c.html#ad75b46f2728cbcc3d36ee29e368ef68f" title="Initialise les éléments de la fenêtre." alt="" coords="1039,761,1120,787"/>
-<area shape="rect" href="menus_8c.html#a8f086b9f4a7667ad12f3014727ca5a97" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="672,459,763,484"/>
-<area shape="rect" href="menus_8c.html#a706ecee7dd0dc5e17064da807e4d0f7f" title="Affiche le menu des paramètres des keybinds dans le menu principal." alt="" coords="233,404,411,429"/>
-<area shape="rect" href="menus_8c.html#a92374e22bf3866cd847b08988d4b0e14" title="Dessine les bouttons pour configurer les touches de jeu." alt="" coords="845,408,965,433"/>
-<area shape="rect" href="menus_8c.html#aa28a91563c1544b785c234a341407650" title="Essaye de dessiner tous les bouttons." alt="" coords="670,409,765,435"/>
-<area shape="rect" href="menus_8c.html#ad4082538ea22b0a347c09456b67ba4bd" title="Affiche le menu principal." alt="" coords="494,360,577,385"/>
-<area shape="rect" href="menus_8c.html#a081a8f6ffea1d158f2a87e4258f6329a" title="Affiche le menu des paramètres dans le menu principal." alt="" coords="470,259,601,284"/>
-<area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,277,185,303"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,661,56,687"/>
-<area shape="rect" href="menus_8c.html#a047a87d55ef5bac980f1df5f340f39fa" title="Affiche le menu des paramètres dans en jeu." alt="" coords="249,227,395,252"/>
+<area shape="rect" title="Nous renvoi une erreur SDL." alt="" coords="1023,383,1155,408"/>
+<area shape="rect" href="menus_8c.html#ac8bd81eded19c6d6402df5c125fbac5a" title="Dessine un boutton en fonction d&#39;une certaine rotation." alt="" coords="809,357,975,383"/>
+<area shape="rect" href="menus_8c.html#aac65ec8dc8ee64aa76b5497b1bad3fb7" title="Affiche le nombre d&#39;items pour chaque case de l&#39;inventaire." alt="" coords="840,83,944,108"/>
+<area shape="rect" href="menus_8c.html#a2c77e93cff7609cf66cbf196174232db" title="Affiche un seul caractère en ttf." alt="" coords="854,308,930,333"/>
+<area shape="rect" href="menus_8c.html#afe3fb63c56410a3ac3ab9397fdc8df8c" title="Affiche l&#39;erreur à l&#39;écran." alt="" coords="853,408,931,433"/>
+<area shape="rect" href="menus_8c.html#a278c718c4a5dfdda69d29b9a78bdbdce" title="Dessine l&#39;image souhaitée." alt="" coords="850,207,934,232"/>
+<area shape="rect" href="menus_8c.html#a4dd509784585dea800b3115747c81c42" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="667,256,755,281"/>
+<area shape="rect" href="menus_8c.html#a48e3fe80d276c94e23eed3c1017a05ee" title="Initialise toutes les variables relatives aux menus." alt="" coords="478,509,593,535"/>
+<area shape="rect" href="menus_8c.html#ac96e8912bb03df1f73f5ccb6db495085" title="Initialise l&#39;asset demandé." alt="" coords="849,509,935,535"/>
+<area shape="rect" href="menus_8c.html#a28764a87180355f2ae61ce329d0549b7" title="Initialise les dafonts." alt="" coords="867,559,917,584"/>
+<area shape="rect" href="menus_8c.html#ad75b46f2728cbcc3d36ee29e368ef68f" title="Initialise les éléments de la fenêtre." alt="" coords="851,609,933,635"/>
+<area shape="rect" href="menus_8c.html#ad4082538ea22b0a347c09456b67ba4bd" title="Affiche le menu principal." alt="" coords="494,357,577,383"/>
+<area shape="rect" href="menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,256,185,281"/>
+<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,408,56,433"/>
 <area shape="rect" href="menus_8c.html#ad4c2a0af54ce8a4ea849916d96237e1b" title="Dessine les cases de l&#39;inventaire." alt="" coords="492,5,579,31"/>
-<area shape="rect" href="menus_8c.html#af95a53ea12545b184a401ec583e8f450" title="Affiche l&#39;item transporté par le curseur du joueur." alt="" coords="684,57,751,83"/>
-<area shape="rect" href="menus_8c.html#a588196acaedd8824af54e4bac318358d" title="Dessin le menu de l&#39;inventaire." alt="" coords="269,107,375,132"/>
+<area shape="rect" href="menus_8c.html#af95a53ea12545b184a401ec583e8f450" title="Affiche l&#39;item transporté par le curseur du joueur." alt="" coords="677,83,744,108"/>
+<area shape="rect" href="menus_8c.html#a588196acaedd8824af54e4bac318358d" title="Dessin le menu de l&#39;inventaire." alt="" coords="269,104,375,129"/>
 <area shape="rect" href="menus_8c.html#a3c98ffe9a3fcb71780598d084e08450b" title="Dessine le menu en jeu." alt="" coords="487,157,583,183"/>
-<area shape="rect" href="menus_8c.html#a534eae53456f9dd3c46b0954ab3f7da0" title="Dessine le texte du menu keybind." alt="" coords="459,611,612,636"/>
-<area shape="rect" href="menus_8c.html#a9cde538499636a6a74cb0f3e206d4a73" title="Dessine l&#39;erreur avec TTF." alt="" coords="860,661,951,687"/>
-<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="107,661,182,687"/>
-<area shape="rect" href="menus_8c.html#a4b593095cf6863d0d687ad700e4c039c" title="Dessine la barre de vie du joueur." alt="" coords="675,157,760,183"/>
-<area shape="rect" href="menus_8c.html#ae3971b269256d10767909b822dfcebdc" title="Dessine la barre de soif du joueur." alt="" coords="667,108,768,133"/>
-<area shape="rect" href="main_8c.html#a270d20bdcadebb9a08a01a55c37858a9" title="Initialise toutes les variables relatives aux menus." alt="" coords="110,711,179,736"/>
-<area shape="rect" href="menus_8c.html#a1d535222d73c1839cb6c5ef121b00baf" title="Initialise les textures du jeu." alt="" coords="862,864,949,889"/>
+<area shape="rect" href="menus_8c.html#a047a87d55ef5bac980f1df5f340f39fa" title="Affiche le menu des paramètres dans en jeu." alt="" coords="249,205,395,231"/>
+<area shape="rect" href="menus_8c.html#a706ecee7dd0dc5e17064da807e4d0f7f" title="Affiche le menu des paramètres des keybinds dans le menu principal." alt="" coords="233,307,411,332"/>
+<area shape="rect" href="menus_8c.html#a534eae53456f9dd3c46b0954ab3f7da0" title="Dessine le texte du menu keybind." alt="" coords="459,308,612,333"/>
+<area shape="rect" href="menus_8c.html#a9cde538499636a6a74cb0f3e206d4a73" title="Dessine l&#39;erreur avec TTF." alt="" coords="665,408,756,433"/>
+<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="107,408,182,433"/>
+<area shape="rect" href="menus_8c.html#a4b593095cf6863d0d687ad700e4c039c" title="Dessine la barre de vie du joueur." alt="" coords="668,157,753,183"/>
+<area shape="rect" href="menus_8c.html#ae3971b269256d10767909b822dfcebdc" title="Dessine la barre de soif du joueur." alt="" coords="660,207,761,232"/>
+<area shape="rect" href="menus_8c.html#a081a8f6ffea1d158f2a87e4258f6329a" title="Affiche le menu des paramètres dans le menu principal." alt="" coords="470,207,601,232"/>
+<area shape="rect" href="main_8c.html#a270d20bdcadebb9a08a01a55c37858a9" title="Initialise toutes les variables relatives aux menus." alt="" coords="110,457,179,483"/>
+<area shape="rect" href="menus_8c.html#a1d535222d73c1839cb6c5ef121b00baf" title="Initialise les textures du jeu." alt="" coords="667,509,754,535"/>
 </map>
 </div>
 
@@ -2039,24 +2016,23 @@ Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="menus_8c_a047a87d55ef5bac980f1df5f340f39fa_cgraph.png" border="0" usemap="#amenus_8c_a047a87d55ef5bac980f1df5f340f39fa_cgraph" alt=""/></div>
 <map name="amenus_8c_a047a87d55ef5bac980f1df5f340f39fa_cgraph" id="amenus_8c_a047a87d55ef5bac980f1df5f340f39fa_cgraph">
-<area shape="rect" title="Affiche le menu des paramètres dans en jeu." alt="" coords="5,284,152,309"/>
-<area shape="rect" href="menus_8c.html#a3c98ffe9a3fcb71780598d084e08450b" title="Dessine le menu en jeu." alt="" coords="379,360,475,385"/>
-<area shape="rect" href="menus_8c.html#a081a8f6ffea1d158f2a87e4258f6329a" title="Affiche le menu des paramètres dans le menu principal." alt="" coords="200,208,331,233"/>
-<area shape="rect" href="menus_8c.html#a4b593095cf6863d0d687ad700e4c039c" title="Dessine la barre de vie du joueur." alt="" coords="540,360,625,385"/>
-<area shape="rect" href="menus_8c.html#a4dd509784585dea800b3115747c81c42" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="707,309,795,335"/>
-<area shape="rect" href="menus_8c.html#ae3971b269256d10767909b822dfcebdc" title="Dessine la barre de soif du joueur." alt="" coords="532,409,633,435"/>
-<area shape="rect" href="menus_8c.html#af95a53ea12545b184a401ec583e8f450" title="Affiche l&#39;item transporté par le curseur du joueur." alt="" coords="549,459,616,484"/>
-<area shape="rect" href="menus_8c.html#a278c718c4a5dfdda69d29b9a78bdbdce" title="Dessine l&#39;image souhaitée." alt="" coords="709,359,793,384"/>
-<area shape="rect" href="menus_8c.html#a3ccdb6767f1237284bf7c8e0d3e3eacb" title="Détruit la fenêtre et le rendu." alt="" coords="886,359,966,384"/>
-<area shape="rect" href="menus_8c.html#acd3f39401c59bbd01c9663c5348c63c1" title="Nous renvoi une erreur SDL." alt="" coords="860,309,992,335"/>
-<area shape="rect" href="menus_8c.html#aac65ec8dc8ee64aa76b5497b1bad3fb7" title="Affiche le nombre d&#39;items pour chaque case de l&#39;inventaire." alt="" coords="699,457,803,483"/>
-<area shape="rect" href="menus_8c.html#ad5ab7650cd53725296273d67450e6981" title="Dessine l&#39;item à la bonne case de l&#39;inventaire." alt="" coords="714,408,789,433"/>
-<area shape="rect" href="menus_8c.html#a8f086b9f4a7667ad12f3014727ca5a97" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="381,157,472,183"/>
-<area shape="rect" href="menus_8c.html#aa28a91563c1544b785c234a341407650" title="Essaye de dessiner tous les bouttons." alt="" coords="379,56,474,81"/>
-<area shape="rect" href="menus_8c.html#a2029687a2271591438102ab23f102d1b" title="Dessine un bouton normal." alt="" coords="708,107,795,132"/>
-<area shape="rect" href="sound_8c.html#a57b4724b83449e52bba882dfcf33adbd" title="Fonction qui lance le son de survol de bouton dans un thread dédié." alt="" coords="545,157,621,183"/>
-<area shape="rect" href="sound_8c.html#a57d534ee1e2bc6ccbd6b927c1a45c388" title="Son de survol de bouton." alt="" coords="691,157,812,183"/>
-<area shape="rect" href="menus_8c.html#a92374e22bf3866cd847b08988d4b0e14" title="Dessine les bouttons pour configurer les touches de jeu." alt="" coords="523,5,643,31"/>
+<area shape="rect" title="Affiche le menu des paramètres dans en jeu." alt="" coords="5,193,152,219"/>
+<area shape="rect" href="menus_8c.html#a3c98ffe9a3fcb71780598d084e08450b" title="Dessine le menu en jeu." alt="" coords="217,168,313,193"/>
+<area shape="rect" href="menus_8c.html#a081a8f6ffea1d158f2a87e4258f6329a" title="Affiche le menu des paramètres dans le menu principal." alt="" coords="200,217,331,243"/>
+<area shape="rect" href="menus_8c.html#a4b593095cf6863d0d687ad700e4c039c" title="Dessine la barre de vie du joueur." alt="" coords="383,129,469,155"/>
+<area shape="rect" href="menus_8c.html#a4dd509784585dea800b3115747c81c42" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="382,192,470,217"/>
+<area shape="rect" href="menus_8c.html#af95a53ea12545b184a401ec583e8f450" title="Affiche l&#39;item transporté par le curseur du joueur." alt="" coords="393,55,459,80"/>
+<area shape="rect" href="menus_8c.html#a278c718c4a5dfdda69d29b9a78bdbdce" title="Dessine l&#39;image souhaitée." alt="" coords="539,104,623,129"/>
+<area shape="rect" href="menus_8c.html#a3ccdb6767f1237284bf7c8e0d3e3eacb" title="Détruit la fenêtre et le rendu." alt="" coords="715,80,795,105"/>
+<area shape="rect" href="menus_8c.html#acd3f39401c59bbd01c9663c5348c63c1" title="Nous renvoi une erreur SDL." alt="" coords="689,129,821,155"/>
+<area shape="rect" href="menus_8c.html#aac65ec8dc8ee64aa76b5497b1bad3fb7" title="Affiche le nombre d&#39;items pour chaque case de l&#39;inventaire." alt="" coords="529,55,633,80"/>
+<area shape="rect" href="menus_8c.html#ad5ab7650cd53725296273d67450e6981" title="Dessine l&#39;item à la bonne case de l&#39;inventaire." alt="" coords="544,5,619,31"/>
+<area shape="rect" href="menus_8c.html#a8f086b9f4a7667ad12f3014727ca5a97" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="381,357,471,383"/>
+<area shape="rect" href="menus_8c.html#aa28a91563c1544b785c234a341407650" title="Essaye de dessiner tous les bouttons." alt="" coords="379,256,473,281"/>
+<area shape="rect" href="menus_8c.html#a2029687a2271591438102ab23f102d1b" title="Dessine un bouton normal." alt="" coords="712,307,799,332"/>
+<area shape="rect" href="sound_8c.html#a57b4724b83449e52bba882dfcf33adbd" title="Fonction qui lance le son de survol de bouton dans un thread dédié." alt="" coords="543,408,619,433"/>
+<area shape="rect" href="sound_8c.html#a57d534ee1e2bc6ccbd6b927c1a45c388" title="Son de survol de bouton." alt="" coords="695,408,816,433"/>
+<area shape="rect" href="menus_8c.html#a92374e22bf3866cd847b08988d4b0e14" title="Dessine les bouttons pour configurer les touches de jeu." alt="" coords="521,256,641,281"/>
 </map>
 </div>
 <div class="dynheader">
@@ -2101,26 +2077,25 @@ Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="menus_8c_a706ecee7dd0dc5e17064da807e4d0f7f_cgraph.png" border="0" usemap="#amenus_8c_a706ecee7dd0dc5e17064da807e4d0f7f_cgraph" alt=""/></div>
 <map name="amenus_8c_a706ecee7dd0dc5e17064da807e4d0f7f_cgraph" id="amenus_8c_a706ecee7dd0dc5e17064da807e4d0f7f_cgraph">
-<area shape="rect" title="Affiche le menu des paramètres des keybinds dans le menu principal." alt="" coords="5,259,183,284"/>
+<area shape="rect" title="Affiche le menu des paramètres des keybinds dans le menu principal." alt="" coords="5,232,183,257"/>
 <area shape="rect" href="menus_8c.html#a8f086b9f4a7667ad12f3014727ca5a97" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="233,56,324,81"/>
-<area shape="rect" href="menus_8c.html#a2029687a2271591438102ab23f102d1b" title="Dessine un bouton normal." alt="" coords="593,183,680,208"/>
-<area shape="rect" href="menus_8c.html#aa28a91563c1544b785c234a341407650" title="Essaye de dessiner tous les bouttons." alt="" coords="231,208,326,233"/>
-<area shape="rect" href="menus_8c.html#a278c718c4a5dfdda69d29b9a78bdbdce" title="Dessine l&#39;image souhaitée." alt="" coords="595,259,679,284"/>
-<area shape="rect" href="menus_8c.html#a534eae53456f9dd3c46b0954ab3f7da0" title="Dessine le texte du menu keybind." alt="" coords="375,507,528,532"/>
-<area shape="rect" href="menus_8c.html#a4dd509784585dea800b3115747c81c42" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="407,457,495,483"/>
-<area shape="rect" href="menus_8c.html#a3c98ffe9a3fcb71780598d084e08450b" title="Dessine le menu en jeu." alt="" coords="231,359,327,384"/>
+<area shape="rect" href="menus_8c.html#a2029687a2271591438102ab23f102d1b" title="Dessine un bouton normal." alt="" coords="593,129,680,155"/>
+<area shape="rect" href="menus_8c.html#aa28a91563c1544b785c234a341407650" title="Essaye de dessiner tous les bouttons." alt="" coords="231,207,326,232"/>
+<area shape="rect" href="menus_8c.html#a534eae53456f9dd3c46b0954ab3f7da0" title="Dessine le texte du menu keybind." alt="" coords="375,257,528,283"/>
+<area shape="rect" href="menus_8c.html#a4dd509784585dea800b3115747c81c42" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="407,336,495,361"/>
+<area shape="rect" href="menus_8c.html#a3c98ffe9a3fcb71780598d084e08450b" title="Dessine le menu en jeu." alt="" coords="231,377,327,403"/>
 <area shape="rect" href="sound_8c.html#a57b4724b83449e52bba882dfcf33adbd" title="Fonction qui lance le son de survol de bouton dans un thread dédié." alt="" coords="413,5,489,31"/>
-<area shape="rect" href="menus_8c.html#a3ccdb6767f1237284bf7c8e0d3e3eacb" title="Détruit la fenêtre et le rendu." alt="" coords="771,359,851,384"/>
-<area shape="rect" href="menus_8c.html#acd3f39401c59bbd01c9663c5348c63c1" title="Nous renvoi une erreur SDL." alt="" coords="745,409,877,435"/>
 <area shape="rect" href="sound_8c.html#a57d534ee1e2bc6ccbd6b927c1a45c388" title="Son de survol de bouton." alt="" coords="576,5,697,31"/>
 <area shape="rect" href="menus_8c.html#a92374e22bf3866cd847b08988d4b0e14" title="Dessine les bouttons pour configurer les touches de jeu." alt="" coords="391,208,511,233"/>
-<area shape="rect" href="menus_8c.html#a2c77e93cff7609cf66cbf196174232db" title="Affiche un seul caractère en ttf." alt="" coords="599,459,675,484"/>
-<area shape="rect" href="menus_8c.html#a6c9a65ad9be87e19f9f2473a4c7df4cb" title="Affiche un texte en ttf." alt="" coords="599,560,674,585"/>
-<area shape="rect" href="menus_8c.html#a4b593095cf6863d0d687ad700e4c039c" title="Dessine la barre de vie du joueur." alt="" coords="409,309,494,335"/>
-<area shape="rect" href="menus_8c.html#ae3971b269256d10767909b822dfcebdc" title="Dessine la barre de soif du joueur." alt="" coords="401,359,502,384"/>
-<area shape="rect" href="menus_8c.html#af95a53ea12545b184a401ec583e8f450" title="Affiche l&#39;item transporté par le curseur du joueur." alt="" coords="418,408,485,433"/>
-<area shape="rect" href="menus_8c.html#aac65ec8dc8ee64aa76b5497b1bad3fb7" title="Affiche le nombre d&#39;items pour chaque case de l&#39;inventaire." alt="" coords="585,409,689,435"/>
-<area shape="rect" href="menus_8c.html#ad5ab7650cd53725296273d67450e6981" title="Dessine l&#39;item à la bonne case de l&#39;inventaire." alt="" coords="599,308,674,333"/>
+<area shape="rect" href="menus_8c.html#a2c77e93cff7609cf66cbf196174232db" title="Affiche un seul caractère en ttf." alt="" coords="599,253,675,279"/>
+<area shape="rect" href="menus_8c.html#a6c9a65ad9be87e19f9f2473a4c7df4cb" title="Affiche un texte en ttf." alt="" coords="599,204,674,229"/>
+<area shape="rect" href="menus_8c.html#a3ccdb6767f1237284bf7c8e0d3e3eacb" title="Détruit la fenêtre et le rendu." alt="" coords="771,317,851,343"/>
+<area shape="rect" href="menus_8c.html#acd3f39401c59bbd01c9663c5348c63c1" title="Nous renvoi une erreur SDL." alt="" coords="745,380,877,405"/>
+<area shape="rect" href="menus_8c.html#a4b593095cf6863d0d687ad700e4c039c" title="Dessine la barre de vie du joueur." alt="" coords="409,403,494,428"/>
+<area shape="rect" href="menus_8c.html#af95a53ea12545b184a401ec583e8f450" title="Affiche l&#39;item transporté par le curseur du joueur." alt="" coords="418,455,485,480"/>
+<area shape="rect" href="menus_8c.html#a278c718c4a5dfdda69d29b9a78bdbdce" title="Dessine l&#39;image souhaitée." alt="" coords="595,405,679,431"/>
+<area shape="rect" href="menus_8c.html#aac65ec8dc8ee64aa76b5497b1bad3fb7" title="Affiche le nombre d&#39;items pour chaque case de l&#39;inventaire." alt="" coords="585,455,689,480"/>
+<area shape="rect" href="menus_8c.html#ad5ab7650cd53725296273d67450e6981" title="Dessine l&#39;item à la bonne case de l&#39;inventaire." alt="" coords="599,504,674,529"/>
 </map>
 </div>
 <div class="dynheader">
@@ -2165,17 +2140,16 @@ Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="menus_8c_a081a8f6ffea1d158f2a87e4258f6329a_cgraph.png" border="0" usemap="#amenus_8c_a081a8f6ffea1d158f2a87e4258f6329a_cgraph" alt=""/></div>
 <map name="amenus_8c_a081a8f6ffea1d158f2a87e4258f6329a_cgraph" id="amenus_8c_a081a8f6ffea1d158f2a87e4258f6329a_cgraph">
-<area shape="rect" title="Affiche le menu des paramètres dans le menu principal." alt="" coords="5,183,136,208"/>
-<area shape="rect" href="menus_8c.html#a8f086b9f4a7667ad12f3014727ca5a97" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="186,157,277,183"/>
-<area shape="rect" href="menus_8c.html#aa28a91563c1544b785c234a341407650" title="Essaye de dessiner tous les bouttons." alt="" coords="184,56,279,81"/>
-<area shape="rect" href="menus_8c.html#a278c718c4a5dfdda69d29b9a78bdbdce" title="Dessine l&#39;image souhaitée." alt="" coords="513,208,597,233"/>
-<area shape="rect" href="menus_8c.html#a4dd509784585dea800b3115747c81c42" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="511,257,599,283"/>
-<area shape="rect" href="menus_8c.html#a2029687a2271591438102ab23f102d1b" title="Dessine un bouton normal." alt="" coords="512,107,599,132"/>
-<area shape="rect" href="sound_8c.html#a57b4724b83449e52bba882dfcf33adbd" title="Fonction qui lance le son de survol de bouton dans un thread dédié." alt="" coords="349,157,425,183"/>
-<area shape="rect" href="menus_8c.html#a3ccdb6767f1237284bf7c8e0d3e3eacb" title="Détruit la fenêtre et le rendu." alt="" coords="690,184,770,209"/>
-<area shape="rect" href="menus_8c.html#acd3f39401c59bbd01c9663c5348c63c1" title="Nous renvoi une erreur SDL." alt="" coords="664,233,796,259"/>
-<area shape="rect" href="sound_8c.html#a57d534ee1e2bc6ccbd6b927c1a45c388" title="Son de survol de bouton." alt="" coords="495,157,616,183"/>
-<area shape="rect" href="menus_8c.html#a92374e22bf3866cd847b08988d4b0e14" title="Dessine les bouttons pour configurer les touches de jeu." alt="" coords="327,5,447,31"/>
+<area shape="rect" title="Affiche le menu des paramètres dans le menu principal." alt="" coords="5,132,136,157"/>
+<area shape="rect" href="menus_8c.html#a8f086b9f4a7667ad12f3014727ca5a97" title="Affiche la texture de survol du bouton demandé en dans le menu souhaité." alt="" coords="186,56,277,81"/>
+<area shape="rect" href="menus_8c.html#aa28a91563c1544b785c234a341407650" title="Essaye de dessiner tous les bouttons." alt="" coords="184,132,279,157"/>
+<area shape="rect" href="menus_8c.html#a4dd509784585dea800b3115747c81c42" title="Dessine le bon curseur en fonction de site on survol un bouton ou pas." alt="" coords="187,207,275,232"/>
+<area shape="rect" href="menus_8c.html#a2029687a2271591438102ab23f102d1b" title="Dessine un bouton normal." alt="" coords="524,107,611,132"/>
+<area shape="rect" href="sound_8c.html#a57b4724b83449e52bba882dfcf33adbd" title="Fonction qui lance le son de survol de bouton dans un thread dédié." alt="" coords="355,5,431,31"/>
+<area shape="rect" href="sound_8c.html#a57d534ee1e2bc6ccbd6b927c1a45c388" title="Son de survol de bouton." alt="" coords="507,5,628,31"/>
+<area shape="rect" href="menus_8c.html#a92374e22bf3866cd847b08988d4b0e14" title="Dessine les bouttons pour configurer les touches de jeu." alt="" coords="333,157,453,183"/>
+<area shape="rect" href="menus_8c.html#a3ccdb6767f1237284bf7c8e0d3e3eacb" title="Détruit la fenêtre et le rendu." alt="" coords="353,207,433,232"/>
+<area shape="rect" href="menus_8c.html#acd3f39401c59bbd01c9663c5348c63c1" title="Nous renvoi une erreur SDL." alt="" coords="327,256,459,281"/>
 </map>
 </div>
 <div class="dynheader">

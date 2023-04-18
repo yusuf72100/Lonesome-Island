@@ -155,6 +155,9 @@ typedef uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>socklen_t
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
+<tr class="memitem:ae7aaae718a114361559e6b9459e8be9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client_8h.html#ae7aaae718a114361559e6b9459e8be9f">receiveMap</a> (<a class="el" href="structmap__s.html">map_t</a> *map)</td></tr>
+<tr class="memdesc:ae7aaae718a114361559e6b9459e8be9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère la map du serveur.  <br /></td></tr>
+<tr class="separator:ae7aaae718a114361559e6b9459e8be9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ff46bda2f9d755b3e1b4a941b10e8e1"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="client_8h.html#a6ff46bda2f9d755b3e1b4a941b10e8e1">sendDatas</a> (<a class="el" href="structplayer__s.html">player_t</a> joueur)</td></tr>
 <tr class="memdesc:a6ff46bda2f9d755b3e1b4a941b10e8e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère les données du joueur et les envois au serveur via le socket.  <br /></td></tr>
 <tr class="separator:a6ff46bda2f9d755b3e1b4a941b10e8e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -173,12 +176,12 @@ Variables</h2></td></tr>
 <tr class="memitem:a0a299e154b22b16b2a385707fa25564b"><td class="memItemLeft" align="right" valign="top"><a id="a0a299e154b22b16b2a385707fa25564b" name="a0a299e154b22b16b2a385707fa25564b"></a>
 static SOCKET *&#160;</td><td class="memItemRight" valign="bottom"><b>socket_Server</b></td></tr>
 <tr class="separator:a0a299e154b22b16b2a385707fa25564b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85a10c25e058d41a68a7b526a5d3fed4"><td class="memItemLeft" align="right" valign="top"><a id="a85a10c25e058d41a68a7b526a5d3fed4" name="a85a10c25e058d41a68a7b526a5d3fed4"></a>
-static char&#160;</td><td class="memItemRight" valign="bottom"><b>tramClient_send</b> [100]</td></tr>
-<tr class="separator:a85a10c25e058d41a68a7b526a5d3fed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07ca08cdb87ab3025235c2dad252e007"><td class="memItemLeft" align="right" valign="top"><a id="a07ca08cdb87ab3025235c2dad252e007" name="a07ca08cdb87ab3025235c2dad252e007"></a>
-static char&#160;</td><td class="memItemRight" valign="bottom"><b>tramClient_receive</b> [100]</td></tr>
-<tr class="separator:a07ca08cdb87ab3025235c2dad252e007"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a7b93bed5221757f0ad87bb33b43403"><td class="memItemLeft" align="right" valign="top"><a id="a8a7b93bed5221757f0ad87bb33b43403" name="a8a7b93bed5221757f0ad87bb33b43403"></a>
+static char&#160;</td><td class="memItemRight" valign="bottom"><b>tramClient_send</b> [500]</td></tr>
+<tr class="separator:a8a7b93bed5221757f0ad87bb33b43403"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61d6f9e12d44d4c00ee7682818e124e9"><td class="memItemLeft" align="right" valign="top"><a id="a61d6f9e12d44d4c00ee7682818e124e9" name="a61d6f9e12d44d4c00ee7682818e124e9"></a>
+static char&#160;</td><td class="memItemRight" valign="bottom"><b>tramClient_receive</b> [500]</td></tr>
+<tr class="separator:a61d6f9e12d44d4c00ee7682818e124e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Fichier content toutes les informations relatives au client et au serveur. </p>
@@ -226,6 +229,32 @@ Voici le graphe des appelants de cette fonction :</div>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="ae7aaae718a114361559e6b9459e8be9f" name="ae7aaae718a114361559e6b9459e8be9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7aaae718a114361559e6b9459e8be9f">&#9670;&#160;</a></span>receiveMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void receiveMap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmap__s.html">map_t</a> *&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Récupère la map du serveur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

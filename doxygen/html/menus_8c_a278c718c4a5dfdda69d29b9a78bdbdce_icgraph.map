@@ -1,13 +1,11 @@
 <map id="drawImage" name="drawImage">
-<area shape="rect" id="node1" title="Dessine l&#39;image souhaitée." alt="" coords="787,105,871,131"/>
-<area shape="rect" id="node2" href="$menus_8c.html#a4b593095cf6863d0d687ad700e4c039c" title="Dessine la barre de vie du joueur." alt="" coords="645,55,731,80"/>
-<area shape="rect" id="node8" href="$menus_8c.html#a706ecee7dd0dc5e17064da807e4d0f7f" title="Affiche le menu des paramètres des keybinds dans le menu principal." alt="" coords="233,141,411,167"/>
-<area shape="rect" id="node9" href="$menus_8c.html#ae3971b269256d10767909b822dfcebdc" title="Dessine la barre de soif du joueur." alt="" coords="637,5,739,31"/>
-<area shape="rect" id="node10" href="$menus_8c.html#ad4082538ea22b0a347c09456b67ba4bd" title="Affiche le menu principal." alt="" coords="483,219,565,244"/>
-<area shape="rect" id="node11" href="$menus_8c.html#a081a8f6ffea1d158f2a87e4258f6329a" title="Affiche le menu des paramètres dans le menu principal." alt="" coords="459,105,589,131"/>
-<area shape="rect" id="node3" href="$menus_8c.html#a3c98ffe9a3fcb71780598d084e08450b" title="Dessine le menu en jeu." alt="" coords="476,49,572,75"/>
-<area shape="rect" id="node4" href="$menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,117,185,143"/>
-<area shape="rect" id="node6" href="$menus_8c.html#a588196acaedd8824af54e4bac318358d" title="Dessin le menu de l&#39;inventaire." alt="" coords="269,43,375,68"/>
-<area shape="rect" id="node7" href="$menus_8c.html#a047a87d55ef5bac980f1df5f340f39fa" title="Affiche le menu des paramètres dans en jeu." alt="" coords="249,92,395,117"/>
-<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,117,56,143"/>
+<area shape="rect" id="node1" title="Dessine l&#39;image souhaitée." alt="" coords="752,84,836,109"/>
+<area shape="rect" id="node2" href="$menus_8c.html#a4b593095cf6863d0d687ad700e4c039c" title="Dessine la barre de vie du joueur." alt="" coords="611,58,696,84"/>
+<area shape="rect" id="node9" href="$menus_8c.html#ae3971b269256d10767909b822dfcebdc" title="Dessine la barre de soif du joueur." alt="" coords="603,108,704,133"/>
+<area shape="rect" id="node3" href="$menus_8c.html#a3c98ffe9a3fcb71780598d084e08450b" title="Dessine le menu en jeu." alt="" coords="459,58,555,84"/>
+<area shape="rect" id="node4" href="$menus_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="Dessine le bon menu." alt="" coords="104,58,185,84"/>
+<area shape="rect" id="node6" href="$menus_8c.html#a588196acaedd8824af54e4bac318358d" title="Dessin le menu de l&#39;inventaire." alt="" coords="269,33,375,58"/>
+<area shape="rect" id="node7" href="$menus_8c.html#a047a87d55ef5bac980f1df5f340f39fa" title="Affiche le menu des paramètres dans en jeu." alt="" coords="249,82,395,108"/>
+<area shape="rect" id="node8" href="$menus_8c.html#a706ecee7dd0dc5e17064da807e4d0f7f" title="Affiche le menu des paramètres des keybinds dans le menu principal." alt="" coords="233,132,411,157"/>
+<area shape="rect" id="node5" href="$main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,58,56,84"/>
 </map>

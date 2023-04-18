@@ -18,6 +18,8 @@ Graphe des dépendances par inclusion de main.\+c\+:
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
+int \mbox{\hyperlink{main_8c_a3f0b596e3dcf99de1855b2a36d44bc26}{put\+In\+Inventory}} (\mbox{\hyperlink{structitem__t}{item\+\_\+t}} $\ast$item, int number)
+\begin{DoxyCompactList}\small\item\em Tente de placer un item dans l\textquotesingle{}inventaire et renvoi 0 si l\textquotesingle{}action a réussit. \end{DoxyCompactList}\item 
 void $\ast$ \mbox{\hyperlink{main_8c_a6f34c428b3f0a7afe10321406af12adb}{synch\+Datas}} (\mbox{\hyperlink{structplayer__s}{player\+\_\+t}} $\ast$Joueurs, int taille)
 \begin{DoxyCompactList}\small\item\em Récupère les données depuis le socket client. \end{DoxyCompactList}\item 
 void $\ast$ \mbox{\hyperlink{main_8c_a506eeac61f56b2e172d086173bac5995}{Send2\+Server}} ()
@@ -365,6 +367,42 @@ Initialise un fichier logs.
 \begin{DoxyReturn}{Renvoie}
 char$\ast$ 
 \end{DoxyReturn}
+\mbox{\Hypertarget{main_8c_a3f0b596e3dcf99de1855b2a36d44bc26}\label{main_8c_a3f0b596e3dcf99de1855b2a36d44bc26}} 
+\index{main.c@{main.c}!putInInventory@{putInInventory}}
+\index{putInInventory@{putInInventory}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{putInInventory()}{putInInventory()}}
+{\footnotesize\ttfamily int put\+In\+Inventory (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structitem__t}{item\+\_\+t}} $\ast$}]{item,  }\item[{int}]{number }\end{DoxyParamCaption})}
+
+
+
+Tente de placer un item dans l\textquotesingle{}inventaire et renvoi 0 si l\textquotesingle{}action a réussit. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em item} & \\
+\hline
+{\em number} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=156pt]{main_8c_a3f0b596e3dcf99de1855b2a36d44bc26_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{main_8c_a3f0b596e3dcf99de1855b2a36d44bc26_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{main_8c_a74d9cf129eac9371caa5a93b97b4f95c}\label{main_8c_a74d9cf129eac9371caa5a93b97b4f95c}} 
 \index{main.c@{main.c}!rechargement@{rechargement}}
 \index{rechargement@{rechargement}!main.c@{main.c}}

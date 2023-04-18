@@ -177,6 +177,9 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a49cbd679b22e0661bdc353826c8c5086"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="socket_8h.html#a49cbd679b22e0661bdc353826c8c5086">findPosition</a> (<a class="el" href="structsend2_client.html">send2Client</a> *argClient)</td></tr>
 <tr class="memdesc:a49cbd679b22e0661bdc353826c8c5086"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cherche la position du client dans le tableau des clients.  <br /></td></tr>
 <tr class="separator:a49cbd679b22e0661bdc353826c8c5086"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a596ad8d8e72a54299b05f62384ef14ed"><td class="memItemLeft" align="right" valign="top">static void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="socket_8h.html#a596ad8d8e72a54299b05f62384ef14ed">sendMapToClient</a> (void *arg)</td></tr>
+<tr class="memdesc:a596ad8d8e72a54299b05f62384ef14ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cette fonction envera la map au joueur (premade &amp; s'execute uniquement dans une fonction)  <br /></td></tr>
+<tr class="separator:a596ad8d8e72a54299b05f62384ef14ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad768973bc551435391fa1ddfbb0355a1"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="socket_8h.html#ad768973bc551435391fa1ddfbb0355a1">searchClients</a> (void *argt)</td></tr>
 <tr class="memdesc:ad768973bc551435391fa1ddfbb0355a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gère la place des clients dans la table de client et reçoit les nouveaux clients.  <br /></td></tr>
 <tr class="separator:ad768973bc551435391fa1ddfbb0355a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -199,12 +202,12 @@ Variables</h2></td></tr>
 <tr class="memitem:a07e65b6c6f657726ba33df7d15c5037b"><td class="memItemLeft" align="right" valign="top"><a id="a07e65b6c6f657726ba33df7d15c5037b" name="a07e65b6c6f657726ba33df7d15c5037b"></a>
 static pthread_t *&#160;</td><td class="memItemRight" valign="bottom"><b>receive_from_client</b></td></tr>
 <tr class="separator:a07e65b6c6f657726ba33df7d15c5037b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85a10c25e058d41a68a7b526a5d3fed4"><td class="memItemLeft" align="right" valign="top"><a id="a85a10c25e058d41a68a7b526a5d3fed4" name="a85a10c25e058d41a68a7b526a5d3fed4"></a>
-static char&#160;</td><td class="memItemRight" valign="bottom"><b>tramClient_send</b> [100]</td></tr>
-<tr class="separator:a85a10c25e058d41a68a7b526a5d3fed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07ca08cdb87ab3025235c2dad252e007"><td class="memItemLeft" align="right" valign="top"><a id="a07ca08cdb87ab3025235c2dad252e007" name="a07ca08cdb87ab3025235c2dad252e007"></a>
-static char&#160;</td><td class="memItemRight" valign="bottom"><b>tramClient_receive</b> [100]</td></tr>
-<tr class="separator:a07ca08cdb87ab3025235c2dad252e007"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a7b93bed5221757f0ad87bb33b43403"><td class="memItemLeft" align="right" valign="top"><a id="a8a7b93bed5221757f0ad87bb33b43403" name="a8a7b93bed5221757f0ad87bb33b43403"></a>
+static char&#160;</td><td class="memItemRight" valign="bottom"><b>tramClient_send</b> [500]</td></tr>
+<tr class="separator:a8a7b93bed5221757f0ad87bb33b43403"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61d6f9e12d44d4c00ee7682818e124e9"><td class="memItemLeft" align="right" valign="top"><a id="a61d6f9e12d44d4c00ee7682818e124e9" name="a61d6f9e12d44d4c00ee7682818e124e9"></a>
+static char&#160;</td><td class="memItemRight" valign="bottom"><b>tramClient_receive</b> [500]</td></tr>
+<tr class="separator:a61d6f9e12d44d4c00ee7682818e124e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d3f21e6344e01f9aee2f659c02e09cf"><td class="memItemLeft" align="right" valign="top"><a id="a4d3f21e6344e01f9aee2f659c02e09cf" name="a4d3f21e6344e01f9aee2f659c02e09cf"></a>
 static char&#160;</td><td class="memItemRight" valign="bottom"><b>recvBuffer</b> [dataLen]</td></tr>
 <tr class="separator:a4d3f21e6344e01f9aee2f659c02e09cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -265,8 +268,9 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="socket_8h_a49cbd679b22e0661bdc353826c8c5086_icgraph.png" border="0" usemap="#asocket_8h_a49cbd679b22e0661bdc353826c8c5086_icgraph" alt=""/></div>
 <map name="asocket_8h_a49cbd679b22e0661bdc353826c8c5086_icgraph" id="asocket_8h_a49cbd679b22e0661bdc353826c8c5086_icgraph">
-<area shape="rect" title="Cherche la position du client dans le tableau des clients." alt="" coords="681,5,771,31"/>
+<area shape="rect" title="Cherche la position du client dans le tableau des clients." alt="" coords="681,31,771,56"/>
 <area shape="rect" href="socket_8c.html#a3b61093f2f5316157d1e6d3d05cf5ebc" title="Écoute un client tant que la connexion est établie." alt="" coords="508,5,633,31"/>
+<area shape="rect" href="socket_8c.html#a042aa936acd13560f5b89900f46cc9dc" title="Cette fonction envera la map au joueur (premade &amp; s&#39;execute uniquement dans une fonction)" alt="" coords="509,55,632,80"/>
 <area shape="rect" href="socket_8c.html#a68b45930fad2153f053144a8678afa1c" title="Gère la place des clients dans la table de client et reçoit les nouveaux clients." alt="" coords="359,5,460,31"/>
 <area shape="rect" href="socket_8c.html#a3490387e86b9ba6a1ee9ed3984b637d5" title="Démarre le serveur et initie la table de clients." alt="" coords="227,5,311,31"/>
 <area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
@@ -411,6 +415,50 @@ Voici le graphe des appelants de cette fonction :</div>
 <area shape="rect" href="socket_8c.html#a3490387e86b9ba6a1ee9ed3984b637d5" title="Démarre le serveur et initie la table de clients." alt="" coords="227,5,311,31"/>
 <area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
 <area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a596ad8d8e72a54299b05f62384ef14ed" name="a596ad8d8e72a54299b05f62384ef14ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a596ad8d8e72a54299b05f62384ef14ed">&#9670;&#160;</a></span>sendMapToClient()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void * sendMapToClient </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>arg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Cette fonction envera la map au joueur (premade &amp; s'execute uniquement dans une fonction) </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arg</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd></dd></dl>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="socket_8h_a596ad8d8e72a54299b05f62384ef14ed_cgraph.png" border="0" usemap="#asocket_8h_a596ad8d8e72a54299b05f62384ef14ed_cgraph" alt=""/></div>
+<map name="asocket_8h_a596ad8d8e72a54299b05f62384ef14ed_cgraph" id="asocket_8h_a596ad8d8e72a54299b05f62384ef14ed_cgraph">
+<area shape="rect" title="Cette fonction envera la map au joueur (premade &amp; s&#39;execute uniquement dans une fonction)" alt="" coords="5,5,128,31"/>
+<area shape="rect" href="socket_8c.html#a88d900ece06509fc9c398d81b5200e71" title="Cherche la position du client dans le tableau des clients." alt="" coords="176,5,265,31"/>
 </map>
 </div>
 

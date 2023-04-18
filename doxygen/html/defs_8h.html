@@ -133,6 +133,9 @@ Structures de données</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structweapon__t.html">weapon_t</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Définition d'un weapon.  <a href="structweapon__t.html#details">Plus de détails...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structresource__t.html">resource_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Définition d'un food.  <a href="structresource__t.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfood__t.html">food_t</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Définition d'un food.  <a href="structfood__t.html#details">Plus de détails...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -207,10 +210,14 @@ Macros</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:ac74f3fe130dd2907991df748d4dc4a13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e4d49e165def01fa142ef71ed172564"><td class="memItemLeft" align="right" valign="top"><a id="a1e4d49e165def01fa142ef71ed172564" name="a1e4d49e165def01fa142ef71ed172564"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>T_ITEM</b> { <b>WEAPON</b>
+<tr class="memitem:a1e4d49e165def01fa142ef71ed172564"><td class="memItemLeft" align="right" valign="top"><a id="a1e4d49e165def01fa142ef71ed172564" name="a1e4d49e165def01fa142ef71ed172564"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>T_ITEM</b> { <br />
+&#160;&#160;<b>WEAPON</b>
 , <b>FOOD</b>
 , <b>TOOL</b>
 , <b>BLOCK_ITEM</b>
+, <br />
+&#160;&#160;<b>RESOURCES</b>
+<br />
  }</td></tr>
 <tr class="separator:a1e4d49e165def01fa142ef71ed172564"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76ea9a279bc30eca58a6dedc8f0dc836"><td class="memItemLeft" align="right" valign="top"><a id="a76ea9a279bc30eca58a6dedc8f0dc836" name="a76ea9a279bc30eca58a6dedc8f0dc836"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>T_BLOCK</b> { <b>CHEST</b>
@@ -269,6 +276,9 @@ SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><b>tileset</b><
 <tr class="memitem:a472d8154993aac24794fa03968afce39"><td class="memItemLeft" align="right" valign="top"><a id="a472d8154993aac24794fa03968afce39" name="a472d8154993aac24794fa03968afce39"></a>
 SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><b>currentGround</b></td></tr>
 <tr class="separator:a472d8154993aac24794fa03968afce39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18b80fa001325e49c482d86adb65d2cd"><td class="memItemLeft" align="right" valign="top"><a id="a18b80fa001325e49c482d86adb65d2cd" name="a18b80fa001325e49c482d86adb65d2cd"></a>
+SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><b>currentUtils</b></td></tr>
+<tr class="separator:a18b80fa001325e49c482d86adb65d2cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af90d9c5474a96a57000759cc813ff7d5"><td class="memItemLeft" align="right" valign="top"><a id="af90d9c5474a96a57000759cc813ff7d5" name="af90d9c5474a96a57000759cc813ff7d5"></a>
 <a class="el" href="structcamera__s.html">camera_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>camera</b></td></tr>
 <tr class="separator:af90d9c5474a96a57000759cc813ff7d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -290,9 +300,6 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>IP_PUBLIC</b> [256]</
 <tr class="memitem:a70ae92227e50fde6d6e4568d3ce849d9"><td class="memItemLeft" align="right" valign="top"><a id="a70ae92227e50fde6d6e4568d3ce849d9" name="a70ae92227e50fde6d6e4568d3ce849d9"></a>
 T_MENU&#160;</td><td class="memItemRight" valign="bottom"><b>menu</b></td></tr>
 <tr class="separator:a70ae92227e50fde6d6e4568d3ce849d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ab9cc24e0890801f13949ebbef0949b"><td class="memItemLeft" align="right" valign="top"><a id="a5ab9cc24e0890801f13949ebbef0949b" name="a5ab9cc24e0890801f13949ebbef0949b"></a>
-<a class="el" href="structitem__t.html">item_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>bois</b></td></tr>
-<tr class="separator:a5ab9cc24e0890801f13949ebbef0949b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59600277ef5467e1f4aa8f46789d6d12"><td class="memItemLeft" align="right" valign="top"><a id="a59600277ef5467e1f4aa8f46789d6d12" name="a59600277ef5467e1f4aa8f46789d6d12"></a>
 SDL_bool&#160;</td><td class="memItemRight" valign="bottom"><b>tabEvent</b> [20]</td></tr>
 <tr class="separator:a59600277ef5467e1f4aa8f46789d6d12"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -305,12 +312,18 @@ SDL_KeyCode&#160;</td><td class="memItemRight" valign="bottom"><b>globalKeyTab</
 <tr class="memitem:a03cac2c215344365da2141258626deb1"><td class="memItemLeft" align="right" valign="top"><a id="a03cac2c215344365da2141258626deb1" name="a03cac2c215344365da2141258626deb1"></a>
 <a class="el" href="structcase__inventory.html">case_inventory</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>wearedItem</b></td></tr>
 <tr class="separator:a03cac2c215344365da2141258626deb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf4658adb99b9e7d52346e32cd7e73e2"><td class="memItemLeft" align="right" valign="top"><a id="adf4658adb99b9e7d52346e32cd7e73e2" name="adf4658adb99b9e7d52346e32cd7e73e2"></a>
+<a class="el" href="structitem__t.html">item_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>bois</b></td></tr>
+<tr class="separator:adf4658adb99b9e7d52346e32cd7e73e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace08537cc80178ee36159371a5d1d623"><td class="memItemLeft" align="right" valign="top"><a id="ace08537cc80178ee36159371a5d1d623" name="ace08537cc80178ee36159371a5d1d623"></a>
 <a class="el" href="structitem__t.html">item_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>axe</b></td></tr>
 <tr class="separator:ace08537cc80178ee36159371a5d1d623"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86505e2036d74eb63470ea9aa3e0eaf6"><td class="memItemLeft" align="right" valign="top"><a id="a86505e2036d74eb63470ea9aa3e0eaf6" name="a86505e2036d74eb63470ea9aa3e0eaf6"></a>
 <a class="el" href="structitem__t.html">item_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>apple</b></td></tr>
 <tr class="separator:a86505e2036d74eb63470ea9aa3e0eaf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1238ac8aa5f96bff6028ffaaba9203c"><td class="memItemLeft" align="right" valign="top"><a id="aa1238ac8aa5f96bff6028ffaaba9203c" name="aa1238ac8aa5f96bff6028ffaaba9203c"></a>
+<a class="el" href="structitem__t.html">item_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>pierre</b></td></tr>
+<tr class="separator:aa1238ac8aa5f96bff6028ffaaba9203c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab03edfd51d4b01139d9caab0d6483010"><td class="memItemLeft" align="right" valign="top"><a id="ab03edfd51d4b01139d9caab0d6483010" name="ab03edfd51d4b01139d9caab0d6483010"></a>
 <a class="el" href="structitem__t.html">item_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>chest_item</b></td></tr>
 <tr class="separator:ab03edfd51d4b01139d9caab0d6483010"><td class="memSeparator" colspan="2">&#160;</td></tr>

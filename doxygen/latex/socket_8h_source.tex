@@ -27,8 +27,8 @@
 \DoxyCodeLine{00031\ }
 \DoxyCodeLine{00032\ \textcolor{keyword}{static}\ pthread\_t\ *receive\_from\_client;}
 \DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ tramClient\_send[100];}
-\DoxyCodeLine{00035\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ tramClient\_receive[100];}
+\DoxyCodeLine{00034\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ tramClient\_send[500];}
+\DoxyCodeLine{00035\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ tramClient\_receive[500];}
 \DoxyCodeLine{00036\ }
 \DoxyCodeLine{00037\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ recvBuffer[dataLen];\ }
 \DoxyCodeLine{00038\ \textcolor{keyword}{static}\ SOCKET\ socketServer;}
@@ -62,12 +62,13 @@
 \DoxyCodeLine{00078\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{socket_8h_acc971d38ba2d98589d00bde6652a6e39}{getLocalIp}}();}
 \DoxyCodeLine{00079\ \textcolor{keyword}{static}\ \mbox{\hyperlink{structsend2_client}{send2Client}}\ *argClient\ =\ NULL;}
 \DoxyCodeLine{00080\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{socket_8h_a49cbd679b22e0661bdc353826c8c5086}{findPosition}}(\mbox{\hyperlink{structsend2_client}{send2Client}}\ *argClient);}
-\DoxyCodeLine{00081\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{socket_8h_ad768973bc551435391fa1ddfbb0355a1}{searchClients}}(\textcolor{keywordtype}{void}\ *argt);}
-\DoxyCodeLine{00082\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{socket_8h_a3b61093f2f5316157d1e6d3d05cf5ebc}{receiveFromClient}}(\textcolor{keywordtype}{void}\ *arg);}
-\DoxyCodeLine{00083\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ *sendToClient(\mbox{\hyperlink{structsend2_client}{send2Client}}\ *argClient,\ \textcolor{keywordtype}{int}\ position);}
-\DoxyCodeLine{00084\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{socket_8h_a3490387e86b9ba6a1ee9ed3984b637d5}{startServer}}();}
-\DoxyCodeLine{00085\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{socket_8h_ac1e551c19cd6ce8d7da8b13d1f290863}{stopServer}}();}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00081\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{socket_8h_a596ad8d8e72a54299b05f62384ef14ed}{sendMapToClient}}(\textcolor{keywordtype}{void}\ *arg);}
+\DoxyCodeLine{00082\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{socket_8h_ad768973bc551435391fa1ddfbb0355a1}{searchClients}}(\textcolor{keywordtype}{void}\ *argt);}
+\DoxyCodeLine{00083\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{socket_8h_a3b61093f2f5316157d1e6d3d05cf5ebc}{receiveFromClient}}(\textcolor{keywordtype}{void}\ *arg);}
+\DoxyCodeLine{00084\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ *sendToClient(\mbox{\hyperlink{structsend2_client}{send2Client}}\ *argClient,\ \textcolor{keywordtype}{int}\ position);}
+\DoxyCodeLine{00085\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{socket_8h_a3490387e86b9ba6a1ee9ed3984b637d5}{startServer}}();}
+\DoxyCodeLine{00086\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{socket_8h_ac1e551c19cd6ce8d7da8b13d1f290863}{stopServer}}();}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

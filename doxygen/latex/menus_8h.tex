@@ -160,7 +160,7 @@ void $\ast$ \mbox{\hyperlink{menus_8h_a2fdf89dd6b22fb5e5d73f8370470985b}{running
 void $\ast$ \mbox{\hyperlink{menus_8h_a0fa3f94da8421e8f4e5d11404f87856b}{breath\+Animation}} (void $\ast$j)
 \begin{DoxyCompactList}\small\item\em Animation de respiration. \end{DoxyCompactList}\item 
 void $\ast$ \mbox{\hyperlink{menus_8h_ab804df0c510979d77fd5599feef21ae0}{draw\+Players}} (\mbox{\hyperlink{structplayer__s}{player\+\_\+t}} $\ast$joueurs, int size)
-\begin{DoxyCompactList}\small\item\em Trie les joueurs en fonction de leur coordonnées Y et organise l\textquotesingle{}ordre d\textquotesingle{}affichage des joueurs. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Dessine tous les joueurs. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{menus_8h_af62b6c78dad8d3b0ae378b5174a28784}\label{menus_8h_af62b6c78dad8d3b0ae378b5174a28784}} 
 void {\bfseries click\+Item} ()
 \begin{DoxyCompactList}\small\item\em Évalue sur quel item on a cliqué. \end{DoxyCompactList}\item 
@@ -527,7 +527,7 @@ static SDL\+\_\+\+Texture $\ast$ {\bfseries cursor\+\_\+select\+\_\+texture} = N
 static SDL\+\_\+\+Surface $\ast$ {\bfseries background} = NULL
 \item 
 \mbox{\Hypertarget{menus_8h_a010bf5f9e86c34ba740704d8c755dcfa}\label{menus_8h_a010bf5f9e86c34ba740704d8c755dcfa}} 
-static SDL\+\_\+\+Texture $\ast$ {\bfseries background\+\_\+texture} = NULL
+SDL\+\_\+\+Texture $\ast$ {\bfseries background\+\_\+texture}
 \item 
 \mbox{\Hypertarget{menus_8h_a0bff46b75676e4bd1003a5a3a54ff816}\label{menus_8h_a0bff46b75676e4bd1003a5a3a54ff816}} 
 static SDL\+\_\+\+Surface $\ast$ {\bfseries map\+\_\+surface} = NULL
@@ -667,7 +667,8 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 
 Détruit la fenêtre et le rendu. 
 
-(plus souvent utilisée lors d\textquotesingle{}une erreur de chargement d\textquotesingle{}un asset) Voici le graphe des appelants de cette fonction \+:\nopagebreak
+(plus souvent utilisée lors d\textquotesingle{}une erreur de chargement d\textquotesingle{}un asset) Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -711,16 +712,9 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 
 
 
-Trie les joueurs en fonction de leur coordonnées Y et organise l\textquotesingle{}ordre d\textquotesingle{}affichage des joueurs. 
-
-Applique la bonne texture au joueur en fonction de son animation.
-
-
-\begin{DoxyParams}{Paramètres}
-{\em Joueur} & \\
-\hline
-\end{DoxyParams}
 Dessine tous les joueurs. 
+
+
 \begin{DoxyParams}{Paramètres}
 {\em joueurs} & \\
 \hline
@@ -911,7 +905,8 @@ Nous renvoi une erreur SDL.
 {\em message} & \\
 \hline
 \end{DoxyParams}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

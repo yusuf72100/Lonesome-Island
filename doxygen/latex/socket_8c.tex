@@ -6,8 +6,7 @@ Fichier qui s\textquotesingle{}occupera uniquement du serveur.
 
 
 {\ttfamily \#include \char`\"{}socket.\+h\char`\"{}}\newline
-Graphe des dépendances par inclusion de socket.\+c\+:
-\nopagebreak
+Graphe des dépendances par inclusion de socket.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -31,6 +30,8 @@ int \mbox{\hyperlink{socket_8c_a88d900ece06509fc9c398d81b5200e71}{find\+Position
 \begin{DoxyCompactList}\small\item\em Cherche la position du client dans le tableau des clients. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{socket_8c_a42c0b3f427a2ebf97ad8fb6aedfacf8c}{init\+Connection}} (void $\ast$arg, int position)
 \begin{DoxyCompactList}\small\item\em Initialise la connexion du client. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{socket_8c_a042aa936acd13560f5b89900f46cc9dc}{send\+Map\+To\+Client}} (void $\ast$arg)
+\begin{DoxyCompactList}\small\item\em Cette fonction envera la map au joueur (premade \& s\textquotesingle{}execute uniquement dans une fonction) \end{DoxyCompactList}\item 
 void $\ast$ \mbox{\hyperlink{socket_8c_a3b61093f2f5316157d1e6d3d05cf5ebc}{receive\+From\+Client}} (void $\ast$arg)
 \begin{DoxyCompactList}\small\item\em Écoute un client tant que la connexion est établie. \end{DoxyCompactList}\item 
 void $\ast$ \mbox{\hyperlink{socket_8c_a68b45930fad2153f053144a8678afa1c}{search\+Clients}} (void $\ast$arg)
@@ -133,7 +134,8 @@ Cherche la position du client dans le tableau des clients.
 \begin{DoxyReturn}{Renvoie}
 int 
 \end{DoxyReturn}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -250,6 +252,32 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{socket_8c_a68b45930fad2153f053144a8678afa1c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{socket_8c_a042aa936acd13560f5b89900f46cc9dc}\label{socket_8c_a042aa936acd13560f5b89900f46cc9dc}} 
+\index{socket.c@{socket.c}!sendMapToClient@{sendMapToClient}}
+\index{sendMapToClient@{sendMapToClient}!socket.c@{socket.c}}
+\doxysubsubsection{\texorpdfstring{sendMapToClient()}{sendMapToClient()}}
+{\footnotesize\ttfamily void $\ast$ send\+Map\+To\+Client (\begin{DoxyParamCaption}\item[{void $\ast$}]{arg }\end{DoxyParamCaption})}
+
+
+
+Cette fonction envera la map au joueur (premade \& s\textquotesingle{}execute uniquement dans une fonction) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em arg} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=275pt]{socket_8c_a042aa936acd13560f5b89900f46cc9dc_cgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{socket_8c_af8f7aaaf34db2175c7a9c4ab7d3306fc}\label{socket_8c_af8f7aaaf34db2175c7a9c4ab7d3306fc}} 

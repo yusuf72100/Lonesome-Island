@@ -79,185 +79,141 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Fichier comportant les méthodes pour générer la map.  
+<p>Fichier contenant les fonctions permettant de générer la map.  
 <a href="#details">Plus de détails...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="map_8h_source.html">map.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;time.h&gt;</code><br />
+<code>#include &quot;map.h&quot;</code><br />
+<code>#include &lt;SDL_image.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Graphe des dépendances par inclusion de map.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="map_8c__incl.png" border="0" usemap="#a_c_1_2_users_2_yusuf_2_c_lion_projects_2_lonesome-_island_2src_2map_8c" alt=""/></div>
 <map name="a_c_1_2_users_2_yusuf_2_c_lion_projects_2_lonesome-_island_2src_2map_8c" id="a_c_1_2_users_2_yusuf_2_c_lion_projects_2_lonesome-_island_2src_2map_8c">
-<area shape="rect" title="Fichier comportant les méthodes pour générer la map." alt="" coords="56,5,251,45"/>
-<area shape="rect" href="map_8h.html" title="Fichier header à map.c." alt="" coords="124,93,183,119"/>
+<area shape="rect" title="Fichier contenant les fonctions permettant de générer la map." alt="" coords="108,5,303,45"/>
 <area shape="rect" title=" " alt="" coords="5,240,67,265"/>
 <area shape="rect" title=" " alt="" coords="173,240,237,265"/>
-<area shape="rect" title=" " alt="" coords="224,167,283,192"/>
-<area shape="rect" href="defs_8h.html" title="Fichier contenant toutes les définitions de structures et de types." alt="" coords="91,167,149,192"/>
+<area shape="rect" title=" " alt="" coords="293,93,352,119"/>
+<area shape="rect" href="map_8h_source.html" title=" " alt="" coords="104,93,163,119"/>
+<area shape="rect" title=" " alt="" coords="262,240,362,265"/>
+<area shape="rect" href="player_8h_source.html" title=" " alt="" coords="99,167,167,192"/>
 <area shape="rect" title=" " alt="" coords="91,240,149,265"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:ade30cce8083545c0ad45af195bc5cbf8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#ade30cce8083545c0ad45af195bc5cbf8">print_map</a> (int map[MAP_SIZE][MAP_SIZE])</td></tr>
-<tr class="memdesc:ade30cce8083545c0ad45af195bc5cbf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche la matrice de la map.  <br /></td></tr>
+<tr class="memitem:a3ad9b43caccf88242841b9783a92abe3"><td class="memItemLeft" align="right" valign="top"><a id="a3ad9b43caccf88242841b9783a92abe3" name="a3ad9b43caccf88242841b9783a92abe3"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getType</b> (int)</td></tr>
+<tr class="separator:a3ad9b43caccf88242841b9783a92abe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade30cce8083545c0ad45af195bc5cbf8"><td class="memItemLeft" align="right" valign="top"><a id="ade30cce8083545c0ad45af195bc5cbf8" name="ade30cce8083545c0ad45af195bc5cbf8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>print_map</b> (int map[MAP_SIZE][MAP_SIZE])</td></tr>
 <tr class="separator:ade30cce8083545c0ad45af195bc5cbf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67c15abbd6b66f91d5b8cfbdb60fb5dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#a67c15abbd6b66f91d5b8cfbdb60fb5dc">mapCopy</a> (int src[MAP_SIZE][MAP_SIZE], int dest[MAP_SIZE][MAP_SIZE])</td></tr>
-<tr class="memdesc:a67c15abbd6b66f91d5b8cfbdb60fb5dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fait une copie de la map.  <br /></td></tr>
+<tr class="memitem:a67c15abbd6b66f91d5b8cfbdb60fb5dc"><td class="memItemLeft" align="right" valign="top"><a id="a67c15abbd6b66f91d5b8cfbdb60fb5dc" name="a67c15abbd6b66f91d5b8cfbdb60fb5dc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>mapCopy</b> (int src[MAP_SIZE][MAP_SIZE], int dest[MAP_SIZE][MAP_SIZE])</td></tr>
 <tr class="separator:a67c15abbd6b66f91d5b8cfbdb60fb5dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e72a7ae14ee89b5e331229d77366a97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#a7e72a7ae14ee89b5e331229d77366a97">checkSameNeighboor</a> (int ground[MAP_SIZE][MAP_SIZE], int x, int y)</td></tr>
-<tr class="memdesc:a7e72a7ae14ee89b5e331229d77366a97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si 2 tiles ont le même voisin.  <br /></td></tr>
+<tr class="memitem:a7e72a7ae14ee89b5e331229d77366a97"><td class="memItemLeft" align="right" valign="top"><a id="a7e72a7ae14ee89b5e331229d77366a97" name="a7e72a7ae14ee89b5e331229d77366a97"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>checkSameNeighboor</b> (int ground[MAP_SIZE][MAP_SIZE], int x, int y)</td></tr>
 <tr class="separator:a7e72a7ae14ee89b5e331229d77366a97"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a012dd0f89b1121420052d64018ccae97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#a012dd0f89b1121420052d64018ccae97">isAnyGrassNear</a> (int ground[MAP_SIZE][MAP_SIZE], int x, int y, int range)</td></tr>
-<tr class="memdesc:a012dd0f89b1121420052d64018ccae97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cherche la position du tile de terre le plus proche.  <br /></td></tr>
+<tr class="memitem:aa9540ac0d8acf7aac8d40e324b5e0287"><td class="memItemLeft" align="right" valign="top"><a id="aa9540ac0d8acf7aac8d40e324b5e0287" name="aa9540ac0d8acf7aac8d40e324b5e0287"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>isWater</b> (int t)</td></tr>
+<tr class="separator:aa9540ac0d8acf7aac8d40e324b5e0287"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa80994f1ff89610724ba9190d8c9c3e2"><td class="memItemLeft" align="right" valign="top"><a id="aa80994f1ff89610724ba9190d8c9c3e2" name="aa80994f1ff89610724ba9190d8c9c3e2"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>isSand</b> (int t)</td></tr>
+<tr class="separator:aa80994f1ff89610724ba9190d8c9c3e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a123f08301abc054195bbabfb750b66cb"><td class="memItemLeft" align="right" valign="top"><a id="a123f08301abc054195bbabfb750b66cb" name="a123f08301abc054195bbabfb750b66cb"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>isGrass</b> (int t)</td></tr>
+<tr class="separator:a123f08301abc054195bbabfb750b66cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad20c404ce682dfc22d1f82ae6fa9bdf5"><td class="memItemLeft" align="right" valign="top"><a id="ad20c404ce682dfc22d1f82ae6fa9bdf5" name="ad20c404ce682dfc22d1f82ae6fa9bdf5"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getVariant</b> (int v)</td></tr>
+<tr class="separator:ad20c404ce682dfc22d1f82ae6fa9bdf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2842e475878d37ab47198bda596dead5"><td class="memItemLeft" align="right" valign="top"><a id="a2842e475878d37ab47198bda596dead5" name="a2842e475878d37ab47198bda596dead5"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>getTreeColisionsDimensions</b> (int tree, int *w, int *h)</td></tr>
+<tr class="separator:a2842e475878d37ab47198bda596dead5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab65bfe2092546fc5b65c75f51c3b2b28"><td class="memItemLeft" align="right" valign="top"><a id="ab65bfe2092546fc5b65c75f51c3b2b28" name="ab65bfe2092546fc5b65c75f51c3b2b28"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>getTreeRenderDimensions</b> (int tree, int *w, int *h)</td></tr>
+<tr class="separator:ab65bfe2092546fc5b65c75f51c3b2b28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a012dd0f89b1121420052d64018ccae97"><td class="memItemLeft" align="right" valign="top"><a id="a012dd0f89b1121420052d64018ccae97" name="a012dd0f89b1121420052d64018ccae97"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>isAnyGrassNear</b> (int ground[MAP_SIZE][MAP_SIZE], int x, int y, int range)</td></tr>
 <tr class="separator:a012dd0f89b1121420052d64018ccae97"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aece796df8f58d669ec874b906ae04797"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#aece796df8f58d669ec874b906ae04797">isAnySandNear</a> (int ground[MAP_SIZE][MAP_SIZE], int x, int y, int range)</td></tr>
-<tr class="memdesc:aece796df8f58d669ec874b906ae04797"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cherche la position du tile de sable le plus proche.  <br /></td></tr>
+<tr class="memitem:aece796df8f58d669ec874b906ae04797"><td class="memItemLeft" align="right" valign="top"><a id="aece796df8f58d669ec874b906ae04797" name="aece796df8f58d669ec874b906ae04797"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>isAnySandNear</b> (int ground[MAP_SIZE][MAP_SIZE], int x, int y, int range)</td></tr>
 <tr class="separator:aece796df8f58d669ec874b906ae04797"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abae23a102baac0a675ee68a120265724"><td class="memItemLeft" align="right" valign="top"><a id="abae23a102baac0a675ee68a120265724" name="abae23a102baac0a675ee68a120265724"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>firstRandomPreset</b> (int ground[MAP_SIZE][MAP_SIZE])</td></tr>
 <tr class="separator:abae23a102baac0a675ee68a120265724"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab46a0694f1c293b21c571af71593fd4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#aab46a0694f1c293b21c571af71593fd4">addBeachTransition</a> (int ground[MAP_SIZE][MAP_SIZE])</td></tr>
-<tr class="memdesc:aab46a0694f1c293b21c571af71593fd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute une transition de plage.  <br /></td></tr>
+<tr class="memitem:aab46a0694f1c293b21c571af71593fd4"><td class="memItemLeft" align="right" valign="top"><a id="aab46a0694f1c293b21c571af71593fd4" name="aab46a0694f1c293b21c571af71593fd4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>addBeachTransition</b> (int ground[MAP_SIZE][MAP_SIZE])</td></tr>
 <tr class="separator:aab46a0694f1c293b21c571af71593fd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60b91f8b94c3cb4df036b95aa2b64938"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#a60b91f8b94c3cb4df036b95aa2b64938">smoothGroundShape</a> (int ground[MAP_SIZE][MAP_SIZE])</td></tr>
-<tr class="memdesc:a60b91f8b94c3cb4df036b95aa2b64938"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fait un lissage de la matrice.  <br /></td></tr>
+<tr class="memitem:a60b91f8b94c3cb4df036b95aa2b64938"><td class="memItemLeft" align="right" valign="top"><a id="a60b91f8b94c3cb4df036b95aa2b64938" name="a60b91f8b94c3cb4df036b95aa2b64938"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>smoothGroundShape</b> (int ground[MAP_SIZE][MAP_SIZE])</td></tr>
 <tr class="separator:a60b91f8b94c3cb4df036b95aa2b64938"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3dddcc76c92ea6c131823e295a0b907"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#af3dddcc76c92ea6c131823e295a0b907">init_ground</a> (int ground[MAP_SIZE][MAP_SIZE])</td></tr>
-<tr class="memdesc:af3dddcc76c92ea6c131823e295a0b907"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise le sol.  <br /></td></tr>
+<tr class="memitem:af3dddcc76c92ea6c131823e295a0b907"><td class="memItemLeft" align="right" valign="top"><a id="af3dddcc76c92ea6c131823e295a0b907" name="af3dddcc76c92ea6c131823e295a0b907"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>init_ground</b> (int ground[MAP_SIZE][MAP_SIZE])</td></tr>
 <tr class="separator:af3dddcc76c92ea6c131823e295a0b907"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a648ef6163757069db8c972301bc8ad38"><td class="memItemLeft" align="right" valign="top"><a id="a648ef6163757069db8c972301bc8ad38" name="a648ef6163757069db8c972301bc8ad38"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>canBePlaced</b> (<a class="el" href="structmap__s.html">map_t</a> *map, int x, int y, int w, int h)</td></tr>
+<tr class="separator:a648ef6163757069db8c972301bc8ad38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae63a19e237ba26fd5f3bc4cf3cd86abc"><td class="memItemLeft" align="right" valign="top"><a id="ae63a19e237ba26fd5f3bc4cf3cd86abc" name="ae63a19e237ba26fd5f3bc4cf3cd86abc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>place_tree</b> (int util[MAP_SIZE][MAP_SIZE], int x, int y, int w, int h, int tree)</td></tr>
+<tr class="separator:ae63a19e237ba26fd5f3bc4cf3cd86abc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78bf36b40a9e2823a6fc3328367463d9"><td class="memItemLeft" align="right" valign="top"><a id="a78bf36b40a9e2823a6fc3328367463d9" name="a78bf36b40a9e2823a6fc3328367463d9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>getNearestTreeBase</b> (int map[MAP_SIZE][MAP_SIZE], int *x, int *y)</td></tr>
+<tr class="separator:a78bf36b40a9e2823a6fc3328367463d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad040f3faa8a5d48f8b81fd4b4be33237"><td class="memItemLeft" align="right" valign="top"><a id="ad040f3faa8a5d48f8b81fd4b4be33237" name="ad040f3faa8a5d48f8b81fd4b4be33237"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>cut_tree</b> (int map[MAP_SIZE][MAP_SIZE], int x, int y, int w, int h)</td></tr>
+<tr class="separator:ad040f3faa8a5d48f8b81fd4b4be33237"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e6c8e5a3263149a1b2129e7aa824a0e"><td class="memItemLeft" align="right" valign="top"><a id="a0e6c8e5a3263149a1b2129e7aa824a0e" name="a0e6c8e5a3263149a1b2129e7aa824a0e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>plant_trees</b> (<a class="el" href="structmap__s.html">map_t</a> *map)</td></tr>
+<tr class="separator:a0e6c8e5a3263149a1b2129e7aa824a0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad026b07af1df491c3f7c24545940dcb7"><td class="memItemLeft" align="right" valign="top"><a id="ad026b07af1df491c3f7c24545940dcb7" name="ad026b07af1df491c3f7c24545940dcb7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>add_rocks</b> (<a class="el" href="structmap__s.html">map_t</a> *map)</td></tr>
+<tr class="separator:ad026b07af1df491c3f7c24545940dcb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcc6859f56b89dfa83e33dad51c7bdbd"><td class="memItemLeft" align="right" valign="top"><a id="abcc6859f56b89dfa83e33dad51c7bdbd" name="abcc6859f56b89dfa83e33dad51c7bdbd"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>raftNearBeach</b> (<a class="el" href="structmap__s.html">map_t</a> *map, int x, int y)</td></tr>
+<tr class="separator:abcc6859f56b89dfa83e33dad51c7bdbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2541b5bd4096121a85024f1fbd733189"><td class="memItemLeft" align="right" valign="top"><a id="a2541b5bd4096121a85024f1fbd733189" name="a2541b5bd4096121a85024f1fbd733189"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>placeRaft</b> (<a class="el" href="structmap__s.html">map_t</a> *map)</td></tr>
+<tr class="separator:a2541b5bd4096121a85024f1fbd733189"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a961bb03694009138728733d9ef2c6774"><td class="memItemLeft" align="right" valign="top"><a id="a961bb03694009138728733d9ef2c6774" name="a961bb03694009138728733d9ef2c6774"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>init_utils</b> (<a class="el" href="structmap__s.html">map_t</a> *map)</td></tr>
 <tr class="separator:a961bb03694009138728733d9ef2c6774"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae015ba68927a7b2e9ef48ff1ec08ff59"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#ae015ba68927a7b2e9ef48ff1ec08ff59">init_map</a> (<a class="el" href="structmap__s.html">map_t</a> *map)</td></tr>
-<tr class="memdesc:ae015ba68927a7b2e9ef48ff1ec08ff59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise la map.  <br /></td></tr>
+<tr class="memitem:ae015ba68927a7b2e9ef48ff1ec08ff59"><td class="memItemLeft" align="right" valign="top"><a id="ae015ba68927a7b2e9ef48ff1ec08ff59" name="ae015ba68927a7b2e9ef48ff1ec08ff59"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>init_map</b> (<a class="el" href="structmap__s.html">map_t</a> *map)</td></tr>
 <tr class="separator:ae015ba68927a7b2e9ef48ff1ec08ff59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a734e0337e05972d515299fb5f35bb483"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#a734e0337e05972d515299fb5f35bb483">build_map</a> (<a class="el" href="structmap__s.html">map_t</a> **map)</td></tr>
-<tr class="memdesc:a734e0337e05972d515299fb5f35bb483"><td class="mdescLeft">&#160;</td><td class="mdescRight">Génère une map.  <br /></td></tr>
+<tr class="memitem:a308d1096dfcfd0e925e38a7b8c14053b"><td class="memItemLeft" align="right" valign="top"><a id="a308d1096dfcfd0e925e38a7b8c14053b" name="a308d1096dfcfd0e925e38a7b8c14053b"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>est_valide</b> (int x, int y)</td></tr>
+<tr class="separator:a308d1096dfcfd0e925e38a7b8c14053b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81b40c50027547dc44a18a0c9a3f18f3"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#a81b40c50027547dc44a18a0c9a3f18f3">calculId</a> (int(*map)[MAP_SIZE], int x, int y)</td></tr>
+<tr class="memdesc:a81b40c50027547dc44a18a0c9a3f18f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcule un id en focntion des voisins d'une case, permet de choisir une texture.  <br /></td></tr>
+<tr class="separator:a81b40c50027547dc44a18a0c9a3f18f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a177bf0d57d571c131ff6ed816c7da58d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcoord__t.html">coord_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#a177bf0d57d571c131ff6ed816c7da58d">choixTile</a> (int(*map)[MAP_SIZE], unsigned char id, int x, int y)</td></tr>
+<tr class="memdesc:a177bf0d57d571c131ff6ed816c7da58d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de sélectionner la bonne texture dans le tileset.  <br /></td></tr>
+<tr class="separator:a177bf0d57d571c131ff6ed816c7da58d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afea8ab96441e5b07e5c5fea2ab5eadeb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#afea8ab96441e5b07e5c5fea2ab5eadeb">creerMapTileset</a> (<a class="el" href="structmap__s.html">map_t</a> *map)</td></tr>
+<tr class="memdesc:afea8ab96441e5b07e5c5fea2ab5eadeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attribue un id à chaque cases et choisi puis stocke l'emplacement de la texture dans une matrice.  <br /></td></tr>
+<tr class="separator:afea8ab96441e5b07e5c5fea2ab5eadeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a734e0337e05972d515299fb5f35bb483"><td class="memItemLeft" align="right" valign="top"><a id="a734e0337e05972d515299fb5f35bb483" name="a734e0337e05972d515299fb5f35bb483"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>build_map</b> (<a class="el" href="structmap__s.html">map_t</a> **map)</td></tr>
 <tr class="separator:a734e0337e05972d515299fb5f35bb483"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p>Fichier comportant les méthodes pour générer la map. </p>
-<dl class="section author"><dt>Auteur</dt><dd>Luca Pourceau et Melvin Maubert </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2023-03-09</dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2023 </dd></dl>
+<div class="textblock"><p>Fichier contenant les fonctions permettant de générer la map. </p>
+<p>Fichier permettant de calculer le rendu de jeu.</p>
+<dl class="section author"><dt>Auteur</dt><dd>Luca Pourceau Elvin Maubert </dd></dl>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
-<a id="aab46a0694f1c293b21c571af71593fd4" name="aab46a0694f1c293b21c571af71593fd4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab46a0694f1c293b21c571af71593fd4">&#9670;&#160;</a></span>addBeachTransition()</h2>
+<a id="a81b40c50027547dc44a18a0c9a3f18f3" name="a81b40c50027547dc44a18a0c9a3f18f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81b40c50027547dc44a18a0c9a3f18f3">&#9670;&#160;</a></span>calculId()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void addBeachTransition </td>
+          <td class="memname">unsigned char calculId </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ground</em>[MAP_SIZE][MAP_SIZE]</td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Ajoute une transition de plage. </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ground</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Voici le graphe d'appel pour cette fonction :</div>
-<div class="dyncontent">
-<div class="center"><img src="map_8c_aab46a0694f1c293b21c571af71593fd4_cgraph.png" border="0" usemap="#amap_8c_aab46a0694f1c293b21c571af71593fd4_cgraph" alt=""/></div>
-<map name="amap_8c_aab46a0694f1c293b21c571af71593fd4_cgraph" id="amap_8c_aab46a0694f1c293b21c571af71593fd4_cgraph">
-<area shape="rect" title="Ajoute une transition de plage." alt="" coords="5,80,141,105"/>
-<area shape="rect" href="map_8c.html#a7e72a7ae14ee89b5e331229d77366a97" title="Vérifie si 2 tiles ont le même voisin." alt="" coords="189,5,339,31"/>
-<area shape="rect" href="map_8c.html#a012dd0f89b1121420052d64018ccae97" title="Cherche la position du tile de terre le plus proche." alt="" coords="205,55,323,80"/>
-<area shape="rect" href="map_8c.html#aece796df8f58d669ec874b906ae04797" title="Cherche la position du tile de sable le plus proche." alt="" coords="208,104,320,129"/>
-<area shape="rect" href="map_8c.html#a67c15abbd6b66f91d5b8cfbdb60fb5dc" title="Fait une copie de la map." alt="" coords="225,153,303,179"/>
-</map>
-</div>
-<div class="dynheader">
-Voici le graphe des appelants de cette fonction :</div>
-<div class="dyncontent">
-<div class="center"><img src="map_8c_aab46a0694f1c293b21c571af71593fd4_icgraph.png" border="0" usemap="#amap_8c_aab46a0694f1c293b21c571af71593fd4_icgraph" alt=""/></div>
-<map name="amap_8c_aab46a0694f1c293b21c571af71593fd4_icgraph" id="amap_8c_aab46a0694f1c293b21c571af71593fd4_icgraph">
-<area shape="rect" title="Ajoute une transition de plage." alt="" coords="628,5,764,31"/>
-<area shape="rect" href="map_8c.html#af3dddcc76c92ea6c131823e295a0b907" title="Initialise le sol." alt="" coords="495,5,580,31"/>
-<area shape="rect" href="map_8c.html#a734e0337e05972d515299fb5f35bb483" title="Génère une map." alt="" coords="365,5,447,31"/>
-<area shape="rect" href="create__map_8c.html#a018fa899a26c3434a11d5bc5716b52ef" title="Create a map object." alt="" coords="227,5,317,31"/>
-<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a734e0337e05972d515299fb5f35bb483" name="a734e0337e05972d515299fb5f35bb483"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a734e0337e05972d515299fb5f35bb483">&#9670;&#160;</a></span>build_map()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void build_map </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structmap__s.html">map_t</a> **&#160;</td>
-          <td class="paramname"><em>map</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Génère une map. </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">map</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Voici le graphe d'appel pour cette fonction :</div>
-<div class="dyncontent">
-<div class="center"><img src="map_8c_a734e0337e05972d515299fb5f35bb483_cgraph.png" border="0" usemap="#amap_8c_a734e0337e05972d515299fb5f35bb483_cgraph" alt=""/></div>
-<map name="amap_8c_a734e0337e05972d515299fb5f35bb483_cgraph" id="amap_8c_a734e0337e05972d515299fb5f35bb483_cgraph">
-<area shape="rect" title="Génère une map." alt="" coords="5,55,87,80"/>
-<area shape="rect" href="map_8c.html#af3dddcc76c92ea6c131823e295a0b907" title="Initialise le sol." alt="" coords="135,29,220,55"/>
-<area shape="rect" href="map_8c.html#ae015ba68927a7b2e9ef48ff1ec08ff59" title="Initialise la map." alt="" coords="142,79,213,104"/>
-<area shape="rect" href="map_8c.html#aab46a0694f1c293b21c571af71593fd4" title="Ajoute une transition de plage." alt="" coords="272,55,408,80"/>
-<area shape="rect" href="map_8c.html#a60b91f8b94c3cb4df036b95aa2b64938" title="Fait un lissage de la matrice." alt="" coords="268,5,412,31"/>
-<area shape="rect" href="map_8c.html#a7e72a7ae14ee89b5e331229d77366a97" title="Vérifie si 2 tiles ont le même voisin." alt="" coords="460,5,609,31"/>
-<area shape="rect" href="map_8c.html#a012dd0f89b1121420052d64018ccae97" title="Cherche la position du tile de terre le plus proche." alt="" coords="476,55,593,80"/>
-<area shape="rect" href="map_8c.html#aece796df8f58d669ec874b906ae04797" title="Cherche la position du tile de sable le plus proche." alt="" coords="479,104,591,129"/>
-<area shape="rect" href="map_8c.html#a67c15abbd6b66f91d5b8cfbdb60fb5dc" title="Fait une copie de la map." alt="" coords="496,153,573,179"/>
-</map>
-</div>
-<div class="dynheader">
-Voici le graphe des appelants de cette fonction :</div>
-<div class="dyncontent">
-<div class="center"><img src="map_8c_a734e0337e05972d515299fb5f35bb483_icgraph.png" border="0" usemap="#amap_8c_a734e0337e05972d515299fb5f35bb483_icgraph" alt=""/></div>
-<map name="amap_8c_a734e0337e05972d515299fb5f35bb483_icgraph" id="amap_8c_a734e0337e05972d515299fb5f35bb483_icgraph">
-<area shape="rect" title="Génère une map." alt="" coords="365,5,447,31"/>
-<area shape="rect" href="create__map_8c.html#a018fa899a26c3434a11d5bc5716b52ef" title="Create a map object." alt="" coords="227,5,317,31"/>
-<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a7e72a7ae14ee89b5e331229d77366a97" name="a7e72a7ae14ee89b5e331229d77366a97"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e72a7ae14ee89b5e331229d77366a97">&#9670;&#160;</a></span>checkSameNeighboor()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int checkSameNeighboor </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ground</em>[MAP_SIZE][MAP_SIZE], </td>
+          <td class="paramtype">int(*)&#160;</td>
+          <td class="paramname"><em>map</em>[MAP_SIZE], </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -279,94 +235,97 @@ Voici le graphe des appelants de cette fonction :</div>
       </table>
 </div><div class="memdoc">
 
-<p>Vérifie si 2 tiles ont le même voisin. </p>
+<p>Calcule un id en focntion des voisins d'une case, permet de choisir une texture. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ground</td><td></td></tr>
+    <tr><td class="paramname">map</td><td></td></tr>
     <tr><td class="paramname">x</td><td></td></tr>
     <tr><td class="paramname">y</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>int </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>un octet contenant l'id de la case courante </dd></dl>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="map_8c_a7e72a7ae14ee89b5e331229d77366a97_icgraph.png" border="0" usemap="#amap_8c_a7e72a7ae14ee89b5e331229d77366a97_icgraph" alt=""/></div>
-<map name="amap_8c_a7e72a7ae14ee89b5e331229d77366a97_icgraph" id="amap_8c_a7e72a7ae14ee89b5e331229d77366a97_icgraph">
-<area shape="rect" title="Vérifie si 2 tiles ont le même voisin." alt="" coords="820,31,969,56"/>
-<area shape="rect" href="map_8c.html#aab46a0694f1c293b21c571af71593fd4" title="Ajoute une transition de plage." alt="" coords="632,5,768,31"/>
-<area shape="rect" href="map_8c.html#a60b91f8b94c3cb4df036b95aa2b64938" title="Fait un lissage de la matrice." alt="" coords="628,55,772,80"/>
-<area shape="rect" href="map_8c.html#af3dddcc76c92ea6c131823e295a0b907" title="Initialise le sol." alt="" coords="495,31,580,56"/>
-<area shape="rect" href="map_8c.html#a734e0337e05972d515299fb5f35bb483" title="Génère une map." alt="" coords="365,31,447,56"/>
-<area shape="rect" href="create__map_8c.html#a018fa899a26c3434a11d5bc5716b52ef" title="Create a map object." alt="" coords="227,31,317,56"/>
-<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,31,179,56"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,31,56,56"/>
+<div class="center"><img src="map_8c_a81b40c50027547dc44a18a0c9a3f18f3_icgraph.png" border="0" usemap="#amap_8c_a81b40c50027547dc44a18a0c9a3f18f3_icgraph" alt=""/></div>
+<map name="amap_8c_a81b40c50027547dc44a18a0c9a3f18f3_icgraph" id="amap_8c_a81b40c50027547dc44a18a0c9a3f18f3_icgraph">
+<area shape="rect" title="Calcule un id en focntion des voisins d&#39;une case, permet de choisir une texture." alt="" coords="168,5,235,31"/>
+<area shape="rect" href="map_8c.html#afea8ab96441e5b07e5c5fea2ab5eadeb" title="Attribue un id à chaque cases et choisi puis stocke l&#39;emplacement de la texture dans une matrice." alt="" coords="5,5,120,31"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="af3dddcc76c92ea6c131823e295a0b907" name="af3dddcc76c92ea6c131823e295a0b907"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3dddcc76c92ea6c131823e295a0b907">&#9670;&#160;</a></span>init_ground()</h2>
+<a id="a177bf0d57d571c131ff6ed816c7da58d" name="a177bf0d57d571c131ff6ed816c7da58d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a177bf0d57d571c131ff6ed816c7da58d">&#9670;&#160;</a></span>choixTile()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void init_ground </td>
+          <td class="memname"><a class="el" href="structcoord__t.html">coord_t</a> choixTile </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ground</em>[MAP_SIZE][MAP_SIZE]</td><td>)</td>
+          <td class="paramtype">int(*)&#160;</td>
+          <td class="paramname"><em>map</em>[MAP_SIZE], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Initialise le sol. </p>
+<p>Permet de sélectionner la bonne texture dans le tileset. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ground</td><td></td></tr>
+    <tr><td class="paramname">map</td><td></td></tr>
+    <tr><td class="paramname">id</td><td>L'id est l'octet représentant les voisins d'une case </td></tr>
+    <tr><td class="paramname">x</td><td></td></tr>
+    <tr><td class="paramname">y</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<div class="dynheader">
-Voici le graphe d'appel pour cette fonction :</div>
-<div class="dyncontent">
-<div class="center"><img src="map_8c_af3dddcc76c92ea6c131823e295a0b907_cgraph.png" border="0" usemap="#amap_8c_af3dddcc76c92ea6c131823e295a0b907_cgraph" alt=""/></div>
-<map name="amap_8c_af3dddcc76c92ea6c131823e295a0b907_cgraph" id="amap_8c_af3dddcc76c92ea6c131823e295a0b907_cgraph">
-<area shape="rect" title="Initialise le sol." alt="" coords="5,31,91,56"/>
-<area shape="rect" href="map_8c.html#aab46a0694f1c293b21c571af71593fd4" title="Ajoute une transition de plage." alt="" coords="143,55,279,80"/>
-<area shape="rect" href="map_8c.html#a60b91f8b94c3cb4df036b95aa2b64938" title="Fait un lissage de la matrice." alt="" coords="139,5,283,31"/>
-<area shape="rect" href="map_8c.html#a7e72a7ae14ee89b5e331229d77366a97" title="Vérifie si 2 tiles ont le même voisin." alt="" coords="331,5,480,31"/>
-<area shape="rect" href="map_8c.html#a012dd0f89b1121420052d64018ccae97" title="Cherche la position du tile de terre le plus proche." alt="" coords="347,55,464,80"/>
-<area shape="rect" href="map_8c.html#aece796df8f58d669ec874b906ae04797" title="Cherche la position du tile de sable le plus proche." alt="" coords="349,104,461,129"/>
-<area shape="rect" href="map_8c.html#a67c15abbd6b66f91d5b8cfbdb60fb5dc" title="Fait une copie de la map." alt="" coords="367,153,444,179"/>
-</map>
-</div>
+<dl class="section return"><dt>Renvoie</dt><dd>Les coordonnées de la textures dans le tileset (en pixels) </dd></dl>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="map_8c_af3dddcc76c92ea6c131823e295a0b907_icgraph.png" border="0" usemap="#amap_8c_af3dddcc76c92ea6c131823e295a0b907_icgraph" alt=""/></div>
-<map name="amap_8c_af3dddcc76c92ea6c131823e295a0b907_icgraph" id="amap_8c_af3dddcc76c92ea6c131823e295a0b907_icgraph">
-<area shape="rect" title="Initialise le sol." alt="" coords="495,5,580,31"/>
-<area shape="rect" href="map_8c.html#a734e0337e05972d515299fb5f35bb483" title="Génère une map." alt="" coords="365,5,447,31"/>
-<area shape="rect" href="create__map_8c.html#a018fa899a26c3434a11d5bc5716b52ef" title="Create a map object." alt="" coords="227,5,317,31"/>
-<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+<div class="center"><img src="map_8c_a177bf0d57d571c131ff6ed816c7da58d_icgraph.png" border="0" usemap="#amap_8c_a177bf0d57d571c131ff6ed816c7da58d_icgraph" alt=""/></div>
+<map name="amap_8c_a177bf0d57d571c131ff6ed816c7da58d_icgraph" id="amap_8c_a177bf0d57d571c131ff6ed816c7da58d_icgraph">
+<area shape="rect" title="Permet de sélectionner la bonne texture dans le tileset." alt="" coords="168,5,241,31"/>
+<area shape="rect" href="map_8c.html#afea8ab96441e5b07e5c5fea2ab5eadeb" title="Attribue un id à chaque cases et choisi puis stocke l&#39;emplacement de la texture dans une matrice." alt="" coords="5,5,120,31"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="ae015ba68927a7b2e9ef48ff1ec08ff59" name="ae015ba68927a7b2e9ef48ff1ec08ff59"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae015ba68927a7b2e9ef48ff1ec08ff59">&#9670;&#160;</a></span>init_map()</h2>
+<a id="afea8ab96441e5b07e5c5fea2ab5eadeb" name="afea8ab96441e5b07e5c5fea2ab5eadeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afea8ab96441e5b07e5c5fea2ab5eadeb">&#9670;&#160;</a></span>creerMapTileset()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void init_map </td>
+          <td class="memname">void creerMapTileset </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structmap__s.html">map_t</a> *&#160;</td>
           <td class="paramname"><em>map</em></td><td>)</td>
@@ -375,280 +334,21 @@ Voici le graphe des appelants de cette fonction :</div>
       </table>
 </div><div class="memdoc">
 
-<p>Initialise la map. </p>
+<p>Attribue un id à chaque cases et choisi puis stocke l'emplacement de la texture dans une matrice. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">map</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Voici le graphe des appelants de cette fonction :</div>
-<div class="dyncontent">
-<div class="center"><img src="map_8c_ae015ba68927a7b2e9ef48ff1ec08ff59_icgraph.png" border="0" usemap="#amap_8c_ae015ba68927a7b2e9ef48ff1ec08ff59_icgraph" alt=""/></div>
-<map name="amap_8c_ae015ba68927a7b2e9ef48ff1ec08ff59_icgraph" id="amap_8c_ae015ba68927a7b2e9ef48ff1ec08ff59_icgraph">
-<area shape="rect" title="Initialise la map." alt="" coords="495,5,565,31"/>
-<area shape="rect" href="map_8c.html#a734e0337e05972d515299fb5f35bb483" title="Génère une map." alt="" coords="365,5,447,31"/>
-<area shape="rect" href="create__map_8c.html#a018fa899a26c3434a11d5bc5716b52ef" title="Create a map object." alt="" coords="227,5,317,31"/>
-<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a012dd0f89b1121420052d64018ccae97" name="a012dd0f89b1121420052d64018ccae97"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a012dd0f89b1121420052d64018ccae97">&#9670;&#160;</a></span>isAnyGrassNear()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int isAnyGrassNear </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ground</em>[MAP_SIZE][MAP_SIZE], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>range</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Cherche la position du tile de terre le plus proche. </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ground</td><td></td></tr>
-    <tr><td class="paramname">x</td><td></td></tr>
-    <tr><td class="paramname">y</td><td></td></tr>
-    <tr><td class="paramname">range</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Renvoie</dt><dd>int </dd></dl>
-<div class="dynheader">
-Voici le graphe des appelants de cette fonction :</div>
-<div class="dyncontent">
-<div class="center"><img src="map_8c_a012dd0f89b1121420052d64018ccae97_icgraph.png" border="0" usemap="#amap_8c_a012dd0f89b1121420052d64018ccae97_icgraph" alt=""/></div>
-<map name="amap_8c_a012dd0f89b1121420052d64018ccae97_icgraph" id="amap_8c_a012dd0f89b1121420052d64018ccae97_icgraph">
-<area shape="rect" title="Cherche la position du tile de terre le plus proche." alt="" coords="812,5,929,31"/>
-<area shape="rect" href="map_8c.html#aab46a0694f1c293b21c571af71593fd4" title="Ajoute une transition de plage." alt="" coords="628,5,764,31"/>
-<area shape="rect" href="map_8c.html#af3dddcc76c92ea6c131823e295a0b907" title="Initialise le sol." alt="" coords="495,5,580,31"/>
-<area shape="rect" href="map_8c.html#a734e0337e05972d515299fb5f35bb483" title="Génère une map." alt="" coords="365,5,447,31"/>
-<area shape="rect" href="create__map_8c.html#a018fa899a26c3434a11d5bc5716b52ef" title="Create a map object." alt="" coords="227,5,317,31"/>
-<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="aece796df8f58d669ec874b906ae04797" name="aece796df8f58d669ec874b906ae04797"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aece796df8f58d669ec874b906ae04797">&#9670;&#160;</a></span>isAnySandNear()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int isAnySandNear </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ground</em>[MAP_SIZE][MAP_SIZE], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>range</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Cherche la position du tile de sable le plus proche. </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ground</td><td></td></tr>
-    <tr><td class="paramname">x</td><td></td></tr>
-    <tr><td class="paramname">y</td><td></td></tr>
-    <tr><td class="paramname">range</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Renvoie</dt><dd>int </dd></dl>
-<div class="dynheader">
-Voici le graphe des appelants de cette fonction :</div>
-<div class="dyncontent">
-<div class="center"><img src="map_8c_aece796df8f58d669ec874b906ae04797_icgraph.png" border="0" usemap="#amap_8c_aece796df8f58d669ec874b906ae04797_icgraph" alt=""/></div>
-<map name="amap_8c_aece796df8f58d669ec874b906ae04797_icgraph" id="amap_8c_aece796df8f58d669ec874b906ae04797_icgraph">
-<area shape="rect" title="Cherche la position du tile de sable le plus proche." alt="" coords="812,5,924,31"/>
-<area shape="rect" href="map_8c.html#aab46a0694f1c293b21c571af71593fd4" title="Ajoute une transition de plage." alt="" coords="628,5,764,31"/>
-<area shape="rect" href="map_8c.html#af3dddcc76c92ea6c131823e295a0b907" title="Initialise le sol." alt="" coords="495,5,580,31"/>
-<area shape="rect" href="map_8c.html#a734e0337e05972d515299fb5f35bb483" title="Génère une map." alt="" coords="365,5,447,31"/>
-<area shape="rect" href="create__map_8c.html#a018fa899a26c3434a11d5bc5716b52ef" title="Create a map object." alt="" coords="227,5,317,31"/>
-<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a67c15abbd6b66f91d5b8cfbdb60fb5dc" name="a67c15abbd6b66f91d5b8cfbdb60fb5dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67c15abbd6b66f91d5b8cfbdb60fb5dc">&#9670;&#160;</a></span>mapCopy()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void mapCopy </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>src</em>[MAP_SIZE][MAP_SIZE], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>dest</em>[MAP_SIZE][MAP_SIZE]&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Fait une copie de la map. </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">src</td><td></td></tr>
-    <tr><td class="paramname">dest</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Voici le graphe des appelants de cette fonction :</div>
-<div class="dyncontent">
-<div class="center"><img src="map_8c_a67c15abbd6b66f91d5b8cfbdb60fb5dc_icgraph.png" border="0" usemap="#amap_8c_a67c15abbd6b66f91d5b8cfbdb60fb5dc_icgraph" alt=""/></div>
-<map name="amap_8c_a67c15abbd6b66f91d5b8cfbdb60fb5dc_icgraph" id="amap_8c_a67c15abbd6b66f91d5b8cfbdb60fb5dc_icgraph">
-<area shape="rect" title="Fait une copie de la map." alt="" coords="812,5,889,31"/>
-<area shape="rect" href="map_8c.html#aab46a0694f1c293b21c571af71593fd4" title="Ajoute une transition de plage." alt="" coords="628,5,764,31"/>
-<area shape="rect" href="map_8c.html#af3dddcc76c92ea6c131823e295a0b907" title="Initialise le sol." alt="" coords="495,5,580,31"/>
-<area shape="rect" href="map_8c.html#a734e0337e05972d515299fb5f35bb483" title="Génère une map." alt="" coords="365,5,447,31"/>
-<area shape="rect" href="create__map_8c.html#a018fa899a26c3434a11d5bc5716b52ef" title="Create a map object." alt="" coords="227,5,317,31"/>
-<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ade30cce8083545c0ad45af195bc5cbf8" name="ade30cce8083545c0ad45af195bc5cbf8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ade30cce8083545c0ad45af195bc5cbf8">&#9670;&#160;</a></span>print_map()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void print_map </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>map</em>[MAP_SIZE][MAP_SIZE]</td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Affiche la matrice de la map. </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">map</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a60b91f8b94c3cb4df036b95aa2b64938" name="a60b91f8b94c3cb4df036b95aa2b64938"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a60b91f8b94c3cb4df036b95aa2b64938">&#9670;&#160;</a></span>smoothGroundShape()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void smoothGroundShape </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ground</em>[MAP_SIZE][MAP_SIZE]</td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Fait un lissage de la matrice. </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ground</td><td></td></tr>
   </table>
   </dd>
 </dl>
 <div class="dynheader">
 Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
-<div class="center"><img src="map_8c_a60b91f8b94c3cb4df036b95aa2b64938_cgraph.png" border="0" usemap="#amap_8c_a60b91f8b94c3cb4df036b95aa2b64938_cgraph" alt=""/></div>
-<map name="amap_8c_a60b91f8b94c3cb4df036b95aa2b64938_cgraph" id="amap_8c_a60b91f8b94c3cb4df036b95aa2b64938_cgraph">
-<area shape="rect" title="Fait un lissage de la matrice." alt="" coords="5,5,149,31"/>
-<area shape="rect" href="map_8c.html#a7e72a7ae14ee89b5e331229d77366a97" title="Vérifie si 2 tiles ont le même voisin." alt="" coords="197,5,347,31"/>
-</map>
-</div>
-<div class="dynheader">
-Voici le graphe des appelants de cette fonction :</div>
-<div class="dyncontent">
-<div class="center"><img src="map_8c_a60b91f8b94c3cb4df036b95aa2b64938_icgraph.png" border="0" usemap="#amap_8c_a60b91f8b94c3cb4df036b95aa2b64938_icgraph" alt=""/></div>
-<map name="amap_8c_a60b91f8b94c3cb4df036b95aa2b64938_icgraph" id="amap_8c_a60b91f8b94c3cb4df036b95aa2b64938_icgraph">
-<area shape="rect" title="Fait un lissage de la matrice." alt="" coords="628,5,772,31"/>
-<area shape="rect" href="map_8c.html#af3dddcc76c92ea6c131823e295a0b907" title="Initialise le sol." alt="" coords="495,5,580,31"/>
-<area shape="rect" href="map_8c.html#a734e0337e05972d515299fb5f35bb483" title="Génère une map." alt="" coords="365,5,447,31"/>
-<area shape="rect" href="create__map_8c.html#a018fa899a26c3434a11d5bc5716b52ef" title="Create a map object." alt="" coords="227,5,317,31"/>
-<area shape="rect" href="main_8c.html#a5d8c057a673692eabf25fa7d6c670c08" title="Execute les events en fonction du tableau d&#39;évènements." alt="" coords="104,5,179,31"/>
-<area shape="rect" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="Programme principal." alt="" coords="5,5,56,31"/>
+<div class="center"><img src="map_8c_afea8ab96441e5b07e5c5fea2ab5eadeb_cgraph.png" border="0" usemap="#amap_8c_afea8ab96441e5b07e5c5fea2ab5eadeb_cgraph" alt=""/></div>
+<map name="amap_8c_afea8ab96441e5b07e5c5fea2ab5eadeb_cgraph" id="amap_8c_afea8ab96441e5b07e5c5fea2ab5eadeb_cgraph">
+<area shape="rect" title="Attribue un id à chaque cases et choisi puis stocke l&#39;emplacement de la texture dans une matrice." alt="" coords="5,31,120,56"/>
+<area shape="rect" href="map_8c.html#a81b40c50027547dc44a18a0c9a3f18f3" title="Calcule un id en focntion des voisins d&#39;une case, permet de choisir une texture." alt="" coords="171,5,238,31"/>
+<area shape="rect" href="map_8c.html#a177bf0d57d571c131ff6ed816c7da58d" title="Permet de sélectionner la bonne texture dans le tileset." alt="" coords="168,55,241,80"/>
 </map>
 </div>
 

@@ -17,8 +17,8 @@
 \DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ SAND\_RATIO\ 8}}
 \DoxyCodeLine{00014\ }
 \DoxyCodeLine{00015\ \textcolor{comment}{//\ Sur\ une\ base\ 100}}
-\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ TREE\_RATIO\ 0}}
-\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ ROCK\_RATIO\ 3}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ TREE\_RATIO\ 3}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ ROCK\_RATIO\ 2}}
 \DoxyCodeLine{00018\ }
 \DoxyCodeLine{00019\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structmap__s}{map\_s}}\{}
 \DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ ground[MAP\_SIZE][MAP\_SIZE];}
@@ -28,7 +28,7 @@
 \DoxyCodeLine{00024\ }
 \DoxyCodeLine{00025\ \textcolor{keyword}{enum}\ ground\{\ WATER,\ SAND,\ GRASS\};}
 \DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \textcolor{keyword}{enum}\ utils\{\ TREE\ =\ 1,\ ROCK\};}
+\DoxyCodeLine{00027\ \textcolor{keyword}{enum}\ utils\{\ TREE\ =\ 1,\ ROCK,\ RAFT,\ HOUSE\};}
 \DoxyCodeLine{00028\ }
 \DoxyCodeLine{00029\ \textcolor{keywordtype}{int}\ isWater(\textcolor{keywordtype}{int});}
 \DoxyCodeLine{00030\ }
@@ -38,14 +38,20 @@
 \DoxyCodeLine{00034\ }
 \DoxyCodeLine{00035\ \textcolor{keywordtype}{int}\ getType(\textcolor{keywordtype}{int});}
 \DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \textcolor{keywordtype}{int}\ getVarient(\textcolor{keywordtype}{int});\ }
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{int}\ getVariant(\textcolor{keywordtype}{int});\ }
 \DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ getTreeDimensions(\textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int}*,\ \textcolor{keywordtype}{int}*);}
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ getTreeRenderDimensions(\textcolor{keywordtype}{int}\ tree,\ \textcolor{keywordtype}{int}*\ w,\ \textcolor{keywordtype}{int}*\ h);}
 \DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \textcolor{keywordtype}{void}\ print\_map(\textcolor{keywordtype}{int}\ map[MAP\_SIZE][MAP\_SIZE]);}
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{void}\ getTreeColisionsDimensions(\textcolor{keywordtype}{int}\ tree,\ \textcolor{keywordtype}{int}*\ w,\ \textcolor{keywordtype}{int}*\ h);}
 \DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ \textcolor{keywordtype}{void}\ build\_map(\mbox{\hyperlink{structmap__s}{map\_t}}**);}
+\DoxyCodeLine{00043\ \textcolor{keywordtype}{void}\ print\_map(\textcolor{keywordtype}{int}\ map[MAP\_SIZE][MAP\_SIZE]);}
 \DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00045\ \textcolor{keywordtype}{void}\ getNearestTreeBase(\textcolor{keywordtype}{int}\ util[MAP\_SIZE][MAP\_SIZE],\ \textcolor{keywordtype}{int}*\ x,\ \textcolor{keywordtype}{int}*\ y);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keywordtype}{void}\ cut\_tree(\textcolor{keywordtype}{int}\ util[MAP\_SIZE][MAP\_SIZE],\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{void}\ build\_map(\mbox{\hyperlink{structmap__s}{map\_t}}**);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

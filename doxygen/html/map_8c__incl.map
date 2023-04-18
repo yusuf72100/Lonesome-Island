@@ -1,9 +1,10 @@
 <map id="C:/Users/Yusuf/CLionProjects/Lonesome&#45;Island/src/map.c" name="C:/Users/Yusuf/CLionProjects/Lonesome&#45;Island/src/map.c">
-<area shape="rect" id="node1" title="Fichier comportant les méthodes pour générer la map." alt="" coords="56,5,251,45"/>
-<area shape="rect" id="node2" href="$map_8h.html" title="Fichier header à map.c." alt="" coords="124,93,183,119"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,240,67,265"/>
-<area shape="rect" id="node4" title=" " alt="" coords="173,240,237,265"/>
-<area shape="rect" id="node5" title=" " alt="" coords="224,167,283,192"/>
-<area shape="rect" id="node6" href="$defs_8h.html" title="Fichier contenant toutes les définitions de structures et de types." alt="" coords="91,167,149,192"/>
+<area shape="rect" id="node1" title="Fichier contenant les fonctions permettant de générer la map." alt="" coords="108,5,303,45"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,240,67,265"/>
+<area shape="rect" id="node3" title=" " alt="" coords="173,240,237,265"/>
+<area shape="rect" id="node4" title=" " alt="" coords="293,93,352,119"/>
+<area shape="rect" id="node5" href="$map_8h_source.html" title=" " alt="" coords="104,93,163,119"/>
+<area shape="rect" id="node8" title=" " alt="" coords="262,240,362,265"/>
+<area shape="rect" id="node6" href="$player_8h_source.html" title=" " alt="" coords="99,167,167,192"/>
 <area shape="rect" id="node7" title=" " alt="" coords="91,240,149,265"/>
 </map>

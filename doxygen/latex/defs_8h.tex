@@ -11,16 +11,14 @@ Fichier contenant toutes les définitions de structures et de types.
 {\ttfamily \#include \char`\"{}player.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}camera.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}map.\+h\char`\"{}}\newline
-Graphe des dépendances par inclusion de defs.\+h\+:
-\nopagebreak
+Graphe des dépendances par inclusion de defs.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{defs_8h__incl}
 \end{center}
 \end{figure}
-Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
-\nopagebreak
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -32,6 +30,8 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 \item 
 struct \mbox{\hyperlink{structweapon__t}{weapon\+\_\+t}}
 \begin{DoxyCompactList}\small\item\em Définition d\textquotesingle{}un weapon. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structresource__t}{resource\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Définition d\textquotesingle{}un food. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structfood__t}{food\+\_\+t}}
 \begin{DoxyCompactList}\small\item\em Définition d\textquotesingle{}un food. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structitem__t}{item\+\_\+t}}
@@ -102,10 +102,13 @@ enum {\bfseries T\+\_\+\+MENU} \{ \newline
  \}
 \item 
 \mbox{\Hypertarget{defs_8h_a1e4d49e165def01fa142ef71ed172564}\label{defs_8h_a1e4d49e165def01fa142ef71ed172564}} 
-enum {\bfseries T\+\_\+\+ITEM} \{ {\bfseries WEAPON}
+enum {\bfseries T\+\_\+\+ITEM} \{ \newline
+{\bfseries WEAPON}
 , {\bfseries FOOD}
 , {\bfseries TOOL}
 , {\bfseries BLOCK\+\_\+\+ITEM}
+, \newline
+{\bfseries RESOURCES}
  \}
 \item 
 \mbox{\Hypertarget{defs_8h_a76ea9a279bc30eca58a6dedc8f0dc836}\label{defs_8h_a76ea9a279bc30eca58a6dedc8f0dc836}} 
@@ -165,6 +168,9 @@ SDL\+\_\+\+Texture $\ast$ {\bfseries tileset}
 \mbox{\Hypertarget{defs_8h_a472d8154993aac24794fa03968afce39}\label{defs_8h_a472d8154993aac24794fa03968afce39}} 
 SDL\+\_\+\+Texture $\ast$ {\bfseries current\+Ground}
 \item 
+\mbox{\Hypertarget{defs_8h_a18b80fa001325e49c482d86adb65d2cd}\label{defs_8h_a18b80fa001325e49c482d86adb65d2cd}} 
+SDL\+\_\+\+Texture $\ast$ {\bfseries current\+Utils}
+\item 
 \mbox{\Hypertarget{defs_8h_af90d9c5474a96a57000759cc813ff7d5}\label{defs_8h_af90d9c5474a96a57000759cc813ff7d5}} 
 \mbox{\hyperlink{structcamera__s}{camera\+\_\+t}} $\ast$ {\bfseries camera}
 \item 
@@ -186,9 +192,6 @@ char {\bfseries IP\+\_\+\+PUBLIC} \mbox{[}256\mbox{]}
 \mbox{\Hypertarget{defs_8h_a70ae92227e50fde6d6e4568d3ce849d9}\label{defs_8h_a70ae92227e50fde6d6e4568d3ce849d9}} 
 T\+\_\+\+MENU {\bfseries menu}
 \item 
-\mbox{\Hypertarget{defs_8h_a5ab9cc24e0890801f13949ebbef0949b}\label{defs_8h_a5ab9cc24e0890801f13949ebbef0949b}} 
-\mbox{\hyperlink{structitem__t}{item\+\_\+t}} {\bfseries bois}
-\item 
 \mbox{\Hypertarget{defs_8h_a59600277ef5467e1f4aa8f46789d6d12}\label{defs_8h_a59600277ef5467e1f4aa8f46789d6d12}} 
 SDL\+\_\+bool {\bfseries tab\+Event} \mbox{[}20\mbox{]}
 \item 
@@ -201,11 +204,17 @@ SDL\+\_\+\+Key\+Code {\bfseries global\+Key\+Tab} \mbox{[}20\mbox{]}
 \mbox{\Hypertarget{defs_8h_a03cac2c215344365da2141258626deb1}\label{defs_8h_a03cac2c215344365da2141258626deb1}} 
 \mbox{\hyperlink{structcase__inventory}{case\+\_\+inventory}} $\ast$ {\bfseries weared\+Item}
 \item 
+\mbox{\Hypertarget{defs_8h_adf4658adb99b9e7d52346e32cd7e73e2}\label{defs_8h_adf4658adb99b9e7d52346e32cd7e73e2}} 
+\mbox{\hyperlink{structitem__t}{item\+\_\+t}} $\ast$ {\bfseries bois}
+\item 
 \mbox{\Hypertarget{defs_8h_ace08537cc80178ee36159371a5d1d623}\label{defs_8h_ace08537cc80178ee36159371a5d1d623}} 
 \mbox{\hyperlink{structitem__t}{item\+\_\+t}} $\ast$ {\bfseries axe}
 \item 
 \mbox{\Hypertarget{defs_8h_a86505e2036d74eb63470ea9aa3e0eaf6}\label{defs_8h_a86505e2036d74eb63470ea9aa3e0eaf6}} 
 \mbox{\hyperlink{structitem__t}{item\+\_\+t}} $\ast$ {\bfseries apple}
+\item 
+\mbox{\Hypertarget{defs_8h_aa1238ac8aa5f96bff6028ffaaba9203c}\label{defs_8h_aa1238ac8aa5f96bff6028ffaaba9203c}} 
+\mbox{\hyperlink{structitem__t}{item\+\_\+t}} $\ast$ {\bfseries pierre}
 \item 
 \mbox{\Hypertarget{defs_8h_ab03edfd51d4b01139d9caab0d6483010}\label{defs_8h_ab03edfd51d4b01139d9caab0d6483010}} 
 \mbox{\hyperlink{structitem__t}{item\+\_\+t}} $\ast$ {\bfseries chest\+\_\+item}

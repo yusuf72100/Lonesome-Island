@@ -18,8 +18,7 @@ Fichier qui contient les informations relatives aux clients et au serveur point 
 {\ttfamily \#include $<$SDL\+\_\+ttf.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}defs.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}player.\+h\char`\"{}}\newline
-Graphe des dépendances par inclusion de socket.\+h\+:
-\nopagebreak
+Graphe des dépendances par inclusion de socket.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -64,6 +63,8 @@ char $\ast$ \mbox{\hyperlink{socket_8h_acc971d38ba2d98589d00bde6652a6e39}{get\+L
 \begin{DoxyCompactList}\small\item\em Renvoi l\textquotesingle{}ip local du client. \end{DoxyCompactList}\item 
 static int \mbox{\hyperlink{socket_8h_a49cbd679b22e0661bdc353826c8c5086}{find\+Position}} (\mbox{\hyperlink{structsend2_client}{send2\+Client}} $\ast$arg\+Client)
 \begin{DoxyCompactList}\small\item\em Cherche la position du client dans le tableau des clients. \end{DoxyCompactList}\item 
+static void $\ast$ \mbox{\hyperlink{socket_8h_a596ad8d8e72a54299b05f62384ef14ed}{send\+Map\+To\+Client}} (void $\ast$arg)
+\begin{DoxyCompactList}\small\item\em Cette fonction envera la map au joueur (premade \& s\textquotesingle{}execute uniquement dans une fonction) \end{DoxyCompactList}\item 
 void $\ast$ \mbox{\hyperlink{socket_8h_ad768973bc551435391fa1ddfbb0355a1}{search\+Clients}} (void $\ast$argt)
 \begin{DoxyCompactList}\small\item\em Gère la place des clients dans la table de client et reçoit les nouveaux clients. \end{DoxyCompactList}\item 
 void $\ast$ \mbox{\hyperlink{socket_8h_a3b61093f2f5316157d1e6d3d05cf5ebc}{receive\+From\+Client}} (void $\ast$arg)
@@ -82,11 +83,11 @@ void {\bfseries stop\+Server} ()
 \mbox{\Hypertarget{socket_8h_a07e65b6c6f657726ba33df7d15c5037b}\label{socket_8h_a07e65b6c6f657726ba33df7d15c5037b}} 
 static pthread\+\_\+t $\ast$ {\bfseries receive\+\_\+from\+\_\+client}
 \item 
-\mbox{\Hypertarget{socket_8h_a85a10c25e058d41a68a7b526a5d3fed4}\label{socket_8h_a85a10c25e058d41a68a7b526a5d3fed4}} 
-static char {\bfseries tram\+Client\+\_\+send} \mbox{[}100\mbox{]}
+\mbox{\Hypertarget{socket_8h_a8a7b93bed5221757f0ad87bb33b43403}\label{socket_8h_a8a7b93bed5221757f0ad87bb33b43403}} 
+static char {\bfseries tram\+Client\+\_\+send} \mbox{[}500\mbox{]}
 \item 
-\mbox{\Hypertarget{socket_8h_a07ca08cdb87ab3025235c2dad252e007}\label{socket_8h_a07ca08cdb87ab3025235c2dad252e007}} 
-static char {\bfseries tram\+Client\+\_\+receive} \mbox{[}100\mbox{]}
+\mbox{\Hypertarget{socket_8h_a61d6f9e12d44d4c00ee7682818e124e9}\label{socket_8h_a61d6f9e12d44d4c00ee7682818e124e9}} 
+static char {\bfseries tram\+Client\+\_\+receive} \mbox{[}500\mbox{]}
 \item 
 \mbox{\Hypertarget{socket_8h_a4d3f21e6344e01f9aee2f659c02e09cf}\label{socket_8h_a4d3f21e6344e01f9aee2f659c02e09cf}} 
 static char {\bfseries recv\+Buffer} \mbox{[}data\+Len\mbox{]}
@@ -141,7 +142,8 @@ Cherche la position du client dans le tableau des clients.
 \begin{DoxyReturn}{Renvoie}
 int 
 \end{DoxyReturn}
-Voici le graphe des appelants de cette fonction \+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -234,6 +236,32 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{socket_8h_ad768973bc551435391fa1ddfbb0355a1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{socket_8h_a596ad8d8e72a54299b05f62384ef14ed}\label{socket_8h_a596ad8d8e72a54299b05f62384ef14ed}} 
+\index{socket.h@{socket.h}!sendMapToClient@{sendMapToClient}}
+\index{sendMapToClient@{sendMapToClient}!socket.h@{socket.h}}
+\doxysubsubsection{\texorpdfstring{sendMapToClient()}{sendMapToClient()}}
+{\footnotesize\ttfamily static void $\ast$ send\+Map\+To\+Client (\begin{DoxyParamCaption}\item[{void $\ast$}]{arg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Cette fonction envera la map au joueur (premade \& s\textquotesingle{}execute uniquement dans une fonction) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em arg} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=275pt]{socket_8h_a596ad8d8e72a54299b05f62384ef14ed_cgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{socket_8h_a3490387e86b9ba6a1ee9ed3984b637d5}\label{socket_8h_a3490387e86b9ba6a1ee9ed3984b637d5}} 

@@ -17,8 +17,7 @@ Fichier content toutes les informations relatives au client et au serveur.
 {\ttfamily \#include $<$SDL\+\_\+image.\+h$>$}\newline
 {\ttfamily \#include $<$SDL\+\_\+ttf.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}socket.\+h\char`\"{}}\newline
-Graphe des dépendances par inclusion de client.\+h\+:
-\nopagebreak
+Graphe des dépendances par inclusion de client.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -50,6 +49,8 @@ typedef uint32\+\_\+t {\bfseries socklen\+\_\+t}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
+void \mbox{\hyperlink{client_8h_ae7aaae718a114361559e6b9459e8be9f}{receive\+Map}} (\mbox{\hyperlink{structmap__s}{map\+\_\+t}} $\ast$map)
+\begin{DoxyCompactList}\small\item\em Récupère la map du serveur. \end{DoxyCompactList}\item 
 void $\ast$ \mbox{\hyperlink{client_8h_a6ff46bda2f9d755b3e1b4a941b10e8e1}{send\+Datas}} (\mbox{\hyperlink{structplayer__s}{player\+\_\+t}} joueur)
 \begin{DoxyCompactList}\small\item\em Récupère les données du joueur et les envois au serveur via le socket. \end{DoxyCompactList}\item 
 void $\ast$ \mbox{\hyperlink{client_8h_a37deea5f4750c52937a56b0e97d566b9}{receive\+From\+Server}} ()
@@ -64,11 +65,11 @@ int \mbox{\hyperlink{client_8h_a3622090a7ff391221a74cad6493bbca9}{start\+Connect
 \mbox{\Hypertarget{client_8h_a0a299e154b22b16b2a385707fa25564b}\label{client_8h_a0a299e154b22b16b2a385707fa25564b}} 
 static SOCKET $\ast$ {\bfseries socket\+\_\+\+Server}
 \item 
-\mbox{\Hypertarget{client_8h_a85a10c25e058d41a68a7b526a5d3fed4}\label{client_8h_a85a10c25e058d41a68a7b526a5d3fed4}} 
-static char {\bfseries tram\+Client\+\_\+send} \mbox{[}100\mbox{]}
+\mbox{\Hypertarget{client_8h_a8a7b93bed5221757f0ad87bb33b43403}\label{client_8h_a8a7b93bed5221757f0ad87bb33b43403}} 
+static char {\bfseries tram\+Client\+\_\+send} \mbox{[}500\mbox{]}
 \item 
-\mbox{\Hypertarget{client_8h_a07ca08cdb87ab3025235c2dad252e007}\label{client_8h_a07ca08cdb87ab3025235c2dad252e007}} 
-static char {\bfseries tram\+Client\+\_\+receive} \mbox{[}100\mbox{]}
+\mbox{\Hypertarget{client_8h_a61d6f9e12d44d4c00ee7682818e124e9}\label{client_8h_a61d6f9e12d44d4c00ee7682818e124e9}} 
+static char {\bfseries tram\+Client\+\_\+receive} \mbox{[}500\mbox{]}
 \end{DoxyCompactItemize}
 
 
@@ -119,6 +120,21 @@ Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \includegraphics[width=342pt]{client_8h_a37deea5f4750c52937a56b0e97d566b9_icgraph}
 \end{center}
 \end{figure}
+\mbox{\Hypertarget{client_8h_ae7aaae718a114361559e6b9459e8be9f}\label{client_8h_ae7aaae718a114361559e6b9459e8be9f}} 
+\index{client.h@{client.h}!receiveMap@{receiveMap}}
+\index{receiveMap@{receiveMap}!client.h@{client.h}}
+\doxysubsubsection{\texorpdfstring{receiveMap()}{receiveMap()}}
+{\footnotesize\ttfamily void receive\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmap__s}{map\+\_\+t}} $\ast$}]{map }\end{DoxyParamCaption})}
+
+
+
+Récupère la map du serveur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em map} & \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{client_8h_a6ff46bda2f9d755b3e1b4a941b10e8e1}\label{client_8h_a6ff46bda2f9d755b3e1b4a941b10e8e1}} 
 \index{client.h@{client.h}!sendDatas@{sendDatas}}
 \index{sendDatas@{sendDatas}!client.h@{client.h}}

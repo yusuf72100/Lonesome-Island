@@ -1,0 +1,4 @@
+<map id="sendMapToClient" name="sendMapToClient">
+<area shape="rect" id="node1" title="Cette fonction envera la map au joueur (premade &amp; s&#39;execute uniquement dans une fonction)" alt="" coords="5,5,128,31"/>
+<area shape="rect" id="node2" href="$socket_8c.html#a88d900ece06509fc9c398d81b5200e71" title="Cherche la position du client dans le tableau des clients." alt="" coords="176,5,265,31"/>
+</map>

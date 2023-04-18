@@ -88,9 +88,13 @@ $(function() {
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keywordtype">void</span> renderMap(SDL_Renderer** render, SDL_Texture* big_texture);</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keywordtype">void</span> renderPlayer(SDL_Renderer** renderer, <a class="code hl_struct" href="structcamera__s.html">camera_t</a>* camera, <a class="code hl_struct" href="structplayer__s.html">player_t</a>* player);</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keywordtype">void</span> updateUtilsTexture(SDL_Renderer** renderer, SDL_Texture** target, SDL_Window* window, SDL_Texture* tileset, <a class="code hl_struct" href="structcamera__s.html">camera_t</a>* camera, <a class="code hl_struct" href="structmap__s.html">map_t</a>* map);</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keywordtype">void</span> renderUtils(SDL_Renderer** renderer, SDL_Texture* big_texture);</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keywordtype">void</span> renderPlayer(SDL_Renderer** renderer, <a class="code hl_struct" href="structcamera__s.html">camera_t</a>* camera, <a class="code hl_struct" href="structplayer__s.html">player_t</a>* player);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="astructcamera__s_html"><div class="ttname"><a href="structcamera__s.html">camera_s</a></div><div class="ttdef"><b>Definition:</b> camera.h:9</div></div>
 <div class="ttc" id="astructmap__s_html"><div class="ttname"><a href="structmap__s.html">map_s</a></div><div class="ttdef"><b>Definition:</b> map.h:19</div></div>
 <div class="ttc" id="astructplayer__s_html"><div class="ttname"><a href="structplayer__s.html">player_s</a></div><div class="ttdoc">Structure du joueur.</div><div class="ttdef"><b>Definition:</b> player.h:26</div></div>

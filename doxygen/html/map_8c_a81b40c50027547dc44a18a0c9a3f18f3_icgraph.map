@@ -1,0 +1,4 @@
+<map id="calculId" name="calculId">
+<area shape="rect" id="node1" title="Calcule un id en focntion des voisins d&#39;une case, permet de choisir une texture." alt="" coords="168,5,235,31"/>
+<area shape="rect" id="node2" href="$map_8c.html#afea8ab96441e5b07e5c5fea2ab5eadeb" title="Attribue un id à chaque cases et choisi puis stocke l&#39;emplacement de la texture dans une matrice." alt="" coords="5,5,120,31"/>
+</map>

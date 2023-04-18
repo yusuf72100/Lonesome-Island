@@ -1,0 +1,5 @@
+<map id="creerMapTileset" name="creerMapTileset">
+<area shape="rect" id="node1" title="Attribue un id à chaque cases et choisi puis stocke l&#39;emplacement de la texture dans une matrice." alt="" coords="5,31,120,56"/>
+<area shape="rect" id="node2" href="$map_8c.html#a81b40c50027547dc44a18a0c9a3f18f3" title="Calcule un id en focntion des voisins d&#39;une case, permet de choisir une texture." alt="" coords="171,5,238,31"/>
+<area shape="rect" id="node3" href="$map_8c.html#a177bf0d57d571c131ff6ed816c7da58d" title="Permet de sélectionner la bonne texture dans le tileset." alt="" coords="168,55,241,80"/>
+</map>
